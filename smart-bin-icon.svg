@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Smart bin icon">
+  <title>Smart bin</title>
+  <defs>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a6b7a"/>
+      <stop offset="100%" stop-color="#3d4a56"/>
+    </linearGradient>
+    <linearGradient id="lidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7a8a99"/>
+      <stop offset="100%" stop-color="#5a6b7a"/>
+    </linearGradient>
+  </defs>
+  <!-- Background (optional: delete in Inkscape if you want transparency only) -->
+  <rect width="256" height="256" rx="24" fill="#f4f6f8"/>
+  <g id="bin" transform="translate(128 132)">
+    <!-- Lid -->
+    <rect x="-86" y="-118" width="172" height="28" rx="8" fill="url(#lidGrad)"/>
+    <rect x="-70" y="-112" width="140" height="14" rx="4" fill="#2f3a44" opacity="0.35"/>
+    <!-- Body -->
+    <path fill="url(#bodyGrad)" d="M-72 -82 L72 -82 L64 86 L-64 86 Z"/>
+    <path fill="none" stroke="#2f3a44" stroke-width="3" stroke-linejoin="round" opacity="0.25"
+          d="M-72 -82 L72 -82 L64 86 L-64 86 Z"/>
+    <!-- Rim highlight -->
+    <rect x="-76" y="-88" width="152" height="10" rx="3" fill="#8a98a6"/>
+    <!-- Smart indicator (LED) -->
+    <circle cx="48" cy="-12" r="10" fill="#1e2a33"/>
+    <circle cx="48" cy="-12" r="6" fill="#22c55e"/>
+    <circle cx="50" cy="-14" r="2" fill="#ffffff" opacity="0.55"/>
+    <!-- Front panel line -->
+    <path d="M-52 20 L52 20" stroke="#2f3a44" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+  </g>
+</svg>

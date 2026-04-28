@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Micro raccolta: pannelli cassonetto svasato, lamellare/compensato 3 mm.
+  Pettini: passo 10 mm, profondita 3 mm; angoli 4 mm retti prima dei denti.
+  Fronte/retro: femmina sui lati lunghi; bordo superiore dritto; in basso una sola tacca femmina centrata (allineata al dente base 44 mm).
+  Lati A/B: maschio sui lati lunghi; in basso una sola tacca femmina centrata (38 mm).
+  Base: 44 x 38 mm (50-2t e 44-2t, t=3 mm), un solo dente maschio centrato per lato.
+  Ruote (x2): strato 1 = solo cerchio base; strato 2 = anello (bordo) + cerchio mozzo centrale (incollare sopra).
+  Coperchio: base 65 mm + inserti + riquadro (~52.5%/67.5% inserto) + triangoli (layout sotto le ruote).
+
+  Stroke: nero = taglio esterno; rosso = incisione; blu = taglio interno.
+-->
+
+<svg
+   width="380mm"
+   height="286mm"
+   viewBox="0 0 380 286"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="micro-raccolta-pannelli-laser.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.1613889"
+     inkscape:cx="447.73977"
+     inkscape:cy="334.51327"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="front" />
+  <title
+     id="title1">Micro raccolta pannelli laser</title>
+  <defs
+     id="defs1">
+    <style
+       type="text/css"
+       id="style1"><![CDATA[
+      .cut-out { fill: none; stroke: #000000; stroke-width: 0.05; stroke-linecap: square; stroke-linejoin: miter; }
+      .cut-in  { fill: none; stroke: #0000ff; stroke-width: 0.05; stroke-linecap: square; stroke-linejoin: miter; }
+      .engrave { fill: none; stroke: #ff0000; stroke-width: 0.12; stroke-linecap: round; stroke-linejoin: round; }
+    ]]></style>
+  </defs>
+  <!-- Front: tools/gen_finger_paths.py (fondo allineato alla base) -->
+  <g
+     id="front"
+     transform="translate(13,8)">
+    <path
+       id="front-outer"
+       class="cut-out"
+       d="M0.0000,110.0000 L19.0000,110.0000 L19.0000,107.0000 L31.0000,107.0000 L31.0000,110.0000 L50.0000,110.0000 L50.1816,106.0041 L50.6453,95.8033 L47.6453,95.8033 L48.1090,85.6025 L51.1090,85.6025 L51.5727,75.4017 L48.5727,75.4017 L49.0363,65.2008 L52.0363,65.2008 L52.5000,55.0000 L49.5000,55.0000 L49.9637,44.7992 L52.9637,44.7992 L53.4273,34.5983 L50.4273,34.5983 L50.8910,24.3975 L53.8910,24.3975 L54.3547,14.1967 L51.3547,14.1967 L51.8184,3.9959 L54.8184,3.9959 L55.0000,0.0000 L-5.0000,0.0000 L-4.8184,3.9959 L-4.3547,14.1967 L-1.3547,14.1967 L-0.8910,24.3975 L-3.8910,24.3975 L-3.4273,34.5983 L-0.4273,34.5983 L0.0363,44.7992 L-2.9637,44.7992 L-2.5000,55.0000 L0.5000,55.0000 L0.9637,65.2008 L-2.0363,65.2008 L-1.5727,75.4017 L1.4273,75.4017 L1.8910,85.6025 L-1.1090,85.6025 L-0.6453,95.8033 L2.3547,95.8033 L2.8184,106.0041 L-0.1816,106.0041 Z"
+       style="stroke:#000000;stroke-opacity:1" />
+    <!-- Trapezio: lati obliqui paralleli al fronte; larghezza a met vano = 40 mm (come il vecchio rettangolo) -->
+    <path
+       id="front-vetrina"
+       class="cut-in"
+       d="M3.8636,30.0000 L46.1364,30.0000 L43.8636,80.0000 L6.1364,80.0000 Z"
+       style="stroke:#000000;stroke-opacity:1" />
+  </g>
+  <!-- Back: stesso contorno fronte + foro -->
+  <g
+     id="back"
+     transform="translate(83,8)">
+    <path
+       class="cut-out"
+       d="M0.0000,110.0000 L19.0000,110.0000 L19.0000,107.0000 L31.0000,107.0000 L31.0000,110.0000 L50.0000,110.0000 L50.1816,106.0041 L50.6453,95.8033 L47.6453,95.8033 L48.1090,85.6025 L51.1090,85.6025 L51.5727,75.4017 L48.5727,75.4017 L49.0363,65.2008 L52.0363,65.2008 L52.5000,55.0000 L49.5000,55.0000 L49.9637,44.7992 L52.9637,44.7992 L53.4273,34.5983 L50.4273,34.5983 L50.8910,24.3975 L53.8910,24.3975 L54.3547,14.1967 L51.3547,14.1967 L51.8184,3.9959 L54.8184,3.9959 L55.0000,0.0000 L-5.0000,0.0000 L-4.8184,3.9959 L-4.3547,14.1967 L-1.3547,14.1967 L-0.8910,24.3975 L-3.8910,24.3975 L-3.4273,34.5983 L-0.4273,34.5983 L0.0363,44.7992 L-2.9637,44.7992 L-2.5000,55.0000 L0.5000,55.0000 L0.9637,65.2008 L-2.0363,65.2008 L-1.5727,75.4017 L1.4273,75.4017 L1.8910,85.6025 L-1.1090,85.6025 L-0.6453,95.8033 L2.3547,95.8033 L2.8184,106.0041 L-0.1816,106.0041 Z"
+       id="path5" />
+  </g>
+  <!-- Side A / B -->
+  <g
+     id="side-a"
+     transform="translate(153,8)">
+    <path
+       class="cut-out"
+       d="M0.0000,110.0000 L16.0000,110.0000 L16.0000,107.0000 L28.0000,107.0000 L28.0000,110.0000 L44.0000,110.0000 L44.1816,106.0041 L44.6453,95.8033 L47.6453,95.8033 L48.1090,85.6025 L45.1090,85.6025 L45.5727,75.4017 L48.5727,75.4017 L49.0363,65.2008 L46.0363,65.2008 L46.5000,55.0000 L49.5000,55.0000 L49.9637,44.7992 L46.9637,44.7992 L47.4273,34.5983 L50.4273,34.5983 L50.8910,24.3975 L47.8910,24.3975 L48.3547,14.1967 L51.3547,14.1967 L51.8184,3.9959 L48.8184,3.9959 L49.0000,0.0000 L-5.0000,0.0000 L-4.8184,3.9959 L-4.3547,14.1967 L-7.3547,14.1967 L-6.8910,24.3975 L-3.8910,24.3975 L-3.4273,34.5983 L-6.4273,34.5983 L-5.9637,44.7992 L-2.9637,44.7992 L-2.5000,55.0000 L-5.5000,55.0000 L-5.0363,65.2008 L-2.0363,65.2008 L-1.5727,75.4017 L-4.5727,75.4017 L-4.1090,85.6025 L-1.1090,85.6025 L-0.6453,95.8033 L-3.6453,95.8033 L-3.1816,106.0041 L-0.1816,106.0041 Z"
+       id="path6" />
+  </g>
+  <g
+     id="side-b"
+     transform="translate(213,8)">
+    <path
+       class="cut-out"
+       d="M0.0000,110.0000 L16.0000,110.0000 L16.0000,107.0000 L28.0000,107.0000 L28.0000,110.0000 L44.0000,110.0000 L44.1816,106.0041 L44.6453,95.8033 L47.6453,95.8033 L48.1090,85.6025 L45.1090,85.6025 L45.5727,75.4017 L48.5727,75.4017 L49.0363,65.2008 L46.0363,65.2008 L46.5000,55.0000 L49.5000,55.0000 L49.9637,44.7992 L46.9637,44.7992 L47.4273,34.5983 L50.4273,34.5983 L50.8910,24.3975 L47.8910,24.3975 L48.3547,14.1967 L51.3547,14.1967 L51.8184,3.9959 L48.8184,3.9959 L49.0000,0.0000 L-5.0000,0.0000 L-4.8184,3.9959 L-4.3547,14.1967 L-7.3547,14.1967 L-6.8910,24.3975 L-3.8910,24.3975 L-3.4273,34.5983 L-6.4273,34.5983 L-5.9637,44.7992 L-2.9637,44.7992 L-2.5000,55.0000 L-5.5000,55.0000 L-5.0363,65.2008 L-2.0363,65.2008 L-1.5727,75.4017 L-4.5727,75.4017 L-4.1090,85.6025 L-1.1090,85.6025 L-0.6453,95.8033 L-3.6453,95.8033 L-3.1816,106.0041 L-0.1816,106.0041 Z"
+       id="path7" />
+  </g>
+  <!-- Coperchio: piatto principale 65x65 mm (sbordo su fronte/lati); inserti 53.5x47.5 mm per luce interna ~54x48 (t=3). -->
+  <g
+     id="lid"
+     transform="translate(153,198)">
+    <g
+       id="lid-main"
+       inkscape:groupmode="layer"
+       inkscape:label="Coperchio - base principale">
+      <rect
+         id="lid-main-plate"
+         class="cut-out"
+         x="0"
+         y="0"
+         width="65"
+         height="65"
+         rx="6"
+         ry="6" />
+    </g>
+    <g
+       id="lid-inserts"
+       inkscape:groupmode="layer"
+       inkscape:label="Coperchio - inserti uguali (x2)">
+      <rect
+         id="lid-insert-under"
+         class="cut-out"
+         x="68"
+         y="0"
+         width="53.5"
+         height="47.5"
+         rx="2"
+         ry="2" />
+      <rect
+         id="lid-insert-top"
+         class="cut-out"
+         x="124.5"
+         y="0"
+         width="53.5"
+         height="47.5"
+         rx="2"
+         ry="2" />
+    </g>
+    <g
+       id="lid-cap"
+       inkscape:groupmode="layer"
+       inkscape:label="Coperchio - riquadro superiore">
+      <!-- Riquadro: ~52.5% larghezza e ~67.5% altezza dell'inserto (53.5x47.5), centrato in montaggio -->
+      <rect
+         id="lid-cap-plate"
+         class="cut-out"
+         x="181"
+         y="0"
+         width="28.0875"
+         height="32.0625"
+         rx="1.6"
+         ry="1.6" />
+    </g>
+    <g
+       id="lid-braces"
+       inkscape:groupmode="layer"
+       inkscape:label="Coperchio - triangoli supporto">
+      <path
+         id="lid-brace-1"
+         class="cut-out"
+         d="M 0,0 L 9,0 L 0,9 Z"
+         transform="translate(94,66)" />
+      <path
+         id="lid-brace-2"
+         class="cut-out"
+         d="M 0,0 L 9,0 L 0,9 Z"
+         transform="translate(106,66)" />
+      <path
+         id="lid-brace-3"
+         class="cut-out"
+         d="M 0,0 L 9,0 L 0,9 Z"
+         transform="translate(94,78)" />
+      <path
+         id="lid-brace-4"
+         class="cut-out"
+         d="M 0,0 L 9,0 L 0,9 Z"
+         transform="translate(106,78)" />
+    </g>
+  </g>
+  <!-- Ruote a due strati: (1) disco pieno (2) corona + mozzo da incollare -->
+  <g
+     id="wheels"
+     transform="translate(50,185)">
+    <g
+       id="wheels-layer-1-base"
+       inkscape:groupmode="layer"
+       inkscape:label="Ruote strato 1 - base">
+      <circle
+         id="wheel-1-base"
+         class="cut-out"
+         cx="5"
+         cy="7"
+         r="5" />
+      <circle
+         id="wheel-2-base"
+         class="cut-out"
+         cx="27"
+         cy="7"
+         r="5" />
+    </g>
+    <g
+       id="wheels-layer-2-deco"
+       inkscape:groupmode="layer"
+       inkscape:label="Ruote strato 2 - bordo e mozzo">
+      <g
+         id="wheel-1-ring"
+         transform="translate(49,7)">
+        <circle
+           class="cut-out"
+           cx="0"
+           cy="0"
+           r="5" />
+        <circle
+           class="cut-in"
+           cx="0"
+           cy="0"
+           r="3.2" />
+      </g>
+      <circle
+         id="wheel-1-hub"
+         class="cut-out"
+         cx="64"
+         cy="7"
+         r="1.4" />
+      <g
+         id="wheel-2-ring"
+         transform="translate(81,7)">
+        <circle
+           class="cut-out"
+           cx="0"
+           cy="0"
+           r="5" />
+        <circle
+           class="cut-in"
+           cx="0"
+           cy="0"
+           r="3.2" />
+      </g>
+      <circle
+         id="wheel-2-hub"
+         class="cut-out"
+         cx="96"
+         cy="7"
+         r="1.4" />
+    </g>
+  </g>
+  <!-- Base 44x38 mm; un dente maschio centrato per lato (12 mm, prof. 3 mm) -->
+  <g
+     id="base"
+     transform="translate(8,138)">
+    <path
+       id="base-outer"
+       class="cut-out"
+       d="M 0,0 L 16,0 L 16,-3 L 28,-3 L 28,0 L 44,0 L 44,13 L 47,13 L 47,25 L 44,25 L 44,38 L 28,38 L 28,41 L 16,41 L 16,38 L 0,38 L 0,25 L -3,25 L -3,13 L 0,13 Z" />
+  </g>
+</svg>

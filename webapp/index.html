@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Bin — Pannello</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a222c;
+      --border: #2d3a4a;
+      --text: #e7edf4;
+      --muted: #8b9cb3;
+      --accent: #3d9cf0;
+      --good: #3ecf8e;
+      --warn: #f0b429;
+      --bad: #f05b5b;
+      --radius: 12px;
+      --font: system-ui, "Segoe UI", Roboto, sans-serif;
+      --tag-c: #6eb3ff;
+      /* Organico: marrone. Il verde precedente dell’organico è usato per Verde (V). */
+      --tag-o: #7a4a2e;
+      --tag-i: #a8b5c8;
+      --tag-p: #f0c14d;
+      --tag-v: #5ed18a;
+      --tag-x: #c99cf0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    header h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    header p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    main {
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 2rem;
+    }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+    section h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    input[type="url"] {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    button {
+      font-family: inherit;
+      font-size: 0.9rem;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+    }
+    button.primary {
+      background: var(--accent);
+      border-color: #2a7fc4;
+      color: #061018;
+      font-weight: 600;
+    }
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    pre {
+      margin: 0.75rem 0 0;
+      padding: 0.75rem;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .msg {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .msg.err { color: var(--bad); }
+    .msg.ok { color: var(--good); }
+    .toggle-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.9rem;
+      padding: 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #111821;
+    }
+    .toggle-hint {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .fire-toggle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 6px solid #922828;
+      background: radial-gradient(circle at 30% 25%, #ff9c90 0%, #ff4e3d 38%, #e1291c 75%, #af130c 100%);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow:
+        inset 0 8px 16px rgba(255, 255, 255, 0.22),
+        inset 0 -10px 18px rgba(0, 0, 0, 0.25),
+        0 10px 22px rgba(0, 0, 0, 0.35);
+      transition: transform 120ms ease, filter 150ms ease, box-shadow 150ms ease;
+    }
+    .fire-toggle:hover {
+      filter: brightness(1.05);
+    }
+    .fire-toggle:active {
+      transform: scale(0.97);
+    }
+    .fire-toggle.is-off {
+      background: radial-gradient(circle at 30% 25%, #ffd7d2 0%, #ff8f85 35%, #dd4a40 75%, #9b2f28 100%);
+      border-color: #7c3434;
+      opacity: 0.88;
+    }
+    .grid-led {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 480px) {
+      .grid-led { grid-template-columns: 1fr 1fr; }
+    }
+    .led-card {
+      padding: 0.65rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .led-card span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+
+    /* Calendario mensile */
+    .cal-wrap {
+      position: relative;
+    }
+    .cal-wrap.loading {
+      pointer-events: none;
+    }
+    /* Durante il load la griglia reale è nascosta: evita doppio strato e overflow sulle sezioni sotto. */
+    .cal-wrap.loading .cal-grid-wrap > .cal-grid {
+      display: none;
+    }
+    .cal-grid-wrap {
+      position: relative;
+      min-height: 8rem;
+    }
+    /* Skeleton in flusso (non absolute): l’altezza del mese resta nel box e non copre i LED. */
+    .cal-skeleton {
+      display: none;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 4px;
+      align-content: start;
+      pointer-events: none;
+      width: 100%;
+    }
+    .cal-wrap.loading .cal-skeleton {
+      display: grid;
+    }
+    .cal-sk-cell {
+      min-height: 4.1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 0.35rem 0.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .cal-sk-cell.pad {
+      background: transparent;
+      border-color: transparent;
+      min-height: 0;
+      padding: 0;
+    }
+    .sk-bar {
+      border-radius: 4px;
+      height: 0.55rem;
+      background: linear-gradient(
+        90deg,
+        var(--surface) 0%,
+        var(--border) 42%,
+        #3a4d63 50%,
+        var(--border) 58%,
+        var(--surface) 100%
+      );
+      background-size: 220% 100%;
+      animation: sk-shimmer 1.15s ease-in-out infinite;
+    }
+    .sk-bar.short { width: 38%; }
+    .sk-bar.mid { width: 72%; }
+    .sk-bar.long { width: 100%; }
+    @keyframes sk-shimmer {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+    .cal-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .cal-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .cal-nav {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .cal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.75rem;
+      margin: 0.75rem 0 0.5rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .cal-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .cal-legend i {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 0.58rem;
+      padding: 0.12rem 0.32rem;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+    .cal-legend i.tag-c { background: var(--tag-c); color: #0a0e12; }
+    .cal-legend i.tag-o { background: var(--tag-o); color: #fff4ec; }
+    .cal-legend i.tag-i { background: var(--tag-i); color: #1a222c; }
+    .cal-legend i.tag-p { background: var(--tag-p); color: #1a222c; }
+    .cal-legend i.tag-v { background: var(--tag-v); color: #0a0e12; }
+    .cal-legend i.tag-x { background: var(--tag-x); color: #0a0e12; }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 4px;
+    }
+    .cal-dow {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.35rem 0;
+    }
+    .cal-cell {
+      min-height: 4.1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      padding: 0.25rem 0.3rem 0.35rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.2rem;
+    }
+    .cal-cell.pad {
+      background: transparent;
+      border-color: transparent;
+      min-height: 0;
+      padding: 0;
+    }
+    .cal-cell.today {
+      outline: 2px solid var(--accent);
+      outline-offset: -1px;
+    }
+    .cal-cell .num {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1;
+    }
+    .cal-cell .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      justify-content: flex-start;
+      align-content: flex-start;
+      flex: 1;
+    }
+    .cal-cell .tag {
+      font-size: 0.52rem;
+      font-weight: 800;
+      padding: 0.14rem 0.32rem;
+      border-radius: 4px;
+      color: #0a0e12;
+      line-height: 1.1;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    .cal-cell .tag-c { background: var(--tag-c); }
+    .cal-cell .tag-o { background: var(--tag-o); color: #fff4ec; }
+    .cal-cell .tag-i { background: var(--tag-i); color: #1a222c; }
+    .cal-cell .tag-p { background: var(--tag-p); color: #1a222c; }
+    .cal-cell .tag-v { background: var(--tag-v); color: #0a0e12; }
+    .cal-cell .tag-x { background: var(--tag-x); color: #0a0e12; }
+    .cal-cell .none {
+      font-size: 0.58rem;
+      color: var(--muted);
+      opacity: 0.65;
+    }
+    .cal-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+    @media (max-width: 420px) {
+      .cal-cell { min-height: 3.75rem; }
+      .cal-cell .tag { font-size: 0.48rem; padding: 0.1rem 0.26rem; }
+      .cal-sk-cell { min-height: 3.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Smart Bin</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Calendario ritiri</h2>
+      <div class="cal-wrap" id="calWrap">
+        <div class="cal-toolbar">
+          <p class="cal-title" id="calTitle">—</p>
+          <div class="cal-nav">
+            <button type="button" id="btnCalPrev" aria-label="Mese precedente">←</button>
+            <button type="button" id="btnCalToday" title="Vai al mese corrente">Oggi</button>
+            <button type="button" id="btnCalNext" aria-label="Mese successivo">→</button>
+            <button type="button" class="primary" id="btnCalReload">Aggiorna mese</button>
+          </div>
+        </div>
+        <div class="cal-legend" aria-hidden="true">
+          <span><i class="tag-c">Car</i> Carta</span>
+          <span><i class="tag-o">Org</i> Organico</span>
+          <span><i class="tag-i">Ind</i> Indifferenziata</span>
+          <span><i class="tag-p">Pla</i> Plastica</span>
+          <span><i class="tag-v">Ver</i> Verde</span>
+        </div>
+        <div class="cal-grid" id="calGridHead" aria-hidden="true"></div>
+        <div class="cal-grid-wrap" id="calGridWrap">
+          <div class="cal-grid" id="calGrid" role="grid" aria-label="Calendario ritiri"></div>
+          <div class="cal-skeleton" id="calSkeleton" aria-hidden="true"></div>
+        </div>
+        <p class="cal-meta" id="calMeta"></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Azioni LED (test)</h2>
+      <p style="margin: 0 0 0.75rem; font-size: 0.85rem; color: var(--muted);">
+        Indici come su Arduino: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 riserva.
+      </p>
+      <div class="toggle-panel">
+        <button type="button" id="btnLedsToggle" class="fire-toggle is-off">OFF</button>
+        <p class="toggle-hint">Toggle manuale come il pulsante fisico.</p>
+      </div>
+      <div class="row" style="margin-bottom: 0.75rem;">
+        <button type="button" id="btnLedsOff">Spegni tutti</button>
+      </div>
+      <div class="grid-led" id="ledSliders"></div>
+    </section>
+  </main>
+
+  <script>
+    /** Abbreviazioni su badge: almeno 3 lettere (indice LED → etichetta). */
+    const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver", "Ris"];
+
+    const BIN_LABELS = [
+      "Carta (0)",
+      "Organico (1)",
+      "Indifferenziata (2)",
+      "Plastica (3)",
+      "Verde (4)",
+      "Riserva (5)",
+    ];
+
+    const DOW_IT = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
+
+    const MONTH_IT = [
+      "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+      "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
+    ];
+
+    const $ = (id) => document.getElementById(id);
+
+    let viewYear = new Date().getFullYear();
+    let viewMonth = new Date().getMonth() + 1;
+
+    function explainFetchFailure(err) {
+      const msg = (err && err.message) || String(err);
+      const origin = window.location.origin || "";
+      if (!/failed to fetch|networkerror|load failed|aborted/i.test(msg)) {
+        return msg;
+      }
+      return (
+        msg +
+        " — Controlla la Wi‑Fi (stessa rete della scheda, non rete Ospiti), oppure iOS → Privacy → Rete locale per il browser. " +
+        "Prova: " +
+        origin +
+        "/api/status"
+      );
+    }
+
+    async function api(path, opts = {}) {
+      const url = path.startsWith("/") ? path : "/" + path;
+      let res;
+      try {
+        res = await fetch(url, {
+          method: opts.method || "GET",
+          cache: "no-store",
+          ...opts,
+        });
+      } catch (e) {
+        throw new Error(explainFetchFailure(e));
+      }
+      const text = await res.text();
+      let data;
+      try {
+        data = text ? JSON.parse(text) : null;
+      } catch {
+        data = { _raw: text };
+      }
+      if (!res.ok) {
+        const err = new Error(data && data.error ? data.error : res.statusText);
+        err.status = res.status;
+        err.body = data;
+        throw err;
+      }
+      return data;
+    }
+
+    function setMsg(el, text, cls) {
+      if (!el) {
+        return;
+      }
+      el.textContent = text || "";
+      el.className = "msg" + (cls ? " " + cls : "");
+    }
+
+    function setToggleVisual(isOn) {
+      const btn = $("btnLedsToggle");
+      btn.textContent = isOn ? "ON" : "OFF";
+      btn.classList.toggle("is-off", !isOn);
+      btn.setAttribute("aria-label", isOn ? "Stato LED ON" : "Stato LED OFF");
+    }
+
+    /** 0 = lunedì … 6 = domenica */
+    function weekdayMondayFirst(y, m, d) {
+      const js = new Date(y, m - 1, d).getDay();
+      return js === 0 ? 6 : js - 1;
+    }
+
+    function daysInMonth(y, m) {
+      return new Date(y, m, 0).getDate();
+    }
+
+    function tagClassForInitial(ch) {
+      switch (ch) {
+        case "C": return "tag-c";
+        case "O": return "tag-o";
+        case "I": return "tag-i";
+        case "P": return "tag-p";
+        case "V": return "tag-v";
+        default: return "tag-x";
+      }
+    }
+
+    function badgeLabelFromInitial(ch) {
+      switch (ch) {
+        case "C": return "Car";
+        case "O": return "Org";
+        case "I": return "Ind";
+        case "P": return "Pla";
+        case "V": return "Ver";
+        default: return "Ris";
+      }
+    }
+
+    function createBadgeSpan(label, initialForColor, titleExtra) {
+      const span = document.createElement("span");
+      span.className = "tag " + tagClassForInitial(initialForColor);
+      span.textContent = label;
+      span.title = titleExtra ? titleExtra + " · " + label : label;
+      return span;
+    }
+
+    /** Da stringa API tipo "C.O.P" → badge da ≥3 lettere ciascuno. */
+    function badgesFromInitialsString(initials) {
+      if (!initials || typeof initials !== "string") {
+        return null;
+      }
+      const parts = initials.split(".").filter(Boolean);
+      if (parts.length === 0) {
+        return null;
+      }
+      return parts.map((p) => {
+        const ch = p.charAt(0);
+        const label = badgeLabelFromInitial(ch);
+        return createBadgeSpan(label, ch, p.length > 1 ? p : "");
+      });
+    }
+
+    const BIN_INDEX_INITIAL = ["C", "O", "I", "P", "V", "?"];
+
+    function renderSkeletonMonth(y, m) {
+      const sk = $("calSkeleton");
+      sk.innerHTML = "";
+      const D = daysInMonth(y, m);
+      const lead = weekdayMondayFirst(y, m, 1);
+      for (let i = 0; i < lead; i++) {
+        const pad = document.createElement("div");
+        pad.className = "cal-sk-cell pad";
+        sk.appendChild(pad);
+      }
+      for (let d = 1; d <= D; d++) {
+        const cell = document.createElement("div");
+        cell.className = "cal-sk-cell";
+        const b1 = document.createElement("div");
+        b1.className = "sk-bar short";
+        const b2 = document.createElement("div");
+        b2.className = "sk-bar long";
+        const b3 = document.createElement("div");
+        b3.className = "sk-bar mid";
+        cell.appendChild(b1);
+        cell.appendChild(b2);
+        cell.appendChild(b3);
+        sk.appendChild(cell);
+      }
+    }
+
+    function buildDowHeader() {
+      const head = $("calGridHead");
+      head.innerHTML = "";
+      DOW_IT.forEach((name) => {
+        const el = document.createElement("div");
+        el.className = "cal-dow";
+        el.textContent = name;
+        head.appendChild(el);
+      });
+    }
+
+    /**
+     * Un solo GET: JSON compatto { y, m, n, i[] } — i[d-1] = iniziali come "C.O" o "".
+     */
+    async function fetchMonthBundle(y, m) {
+      const data = await api(`/api/calendar/month?y=${encodeURIComponent(String(y))}&m=${encodeURIComponent(String(m))}`);
+      const D = typeof data.n === "number" && data.n > 0 ? data.n : daysInMonth(y, m);
+      const initialsList = Array.isArray(data.i) ? data.i : [];
+      const out = new Array(D + 1);
+      for (let d = 1; d <= D; d++) {
+        const initials = String(initialsList[d - 1] || "");
+        out[d] = { bins: [], initials };
+      }
+      return out;
+    }
+
+    function renderMonthGrid(y, m, dayDataArray) {
+      const grid = $("calGrid");
+      grid.innerHTML = "";
+      const D = daysInMonth(y, m);
+      const lead = weekdayMondayFirst(y, m, 1);
+      const today = new Date();
+      const isThisMonth =
+        today.getFullYear() === y && today.getMonth() + 1 === m;
+      const todayD = isThisMonth ? today.getDate() : -1;
+
+      for (let i = 0; i < lead; i++) {
+        const pad = document.createElement("div");
+        pad.className = "cal-cell pad";
+        pad.setAttribute("aria-hidden", "true");
+        grid.appendChild(pad);
+      }
+
+      for (let d = 1; d <= D; d++) {
+        const cell = document.createElement("div");
+        cell.className = "cal-cell";
+        cell.setAttribute("role", "gridcell");
+        if (d === todayD) {
+          cell.classList.add("today");
+        }
+
+        const num = document.createElement("div");
+        num.className = "num";
+        num.textContent = String(d);
+        cell.appendChild(num);
+
+        const tags = document.createElement("div");
+        tags.className = "tags";
+
+        const data = dayDataArray[d];
+        if (data && data.error) {
+          tags.appendChild(createBadgeSpan("Err", "?", data.error));
+        } else if (data) {
+          const fromIni = badgesFromInitialsString(data.initials || "");
+          if (fromIni) {
+            fromIni.forEach((n) => tags.appendChild(n));
+          } else if (Array.isArray(data.bins) && data.bins.length > 0) {
+            data.bins.forEach((binIdx) => {
+              const idx = Number(binIdx);
+              const label =
+                idx >= 0 && idx < BIN_BADGE_SHORT.length
+                  ? BIN_BADGE_SHORT[idx]
+                  : "Ris";
+              const ini =
+                idx >= 0 && idx < BIN_INDEX_INITIAL.length
+                  ? BIN_INDEX_INITIAL[idx]
+                  : "?";
+              tags.appendChild(
+                createBadgeSpan(label, ini, "LED " + binIdx)
+              );
+            });
+          } else {
+            const none = document.createElement("span");
+            none.className = "none";
+            none.textContent = "—";
+            tags.appendChild(none);
+          }
+        } else {
+          const none = document.createElement("span");
+          none.className = "none";
+          none.textContent = "—";
+          tags.appendChild(none);
+        }
+        cell.appendChild(tags);
+        grid.appendChild(cell);
+      }
+    }
+
+    async function loadMonth() {
+      const wrap = $("calWrap");
+      const meta = $("calMeta");
+      const gridWrap = $("calGridWrap");
+      const skel = $("calSkeleton");
+
+      wrap.classList.add("loading");
+      gridWrap.setAttribute("aria-busy", "true");
+      skel.setAttribute("aria-hidden", "false");
+      renderSkeletonMonth(viewYear, viewMonth);
+
+      meta.textContent = "Caricamento in corso…";
+      $("calTitle").textContent = `${MONTH_IT[viewMonth - 1]} ${viewYear}`;
+
+      const t0 = performance.now();
+      try {
+        const dataByDay = await fetchMonthBundle(viewYear, viewMonth);
+        renderMonthGrid(viewYear, viewMonth, dataByDay);
+        const ms = Math.round(performance.now() - t0);
+        const Dn = daysInMonth(viewYear, viewMonth);
+        meta.textContent = `Aggiornato in ${ms} ms · ${Dn} giorni (1 richiesta)`;
+      } catch (e) {
+        meta.textContent = "";
+        setMsg($("appMsg"), e.message, "err");
+      } finally {
+        skel.innerHTML = "";
+        skel.setAttribute("aria-hidden", "true");
+        gridWrap.setAttribute("aria-busy", "false");
+        wrap.classList.remove("loading");
+      }
+    }
+
+    function shiftMonth(delta) {
+      viewMonth += delta;
+      if (viewMonth > 12) {
+        viewMonth = 1;
+        viewYear++;
+      } else if (viewMonth < 1) {
+        viewMonth = 12;
+        viewYear--;
+      }
+    }
+
+    $("btnCalPrev").addEventListener("click", async () => {
+      shiftMonth(-1);
+      await loadMonth();
+    });
+    $("btnCalNext").addEventListener("click", async () => {
+      shiftMonth(1);
+      await loadMonth();
+    });
+    $("btnCalToday").addEventListener("click", async () => {
+      const t = new Date();
+      viewYear = t.getFullYear();
+      viewMonth = t.getMonth() + 1;
+      await loadMonth();
+    });
+    $("btnCalReload").addEventListener("click", loadMonth);
+
+    $("btnLedsOff").addEventListener("click", async () => {
+      try {
+        await api("/api/action/leds/off", { method: "POST" });
+        document.querySelectorAll("#ledSliders input[type=range]").forEach((r) => {
+          r.value = "0";
+        });
+      } catch (e) {
+        setMsg($("appMsg"), e.message, "err");
+      }
+    });
+
+    $("btnLedsToggle").addEventListener("click", async () => {
+      const btn = $("btnLedsToggle");
+      btn.disabled = true;
+      try {
+        const data = await api("/api/action/leds/toggle", { method: "POST" });
+        setToggleVisual(Boolean(data && data.on));
+      } catch (e) {
+        setMsg($("appMsg"), e.message, "err");
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    async function refreshToggleState() {
+      try {
+        const data = await api("/api/action/leds/state");
+        setToggleVisual(Boolean(data && data.on));
+      } catch {
+        /* niente errore invasivo durante il refresh periodico */
+      }
+    }
+
+    function buildLedSliders() {
+      const root = $("ledSliders");
+      root.innerHTML = "";
+      BIN_LABELS.forEach((label, bin) => {
+        const card = document.createElement("div");
+        card.className = "led-card";
+        const span = document.createElement("span");
+        span.textContent = label;
+        const range = document.createElement("input");
+        range.type = "range";
+        range.min = "0";
+        range.max = "255";
+        range.value = "0";
+        range.dataset.bin = String(bin);
+        range.addEventListener("change", async () => {
+          const val = range.value;
+          try {
+            await api(`/api/action/led?bin=${bin}&value=${val}`, { method: "POST" });
+          } catch (e) {
+            setMsg($("appMsg"), e.message, "err");
+          }
+        });
+        card.appendChild(span);
+        card.appendChild(range);
+        root.appendChild(card);
+      });
+    }
+
+    buildDowHeader();
+    buildLedSliders();
+    refreshToggleState();
+    setInterval(refreshToggleState, 5000);
+
+    (async () => {
+      try {
+        await loadMonth();
+      } catch {
+        /* scheda non pronta: niente toast invasivo all’avvio */
+      }
+    })();
+  </script>
+</body>
+</html>
