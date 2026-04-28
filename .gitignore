@@ -1,0 +1,4 @@
+# Configurazione locale (non versionare)
+bin/config.h
+bin/secrets.h
+tools/__pycache__/
