@@ -2,7 +2,7 @@
 #define SMART_BIN_WEB_API_H
 
 #include <Arduino.h>
-#include <WiFiS3.h>
+#include <WiFi.h>
 #include <TimeLib.h>
 #include <string.h>
 #include <stdio.h>
