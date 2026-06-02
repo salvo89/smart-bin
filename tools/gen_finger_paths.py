@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Finger joint path generation for micro-raccolta panels (3 mm).
-Base interna: (50-2t) x (44-2t) con t=3 mm -> 44 x 38 mm.
+Finger joint path generation for micro-raccolta panels.
+Spessore default t=3 mm; opzionale argv[2] (es. 3.6).
+  Base: luce quadrata l = max(50-2t, 44-2t) così i due lati interni coincidono col lato più lungo.
 Fondo pannelli: un'unica tacca femmina centrata (niente dentini agli angoli); base con un solo dente maschio per lato.
 Bordo superiore fronte/retro: linea dritta (coperchio appoggiato).
 
-Uso: python tools/gen_finger_paths.py [ALTEZZA_MM]
-  ALTEZZA_MM default 110. Pettini: PITCH/DEPTH/CORNER_TRIM fissi; il numero di denti segue l'altezza.
+Uso: python tools/gen_finger_paths.py [ALTEZZA_MM] [SPESSORE_MM]
+  ALTEZZA_MM default 110; SPESSORE_MM default 3 (DEPTH = spessore pannello).
+  Pettini: PITCH/CORNER_TRIM fissi; DEPTH segue lo spessore; il numero di denti segue l'altezza.
   In coda stampa FRONT_WINDOW_TRAP: vano fronte trapezoidale (parallelo al profilo esterno).
 """
 from __future__ import annotations
@@ -21,9 +23,10 @@ CORNER_TRIM = 4.0
 HEIGHT = 110.0
 
 MATERIAL = 3.0
-# Fondo bidone: bordo esterno fronte 50 mm, lato 44 mm -> luce interna sotto spessore t
-BASE_INNER_W = 50.0 - 2.0 * MATERIAL  # 44 (sotto fronte/retro)
-BASE_INNER_D = 44.0 - 2.0 * MATERIAL  # 38 (sotto lati A/B)
+# Fondo bidone: luce teorica (50-2t)x(44-2t); piastra base quadrata l = max(...) per entrambi gli assi.
+_ln = max(50.0 - 2.0 * MATERIAL, 44.0 - 2.0 * MATERIAL)
+BASE_INNER_W = _ln
+BASE_INNER_D = _ln
 
 
 def vsub(a, b):
@@ -252,22 +255,32 @@ def front_window_trapezoid_path_d(
 
 
 def base_outer_path_d() -> str:
-    """Piatto base 44x38 mm: un solo dente maschio centrato su ogni lato."""
+    """Piatto base: luce interna quadrata max(luce fronte-retro, luce lati); dente centrato per lato."""
     w, h = BASE_INNER_W, BASE_INNER_D
     mt, _ = _single_tab_margins(w)
     mr, _ = _single_tab_margins(h)
     t0, t1 = mt, mt + TAB_WIDTH
     r0, r1 = mr, mr + TAB_WIDTH
     d = MATERIAL
+    fq = lambda v: round(float(v), 4)
+    t0, t1, r0, r1, ww, hh, dd = fq(t0), fq(t1), fq(r0), fq(r1), fq(w), fq(h), fq(d)
+    wr = fq(ww + dd)
+    hb = fq(hh + dd)
     return (
-        f"M 0,0 L {t0},0 L {t0},-{d} L {t1},-{d} L {t1},0 L {w},0 "
-        f"L {w},{r0} L {w + d},{r0} L {w + d},{r1} L {w},{r1} L {w},{h} "
-        f"L {t1},{h} L {t1},{h + d} L {t0},{h + d} L {t0},{h} L 0,{h} "
-        f"L 0,{r1} L -{d},{r1} L -{d},{r0} L 0,{r0} Z"
+        f"M 0,0 L {t0},0 L {t0},-{dd} L {t1},-{dd} L {t1},0 L {ww},0 "
+        f"L {ww},{r0} L {wr},{r0} L {wr},{r1} L {ww},{r1} L {ww},{hh} "
+        f"L {t1},{hh} L {t1},{hb} L {t0},{hb} L {t0},{hh} L 0,{hh} "
+        f"L 0,{r1} L -{dd},{r1} L -{dd},{r0} L 0,{r0} Z"
     )
 
 
 def main():
+    global BASE_INNER_W, BASE_INNER_D
+    lw = 50.0 - 2.0 * MATERIAL
+    ld = 44.0 - 2.0 * MATERIAL
+    L = max(lw, ld)
+    BASE_INNER_W = L
+    BASE_INNER_D = L
     fb = panel_front_back_with_base_bottom()
     sd = panel_side_with_base_bottom()
     print("FRONT_BACK")
@@ -289,4 +302,7 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 1:
         HEIGHT = float(sys.argv[1])
+    if len(sys.argv) > 2:
+        MATERIAL = float(sys.argv[2])
+        DEPTH = MATERIAL
     main()

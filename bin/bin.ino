@@ -1,18 +1,20 @@
 /**
  * PROJECT: SMART BIN INDICATOR (V3 - Resilient Edition)
  * PURPOSE: Visual notification system for waste collection schedules.
- * ARCHITECTURAL NOTE: This script is designed for Arduino UNO R4 WiFi.
+ * ARCHITECTURAL NOTE: Firmware per ESP32 (DevKit / ESP32-WROOM-32).
  * LOGIC PRIORITY: Network Integrity > DST Awareness > Time Windows > Bin Scheduling.
  */
 
-#include <WiFiS3.h>   // Driver WiFi per Arduino UNO R4 WiFi (ESP32-S3 coprocessor)
-#include <NTPClient.h> // Gestione pacchetti UDP per sincronizzazione oraria
-#include <WiFiUdp.h>   // Layer di trasporto per NTP
-#include <TimeLib.h>   // Manipolazione strutture dati temporali (Unix Epoch)
-#include <ArduinoGraphics.h> // Necessario per API testo/disegno della matrice
-#include <Arduino_LED_Matrix.h> // Matrice LED integrata Arduino UNO R4 WiFi
+#ifndef ESP32
+#error "Seleziona una scheda ESP32: Strumenti > Scheda > esp32 > ESP32 Dev Module"
+#endif
 
-// secrets.h e config.h sono in .gitignore: copia da secrets.example.h / config.example.h
+#include <WiFi.h>
+#include <esp_wifi_types.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+#include <TimeLib.h>
+
 #include "secrets.h"
 #include "config.h"
 #include "calendar.h"
@@ -21,8 +23,7 @@
 // --- NETWORK STATE OBJECTS ---
 WiFiUDP ntpUDP;
 
-NTPClient timeClient(ntpUDP, NTP_SERVER); 
-ArduinoLEDMatrix matrix;
+NTPClient timeClient(ntpUDP, NTP_SERVER);
 bool calendarOrderInvalid = false;
 unsigned long lastWifiReconnectAttemptMs = 0;
 unsigned long lastConnectivityDiagMs = 0;
@@ -45,6 +46,159 @@ static unsigned long lastNetAndMainCycleMs = 0;
 static bool lastInternetOK = false;
 static bool hasSuccessfulTimeSync = false;
 static unsigned long offlineSinceMs = 0;
+static unsigned long bootStartMs = 0;
+static int lastWifiDisconnectReason = -1;
+static bool wifiStartupScanDone = false;
+
+const char* wifiDisconnectReasonToString(int reason) {
+  switch (reason) {
+    case WIFI_REASON_UNSPECIFIED: return "UNSPECIFIED";
+    case WIFI_REASON_AUTH_EXPIRE: return "AUTH_EXPIRE";
+    case WIFI_REASON_AUTH_LEAVE: return "AUTH_LEAVE";
+    case WIFI_REASON_ASSOC_EXPIRE: return "ASSOC_EXPIRE";
+    case WIFI_REASON_ASSOC_TOOMANY: return "ASSOC_TOOMANY";
+    case WIFI_REASON_NOT_AUTHED: return "NOT_AUTHED";
+    case WIFI_REASON_NOT_ASSOCED: return "NOT_ASSOCED";
+    case WIFI_REASON_ASSOC_LEAVE: return "ASSOC_LEAVE";
+    case WIFI_REASON_ASSOC_NOT_AUTHED: return "ASSOC_NOT_AUTHED";
+    case WIFI_REASON_DISASSOC_PWRCAP_BAD: return "DISASSOC_PWRCAP_BAD";
+    case WIFI_REASON_DISASSOC_SUPCHAN_BAD: return "DISASSOC_SUPCHAN_BAD";
+    case WIFI_REASON_IE_INVALID: return "IE_INVALID";
+    case WIFI_REASON_MIC_FAILURE: return "MIC_FAILURE";
+    case WIFI_REASON_4WAY_HANDSHAKE_TIMEOUT: return "4WAY_HANDSHAKE_TIMEOUT (password errata?)";
+    case WIFI_REASON_GROUP_KEY_UPDATE_TIMEOUT: return "GROUP_KEY_UPDATE_TIMEOUT";
+    case WIFI_REASON_IE_IN_4WAY_DIFFERS: return "IE_IN_4WAY_DIFFERS";
+    case WIFI_REASON_GROUP_CIPHER_INVALID: return "GROUP_CIPHER_INVALID";
+    case WIFI_REASON_PAIRWISE_CIPHER_INVALID: return "PAIRWISE_CIPHER_INVALID";
+    case WIFI_REASON_AKMP_INVALID: return "AKMP_INVALID";
+    case WIFI_REASON_UNSUPP_RSN_IE_VERSION: return "UNSUPP_RSN_IE_VERSION";
+    case WIFI_REASON_INVALID_RSN_IE_CAP: return "INVALID_RSN_IE_CAP";
+    case WIFI_REASON_802_1X_AUTH_FAILED: return "802_1X_AUTH_FAILED";
+    case WIFI_REASON_CIPHER_SUITE_REJECTED: return "CIPHER_SUITE_REJECTED";
+    case WIFI_REASON_BEACON_TIMEOUT: return "BEACON_TIMEOUT";
+    case WIFI_REASON_NO_AP_FOUND: return "NO_AP_FOUND (SSID non trovato / fuori range)";
+    case WIFI_REASON_AUTH_FAIL: return "AUTH_FAIL (password errata o WPA incompatibile)";
+    case WIFI_REASON_ASSOC_FAIL: return "ASSOC_FAIL";
+    case WIFI_REASON_HANDSHAKE_TIMEOUT: return "HANDSHAKE_TIMEOUT";
+    case WIFI_REASON_CONNECTION_FAIL: return "CONNECTION_FAIL";
+    default: return "UNKNOWN";
+  }
+}
+
+void printStringHex(const __FlashStringHelper* label, const char* text) {
+  Serial.print(label);
+  if (!text) {
+    Serial.println(F("(null)"));
+    return;
+  }
+  for (size_t i = 0; text[i] != '\0'; i++) {
+    if (i > 0) {
+      Serial.print(' ');
+    }
+    uint8_t b = static_cast<uint8_t>(text[i]);
+    if (b < 16) {
+      Serial.print('0');
+    }
+    Serial.print(b, HEX);
+  }
+  Serial.println();
+}
+
+void onWifiEvent(WiFiEvent_t event, WiFiEventInfo_t info) {
+  switch (event) {
+    case ARDUINO_EVENT_WIFI_STA_START:
+      Serial.println(F("[WiFi] STA avviato"));
+      break;
+    case ARDUINO_EVENT_WIFI_STA_CONNECTED:
+      Serial.print(F("[WiFi] Associato all'AP, BSSID "));
+      Serial.println(WiFi.BSSIDstr());
+      break;
+    case ARDUINO_EVENT_WIFI_STA_GOT_IP:
+      Serial.print(F("[WiFi] IP assegnato: "));
+      Serial.println(WiFi.localIP());
+      Serial.print(F("[WiFi] Gateway: "));
+      Serial.println(WiFi.gatewayIP());
+      Serial.print(F("[WiFi] DNS: "));
+      Serial.println(WiFi.dnsIP());
+      Serial.print(F("[WiFi] RSSI: "));
+      Serial.print(WiFi.RSSI());
+      Serial.println(F(" dBm"));
+      break;
+    case ARDUINO_EVENT_WIFI_STA_DISCONNECTED:
+      lastWifiDisconnectReason = info.wifi_sta_disconnected.reason;
+      Serial.print(F("[WiFi] Disconnesso, reason="));
+      Serial.print(lastWifiDisconnectReason);
+      Serial.print(F(" ("));
+      Serial.print(wifiDisconnectReasonToString(lastWifiDisconnectReason));
+      Serial.println(F(")"));
+      break;
+    default:
+      break;
+  }
+}
+
+void logWifiStartupDiagnostics() {
+  Serial.println(F("--- Diagnostica WiFi ---"));
+  Serial.print(F("MAC STA: "));
+  Serial.println(WiFi.macAddress());
+  Serial.print(F("SSID configurato: \""));
+  Serial.print(ssid);
+  Serial.println(F("\""));
+  Serial.print(F("Lunghezza SSID: "));
+  Serial.println(strlen(ssid));
+  Serial.print(F("Lunghezza password: "));
+  Serial.println(strlen(pass));
+  printStringHex(F("SSID hex: "), ssid);
+
+  Serial.println(F("Scan reti (2.4 GHz)..."));
+  int networkCount = WiFi.scanNetworks(/*async=*/false, /*show_hidden=*/true);
+  if (networkCount <= 0) {
+    Serial.println(F("Nessuna rete trovata (segnale debole o radio spenta)."));
+    return;
+  }
+
+  Serial.print(F("Reti visibili: "));
+  Serial.println(networkCount);
+
+  bool targetFound = false;
+  int targetRssi = -999;
+  int targetChannel = 0;
+  wifi_auth_mode_t targetAuth = WIFI_AUTH_OPEN;
+
+  for (int i = 0; i < networkCount; i++) {
+    Serial.print(F("  ["));
+    Serial.print(i);
+    Serial.print(F("] \""));
+    Serial.print(WiFi.SSID(i));
+    Serial.print(F("\" RSSI="));
+    Serial.print(WiFi.RSSI(i));
+    Serial.print(F(" dBm ch="));
+    Serial.print(WiFi.channel(i));
+    Serial.print(F(" auth="));
+    Serial.print(WiFi.encryptionType(i));
+    if (WiFi.SSID(i) == ssid) {
+      Serial.print(F("  <-- TARGET"));
+      targetFound = true;
+      targetRssi = WiFi.RSSI(i);
+      targetChannel = WiFi.channel(i);
+      targetAuth = WiFi.encryptionType(i);
+    }
+    Serial.println();
+  }
+
+  if (targetFound) {
+    Serial.print(F("TARGET trovato: RSSI="));
+    Serial.print(targetRssi);
+    Serial.print(F(" dBm, canale="));
+    Serial.print(targetChannel);
+    Serial.print(F(", auth="));
+    Serial.println(targetAuth);
+  } else {
+    Serial.println(F("ATTENZIONE: SSID configurato NON compare nella scan."));
+    Serial.println(F("Possibili cause: rete solo 5 GHz, SSID errato, caratteri nascosti, AP spento."));
+  }
+  Serial.println(F("--- Fine diagnostica ---"));
+}
 
 WebApiNetStatus buildWebApiStatus(bool internetOK) {
   WebApiNetStatus s;
@@ -74,70 +228,6 @@ const char* wifiStatusToString(int status) {
     case WL_DISCONNECTED: return "DISCONNECTED";
     default: return "UNKNOWN";
   }
-}
-
-void mostraWarningCalendarioSuMatrice() {
-  static bool showIcon = false;
-  if (showIcon) {
-    matrix.loadFrame(LEDMATRIX_DANGER);
-  } else {
-    matrix.clear();
-  }
-  showIcon = !showIcon;
-}
-
-void mostraStatoOKSuMatrice() {
-  static uint8_t OK_CORNERS_BITMAP[8][12] = {
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
-  };
-  matrix.renderBitmap(OK_CORNERS_BITMAP, 8, 12);
-}
-
-char inizialeCassonetto(int binIndex) {
-  switch (binIndex) {
-    case 0: return 'C'; // Carta
-    case 1: return 'O'; // Organico
-    case 2: return 'I'; // Indifferenziata
-    case 3: return 'P'; // Plastica
-    case 4: return 'V'; // Verde (come calendar.h / COVAR)
-    default: return '?';
-  }
-}
-
-void mostraInizialeSuMatrice(char initial) {
-  matrix.beginDraw();
-  matrix.stroke(0xFFFFFFFF);
-  matrix.textFont(Font_5x7);
-  matrix.beginText(3, 1, 0xFFFFFF);
-  matrix.print(initial);
-  matrix.endText();
-  matrix.endDraw();
-}
-
-void mostraMessaggioRitiriSuMatrice(const char* message, bool scrollText) {
-  matrix.beginDraw();
-  matrix.stroke(0xFFFFFFFF);
-  matrix.textFont(Font_5x7);
-  if (scrollText) {
-    matrix.textScrollSpeed(50);
-    matrix.beginText(0, 1, 0xFFFFFF);
-    matrix.print(" ");
-    matrix.print(message);
-    matrix.print(" ");
-    matrix.endText(SCROLL_LEFT);
-  } else {
-    matrix.beginText(0, 1, 0xFFFFFF);
-    matrix.print(message);
-    matrix.endText();
-  }
-  matrix.endDraw();
 }
 
 static bool inEveningWindow(int hourLocal) {
@@ -172,7 +262,7 @@ int loadTomorrowBins(int* binsOut, int maxOut) {
   return count;
 }
 
-void renderCalendarLedsAndMatrix(const int* binsForTomorrow, int binsForTomorrowCount) {
+void renderCalendarLeds(const int* binsForTomorrow, int binsForTomorrowCount) {
   spegniTutto();
 
   for (int j = 0; j < binsForTomorrowCount; j++) {
@@ -180,22 +270,6 @@ void renderCalendarLedsAndMatrix(const int* binsForTomorrow, int binsForTomorrow
     if (idx >= 0 && idx < numBins) {
       analogWrite(ledPins[idx], 255);
     }
-  }
-
-  if (binsForTomorrowCount > 0) {
-    char initialsMessage[(numBins * 2)];
-    int cursor = 0;
-    for (int j = 0; j < binsForTomorrowCount && cursor < (int)sizeof(initialsMessage) - 1; j++) {
-      if (j > 0 && cursor < (int)sizeof(initialsMessage) - 1) {
-        initialsMessage[cursor++] = '.';
-      }
-      initialsMessage[cursor++] = inizialeCassonetto(binsForTomorrow[j]);
-    }
-    initialsMessage[cursor] = '\0';
-
-    const int estimatedTextWidth = cursor * 6;
-    const bool needsScroll = estimatedTextWidth > 12;
-    mostraMessaggioRitiriSuMatrice(initialsMessage, needsScroll);
   }
 }
 
@@ -221,15 +295,13 @@ bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive) {
 }
 
 void applyBinScheduleDisplay() {
-  mostraStatoOKSuMatrice();
-
   int binsForTomorrow[numBins];
   int binsForTomorrowCount = loadTomorrowBins(binsForTomorrow, numBins);
 
   const bool showLeds = getLedOutputState(nullptr, nullptr);
 
   if (showLeds) {
-    renderCalendarLedsAndMatrix(binsForTomorrow, binsForTomorrowCount);
+    renderCalendarLeds(binsForTomorrow, binsForTomorrowCount);
   } else {
     spegniTutto();
   }
@@ -266,11 +338,13 @@ void pollManualLedButton() {
 }
 
 void setup() {
-  Serial.begin(9600);
-  matrix.begin();
-  
-  // Inizializzazione IO: Configura i pin come uscite
-  for(int i=0; i<numBins; i++) pinMode(ledPins[i], OUTPUT);
+  Serial.begin(115200);
+  delay(300);
+  bootStartMs = millis();
+
+  for (int i = 0; i < numBins; i++) {
+    pinMode(ledPins[i], OUTPUT);
+  }
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   buttonLastRawReading = digitalRead(BUTTON_PIN);
   buttonStableState = buttonLastRawReading;
@@ -280,22 +354,31 @@ void setup() {
   int unsortedIndex = firstUnsortedCalendarIndex();
   if (unsortedIndex >= 0) {
     calendarOrderInvalid = true;
-    Serial.print("Warning: calendar non ordinato. Primo indice errato: ");
+    Serial.print(F("Warning: calendar non ordinato. Primo indice errato: "));
     Serial.println(unsortedIndex);
-    mostraWarningCalendarioSuMatrice();
   }
-  
-  // Avvio non bloccante della connessione
+
+  WiFi.persistent(false);
+  WiFi.onEvent(onWifiEvent);
+  WiFi.mode(WIFI_STA);
+  WiFi.setSleep(WIFI_PS_NONE);
+  WiFi.setAutoReconnect(true);
+  // Cancella credenziali WiFi salvate in flash (spesso diverse da secrets.h).
+  WiFi.disconnect(true, true);
+  delay(200);
+  logWifiStartupDiagnostics();
+  wifiStartupScanDone = true;
   WiFi.begin(ssid, pass);
+  Serial.println(F("WiFi.begin() avviato (credenziali da secrets.h, flash pulita)..."));
   timeClient.begin();
   webApiBegin();
-  Serial.print("HTTP API on port ");
+  Serial.print(F("HTTP API on port "));
   Serial.println(HTTP_API_PORT);
 }
 
 /**
  * MAIN EXECUTION LOOP
- * Logic flow: 
+ * Logic flow:
  * 1. Health Check (Internet)
  * 2. Time Sync & Correction
  * 3. State Evaluation (Active Window vs Sleep)
@@ -307,7 +390,6 @@ void loop() {
       (lastNetAndMainCycleMs == 0) || (now - lastNetAndMainCycleMs >= LOOP_DELAY_MS);
   if (cycleTick) {
     lastNetAndMainCycleMs = now;
-    // Evita forceUpdate NTP ad ogni millisecondo: stesso ritmo del loop storico (~LOOP_DELAY_MS).
     lastInternetOK = checkInternet();
     if (lastInternetOK) {
       hasSuccessfulTimeSync = true;
@@ -325,11 +407,6 @@ void loop() {
   }
 
   if (calendarOrderInvalid) {
-    static unsigned long lastWarnToggleMs = 0;
-    if (millis() - lastWarnToggleMs >= 500) {
-      lastWarnToggleMs = millis();
-      mostraWarningCalendarioSuMatrice();
-    }
     delay(1);
     return;
   }
@@ -339,14 +416,12 @@ void loop() {
     return;
   }
 
-  // Verifica connettività basata sul servizio NTP:
-  // consideriamo "online" solo se l'aggiornamento orario riesce.
-  // Tolleranza disconnessione: se avevamo già sincronizzato almeno una volta,
-  // attendiamo alcuni minuti prima di mostrare la danza di errore.
   bool triggerOfflineAlarm = false;
   if (!lastInternetOK) {
     if (!hasSuccessfulTimeSync) {
-      triggerOfflineAlarm = true;
+      if ((now - bootStartMs) >= BOOT_WIFI_GRACE_MS) {
+        triggerOfflineAlarm = true;
+      }
     } else if (offlineSinceMs != 0 &&
                (now - offlineSinceMs) >= NETWORK_GRACE_BEFORE_LED_ALARM_MS) {
       triggerOfflineAlarm = true;
@@ -354,12 +429,10 @@ void loop() {
   }
 
   if (triggerOfflineAlarm) {
-    matrix.clear();
     eseguiDanzaErrore(apiSt);
+  } else if (!lastInternetOK && !hasSuccessfulTimeSync) {
+    spegniTutto();
   } else {
-    /** * OPERATIONAL STATE: Sistema sincronizzato.
-     * LED e matrice: finestra serale + calendario (domani), con inversione opzionale dal pulsante.
-     */
     applyBinScheduleDisplay();
   }
 }
@@ -367,14 +440,13 @@ void loop() {
 /**
  * ANIMAZIONE DI ERRORE (Stadium Wave)
  * Ogni LED cresce e cala di intensita' (triangolare), sfalsato rispetto al successivo.
- * L'avvio sfalsato crea una "ola" continua con sovrapposizione tra i picchi.
  */
 void eseguiDanzaErrore(const WebApiNetStatus& apiSt) {
-  Serial.println("Warning: Network Unreachable. Executing stadium wave.");
+  Serial.println(F("Warning: Network Unreachable. Executing stadium wave."));
 
   const int maxBrightness = 255;
-  const int waveFrames = 72;           // Durata completa su-singolo LED (su + giu).
-  const int phaseOffsetFrames = 18;    // Avvio del LED successivo prima che il precedente finisca.
+  const int waveFrames = 72;
+  const int phaseOffsetFrames = 18;
   const int frameDelayMs = 14;
   const int halfWave = waveFrames / 2;
   const int totalFrames = waveFrames + (numBins - 1) * phaseOffsetFrames;
@@ -401,7 +473,9 @@ void eseguiDanzaErrore(const WebApiNetStatus& apiSt) {
 }
 
 void spegniTutto() {
-  for(int i=0; i<numBins; i++) analogWrite(ledPins[i], 0);
+  for (int i = 0; i < numBins; i++) {
+    analogWrite(ledPins[i], 0);
+  }
 }
 
 /**
@@ -414,17 +488,38 @@ bool checkInternet() {
 
   if (status != WL_CONNECTED) {
     if (now - lastConnectivityDiagMs >= CONNECTIVITY_DIAG_INTERVAL_MS) {
-      Serial.print("WiFi status: ");
+      Serial.print(F("WiFi status: "));
       Serial.print(wifiStatusToString(status));
-      Serial.print(" (");
+      Serial.print(F(" ("));
       Serial.print(status);
-      Serial.println(")");
+      Serial.println(F(")"));
+      if (lastWifiDisconnectReason >= 0) {
+        Serial.print(F("Ultimo disconnect reason: "));
+        Serial.print(lastWifiDisconnectReason);
+        Serial.print(F(" ("));
+        Serial.print(wifiDisconnectReasonToString(lastWifiDisconnectReason));
+        Serial.println(F(")"));
+      }
+      if (!hasSuccessfulTimeSync && (now - bootStartMs) < BOOT_WIFI_GRACE_MS) {
+        Serial.print(F("Attesa connessione WiFi: "));
+        Serial.print((now - bootStartMs) / 1000UL);
+        Serial.print(F("s / "));
+        Serial.print(BOOT_WIFI_GRACE_MS / 1000UL);
+        Serial.println(F("s (allarme LED disattivato)"));
+      }
+      Serial.print(F("MAC: "));
+      Serial.println(WiFi.macAddress());
       lastConnectivityDiagMs = now;
     }
 
-    // Evita di riavviare continuamente il join (puo' impedire la connessione stabile).
     if (now - lastWifiReconnectAttemptMs >= WIFI_RECONNECT_INTERVAL_MS) {
-      Serial.println("WiFi reconnect attempt...");
+      Serial.println(F("WiFi reconnect attempt..."));
+      if (!wifiStartupScanDone) {
+        logWifiStartupDiagnostics();
+        wifiStartupScanDone = true;
+      }
+      WiFi.disconnect(false);
+      delay(100);
       WiFi.begin(ssid, pass);
       lastWifiReconnectAttemptMs = now;
     }
@@ -434,14 +529,14 @@ bool checkInternet() {
   bool ntpOK = timeClient.forceUpdate();
   if (!ntpOK) {
     if (now - lastConnectivityDiagMs >= CONNECTIVITY_DIAG_INTERVAL_MS) {
-      Serial.println("NTP update failed (UDP/123 blocked or NTP server unreachable).");
+      Serial.println(F("NTP update failed (UDP/123 blocked or NTP server unreachable)."));
       lastConnectivityDiagMs = now;
     }
     return false;
   }
 
   if (now - lastConnectivityDiagMs >= CONNECTIVITY_DIAG_INTERVAL_MS) {
-    Serial.print("Network OK. IP: ");
+    Serial.print(F("Network OK. IP: "));
     Serial.println(WiFi.localIP());
     lastConnectivityDiagMs = now;
   }
@@ -450,18 +545,18 @@ bool checkInternet() {
 
 /**
  * CALCOLO DST (Daylight Saving Time) EUROPEO
- * Formula per l'automazione del cambio ora Legale/Solare.
- * Logica: Inizio ultima domenica di Marzo (02:00), Fine ultima domenica di Ottobre (03:00).
  */
 long getItalianOffset(unsigned long epochTime) {
-    int y = year(epochTime); int m = month(epochTime); int d = day(epochTime); int h = hour(epochTime);
-    // Algoritmo per determinare le date mobili delle domeniche di switch
-    int beginDST = (31 - (5 * y / 4 + 4) % 7); 
-    int endDST = (31 - (5 * y / 4 + 1) % 7);
-    
-    // Comparazione temporale per determinare l'offset UTC
-    if ((m > 3 && m < 10) || (m == 3 && d > beginDST) || (m == 3 && d == beginDST && h >= 2) || (m == 10 && d < endDST) || (m == 10 && d == endDST && h < 3)) {
-        return 7200; // +2 ore (Legale)
-    }
-    return 3600; // +1 ora (Solare)
+  int y = year(epochTime);
+  int m = month(epochTime);
+  int d = day(epochTime);
+  int h = hour(epochTime);
+  int beginDST = (31 - (5 * y / 4 + 4) % 7);
+  int endDST = (31 - (5 * y / 4 + 1) % 7);
+
+  if ((m > 3 && m < 10) || (m == 3 && d > beginDST) || (m == 3 && d == beginDST && h >= 2) ||
+      (m == 10 && d < endDST) || (m == 10 && d == endDST && h < 3)) {
+    return 7200;
+  }
+  return 3600;
 }
