@@ -1,0 +1,28 @@
+#ifndef SMART_BIN_CONFIG_H
+#define SMART_BIN_CONFIG_H
+
+// Fascia oraria di attivazione (Energy Saving & User Experience)
+const int ORA_ACCENSIONE = 18;
+const int ORA_SPEGNIMENTO = 23;
+
+// --- HARDWARE MAPPING (ESP32 DevKit / ESP32-WROOM-32) ---
+const int numBins = 5;
+// PWM (LEDC) — Carta, Organico, Indiff., Plastica, Verde (nessun vetro nel calendario)
+const int ledPins[numBins] = {25, 26, 27, 14, 33};
+
+// Pulsante manuale LED: INPUT_PULLUP (premuto = LOW). Collegare l'altro terminale a GND.
+const int BUTTON_PIN = 4;
+const unsigned long BUTTON_DEBOUNCE_MS = 45;
+const unsigned long LED_ACK_PULSE_MS = 90;
+
+#define NTP_SERVER "europe.pool.ntp.org"
+
+const unsigned long LOOP_DELAY_MS = 2000;
+const unsigned long BOOT_WIFI_GRACE_MS = 45UL * 1000UL;
+const unsigned long NETWORK_GRACE_BEFORE_LED_ALARM_MS = 5UL * 60UL * 1000UL;
+
+const uint16_t HTTP_API_PORT = 8080;
+
+const IPAddress PING_TARGET(8, 8, 8, 8);
+
+#endif

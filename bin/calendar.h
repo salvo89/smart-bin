@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 // Mappa cassonetti -> indici LED (coerenti con ledPins in config.h):
-// 0 Carta, 1 Organico, 2 Indifferenziata (RU), 3 Plastica, 4 Verde (VERDE), 5 Riserva
+// 0 Carta, 1 Organico, 2 Indifferenziata (RU), 3 Plastica, 4 Verde (VERDE)
 // Calendario raccolta locale (aprile 2026 - febbraio 2027). Adatta alla tua zona.
 // Giorni con "LAV" sul calendario cartaceo: stessi rifiuti, senza voce separata.
 
