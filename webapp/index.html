@@ -422,7 +422,7 @@
     <section>
       <h2>Azioni LED (test)</h2>
       <p style="margin: 0 0 0.75rem; font-size: 0.85rem; color: var(--muted);">
-        Indici come su Arduino: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 riserva.
+        Indici come su Arduino: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde.
       </p>
       <div class="toggle-panel">
         <button type="button" id="btnLedsToggle" class="fire-toggle is-off">OFF</button>
@@ -437,7 +437,7 @@
 
   <script>
     /** Abbreviazioni su badge: almeno 3 lettere (indice LED → etichetta). */
-    const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver", "Ris"];
+    const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver"];
 
     const BIN_LABELS = [
       "Carta (0)",
@@ -445,7 +445,6 @@
       "Indifferenziata (2)",
       "Plastica (3)",
       "Verde (4)",
-      "Riserva (5)",
     ];
 
     const DOW_IT = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
@@ -574,7 +573,7 @@
       });
     }
 
-    const BIN_INDEX_INITIAL = ["C", "O", "I", "P", "V", "?"];
+    const BIN_INDEX_INITIAL = ["C", "O", "I", "P", "V"];
 
     function renderSkeletonMonth(y, m) {
       const sk = $("calSkeleton");
