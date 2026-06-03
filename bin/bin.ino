@@ -33,6 +33,10 @@ unsigned long lastConnectivityDiagMs = 0;
 // - true : stato forzato opposto rispetto all'automatico
 // Il secondo click torna sempre alla modalità automatica.
 static bool userLedOverrideActive = false;
+// >= 0: luminosità forzata da web; -1: segue calendario/fascia oraria
+static int userLedBinOverride[numBins];
+
+void applyBinScheduleDisplay();
 
 static int buttonLastRawReading = HIGH;
 static int buttonStableState = HIGH;
@@ -262,15 +266,24 @@ int loadTomorrowBins(int* binsOut, int maxOut) {
   return count;
 }
 
-void renderCalendarLeds(const int* binsForTomorrow, int binsForTomorrowCount) {
-  spegniTutto();
-
-  for (int j = 0; j < binsForTomorrowCount; j++) {
-    int idx = binsForTomorrow[j];
-    if (idx >= 0 && idx < numBins) {
-      analogWrite(ledPins[idx], 255);
-    }
+static void clearUserLedBinOverrides() {
+  for (int i = 0; i < numBins; i++) {
+    userLedBinOverride[i] = -1;
   }
+}
+
+void setUserLedBinOverride(int bin, int value) {
+  if (bin < 0 || bin >= numBins || value < 0 || value > 255) {
+    return;
+  }
+  userLedBinOverride[bin] = value;
+  applyBinScheduleDisplay();
+}
+
+void resetLedsToCalendarSchedule() {
+  userLedOverrideActive = false;
+  clearUserLedBinOverrides();
+  applyBinScheduleDisplay();
 }
 
 bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive) {
@@ -294,16 +307,48 @@ bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive) {
   return showLeds;
 }
 
-void applyBinScheduleDisplay() {
+static void computeScheduledBinLevels(bool* scheduledOnOut) {
+  for (int i = 0; i < numBins; i++) {
+    scheduledOnOut[i] = false;
+  }
+
   int binsForTomorrow[numBins];
   int binsForTomorrowCount = loadTomorrowBins(binsForTomorrow, numBins);
-
   const bool showLeds = getLedOutputState(nullptr, nullptr);
 
-  if (showLeds) {
-    renderCalendarLeds(binsForTomorrow, binsForTomorrowCount);
-  } else {
-    spegniTutto();
+  if (!showLeds) {
+    return;
+  }
+
+  for (int j = 0; j < binsForTomorrowCount; j++) {
+    int idx = binsForTomorrow[j];
+    if (idx >= 0 && idx < numBins) {
+      scheduledOnOut[idx] = true;
+    }
+  }
+}
+
+void applyBinScheduleDisplay() {
+  bool scheduledOn[numBins];
+  computeScheduledBinLevels(scheduledOn);
+
+  for (int i = 0; i < numBins; i++) {
+    const int level =
+        userLedBinOverride[i] >= 0 ? userLedBinOverride[i] : (scheduledOn[i] ? 255 : 0);
+    analogWrite(ledPins[i], level);
+  }
+}
+
+void getEffectiveLedLevels(int* levelsOut, int maxBins) {
+  if (!levelsOut || maxBins <= 0) {
+    return;
+  }
+  const int n = maxBins < numBins ? maxBins : numBins;
+  bool scheduledOn[numBins];
+  computeScheduledBinLevels(scheduledOn);
+  for (int i = 0; i < n; i++) {
+    levelsOut[i] =
+        userLedBinOverride[i] >= 0 ? userLedBinOverride[i] : (scheduledOn[i] ? 255 : 0);
   }
 }
 
@@ -345,6 +390,7 @@ void setup() {
   for (int i = 0; i < numBins; i++) {
     pinMode(ledPins[i], OUTPUT);
   }
+  clearUserLedBinOverrides();
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   buttonLastRawReading = digitalRead(BUTTON_PIN);
   buttonStableState = buttonLastRawReading;
