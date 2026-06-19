@@ -796,13 +796,15 @@
     $("btnCalReload").addEventListener("click", loadMonth);
 
     $("btnLedsOff").addEventListener("click", async () => {
+      const btn = $("btnLedsOff");
+      btn.disabled = true;
       try {
-        await api("/api/action/leds/off", { method: "POST" });
-        document.querySelectorAll("#ledControls .led-switch").forEach((btn) => {
-          setLedSwitchVisual(btn, 0);
-        });
+        const data = await api("/api/action/leds/off", { method: "POST" });
+        applyLedStateFromApi(data);
       } catch (e) {
         setMsg($("appMsg"), e.message, "err");
+      } finally {
+        btn.disabled = false;
       }
     });
 

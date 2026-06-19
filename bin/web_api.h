@@ -19,6 +19,7 @@ struct WebApiNetStatus {
 };
 
 void spegniTutto();
+void turnOffAllLedsFromUser();
 bool toggleUserLedOverride();
 bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive);
 void setUserLedBinOverride(int bin, int value);
@@ -422,8 +423,10 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
   }
 
   if (strcmp(path, "/api/action/leds/off") == 0 && (strcmp(method, "POST") == 0 || strcmp(method, "GET") == 0)) {
-    spegniTutto();
-    sendHttp(client, 200, "application/json", "{\"ok\":true}");
+    turnOffAllLedsFromUser();
+    char body[160];
+    formatLedStateJson(body, sizeof(body));
+    sendHttp(client, 200, "application/json", body);
     return;
   }
 
