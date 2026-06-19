@@ -19,8 +19,36 @@ struct WebApiNetStatus {
 };
 
 void spegniTutto();
+void turnOffAllLedsFromUser();
 bool toggleUserLedOverride();
 bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive);
+void setUserLedBinOverride(int bin, int value);
+void resetLedsToCalendarSchedule();
+void getEffectiveLedLevels(int* levelsOut, int maxBins);
+
+static int formatLedStateJson(char* body, size_t bodySize) {
+  bool autoWouldLightAnyLed = false;
+  bool overrideActive = false;
+  const bool on = getLedOutputState(&autoWouldLightAnyLed, &overrideActive);
+  int levels[numBins];
+  getEffectiveLedLevels(levels, numBins);
+
+  int L = snprintf(body, bodySize,
+                   "{\"ok\":true,\"override\":%s,\"auto\":%s,\"on\":%s,\"bins\":[",
+                   overrideActive ? "true" : "false",
+                   autoWouldLightAnyLed ? "true" : "false",
+                   on ? "true" : "false");
+  for (int i = 0; i < numBins && L + 12 < (int)bodySize; i++) {
+    if (i) {
+      body[L++] = ',';
+    }
+    L += snprintf(body + L, bodySize - L, "%d", levels[i]);
+  }
+  if (L + 4 < (int)bodySize) {
+    snprintf(body + L, bodySize - L, "]}");
+  }
+  return L;
+}
 
 static WiFiServer g_httpServer(HTTP_API_PORT);
 
@@ -387,42 +415,42 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
       sendHttp(client, 400, "application/json", "{\"error\":\"bin_or_value_invalid\"}");
       return;
     }
-    analogWrite(ledPins[bin], value);
-    sendHttp(client, 200, "application/json", "{\"ok\":true}");
+    setUserLedBinOverride(bin, value);
+    char body[160];
+    formatLedStateJson(body, sizeof(body));
+    sendHttp(client, 200, "application/json", body);
     return;
   }
 
   if (strcmp(path, "/api/action/leds/off") == 0 && (strcmp(method, "POST") == 0 || strcmp(method, "GET") == 0)) {
-    spegniTutto();
-    sendHttp(client, 200, "application/json", "{\"ok\":true}");
+    turnOffAllLedsFromUser();
+    char body[160];
+    formatLedStateJson(body, sizeof(body));
+    sendHttp(client, 200, "application/json", body);
+    return;
+  }
+
+  if (strcmp(path, "/api/action/leds/reset") == 0 &&
+      (strcmp(method, "POST") == 0 || strcmp(method, "GET") == 0)) {
+    resetLedsToCalendarSchedule();
+    char body[160];
+    formatLedStateJson(body, sizeof(body));
+    sendHttp(client, 200, "application/json", body);
     return;
   }
 
   if (strcmp(path, "/api/action/leds/toggle") == 0 &&
       (strcmp(method, "POST") == 0 || strcmp(method, "GET") == 0)) {
-    const bool overrideActive = toggleUserLedOverride();
-    bool autoWouldLightAnyLed = false;
-    const bool on = getLedOutputState(&autoWouldLightAnyLed, nullptr);
-    char body[96];
-    snprintf(body, sizeof(body),
-             "{\"ok\":true,\"override\":%s,\"auto\":%s,\"on\":%s}",
-             overrideActive ? "true" : "false",
-             autoWouldLightAnyLed ? "true" : "false",
-             on ? "true" : "false");
+    toggleUserLedOverride();
+    char body[160];
+    formatLedStateJson(body, sizeof(body));
     sendHttp(client, 200, "application/json", body);
     return;
   }
 
   if (strcmp(path, "/api/action/leds/state") == 0 && strcmp(method, "GET") == 0) {
-    bool autoWouldLightAnyLed = false;
-    bool overrideActive = false;
-    const bool on = getLedOutputState(&autoWouldLightAnyLed, &overrideActive);
-    char body[96];
-    snprintf(body, sizeof(body),
-             "{\"ok\":true,\"override\":%s,\"auto\":%s,\"on\":%s}",
-             overrideActive ? "true" : "false",
-             autoWouldLightAnyLed ? "true" : "false",
-             on ? "true" : "false");
+    char body[160];
+    formatLedStateJson(body, sizeof(body));
     sendHttp(client, 200, "application/json", body);
     return;
   }
