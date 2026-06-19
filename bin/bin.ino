@@ -33,6 +33,11 @@ unsigned long lastConnectivityDiagMs = 0;
 // - true : stato forzato opposto rispetto all'automatico
 // Il secondo click torna sempre alla modalità automatica.
 static bool userLedOverrideActive = false;
+// >= 0: luminosità forzata da web; -1: segue calendario/fascia oraria
+static int userLedBinOverride[numBins];
+
+void applyBinScheduleDisplay();
+void logWifiStartupDiagnostics();
 
 static int buttonLastRawReading = HIGH;
 static int buttonStableState = HIGH;
@@ -49,6 +54,86 @@ static unsigned long offlineSinceMs = 0;
 static unsigned long bootStartMs = 0;
 static int lastWifiDisconnectReason = -1;
 static bool wifiStartupScanDone = false;
+static unsigned int consecutiveNtpFailures = 0;
+
+void recordConnectivityResult(bool internetOK, unsigned long now) {
+  lastInternetOK = internetOK;
+  if (internetOK) {
+    hasSuccessfulTimeSync = true;
+    offlineSinceMs = 0;
+    consecutiveNtpFailures = 0;
+  } else if (hasSuccessfulTimeSync && offlineSinceMs == 0) {
+    offlineSinceMs = now;
+  }
+}
+
+static void resetNtpClient() {
+  ntpUDP.stop();
+  delay(50);
+  timeClient.begin();
+}
+
+static bool tcpReachable(const IPAddress& ip, uint16_t port, uint32_t timeoutMs) {
+  if (ip == IPAddress(0, 0, 0, 0)) {
+    return false;
+  }
+  WiFiClient client;
+  client.setTimeout(timeoutMs / 1000UL);
+  const bool ok = client.connect(ip, port, timeoutMs);
+  client.stop();
+  return ok;
+}
+
+static void attemptWifiReconnect(const __FlashStringHelper* reason) {
+  Serial.print(F("WiFi reconnect: "));
+  Serial.println(reason);
+  if (!wifiStartupScanDone) {
+    logWifiStartupDiagnostics();
+    wifiStartupScanDone = true;
+  }
+  WiFi.disconnect(false);
+  delay(100);
+  WiFi.begin(ssid, pass);
+  resetNtpClient();
+  lastWifiReconnectAttemptMs = millis();
+  consecutiveNtpFailures = 0;
+}
+
+static void handleNtpFailureWhileWifiUp(unsigned long now) {
+  consecutiveNtpFailures++;
+
+  if (now - lastConnectivityDiagMs >= CONNECTIVITY_DIAG_INTERVAL_MS) {
+    Serial.print(F("NTP update failed ("));
+    Serial.print(consecutiveNtpFailures);
+    Serial.println(F(" consecutive). WiFi still CONNECTED."));
+    const IPAddress gw = WiFi.gatewayIP();
+    Serial.print(F("Gateway TCP: "));
+    Serial.println(tcpReachable(gw, 53, 1500) ? F("OK") : F("FAIL"));
+    Serial.print(F("WAN TCP (8.8.8.8:53): "));
+    Serial.println(tcpReachable(PING_TARGET, 53, 2000) ? F("OK") : F("FAIL"));
+    lastConnectivityDiagMs = now;
+  }
+
+  if (now - lastWifiReconnectAttemptMs < WIFI_RECONNECT_INTERVAL_MS) {
+    return;
+  }
+
+  const IPAddress gw = WiFi.gatewayIP();
+  const bool gatewayReachable =
+      tcpReachable(gw, 53, 1500) || tcpReachable(gw, 80, 1500);
+  const bool wanReachable = tcpReachable(PING_TARGET, 53, 2000);
+
+  if (!gatewayReachable || consecutiveNtpFailures >= 3) {
+    attemptWifiReconnect(
+        F("NTP fail with stale WiFi (gateway down or repeated NTP failures)"));
+  } else if (wanReachable) {
+    Serial.println(F("WAN reachable but NTP UDP failed — resetting NTP client"));
+    resetNtpClient();
+    lastWifiReconnectAttemptMs = now;
+  } else {
+    attemptWifiReconnect(F("NTP fail and WAN unreachable"));
+  }
+}
 
 const char* wifiDisconnectReasonToString(int reason) {
   switch (reason) {
@@ -262,15 +347,24 @@ int loadTomorrowBins(int* binsOut, int maxOut) {
   return count;
 }
 
-void renderCalendarLeds(const int* binsForTomorrow, int binsForTomorrowCount) {
-  spegniTutto();
-
-  for (int j = 0; j < binsForTomorrowCount; j++) {
-    int idx = binsForTomorrow[j];
-    if (idx >= 0 && idx < numBins) {
-      analogWrite(ledPins[idx], 255);
-    }
+static void clearUserLedBinOverrides() {
+  for (int i = 0; i < numBins; i++) {
+    userLedBinOverride[i] = -1;
   }
+}
+
+void setUserLedBinOverride(int bin, int value) {
+  if (bin < 0 || bin >= numBins || value < 0 || value > 255) {
+    return;
+  }
+  userLedBinOverride[bin] = value;
+  applyBinScheduleDisplay();
+}
+
+void resetLedsToCalendarSchedule() {
+  userLedOverrideActive = false;
+  clearUserLedBinOverrides();
+  applyBinScheduleDisplay();
 }
 
 bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive) {
@@ -294,16 +388,48 @@ bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive) {
   return showLeds;
 }
 
-void applyBinScheduleDisplay() {
+static void computeScheduledBinLevels(bool* scheduledOnOut) {
+  for (int i = 0; i < numBins; i++) {
+    scheduledOnOut[i] = false;
+  }
+
   int binsForTomorrow[numBins];
   int binsForTomorrowCount = loadTomorrowBins(binsForTomorrow, numBins);
-
   const bool showLeds = getLedOutputState(nullptr, nullptr);
 
-  if (showLeds) {
-    renderCalendarLeds(binsForTomorrow, binsForTomorrowCount);
-  } else {
-    spegniTutto();
+  if (!showLeds) {
+    return;
+  }
+
+  for (int j = 0; j < binsForTomorrowCount; j++) {
+    int idx = binsForTomorrow[j];
+    if (idx >= 0 && idx < numBins) {
+      scheduledOnOut[idx] = true;
+    }
+  }
+}
+
+void applyBinScheduleDisplay() {
+  bool scheduledOn[numBins];
+  computeScheduledBinLevels(scheduledOn);
+
+  for (int i = 0; i < numBins; i++) {
+    const int level =
+        userLedBinOverride[i] >= 0 ? userLedBinOverride[i] : (scheduledOn[i] ? 255 : 0);
+    analogWrite(ledPins[i], level);
+  }
+}
+
+void getEffectiveLedLevels(int* levelsOut, int maxBins) {
+  if (!levelsOut || maxBins <= 0) {
+    return;
+  }
+  const int n = maxBins < numBins ? maxBins : numBins;
+  bool scheduledOn[numBins];
+  computeScheduledBinLevels(scheduledOn);
+  for (int i = 0; i < n; i++) {
+    levelsOut[i] =
+        userLedBinOverride[i] >= 0 ? userLedBinOverride[i] : (scheduledOn[i] ? 255 : 0);
   }
 }
 
@@ -345,6 +471,7 @@ void setup() {
   for (int i = 0; i < numBins; i++) {
     pinMode(ledPins[i], OUTPUT);
   }
+  clearUserLedBinOverrides();
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   buttonLastRawReading = digitalRead(BUTTON_PIN);
   buttonStableState = buttonLastRawReading;
@@ -390,13 +517,7 @@ void loop() {
       (lastNetAndMainCycleMs == 0) || (now - lastNetAndMainCycleMs >= LOOP_DELAY_MS);
   if (cycleTick) {
     lastNetAndMainCycleMs = now;
-    lastInternetOK = checkInternet();
-    if (lastInternetOK) {
-      hasSuccessfulTimeSync = true;
-      offlineSinceMs = 0;
-    } else if (hasSuccessfulTimeSync && offlineSinceMs == 0) {
-      offlineSinceMs = now;
-    }
+    recordConnectivityResult(checkInternet(), now);
   }
 
   WebApiNetStatus apiSt = buildWebApiStatus(lastInternetOK);
@@ -444,6 +565,9 @@ void loop() {
 void eseguiDanzaErrore(const WebApiNetStatus& apiSt) {
   Serial.println(F("Warning: Network Unreachable. Executing stadium wave."));
 
+  // Ordine onda offline: 1 Verde, 2 Carta, 3 Organico, 4 Indifferenziata, 5 Plastica
+  static const int8_t offlineWaveBinOrder[numBins] = {4, 0, 1, 2, 3};
+
   const int maxBrightness = 255;
   const int waveFrames = 72;
   const int phaseOffsetFrames = 18;
@@ -452,8 +576,9 @@ void eseguiDanzaErrore(const WebApiNetStatus& apiSt) {
   const int totalFrames = waveFrames + (numBins - 1) * phaseOffsetFrames;
 
   for (int frame = 0; frame <= totalFrames; frame++) {
-    for (int i = 0; i < numBins; i++) {
-      int localFrame = frame - (i * phaseOffsetFrames);
+    for (int wavePos = 0; wavePos < numBins; wavePos++) {
+      const int bin = offlineWaveBinOrder[wavePos];
+      int localFrame = frame - (wavePos * phaseOffsetFrames);
       int brightness = 0;
 
       if (localFrame >= 0 && localFrame <= waveFrames) {
@@ -464,7 +589,17 @@ void eseguiDanzaErrore(const WebApiNetStatus& apiSt) {
         }
       }
 
-      analogWrite(ledPins[i], brightness);
+      analogWrite(ledPins[bin], brightness);
+    }
+
+    if ((frame % 24) == 0) {
+      const bool recovered = checkInternet();
+      recordConnectivityResult(recovered, millis());
+      if (recovered) {
+        Serial.println(F("Network recovered during error animation."));
+        applyBinScheduleDisplay();
+        return;
+      }
     }
 
     webApiPoll(apiSt);
@@ -476,6 +611,14 @@ void spegniTutto() {
   for (int i = 0; i < numBins; i++) {
     analogWrite(ledPins[i], 0);
   }
+}
+
+/** Spegnimento da pannello web: mantiene override a 0 finché non si fa reset o si accende un LED. */
+void turnOffAllLedsFromUser() {
+  for (int i = 0; i < numBins; i++) {
+    userLedBinOverride[i] = 0;
+  }
+  applyBinScheduleDisplay();
 }
 
 /**
@@ -513,25 +656,14 @@ bool checkInternet() {
     }
 
     if (now - lastWifiReconnectAttemptMs >= WIFI_RECONNECT_INTERVAL_MS) {
-      Serial.println(F("WiFi reconnect attempt..."));
-      if (!wifiStartupScanDone) {
-        logWifiStartupDiagnostics();
-        wifiStartupScanDone = true;
-      }
-      WiFi.disconnect(false);
-      delay(100);
-      WiFi.begin(ssid, pass);
-      lastWifiReconnectAttemptMs = now;
+      attemptWifiReconnect(F("WiFi not connected"));
     }
     return false;
   }
 
   bool ntpOK = timeClient.forceUpdate();
   if (!ntpOK) {
-    if (now - lastConnectivityDiagMs >= CONNECTIVITY_DIAG_INTERVAL_MS) {
-      Serial.println(F("NTP update failed (UDP/123 blocked or NTP server unreachable)."));
-      lastConnectivityDiagMs = now;
-    }
+    handleNtpFailureWhileWifiUp(now);
     return false;
   }
 

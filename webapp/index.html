@@ -180,6 +180,10 @@
       .grid-led { grid-template-columns: 1fr 1fr; }
     }
     .led-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
       padding: 0.65rem 0.75rem;
       border-radius: 8px;
       border: 1px solid var(--border);
@@ -189,10 +193,22 @@
       display: block;
       font-size: 0.8rem;
       color: var(--muted);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0;
+      flex: 1;
     }
-    input[type="range"] {
-      width: 100%;
+    .led-switch {
+      min-width: 5.5rem;
+      font-weight: 600;
+      border-color: #3a4f66;
+    }
+    .led-switch.is-on {
+      background: var(--good);
+      border-color: #2a9a66;
+      color: #04140c;
+    }
+    .led-switch.is-off {
+      background: #2a3442;
+      color: var(--muted);
     }
 
     /* Calendario mensile */
@@ -420,18 +436,19 @@
     </section>
 
     <section>
-      <h2>Azioni LED (test)</h2>
+      <h2>Controllo LED</h2>
       <p style="margin: 0 0 0.75rem; font-size: 0.85rem; color: var(--muted);">
-        Indici come su Arduino: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde.
+        Accendi o spegni ogni cassonetto. Reset ripristina lo stato previsto da calendario e fascia oraria.
       </p>
       <div class="toggle-panel">
         <button type="button" id="btnLedsToggle" class="fire-toggle is-off">OFF</button>
         <p class="toggle-hint">Toggle manuale come il pulsante fisico.</p>
       </div>
       <div class="row" style="margin-bottom: 0.75rem;">
+        <button type="button" id="btnLedsReset" class="primary">Reset calendario</button>
         <button type="button" id="btnLedsOff">Spegni tutti</button>
       </div>
-      <div class="grid-led" id="ledSliders"></div>
+      <div class="grid-led" id="ledControls"></div>
     </section>
   </main>
 
@@ -515,6 +532,26 @@
       btn.textContent = isOn ? "ON" : "OFF";
       btn.classList.toggle("is-off", !isOn);
       btn.setAttribute("aria-label", isOn ? "Stato LED ON" : "Stato LED OFF");
+    }
+
+    function setLedSwitchVisual(btn, level) {
+      const on = Number(level) > 127;
+      btn.classList.toggle("is-on", on);
+      btn.classList.toggle("is-off", !on);
+      btn.textContent = on ? "Acceso" : "Spento";
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    }
+
+    function applyLedStateFromApi(data) {
+      if (!data) return;
+      setToggleVisual(Boolean(data.on));
+      const bins = Array.isArray(data.bins) ? data.bins : [];
+      document.querySelectorAll("#ledControls .led-switch").forEach((btn) => {
+        const bin = Number(btn.dataset.bin);
+        if (!Number.isNaN(bin) && bin >= 0 && bin < bins.length) {
+          setLedSwitchVisual(btn, bins[bin]);
+        }
+      });
     }
 
     /** 0 = lunedì … 6 = domenica */
@@ -759,13 +796,29 @@
     $("btnCalReload").addEventListener("click", loadMonth);
 
     $("btnLedsOff").addEventListener("click", async () => {
+      const btn = $("btnLedsOff");
+      btn.disabled = true;
       try {
-        await api("/api/action/leds/off", { method: "POST" });
-        document.querySelectorAll("#ledSliders input[type=range]").forEach((r) => {
-          r.value = "0";
-        });
+        const data = await api("/api/action/leds/off", { method: "POST" });
+        applyLedStateFromApi(data);
       } catch (e) {
         setMsg($("appMsg"), e.message, "err");
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    $("btnLedsReset").addEventListener("click", async () => {
+      const btn = $("btnLedsReset");
+      btn.disabled = true;
+      try {
+        const data = await api("/api/action/leds/reset", { method: "POST" });
+        applyLedStateFromApi(data);
+        setMsg($("appMsg"), "LED ripristinati secondo calendario.", "ok");
+      } catch (e) {
+        setMsg($("appMsg"), e.message, "err");
+      } finally {
+        btn.disabled = false;
       }
     });
 
@@ -774,7 +827,7 @@
       btn.disabled = true;
       try {
         const data = await api("/api/action/leds/toggle", { method: "POST" });
-        setToggleVisual(Boolean(data && data.on));
+        applyLedStateFromApi(data);
       } catch (e) {
         setMsg($("appMsg"), e.message, "err");
       } finally {
@@ -782,47 +835,52 @@
       }
     });
 
-    async function refreshToggleState() {
+    async function refreshLedState() {
       try {
         const data = await api("/api/action/leds/state");
-        setToggleVisual(Boolean(data && data.on));
+        applyLedStateFromApi(data);
       } catch {
         /* niente errore invasivo durante il refresh periodico */
       }
     }
 
-    function buildLedSliders() {
-      const root = $("ledSliders");
+    function buildLedControls() {
+      const root = $("ledControls");
       root.innerHTML = "";
       BIN_LABELS.forEach((label, bin) => {
         const card = document.createElement("div");
         card.className = "led-card";
         const span = document.createElement("span");
         span.textContent = label;
-        const range = document.createElement("input");
-        range.type = "range";
-        range.min = "0";
-        range.max = "255";
-        range.value = "0";
-        range.dataset.bin = String(bin);
-        range.addEventListener("change", async () => {
-          const val = range.value;
+        const sw = document.createElement("button");
+        sw.type = "button";
+        sw.className = "led-switch is-off";
+        sw.dataset.bin = String(bin);
+        sw.textContent = "Spento";
+        sw.setAttribute("aria-pressed", "false");
+        sw.addEventListener("click", async () => {
+          const turnOn = sw.classList.contains("is-off");
+          const value = turnOn ? 255 : 0;
+          sw.disabled = true;
           try {
-            await api(`/api/action/led?bin=${bin}&value=${val}`, { method: "POST" });
+            const data = await api(`/api/action/led?bin=${bin}&value=${value}`, { method: "POST" });
+            applyLedStateFromApi(data);
           } catch (e) {
             setMsg($("appMsg"), e.message, "err");
+          } finally {
+            sw.disabled = false;
           }
         });
         card.appendChild(span);
-        card.appendChild(range);
+        card.appendChild(sw);
         root.appendChild(card);
       });
     }
 
     buildDowHeader();
-    buildLedSliders();
-    refreshToggleState();
-    setInterval(refreshToggleState, 5000);
+    buildLedControls();
+    refreshLedState();
+    setInterval(refreshLedState, 5000);
 
     (async () => {
       try {
