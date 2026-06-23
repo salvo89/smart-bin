@@ -19,10 +19,10 @@ struct WebApiNetStatus {
 };
 
 void spegniTutto();
-void turnOffAllLedsFromUser();
 bool toggleUserLedOverride();
 bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive);
 void setUserLedBinOverride(int bin, int value);
+void toggleUserLedBin(int bin);
 void resetLedsToCalendarSchedule();
 void getEffectiveLedLevels(int* levelsOut, int maxBins);
 
@@ -296,8 +296,9 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
     sendHttp(client, 200, "application/json",
               "{\"endpoints\":[\"/api/status\",\"/api/calendar/date\","
               "\"/api/calendar/month\",\"/api/calendar/tomorrow\","
-              "\"/api/action/led?bin=&value=\",\"/api/action/leds/off\","
-              "\"/api/action/leds/toggle\",\"/api/action/leds/state\"]}");
+              "\"/api/action/led?bin=&value=\","
+              "\"/api/action/led/toggle?bin=\","
+              "\"/api/action/leds/reset\",\"/api/action/leds/toggle\",\"/api/action/leds/state\"]}");
     return;
   }
 
@@ -408,6 +409,20 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
     return;
   }
 
+  if (strcmp(path, "/api/action/led/toggle") == 0 &&
+      (strcmp(method, "POST") == 0 || strcmp(method, "GET") == 0)) {
+    int bin = parseIntParam(query, "bin", -1);
+    if (bin < 0 || bin >= numBins) {
+      sendHttp(client, 400, "application/json", "{\"error\":\"bin_invalid\"}");
+      return;
+    }
+    toggleUserLedBin(bin);
+    char body[160];
+    formatLedStateJson(body, sizeof(body));
+    sendHttp(client, 200, "application/json", body);
+    return;
+  }
+
   if (strcmp(path, "/api/action/led") == 0 && (strcmp(method, "POST") == 0 || strcmp(method, "GET") == 0)) {
     int bin = parseIntParam(query, "bin", -1);
     int value = parseIntParam(query, "value", -1);
@@ -416,14 +431,6 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
       return;
     }
     setUserLedBinOverride(bin, value);
-    char body[160];
-    formatLedStateJson(body, sizeof(body));
-    sendHttp(client, 200, "application/json", body);
-    return;
-  }
-
-  if (strcmp(path, "/api/action/leds/off") == 0 && (strcmp(method, "POST") == 0 || strcmp(method, "GET") == 0)) {
-    turnOffAllLedsFromUser();
     char body[160];
     formatLedStateJson(body, sizeof(body));
     sendHttp(client, 200, "application/json", body);
