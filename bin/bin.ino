@@ -361,6 +361,26 @@ void setUserLedBinOverride(int bin, int value) {
   applyBinScheduleDisplay();
 }
 
+void toggleUserLedBin(int bin) {
+  if (bin < 0 || bin >= numBins) {
+    return;
+  }
+
+  int levels[numBins];
+  getEffectiveLedLevels(levels, numBins);
+  const int newLevel = levels[bin] > 127 ? 0 : 255;
+
+  if (!userLedOverrideActive) {
+    userLedOverrideActive = true;
+    for (int i = 0; i < numBins; i++) {
+      userLedBinOverride[i] = levels[i];
+    }
+  }
+
+  userLedBinOverride[bin] = newLevel;
+  applyBinScheduleDisplay();
+}
+
 void resetLedsToCalendarSchedule() {
   userLedOverrideActive = false;
   clearUserLedBinOverrides();
@@ -611,14 +631,6 @@ void spegniTutto() {
   for (int i = 0; i < numBins; i++) {
     analogWrite(ledPins[i], 0);
   }
-}
-
-/** Spegnimento da pannello web: mantiene override a 0 finché non si fa reset o si accende un LED. */
-void turnOffAllLedsFromUser() {
-  for (int i = 0; i < numBins; i++) {
-    userLedBinOverride[i] = 0;
-  }
-  applyBinScheduleDisplay();
 }
 
 /**
