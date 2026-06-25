@@ -505,7 +505,7 @@
       </div>
       <div class="led-bins" id="ledBins" aria-label="Stato cassonetti"></div>
       <div class="led-warn" id="ledWarn" role="alert"></div>
-      <p class="led-hint">Tocca un cassonetto per accenderlo o spegnerlo. In manuale il calendario viene ignorato — torna ad Automatico per ripristinare.</p>
+      <p class="led-hint">Tocca un cassonetto per accenderlo o spegnerlo. In manuale il calendario viene ignorato — torna ad Automatico per ripristinare. Pulsazione sincrona di tutti i LED (18–23): strada vuota domani.</p>
       <p class="msg" id="appMsg"></p>
     </section>
   </main>
@@ -591,6 +591,9 @@
       if (!t || !t.year) return "";
       const dd = String(t.day).padStart(2, "0");
       const mm = String(t.month).padStart(2, "0");
+      if (t.stradaVuota) {
+        return `Strada vuota domani ${dd}/${mm}/${t.year} — nessun cassonetto in strada.`;
+      }
       const bins = Array.isArray(t.bins) ? t.bins.length : 0;
       if (bins === 0) return "Nessun ritiro domani in calendario.";
       const names = (t.initials || "")
@@ -604,6 +607,7 @@
     function ringViewFromState(data) {
       const manual = Boolean(data.override);
       const auto = Boolean(data.auto);
+      const stradaVuotaBreathe = Boolean(data.stradaVuotaBreathe);
 
       if (manual) {
         return {
@@ -612,6 +616,15 @@
           txt: "Manuale",
           title: "Modalità manuale",
           desc: "Tocca i cassonetti per accendere o spegnere i LED.",
+        };
+      }
+      if (stradaVuotaBreathe) {
+        return {
+          cls: "warn",
+          icon: "◎",
+          txt: "Strada",
+          title: "Strada vuota domani",
+          desc: ledTomorrowHint || "Tutti i LED pulsano: nessun cassonetto in strada domani.",
         };
       }
       if (!auto) {

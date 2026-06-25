@@ -319,6 +319,44 @@ static bool inEveningWindow(int hourLocal) {
   return hourLocal >= ORA_ACCENSIONE && hourLocal < ORA_SPEGNIMENTO;
 }
 
+static bool isStradaVuotaTomorrow() {
+  unsigned long tomorrowEpoch = timeClient.getEpochTime() + 86400UL;
+  return isStradaVuotaDay(year(tomorrowEpoch), month(tomorrowEpoch), day(tomorrowEpoch));
+}
+
+static int triangularBreathBrightness(unsigned long phaseMs, unsigned long periodMs) {
+  if (periodMs < 2) {
+    return 0;
+  }
+  const unsigned long half = periodMs / 2;
+  const unsigned long pos = phaseMs % periodMs;
+  if (pos <= half) {
+    return (int)map(pos, 0, half, 0, 255);
+  }
+  return (int)map(pos, half, periodMs, 255, 0);
+}
+
+bool isStradaVuotaBreatheActive() {
+  if (userLedOverrideActive || !hasSuccessfulTimeSync) {
+    return false;
+  }
+
+  unsigned long epoch = timeClient.getEpochTime();
+  timeClient.setTimeOffset(getItalianOffset(epoch));
+  if (!inEveningWindow(timeClient.getHours())) {
+    return false;
+  }
+  return isStradaVuotaTomorrow();
+}
+
+static void applyStradaVuotaBreathe() {
+  const int brightness =
+      triangularBreathBrightness(millis(), STRADA_VUOTA_BREATHE_PERIOD_MS);
+  for (int i = 0; i < numBins; i++) {
+    analogWrite(ledPins[i], brightness);
+  }
+}
+
 /**
  * Carica in binsOut gli indici cassonetto con ritiro domani (stessa logica di calendar.h).
  * Restituisce il numero di elementi scritti (<= maxOut).
@@ -394,8 +432,10 @@ bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive) {
 
   int binsForTomorrow[numBins];
   int binsForTomorrowCount = loadTomorrowBins(binsForTomorrow, numBins);
+  const bool stradaVuotaTomorrow = isStradaVuotaTomorrow();
 
-  const bool autoWouldLightAnyLed = inEveningWindow(ora) && (binsForTomorrowCount > 0);
+  const bool autoWouldLightAnyLed =
+      inEveningWindow(ora) && (binsForTomorrowCount > 0 || stradaVuotaTomorrow);
   const bool showLeds =
       userLedOverrideActive ? !autoWouldLightAnyLed : autoWouldLightAnyLed;
 
@@ -418,6 +458,10 @@ static void computeScheduledBinLevels(bool* scheduledOnOut) {
   const bool showLeds = getLedOutputState(nullptr, nullptr);
 
   if (!showLeds) {
+    return;
+  }
+
+  if (isStradaVuotaBreatheActive()) {
     return;
   }
 
@@ -445,6 +489,17 @@ void getEffectiveLedLevels(int* levelsOut, int maxBins) {
     return;
   }
   const int n = maxBins < numBins ? maxBins : numBins;
+
+  if (isStradaVuotaBreatheActive()) {
+    const int brightness =
+        triangularBreathBrightness(millis(), STRADA_VUOTA_BREATHE_PERIOD_MS);
+    for (int i = 0; i < n; i++) {
+      levelsOut[i] =
+          userLedBinOverride[i] >= 0 ? userLedBinOverride[i] : brightness;
+    }
+    return;
+  }
+
   bool scheduledOn[numBins];
   computeScheduledBinLevels(scheduledOn);
   for (int i = 0; i < n; i++) {
@@ -552,13 +607,8 @@ void loop() {
     return;
   }
 
-  if (!cycleTick) {
-    delay(1);
-    return;
-  }
-
   bool triggerOfflineAlarm = false;
-  if (!lastInternetOK) {
+  if (cycleTick && !lastInternetOK) {
     if (!hasSuccessfulTimeSync) {
       if ((now - bootStartMs) >= BOOT_WIFI_GRACE_MS) {
         triggerOfflineAlarm = true;
@@ -571,11 +621,29 @@ void loop() {
 
   if (triggerOfflineAlarm) {
     eseguiDanzaErrore(apiSt);
-  } else if (!lastInternetOK && !hasSuccessfulTimeSync) {
-    spegniTutto();
-  } else {
-    applyBinScheduleDisplay();
+    return;
   }
+
+  if (!lastInternetOK && !hasSuccessfulTimeSync) {
+    if (cycleTick) {
+      spegniTutto();
+    }
+    delay(1);
+    return;
+  }
+
+  if (isStradaVuotaBreatheActive()) {
+    applyStradaVuotaBreathe();
+    delay(STRADA_VUOTA_BREATHE_FRAME_MS);
+    return;
+  }
+
+  if (!cycleTick) {
+    delay(1);
+    return;
+  }
+
+  applyBinScheduleDisplay();
 }
 
 /**

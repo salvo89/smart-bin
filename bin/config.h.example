@@ -18,6 +18,8 @@ const unsigned long LED_ACK_PULSE_MS = 90;
 #define NTP_SERVER "europe.pool.ntp.org"
 
 const unsigned long LOOP_DELAY_MS = 2000;
+const unsigned long STRADA_VUOTA_BREATHE_PERIOD_MS = 2000;
+const unsigned long STRADA_VUOTA_BREATHE_FRAME_MS = 14;
 const unsigned long BOOT_WIFI_GRACE_MS = 45UL * 1000UL;
 const unsigned long NETWORK_GRACE_BEFORE_LED_ALARM_MS = 5UL * 60UL * 1000UL;
 

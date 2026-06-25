@@ -259,6 +259,27 @@ inline int lowerBoundDated(uint32_t key) {
   return left;
 }
 
+/** 0=dom … 6=sab (stesso schema di Sakamoto / TimeLib con offset). */
+inline int calendarWeekdaySun0(int year, int month, int day) {
+  static const int monthShift[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+  int y = year;
+  if (month < 3) {
+    y -= 1;
+  }
+  return (y + y / 4 - y / 100 + y / 400 + monthShift[month - 1] + day) % 7;
+}
+
+/** Primo lunedì di mesi dispari, gennaio escluso: strada senza cassonetti. */
+inline bool isStradaVuotaDay(int year, int month, int day) {
+  if (month == 1 || (month % 2) == 0) {
+    return false;
+  }
+  if (day > 7) {
+    return false;
+  }
+  return calendarWeekdaySun0(year, month, day) == 1;
+}
+
 inline int firstUnsortedCalendarIndex() {
   if (datedCalendarCount < 2) {
     return -1;
