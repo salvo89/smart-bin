@@ -25,19 +25,23 @@ void setUserLedBinOverride(int bin, int value);
 void toggleUserLedBin(int bin);
 void resetLedsToCalendarSchedule();
 void getEffectiveLedLevels(int* levelsOut, int maxBins);
+bool isStradaVuotaBreatheActive();
 
 static int formatLedStateJson(char* body, size_t bodySize) {
   bool autoWouldLightAnyLed = false;
   bool overrideActive = false;
   const bool on = getLedOutputState(&autoWouldLightAnyLed, &overrideActive);
+  const bool stradaVuotaBreathe = isStradaVuotaBreatheActive();
   int levels[numBins];
   getEffectiveLedLevels(levels, numBins);
 
   int L = snprintf(body, bodySize,
-                   "{\"ok\":true,\"override\":%s,\"auto\":%s,\"on\":%s,\"bins\":[",
+                   "{\"ok\":true,\"override\":%s,\"auto\":%s,\"on\":%s,"
+                   "\"stradaVuotaBreathe\":%s,\"bins\":[",
                    overrideActive ? "true" : "false",
                    autoWouldLightAnyLed ? "true" : "false",
-                   on ? "true" : "false");
+                   on ? "true" : "false",
+                   stradaVuotaBreathe ? "true" : "false");
   for (int i = 0; i < numBins && L + 12 < (int)bodySize; i++) {
     if (i) {
       body[L++] = ',';
@@ -387,8 +391,11 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
     int d = day(t);
     int bins[8];
     int n = collectBinsForYmd(y, m, d, bins, 8);
-    char body[320];
-    int L = snprintf(body, sizeof(body), "{\"year\":%d,\"month\":%d,\"day\":%d,\"bins\":[", y, m, d);
+    const bool stradaVuota = isStradaVuotaDay(y, m, d);
+    char body[360];
+    int L = snprintf(body, sizeof(body),
+                     "{\"year\":%d,\"month\":%d,\"day\":%d,\"stradaVuota\":%s,\"bins\":[",
+                     y, m, d, stradaVuota ? "true" : "false");
     for (int i = 0; i < n && L + 8 < (int)sizeof(body); i++) {
       if (i) {
         body[L++] = ',';
