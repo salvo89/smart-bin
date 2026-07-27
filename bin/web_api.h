@@ -25,19 +25,23 @@ void setUserLedBinOverride(int bin, int value);
 void toggleUserLedBin(int bin);
 void resetLedsToCalendarSchedule();
 void getEffectiveLedLevels(int* levelsOut, int maxBins);
+bool isStradaVuotaBreatheActive();
 
 static int formatLedStateJson(char* body, size_t bodySize) {
   bool autoWouldLightAnyLed = false;
   bool overrideActive = false;
   const bool on = getLedOutputState(&autoWouldLightAnyLed, &overrideActive);
+  const bool stradaVuotaBreathe = isStradaVuotaBreatheActive();
   int levels[numBins];
   getEffectiveLedLevels(levels, numBins);
 
   int L = snprintf(body, bodySize,
-                   "{\"ok\":true,\"override\":%s,\"auto\":%s,\"on\":%s,\"bins\":[",
+                   "{\"ok\":true,\"override\":%s,\"auto\":%s,\"on\":%s,"
+                   "\"stradaVuotaBreathe\":%s,\"bins\":[",
                    overrideActive ? "true" : "false",
                    autoWouldLightAnyLed ? "true" : "false",
-                   on ? "true" : "false");
+                   on ? "true" : "false",
+                   stradaVuotaBreathe ? "true" : "false");
   for (int i = 0; i < numBins && L + 12 < (int)bodySize; i++) {
     if (i) {
       body[L++] = ',';
@@ -51,6 +55,23 @@ static int formatLedStateJson(char* body, size_t bodySize) {
 }
 
 static WiFiServer g_httpServer(HTTP_API_PORT);
+
+// Controllo LED solo sulla LAN di casa: la TCP deve arrivare sull'IP STA.
+// SoftAP (e qualsiasi altro percorso) → negato. Nessuna fiducia a Host/UI.
+static bool ledControlAllowed(const WiFiClient& client) {
+  if (WiFi.status() != WL_CONNECTED) {
+    return false;
+  }
+  const IPAddress staIp = WiFi.localIP();
+  if (staIp == IPAddress(0, 0, 0, 0)) {
+    return false;
+  }
+  return client.localIP() == staIp;
+}
+
+static bool isLedApiPath(const char* path) {
+  return strncmp(path, "/api/action/led", 15) == 0;
+}
 
 static int collectBinsForYmd(int y, int m, int d, int* outBins, int maxBins) {
   uint32_t key = calendarDateKey(y, m, d);
@@ -193,11 +214,16 @@ static bool parseDateParam(const char* query, int* y, int* m, int* d) {
   return (*y > 2000 && *m >= 1 && *m <= 12 && *d >= 1 && *d <= 31);
 }
 
-static void sendDashboardHtml(WiFiClient& client) {
-  const size_t totalLen = SMART_BIN_WEB_UI_GZ_LEN;
+static void sendBinary(WiFiClient& client, const char* contentType, const uint8_t* data,
+                       size_t totalLen, bool gzip) {
   client.print(F("HTTP/1.1 200 OK\r\nConnection: close\r\n"));
-  client.print(F("Content-Type: text/html; charset=utf-8\r\n"));
-  client.print(F("Content-Encoding: gzip\r\n"));
+  client.print(F("Content-Type: "));
+  client.print(contentType);
+  client.print(F("\r\n"));
+  if (gzip) {
+    client.print(F("Content-Encoding: gzip\r\n"));
+  }
+  client.print(F("Cache-Control: public, max-age=86400\r\n"));
   client.print(F("Content-Length: "));
   client.print((unsigned long)totalLen);
   client.print(F("\r\n"));
@@ -212,18 +238,36 @@ static void sendDashboardHtml(WiFiClient& client) {
   const size_t chunkSz = 512;
   uint8_t buf[512];
   size_t off = 0;
-  while (off < SMART_BIN_WEB_UI_GZ_LEN) {
-    size_t n = SMART_BIN_WEB_UI_GZ_LEN - off;
+  while (off < totalLen) {
+    size_t n = totalLen - off;
     if (n > chunkSz) {
       n = chunkSz;
     }
-    memcpy(buf, SMART_BIN_WEB_UI_GZ + off, n);
+    memcpy(buf, data + off, n);
     const size_t w = client.write(buf, n);
     if (w != n) {
       break;
     }
     off += n;
   }
+}
+
+static void sendDashboardHtml(WiFiClient& client) {
+  sendBinary(client, "text/html; charset=utf-8", SMART_BIN_WEB_UI_GZ, SMART_BIN_WEB_UI_GZ_LEN,
+             true);
+}
+
+static void sendAppIconPng(WiFiClient& client) {
+  sendBinary(client, "image/png", SMART_BIN_WEB_ICON_PNG, SMART_BIN_WEB_ICON_PNG_LEN, false);
+}
+
+static void sendWebManifest(WiFiClient& client) {
+  // Manifest minimo: una sola icona 192 (stesso PNG) — impatto flash trascurabile.
+  sendHttp(client, 200, "application/manifest+json",
+           "{\"name\":\"Smart Bin\",\"short_name\":\"Smart Bin\",\"start_url\":\"/\","
+           "\"display\":\"standalone\",\"background_color\":\"#1f5c42\","
+           "\"theme_color\":\"#1f5c42\",\"icons\":[{\"src\":\"/icon-192.png\","
+           "\"sizes\":\"192x192\",\"type\":\"image/png\",\"purpose\":\"any maskable\"}]}");
 }
 
 static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
@@ -272,6 +316,14 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
     return;
   }
 
+  const bool ledOk = ledControlAllowed(client);
+
+  // Enforcement server-side: niente fiducia a UI/header Host.
+  if (isLedApiPath(path) && !ledOk) {
+    sendHttp(client, 403, "application/json", "{\"error\":\"led_control_lan_only\"}");
+    return;
+  }
+
   if (strcmp(method, "GET") == 0 &&
       (strcmp(path, "/") == 0 || strcmp(path, "/index.html") == 0)) {
     sendDashboardHtml(client);
@@ -279,26 +331,35 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
   }
 
   if (strcmp(path, "/api/status") == 0 && strcmp(method, "GET") == 0) {
-    char buf[192];
+    char buf[220];
     snprintf(buf, sizeof(buf),
              "{\"wifi\":%s,\"ntp\":%s,\"epoch\":%lu,\"hourLocal\":%d,"
-             "\"calendarOrderInvalid\":%s}",
+             "\"calendarOrderInvalid\":%s,\"ledControl\":%s}",
              st.wifiConnected ? "true" : "false",
              st.ntpOk ? "true" : "false",
              (unsigned long)st.epochUtc,
              st.hourLocal,
-             st.calendarOrderInvalid ? "true" : "false");
+             st.calendarOrderInvalid ? "true" : "false",
+             ledOk ? "true" : "false");
     sendHttp(client, 200, "application/json", buf);
     return;
   }
 
   if (strcmp(path, "/api") == 0 && strcmp(method, "GET") == 0) {
-    sendHttp(client, 200, "application/json",
-              "{\"endpoints\":[\"/api/status\",\"/api/calendar/date\","
-              "\"/api/calendar/month\",\"/api/calendar/tomorrow\","
-              "\"/api/action/led?bin=&value=\","
-              "\"/api/action/led/toggle?bin=\","
-              "\"/api/action/leds/reset\",\"/api/action/leds/toggle\",\"/api/action/leds/state\"]}");
+    if (ledOk) {
+      sendHttp(client, 200, "application/json",
+                "{\"endpoints\":[\"/api/status\",\"/api/calendar/date\","
+                "\"/api/calendar/month\",\"/api/calendar/tomorrow\","
+                "\"/api/action/led?bin=&value=\","
+                "\"/api/action/led/toggle?bin=\","
+                "\"/api/action/leds/reset\",\"/api/action/leds/toggle\","
+                "\"/api/action/leds/state\"],\"ledControl\":true}");
+    } else {
+      sendHttp(client, 200, "application/json",
+                "{\"endpoints\":[\"/api/status\",\"/api/calendar/date\","
+                "\"/api/calendar/month\",\"/api/calendar/tomorrow\"],"
+                "\"ledControl\":false}");
+    }
     return;
   }
 
@@ -309,9 +370,19 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
       return;
     }
     const int D = daysInMonthCal(y, m);
+    // Giorno pulizia strade (stessa regola di isStradaVuotaDay / LED breathe); 0 = nessuno.
+    int svDay = 0;
+    for (int d = 1; d <= 7 && d <= D; d++) {
+      if (isStradaVuotaDay(y, m, d)) {
+        svDay = d;
+        break;
+      }
+    }
     // JSON compatto: i[k] = iniziali giorno k+1 (stesso formato "C.O" di /date), ~≤1 KiB.
+    // sv = giorno mese con strada vuota (pulizia), 0 se assente.
     static char monthJson[1400];
-    int L = snprintf(monthJson, sizeof(monthJson), "{\"y\":%d,\"m\":%d,\"n\":%d,\"i\":[", y, m, D);
+    int L = snprintf(monthJson, sizeof(monthJson),
+                     "{\"y\":%d,\"m\":%d,\"n\":%d,\"sv\":%d,\"i\":[", y, m, D, svDay);
     if (L < 0 || L >= (int)sizeof(monthJson) - 8) {
       sendHttp(client, 500, "application/json", "{\"error\":\"month_buffer\"}");
       return;
@@ -387,8 +458,11 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
     int d = day(t);
     int bins[8];
     int n = collectBinsForYmd(y, m, d, bins, 8);
-    char body[320];
-    int L = snprintf(body, sizeof(body), "{\"year\":%d,\"month\":%d,\"day\":%d,\"bins\":[", y, m, d);
+    const bool stradaVuota = isStradaVuotaDay(y, m, d);
+    char body[360];
+    int L = snprintf(body, sizeof(body),
+                     "{\"year\":%d,\"month\":%d,\"day\":%d,\"stradaVuota\":%s,\"bins\":[",
+                     y, m, d, stradaVuota ? "true" : "false");
     for (int i = 0; i < n && L + 8 < (int)sizeof(body); i++) {
       if (i) {
         body[L++] = ',';
@@ -462,8 +536,14 @@ static void handleHttpRequest(WiFiClient& client, const WebApiNetStatus& st) {
     return;
   }
 
-  if (strcmp(path, "/favicon.ico") == 0) {
-    sendHttp(client, 204, "text/plain", "");
+  if ((strcmp(path, "/icon-192.png") == 0 || strcmp(path, "/favicon.ico") == 0) &&
+      strcmp(method, "GET") == 0) {
+    sendAppIconPng(client);
+    return;
+  }
+
+  if (strcmp(path, "/manifest.webmanifest") == 0 && strcmp(method, "GET") == 0) {
+    sendWebManifest(client);
     return;
   }
 

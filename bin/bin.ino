@@ -11,6 +11,7 @@
 
 #include <WiFi.h>
 #include <esp_wifi_types.h>
+#include <DNSServer.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 #include <TimeLib.h>
@@ -22,6 +23,7 @@
 
 // --- NETWORK STATE OBJECTS ---
 WiFiUDP ntpUDP;
+DNSServer dnsServer;
 
 NTPClient timeClient(ntpUDP, NTP_SERVER);
 bool calendarOrderInvalid = false;
@@ -319,6 +321,54 @@ static bool inEveningWindow(int hourLocal) {
   return hourLocal >= ORA_ACCENSIONE && hourLocal < ORA_SPEGNIMENTO;
 }
 
+static bool isStradaVuotaTomorrow() {
+  unsigned long tomorrowEpoch = timeClient.getEpochTime() + 86400UL;
+  return isStradaVuotaDay(year(tomorrowEpoch), month(tomorrowEpoch), day(tomorrowEpoch));
+}
+
+static int triangularBreathBrightness(unsigned long phaseMs, unsigned long periodMs) {
+  if (periodMs < 2) {
+    return 0;
+  }
+  const unsigned long half = periodMs / 2;
+  const unsigned long pos = phaseMs % periodMs;
+  if (pos <= half) {
+    return (int)map(pos, 0, half, 0, 255);
+  }
+  return (int)map(pos, half, periodMs, 255, 0);
+}
+
+/** Pulsio triangolare seguito da pausa spenta (strada vuota domani). */
+static int stradaVuotaBreathBrightness(unsigned long nowMs) {
+  const unsigned long cycleMs =
+      STRADA_VUOTA_BREATHE_PERIOD_MS + STRADA_VUOTA_BREATHE_OFF_MS;
+  const unsigned long phaseMs = nowMs % cycleMs;
+  if (phaseMs >= STRADA_VUOTA_BREATHE_PERIOD_MS) {
+    return 0;
+  }
+  return triangularBreathBrightness(phaseMs, STRADA_VUOTA_BREATHE_PERIOD_MS);
+}
+
+bool isStradaVuotaBreatheActive() {
+  if (userLedOverrideActive || !hasSuccessfulTimeSync) {
+    return false;
+  }
+
+  unsigned long epoch = timeClient.getEpochTime();
+  timeClient.setTimeOffset(getItalianOffset(epoch));
+  if (!inEveningWindow(timeClient.getHours())) {
+    return false;
+  }
+  return isStradaVuotaTomorrow();
+}
+
+static void applyStradaVuotaBreathe() {
+  const int brightness = stradaVuotaBreathBrightness(millis());
+  for (int i = 0; i < numBins; i++) {
+    analogWrite(ledPins[i], brightness);
+  }
+}
+
 /**
  * Carica in binsOut gli indici cassonetto con ritiro domani (stessa logica di calendar.h).
  * Restituisce il numero di elementi scritti (<= maxOut).
@@ -394,8 +444,10 @@ bool getLedOutputState(bool* outAutoWouldLightAnyLed, bool* outOverrideActive) {
 
   int binsForTomorrow[numBins];
   int binsForTomorrowCount = loadTomorrowBins(binsForTomorrow, numBins);
+  const bool stradaVuotaTomorrow = isStradaVuotaTomorrow();
 
-  const bool autoWouldLightAnyLed = inEveningWindow(ora) && (binsForTomorrowCount > 0);
+  const bool autoWouldLightAnyLed =
+      inEveningWindow(ora) && (binsForTomorrowCount > 0 || stradaVuotaTomorrow);
   const bool showLeds =
       userLedOverrideActive ? !autoWouldLightAnyLed : autoWouldLightAnyLed;
 
@@ -418,6 +470,10 @@ static void computeScheduledBinLevels(bool* scheduledOnOut) {
   const bool showLeds = getLedOutputState(nullptr, nullptr);
 
   if (!showLeds) {
+    return;
+  }
+
+  if (isStradaVuotaBreatheActive()) {
     return;
   }
 
@@ -445,6 +501,16 @@ void getEffectiveLedLevels(int* levelsOut, int maxBins) {
     return;
   }
   const int n = maxBins < numBins ? maxBins : numBins;
+
+  if (isStradaVuotaBreatheActive()) {
+    const int brightness = stradaVuotaBreathBrightness(millis());
+    for (int i = 0; i < n; i++) {
+      levelsOut[i] =
+          userLedBinOverride[i] >= 0 ? userLedBinOverride[i] : brightness;
+    }
+    return;
+  }
+
   bool scheduledOn[numBins];
   computeScheduledBinLevels(scheduledOn);
   for (int i = 0; i < n; i++) {
@@ -507,11 +573,24 @@ void setup() {
 
   WiFi.persistent(false);
   WiFi.onEvent(onWifiEvent);
-  WiFi.mode(WIFI_STA);
+  // AP+STA: SoftAP per UI locale, STA verso il router per NTP/giorno.
+  WiFi.mode(WIFI_AP_STA);
   WiFi.setSleep(WIFI_PS_NONE);
   WiFi.setAutoReconnect(true);
-  // Cancella credenziali WiFi salvate in flash (spesso diverse da secrets.h).
-  WiFi.disconnect(true, true);
+  // SoftAP prima della STA: non usare disconnect(wifioff=true), spegnerebbe anche l'AP.
+  if (!WiFi.softAP(AP_SSID, AP_PASSWORD)) {
+    Serial.println(F("ERRORE: SoftAP non avviato"));
+  } else {
+    Serial.print(F("SoftAP attivo: SSID=\""));
+    Serial.print(AP_SSID);
+    Serial.print(F("\" IP="));
+    Serial.println(WiFi.softAPIP());
+    // DNS SoftAP: risolve AP_HOSTNAME (e qualsiasi altro nome) verso l'IP AP.
+    dnsServer.setErrorReplyCode(DNSReplyCode::NoError);
+    dnsServer.start(53, "*", WiFi.softAPIP());
+  }
+  // Cancella solo credenziali STA in flash (spesso diverse da secrets.h).
+  WiFi.disconnect(false, true);
   delay(200);
   logWifiStartupDiagnostics();
   wifiStartupScanDone = true;
@@ -521,6 +600,9 @@ void setup() {
   webApiBegin();
   Serial.print(F("HTTP API on port "));
   Serial.println(HTTP_API_PORT);
+  Serial.print(F("UI via SoftAP: http://"));
+  Serial.print(AP_HOSTNAME);
+  Serial.println(F("/"));
 }
 
 /**
@@ -540,6 +622,7 @@ void loop() {
     recordConnectivityResult(checkInternet(), now);
   }
 
+  dnsServer.processNextRequest();
   WebApiNetStatus apiSt = buildWebApiStatus(lastInternetOK);
   webApiPoll(apiSt);
 
@@ -552,13 +635,8 @@ void loop() {
     return;
   }
 
-  if (!cycleTick) {
-    delay(1);
-    return;
-  }
-
   bool triggerOfflineAlarm = false;
-  if (!lastInternetOK) {
+  if (cycleTick && !lastInternetOK) {
     if (!hasSuccessfulTimeSync) {
       if ((now - bootStartMs) >= BOOT_WIFI_GRACE_MS) {
         triggerOfflineAlarm = true;
@@ -571,11 +649,29 @@ void loop() {
 
   if (triggerOfflineAlarm) {
     eseguiDanzaErrore(apiSt);
-  } else if (!lastInternetOK && !hasSuccessfulTimeSync) {
-    spegniTutto();
-  } else {
-    applyBinScheduleDisplay();
+    return;
   }
+
+  if (!lastInternetOK && !hasSuccessfulTimeSync) {
+    if (cycleTick) {
+      spegniTutto();
+    }
+    delay(1);
+    return;
+  }
+
+  if (isStradaVuotaBreatheActive()) {
+    applyStradaVuotaBreathe();
+    delay(STRADA_VUOTA_BREATHE_FRAME_MS);
+    return;
+  }
+
+  if (!cycleTick) {
+    delay(1);
+    return;
+  }
+
+  applyBinScheduleDisplay();
 }
 
 /**
@@ -622,6 +718,7 @@ void eseguiDanzaErrore(const WebApiNetStatus& apiSt) {
       }
     }
 
+    dnsServer.processNextRequest();
     webApiPoll(apiSt);
     delay(frameDelayMs);
   }

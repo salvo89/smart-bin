@@ -2,3 +2,7 @@
 bin/config.h
 bin/secrets.h
 tools/__pycache__/
+
+# Skill Cursor locali (non parte del firmware)
+.agents/
+skills-lock.json
