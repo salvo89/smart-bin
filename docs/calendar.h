@@ -1,0 +1,306 @@
+#ifndef SMART_BIN_CALENDAR_H
+#define SMART_BIN_CALENDAR_H
+
+#include <stdint.h>
+
+// Mappa cassonetti -> indici LED (coerenti con ledPins in config.h):
+// 0 Carta, 1 Organico, 2 Indifferenziata (RU), 3 Plastica, 4 Verde (VERDE)
+// Calendario raccolta locale (aprile 2026 - febbraio 2027). Adatta alla tua zona.
+// Giorni con "LAV" sul calendario cartaceo: stessi rifiuti, senza voce separata.
+
+struct CalendarEntry {
+  uint16_t year;   // Anno specifico
+  uint8_t month;   // 1..12
+  uint8_t day;     // 1..31
+  int8_t binIndex; // -1 = nessun ritiro, 0..(numBins-1) = LED da accendere
+};
+
+// La lista deve rimanere ORDINATA (YYYYMMDD) per consentire la ricerca binaria.
+const CalendarEntry datedCalendar[] = {
+  {2026, 4, 3, 1},   // 03/04/2026 Organico
+  {2026, 4, 7, 1},   // 07/04/2026 Organico
+  {2026, 4, 7, 2},   // 07/04/2026 Indifferenziata
+  {2026, 4, 10, 0},  // 10/04/2026 Carta
+  {2026, 4, 10, 1},  // 10/04/2026 Organico
+  {2026, 4, 11, 4},  // 11/04/2026 Verde
+  {2026, 4, 14, 1},  // 14/04/2026 Organico
+  {2026, 4, 14, 2},  // 14/04/2026 Indifferenziata
+  {2026, 4, 14, 3},  // 14/04/2026 Plastica
+  {2026, 4, 17, 1},  // 17/04/2026 Organico
+  {2026, 4, 18, 4},  // 18/04/2026 Verde
+  {2026, 4, 21, 1},  // 21/04/2026 Organico
+  {2026, 4, 21, 2},  // 21/04/2026 Indifferenziata
+  {2026, 4, 24, 0},  // 24/04/2026 Carta
+  {2026, 4, 24, 1},  // 24/04/2026 Organico
+  {2026, 4, 28, 1},  // 28/04/2026 Organico
+  {2026, 4, 28, 2},  // 28/04/2026 Indifferenziata
+  {2026, 4, 28, 3},  // 28/04/2026 Plastica
+  {2026, 4, 30, 1},  // 30/04/2026 Organico
+  {2026, 5, 5, 1},   // 05/05/2026 Organico
+  {2026, 5, 5, 2},   // 05/05/2026 Indifferenziata
+  {2026, 5, 8, 0},   // 08/05/2026 Carta
+  {2026, 5, 8, 1},   // 08/05/2026 Organico
+  {2026, 5, 9, 4},   // 09/05/2026 Verde
+  {2026, 5, 12, 1},  // 12/05/2026 Organico
+  {2026, 5, 12, 2},  // 12/05/2026 Indifferenziata
+  {2026, 5, 12, 3},  // 12/05/2026 Plastica
+  {2026, 5, 15, 1},  // 15/05/2026 Organico
+  {2026, 5, 19, 1},  // 19/05/2026 Organico
+  {2026, 5, 19, 2},  // 19/05/2026 Indifferenziata
+  {2026, 5, 22, 0},  // 22/05/2026 Carta
+  {2026, 5, 22, 1},  // 22/05/2026 Organico
+  {2026, 5, 23, 4},  // 23/05/2026 Verde
+  {2026, 5, 26, 1},  // 26/05/2026 Organico
+  {2026, 5, 26, 2},  // 26/05/2026 Indifferenziata
+  {2026, 5, 26, 3},  // 26/05/2026 Plastica
+  {2026, 5, 29, 1},  // 29/05/2026 Organico
+  {2026, 6, 1, 1},   // 01/06/2026 Organico
+  {2026, 6, 3, 2},   // 03/06/2026 Indifferenziata
+  {2026, 6, 5, 0},   // 05/06/2026 Carta
+  {2026, 6, 5, 1},   // 05/06/2026 Organico
+  {2026, 6, 6, 4},   // 06/06/2026 Verde
+  {2026, 6, 9, 1},   // 09/06/2026 Organico
+  {2026, 6, 9, 2},   // 09/06/2026 Indifferenziata
+  {2026, 6, 9, 3},   // 09/06/2026 Plastica
+  {2026, 6, 12, 1},  // 12/06/2026 Organico
+  {2026, 6, 16, 1},  // 16/06/2026 Organico
+  {2026, 6, 16, 2},  // 16/06/2026 Indifferenziata
+  {2026, 6, 19, 0},  // 19/06/2026 Carta
+  {2026, 6, 19, 1},  // 19/06/2026 Organico
+  {2026, 6, 20, 4},  // 20/06/2026 Verde
+  {2026, 6, 23, 1},  // 23/06/2026 Organico
+  {2026, 6, 23, 2},  // 23/06/2026 Indifferenziata
+  {2026, 6, 23, 3},  // 23/06/2026 Plastica
+  {2026, 6, 26, 1},  // 26/06/2026 Organico
+  {2026, 6, 30, 1},  // 30/06/2026 Organico
+  {2026, 6, 30, 2},  // 30/06/2026 Indifferenziata
+  {2026, 7, 3, 0},   // 03/07/2026 Carta
+  {2026, 7, 3, 1},   // 03/07/2026 Organico
+  {2026, 7, 4, 4},   // 04/07/2026 Verde
+  {2026, 7, 7, 1},   // 07/07/2026 Organico
+  {2026, 7, 7, 2},   // 07/07/2026 Indifferenziata
+  {2026, 7, 7, 3},   // 07/07/2026 Plastica
+  {2026, 7, 10, 1},  // 10/07/2026 Organico
+  {2026, 7, 14, 1},  // 14/07/2026 Organico
+  {2026, 7, 14, 2},  // 14/07/2026 Indifferenziata
+  {2026, 7, 17, 0},  // 17/07/2026 Carta
+  {2026, 7, 17, 1},  // 17/07/2026 Organico
+  {2026, 7, 18, 4},  // 18/07/2026 Verde
+  {2026, 7, 21, 1},  // 21/07/2026 Organico
+  {2026, 7, 21, 2},  // 21/07/2026 Indifferenziata
+  {2026, 7, 21, 3},  // 21/07/2026 Plastica
+  {2026, 7, 24, 1},  // 24/07/2026 Organico
+  {2026, 7, 28, 1},  // 28/07/2026 Organico
+  {2026, 7, 28, 2},  // 28/07/2026 Indifferenziata
+  {2026, 7, 31, 0},  // 31/07/2026 Carta
+  {2026, 7, 31, 1},  // 31/07/2026 Organico
+  {2026, 8, 1, 4},   // 01/08/2026 Verde
+  {2026, 8, 4, 1},   // 04/08/2026 Organico
+  {2026, 8, 4, 2},   // 04/08/2026 Indifferenziata
+  {2026, 8, 4, 3},   // 04/08/2026 Plastica
+  {2026, 8, 7, 1},   // 07/08/2026 Organico
+  {2026, 8, 8, 4},   // 08/08/2026 Verde
+  {2026, 8, 11, 1},  // 11/08/2026 Organico
+  {2026, 8, 11, 2},  // 11/08/2026 Indifferenziata
+  {2026, 8, 14, 0},  // 14/08/2026 Carta
+  {2026, 8, 14, 1},  // 14/08/2026 Organico
+  {2026, 8, 18, 1},  // 18/08/2026 Organico
+  {2026, 8, 18, 2},  // 18/08/2026 Indifferenziata
+  {2026, 8, 18, 3},  // 18/08/2026 Plastica
+  {2026, 8, 21, 1},  // 21/08/2026 Organico
+  {2026, 8, 22, 4},  // 22/08/2026 Verde
+  {2026, 8, 25, 1},  // 25/08/2026 Organico
+  {2026, 8, 25, 2},  // 25/08/2026 Indifferenziata
+  {2026, 8, 28, 0},  // 28/08/2026 Carta
+  {2026, 8, 28, 1},  // 28/08/2026 Organico
+  {2026, 9, 1, 1},   // 01/09/2026 Organico
+  {2026, 9, 1, 2},   // 01/09/2026 Indifferenziata
+  {2026, 9, 1, 3},   // 01/09/2026 Plastica
+  {2026, 9, 4, 1},   // 04/09/2026 Organico
+  {2026, 9, 5, 4},   // 05/09/2026 Verde
+  {2026, 9, 8, 1},   // 08/09/2026 Organico
+  {2026, 9, 8, 2},   // 08/09/2026 Indifferenziata
+  {2026, 9, 11, 0},  // 11/09/2026 Carta
+  {2026, 9, 11, 1},  // 11/09/2026 Organico
+  {2026, 9, 12, 4},  // 12/09/2026 Verde
+  {2026, 9, 15, 1},  // 15/09/2026 Organico
+  {2026, 9, 15, 2},  // 15/09/2026 Indifferenziata
+  {2026, 9, 15, 3},  // 15/09/2026 Plastica
+  {2026, 9, 18, 1},  // 18/09/2026 Organico
+  {2026, 9, 22, 1},  // 22/09/2026 Organico
+  {2026, 9, 22, 2},  // 22/09/2026 Indifferenziata
+  {2026, 9, 25, 0},  // 25/09/2026 Carta
+  {2026, 9, 25, 1},  // 25/09/2026 Organico
+  {2026, 9, 26, 4},  // 26/09/2026 Verde
+  {2026, 9, 29, 1},  // 29/09/2026 Organico
+  {2026, 9, 29, 2},  // 29/09/2026 Indifferenziata
+  {2026, 9, 29, 3},  // 29/09/2026 Plastica
+  {2026, 10, 2, 1},  // 02/10/2026 Organico
+  {2026, 10, 3, 4},  // 03/10/2026 Verde
+  {2026, 10, 6, 1},  // 06/10/2026 Organico
+  {2026, 10, 6, 2},  // 06/10/2026 Indifferenziata
+  {2026, 10, 9, 0},  // 09/10/2026 Carta
+  {2026, 10, 9, 1},  // 09/10/2026 Organico
+  {2026, 10, 10, 4}, // 10/10/2026 Verde
+  {2026, 10, 13, 1}, // 13/10/2026 Organico
+  {2026, 10, 13, 2}, // 13/10/2026 Indifferenziata
+  {2026, 10, 13, 3}, // 13/10/2026 Plastica
+  {2026, 10, 16, 1}, // 16/10/2026 Organico
+  {2026, 10, 17, 4}, // 17/10/2026 Verde
+  {2026, 10, 20, 1}, // 20/10/2026 Organico
+  {2026, 10, 20, 2}, // 20/10/2026 Indifferenziata
+  {2026, 10, 23, 0}, // 23/10/2026 Carta
+  {2026, 10, 23, 1}, // 23/10/2026 Organico
+  {2026, 10, 24, 4}, // 24/10/2026 Verde
+  {2026, 10, 27, 1}, // 27/10/2026 Organico
+  {2026, 10, 27, 2}, // 27/10/2026 Indifferenziata
+  {2026, 10, 27, 3}, // 27/10/2026 Plastica
+  {2026, 10, 30, 1}, // 30/10/2026 Organico
+  {2026, 10, 31, 4}, // 31/10/2026 Verde
+  {2026, 11, 3, 1},  // 03/11/2026 Organico
+  {2026, 11, 3, 2},  // 03/11/2026 Indifferenziata
+  {2026, 11, 6, 0},  // 06/11/2026 Carta
+  {2026, 11, 6, 1},  // 06/11/2026 Organico
+  {2026, 11, 7, 4},  // 07/11/2026 Verde
+  {2026, 11, 10, 1}, // 10/11/2026 Organico
+  {2026, 11, 10, 2}, // 10/11/2026 Indifferenziata
+  {2026, 11, 10, 3}, // 10/11/2026 Plastica
+  {2026, 11, 13, 1}, // 13/11/2026 Organico
+  {2026, 11, 14, 4}, // 14/11/2026 Verde
+  {2026, 11, 17, 1}, // 17/11/2026 Organico
+  {2026, 11, 17, 2}, // 17/11/2026 Indifferenziata
+  {2026, 11, 20, 0}, // 20/11/2026 Carta
+  {2026, 11, 20, 1}, // 20/11/2026 Organico
+  {2026, 11, 21, 4}, // 21/11/2026 Verde
+  {2026, 11, 24, 1}, // 24/11/2026 Organico
+  {2026, 11, 24, 2}, // 24/11/2026 Indifferenziata
+  {2026, 11, 24, 3}, // 24/11/2026 Plastica
+  {2026, 11, 27, 1}, // 27/11/2026 Organico
+  {2026, 12, 1, 1},  // 01/12/2026 Organico
+  {2026, 12, 1, 2},  // 01/12/2026 Indifferenziata
+  {2026, 12, 4, 0},  // 04/12/2026 Carta
+  {2026, 12, 4, 1},  // 04/12/2026 Organico
+  {2026, 12, 5, 4},  // 05/12/2026 Verde
+  {2026, 12, 7, 1},  // 07/12/2026 Organico
+  {2026, 12, 7, 2},  // 07/12/2026 Indifferenziata
+  {2026, 12, 9, 3},  // 09/12/2026 Plastica
+  {2026, 12, 11, 1}, // 11/12/2026 Organico
+  {2026, 12, 15, 1}, // 15/12/2026 Organico
+  {2026, 12, 15, 2}, // 15/12/2026 Indifferenziata
+  {2026, 12, 18, 0}, // 18/12/2026 Carta
+  {2026, 12, 18, 1}, // 18/12/2026 Organico
+  {2026, 12, 19, 4}, // 19/12/2026 Verde
+  {2026, 12, 22, 1}, // 22/12/2026 Organico
+  {2026, 12, 22, 2}, // 22/12/2026 Indifferenziata
+  {2026, 12, 22, 3}, // 22/12/2026 Plastica
+  {2026, 12, 24, 1}, // 24/12/2026 Organico
+  {2026, 12, 29, 1}, // 29/12/2026 Organico
+  {2026, 12, 29, 2}, // 29/12/2026 Indifferenziata
+  {2026, 12, 30, 0}, // 30/12/2026 Carta
+  {2026, 12, 31, 1}, // 31/12/2026 Organico
+  {2027, 1, 5, 1},   // 05/01/2027 Organico
+  {2027, 1, 5, 2},   // 05/01/2027 Indifferenziata
+  {2027, 1, 5, 3},   // 05/01/2027 Plastica
+  {2027, 1, 8, 1},   // 08/01/2027 Organico
+  {2027, 1, 12, 1},  // 12/01/2027 Organico
+  {2027, 1, 12, 2},  // 12/01/2027 Indifferenziata
+  {2027, 1, 15, 0},  // 15/01/2027 Carta
+  {2027, 1, 15, 1},  // 15/01/2027 Organico
+  {2027, 1, 16, 4},  // 16/01/2027 Verde
+  {2027, 1, 19, 1},  // 19/01/2027 Organico
+  {2027, 1, 19, 2},  // 19/01/2027 Indifferenziata
+  {2027, 1, 19, 3},  // 19/01/2027 Plastica
+  {2027, 1, 22, 1},  // 22/01/2027 Organico
+  {2027, 1, 26, 1},  // 26/01/2027 Organico
+  {2027, 1, 26, 2},  // 26/01/2027 Indifferenziata
+  {2027, 1, 29, 0},  // 29/01/2027 Carta
+  {2027, 1, 29, 1},  // 29/01/2027 Organico
+  {2027, 1, 30, 4},  // 30/01/2027 Verde
+  {2027, 2, 2, 1},   // 02/02/2027 Organico
+  {2027, 2, 2, 2},   // 02/02/2027 Indifferenziata
+  {2027, 2, 2, 3},   // 02/02/2027 Plastica
+  {2027, 2, 5, 1},   // 05/02/2027 Organico
+  {2027, 2, 9, 1},   // 09/02/2027 Organico
+  {2027, 2, 9, 2},   // 09/02/2027 Indifferenziata
+  {2027, 2, 12, 0},  // 12/02/2027 Carta
+  {2027, 2, 12, 1},  // 12/02/2027 Organico
+  {2027, 2, 13, 4},  // 13/02/2027 Verde
+  {2027, 2, 16, 1},  // 16/02/2027 Organico
+  {2027, 2, 16, 2},  // 16/02/2027 Indifferenziata
+  {2027, 2, 16, 3},  // 16/02/2027 Plastica
+  {2027, 2, 19, 1},  // 19/02/2027 Organico
+  {2027, 2, 20, 4},  // 20/02/2027 Verde
+  {2027, 2, 23, 1},  // 23/02/2027 Organico
+  {2027, 2, 23, 2},  // 23/02/2027 Indifferenziata
+  {2027, 2, 26, 0},  // 26/02/2027 Carta
+  {2027, 2, 26, 1},  // 26/02/2027 Organico
+  {2027, 2, 27, 4},  // 27/02/2027 Verde
+};
+
+const int datedCalendarCount = sizeof(datedCalendar) / sizeof(datedCalendar[0]);
+
+inline uint32_t calendarDateKey(int year, int month, int day) {
+  return ((uint32_t)year * 10000UL) + ((uint32_t)month * 100UL) + (uint32_t)day;
+}
+
+inline int lowerBoundDated(uint32_t key) {
+  int left = 0;
+  int right = datedCalendarCount;
+  while (left < right) {
+    int mid = left + (right - left) / 2;
+    const CalendarEntry &entry = datedCalendar[mid];
+    uint32_t entryKey = calendarDateKey(entry.year, entry.month, entry.day);
+    if (entryKey < key) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+  }
+  return left;
+}
+
+/** 0=dom … 6=sab (stesso schema di Sakamoto / TimeLib con offset). */
+inline int calendarWeekdaySun0(int year, int month, int day) {
+  static const int monthShift[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+  int y = year;
+  if (month < 3) {
+    y -= 1;
+  }
+  return (y + y / 4 - y / 100 + y / 400 + monthShift[month - 1] + day) % 7;
+}
+
+/** Primo lunedì di mesi dispari, gennaio escluso: strada senza cassonetti. */
+inline bool isStradaVuotaDay(int year, int month, int day) {
+  if (month == 1 || (month % 2) == 0) {
+    return false;
+  }
+  if (day > 7) {
+    return false;
+  }
+  return calendarWeekdaySun0(year, month, day) == 1;
+}
+
+inline int firstUnsortedCalendarIndex() {
+  if (datedCalendarCount < 2) {
+    return -1;
+  }
+
+  uint32_t previousKey = calendarDateKey(
+    datedCalendar[0].year,
+    datedCalendar[0].month,
+    datedCalendar[0].day
+  );
+
+  for (int i = 1; i < datedCalendarCount; i++) {
+    const CalendarEntry &entry = datedCalendar[i];
+    uint32_t currentKey = calendarDateKey(entry.year, entry.month, entry.day);
+    if (currentKey < previousKey) {
+      return i;
+    }
+    previousKey = currentKey;
+  }
+
+  return -1;
+}
+
+#endif

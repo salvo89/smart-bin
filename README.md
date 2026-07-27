@@ -10,7 +10,7 @@ Un promemoria **fisico e automatico** in casa: non un’app da aprire, ma luci s
 
 In pratica:
 
-- legge un **calendario locale** (`bin/calendar.h`) dei giorni di ritiro;
+- legge un **calendario locale** (`docs/calendar.h`, incluso dal firmware via `bin/calendar.h`) dei giorni di ritiro;
 - di sera, nella fascia oraria impostata, accende i LED corrispondenti ai rifiuti di **domani**;
 - segnala anche i giorni di **strada vuota** (cassonetti ritirati) con un respiro luminoso su tutti i LED;
 - si sincronizza via **Wi‑Fi + NTP** (ora locale / DST);
@@ -122,13 +122,14 @@ La SoftAP e la STA possono stare attive insieme: STA per internet/NTP, SoftAP pe
 
 ### 3. Calendario raccolta (`calendar.h`)
 
-`bin/calendar.h` contiene le date di ritiro (ordinate) e la logica **strada vuota**.
+Fonte unica: **`docs/calendar.h`** (date di ritiro ordinate + logica **strada vuota**).  
+`bin/calendar.h` è solo uno stub che fa `#include` di quel file (equivalente portabile a un symlink: su Windows senza privilegi di link OS il firmware continua a compilare).
 
-- Adattalo al calendario del **tuo** comune / zona.
+- Modifica **solo** `docs/calendar.h` per adattarlo al calendario del **tuo** comune / zona.
 - Indici LED: `0` Carta, `1` Organico, `2` Indifferenziata, `3` Plastica, `4` Verde; `-1` = nessun ritiro.
 - La lista `datedCalendar[]` deve restare **ordinata per data** (ricerca binaria).
 
-La pagina pubblica in `docs/` riflette lo stesso calendario (copia statica per GitHub Pages). Se aggiorni `calendar.h` e pubblichi anche il calendario web, aggiorna di conseguenza `docs/index.html`.
+La pagina GitHub Pages (`docs/index.html`) carica lo stesso `calendar.h` a runtime e legge `datedCalendar[]`: non serve duplicare le date nell’HTML.
 
 ### 4. (Opzionale) Web UI sul dispositivo
 
