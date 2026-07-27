@@ -173,7 +173,7 @@ La cartella `docs/` è pensata per una URL pubblica (solo consultazione calendar
 
 1. Su GitHub: **Settings → Pages**.
 2. Source: branch `master` (o `main`), folder `/docs`.
-3. URL tipica: `https://<utente>.github.io/Smart-Bin/`.
+3. URL tipica: `https://<utente>.github.io/smart-bin/`.
 
 ## Struttura del repository
 
