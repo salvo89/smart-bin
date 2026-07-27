@@ -1,0 +1,159 @@
+# Smart Bin
+
+Indicatore luminoso per la raccolta differenziata: un ESP32 accende i LED dei cassonetti da portare fuori **la sera prima del ritiro**, in fascia oraria configurabile. Include web UI locale (SoftAP / LAN) e una pagina calendario pubblica su GitHub Pages.
+
+**Licenza:** [GNU GPL-3.0](LICENSE)
+
+## Cosa vuole essere
+
+Un promemoria **fisico e automatico** in casa: non un’app da aprire, ma luci sul muro (o sul pannello) che dicono “domani esce carta / organico / …”.
+
+In pratica:
+
+- legge un **calendario locale** (`bin/calendar.h`) dei giorni di ritiro;
+- di sera, nella fascia oraria impostata, accende i LED corrispondenti ai rifiuti di **domani**;
+- segnala anche i giorni di **strada vuota** (cassonetti ritirati) con un respiro luminoso su tutti i LED;
+- si sincronizza via **Wi‑Fi + NTP** (ora locale / DST);
+- espone una **web UI** per calendario, stato rete e controllo manuale LED;
+- resta usabile anche senza internet di casa tramite **SoftAP** sulla ESP.
+
+Non è un prodotto commerciale né un servizio cloud: è un progetto hardware/firmware da flashare e adattare alla propria zona.
+
+## Hardware (default)
+
+
+| Elemento         | Default nel progetto                                                          |
+| ---------------- | ----------------------------------------------------------------------------- |
+| MCU              | ESP32 DevKit / ESP32-WROOM-32                                                 |
+| LED (5)          | GPIO `25, 26, 27, 14, 33` → Carta, Organico, Indifferenziata, Plastica, Verde |
+| Pulsante manuale | GPIO `4` (INPUT_PULLUP, premuto = LOW → GND)                                  |
+
+
+I pin si cambiano in `config.h` (vedi sotto).
+
+## Prerequisiti software
+
+- [Arduino IDE](https://www.arduino.cc/en/software) (o Arduino CLI) con core **esp32**
+- Scheda: **ESP32 Dev Module** (`Strumenti → Scheda → esp32 → ESP32 Dev Module`)
+- Librerie Arduino usate dal firmware: **NTPClient**, **Time** (TimeLib)
+- Python 3 (solo se modifichi la webapp e rigeneri l’embed)
+
+## Configurazione (obbligatoria prima del flash)
+
+I file con i tuoi valori reali **non vanno in Git**. Sono ignorati da `.gitignore`.
+
+### 1. Credenziali Wi‑Fi di casa (`secrets.h`)
+
+```bash
+cp bin/secrets.h.example bin/secrets.h
+```
+
+Apri `bin/secrets.h` e inserisci SSID e password della rete **STA** (quella con internet, usata per NTP):
+
+```cpp
+char ssid[] = "NOME_RETE";
+char pass[] = "PASSWORD_RETE";
+```
+
+### 2. Parametri dispositivo (`config.h`)
+
+```bash
+cp bin/config.h.example bin/config.h
+```
+
+Cose da sistemare subito in `bin/config.h`:
+
+
+| Voce                                 | Significato                                                                 |
+| ------------------------------------ | --------------------------------------------------------------------------- |
+| `ORA_ACCENSIONE` / `ORA_SPEGNIMENTO` | Fascia in cui i LED possono accendersi (es. 18–23)                          |
+| `ledPins[]` / `BUTTON_PIN`           | Mapping GPIO al tuo cablaggio                                               |
+| `AP_SSID`                            | Nome della rete SoftAP creata dalla ESP                                     |
+| `AP_PASSWORD`                        | Password SoftAP (**minimo 8 caratteri**). Sostituisci `CHANGE_ME_MIN8`      |
+| `AP_HOSTNAME`                        | Hostname DNS captivo SoftAP (es. `smartbin.home` → `http://smartbin.home/`) |
+| `HTTP_API_PORT`                      | Porta HTTP (default `80`)                                                   |
+| `NTP_SERVER`                         | Server NTP (default `europe.pool.ntp.org`)                                  |
+
+
+La SoftAP e la STA possono stare attive insieme: STA per internet/NTP, SoftAP per collegarti direttamente alla web UI dal telefono.
+
+### 3. Calendario raccolta (`calendar.h`)
+
+`bin/calendar.h` contiene le date di ritiro (ordinate) e la logica **strada vuota**.
+
+- Adattalo al calendario del **tuo** comune / zona.
+- Indici LED: `0` Carta, `1` Organico, `2` Indifferenziata, `3` Plastica, `4` Verde; `-1` = nessun ritiro.
+- La lista `datedCalendar[]` deve restare **ordinata per data** (ricerca binaria).
+
+La pagina pubblica in `docs/` riflette lo stesso calendario (copia statica per GitHub Pages). Se aggiorni `calendar.h` e pubblichi anche il calendario web, aggiorna di conseguenza `docs/index.html`.
+
+### 4. (Opzionale) Web UI sul dispositivo
+
+Sorgente UI: `webapp/index.html` (+ `webapp/icon-192.png`).  
+Firmware: `bin/web_ui_embed.h` (generato, non editare a mano).
+
+Dopo modifiche alla webapp:
+
+```bash
+python tools/embed_webapp.py
+```
+
+Poi ricompila e flasha.
+
+## Build e flash
+
+1. Apri `bin/bin.ino` nell’Arduino IDE.
+2. Seleziona scheda **ESP32 Dev Module** e la porta seriale corretta.
+3. Verifica che esistano `bin/secrets.h` e `bin/config.h`.
+4. Compila e carica.
+
+Al boot, sulla seriale vedi diagnostica Wi‑Fi, IP STA e conferma SoftAP.
+
+## Come usare la web UI
+
+**Via SoftAP (senza passare dalla rete di casa):**
+
+1. Connettiti al Wi‑Fi `AP_SSID` con `AP_PASSWORD`.
+2. Apri `http://AP_HOSTNAME/` (default `http://smartbin.home/`) oppure l’IP SoftAP stampato in seriale.
+
+**Via LAN (stessa rete della ESP):**
+
+- Apri `http://<IP-STA-della-ESP>/` (IP in seriale dopo `WiFi GOT_IP`).
+
+Dalla UI puoi consultare il calendario e forzare/spegnere i LED (controllo LED consentito dalla rete locale / SoftAP secondo le regole del firmware).
+
+Il **pulsante fisico** alterna override manuale ↔ automatico (secondo click = ritorno all’automatico).
+
+## Calendario pubblico (GitHub Pages)
+
+La cartella `docs/` è pensata per una URL pubblica (solo consultazione calendario, senza API sulla ESP).
+
+1. Su GitHub: **Settings → Pages**.
+2. Source: branch `master` (o `main`), folder **`/docs`**.
+3. URL tipica: `https://<utente>.github.io/Smart-Bin/`.
+
+## Struttura del repository
+
+```
+bin/           Firmware Arduino (ino + header)
+  *.example    Template da copiare in secrets.h / config.h
+webapp/        Sorgente UI embeddata nella ESP
+docs/          Sito statico per GitHub Pages
+tools/         Script (embed webapp, icone, …)
+```
+
+## Checklist prima di rendere pubblico il repo
+
+- [ ] `secrets.h` e `config.h` **non** sono tracciati (già in `.gitignore`)
+- [ ] SoftAP in `config.h.example` resta un placeholder (`CHANGE_ME_MIN8`)
+- [ ] Hai deciso se il calendario in repo è il tuo reale o un esempio generico
+- [x] Licenza: **GPL-3.0** (vedi `LICENSE`)
+- [ ] Attiva GitHub Pages su `/docs` se vuoi l’URL pubblica
+
+## Licenza
+
+Questo repository è rilasciato sotto **GNU General Public License v3.0** — vedi [LICENSE](LICENSE).
+
+In sintesi (non sostituisce il testo legale): puoi usare, studiare, modificare e ridistribuire il progetto; se **distribuisci** una versione modificata o un binario basato su questo codice, devi rendere disponibile il sorgente corrispondente sotto GPL-3.0.
+
+Librerie e componenti di terze parti (es. NTPClient, Time/TimeLib, core ESP32, font Google nella webapp) restano sotto le **loro** licenze. La GPL-3.0 di questo repo copre il codice originale qui presente.
