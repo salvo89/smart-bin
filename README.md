@@ -21,13 +21,11 @@ Non è un prodotto commerciale né un servizio cloud: è un progetto hardware/fi
 
 ## Hardware (default)
 
-
 | Elemento         | Default nel progetto                                                          |
 | ---------------- | ----------------------------------------------------------------------------- |
 | MCU              | ESP32 DevKit / ESP32-WROOM-32                                                 |
 | LED (5)          | GPIO `25, 26, 27, 14, 33` → Carta, Organico, Indifferenziata, Plastica, Verde |
 | Pulsante manuale | GPIO `4` (INPUT_PULLUP, premuto = LOW → GND)                                  |
-
 
 I pin si cambiano in `config.h` (vedi sotto).
 
@@ -63,7 +61,6 @@ cp bin/config.h.example bin/config.h
 
 Cose da sistemare subito in `bin/config.h`:
 
-
 | Voce                                 | Significato                                                                 |
 | ------------------------------------ | --------------------------------------------------------------------------- |
 | `ORA_ACCENSIONE` / `ORA_SPEGNIMENTO` | Fascia in cui i LED possono accendersi (es. 18–23)                          |
@@ -73,7 +70,6 @@ Cose da sistemare subito in `bin/config.h`:
 | `AP_HOSTNAME`                        | Hostname DNS captivo SoftAP (es. `smartbin.home` → `http://smartbin.home/`) |
 | `HTTP_API_PORT`                      | Porta HTTP (default `80`)                                                   |
 | `NTP_SERVER`                         | Server NTP (default `europe.pool.ntp.org`)                                  |
-
 
 La SoftAP e la STA possono stare attive insieme: STA per internet/NTP, SoftAP per collegarti direttamente alla web UI dal telefono.
 
@@ -129,7 +125,7 @@ Il **pulsante fisico** alterna override manuale ↔ automatico (secondo click = 
 La cartella `docs/` è pensata per una URL pubblica (solo consultazione calendario, senza API sulla ESP).
 
 1. Su GitHub: **Settings → Pages**.
-2. Source: branch `master` (o `main`), folder **`/docs`**.
+2. Source: branch `master` (o `main`), folder `/docs`.
 3. URL tipica: `https://<utente>.github.io/Smart-Bin/`.
 
 ## Struttura del repository
@@ -141,14 +137,6 @@ webapp/        Sorgente UI embeddata nella ESP
 docs/          Sito statico per GitHub Pages
 tools/         Script (embed webapp, icone, …)
 ```
-
-## Checklist prima di rendere pubblico il repo
-
-- [ ] `secrets.h` e `config.h` **non** sono tracciati (già in `.gitignore`)
-- [ ] SoftAP in `config.h.example` resta un placeholder (`CHANGE_ME_MIN8`)
-- [ ] Hai deciso se il calendario in repo è il tuo reale o un esempio generico
-- [x] Licenza: **GPL-3.0** (vedi `LICENSE`)
-- [ ] Attiva GitHub Pages su `/docs` se vuoi l’URL pubblica
 
 ## Licenza
 
