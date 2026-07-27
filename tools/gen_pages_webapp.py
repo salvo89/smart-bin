@@ -1,4 +1,49 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""Genera pages/index.html statica (GitHub Pages) da calendar.h.
+
+Niente API ESP, niente sezione luci: solo consultazione calendario.
+Uso: py -3 tools/gen_pages_webapp.py
+"""
+
+from __future__ import annotations
+
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+CALENDAR_H = ROOT / "bin" / "calendar.h"
+OUT_HTML = ROOT / "pages" / "index.html"
+ICON_SRC = ROOT / "webapp" / "icon-192.png"
+ICON_DST = ROOT / "pages" / "icon-192.png"
+
+
+def parse_calendar_entries(text: str) -> list[tuple[int, int, int, int]]:
+    m = re.search(r"datedCalendar\[\]\s*=\s*\{(.*?)\};", text, re.S)
+    if not m:
+        raise SystemExit("datedCalendar[] non trovato in calendar.h")
+    body = m.group(1)
+    entries = [
+        (int(a), int(b), int(c), int(d))
+        for a, b, c, d in re.findall(
+            r"\{(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(-?\d+)\s*\}", body
+        )
+    ]
+    if not entries:
+        raise SystemExit("Nessuna entry calendario estratta")
+    return entries
+
+
+def calendar_js(entries: list[tuple[int, int, int, int]]) -> str:
+    lines = [f"  [{y},{m},{d},{b}]" for y, m, d, b in entries]
+    return "const CALENDAR_ENTRIES = [\n" + ",\n".join(lines) + "\n];"
+
+
+def build_html(cal_js: str) -> str:
+    # Placeholder sostituito sotto: evita f-string su CSS/JS con graffe.
+    return HTML_TEMPLATE.replace("__CALENDAR_ENTRIES__", cal_js)
+
+
+HTML_TEMPLATE = r'''<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="utf-8" />
@@ -7,10 +52,9 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Smart Bin" />
-  <title>Smart Bin</title>
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-  <link rel="apple-touch-icon" href="/icon-192.png" />
-  <link rel="manifest" href="/manifest.webmanifest" />
+  <title>Smart Bin — Calendario</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -24,17 +68,10 @@
       --muted-2: #6a8074;
       --line: #d5e2da;
       --accent: #1f5c42;
-      --accent-mid: #2a7a58;
       --accent-soft: #e4f3eb;
-      --warn: #9a6b10;
-      --warn-bg: #fff3d6;
-      --warn-dot: #c48916;
-      --bad: #c43c3c;
-      --ok: #1a4a36;
       --safe: 1rem;
       --touch: 2.75rem;
       --nav-h: 4.25rem;
-      --radius: 1.15rem;
       --font: "Outfit", "Segoe UI", system-ui, sans-serif;
       --display: "Fraunces", Georgia, serif;
       --tag-c: #5a9fd4;
@@ -65,7 +102,6 @@
       border: none;
       background: none;
     }
-    button:disabled { opacity: 0.45; cursor: not-allowed; }
 
     .app {
       max-width: 28rem;
@@ -76,7 +112,6 @@
       padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom));
     }
 
-    /* ——— Top ——— */
     .topbar {
       display: flex;
       align-items: center;
@@ -92,33 +127,11 @@
       letter-spacing: -0.03em;
       margin: 0;
     }
-    .mode-chip {
-      display: none;
-      align-items: center;
-      gap: 0.35rem;
-      min-height: 2rem;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
+    .brand-sub {
+      margin: 0;
       font-size: 0.72rem;
-      font-weight: 650;
-      color: #3d6b54;
-      background: rgba(46, 140, 96, 0.12);
-    }
-    .mode-chip.show { display: inline-flex; }
-    .mode-chip .dot {
-      width: 0.4rem;
-      height: 0.4rem;
-      border-radius: 50%;
-      background: #2e8c60;
-      box-shadow: 0 0 0 3px rgba(46, 140, 96, 0.2);
-    }
-    .mode-chip.manual {
-      color: var(--warn);
-      background: rgba(196, 137, 22, 0.14);
-    }
-    .mode-chip.manual .dot {
-      background: var(--warn-dot);
-      box-shadow: 0 0 0 3px rgba(196, 137, 22, 0.22);
+      font-weight: 600;
+      color: var(--muted);
     }
 
     .panel {
@@ -134,7 +147,6 @@
       gap: 1rem;
     }
 
-    /* ——— Hero ——— */
     .hero {
       position: relative;
       padding: 1.25rem 1.15rem 1.2rem;
@@ -208,7 +220,6 @@
     }
     .hero-street strong { color: #ffe08a; font-weight: 650; }
 
-    /* ——— Week ——— */
     .week-head {
       display: flex;
       justify-content: space-between;
@@ -370,140 +381,6 @@
       font-size: 0.75rem;
     }
 
-    /* ——— Luci ——— */
-    .led-head h2 {
-      margin: 0;
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
-    .led-head p {
-      margin: 0.2rem 0 0;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    .led-head-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
-    .status-pill {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid rgba(31, 92, 66, 0.2);
-    }
-    .status-pill.warn {
-      background: var(--warn-bg);
-      color: var(--warn);
-      border-color: rgba(196, 137, 22, 0.3);
-    }
-    .status-pill.idle {
-      background: #e8eee9;
-      color: var(--muted);
-      border-color: var(--line);
-    }
-
-    .seg {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.3rem;
-      padding: 0.28rem;
-      border-radius: 999px;
-      background: #dde8e1;
-    }
-    .seg button {
-      min-height: 2.5rem;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 650;
-      color: var(--muted);
-      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
-    }
-    .seg button.active-auto {
-      background: var(--surface);
-      color: var(--accent);
-      box-shadow: 0 2px 8px rgba(20, 40, 30, 0.1);
-    }
-    .seg button.active-manual {
-      background: var(--surface);
-      color: var(--warn);
-      box-shadow: 0 2px 8px rgba(20, 40, 30, 0.1);
-    }
-
-    .bin-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-    }
-    .bin-card {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
-      min-height: 4.4rem;
-      padding: 0.8rem;
-      border-radius: var(--radius);
-      background: var(--surface);
-      border: 1.5px solid transparent;
-      text-align: left;
-      box-shadow: 0 1px 0 rgba(20, 40, 30, 0.04);
-      transition: border-color 0.15s, background 0.15s, transform 0.12s;
-    }
-    .bin-card:active { transform: scale(0.97); }
-    .bin-card .icon {
-      width: 1.7rem;
-      height: 1.7rem;
-      border-radius: 0.55rem;
-      display: grid;
-      place-items: center;
-      font-size: 0.95rem;
-      background: #eef4f0;
-    }
-    .bin-card .lbl { font-size: 0.88rem; font-weight: 650; }
-    .bin-card .state {
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--muted-2);
-    }
-    .bin-card.on {
-      border-color: rgba(31, 92, 66, 0.4);
-      background: var(--accent-soft);
-    }
-    .bin-card.on .state { color: var(--ok); }
-    .bin-card.off { opacity: 0.78; }
-    .bin-card:nth-child(5) { grid-column: 1 / -1; }
-
-    .led-note {
-      margin: 0;
-      font-size: 0.72rem;
-      color: var(--muted-2);
-    }
-    .led-warn {
-      display: none;
-      padding: 0.65rem 0.75rem;
-      border-radius: 0.85rem;
-      font-size: 0.8rem;
-      background: rgba(196, 60, 60, 0.08);
-      border: 1px solid rgba(196, 60, 60, 0.3);
-      color: #a03030;
-    }
-    .led-warn.show { display: block; }
-    .msg {
-      margin: 0;
-      font-size: 0.82rem;
-      min-height: 1.1em;
-    }
-    .msg.err { color: var(--bad); }
-    .msg.ok { color: var(--ok); }
-
-    /* ——— Calendar ——— */
     .cal-wrap {
       display: flex;
       flex-direction: column;
@@ -574,47 +451,6 @@
     .cal-legend i.tag-p { background: var(--tag-p); }
     .cal-legend i.tag-v { background: var(--tag-v); }
     .cal-legend i.tag-car { background: var(--tag-car); }
-
-    .cal-wrap.loading { pointer-events: none; }
-    .cal-wrap.loading .cal-grid-wrap > .cal-grid { display: none; }
-    .cal-grid-wrap { position: relative; min-height: 6rem; }
-    .cal-skeleton {
-      display: none;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 3px;
-      width: 100%;
-    }
-    .cal-wrap.loading .cal-skeleton { display: grid; }
-    .cal-sk-cell {
-      min-height: 3.2rem;
-      border-radius: 0.55rem;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      padding: 0.3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    .cal-sk-cell.pad {
-      background: transparent;
-      border-color: transparent;
-      min-height: 0;
-      padding: 0;
-    }
-    .sk-bar {
-      border-radius: 4px;
-      height: 0.45rem;
-      background: linear-gradient(90deg, #e8eee9, #d5e2da, #e8eee9);
-      background-size: 220% 100%;
-      animation: sk-shimmer 1.15s ease-in-out infinite;
-    }
-    .sk-bar.short { width: 38%; }
-    .sk-bar.mid { width: 72%; }
-    .sk-bar.long { width: 100%; }
-    @keyframes sk-shimmer {
-      0% { background-position: 100% 0; }
-      100% { background-position: -100% 0; }
-    }
 
     .cal-grid {
       display: grid;
@@ -692,7 +528,6 @@
     .sw-car { background: var(--tag-car); }
     .sw-x { background: var(--tag-x); }
 
-    /* ——— Bottom nav ——— */
     .bottom-nav {
       position: fixed;
       left: 50%;
@@ -701,7 +536,7 @@
       width: min(calc(100% - 1.3rem), 26.7rem);
       z-index: 30;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 0.25rem;
       padding: 0.35rem;
       border-radius: 1.35rem;
@@ -710,10 +545,6 @@
       box-shadow: 0 8px 24px rgba(20, 40, 30, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.95);
     }
-    .bottom-nav.no-leds {
-      grid-template-columns: 1fr 1fr;
-    }
-    .bottom-nav.no-leds [data-tab="luci"] { display: none; }
     .bottom-nav button {
       display: flex;
       flex-direction: column;
@@ -746,36 +577,29 @@
       white-space: nowrap;
       border: 0;
     }
-
-    @media (min-width: 420px) {
-      .bin-grid { grid-template-columns: repeat(3, 1fr); }
-      .bin-card:nth-child(5) { grid-column: auto; }
-    }
   </style>
 </head>
 <body>
   <div class="app">
     <header class="topbar">
-      <h1 class="brand">Smart Bin</h1>
-      <button type="button" class="mode-chip" id="modeChip" hidden aria-label="Modalità LED">
-        <span class="dot" aria-hidden="true"></span>
-        <span id="modeChipTxt">Auto</span>
-      </button>
+      <div>
+        <h1 class="brand">Smart Bin</h1>
+        <p class="brand-sub">Calendario ritiri</p>
+      </div>
     </header>
     <span class="live-line" id="liveLine">Calendario ritiri</span>
 
-    <!-- Home -->
     <section class="panel active" id="panelHome" data-panel="home" aria-label="Home">
       <section class="hero" id="hero" aria-labelledby="heroTitle">
         <p class="eyebrow">Domani</p>
-        <h2 id="heroTitle">Caricamento…</h2>
+        <h2 id="heroTitle">—</h2>
         <p class="when" id="heroWhen">—</p>
         <div class="pickup-list" id="heroPickups"></div>
         <div class="hero-empty">
           <p>Nessun ritiro in calendario. Puoi lasciare i cassonetti a casa.</p>
         </div>
         <div class="hero-street">
-          <p><strong>Pulizia Strada</strong> — nessun cassonetto in strada. I LED pulseranno in fascia serale.</p>
+          <p><strong>Pulizia Strada</strong> — nessun cassonetto in strada.</p>
         </div>
       </section>
 
@@ -793,35 +617,8 @@
         Calendario mensile
         <span class="hint" id="calTitleShort">—</span>
       </button>
-      <p class="msg" id="homeMsg"></p>
     </section>
 
-    <!-- Luci -->
-    <section class="panel" id="ledSection" data-panel="luci" hidden aria-label="Luci">
-      <div class="led-head">
-        <div class="led-head-row">
-          <div>
-            <h2>Luci cassonetti</h2>
-            <p id="ledStatusDesc">Caricamento stato…</p>
-          </div>
-          <span class="status-pill" id="ledStatusPill">—</span>
-        </div>
-      </div>
-
-      <div class="seg" role="group" aria-label="Modalità LED">
-        <button type="button" id="btnModeAuto" class="active-auto">Automatico</button>
-        <button type="button" id="btnModeManual">Manuale</button>
-      </div>
-
-      <div class="bin-grid" id="ledBins" aria-label="Stato cassonetti"></div>
-      <div class="led-warn" id="ledWarn" role="alert"></div>
-      <p class="led-note" id="ledNote">
-        In automatico le luci seguono il calendario (18–23). In manuale puoi forzarle.
-      </p>
-      <p class="msg" id="appMsg"></p>
-    </section>
-
-    <!-- Mese -->
     <section class="panel" id="panelCal" data-panel="cal" aria-label="Calendario">
       <div class="cal-wrap" id="calWrap">
         <div class="cal-toolbar">
@@ -834,10 +631,7 @@
         </div>
         <div class="cal-body">
           <div class="cal-grid" id="calGridHead" aria-hidden="true"></div>
-          <div class="cal-grid-wrap" id="calGridWrap">
-            <div class="cal-grid" id="calGrid" role="grid" aria-label="Calendario ritiri"></div>
-            <div class="cal-skeleton" id="calSkeleton" aria-hidden="true"></div>
-          </div>
+          <div class="cal-grid" id="calGrid" role="grid" aria-label="Calendario ritiri"></div>
         </div>
         <div class="cal-legend" aria-label="Legenda rifiuti">
           <span><i class="tag-c" aria-hidden="true"></i><span class="name">Carta</span></span>
@@ -845,20 +639,16 @@
           <span><i class="tag-i" aria-hidden="true"></i><span class="name">Indiff.</span></span>
           <span><i class="tag-p" aria-hidden="true"></i><span class="name">Plastica</span></span>
           <span><i class="tag-v" aria-hidden="true"></i><span class="name">Verde</span></span>
+          <span><i class="tag-car" aria-hidden="true"></i><span class="name">Strada</span></span>
         </div>
       </div>
-      <p class="msg" id="calMsg"></p>
     </section>
   </div>
 
-  <nav class="bottom-nav no-leds" id="bottomNav" aria-label="Sezioni">
+  <nav class="bottom-nav" id="bottomNav" aria-label="Sezioni">
     <button type="button" class="active" data-tab="home" aria-current="page">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>
       Home
-    </button>
-    <button type="button" data-tab="luci">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      Luci
     </button>
     <button type="button" data-tab="cal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
@@ -867,6 +657,9 @@
   </nav>
 
   <script>
+    /* Generato da tools/gen_pages_webapp.py — dati da bin/calendar.h */
+    __CALENDAR_ENTRIES__
+
     const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver"];
     const BIN_FULL = {
       C: { code: "Car", name: "Carta", icon: "📄", sw: "sw-c" },
@@ -875,13 +668,6 @@
       P: { code: "Pla", name: "Plastica", icon: "♻", sw: "sw-p" },
       V: { code: "Ver", name: "Verde", icon: "🌿", sw: "sw-v" },
     };
-    const BIN_TILES = [
-      { icon: "📄", lbl: "Carta", code: "Car", bin: 0 },
-      { icon: "🍂", lbl: "Organico", code: "Org", bin: 1 },
-      { icon: "🗑", lbl: "Indiff.", code: "Ind", bin: 2 },
-      { icon: "♻", lbl: "Plastica", code: "Pla", bin: 3 },
-      { icon: "🌿", lbl: "Verde", code: "Ver", bin: 4 },
-    ];
     const DOW_IT = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
     const DOW_FULL = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
     const MONTH_IT = [
@@ -894,10 +680,6 @@
 
     let viewYear = new Date().getFullYear();
     let viewMonth = new Date().getMonth() + 1;
-    let ledControlAllowed = false;
-    let ledRefreshTimer = null;
-    let ledBinBusy = false;
-    let ledTomorrowHint = "";
     let selectedDayKey = null;
     let activeTab = "home";
     /** @type {Map<string, {initials:string, stradaVuota:boolean}>} */
@@ -905,55 +687,6 @@
 
     function ymdKey(y, m, d) {
       return y + "-" + String(m).padStart(2, "0") + "-" + String(d).padStart(2, "0");
-    }
-
-    function explainFetchFailure(err) {
-      const msg = (err && err.message) || String(err);
-      const origin = window.location.origin || "";
-      if (!/failed to fetch|networkerror|load failed|aborted/i.test(msg)) {
-        return msg;
-      }
-      return (
-        msg +
-        " — Controlla la Wi‑Fi (stessa rete della scheda, non rete Ospiti), oppure iOS → Privacy → Rete locale per il browser. " +
-        "Prova: " +
-        origin +
-        "/api/status"
-      );
-    }
-
-    async function api(path, opts = {}) {
-      const url = path.startsWith("/") ? path : "/" + path;
-      let res;
-      try {
-        res = await fetch(url, {
-          method: opts.method || "GET",
-          cache: "no-store",
-          ...opts,
-        });
-      } catch (e) {
-        throw new Error(explainFetchFailure(e));
-      }
-      const text = await res.text();
-      let data;
-      try {
-        data = text ? JSON.parse(text) : null;
-      } catch {
-        data = { _raw: text };
-      }
-      if (!res.ok) {
-        const err = new Error(data && data.error ? data.error : res.statusText);
-        err.status = res.status;
-        err.body = data;
-        throw err;
-      }
-      return data;
-    }
-
-    function setMsg(el, text, cls) {
-      if (!el) return;
-      el.textContent = text || "";
-      el.className = "msg" + (cls ? " " + cls : "");
     }
 
     function formatDateIt(y, m, d) {
@@ -972,46 +705,19 @@
         });
     }
 
-    function formatTomorrowHint(t) {
-      if (!t || !t.year) return "";
-      const dd = String(t.day).padStart(2, "0");
-      const mm = String(t.month).padStart(2, "0");
-      if (t.stradaVuota) {
-        return "Pulizia Strada domani " + dd + "/" + mm + "/" + t.year + " — nessun cassonetto in strada.";
-      }
-      const bins = Array.isArray(t.bins) ? t.bins.length : 0;
-      if (bins === 0 && !(t.initials || "").trim()) {
-        return "Nessun ritiro domani in calendario.";
-      }
-      const names = initialsToItems(t.initials || "")
-        .map((x) => x.name)
-        .join(" · ");
-      return "Ritiro domani " + dd + "/" + mm + "/" + t.year + (names ? " — " + names : "") + ".";
-    }
-
     function setTab(tab) {
-      if (tab === "luci" && !ledControlAllowed) tab = "home";
       activeTab = tab;
-
       document.querySelectorAll(".panel").forEach((p) => {
-        const id = p.dataset.panel;
-        const on = id === tab;
+        const on = p.dataset.panel === tab;
         p.classList.toggle("active", on);
-        if (id === "luci") {
-          p.hidden = !ledControlAllowed || !on;
-          p.setAttribute("aria-hidden", !ledControlAllowed || !on ? "true" : "false");
-        } else {
-          p.hidden = !on;
-        }
+        p.hidden = !on;
       });
-
       document.querySelectorAll("#bottomNav [data-tab]").forEach((btn) => {
         const on = btn.dataset.tab === tab;
         btn.classList.toggle("active", on);
         if (on) btn.setAttribute("aria-current", "page");
         else btn.removeAttribute("aria-current");
       });
-
       window.scrollTo(0, 0);
     }
 
@@ -1021,7 +727,7 @@
 
       if (!t || !t.year) {
         $("heroTitle").textContent = "Dati non disponibili";
-        $("heroWhen").textContent = "Riprova tra poco";
+        $("heroWhen").textContent = "—";
         $("heroPickups").innerHTML = "";
         hero.classList.add("empty");
         return;
@@ -1038,7 +744,7 @@
       }
 
       const items = initialsToItems(t.initials || "");
-      if (items.length === 0 && !(Array.isArray(t.bins) && t.bins.length)) {
+      if (items.length === 0) {
         hero.classList.add("empty");
         $("heroTitle").textContent = "Niente da esporre";
         $("heroPickups").innerHTML = "";
@@ -1046,24 +752,15 @@
         return;
       }
 
-      let list = items;
-      if (list.length === 0 && Array.isArray(t.bins)) {
-        list = t.bins.map((idx) => {
-          const ch = BIN_INDEX_INITIAL[Number(idx)] || "?";
-          return BIN_FULL[ch] || { code: "Ris", name: "Rifiuto", icon: "•", sw: "sw-x" };
-        });
-      }
-
       $("heroTitle").textContent =
-        list.length === 1
+        items.length === 1
           ? "Metti fuori 1 cassonetto"
-          : "Metti fuori " + list.length + " cassonetti";
-      $("liveLine").textContent =
-        "Domani: " + list.map((x) => x.name).join(", ");
+          : "Metti fuori " + items.length + " cassonetti";
+      $("liveLine").textContent = "Domani: " + items.map((x) => x.name).join(", ");
 
       const root = $("heroPickups");
       root.innerHTML = "";
-      list.forEach((item) => {
+      items.forEach((item) => {
         const row = document.createElement("div");
         row.className = "pickup";
         row.innerHTML =
@@ -1079,193 +776,6 @@
       });
     }
 
-    function ringViewFromState(data) {
-      const manual = Boolean(data.override);
-      const auto = Boolean(data.auto);
-      const stradaVuotaBreathe = Boolean(data.stradaVuotaBreathe);
-
-      if (manual) {
-        return {
-          cls: "warn",
-          pill: "Manuale",
-          title: "Modalità manuale",
-          desc: "Tocca un cassonetto per accendere o spegnere la luce.",
-          chip: "Manuale",
-        };
-      }
-      if (stradaVuotaBreathe) {
-        return {
-          cls: "warn",
-          pill: "Pulizia",
-          title: "Pulizia Strada",
-          desc: ledTomorrowHint || "Tutti i LED pulsano: nessun cassonetto in strada domani.",
-          chip: "Auto",
-        };
-      }
-      if (!auto) {
-        return {
-          cls: "idle",
-          pill: "In attesa",
-          title: ledTomorrowHint.includes("Nessun") ? "Nessun ritiro" : "Fuori fascia",
-          desc: ledTomorrowHint || "LED spenti fuori dalla fascia 18–23 — normale.",
-          chip: "Auto",
-        };
-      }
-      return {
-        cls: "ok",
-        pill: "Attive",
-        title: "Seguono il calendario",
-        desc: ledTomorrowHint || "LED allineati al ritiro di domani.",
-        chip: "Auto",
-      };
-    }
-
-    function setModeButtons(manual, disabled) {
-      $("btnModeAuto").className = manual ? "" : "active-auto";
-      $("btnModeManual").className = manual ? "active-manual" : "";
-      $("btnModeAuto").disabled = disabled;
-      $("btnModeManual").disabled = disabled;
-    }
-
-    function applyLedStateFromApi(data) {
-      if (!data) return;
-
-      const manual = Boolean(data.override);
-      const bins = Array.isArray(data.bins) ? data.bins : [];
-      const view = ringViewFromState(data);
-
-      const pill = $("ledStatusPill");
-      pill.textContent = view.pill;
-      pill.className = "status-pill" + (view.cls === "ok" ? "" : " " + view.cls);
-
-      $("ledStatusDesc").textContent = view.desc;
-
-      const chip = $("modeChip");
-      chip.classList.toggle("manual", manual);
-      chip.classList.add("show");
-      chip.hidden = false;
-      $("modeChipTxt").textContent = view.chip;
-
-      $("ledNote").textContent = manual
-        ? "Manuale: il calendario è ignorato. Torna ad Automatico per ripristinare."
-        : "In automatico le luci seguono il calendario (18–23). In manuale puoi forzarle.";
-
-      setModeButtons(manual, false);
-
-      const root = $("ledBins");
-      root.innerHTML = "";
-      BIN_TILES.forEach((tile) => {
-        const level = tile.bin < bins.length ? Number(bins[tile.bin]) : 0;
-        const effOn = level > 127;
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "bin-card " + (effOn ? "on" : "off");
-        btn.disabled = ledBinBusy;
-        btn.setAttribute("aria-pressed", effOn ? "true" : "false");
-        btn.setAttribute("aria-label", tile.lbl + (effOn ? ", acceso" : ", spento"));
-        btn.innerHTML =
-          '<span class="icon">' +
-          tile.icon +
-          "</span>" +
-          '<span class="lbl">' +
-          tile.lbl +
-          "</span>" +
-          '<span class="state">' +
-          (effOn ? "Acceso" : "Spento") +
-          "</span>";
-        btn.addEventListener("click", () => toggleLedBin(tile.bin));
-        root.appendChild(btn);
-      });
-
-      $("ledWarn").textContent = "";
-      $("ledWarn").classList.remove("show");
-    }
-
-    function setLedSectionVisible(visible) {
-      const nav = $("bottomNav");
-      nav.classList.toggle("no-leds", !visible);
-
-      const sec = $("ledSection");
-      if (!visible) {
-        $("modeChip").hidden = true;
-        $("modeChip").classList.remove("show");
-        if (activeTab === "luci") setTab("home");
-        else {
-          sec.hidden = true;
-          sec.classList.remove("active");
-          sec.setAttribute("aria-hidden", "true");
-        }
-        return;
-      }
-      if (activeTab === "luci") {
-        sec.hidden = false;
-        sec.classList.add("active");
-        sec.setAttribute("aria-hidden", "false");
-      } else {
-        sec.hidden = true;
-        sec.classList.remove("active");
-        sec.setAttribute("aria-hidden", "true");
-      }
-    }
-
-    async function refreshLedState() {
-      if (!ledControlAllowed) return;
-      try {
-        const [state, tomorrow] = await Promise.all([
-          api("/api/action/leds/state"),
-          api("/api/calendar/tomorrow").catch(() => null),
-        ]);
-        ledTomorrowHint = formatTomorrowHint(tomorrow);
-        if (tomorrow) renderHero(tomorrow);
-        applyLedStateFromApi(state);
-      } catch (e) {
-        if (e && e.status === 403) {
-          ledControlAllowed = false;
-          setLedSectionVisible(false);
-          if (ledRefreshTimer) {
-            clearInterval(ledRefreshTimer);
-            ledRefreshTimer = null;
-          }
-        }
-      }
-    }
-
-    async function initLedControlGate() {
-      try {
-        const st = await api("/api/status");
-        ledControlAllowed = Boolean(st.ledControl);
-      } catch {
-        ledControlAllowed = false;
-      }
-      setLedSectionVisible(ledControlAllowed);
-      if (!ledControlAllowed) return;
-      await refreshLedState();
-      ledRefreshTimer = setInterval(refreshLedState, 5000);
-    }
-
-    async function toggleLedBin(binIndex) {
-      if (!ledControlAllowed || ledBinBusy) return;
-      ledBinBusy = true;
-      setMsg($("appMsg"), "", "");
-      applyLedBinsDisabled(true);
-      try {
-        const data = await api("/api/action/led/toggle?bin=" + binIndex, { method: "POST" });
-        applyLedStateFromApi(data);
-      } catch (e) {
-        setMsg($("appMsg"), e.message, "err");
-        await refreshLedState();
-      } finally {
-        ledBinBusy = false;
-        applyLedBinsDisabled(false);
-      }
-    }
-
-    function applyLedBinsDisabled(disabled) {
-      $("ledBins").querySelectorAll("button.bin-card").forEach((btn) => {
-        btn.disabled = disabled;
-      });
-    }
-
     function weekdayMondayFirst(y, m, d) {
       const js = new Date(y, m - 1, d).getDay();
       return js === 0 ? 6 : js - 1;
@@ -1273,6 +783,56 @@
 
     function daysInMonth(y, m) {
       return new Date(y, m, 0).getDate();
+    }
+
+    /** Stessa regola di calendar.h (Sakamoto, 0=dom … 6=sab). */
+    function calendarWeekdaySun0(year, month, day) {
+      const monthShift = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4];
+      let y = year;
+      if (month < 3) y -= 1;
+      return (y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) + monthShift[month - 1] + day) % 7;
+    }
+
+    function isStradaVuotaDay(year, month, day) {
+      if (month === 1 || month % 2 === 0) return false;
+      if (day > 7) return false;
+      return calendarWeekdaySun0(year, month, day) === 1;
+    }
+
+    function binInitialFromIndex(binIndex) {
+      return BIN_INDEX_INITIAL[binIndex] || "?";
+    }
+
+    function collectBinsForYmd(y, m, d) {
+      const out = [];
+      for (let i = 0; i < CALENDAR_ENTRIES.length; i++) {
+        const e = CALENDAR_ENTRIES[i];
+        if (e[0] === y && e[1] === m && e[2] === d) {
+          const bin = e[3];
+          if (bin >= 0 && bin < BIN_INDEX_INITIAL.length) out.push(bin);
+        }
+      }
+      return out;
+    }
+
+    function dayInfo(y, m, d) {
+      const bins = collectBinsForYmd(y, m, d);
+      const initials = bins.map(binInitialFromIndex).join(".");
+      return { initials, stradaVuota: isStradaVuotaDay(y, m, d), bins };
+    }
+
+    function cacheMonth(y, m) {
+      const D = daysInMonth(y, m);
+      const out = new Array(D + 1);
+      for (let d = 1; d <= D; d++) {
+        const info = dayInfo(y, m, d);
+        out[d] = info;
+        dayCache.set(ymdKey(y, m, d), {
+          initials: info.initials,
+          stradaVuota: info.stradaVuota,
+        });
+      }
+      return out;
     }
 
     function tagClassForInitial(ch) {
@@ -1308,25 +868,6 @@
       });
     }
 
-    function renderSkeletonMonth(y, m) {
-      const sk = $("calSkeleton");
-      sk.innerHTML = "";
-      const D = daysInMonth(y, m);
-      const lead = weekdayMondayFirst(y, m, 1);
-      for (let i = 0; i < lead; i++) {
-        const pad = document.createElement("div");
-        pad.className = "cal-sk-cell pad";
-        sk.appendChild(pad);
-      }
-      for (let d = 1; d <= D; d++) {
-        const cell = document.createElement("div");
-        cell.className = "cal-sk-cell";
-        cell.innerHTML =
-          '<div class="sk-bar short"></div><div class="sk-bar long"></div><div class="sk-bar mid"></div>';
-        sk.appendChild(cell);
-      }
-    }
-
     function buildDowHeader() {
       const head = $("calGridHead");
       head.innerHTML = "";
@@ -1336,25 +877,6 @@
         el.textContent = name.charAt(0);
         head.appendChild(el);
       });
-    }
-
-    async function fetchMonthBundle(y, m) {
-      const data = await api(
-        "/api/calendar/month?y=" +
-          encodeURIComponent(String(y)) +
-          "&m=" +
-          encodeURIComponent(String(m))
-      );
-      const D = typeof data.n === "number" && data.n > 0 ? data.n : daysInMonth(y, m);
-      const initialsList = Array.isArray(data.i) ? data.i : [];
-      const svDay = Number(data.sv) > 0 ? Number(data.sv) : 0;
-      const out = new Array(D + 1);
-      for (let d = 1; d <= D; d++) {
-        const initials = String(initialsList[d - 1] || "");
-        out[d] = { bins: [], initials, stradaVuota: d === svDay };
-        dayCache.set(ymdKey(y, m, d), { initials, stradaVuota: d === svDay });
-      }
-      return out;
     }
 
     function renderMonthGrid(y, m, dayDataArray) {
@@ -1391,23 +913,10 @@
         tags.className = "tags";
 
         let hasWasteBadge = false;
-        if (data && data.error) {
-          tags.appendChild(createBadgeSpan("Err", "?", data.error));
-          hasWasteBadge = true;
-        } else if (data) {
+        if (data) {
           const fromIni = badgesFromInitialsString(data.initials || "");
           if (fromIni) {
             fromIni.forEach((n) => tags.appendChild(n));
-            hasWasteBadge = true;
-          } else if (Array.isArray(data.bins) && data.bins.length > 0) {
-            data.bins.forEach((binIdx) => {
-              const idx = Number(binIdx);
-              const label =
-                idx >= 0 && idx < BIN_BADGE_SHORT.length ? BIN_BADGE_SHORT[idx] : "Ris";
-              const ini =
-                idx >= 0 && idx < BIN_INDEX_INITIAL.length ? BIN_INDEX_INITIAL[idx] : "?";
-              tags.appendChild(createBadgeSpan(label, ini, "LED " + binIdx));
-            });
             hasWasteBadge = true;
           }
         }
@@ -1456,7 +965,8 @@
         const m = d.getMonth() + 1;
         const day = d.getDate();
         const key = ymdKey(y, m, day);
-        const cached = dayCache.get(key) || { initials: "", stradaVuota: false };
+        const cached = dayCache.get(key) || dayInfo(y, m, day);
+        dayCache.set(key, { initials: cached.initials, stradaVuota: cached.stradaVuota });
         const isToday =
           y === today.getFullYear() &&
           m === today.getMonth() + 1 &&
@@ -1506,7 +1016,7 @@
     }
 
     function renderDayDetail(y, m, d) {
-      const cached = dayCache.get(ymdKey(y, m, d)) || { initials: "", stradaVuota: false };
+      const cached = dayCache.get(ymdKey(y, m, d)) || dayInfo(y, m, d);
       const today = new Date();
       const isToday =
         y === today.getFullYear() && m === today.getMonth() + 1 && d === today.getDate();
@@ -1545,37 +1055,16 @@
       }
     }
 
-    async function loadMonth() {
-      const wrap = $("calWrap");
-      const gridWrap = $("calGridWrap");
-      const skel = $("calSkeleton");
-
-      wrap.classList.add("loading");
-      gridWrap.setAttribute("aria-busy", "true");
-      skel.setAttribute("aria-hidden", "false");
-      renderSkeletonMonth(viewYear, viewMonth);
-
+    function loadMonth() {
       const title = MONTH_IT[viewMonth - 1] + " " + viewYear;
       $("calTitle").textContent = title;
       $("calTitleShort").textContent = MONTH_IT[viewMonth - 1].slice(0, 3) + " ▸";
-
-      try {
-        const dataByDay = await fetchMonthBundle(viewYear, viewMonth);
-        renderMonthGrid(viewYear, viewMonth, dataByDay);
-        renderWeekStrip();
-        setMsg($("calMsg"), "", "");
-      } catch (e) {
-        setMsg($("calMsg"), e.message, "err");
-        setMsg($("homeMsg"), e.message, "err");
-      } finally {
-        skel.innerHTML = "";
-        skel.setAttribute("aria-hidden", "true");
-        gridWrap.setAttribute("aria-busy", "false");
-        wrap.classList.remove("loading");
-      }
+      const dataByDay = cacheMonth(viewYear, viewMonth);
+      renderMonthGrid(viewYear, viewMonth, dataByDay);
+      renderWeekStrip();
     }
 
-    async function ensureWeekMonthsCached() {
+    function ensureWeekMonthsCached() {
       const today = new Date();
       const monday = mondayOfWeek(today);
       const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6);
@@ -1584,10 +1073,7 @@
       months.add(sunday.getFullYear() + "-" + (sunday.getMonth() + 1));
       for (const key of months) {
         const [y, m] = key.split("-").map(Number);
-        const sample = ymdKey(y, m, 1);
-        if (!dayCache.has(sample)) {
-          await fetchMonthBundle(y, m);
-        }
+        cacheMonth(y, m);
       }
       renderWeekStrip();
     }
@@ -1603,34 +1089,36 @@
       }
     }
 
-    async function loadTomorrowHero() {
-      try {
-        const t = await api("/api/calendar/tomorrow");
-        ledTomorrowHint = formatTomorrowHint(t);
-        renderHero(t);
-      } catch {
-        renderHero(null);
-      }
+    function loadTomorrowHero() {
+      const tom = new Date();
+      tom.setDate(tom.getDate() + 1);
+      const y = tom.getFullYear();
+      const m = tom.getMonth() + 1;
+      const d = tom.getDate();
+      const info = dayInfo(y, m, d);
+      renderHero({
+        year: y,
+        month: m,
+        day: d,
+        initials: info.initials,
+        stradaVuota: info.stradaVuota,
+        bins: info.bins,
+      });
     }
 
-    $("btnCalPrev").addEventListener("click", async () => {
+    $("btnCalPrev").addEventListener("click", () => {
       shiftMonth(-1);
-      await loadMonth();
+      loadMonth();
     });
-    $("btnCalNext").addEventListener("click", async () => {
+    $("btnCalNext").addEventListener("click", () => {
       shiftMonth(1);
-      await loadMonth();
+      loadMonth();
     });
-    $("btnCalToday").addEventListener("click", async () => {
+    $("btnCalToday").addEventListener("click", () => {
       const t = new Date();
       viewYear = t.getFullYear();
       viewMonth = t.getMonth() + 1;
-      await loadMonth();
-    });
-
-    $("modeChip").addEventListener("click", () => {
-      if (!ledControlAllowed) return;
-      setTab("luci");
+      loadMonth();
     });
 
     $("btnGotoCal").addEventListener("click", () => setTab("cal"));
@@ -1639,42 +1127,25 @@
       btn.addEventListener("click", () => setTab(btn.dataset.tab));
     });
 
-    async function setLedMode(manual) {
-      if (!ledControlAllowed) return;
-      setModeButtons(manual, true);
-      setMsg($("appMsg"), "", "");
-      try {
-        const path = manual ? "/api/action/leds/toggle" : "/api/action/leds/reset";
-        const data = await api(path, { method: "POST" });
-        applyLedStateFromApi(data);
-        if (!manual) {
-          setMsg($("appMsg"), "Modalità automatica ripristinata.", "ok");
-        }
-      } catch (e) {
-        setMsg($("appMsg"), e.message, "err");
-        await refreshLedState();
-      }
-    }
-
-    $("btnModeAuto").addEventListener("click", async () => {
-      if ($("btnModeAuto").classList.contains("active-auto")) return;
-      await setLedMode(false);
-    });
-    $("btnModeManual").addEventListener("click", async () => {
-      if ($("btnModeManual").classList.contains("active-manual")) return;
-      await setLedMode(true);
-    });
-
     buildDowHeader();
-    initLedControlGate();
-
-    (async () => {
-      try {
-        await Promise.all([loadTomorrowHero(), ensureWeekMonthsCached(), loadMonth()]);
-      } catch {
-        /* scheda non pronta */
-      }
-    })();
+    loadTomorrowHero();
+    ensureWeekMonthsCached();
+    loadMonth();
   </script>
 </body>
 </html>
+'''
+
+
+def main() -> None:
+    entries = parse_calendar_entries(CALENDAR_H.read_text(encoding="utf-8"))
+    OUT_HTML.parent.mkdir(parents=True, exist_ok=True)
+    html = build_html(calendar_js(entries))
+    OUT_HTML.write_text(html, encoding="utf-8", newline="\n")
+    if ICON_SRC.is_file():
+        ICON_DST.write_bytes(ICON_SRC.read_bytes())
+    print(f"Wrote {OUT_HTML.relative_to(ROOT)} ({len(entries)} entries)")
+
+
+if __name__ == "__main__":
+    main()

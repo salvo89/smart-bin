@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera bin/web_ui_embed.h da webapp/index.html (gzip RFC1952 per Content-Encoding: gzip)."""
+"""Genera bin/web_ui_embed.h da webapp/index.html + icon-192.png (gzip HTML)."""
 from __future__ import annotations
 
 import gzip
@@ -7,6 +7,7 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "webapp" / "index.html"
+ICON = ROOT / "webapp" / "icon-192.png"
 OUT = ROOT / "bin" / "web_ui_embed.h"
 
 
@@ -27,6 +28,9 @@ def emit_bytes_array(lines: list[str], name: str, data: bytes) -> None:
 def main() -> None:
     raw = SRC.read_bytes()
     gz = gzip.compress(raw, compresslevel=9, mtime=0)
+    if not ICON.is_file():
+        raise SystemExit(f"Missing {ICON} — run tools/gen_app_icon.py first")
+    icon = ICON.read_bytes()
     lines = [
         "// Auto-generato da tools/embed_webapp.py — non modificare a mano.",
         "#ifndef SMART_BIN_WEB_UI_EMBED_H",
@@ -35,14 +39,20 @@ def main() -> None:
         "#include <Arduino.h>",
         "",
         f"// HTML originale: {len(raw)} byte → gzip (flash): {len(gz)} byte",
+        f"// Icona PNG: {len(icon)} byte",
         "",
     ]
     emit_bytes_array(lines, "SMART_BIN_WEB_UI_GZ", gz)
+    lines.append("")
+    emit_bytes_array(lines, "SMART_BIN_WEB_ICON_PNG", icon)
     lines.extend(["", "#endif", ""])
     OUT.write_text("\n".join(lines), encoding="utf-8")
     saved = len(raw) - len(gz)
     pct = 100.0 * saved / len(raw) if raw else 0.0
-    print(f"Wrote {OUT}  raw={len(raw)}  gzip={len(gz)}  saved={saved} ({pct:.1f}%)")
+    print(
+        f"Wrote {OUT}  raw={len(raw)}  gzip={len(gz)}  "
+        f"icon={len(icon)}  saved={saved} ({pct:.1f}%)"
+    )
 
 
 if __name__ == "__main__":
