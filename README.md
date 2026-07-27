@@ -29,6 +29,53 @@ Non è un prodotto commerciale né un servizio cloud: è un progetto hardware/fi
 
 I pin si cambiano in `config.h` (vedi sotto).
 
+### Schema elettrico (default)
+
+Alimentazione: ESP32 via USB (o 5 V su `VIN` / 3.3 V regolato secondo la tua DevKit). I GPIO sono a **3.3 V**. Ogni LED va in serie con una resistenza limitatrice; il catodo va a `GND`.
+
+Valori tipici per LED standard a 3.3 V: **R ≈ 220 Ω** (va bene anche 150–330 Ω; regola in base a Vf e luminosità desiderata).
+
+```text
+                    ESP32 DevKit
+                 ┌─────────────────┐
+                 │                 │
+           3V3 ──┤ 3V3             │
+                 │                 │
+           GND ──┤ GND             │
+                 │                 │
+                 │            GPIO25├────[R]────(►| LED Carta          ──┐
+                 │            GPIO26├────[R]────(►| LED Organico        ──┤
+                 │            GPIO27├────[R]────(►| LED Indifferenziata ──┼── GND
+                 │            GPIO14├────[R]────(►| LED Plastica        ──┤
+                 │            GPIO33├────[R]────(►| LED Verde           ──┘
+                 │                 │
+                 │             GPIO4├────┬──── pulsante (NO)
+                 │                 │    │
+                 │                 │   [ ]  (chiuso = premuto)
+                 │                 │    │
+                 │             GND ┼────┘
+                 └─────────────────┘
+
+  (►|  = LED (anodo verso il GPIO + R, catodo verso GND)
+  [R]  = resistenza in serie (~220 Ω)
+```
+
+| Segnale | GPIO | Collegamento |
+| ------- | ---- | ------------ |
+| Carta | 25 | `GPIO25` → R → anodo LED → catodo → `GND` |
+| Organico | 26 | `GPIO26` → R → anodo LED → catodo → `GND` |
+| Indifferenziata | 27 | `GPIO27` → R → anodo LED → catodo → `GND` |
+| Plastica | 14 | `GPIO14` → R → anodo LED → catodo → `GND` |
+| Verde | 33 | `GPIO33` → R → anodo LED → catodo → `GND` |
+| Pulsante | 4 | un lato `GPIO4`, altro lato `GND` (pull-up interno; niente resistenza esterna obbligatoria) |
+
+Note:
+
+- Un solo `GND` comune per tutti i LED e il pulsante.
+- Non collegare i LED direttamente al GPIO senza resistenza.
+- Il firmware guida i LED in PWM (`analogWrite`); polarità come sopra (GPIO alto = LED acceso).
+- Evita GPIO strapping critici per il boot se cambi i pin in `config.h`.
+
 ## Prerequisiti software
 
 - [Arduino IDE](https://www.arduino.cc/en/software) (o Arduino CLI) con core **esp32**
