@@ -7,6 +7,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Escilo" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <title>Escilo — perché i cassonetti non si escono da soli</title>
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" href="icon-192.png" />
@@ -373,6 +374,86 @@
       font-size: 0.75rem;
     }
     .install-app:active { filter: brightness(0.95); }
+
+    .install-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 var(--safe) max(1rem, env(safe-area-inset-bottom));
+      background: rgba(20, 32, 24, 0.45);
+    }
+    .install-sheet[hidden] { display: none; }
+    .install-sheet-card {
+      width: min(100%, 26rem);
+      padding: 1.15rem 1.15rem 1rem;
+      border-radius: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 36px rgba(20, 40, 30, 0.18);
+      animation: rise 0.35s ease both;
+    }
+    .install-sheet-card h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: var(--display);
+      letter-spacing: -0.02em;
+    }
+    .install-sheet-card .lead {
+      margin: 0 0 0.95rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .install-steps {
+      margin: 0 0 1rem;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .install-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+    .install-steps .n {
+      flex-shrink: 0;
+      width: 1.45rem;
+      height: 1.45rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .install-steps .share-ico {
+      display: inline-block;
+      vertical-align: -0.2em;
+      width: 1em;
+      height: 1em;
+      margin: 0 0.1em;
+      color: var(--accent);
+    }
+    .install-sheet-close {
+      width: 100%;
+      min-height: var(--touch);
+      border-radius: 1rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
 
     .cal-wrap {
       display: flex;
@@ -891,6 +972,33 @@
   </style>
 </head>
 <body>
+  <div class="install-sheet" id="installSheet" hidden role="dialog" aria-modal="true" aria-labelledby="installSheetTitle">
+    <div class="install-sheet-card">
+      <h2 id="installSheetTitle">Installa Escilo su iPhone</h2>
+      <p class="lead">Su Safari non c’è un install automatico: aggiungi Escilo alla Home in tre passaggi.</p>
+      <ol class="install-steps">
+        <li>
+          <span class="n" aria-hidden="true">1</span>
+          <span>Tocca
+            <svg class="share-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/>
+            </svg>
+            <strong>Condividi</strong> in basso al centro.
+          </span>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">2</span>
+          <span>Scorri e scegli <strong>Aggiungi a Home</strong>.</span>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">3</span>
+          <span>Conferma con <strong>Aggiungi</strong>: compare l’icona Escilo.</span>
+        </li>
+      </ol>
+      <button type="button" class="install-sheet-close" id="btnInstallSheetClose">Ho capito</button>
+    </div>
+  </div>
+
   <div class="zone-gate" id="zoneGate" hidden>
     <form class="zone-gate-card" id="zoneGateForm">
       <div class="zone-gate-lockup">
@@ -969,8 +1077,8 @@
       </button>
 
       <button type="button" class="install-app" id="btnInstallApp" hidden>
-        Installa app
-        <span class="hint">Scorciatoia sul telefono</span>
+        <span id="btnInstallAppLabel">Installa app</span>
+        <span class="hint" id="btnInstallAppHint">Scorciatoia sul telefono</span>
       </button>
 
       <p class="data-source">
@@ -2247,26 +2355,65 @@
       return /Chrome\/\d+/i.test(ua);
     }
 
-    function canOfferInstall() {
-      return (
-        !!deferredInstallPrompt &&
-        isAndroidChrome() &&
-        !isStandaloneDisplay() &&
-        window.isSecureContext
-      );
+    function isIosDevice() {
+      const ua = navigator.userAgent || "";
+      if (/iPhone|iPad|iPod/i.test(ua)) return true;
+      // iPadOS 13+ può presentarsi come Macintosh
+      return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+    }
+
+    function isIosSafari() {
+      if (!isIosDevice()) return false;
+      const ua = navigator.userAgent || "";
+      // Solo Safari nativo: escludi Chrome/Firefox/Edge/Opera su iOS
+      if (/CriOS|FxiOS|EdgiOS|OPiOS|Chrome|Firefox|Edg/i.test(ua)) return false;
+      return /Safari/i.test(ua) && /WebKit/i.test(ua);
+    }
+
+    /** @returns {"android"|"ios"|null} */
+    function getInstallOffer() {
+      if (isStandaloneDisplay() || !window.isSecureContext) return null;
+      if (isAndroidChrome() && deferredInstallPrompt) return "android";
+      if (isIosSafari()) return "ios";
+      return null;
     }
 
     function syncInstallButton() {
       const btn = $("btnInstallApp");
       if (!btn) return;
-      const show = canOfferInstall();
+      const offer = getInstallOffer();
+      const show = !!offer;
       btn.hidden = !show;
       btn.classList.toggle("show", show);
+      if (!show) return;
+      const label = $("btnInstallAppLabel");
+      const hint = $("btnInstallAppHint");
+      if (offer === "ios") {
+        if (label) label.textContent = "Installa app";
+        if (hint) hint.textContent = "Aggiungi a Home (Safari)";
+      } else {
+        if (label) label.textContent = "Installa app";
+        if (hint) hint.textContent = "Scorciatoia sul telefono";
+      }
     }
 
-    function hideInstallButton() {
+    function hideAndroidInstallOffer() {
       deferredInstallPrompt = null;
       syncInstallButton();
+    }
+
+    function openIosInstallSheet() {
+      const sheet = $("installSheet");
+      if (!sheet) return;
+      sheet.hidden = false;
+      const closeBtn = $("btnInstallSheetClose");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeIosInstallSheet() {
+      const sheet = $("installSheet");
+      if (!sheet) return;
+      sheet.hidden = true;
     }
 
     window.addEventListener("beforeinstallprompt", (e) => {
@@ -2276,22 +2423,36 @@
     });
 
     window.addEventListener("appinstalled", () => {
-      hideInstallButton();
+      hideAndroidInstallOffer();
+      closeIosInstallSheet();
     });
 
     $("btnInstallApp").addEventListener("click", async () => {
-      if (!canOfferInstall()) {
-        hideInstallButton();
+      const offer = getInstallOffer();
+      if (offer === "ios") {
+        openIosInstallSheet();
+        return;
+      }
+      if (offer !== "android") {
+        syncInstallButton();
         return;
       }
       const promptEvent = deferredInstallPrompt;
-      hideInstallButton();
+      hideAndroidInstallOffer();
       try {
         await promptEvent.prompt();
         await promptEvent.userChoice;
       } catch (err) {
         console.error(err);
       }
+    });
+
+    $("btnInstallSheetClose").addEventListener("click", () => {
+      closeIosInstallSheet();
+    });
+
+    $("installSheet").addEventListener("click", (ev) => {
+      if (ev.target === $("installSheet")) closeIosInstallSheet();
     });
 
     async function registerServiceWorker() {
