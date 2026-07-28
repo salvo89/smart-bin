@@ -37,11 +37,13 @@
       --radius: 1.15rem;
       --font: "Outfit", "Segoe UI", system-ui, sans-serif;
       --display: "Fraunces", Georgia, serif;
-      --tag-c: #5a9fd4;
-      --tag-o: #8b5a3c;
-      --tag-i: #8a95a5;
-      --tag-p: #d4a017;
-      --tag-v: #3fad6a;
+      /* UNI 11686 / Covar14 Waste Visual Elements */
+      --tag-c: #0e518d;
+      --tag-o: #755c49;
+      --tag-i: #9da3a6;
+      --tag-p: #f3e03b;
+      --tag-v: #d1bc8a;
+      --tag-g: #28713e;
       --tag-car: #4a7ec8;
       --tag-x: #a88bc8;
     }
@@ -337,6 +339,10 @@
       background: color-mix(in srgb, var(--tag-v) 16%, white);
       border-color: color-mix(in srgb, var(--tag-v) 40%, transparent);
     }
+    .chip.sw-g {
+      background: color-mix(in srgb, var(--tag-g) 16%, white);
+      border-color: color-mix(in srgb, var(--tag-g) 40%, transparent);
+    }
     .chip.sw-car {
       background: color-mix(in srgb, var(--tag-car) 16%, white);
       border-color: color-mix(in srgb, var(--tag-car) 40%, transparent);
@@ -573,6 +579,7 @@
     .cal-legend i.tag-i { background: var(--tag-i); }
     .cal-legend i.tag-p { background: var(--tag-p); }
     .cal-legend i.tag-v { background: var(--tag-v); }
+    .cal-legend i.tag-g { background: var(--tag-g); }
     .cal-legend i.tag-car { background: var(--tag-car); }
 
     .cal-wrap.loading { pointer-events: none; }
@@ -671,11 +678,12 @@
       line-height: 1.1;
       white-space: nowrap;
     }
-    .cal-cell .tag-c { background: var(--tag-c); }
+    .cal-cell .tag-c { background: var(--tag-c); color: #f4f8ff; }
     .cal-cell .tag-o { background: var(--tag-o); color: #fff4ec; }
     .cal-cell .tag-i { background: var(--tag-i); color: #1a222c; }
     .cal-cell .tag-p { background: var(--tag-p); color: #1a222c; }
-    .cal-cell .tag-v { background: var(--tag-v); color: #0a0e12; }
+    .cal-cell .tag-v { background: var(--tag-v); color: #2a2418; }
+    .cal-cell .tag-g { background: var(--tag-g); color: #f2faf4; }
     .cal-cell .tag-x { background: var(--tag-x); color: #0a0e12; }
     .cal-cell .tag-car { background: var(--tag-car); color: #f4f8ff; }
     .cal-cell .none {
@@ -689,6 +697,7 @@
     .sw-i { background: var(--tag-i); }
     .sw-p { background: var(--tag-p); }
     .sw-v { background: var(--tag-v); }
+    .sw-g { background: var(--tag-g); }
     .sw-car { background: var(--tag-car); }
     .sw-x { background: var(--tag-x); }
 
@@ -845,6 +854,7 @@
           <span><i class="tag-i" aria-hidden="true"></i><span class="name">Indiff.</span></span>
           <span><i class="tag-p" aria-hidden="true"></i><span class="name">Plastica</span></span>
           <span><i class="tag-v" aria-hidden="true"></i><span class="name">Verde</span></span>
+          <span><i class="tag-g" aria-hidden="true"></i><span class="name">Vetro</span></span>
         </div>
       </div>
       <p class="msg" id="calMsg"></p>
@@ -867,13 +877,14 @@
   </nav>
 
   <script>
-    const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver"];
+    const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver", "Vet"];
     const BIN_FULL = {
       C: { code: "Car", name: "Carta", icon: "📄", sw: "sw-c" },
       O: { code: "Org", name: "Organico", icon: "🍂", sw: "sw-o" },
       I: { code: "Ind", name: "Indifferenziata", icon: "🗑", sw: "sw-i" },
       P: { code: "Pla", name: "Plastica", icon: "♻", sw: "sw-p" },
       V: { code: "Ver", name: "Verde", icon: "🌿", sw: "sw-v" },
+      G: { code: "Vet", name: "Vetro", icon: "🫙", sw: "sw-g" },
     };
     const BIN_TILES = [
       { icon: "📄", lbl: "Carta", code: "Car", bin: 0 },
@@ -881,6 +892,7 @@
       { icon: "🗑", lbl: "Indiff.", code: "Ind", bin: 2 },
       { icon: "♻", lbl: "Plastica", code: "Pla", bin: 3 },
       { icon: "🌿", lbl: "Verde", code: "Ver", bin: 4 },
+      { icon: "🫙", lbl: "Vetro", code: "Vet", bin: 5 },
     ];
     const DOW_IT = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
     const DOW_FULL = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
@@ -1282,6 +1294,7 @@
         case "I": return "tag-i";
         case "P": return "tag-p";
         case "V": return "tag-v";
+        case "G": return "tag-g";
         default: return "tag-x";
       }
     }

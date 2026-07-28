@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" />
+  <title>Escilo — Fonti dati</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #eef6f1;
+      --bg-top: #d8f0e2;
+      --surface: #ffffff;
+      --ink: #142018;
+      --muted: #5a7266;
+      --muted-2: #6a8074;
+      --line: #d5e2da;
+      --accent: #1f5c42;
+      --accent-soft: #e4f3eb;
+      --safe: 1rem;
+      --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+      --display: "Fraunces", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font);
+      color: var(--ink);
+      line-height: 1.45;
+      background:
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, #f4f7f5 100%);
+    }
+    a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .page {
+      max-width: 28rem;
+      margin: 0 auto;
+      padding: 0.75rem var(--safe) 2.5rem;
+      padding-top: max(0.75rem, env(safe-area-inset-top));
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 650;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; }
+    .brand {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .intro {
+      margin: 0 0 1.25rem;
+      padding: 1.1rem 1.05rem 1.05rem;
+      border-radius: 1.25rem;
+      background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+      color: #f3faf6;
+      box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+    }
+    .intro h1 {
+      margin: 0 0 0.45rem;
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    .intro p {
+      margin: 0;
+      font-size: 0.88rem;
+      opacity: 0.88;
+    }
+    .intro .meta {
+      margin-top: 0.7rem;
+      font-size: 0.72rem;
+      opacity: 0.7;
+      font-weight: 600;
+    }
+
+    .note {
+      margin: 0 0 1.15rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 0.85rem;
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .status {
+      margin: 0 0 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .status.error { color: #8b3a3a; }
+
+    .provider {
+      margin: 0 0 0.85rem;
+      border-radius: 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .provider > summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.95rem 1rem;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .provider > summary::-webkit-details-marker { display: none; }
+    .provider > summary::after {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-right: 2px solid var(--muted);
+      border-bottom: 2px solid var(--muted);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      transition: transform 0.15s ease;
+      margin-top: -0.2rem;
+    }
+    .provider[open] > summary::after {
+      transform: rotate(-135deg);
+      margin-top: 0.15rem;
+    }
+    .provider-head {
+      min-width: 0;
+    }
+    .provider-name {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .provider-count {
+      margin: 0.15rem 0 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .provider-body {
+      padding: 0 1rem 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .provider-link {
+      display: inline-block;
+      margin: 0.85rem 0 0.7rem;
+      font-size: 0.82rem;
+    }
+    .comuni {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .comuni li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.45rem 0.55rem;
+      border-radius: 0.65rem;
+      background: #f7fbf8;
+      font-size: 0.86rem;
+    }
+    .comuni .name { font-weight: 600; }
+    .comuni .years {
+      font-size: 0.7rem;
+      font-weight: 650;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .footer {
+      margin: 1.5rem 0 0;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--muted-2);
+      line-height: 1.4;
+    }
+    .footer a {
+      color: var(--accent);
+      font-weight: 650;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .footer .sep {
+      padding: 0 0.22rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .footer .contact-accent {
+      color: var(--accent);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="index.html">← Calendario</a>
+      <p class="brand">Escilo</p>
+    </header>
+
+    <section class="intro">
+      <h1>Fonti dati</h1>
+      <p>
+        I calendari derivano da PDF e pagine ufficiali dei gestori della raccolta.
+        Verifica sempre sul sito del gestore in caso di dubbi o variazioni.
+      </p>
+      <p class="meta" id="metaLine">Caricamento…</p>
+    </section>
+
+    <p class="note">
+      <strong>Smart&nbsp;Bin</strong> non è affiliato agli enti gestori.
+      La presenza di una fonte non implica che ogni zona sia già convertita nel calendario dell’app.
+    </p>
+
+    <p class="status" id="status" hidden></p>
+    <div id="providers"></div>
+
+    <p class="footer">
+      Errori o zona mancante?
+      <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Smart%20Bin%20%E2%80%94%20calendario">Scrivici</a>
+    </p>
+  </div>
+
+  <script>
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function groupByProvider(comuni) {
+      const map = new Map();
+      for (const c of comuni) {
+        const key = c.provider || "Altro";
+        if (!map.has(key)) map.set(key, []);
+        map.get(key).push(c);
+      }
+      for (const list of map.values()) {
+        list.sort((a, b) => String(a.name).localeCompare(String(b.name), "it"));
+      }
+      return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0], "it"));
+    }
+
+    function providerSourcePage(list) {
+      const pages = [...new Set(list.map((c) => c.sourcePage).filter(Boolean))];
+      return pages.length === 1 ? pages[0] : null;
+    }
+
+    function render(data) {
+      const meta = document.getElementById("metaLine");
+      const root = document.getElementById("providers");
+      const comuni = Array.isArray(data.comuni) ? data.comuni : [];
+      const groups = groupByProvider(comuni);
+
+      meta.textContent =
+        (data.generatedAt ? "Aggiornato: " + data.generatedAt + " · " : "")
+        + comuni.length + " comuni · " + groups.length + " gestori";
+
+      root.innerHTML = groups.map(([provider, list], idx) => {
+        const page = providerSourcePage(list);
+        const linkHtml = page
+          ? '<a class="provider-link" href="' + escapeHtml(page)
+              + '" target="_blank" rel="noopener noreferrer">Pagina calendari ufficiale</a>'
+          : "";
+        const items = list.map((c) => {
+          const years = Array.isArray(c.years) && c.years.length
+            ? escapeHtml(c.years.join(", "))
+            : "";
+          const name = c.sourcePage
+            ? '<a href="' + escapeHtml(c.sourcePage)
+                + '" target="_blank" rel="noopener noreferrer">'
+                + escapeHtml(c.name) + "</a>"
+            : escapeHtml(c.name);
+          return (
+            "<li>"
+            + '<span class="name">' + name + "</span>"
+            + (years ? '<span class="years">' + years + "</span>" : "")
+            + "</li>"
+          );
+        }).join("");
+
+        return (
+          '<details class="provider"' + (idx === 0 ? " open" : "") + ">"
+          + "<summary><div class=\"provider-head\">"
+          + '<p class="provider-name">' + escapeHtml(provider) + "</p>"
+          + '<p class="provider-count">' + list.length
+          + (list.length === 1 ? " comune" : " comuni") + "</p>"
+          + "</div></summary>"
+          + '<div class="provider-body">'
+          + linkHtml
+          + '<ul class="comuni">' + items + "</ul>"
+          + "</div></details>"
+        );
+      }).join("");
+    }
+
+    async function main() {
+      const status = document.getElementById("status");
+      try {
+        const res = await fetch("calendars/sources.json", { cache: "no-cache" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        render(await res.json());
+      } catch (err) {
+        document.getElementById("metaLine").textContent = "Fonti non disponibili";
+        status.hidden = false;
+        status.className = "status error";
+        status.textContent = "Impossibile caricare calendars/sources.json.";
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

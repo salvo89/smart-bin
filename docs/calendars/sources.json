@@ -1,0 +1,1617 @@
+{
+  "generatedAt": "2026-07-28",
+  "notes": [
+    "Catalogo fonti per la pagina web Smart Bin.",
+    "Queste fonti descrivono provenienza e disponibilita' dei calendari PDF/HTML per comune.",
+    "La presenza qui non implica che il comune sia gia' convertito in docs/calendars/*.h."
+  ],
+  "comuni": [
+    {
+      "id": "beinasco",
+      "name": "Beinasco",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%201_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 1B",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%201B.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%204.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4B",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%204B.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5B",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%205B.pdf"
+        }
+      ]
+    },
+    {
+      "id": "borgaro-torinese",
+      "name": "Borgaro Torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/780-borgaro-torinese",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona A",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Borgaro-Torinese_zona-A.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona B",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Borgaro-Torinese_zona-B.pdf"
+        }
+      ]
+    },
+    {
+      "id": "brandizzo",
+      "name": "Brandizzo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/781-brandizzo",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Brandizzo_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Brandizzo_zona-2.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 3",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Brandizzo_zona-3.pdf"
+        }
+      ]
+    },
+    {
+      "id": "brozolo",
+      "name": "Brozolo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/782-brozolo",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Brozolo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "bruino",
+      "name": "Bruino",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BRUINO%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BRUINO%20ZONA%202_1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "brusasco",
+      "name": "Brusasco",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/783-brusasco",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Brusasco.pdf"
+        }
+      ]
+    },
+    {
+      "id": "candiolo",
+      "name": "Candiolo",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "carignano",
+      "name": "Carignano",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 10",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%2010.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%204.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%206.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 7",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%207.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 8",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%208.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 9",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%209.pdf"
+        }
+      ]
+    },
+    {
+      "id": "casalborgone",
+      "name": "Casalborgone",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/784-casalborgone",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Casalborgone.pdf"
+        }
+      ]
+    },
+    {
+      "id": "caselle-torinese",
+      "name": "Caselle Torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/785-caselle-torinese",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Caselle-Torinese_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Caselle-Torinese_zona-2.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 3",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Caselle-Torinese_zona-3.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 4",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Caselle-Torinese_zona-4.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 5",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Caselle-Torinese_zona-5.pdf"
+        }
+      ]
+    },
+    {
+      "id": "castagnole-po",
+      "name": "Castagneto Po",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/786-castagneto-po",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Castagneto-Po.pdf"
+        }
+      ]
+    },
+    {
+      "id": "castagnole-piemonte",
+      "name": "Castagnole Piemonte",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CASTAGNOLE%20P.TE%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CASTAGNOLE%20P.TE%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CASTAGNOLE%20P.TE%20ZONA%203.pdf"
+        }
+      ]
+    },
+    {
+      "id": "castiglione-torinese",
+      "name": "Castiglione Torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/787-castiglione-torinese",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Castiglione-Torinese_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Castiglione-Torinese_zona-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cavagnolo",
+      "name": "Cavagnolo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/788-cavagnolo",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Cavagnolo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "chivasso",
+      "name": "Chivasso",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/789-chivasso",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-2.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 3",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-3.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 4",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-4.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 5",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-5.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 6",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-6.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cinzano",
+      "name": "Cinzano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/790-cinzano",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Cinzano.pdf"
+        }
+      ]
+    },
+    {
+      "id": "foglizzo",
+      "name": "Foglizzo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/791-foglizzo",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Foglizzo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "gassino-torinese",
+      "name": "Gassino Torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/792-gassino-torinese",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Gassino-Torinese_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 3",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Gassino-Torinese_zona-3.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 4",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Gassino-Torinese_zona-4.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ivrea",
+      "name": "Ivrea",
+      "provider": "SCS",
+      "sourcePage": "https://scsivrea.it/calendario-2-0/calendario-comune-di-ivrea/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Pagina comune con PDF 2026 per molte zone alfabetiche e sottozone.",
+        "Verificato almeno il set di link pubblicati nella pagina il 2026-07-28."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona A",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREAZONA-A-Copia.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona B",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-B.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona C",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-C.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona G",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Calendario-2026_UD_IVREA-ZONA-G.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona S",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-S.pdf"
+        }
+      ]
+    },
+    {
+      "id": "la-loggia",
+      "name": "La Loggia",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LA%20LOGGIA%20ZONA%201_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LA%20LOGGIA%20ZONA%202_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LA%20LOGGIA%20ZONA%203_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LA%20LOGGIA%20ZONA%204_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LA%20LOGGIA%20ZONA%205_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LA%20LOGGIA%20ZONA%206_1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "lauriano",
+      "name": "Lauriano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/793-lauriano",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Lauriano.pdf"
+        }
+      ]
+    },
+    {
+      "id": "leini",
+      "name": "Lein\u00ec",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/794-leini",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Leini_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Leini_zona-2.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 3",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Leini_zona-3.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 4",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Leini_zona-4.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 5",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Leini_zona-5.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 6",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Leini_zona-6.pdf"
+        }
+      ]
+    },
+    {
+      "id": "lombardore",
+      "name": "Lombardore",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/795-lombardore",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Lombardore.pdf"
+        }
+      ]
+    },
+    {
+      "id": "lombriasco",
+      "name": "Lombriasco",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LOMBRIASCO.pdf"
+        }
+      ]
+    },
+    {
+      "id": "mappano",
+      "name": "Mappano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/862-mappano",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Mappano.pdf"
+        }
+      ]
+    },
+    {
+      "id": "moncalieri",
+      "name": "Moncalieri",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 10",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%2010.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 11",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%2011.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 12",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%2012.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%204_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%206.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 7",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%207.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 8",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%208.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 9",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%209.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 9A",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%209A.pdf"
+        }
+      ]
+    },
+    {
+      "id": "montanaro",
+      "name": "Montanaro",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/796-montanaro",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Montanaro_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Montanaro_zona-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "monteu-da-po",
+      "name": "Monteu da Po",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/797-monteu-da-po",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Monteu-da-Po.pdf"
+        }
+      ]
+    },
+    {
+      "id": "nichelino",
+      "name": "Nichelino",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%204.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%206.pdf"
+        }
+      ]
+    },
+    {
+      "id": "orbassano",
+      "name": "Orbassano",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1A",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%201A_2.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 1B",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%201B_2.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2A",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%202A_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2B",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%202B_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2BA",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%202BA_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2BB",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%202BB_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%203_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4A",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%204A_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4B",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%204B_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%205_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%206_1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "osasio",
+      "name": "Osasio",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20OSASIO.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pancalieri",
+      "name": "Pancalieri",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica \u200b",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PANCALIERI.pdf"
+        }
+      ]
+    },
+    {
+      "id": "piobesi-torinese",
+      "name": "Piobesi Torinese",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOBESI%20T.SE%20ZONA%201_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOBESI%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOBESI%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOBESI%20ZONA%204.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOBESI%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOBESI%20ZONA%206.pdf"
+        }
+      ]
+    },
+    {
+      "id": "piossasco",
+      "name": "Piossasco",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOSSASCO%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOSSASCO%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOSSASCO%20ZONA%203_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOSSASCO%20ZONA%204_1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rivalba",
+      "name": "Rivalba",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/798-rivalba",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Rivalba.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rivalta-di-torino",
+      "name": "Rivalta di Torino",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1A",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%201A.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 1B",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%201B.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%204.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%206.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rondissone",
+      "name": "Rondissone",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/799-rondissone",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Rondissone.pdf"
+        }
+      ]
+    },
+    {
+      "id": "san-benigno-canavese",
+      "name": "San Benigno Canavese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/800-san-benigno-canavese",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona NORD",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Benigno-Canavese_zona-NORD.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona SUD",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Benigno-Canavese_zona-SUD.pdf"
+        }
+      ]
+    },
+    {
+      "id": "san-mauro-torinese",
+      "name": "San Mauro Torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/801-san-mauro-torinese",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona CAPOLUOGO",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Mauro-Torinese_zona-CAPOLUOGO.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona OLTREPO",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Mauro-Torinese_zona-OLTREPO.pdf"
+        }
+      ]
+    },
+    {
+      "id": "san-raffaele-cimena",
+      "name": "San Raffaele Cimena",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/802-san-raffaele-cimena",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_San-Raffaele-Cimena.pdf"
+        }
+      ]
+    },
+    {
+      "id": "san-sebastiano-da-po",
+      "name": "San Sebastiano da Po",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/803-san-sebastiano-da-po",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Sebastiano-da-Po.pdf"
+        }
+      ]
+    },
+    {
+      "id": "sciolze",
+      "name": "Sciolze",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/804-sciolze",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Sciolze.pdf"
+        }
+      ]
+    },
+    {
+      "id": "settimo-torinese",
+      "name": "Settimo Torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/805-settimo-torinese",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Settimo-Torinese_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Settimo-Torinese_zona-2.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 3",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Settimo-Torinese_zona-3.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 4",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Settimo-Torinese_zona-4.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 5",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Settimo-Torinese_zona-5.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 6",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Settimo-Torinese_zona-6.pdf"
+        }
+      ]
+    },
+    {
+      "id": "torino",
+      "name": "Torino",
+      "provider": "AMIAT",
+      "sourcePage": "https://www.amiat.it/i-nostri-servizi/servizi-di-raccolta-differenziata.html",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Il sito Amiat espone il calendario personalizzato via ricerca indirizzo.",
+        "Come PDF diretto e' stato verificato solo il calendario festivita' 2026."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario festivita' 2026",
+          "url": "https://www.amiat.it/content/dam/amiat/documents/servizi/Calendario-Festivit%C3%A0-Torino_2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "torrazza-piemonte",
+      "name": "Torrazza Piemonte",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/806-torrazza-piemonte",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Torrazza-Piemonte.pdf"
+        }
+      ]
+    },
+    {
+      "id": "trofarello",
+      "name": "Trofarello",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20TROFARELLO%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20TROFARELLO%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20TROFARELLO%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20TROFARELLO%20ZONA%204.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20TROFARELLO%20ZONA%205.pdf"
+        }
+      ]
+    },
+    {
+      "id": "verolengo",
+      "name": "Verolengo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/807-verolengo",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona 1",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Verolengo_zona-1.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona 2",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Verolengo_zona-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "verrua-savoia",
+      "name": "Verrua Savoia",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/808-verrua-savoia",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona unica",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Verrua-Savoia.pdf"
+        }
+      ]
+    },
+    {
+      "id": "villastellone",
+      "name": "Villastellone",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VILLASTELLONE%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VILLASTELLONE%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VILLASTELLONE%20ZONA%203.pdf"
+        }
+      ]
+    },
+    {
+      "id": "vinovo",
+      "name": "Vinovo",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VINOVO%20ZONA%201.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VINOVO%20ZONA%202.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VINOVO%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VINOVO%20ZONA%204.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VINOVO%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VINOVO%20ZONA%206.pdf"
+        }
+      ]
+    },
+    {
+      "id": "virle-piemonte",
+      "name": "Virle Piemonte",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VIRLE%20PIEMONTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "volpiano",
+      "name": "Volpiano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/809-volpiano",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario da setaspa.com per zona."
+      ],
+      "pdfs": [
+        {
+          "year": 2027,
+          "label": "Zona CENTRO",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Volpiano_zona-CENTRO.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona EST",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Volpiano_zona-EST.pdf"
+        },
+        {
+          "year": 2027,
+          "label": "Zona OVEST",
+          "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Volpiano_zona-OVEST.pdf"
+        }
+      ]
+    }
+  ]
+}

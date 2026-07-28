@@ -1,130 +1,113 @@
 #!/usr/bin/env python3
-"""Genera webapp/icon-192.png: cassonetto stile taglio laser (PNG palette leggero)."""
+"""Genera icon-192.png (con sfondo) e brand-mark.png (solo glifo trasparente)."""
 from __future__ import annotations
 
 import pathlib
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageChops
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "webapp" / "icon-192.png"
+SRC = ROOT / "webapp" / "icon-proposals" / "icon-proposal-2-calendar-leaf.png"
+ICON_OUTS = (
+    ROOT / "webapp" / "icon-192.png",
+    ROOT / "docs" / "icon-192.png",
+)
+MARK_OUTS = (
+    ROOT / "webapp" / "brand-mark.png",
+    ROOT / "docs" / "brand-mark.png",
+)
+MINT = (228, 243, 235)
+ACCENT = (31, 92, 66)
 
-# Palette: sfondo app / legno / linea taglio / vano / led
-BG = (31, 92, 66)       # --accent
-WOOD = (214, 186, 140)  # compensato
-CUT = (36, 28, 20)      # tratto laser
-VOID = (20, 58, 42)     # vano (mostra lo sfondo scuro)
-LED = (80, 220, 120)
+
+def _trim_white(im: Image.Image, threshold: int = 12) -> Image.Image:
+    white = Image.new("RGB", im.size, (255, 255, 255))
+    diff = ImageChops.difference(im.convert("RGB"), white)
+    bbox = diff.convert("L").point(lambda p: 255 if p > threshold else 0).getbbox()
+    if not bbox:
+        raise SystemExit("nessun contenuto nell'immagine sorgente")
+    pad = 8
+    x0, y0, x1, y1 = bbox
+    x0, y0 = max(0, x0 - pad), max(0, y0 - pad)
+    x1, y1 = min(im.width, x1 + pad), min(im.height, y1 + pad)
+    return im.crop((x0, y0, x1, y1))
+
+
+def _write_app_icon(cropped: Image.Image) -> None:
+    side = max(cropped.size)
+    canvas = Image.new("RGB", (side, side), MINT)
+    canvas.paste(
+        cropped.convert("RGB"),
+        ((side - cropped.width) // 2, (side - cropped.height) // 2),
+    )
+    px = canvas.load()
+    for y in range(side):
+        for x in range(side):
+            r, g, b = px[x, y]
+            if r > 245 and g > 245 and b > 245:
+                px[x, y] = MINT
+            elif r > 235 and g > 235 and b > 235 and abs(r - g) < 8 and abs(g - b) < 8:
+                px[x, y] = MINT
+
+    out192 = canvas.resize((192, 192), Image.Resampling.LANCZOS)
+    pal = out192.convert("P", palette=Image.ADAPTIVE, colors=32)
+    for out in ICON_OUTS:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        pal.save(out, format="PNG", optimize=True)
+        print(f"Wrote {out} ({out.stat().st_size} bytes)")
+
+
+def _is_background(r: int, g: int, b: int) -> bool:
+    # bianco, mint chiaro, ombre soft — non il tratto verde
+    brightness = (r + g + b) / 3
+    if brightness > 210:
+        return True
+    # mint plate (#e4f3eb-ish)
+    if g > r and g > b - 5 and r > 180 and g > 200 and b > 180:
+        return True
+    return False
+
+
+def _write_brand_mark(cropped: Image.Image) -> None:
+    rgba = cropped.convert("RGBA")
+    px = rgba.load()
+    for y in range(rgba.height):
+        for x in range(rgba.width):
+            r, g, b, a = px[x, y]
+            if _is_background(r, g, b):
+                px[x, y] = (0, 0, 0, 0)
+            else:
+                # unifica al verde accent per tratto nitido
+                px[x, y] = (*ACCENT, 255)
+
+    bbox = rgba.getbbox()
+    if not bbox:
+        raise SystemExit("glifo brand-mark vuoto dopo rimozione sfondo")
+    mark = rgba.crop(bbox)
+
+    # padding stretto intorno al glifo
+    pad = max(4, mark.width // 40)
+    canvas = Image.new("RGBA", (mark.width + pad * 2, mark.height + pad * 2), (0, 0, 0, 0))
+    canvas.paste(mark, (pad, pad), mark)
+
+    # ~256px sul lato lungo per retina
+    scale = 256 / max(canvas.size)
+    out = canvas.resize(
+        (max(1, int(canvas.width * scale)), max(1, int(canvas.height * scale))),
+        Image.Resampling.LANCZOS,
+    )
+    for dest in MARK_OUTS:
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        out.save(dest, format="PNG", optimize=True)
+        print(f"Wrote {dest} ({dest.stat().st_size} bytes) size={out.size}")
 
 
 def main() -> None:
-    s = 192
-    img = Image.new("RGB", (s, s), BG)
-    d = ImageDraw.Draw(img)
-
-    # Safe zone per maschera Android (cerchio/squircle): contenuto ~48% del canvas.
-    # Margine ampio così angoli/pettini non vengono tagliati.
-    content = int(s * 0.48)
-    ox = (s - content) / 2
-    oy = (s - content) / 2
-    mid = s / 2
-
-    top = oy + content * 0.18
-    bot = oy + content * 0.88
-    top_w = content * 0.70
-    bot_w = content * 0.54
-    tl, tr = mid - top_w / 2, mid + top_w / 2
-    bl, br = mid - bot_w / 2, mid + bot_w / 2
-    finger = 4.0
-    step = 7.0
-
-    # Lid (barra superiore, tipica del cassonetto)
-    lid_h = 10
-    lid = [
-        (tl - 4, top - lid_h - 3),
-        (tr + 4, top - lid_h - 3),
-        (tr + 1, top - 1),
-        (tl - 1, top - 1),
-    ]
-    d.polygon(lid, fill=WOOD, outline=CUT)
-    # Maniglia / svasatura coperchio (incisione)
-    d.rounded_rectangle(
-        (mid - 14, top - lid_h + 1, mid + 14, top - lid_h + 5),
-        radius=2,
-        outline=CUT,
-        width=2,
-    )
-
-    # Corpo trapezoidale con pettini laterali (stile pannello laser)
-    def x_at(y: float, side: str) -> float:
-        t = (y - top) / (bot - top)
-        if side == "L":
-            return tl + (bl - tl) * t
-        return tr + (br - tr) * t
-
-    # Costruisci contorno: top → right fingers → bottom → left fingers (reverse)
-    outline: list[tuple[float, float]] = [(tl, top), (tr, top)]
-
-    # Right finger edge along tapered side
-    y = top
-    out = True
-    while y < bot - 0.01:
-        yn = min(y + step, bot)
-        xo = x_at((y + yn) / 2, "R")
-        xi = xo - finger
-        x = xo if out else xi
-        outline.append((x, y))
-        outline.append((x, yn))
-        y = yn
-        out = not out
-    outline.append((br, bot))
-    outline.append((bl, bot))
-
-    # Left finger edge upward
-    y = bot
-    out = True
-    while y > top + 0.01:
-        yn = max(y - step, top)
-        xo = x_at((y + yn) / 2, "L")
-        xi = xo + finger
-        x = xo if out else xi
-        outline.append((x, y))
-        outline.append((x, yn))
-        y = yn
-        out = not out
-
-    d.polygon(outline, fill=WOOD, outline=CUT)
-    # Rinforza tratto (look laser 2px)
-    d.line(outline + [outline[0]], fill=CUT, width=2)
-
-    # Vano trapezoidale (taglio interno, come front-vetrina)
-    vx0 = mid - content * 0.18
-    vx1 = mid + content * 0.18
-    vy0 = top + content * 0.16
-    vy1 = bot - content * 0.20
-    inset = content * 0.05
-    window = [
-        (vx0, vy0),
-        (vx1, vy0),
-        (vx1 - inset, vy1),
-        (vx0 + inset, vy1),
-    ]
-    d.polygon(window, fill=VOID, outline=CUT)
-    d.line(window + [window[0]], fill=CUT, width=2)
-
-    # Linea incisione orizzontale sotto il vano
-    d.line((bl + 8, bot - 10, br - 8, bot - 10), fill=CUT, width=2)
-
-    # LED “smart” (cerchio piccolo, tipico indicatore)
-    cx, cy, r = int(tr - 12), int(top + 10), 4
-    d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=CUT)
-    d.ellipse((cx - r + 1, cy - r + 1, cx + r - 1, cy + r - 1), fill=LED)
-
-    # Palette PNG (pochi colori → file piccolo)
-    pal = img.convert("P", palette=Image.ADAPTIVE, colors=8)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    pal.save(OUT, format="PNG", optimize=True)
-    print(f"Wrote {OUT} ({OUT.stat().st_size} bytes)")
+    if not SRC.is_file():
+        raise SystemExit(f"Sorgente icona mancante: {SRC}")
+    cropped = _trim_white(Image.open(SRC))
+    _write_app_icon(cropped)
+    _write_brand_mark(cropped)
 
 
 if __name__ == "__main__":

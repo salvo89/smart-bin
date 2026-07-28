@@ -97,6 +97,7 @@ static char binInitialFromIndex(int binIndex) {
     case 2: return 'I';
     case 3: return 'P';
     case 4: return 'V'; // Verde
+    case 5: return 'G'; // Vetro (G = glass; V è già Verde)
     default: return '?';
   }
 }

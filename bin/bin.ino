@@ -681,8 +681,8 @@ void loop() {
 void eseguiDanzaErrore(const WebApiNetStatus& apiSt) {
   Serial.println(F("Warning: Network Unreachable. Executing stadium wave."));
 
-  // Ordine onda offline: 1 Verde, 2 Carta, 3 Organico, 4 Indifferenziata, 5 Plastica
-  static const int8_t offlineWaveBinOrder[numBins] = {4, 0, 1, 2, 3};
+  // Ordine onda offline: Verde, Vetro, Carta, Organico, Indifferenziata, Plastica
+  static const int8_t offlineWaveBinOrder[numBins] = {4, 5, 0, 1, 2, 3};
 
   const int maxBrightness = 255;
   const int waveFrames = 72;

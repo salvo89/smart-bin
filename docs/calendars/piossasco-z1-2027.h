@@ -1,0 +1,49 @@
+// Piossasco Zona 1 (Covar14): PIAZZA DIAZ, PIAZZA FIUME, PIAZZA LEVI, PIAZZA PARTIGIANI, PIAZZA SAN GIACOMO, PIAZZA SAN GIORGIO, PIAZZA SAN VITO, PIAZZA TENENTE NICOLA, PIAZZA XX SETTEMBRE, VIA AL PIANO DEI CASTELLI, VIA ANTONELLI, VIA BEINASCO, VIA BODONI, VIA BOITO, VIA BORSI, VIA C. BATTISTI, VIA CARIGNANO, VIA CARMAGNOLA, VIA CELLINI, VIA CRUTO, VIA DAVIDE, VIA DEL CAMPETTO, VIA DON PUGLISI, VIA DONIZETTI, VIA EINAUDI, VIA FAA' DI BRUNO, VIA FERRARI, VIA FONTANESI, VIA GABELLI, VIA GABRIELI, VIA GALVANI, VIA GIOLITTI, VIA GORIZIA, VIA KENNEDY, VIA L.PEROSI, VIA LAMARMORA, VIA MAGENTA, VIA MANZONI, VIA MATTEOTTI, VIA MIGLIARA, VIA MONTE GRAPPA, VIA MONTEVERDI, VIA NEGRI, VIA OBERDAN, VIA PALESTRO, VIA PIATTI, VIA PIAVE, VIA PONCHIELLI, VIA PUCCINI, VIA RAPIDA AI CASTELLI, VIA RIVOLI, VIA ROMA, VIA ROVERETO, VIA SACCO E VANZETTI, VIA SAN DOMENICO SAVIO, VIA SAN ROCCO, VIA SAN VITO, VIA SANTORRE DI SANTAROSA, VIA SAURO, VIA SEGHERIA, VIA SOLFERINO, VIA STRADIVARI, VIA TOSCANINI, VIA TRENTO, VIA TRIESTE, VIA VALEGGIO, VIA VITTOZZI, VIA VIVALDI, VIA VOLTA, VICOLO GURGO, VIA FRATELLI BAUDINO - ., PIAZZA FRATELLI, VIA DEL CONVENTO, VIA STRADA REGIONE, PIAZZA SANDRO PERTINI
+// Anno 2027 — solo dati; struct e helper in docs/calendar.h
+// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Lista ORDINATA (YYYYMMDD) per ricerca binaria.
+
+  {2027, 1, 2, 1},  // 02/01/2027 Organico
+  {2027, 1, 5, 0},  // 05/01/2027 Carta
+  {2027, 1, 5, 2},  // 05/01/2027 Indifferenziata
+  {2027, 1, 6, 1},  // 06/01/2027 Organico
+  {2027, 1, 7, 3},  // 07/01/2027 Plastica
+  {2027, 1, 9, 1},  // 09/01/2027 Organico
+  {2027, 1, 13, 0},  // 13/01/2027 Carta
+  {2027, 1, 13, 1},  // 13/01/2027 Organico
+  {2027, 1, 13, 2},  // 13/01/2027 Indifferenziata
+  {2027, 1, 13, 3},  // 13/01/2027 Plastica
+  {2027, 1, 16, 1},  // 16/01/2027 Organico
+  {2027, 1, 20, 0},  // 20/01/2027 Carta
+  {2027, 1, 20, 1},  // 20/01/2027 Organico
+  {2027, 1, 20, 2},  // 20/01/2027 Indifferenziata
+  {2027, 1, 20, 3},  // 20/01/2027 Plastica
+  {2027, 1, 23, 1},  // 23/01/2027 Organico
+  {2027, 1, 23, 4},  // 23/01/2027 Verde
+  {2027, 1, 27, 0},  // 27/01/2027 Carta
+  {2027, 1, 27, 1},  // 27/01/2027 Organico
+  {2027, 1, 27, 2},  // 27/01/2027 Indifferenziata
+  {2027, 1, 27, 3},  // 27/01/2027 Plastica
+  {2027, 1, 30, 1},  // 30/01/2027 Organico
+  {2027, 2, 3, 0},  // 03/02/2027 Carta
+  {2027, 2, 3, 1},  // 03/02/2027 Organico
+  {2027, 2, 3, 2},  // 03/02/2027 Indifferenziata
+  {2027, 2, 3, 3},  // 03/02/2027 Plastica
+  {2027, 2, 6, 1},  // 06/02/2027 Organico
+  {2027, 2, 6, 4},  // 06/02/2027 Verde
+  {2027, 2, 10, 0},  // 10/02/2027 Carta
+  {2027, 2, 10, 1},  // 10/02/2027 Organico
+  {2027, 2, 10, 2},  // 10/02/2027 Indifferenziata
+  {2027, 2, 10, 3},  // 10/02/2027 Plastica
+  {2027, 2, 13, 1},  // 13/02/2027 Organico
+  {2027, 2, 17, 0},  // 17/02/2027 Carta
+  {2027, 2, 17, 1},  // 17/02/2027 Organico
+  {2027, 2, 17, 2},  // 17/02/2027 Indifferenziata
+  {2027, 2, 17, 3},  // 17/02/2027 Plastica
+  {2027, 2, 20, 1},  // 20/02/2027 Organico
+  {2027, 2, 20, 4},  // 20/02/2027 Verde
+  {2027, 2, 24, 0},  // 24/02/2027 Carta
+  {2027, 2, 24, 1},  // 24/02/2027 Organico
+  {2027, 2, 24, 2},  // 24/02/2027 Indifferenziata
+  {2027, 2, 24, 3},  // 24/02/2027 Plastica
+  {2027, 2, 27, 1},  // 27/02/2027 Organico

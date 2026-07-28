@@ -10,7 +10,7 @@ Un promemoria **fisico e automatico** in casa: non un’app da aprire, ma luci s
 
 In pratica:
 
-- legge un **calendario locale** (`docs/calendar.h`, incluso dal firmware via `bin/calendar.h`) dei giorni di ritiro;
+- legge un **calendario locale** (`docs/calendars/<zona>-<anno>.h`, fusi da `docs/calendar.h` → `bin/calendar.h`) dei giorni di ritiro;
 - di sera, nella fascia oraria impostata, accende i LED corrispondenti ai rifiuti di **domani**;
 - segnala anche i giorni di **strada vuota** (cassonetti ritirati) con un respiro luminoso su tutti i LED;
 - si sincronizza via **Wi‑Fi + NTP** (ora locale / DST);
@@ -24,7 +24,7 @@ Non è un prodotto commerciale né un servizio cloud: è un progetto hardware/fi
 | Elemento         | Default nel progetto                                                          |
 | ---------------- | ----------------------------------------------------------------------------- |
 | MCU              | ESP32 DevKit / ESP32-WROOM-32                                                 |
-| LED (5)          | GPIO `25, 26, 27, 14, 33` → Carta, Organico, Indifferenziata, Plastica, Verde |
+| LED (6)          | GPIO `25, 26, 27, 14, 33, 32` → Carta, Organico, Indifferenziata, Plastica, Verde, Vetro |
 | Pulsante manuale | GPIO `4` (INPUT_PULLUP, premuto = LOW → GND)                                  |
 
 I pin si cambiano in `config.h` (vedi sotto).
@@ -45,9 +45,10 @@ Valori tipici per LED standard a 3.3 V: **R ≈ 220 Ω** (va bene anche 150–33
                  │                 │
                  │            GPIO25├────[R]────(►| LED Carta          ──┐
                  │            GPIO26├────[R]────(►| LED Organico        ──┤
-                 │            GPIO27├────[R]────(►| LED Indifferenziata ──┼── GND
-                 │            GPIO14├────[R]────(►| LED Plastica        ──┤
-                 │            GPIO33├────[R]────(►| LED Verde           ──┘
+                 │            GPIO27├────[R]────(►| LED Indifferenziata ──┤
+                 │            GPIO14├────[R]────(►| LED Plastica        ──┼── GND
+                 │            GPIO33├────[R]────(►| LED Verde           ──┤
+                 │            GPIO32├────[R]────(►| LED Vetro           ──┘
                  │                 │
                  │             GPIO4├────┬──── pulsante (NO)
                  │                 │    │
@@ -67,6 +68,7 @@ Valori tipici per LED standard a 3.3 V: **R ≈ 220 Ω** (va bene anche 150–33
 | Indifferenziata | 27 | `GPIO27` → R → anodo LED → catodo → `GND` |
 | Plastica | 14 | `GPIO14` → R → anodo LED → catodo → `GND` |
 | Verde | 33 | `GPIO33` → R → anodo LED → catodo → `GND` |
+| Vetro | 32 | `GPIO32` → R → anodo LED → catodo → `GND` |
 | Pulsante | 4 | un lato `GPIO4`, altro lato `GND` (pull-up interno; niente resistenza esterna obbligatoria) |
 
 Note:
@@ -122,14 +124,19 @@ La SoftAP e la STA possono stare attive insieme: STA per internet/NTP, SoftAP pe
 
 ### 3. Calendario raccolta (`calendar.h`)
 
-Fonte unica: **`docs/calendar.h`** (date di ritiro ordinate + logica **strada vuota**).  
-`bin/calendar.h` è solo uno stub che fa `#include` di quel file (equivalente portabile a un symlink: su Windows senza privilegi di link OS il firmware continua a compilare).
+I calendari stanno in **`docs/calendars/`**, **un file = un anno** (es. `candiolo-z2-2026.h`).  
+Ogni file contiene **solo le entry** `{anno, mese, giorno, binIndex}`; struct, helper e `#include` stanno in **`docs/calendar.h`**.  
+In repo restano al massimo **due anni** attivi (`years` in `index.json`) per il passaggio di anno; lo storico non si conserva.
 
-- Modifica **solo** `docs/calendar.h` per adattarlo al calendario del **tuo** comune / zona.
+**`docs/calendar.h`** è l’alias firmware: include i file anno della zona da flashare. `bin/calendar.h` include quell’alias.
+
+- Nuova zona/anno: `docs/calendars/<comune>-zN-YYYY.h` + vie in `index.json` (campo `calendar` = base senza anno, es. `calendars/candiolo-z2`).
+- Provenienza fonti web: `docs/calendars/sources.json` (generato da `tools/build_sources_catalog.py`) per mostrare gestore, pagina sorgente e PDF verificati.
+- Aggiorna `years` (max 2) e gli `#include` in `docs/calendar.h`.
 - Indici LED: `0` Carta, `1` Organico, `2` Indifferenziata, `3` Plastica, `4` Verde; `-1` = nessun ritiro.
-- La lista `datedCalendar[]` deve restare **ordinata per data** (ricerca binaria).
+- `datedCalendar[]` ordinata per data (ricerca binaria).
 
-La pagina GitHub Pages (`docs/index.html`) carica lo stesso `calendar.h` a runtime e legge `datedCalendar[]`: non serve duplicare le date nell’HTML.
+La pagina GitHub Pages chiede comune+via, carica i file anno attivi e unisce le date a runtime.
 
 ### 4. (Opzionale) Web UI sul dispositivo
 

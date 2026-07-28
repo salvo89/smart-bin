@@ -6,9 +6,9 @@ const int ORA_ACCENSIONE = 18;
 const int ORA_SPEGNIMENTO = 23;
 
 // --- HARDWARE MAPPING (ESP32 DevKit / ESP32-WROOM-32) ---
-const int numBins = 5;
-// PWM (LEDC) — Carta, Organico, Indiff., Plastica, Verde (nessun vetro nel calendario)
-const int ledPins[numBins] = {25, 26, 27, 14, 33};
+const int numBins = 6;
+// PWM (LEDC) — Carta, Organico, Indiff., Plastica, Verde, Vetro
+const int ledPins[numBins] = {25, 26, 27, 14, 33, 32};
 
 // Pulsante manuale LED: INPUT_PULLUP (premuto = LOW). Collegare l'altro terminale a GND.
 const int BUTTON_PIN = 4;

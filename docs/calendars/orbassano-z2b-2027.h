@@ -1,0 +1,43 @@
+// Orbassano Zona 2B (Covar14): VIA B. BUOZZI, VIA B. CROCE, VIA DANTE ALIGHIERI, VIA DELLA BASSA, VIA F. FILZI, VIA GALIMBERTI, VIA GENOVA, VIA GIOLITTI, VIA L. DA VINCI, VIA SAN ROCCO, VIA TRIESTE
+// Anno 2027 — solo dati; struct e helper in docs/calendar.h
+// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Lista ORDINATA (YYYYMMDD) per ricerca binaria.
+
+  {2027, 1, 4, 1},  // 04/01/2027 Organico
+  {2027, 1, 5, 2},  // 05/01/2027 Indifferenziata
+  {2027, 1, 5, 3},  // 05/01/2027 Plastica
+  {2027, 1, 7, 1},  // 07/01/2027 Organico
+  {2027, 1, 11, 1},  // 11/01/2027 Organico
+  {2027, 1, 12, 0},  // 12/01/2027 Carta
+  {2027, 1, 12, 2},  // 12/01/2027 Indifferenziata
+  {2027, 1, 12, 3},  // 12/01/2027 Plastica
+  {2027, 1, 14, 1},  // 14/01/2027 Organico
+  {2027, 1, 18, 1},  // 18/01/2027 Organico
+  {2027, 1, 19, 2},  // 19/01/2027 Indifferenziata
+  {2027, 1, 19, 3},  // 19/01/2027 Plastica
+  {2027, 1, 19, 4},  // 19/01/2027 Verde
+  {2027, 1, 21, 1},  // 21/01/2027 Organico
+  {2027, 1, 25, 1},  // 25/01/2027 Organico
+  {2027, 1, 26, 0},  // 26/01/2027 Carta
+  {2027, 1, 26, 2},  // 26/01/2027 Indifferenziata
+  {2027, 1, 26, 3},  // 26/01/2027 Plastica
+  {2027, 1, 28, 1},  // 28/01/2027 Organico
+  {2027, 2, 1, 1},  // 01/02/2027 Organico
+  {2027, 2, 2, 2},  // 02/02/2027 Indifferenziata
+  {2027, 2, 2, 3},  // 02/02/2027 Plastica
+  {2027, 2, 4, 1},  // 04/02/2027 Organico
+  {2027, 2, 8, 1},  // 08/02/2027 Organico
+  {2027, 2, 9, 0},  // 09/02/2027 Carta
+  {2027, 2, 9, 2},  // 09/02/2027 Indifferenziata
+  {2027, 2, 9, 3},  // 09/02/2027 Plastica
+  {2027, 2, 11, 1},  // 11/02/2027 Organico
+  {2027, 2, 15, 1},  // 15/02/2027 Organico
+  {2027, 2, 16, 2},  // 16/02/2027 Indifferenziata
+  {2027, 2, 16, 3},  // 16/02/2027 Plastica
+  {2027, 2, 16, 4},  // 16/02/2027 Verde
+  {2027, 2, 18, 1},  // 18/02/2027 Organico
+  {2027, 2, 22, 1},  // 22/02/2027 Organico
+  {2027, 2, 23, 0},  // 23/02/2027 Carta
+  {2027, 2, 23, 2},  // 23/02/2027 Indifferenziata
+  {2027, 2, 23, 3},  // 23/02/2027 Plastica
+  {2027, 2, 25, 1},  // 25/02/2027 Organico
