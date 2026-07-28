@@ -375,6 +375,126 @@
     }
     .install-app:active { filter: brightness(0.95); }
 
+    .notify-card {
+      margin: 0.85rem var(--safe) 0;
+      padding: 0.95rem 1rem;
+      border-radius: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(20, 32, 24, 0.04);
+    }
+    .notify-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+    .notify-title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .notify-desc {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .notify-switch {
+      position: relative;
+      display: inline-flex;
+      width: 2.75rem;
+      height: 1.55rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .notify-switch input {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .notify-slider {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: #c5d4cb;
+      transition: background 0.15s ease;
+    }
+    .notify-slider::after {
+      content: "";
+      position: absolute;
+      top: 0.18rem;
+      left: 0.18rem;
+      width: 1.18rem;
+      height: 1.18rem;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+      transition: transform 0.15s ease;
+    }
+    .notify-switch input:checked + .notify-slider {
+      background: var(--accent);
+    }
+    .notify-switch input:checked + .notify-slider::after {
+      transform: translateX(1.15rem);
+    }
+    .notify-switch input:disabled + .notify-slider {
+      opacity: 0.55;
+    }
+    .notify-hint {
+      margin: 0.65rem 0 0;
+      padding: 0.55rem 0.65rem;
+      border-radius: 0.65rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+    .notify-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .notify-row label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .notify-row select {
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 0.55rem;
+      padding: 0.4rem 0.55rem;
+      min-height: 2.25rem;
+    }
+    .notify-status {
+      margin: 0.55rem 0 0;
+      min-height: 1.1rem;
+      font-size: 0.72rem;
+      color: var(--muted-2);
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .install-sheet {
       position: fixed;
       inset: 0;
@@ -1081,6 +1201,26 @@
         <span class="hint" id="btnInstallAppHint">Scorciatoia sul telefono</span>
       </button>
 
+      <section class="notify-card" id="notifyCard" hidden>
+        <div class="notify-head">
+          <div>
+            <p class="notify-title">Promemoria push</p>
+            <p class="notify-desc" id="notifyDesc">Sera prima del ritiro: “domani esce …”. Funziona anche con l’app chiusa.</p>
+          </div>
+          <label class="notify-switch">
+            <input type="checkbox" id="notifyToggle" />
+            <span class="notify-slider" aria-hidden="true"></span>
+            <span class="visually-hidden">Abilita notifiche</span>
+          </label>
+        </div>
+        <p class="notify-hint" id="notifyHint" hidden></p>
+        <div class="notify-row" id="notifyHourRow" hidden>
+          <label for="notifyHour">Ora (Europe/Rome)</label>
+          <select id="notifyHour" aria-label="Ora promemoria"></select>
+        </div>
+        <p class="notify-status" id="notifyStatus" role="status"></p>
+      </section>
+
       <p class="data-source">
         <span class="footer-source" hidden></span>
         <a href="fonti.html">Tutte le fonti</a>
@@ -1572,6 +1712,8 @@
       loadMonth();
       $("liveLine").textContent =
         "Calendario ritiri — " + choice.comuneName + ", " + choice.via;
+      syncNotifyCard();
+      refreshPushRegistration().catch((err) => console.error(err));
     }
 
     const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver", "Vet"];
@@ -2334,6 +2476,7 @@
       dayCache.clear();
       renderHero(null);
       showZoneGate();
+      syncNotifyCard();
     });
 
     /** @type {BeforeInstallPromptEvent | null} */
@@ -2455,6 +2598,241 @@
       if (ev.target === $("installSheet")) closeIosInstallSheet();
     });
 
+    const LS_PUSH_HOUR = "smartbin.pushHour";
+    const PUSH_API = {
+      vapid: "/api/push/vapid-public",
+      subscribe: "/api/push/subscribe",
+      unsubscribe: "/api/push/unsubscribe",
+    };
+
+    function pushSupported() {
+      return (
+        window.isSecureContext &&
+        "serviceWorker" in navigator &&
+        "PushManager" in window &&
+        "Notification" in window
+      );
+    }
+
+    function readPushHour() {
+      const n = Number(localStorage.getItem(LS_PUSH_HOUR));
+      if (Number.isInteger(n) && n >= 0 && n <= 23) return n;
+      return 20;
+    }
+
+    function fillNotifyHourSelect() {
+      const sel = $("notifyHour");
+      if (!sel || sel.options.length) return;
+      for (let h = 0; h < 24; h++) {
+        const opt = document.createElement("option");
+        opt.value = String(h);
+        opt.textContent = String(h).padStart(2, "0") + ":00";
+        sel.appendChild(opt);
+      }
+      sel.value = String(readPushHour());
+    }
+
+    function setNotifyStatus(msg) {
+      const el = $("notifyStatus");
+      if (el) el.textContent = msg || "";
+    }
+
+    function setNotifyHint(msg) {
+      const el = $("notifyHint");
+      if (!el) return;
+      if (msg) {
+        el.hidden = false;
+        el.textContent = msg;
+      } else {
+        el.hidden = true;
+        el.textContent = "";
+      }
+    }
+
+    function urlBase64ToUint8Array(base64String) {
+      const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+      const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
+      const raw = atob(base64);
+      const out = new Uint8Array(raw.length);
+      for (let i = 0; i < raw.length; i++) out[i] = raw.charCodeAt(i);
+      return out;
+    }
+
+    async function fetchVapidPublicKey() {
+      const res = await fetch(PUSH_API.vapid, { cache: "no-cache" });
+      if (!res.ok) throw new Error("vapid_unavailable");
+      const data = await res.json();
+      if (!data || !data.publicKey) throw new Error("vapid_missing");
+      return data.publicKey;
+    }
+
+    async function getPushSubscription() {
+      const reg = await navigator.serviceWorker.ready;
+      return reg.pushManager.getSubscription();
+    }
+
+    async function syncNotifyCard() {
+      const card = $("notifyCard");
+      const toggle = $("notifyToggle");
+      const hourRow = $("notifyHourRow");
+      if (!card || !toggle) return;
+
+      if (!ZONE_CHOICE) {
+        card.hidden = true;
+        return;
+      }
+      card.hidden = false;
+      fillNotifyHourSelect();
+
+      if (!pushSupported()) {
+        toggle.checked = false;
+        toggle.disabled = true;
+        if (hourRow) hourRow.hidden = true;
+        setNotifyHint("Questo browser non supporta le notifiche push.");
+        setNotifyStatus("");
+        return;
+      }
+
+      if (isIosDevice() && !isStandaloneDisplay()) {
+        toggle.checked = false;
+        toggle.disabled = true;
+        if (hourRow) hourRow.hidden = true;
+        setNotifyHint(
+          "Su iPhone/iPad: apri Escilo da Safari → Condividi → Aggiungi a Home, poi riapri l’app dalla Home e abilita le notifiche."
+        );
+        setNotifyStatus("");
+        return;
+      }
+
+      toggle.disabled = false;
+      try {
+        const sub = await getPushSubscription();
+        const enabled = !!sub && Notification.permission === "granted";
+        toggle.checked = enabled;
+        if (hourRow) hourRow.hidden = !enabled;
+        setNotifyHint("");
+        setNotifyStatus(
+          enabled
+            ? "Attive · sera prima del ritiro alle " +
+                String(readPushHour()).padStart(2, "0") +
+                ":00"
+            : "Disattivate"
+        );
+      } catch (err) {
+        console.error(err);
+        toggle.checked = false;
+        if (hourRow) hourRow.hidden = true;
+        setNotifyStatus("Stato notifiche non disponibile");
+      }
+    }
+
+    async function subscribePush() {
+      const permission = await Notification.requestPermission();
+      if (permission !== "granted") {
+        throw new Error("permission_denied");
+      }
+      const publicKey = await fetchVapidPublicKey();
+      const reg = await navigator.serviceWorker.ready;
+      let sub = await reg.pushManager.getSubscription();
+      if (!sub) {
+        sub = await reg.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(publicKey),
+        });
+      }
+      const hour = readPushHour();
+      const res = await fetch(PUSH_API.subscribe, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          subscription: sub.toJSON(),
+          calendarId: ZONE_CHOICE.calendar,
+          hour,
+        }),
+      });
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => ({}));
+        throw new Error(errBody.error || "subscribe_failed");
+      }
+      return sub;
+    }
+
+    async function unsubscribePush() {
+      const sub = await getPushSubscription();
+      if (sub) {
+        try {
+          await fetch(PUSH_API.unsubscribe, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ endpoint: sub.endpoint }),
+          });
+        } catch (err) {
+          console.error(err);
+        }
+        await sub.unsubscribe();
+      }
+    }
+
+    async function refreshPushRegistration() {
+      if (!ZONE_CHOICE || Notification.permission !== "granted") return;
+      const sub = await getPushSubscription();
+      if (!sub) return;
+      await fetch(PUSH_API.subscribe, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          subscription: sub.toJSON(),
+          calendarId: ZONE_CHOICE.calendar,
+          hour: readPushHour(),
+        }),
+      });
+    }
+
+    $("notifyToggle").addEventListener("change", async () => {
+      const toggle = $("notifyToggle");
+      setNotifyStatus("…");
+      try {
+        if (toggle.checked) {
+          if (!ZONE_CHOICE) {
+            toggle.checked = false;
+            setNotifyStatus("Scegli prima una zona");
+            return;
+          }
+          await subscribePush();
+          setNotifyStatus("Notifiche attivate");
+        } else {
+          await unsubscribePush();
+          setNotifyStatus("Notifiche disattivate");
+        }
+      } catch (err) {
+        console.error(err);
+        toggle.checked = false;
+        if (err && err.message === "permission_denied") {
+          setNotifyStatus("Permesso notifiche negato");
+        } else if (err && err.message === "vapid_unavailable") {
+          setNotifyStatus("Server push non configurato");
+        } else {
+          setNotifyStatus("Attivazione non riuscita");
+        }
+      }
+      syncNotifyCard();
+    });
+
+    $("notifyHour").addEventListener("change", async () => {
+      const hour = Number($("notifyHour").value);
+      if (!Number.isInteger(hour) || hour < 0 || hour > 23) return;
+      localStorage.setItem(LS_PUSH_HOUR, String(hour));
+      try {
+        await refreshPushRegistration();
+        setNotifyStatus(
+          "Ora aggiornata · " + String(hour).padStart(2, "0") + ":00"
+        );
+      } catch (err) {
+        console.error(err);
+        setNotifyStatus("Ora salvata in locale; sync server fallito");
+      }
+    });
+
     async function registerServiceWorker() {
       if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
       try {
@@ -2466,7 +2844,8 @@
 
     async function boot() {
       buildDowHeader();
-      registerServiceWorker();
+      fillNotifyHourSelect();
+      await registerServiceWorker();
       syncInstallButton();
       try {
         await loadZonesIndex();
@@ -2491,6 +2870,7 @@
 
       renderHero(null);
       showZoneGate();
+      syncNotifyCard();
     }
 
     boot();

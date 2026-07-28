@@ -2,6 +2,9 @@
 bin/config.h
 bin/secrets.h
 tools/__pycache__/
+node_modules/
+.env
+.env.local
 
 # Skill Cursor locali (non parte del firmware)
 .agents/

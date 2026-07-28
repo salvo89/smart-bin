@@ -1,9 +1,35 @@
 # Escilo — sito statico da docs/
 # Publish directory: cartella docs/ (non la root del repo).
+# Push: Netlify Functions in netlify/functions/ (env: VAPID_*, DISPATCH_SECRET).
 
 [build]
   publish = "docs"
-  # Nessun comando di build: i file in docs/ sono già pronti.
+  command = "npm install"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["docs/calendars/**"]
+
+[[redirects]]
+  from = "/api/push/subscribe"
+  to = "/.netlify/functions/push-subscribe"
+  status = 200
+
+[[redirects]]
+  from = "/api/push/unsubscribe"
+  to = "/.netlify/functions/push-unsubscribe"
+  status = 200
+
+[[redirects]]
+  from = "/api/push/dispatch"
+  to = "/.netlify/functions/push-dispatch"
+  status = 200
+
+[[redirects]]
+  from = "/api/push/vapid-public"
+  to = "/.netlify/functions/push-vapid-public"
+  status = 200
 
 # PWA: service worker e manifest non devono restare in cache aggressiva.
 [[headers]]

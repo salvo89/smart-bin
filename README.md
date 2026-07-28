@@ -180,10 +180,23 @@ Il **pulsante fisico** alterna override manuale ↔ automatico (secondo click = 
 La cartella `docs/` è il sito statico pubblico (solo consultazione calendario, senza API sulla ESP). Deploy tramite `netlify.toml` in root (`publish = "docs"`).
 
 1. Collega il repo a [Netlify](https://www.netlify.com/).
-2. Build: nessun comando; publish directory: `docs` (già in `netlify.toml`).
+2. Build: `npm install`; publish directory: `docs` (già in `netlify.toml`).
 3. URL tipica: `https://<sito>.netlify.app/` (o dominio custom).
 
 HTTPS di Netlify soddisfa i requisiti PWA (manifest + service worker + “Installa app” su Android Chrome).
+
+### Notifiche push (opzionale)
+
+Web Push gratuito (VAPID + Netlify Functions + Blobs). Dopo il deploy:
+
+1. Genera chiavi: `npx web-push generate-vapid-keys`
+2. Su Netlify → Environment variables: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` (`mailto:…`), `DISPATCH_SECRET`, e in fase test `PUSH_TEST_MODE=1`
+3. Su GitHub → Actions secrets: `DISPATCH_SECRET` (stesso valore), `SITE_URL` (URL del sito)
+4. Abilita le notifiche dall’app installata (su iOS: Aggiungi a Home, poi opt-in)
+
+**Fase test (attuale):** il workflow chiama `/api/push/dispatch` ogni **5 minuti**; con `PUSH_TEST_MODE=1` ignora l’ora utente e l’anti-duplicato giornaliero (notifica a ogni run se domani c’è un ritiro; titolo “Escilo (test)”).
+
+**Prod (dopo i test):** togliere/mettere `PUSH_TEST_MODE=0` su Netlify e nel workflow ripristinare `cron: "5 * * * *"` (ogni ora). Allora invia solo all’ora scelta (default 20:00 Europe/Rome), una volta al giorno.
 
 ## Struttura del repository
 
@@ -191,8 +204,10 @@ HTTPS di Netlify soddisfa i requisiti PWA (manifest + service worker + “Instal
 bin/           Firmware Arduino (ino + header)
   *.example    Template da copiare in secrets.h / config.h
 webapp/        Sorgente UI embeddata nella ESP
-docs/          Sito statico per Netlify
-netlify.toml   Publish dir + header PWA / calendari
+docs/          Sito statico per Netlify (+ PWA / push client)
+netlify/       Functions push (subscribe / dispatch)
+.github/       Workflow cron dispatch push
+netlify.toml   Publish dir + functions + header PWA / calendari
 tools/         Script (embed webapp, icone, …)
 ```
 
