@@ -1,7 +1,6 @@
 import webpush from "web-push";
 import { readFile } from "node:fs/promises";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import { json, methodNotAllowed } from "./shared/http.mjs";
 import {
   activeYears,
@@ -13,11 +12,7 @@ import {
 } from "./shared/calendar.mjs";
 import { getPushStore, listAllSubscriptions } from "./shared/store.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const DOCS_CANDIDATES = [
-  join(process.cwd(), "docs"),
-  join(__dirname, "..", "..", "docs"),
-];
+const DOCS_CANDIDATES = [join(process.cwd(), "docs")];
 
 function siteBaseUrl() {
   return (
