@@ -1,0 +1,323 @@
+{
+  "generatedAt": "2026-07-28",
+  "notes": [
+    "Mapping gestori rifiuti Città metropolitana di Torino (bacini ATO).",
+    "Usato per prioritizzare il censimento in sources.json.",
+    "ACSEL: elenco stimato = CADOS meno CIDIU; da verificare.",
+    "ACEA Pinerolese escluso: solo Eco-Punti, non adatto a Smart Bin."
+  ],
+  "providers": {
+    "AMIAT": {
+      "bacino": "18",
+      "consorzio": "Bacino 18",
+      "operator": "AMIAT SpA",
+      "calendarKind": "address-lookup + festivita PDF",
+      "sourceHub": "https://www.amiat.it/i-nostri-servizi/servizi-di-raccolta-differenziata.html",
+      "comuni": [
+        "Torino"
+      ]
+    },
+    "SETA": {
+      "bacino": "16",
+      "consorzio": "Bacino 16",
+      "operator": "SETA SpA",
+      "calendarKind": "PDF ecocalendario per zona",
+      "sourceHub": "https://www.setaspa.com/",
+      "comuni": [
+        "Borgaro Torinese",
+        "Brandizzo",
+        "Brozolo",
+        "Brusasco",
+        "Casalborgone",
+        "Caselle Torinese",
+        "Castagneto Po",
+        "Castiglione Torinese",
+        "Cavagnolo",
+        "Chivasso",
+        "Cinzano",
+        "Foglizzo",
+        "Gassino Torinese",
+        "Lauriano",
+        "Leinì",
+        "Lombardore",
+        "Mappano",
+        "Montanaro",
+        "Monteu da Po",
+        "Rivalba",
+        "Rondissone",
+        "San Benigno Canavese",
+        "San Mauro Torinese",
+        "San Raffaele Cimena",
+        "San Sebastiano da Po",
+        "Sciolze",
+        "Settimo Torinese",
+        "Torrazza Piemonte",
+        "Verolengo",
+        "Verrua Savoia",
+        "Volpiano"
+      ]
+    },
+    "Covar14": {
+      "bacino": "14",
+      "consorzio": "COVAR14",
+      "operator": "appalti privati",
+      "calendarKind": "PDF per zona",
+      "sourceHub": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta",
+      "comuni": [
+        "Beinasco",
+        "Bruino",
+        "Candiolo",
+        "Carignano",
+        "Castagnole Piemonte",
+        "La Loggia",
+        "Lombriasco",
+        "Moncalieri",
+        "Nichelino",
+        "Orbassano",
+        "Osasio",
+        "Pancalieri",
+        "Piobesi Torinese",
+        "Piossasco",
+        "Rivalta di Torino",
+        "Trofarello",
+        "Villastellone",
+        "Vinovo",
+        "Virle Piemonte"
+      ]
+    },
+    "CIDIU": {
+      "bacino": "15",
+      "consorzio": "CADOS",
+      "operator": "CIDIU SpA",
+      "calendarKind": "HTML settimanale per zona su cidiu.it (+ Junker)",
+      "sourceHub": "https://cidiu.it/",
+      "comuni": [
+        "Alpignano",
+        "Buttigliera Alta",
+        "Coazze",
+        "Collegno",
+        "Druento",
+        "Giaveno",
+        "Grugliasco",
+        "Pianezza",
+        "Reano",
+        "Rivoli",
+        "Rosta",
+        "San Gillio",
+        "Sangano",
+        "Trana",
+        "Valgioie",
+        "Venaria Reale",
+        "Villarbasse"
+      ]
+    },
+    "ACSEL": {
+      "bacino": "15",
+      "consorzio": "CADOS",
+      "operator": "ACSEL SpA",
+      "calendarKind": "da verificare (sito ACSEL / comuni)",
+      "sourceHub": "https://www.acselspa.it/",
+      "comuni": [
+        "Almese",
+        "Avigliana",
+        "Bardonecchia",
+        "Borgone Susa",
+        "Bruzolo",
+        "Bussoleno",
+        "Caprie",
+        "Caselette",
+        "Cesana Torinese",
+        "Chianocco",
+        "Chiomonte",
+        "Chiusa di San Michele",
+        "Claviere",
+        "Condove",
+        "Exilles",
+        "Giaglione",
+        "Gravere",
+        "Mattie",
+        "Meana di Susa",
+        "Mompantero",
+        "Moncenisio",
+        "Novalesa",
+        "Oulx",
+        "Rubiana",
+        "Salbertrand",
+        "San Didero",
+        "San Giorio di Susa",
+        "Sant'Ambrogio di Torino",
+        "Sant'Antonino di Susa",
+        "Sauze d'Oulx",
+        "Sauze di Cesana",
+        "Sestriere",
+        "Susa",
+        "Vaie",
+        "Venaus",
+        "Villar Dora",
+        "Villar Focchiardo"
+      ],
+      "notes": [
+        "Elenco CADOS esclusi i 17 CIDIU; verificare eventuali scostamenti sul sito ACSEL."
+      ]
+    },
+    "CCS": {
+      "bacino": "13",
+      "consorzio": "Consorzio Chierese per i Servizi",
+      "operator": "ETAmbiente / De Vizia (appalti)",
+      "calendarKind": "PDF per zona (ott 2025 - dic 2026)",
+      "sourceHub": "https://www.ccs.to.it/calendari-raccolta",
+      "comuni": [
+        "Andezeno",
+        "Arignano",
+        "Baldissero Torinese",
+        "Cambiano",
+        "Carmagnola",
+        "Chieri",
+        "Isolabella",
+        "Marentino",
+        "Mombello di Torino",
+        "Moncucco Torinese",
+        "Montaldo Torinese",
+        "Moriondo Torinese",
+        "Pavarolo",
+        "Pecetto Torinese",
+        "Pino Torinese",
+        "Poirino",
+        "Pralormo",
+        "Riva presso Chieri",
+        "Santena"
+      ]
+    },
+    "CISA": {
+      "bacino": "17A",
+      "consorzio": "CISA",
+      "operator": "appalti privati",
+      "calendarKind": "PDF ecocalendario per comune/zona",
+      "sourceHub": "https://www.cisaweb.info/",
+      "comuni": [
+        "Ala di Stura",
+        "Balangero",
+        "Balme",
+        "Barbania",
+        "Cafasse",
+        "Cantoira",
+        "Ceres",
+        "Chialamberto",
+        "Ciriè",
+        "Coassolo Torinese",
+        "Corio",
+        "Fiano",
+        "Front",
+        "Germagnano",
+        "Givoletto",
+        "Groscavallo",
+        "Grosso",
+        "La Cassa",
+        "Lanzo Torinese",
+        "Lemie",
+        "Mathi",
+        "Mezzenile",
+        "Monastero di Lanzo",
+        "Nole",
+        "Pessinetto",
+        "Robassomero",
+        "Rocca Canavese",
+        "San Carlo Canavese",
+        "San Francesco al Campo",
+        "San Maurizio Canavese",
+        "Traves",
+        "Usseglio",
+        "Val della Torre",
+        "Vallo Torinese",
+        "Varisella",
+        "Vauda Canavese",
+        "Villanova Canavese",
+        "Viù"
+      ]
+    },
+    "SCS": {
+      "bacino": "17C",
+      "consorzio": "CCA (sub-bacino eporediese)",
+      "operator": "SCS SpA",
+      "calendarKind": "PDF per zona",
+      "sourceHub": "https://scsivrea.it/",
+      "comuni": [
+        "Ivrea"
+      ]
+    },
+    "CCA": {
+      "bacino": "17B/D",
+      "consorzio": "Consorzio Canavesano Ambiente",
+      "operator": "appalti privati",
+      "calendarKind": "da verificare per comune",
+      "sourceHub": "https://www.ccambiente.it/",
+      "comuni": [],
+      "notes": [
+        "Residuo Canavese non coperto da SETA/SCS/CISA; elenco calcolato per differenza."
+      ]
+    }
+  },
+  "priorityLargeMissing": [
+    {
+      "name": "Collegno",
+      "provider": "CIDIU",
+      "popApprox": 47600
+    },
+    {
+      "name": "Rivoli",
+      "provider": "CIDIU",
+      "popApprox": 46600
+    },
+    {
+      "name": "Grugliasco",
+      "provider": "CIDIU",
+      "popApprox": 36400
+    },
+    {
+      "name": "Chieri",
+      "provider": "CCS",
+      "popApprox": 35800
+    },
+    {
+      "name": "Venaria Reale",
+      "provider": "CIDIU",
+      "popApprox": 31900
+    },
+    {
+      "name": "Carmagnola",
+      "provider": "CCS",
+      "popApprox": 28000
+    },
+    {
+      "name": "Ciriè",
+      "provider": "CISA",
+      "popApprox": 18100
+    },
+    {
+      "name": "Alpignano",
+      "provider": "CIDIU",
+      "popApprox": 16500
+    },
+    {
+      "name": "Giaveno",
+      "provider": "CIDIU",
+      "popApprox": 16400
+    },
+    {
+      "name": "Pianezza",
+      "provider": "CIDIU",
+      "popApprox": 15700
+    },
+    {
+      "name": "Santena",
+      "provider": "CCS",
+      "popApprox": 10500
+    }
+  ],
+  "excluded": {
+    "ACEA": {
+      "reason": "Eco-Punti stradali senza calendario porta-a-porta",
+      "comuniCount": 47
+    }
+  }
+}

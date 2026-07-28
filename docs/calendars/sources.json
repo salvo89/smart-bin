@@ -3,9 +3,26 @@
   "notes": [
     "Catalogo fonti per la pagina web Smart Bin.",
     "Queste fonti descrivono provenienza e disponibilita' dei calendari PDF/HTML per comune.",
-    "La presenza qui non implica che il comune sia gia' convertito in docs/calendars/*.h."
+    "La presenza qui non implica che il comune sia gia' convertito in docs/calendars/*.h.",
+    "Mapping gestori: vedi docs/calendars/providers-map.json.",
+    "Esclusi i comuni solo Eco-Punti (ACEA Pinerolese): raccolta stradale senza calendario via/giorno."
   ],
   "comuni": [
+    {
+      "id": "alpignano",
+      "name": "Alpignano",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-alpignano/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "Zone di raccolta descritte sulla pagina CIDIU del comune.",
+        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+      ],
+      "pdfs": []
+    },
     {
       "id": "beinasco",
       "name": "Beinasco",
@@ -265,6 +282,51 @@
       ]
     },
     {
+      "id": "carmagnola",
+      "name": "Carmagnola",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CARMAGNOLAA.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CARMAGNOLAB.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona C",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CARMAGNOLAC.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona D",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CARMAGNOLAD.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona E",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CARMAGNOLAE.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona F",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CARMAGNOLAF.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
       "id": "casalborgone",
       "name": "Casalborgone",
       "provider": "SETA",
@@ -421,6 +483,81 @@
       ]
     },
     {
+      "id": "chieri",
+      "name": "Chieri",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI1A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 1B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI1B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI2A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI2B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI3A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI3B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI4A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI4B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI5A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 5B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI5B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI6A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 6B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI6B.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
       "id": "chivasso",
       "name": "Chivasso",
       "provider": "SETA",
@@ -486,6 +623,47 @@
       ]
     },
     {
+      "id": "cirie",
+      "name": "Ciriè",
+      "provider": "CISA",
+      "sourcePage": "https://www.cisaweb.info/it-it/comune/cirie/servizi-/servizi/raccolta-differenziata/calendari-di-raccolta-1108-1-03cafa5c763d98cbb41785113ae4463e",
+      "years": [
+        2026,
+        2027
+      ],
+      "notes": [
+        "PDF ecocalendario 2026-27 su cisaweb.info (Zona A = ex 1-2-3, Zona B = ex 4-5-6).",
+        "Schema zone scaricabile dalla stessa pagina."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona A (ex 1-2-3)",
+          "url": "https://www.cisaweb.info/it-it/download/calendario-2026-27-zona-a-ex-zone-1-2-e-3-3711-89-20059-b1fbe062b973aef888ae70b3178cffb9"
+        },
+        {
+          "year": 2026,
+          "label": "Zona B (ex 4-5-6)",
+          "url": "https://www.cisaweb.info/it-it/download/calendario-2026-27-zona-b-ex-zone-4-5-e-6-3712-89-20059-70303e40f4d6a912c05ea761b0a6111c"
+        }
+      ]
+    },
+    {
+      "id": "collegno",
+      "name": "Collegno",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-collegno/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "14 zone: Santa Maria 1/2, Centro Storico, Terracorta, Regina Nord/Sud/San Remo, Paradiso Sud/Nord/Industriale, Luxemburg, Borgonuovo, OltreDora-PIP, Savonera.",
+        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+      ],
+      "pdfs": []
+    },
+    {
       "id": "foglizzo",
       "name": "Foglizzo",
       "provider": "SETA",
@@ -534,6 +712,36 @@
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Gassino-Torinese_zona-4.pdf"
         }
       ]
+    },
+    {
+      "id": "giaveno",
+      "name": "Giaveno",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-giaveno/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "Zone di raccolta descritte sulla pagina CIDIU del comune.",
+        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "grugliasco",
+      "name": "Grugliasco",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-grugliasco/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "10 zone: Gerbido, Fabbrichetta, Centro, San Sebastiano, San Giacomo, San Francesco verde/arancio, Lesna-Quaglia, Paradiso, Santa Maria.",
+        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+      ],
+      "pdfs": []
     },
     {
       "id": "ivrea",
@@ -643,7 +851,7 @@
     },
     {
       "id": "leini",
-      "name": "Lein\u00ec",
+      "name": "Leinì",
       "provider": "SETA",
       "sourcePage": "https://www.setaspa.com/comuni/148-comuni/794-leini",
       "years": [
@@ -1027,8 +1235,68 @@
       "pdfs": [
         {
           "year": 2026,
-          "label": "Zona unica \u200b",
+          "label": "Zona unica ​",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PANCALIERI.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pianezza",
+      "name": "Pianezza",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-pianezza/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "Zone di raccolta descritte sulla pagina CIDIU del comune.",
+        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "pino-torinese",
+      "name": "Pino Torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PINO1A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 1B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PINO1B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2A",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PINO2A.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PINO2B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PINO3B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 4B",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PINO4B.PDF&t=raccolta"
         }
       ]
     },
@@ -1186,6 +1454,21 @@
       ]
     },
     {
+      "id": "rivoli",
+      "name": "Rivoli",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-rivoli/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "6 zone colore: Blu, Rossa, Verde, Bianca (centro), Gialla, Arancio.",
+        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+      ],
+      "pdfs": []
+    },
+    {
       "id": "rondissone",
       "name": "Rondissone",
       "provider": "SETA",
@@ -1291,6 +1574,36 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Sebastiano-da-Po.pdf"
+        }
+      ]
+    },
+    {
+      "id": "santena",
+      "name": "Santena",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=SANTENA1.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=SANTENA2.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 3",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=SANTENA3.PDF&t=raccolta"
         }
       ]
     },
@@ -1439,6 +1752,21 @@
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20TROFARELLO%20ZONA%205.pdf"
         }
       ]
+    },
+    {
+      "id": "venaria-reale",
+      "name": "Venaria Reale",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-venaria-reale/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "Zone di raccolta descritte sulla pagina CIDIU del comune.",
+        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+      ],
+      "pdfs": []
     },
     {
       "id": "verolengo",

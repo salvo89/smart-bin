@@ -1,6 +1,6 @@
 # Smart Bin
 
-Indicatore luminoso per la raccolta differenziata: un ESP32 accende i LED dei cassonetti da portare fuori **la sera prima del ritiro**, in fascia oraria configurabile. Include web UI locale (SoftAP / LAN) e una pagina calendario pubblica su GitHub Pages.
+Indicatore luminoso per la raccolta differenziata: un ESP32 accende i LED dei cassonetti da portare fuori **la sera prima del ritiro**, in fascia oraria configurabile. Include web UI locale (SoftAP / LAN) e una pagina calendario pubblica su Netlify.
 
 **Licenza:** [GNU GPL-3.0](LICENSE)
 
@@ -136,7 +136,7 @@ In repo restano al massimo **due anni** attivi (`years` in `index.json`) per il 
 - Indici LED: `0` Carta, `1` Organico, `2` Indifferenziata, `3` Plastica, `4` Verde; `-1` = nessun ritiro.
 - `datedCalendar[]` ordinata per data (ricerca binaria).
 
-La pagina GitHub Pages chiede comune+via, carica i file anno attivi e unisce le date a runtime.
+La pagina pubblica (Netlify) chiede comune+via, carica i file anno attivi e unisce le date a runtime.
 
 ### 4. (Opzionale) Web UI sul dispositivo
 
@@ -175,13 +175,15 @@ Dalla UI puoi consultare il calendario e forzare/spegnere i LED (controllo LED c
 
 Il **pulsante fisico** alterna override manuale ↔ automatico (secondo click = ritorno all’automatico).
 
-## Calendario pubblico (GitHub Pages)
+## Calendario pubblico (Netlify)
 
-La cartella `docs/` è pensata per una URL pubblica (solo consultazione calendario, senza API sulla ESP).
+La cartella `docs/` è il sito statico pubblico (solo consultazione calendario, senza API sulla ESP). Deploy tramite `netlify.toml` in root (`publish = "docs"`).
 
-1. Su GitHub: **Settings → Pages**.
-2. Source: branch `master` (o `main`), folder `/docs`.
-3. URL tipica: `https://<utente>.github.io/smart-bin/`.
+1. Collega il repo a [Netlify](https://www.netlify.com/).
+2. Build: nessun comando; publish directory: `docs` (già in `netlify.toml`).
+3. URL tipica: `https://<sito>.netlify.app/` (o dominio custom).
+
+HTTPS di Netlify soddisfa i requisiti PWA (manifest + service worker + “Installa app” su Android Chrome).
 
 ## Struttura del repository
 
@@ -189,7 +191,8 @@ La cartella `docs/` è pensata per una URL pubblica (solo consultazione calendar
 bin/           Firmware Arduino (ino + header)
   *.example    Template da copiare in secrets.h / config.h
 webapp/        Sorgente UI embeddata nella ESP
-docs/          Sito statico per GitHub Pages
+docs/          Sito statico per Netlify
+netlify.toml   Publish dir + header PWA / calendari
 tools/         Script (embed webapp, icone, …)
 ```
 

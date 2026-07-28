@@ -1,0 +1,58 @@
+// Chieri Zona 4A (CCS): VIA BALBO CESARE, VICOLO BASTIONI DELLA MINA, CORSO BUOZZI BRUNO, PIAZZA CASELLI VITTORIO, PIAZZA CAVOUR, VIA CONCERIA, VIA CONSOLATA, VIA COTTOLENGO, PIAZZA DANTE, VICOLO DEL GALLO, VIA DEL GUALDO, PIAZZA DEL NUOVO, VIA DIVERIO MICHELE, VICOLO FANTINI, VIALE FIUME, VIA F.LLI GIORDANO, VIA GALIMBERTI DUCCIO, VIA GARIBALDI GIUSEPPE, VICOLO GHIACCIAIA, VICOLO GILLI, VIA GROSSO GIACOMO, VIA GUARNIERO, VIA LAGNA, VIA LEVI DAVlD, VICOLO MADONNETTA, VIA MARCONI GUGLIELMO, VIA MASERA GIUSEPPE, VIA MIEL GIOVANNI, VIA MOLINI, VICOLO MOZZO BASTIONI, VIA ORFANE, VIA PALAZZO DI CITTÁ, VIA QUARINO MARIO LODOVICO, VICOLO ROBBIO, VIA S. AGOSTINO, VICOLO S. ANTONIO, VIA S. FRANCESCO, VIA S. GIACOMO, VIA S. PIETRO, VIA S. RAFFAELE, VIA TANA, VICOLO TEPICE, VIA TETTI BORRA, VICOLO TRE RE, PIAZZA TRENTO, PIAZZA TRIESTE, VIA VALIMBERTI CANONICO, VIA VALLE PASANO, VIA VIC.LE DELLA SERRA, VICOLO VISCA, VIA VITTORIO EMANUELE
+// Anno 2025 — solo dati; struct e helper in docs/calendar.h
+// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Lista ORDINATA (YYYYMMDD) per ricerca binaria.
+
+  {2025, 10, 2, 3},  // 02/10/2025 Plastica
+  {2025, 10, 3, 0},  // 03/10/2025 Carta
+  {2025, 10, 3, 1},  // 03/10/2025 Organico
+  {2025, 10, 7, 1},  // 07/10/2025 Organico
+  {2025, 10, 10, 1},  // 10/10/2025 Organico
+  {2025, 10, 10, 5},  // 10/10/2025 Vetro
+  {2025, 10, 14, 1},  // 14/10/2025 Organico
+  {2025, 10, 14, 4},  // 14/10/2025 Verde
+  {2025, 10, 16, 3},  // 16/10/2025 Plastica
+  {2025, 10, 17, 0},  // 17/10/2025 Carta
+  {2025, 10, 17, 1},  // 17/10/2025 Organico
+  {2025, 10, 21, 1},  // 21/10/2025 Organico
+  {2025, 10, 21, 4},  // 21/10/2025 Verde
+  {2025, 10, 24, 1},  // 24/10/2025 Organico
+  {2025, 10, 24, 5},  // 24/10/2025 Vetro
+  {2025, 10, 28, 1},  // 28/10/2025 Organico
+  {2025, 10, 28, 4},  // 28/10/2025 Verde
+  {2025, 10, 30, 3},  // 30/10/2025 Plastica
+  {2025, 10, 31, 0},  // 31/10/2025 Carta
+  {2025, 10, 31, 1},  // 31/10/2025 Organico
+  {2025, 11, 4, 1},  // 04/11/2025 Organico
+  {2025, 11, 7, 1},  // 07/11/2025 Organico
+  {2025, 11, 7, 5},  // 07/11/2025 Vetro
+  {2025, 11, 11, 1},  // 11/11/2025 Organico
+  {2025, 11, 11, 4},  // 11/11/2025 Verde
+  {2025, 11, 13, 3},  // 13/11/2025 Plastica
+  {2025, 11, 14, 0},  // 14/11/2025 Carta
+  {2025, 11, 14, 1},  // 14/11/2025 Organico
+  {2025, 11, 18, 1},  // 18/11/2025 Organico
+  {2025, 11, 18, 4},  // 18/11/2025 Verde
+  {2025, 11, 21, 1},  // 21/11/2025 Organico
+  {2025, 11, 21, 5},  // 21/11/2025 Vetro
+  {2025, 11, 25, 1},  // 25/11/2025 Organico
+  {2025, 11, 25, 4},  // 25/11/2025 Verde
+  {2025, 11, 27, 3},  // 27/11/2025 Plastica
+  {2025, 11, 28, 0},  // 28/11/2025 Carta
+  {2025, 11, 28, 1},  // 28/11/2025 Organico
+  {2025, 12, 2, 1},  // 02/12/2025 Organico
+  {2025, 12, 5, 1},  // 05/12/2025 Organico
+  {2025, 12, 5, 5},  // 05/12/2025 Vetro
+  {2025, 12, 9, 1},  // 09/12/2025 Organico
+  {2025, 12, 9, 4},  // 09/12/2025 Verde
+  {2025, 12, 11, 3},  // 11/12/2025 Plastica
+  {2025, 12, 12, 0},  // 12/12/2025 Carta
+  {2025, 12, 12, 1},  // 12/12/2025 Organico
+  {2025, 12, 16, 1},  // 16/12/2025 Organico
+  {2025, 12, 19, 1},  // 19/12/2025 Organico
+  {2025, 12, 19, 5},  // 19/12/2025 Vetro
+  {2025, 12, 23, 1},  // 23/12/2025 Organico
+  {2025, 12, 26, 3},  // 26/12/2025 Plastica
+  {2025, 12, 27, 0},  // 27/12/2025 Carta
+  {2025, 12, 27, 1},  // 27/12/2025 Organico
+  {2025, 12, 30, 1},  // 30/12/2025 Organico

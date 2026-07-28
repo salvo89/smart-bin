@@ -1,0 +1,32 @@
+# Escilo — sito statico da docs/
+# Publish directory: cartella docs/ (non la root del repo).
+
+[build]
+  publish = "docs"
+  # Nessun comando di build: i file in docs/ sono già pronti.
+
+# PWA: service worker e manifest non devono restare in cache aggressiva.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Content-Type = "application/javascript; charset=utf-8"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# Calendari .h letti come testo dal browser
+[[headers]]
+  for = "/calendars/*.h"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"

@@ -10,6 +10,7 @@
   <title>Escilo — perché i cassonetti non si escono da soli</title>
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -347,6 +348,31 @@
       font-weight: 500;
       font-size: 0.75rem;
     }
+
+    .install-app {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      width: 100%;
+      min-height: var(--touch);
+      margin-top: 0.65rem;
+      padding: 0 1rem;
+      border-radius: 1rem;
+      background: var(--accent);
+      border: none;
+      font-weight: 650;
+      font-size: 0.88rem;
+      color: #fff;
+      text-align: left;
+    }
+    .install-app.show { display: flex; }
+    .install-app .hint {
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 500;
+      font-size: 0.75rem;
+    }
+    .install-app:active { filter: brightness(0.95); }
 
     .cal-wrap {
       display: flex;
@@ -940,6 +966,11 @@
       <button type="button" class="month-link" id="btnGotoCal">
         Calendario mensile
         <span class="hint" id="calTitleShort">—</span>
+      </button>
+
+      <button type="button" class="install-app" id="btnInstallApp" hidden>
+        Installa app
+        <span class="hint">Scorciatoia sul telefono</span>
       </button>
 
       <p class="data-source">
@@ -2197,8 +2228,85 @@
       showZoneGate();
     });
 
+    /** @type {BeforeInstallPromptEvent | null} */
+    let deferredInstallPrompt = null;
+
+    function isStandaloneDisplay() {
+      return (
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true
+      );
+    }
+
+    function isAndroidChrome() {
+      const ua = navigator.userAgent || "";
+      if (!/Android/i.test(ua)) return false;
+      if (/EdgA|Edg\/|OPR\/|SamsungBrowser|Firefox|FxiOS|YaBrowser/i.test(ua)) {
+        return false;
+      }
+      return /Chrome\/\d+/i.test(ua);
+    }
+
+    function canOfferInstall() {
+      return (
+        !!deferredInstallPrompt &&
+        isAndroidChrome() &&
+        !isStandaloneDisplay() &&
+        window.isSecureContext
+      );
+    }
+
+    function syncInstallButton() {
+      const btn = $("btnInstallApp");
+      if (!btn) return;
+      const show = canOfferInstall();
+      btn.hidden = !show;
+      btn.classList.toggle("show", show);
+    }
+
+    function hideInstallButton() {
+      deferredInstallPrompt = null;
+      syncInstallButton();
+    }
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      syncInstallButton();
+    });
+
+    window.addEventListener("appinstalled", () => {
+      hideInstallButton();
+    });
+
+    $("btnInstallApp").addEventListener("click", async () => {
+      if (!canOfferInstall()) {
+        hideInstallButton();
+        return;
+      }
+      const promptEvent = deferredInstallPrompt;
+      hideInstallButton();
+      try {
+        await promptEvent.prompt();
+        await promptEvent.userChoice;
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    async function registerServiceWorker() {
+      if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
+      try {
+        await navigator.serviceWorker.register("sw.js");
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
     async function boot() {
       buildDowHeader();
+      registerServiceWorker();
+      syncInstallButton();
       try {
         await loadZonesIndex();
         await loadSourcesIndex();
