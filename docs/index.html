@@ -7,7 +7,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Escilo" />
-  <title>Escilo — i cassonetti non si escono da soli</title>
+  <title>Escilo — perché i cassonetti non si escono da soli</title>
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -353,6 +353,24 @@
       flex-direction: column;
       gap: 1.15rem;
     }
+    .cal-viewport {
+      overflow: hidden;
+      touch-action: pan-y;
+      position: relative;
+      margin: 0 -0.15rem;
+      padding: 0 0.15rem;
+    }
+    .cal-slide {
+      will-change: transform, opacity;
+    }
+    .cal-slide.is-animating {
+      pointer-events: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cal-slide {
+        transition: none !important;
+      }
+    }
     .cal-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -381,6 +399,85 @@
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
+    }
+    .cal-stage {
+      position: relative;
+      min-height: 8rem;
+    }
+    .cal-body.is-empty .cal-stage > .cal-grid {
+      pointer-events: none;
+      user-select: none;
+    }
+    .cal-body.is-empty .cal-cell:not(.pad) {
+      opacity: 0.55;
+    }
+    .cal-cell.skeleton .num {
+      opacity: 0.55;
+    }
+    .cal-cell.skeleton .sk-bar {
+      display: block;
+      border-radius: 3px;
+      height: 0.42rem;
+      background: linear-gradient(90deg, #e4ece7, #d5e2da, #e4ece7);
+      background-size: 220% 100%;
+    }
+    .cal-cell.skeleton .sk-bar.short { width: 42%; }
+    .cal-cell.skeleton .sk-bar.mid { width: 78%; margin-top: 3px; }
+    .cal-wrap.is-empty-month .cal-legend {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .cal-empty {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 0.65rem;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(238, 246, 241, 0.28) 0%,
+          rgba(238, 246, 241, 0.55) 45%,
+          rgba(238, 246, 241, 0.28) 100%
+        );
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
+      text-align: center;
+    }
+    .cal-body.is-empty .cal-empty {
+      display: flex;
+    }
+    .cal-empty-card {
+      width: min(100%, 18.5rem);
+      padding: 1.15rem 1rem 1.05rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(213, 226, 218, 0.95);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 10px 28px rgba(20, 40, 30, 0.1);
+    }
+    .cal-empty-title {
+      margin: 0 0 0.45rem;
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .cal-empty p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .cal-empty p + p {
+      margin-top: 0.65rem;
+    }
+    .cal-empty a {
+      color: var(--accent);
+      font-weight: 650;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
     .cal-legend {
       display: flex;
@@ -774,7 +871,7 @@
         <img class="brand-mark" src="brand-mark.png" width="48" height="49" alt="" aria-hidden="true" />
         <p class="zone-gate-brand">Escilo</p>
       </div>
-      <p class="zone-gate-tagline">I cassonetti non si escono da soli.</p>
+      <p class="zone-gate-tagline">Perché i cassonetti non si escono da soli.</p>
       <h2>Scegli la tua zona</h2>
       <p class="lead">Indica comune e via per vedere cosa esporre domani. La scelta resta solo sul tuo dispositivo.</p>
       <div class="zone-field">
@@ -809,7 +906,7 @@
         <img class="brand-mark" src="brand-mark.png" width="40" height="41" alt="" aria-hidden="true" />
         <div>
           <h1 class="brand">Escilo</h1>
-          <p class="brand-sub">i cassonetti non si escono da soli</p>
+          <p class="brand-sub">perché i cassonetti non si escono da soli</p>
         </div>
       </div>
       <div class="zone-meta" id="zoneMeta" hidden>
@@ -847,7 +944,7 @@
 
       <p class="data-source">
         <span class="footer-source" hidden></span>
-        <a href="fonti.html">Fonti</a>
+        <a href="fonti.html">Tutte le fonti</a>
         <span class="sep">&middot;</span>
         <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala errore o zona</a>
       </p>
@@ -863,9 +960,25 @@
             <button type="button" id="btnCalNext" aria-label="Mese successivo">→</button>
           </div>
         </div>
-        <div class="cal-body">
-          <div class="cal-grid" id="calGridHead" aria-hidden="true"></div>
-          <div class="cal-grid" id="calGrid" role="grid" aria-label="Calendario ritiri"></div>
+        <div class="cal-viewport" id="calViewport">
+          <div class="cal-slide" id="calSlide">
+            <div class="cal-body" id="calBody">
+              <div class="cal-grid" id="calGridHead" aria-hidden="true"></div>
+              <div class="cal-stage" id="calStage">
+                <div class="cal-grid" id="calGrid" role="grid" aria-label="Calendario ritiri"></div>
+                <div class="cal-empty" id="calEmpty" role="status" aria-live="polite">
+                  <div class="cal-empty-card">
+                    <p class="cal-empty-title" id="calEmptyTitle">Dati non disponibili</p>
+                    <p id="calEmptyMsg">Per questo mese non abbiamo ancora il calendario dei ritiri.</p>
+                    <p id="calEmptyShare">
+                      Se li hai e vuoi aiutarci,
+                      <a id="calEmptyMail" href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">scrivici</a>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="cal-legend" aria-label="Legenda rifiuti">
           <span><i class="tag-c" aria-hidden="true"></i><span class="name">Carta</span></span>
@@ -877,7 +990,7 @@
         </div>
         <p class="data-source">
           <span class="footer-source" hidden></span>
-          <a href="fonti.html">Fonti</a>
+          <a href="fonti.html">Tutte le fonti</a>
           <span class="sep">&middot;</span>
           <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala errore o zona</a>
         </p>
@@ -907,8 +1020,18 @@
     const LS_COMUNE = "smartbin.comune";
     const LS_VIA = "smartbin.via";
     const LS_CALENDAR = "smartbin.calendar";
+    const CONTACT_EMAIL = "salvatore.bonventre.ai@gmail.com";
     const CONTACT_MAILTO =
-      "mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario";
+      "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Escilo — calendario");
+
+    function contactMailto(subject) {
+      return (
+        "mailto:" +
+        CONTACT_EMAIL +
+        "?subject=" +
+        encodeURIComponent(subject || "Escilo — calendario")
+      );
+    }
 
     const $ = (id) => document.getElementById(id);
 
@@ -1312,9 +1435,9 @@
         "Calendario ritiri — " + choice.comuneName + ", " + choice.via;
     }
 
-    const BIN_BADGE_SHORT = ["Crt", "Org", "Ind", "Pla", "Ver", "Vet"];
+    const BIN_BADGE_SHORT = ["Car", "Org", "Ind", "Pla", "Ver", "Vet"];
     const BIN_FULL = {
-      C: { code: "Crt", name: "Carta", icon: "📄", sw: "sw-c" },
+      C: { code: "Car", name: "Carta", icon: "📄", sw: "sw-c" },
       O: { code: "Org", name: "Organico", icon: "🍂", sw: "sw-o" },
       I: { code: "Ind", name: "Indifferenziata", icon: "🗑", sw: "sw-i" },
       P: { code: "Pla", name: "Plastica", icon: "♻", sw: "sw-p" },
@@ -1667,12 +1790,91 @@
       }
     }
 
+    function renderSkeletonMonth(y, m) {
+      const grid = $("calGrid");
+      grid.innerHTML = "";
+      const D = daysInMonth(y, m);
+      const lead = weekdayMondayFirst(y, m, 1);
+
+      for (let i = 0; i < lead; i++) {
+        const pad = document.createElement("div");
+        pad.className = "cal-cell pad";
+        pad.setAttribute("aria-hidden", "true");
+        grid.appendChild(pad);
+      }
+
+      for (let d = 1; d <= D; d++) {
+        const cell = document.createElement("div");
+        cell.className = "cal-cell skeleton";
+        cell.setAttribute("aria-hidden", "true");
+        const num = document.createElement("div");
+        num.className = "num";
+        num.textContent = String(d);
+        cell.appendChild(num);
+        const tags = document.createElement("div");
+        tags.className = "tags";
+        const bar1 = document.createElement("span");
+        bar1.className = "sk-bar short";
+        const bar2 = document.createElement("span");
+        bar2.className = "sk-bar mid";
+        tags.appendChild(bar1);
+        tags.appendChild(bar2);
+        cell.appendChild(tags);
+        grid.appendChild(cell);
+      }
+    }
+
+    function monthHasData(y, m) {
+      for (let i = 0; i < CALENDAR_ENTRIES.length; i++) {
+        const e = CALENDAR_ENTRIES[i];
+        if (e[0] === y && e[1] === m) return true;
+      }
+      return false;
+    }
+
     function loadMonth() {
       const title = MONTH_IT[viewMonth - 1] + " " + viewYear;
       $("calTitle").textContent = title;
       $("calTitleShort").textContent = MONTH_IT[viewMonth - 1].slice(0, 3) + " ▸";
-      const dataByDay = cacheMonth(viewYear, viewMonth);
-      renderMonthGrid(viewYear, viewMonth, dataByDay);
+      const hasData = monthHasData(viewYear, viewMonth);
+      const body = $("calBody");
+      const wrap = $("calWrap");
+      body.classList.toggle("is-empty", !hasData);
+      wrap.classList.toggle("is-empty-month", !hasData);
+
+      if (!hasData) {
+        renderSkeletonMonth(viewYear, viewMonth);
+        const now = new Date();
+        const curY = now.getFullYear();
+        const curM = now.getMonth() + 1;
+        const isPast =
+          viewYear < curY || (viewYear === curY && viewMonth < curM);
+        const shareRow = $("calEmptyShare");
+        const zoneBit = ZONE_CHOICE
+          ? ZONE_CHOICE.comuneName + " · " + ZONE_CHOICE.via
+          : null;
+
+        if (isPast) {
+          $("calEmptyTitle").textContent = "Storico non disponibile";
+          $("calEmptyMsg").textContent =
+            "Escilo non conserva lo storico completo dei calendari. Per " +
+            title +
+            " i dati di ritiro non sono più disponibili qui.";
+          shareRow.hidden = true;
+        } else {
+          $("calEmptyTitle").textContent = "Dati non disponibili";
+          $("calEmptyMsg").textContent = zoneBit
+            ? "Per " + title + " non abbiamo ancora il calendario dei ritiri di " + zoneBit + "."
+            : "Per " + title + " non abbiamo ancora il calendario dei ritiri.";
+          shareRow.hidden = false;
+          $("calEmptyMail").href = contactMailto(
+            "Escilo — dati calendario " + title + (zoneBit ? " (" + zoneBit + ")" : "")
+          );
+        }
+      } else {
+        const dataByDay = cacheMonth(viewYear, viewMonth);
+        renderMonthGrid(viewYear, viewMonth, dataByDay);
+      }
       renderWeekStrip();
     }
 
@@ -1701,6 +1903,178 @@
       }
     }
 
+    let monthNavBusy = false;
+    const prefersReducedMotion = () =>
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function resetCalSlide() {
+      const slide = $("calSlide");
+      slide.classList.remove("is-animating");
+      slide.style.transition = "";
+      slide.style.transform = "";
+      slide.style.opacity = "";
+    }
+
+    function waitCalTransition(slide, ms) {
+      return new Promise((resolve) => {
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          slide.removeEventListener("transitionend", onEnd);
+          resolve();
+        };
+        const onEnd = (ev) => {
+          if (ev.target !== slide) return;
+          if (ev.propertyName !== "transform" && ev.propertyName !== "opacity") return;
+          finish();
+        };
+        slide.addEventListener("transitionend", onEnd);
+        setTimeout(finish, ms);
+      });
+    }
+
+    async function animateCalSlide(fromXpx, toXpx, fromOp, toOp, durationMs) {
+      const slide = $("calSlide");
+      slide.classList.add("is-animating");
+      slide.style.transition = "none";
+      slide.style.transform = "translate3d(" + fromXpx + "px,0,0)";
+      slide.style.opacity = String(fromOp);
+      void slide.offsetWidth;
+      if (prefersReducedMotion()) {
+        slide.style.transform = "translate3d(" + toXpx + "px,0,0)";
+        slide.style.opacity = String(toOp);
+        return;
+      }
+      slide.style.transition =
+        "transform " + durationMs + "ms cubic-bezier(0.22, 0.82, 0.2, 1), opacity " +
+        Math.round(durationMs * 0.85) + "ms ease";
+      slide.style.transform = "translate3d(" + toXpx + "px,0,0)";
+      slide.style.opacity = String(toOp);
+      await waitCalTransition(slide, durationMs + 80);
+    }
+
+    async function navigateMonth(delta, opts) {
+      if (!delta || monthNavBusy) return;
+      monthNavBusy = true;
+      const slide = $("calSlide");
+      const dir = delta > 0 ? 1 : -1;
+      const width = ($("calViewport") && $("calViewport").offsetWidth) || 280;
+      const outDist = Math.round(width * 0.42);
+      const startX =
+        opts && typeof opts.startX === "number" ? opts.startX : 0;
+      const startOp =
+        opts && typeof opts.startOp === "number"
+          ? opts.startOp
+          : Math.max(0.45, 1 - Math.abs(startX) / (width * 0.9));
+
+      try {
+        await animateCalSlide(startX, -dir * outDist, startOp, 0, 220);
+        shiftMonth(delta);
+        loadMonth();
+        await animateCalSlide(dir * outDist, 0, 0, 1, 260);
+      } finally {
+        resetCalSlide();
+        monthNavBusy = false;
+      }
+    }
+
+    function bindCalSwipe() {
+      const viewport = $("calViewport");
+      const slide = $("calSlide");
+      if (!viewport || !slide) return;
+
+      let touch = null;
+
+      viewport.addEventListener(
+        "touchstart",
+        (e) => {
+          if (monthNavBusy || !e.changedTouches || !e.changedTouches.length) return;
+          const t = e.changedTouches[0];
+          touch = {
+            id: t.identifier,
+            x: t.clientX,
+            y: t.clientY,
+            dx: 0,
+            tracking: false,
+          };
+        },
+        { passive: true }
+      );
+
+      viewport.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!touch || monthNavBusy || !e.changedTouches) return;
+          let t = null;
+          for (let i = 0; i < e.changedTouches.length; i++) {
+            if (e.changedTouches[i].identifier === touch.id) {
+              t = e.changedTouches[i];
+              break;
+            }
+          }
+          if (!t) return;
+          const dx = t.clientX - touch.x;
+          const dy = t.clientY - touch.y;
+          if (!touch.tracking) {
+            if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+            if (Math.abs(dy) >= Math.abs(dx)) {
+              touch = null;
+              return;
+            }
+            touch.tracking = true;
+          }
+          touch.dx = dx;
+          const width = viewport.offsetWidth || 280;
+          slide.style.transition = "none";
+          slide.style.transform = "translate3d(" + dx + "px,0,0)";
+          slide.style.opacity = String(Math.max(0.42, 1 - Math.abs(dx) / (width * 1.05)));
+        },
+        { passive: true }
+      );
+
+      const endTouch = async (e) => {
+        if (!touch || !e.changedTouches) return;
+        let ended = false;
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          if (e.changedTouches[i].identifier === touch.id) {
+            ended = true;
+            break;
+          }
+        }
+        if (!ended) return;
+        const dx = touch.tracking ? touch.dx : 0;
+        const wasTracking = touch.tracking;
+        touch = null;
+        if (!wasTracking) return;
+
+        const width = viewport.offsetWidth || 280;
+        const threshold = Math.min(72, width * 0.18);
+        if (dx <= -threshold) {
+          await navigateMonth(1, {
+            startX: dx,
+            startOp: Math.max(0.42, 1 - Math.abs(dx) / (width * 1.05)),
+          });
+        } else if (dx >= threshold) {
+          await navigateMonth(-1, {
+            startX: dx,
+            startOp: Math.max(0.42, 1 - Math.abs(dx) / (width * 1.05)),
+          });
+        } else {
+          monthNavBusy = true;
+          try {
+            await animateCalSlide(dx, 0, Math.max(0.42, 1 - Math.abs(dx) / (width * 1.05)), 1, 200);
+          } finally {
+            resetCalSlide();
+            monthNavBusy = false;
+          }
+        }
+      };
+
+      viewport.addEventListener("touchend", endTouch, { passive: true });
+      viewport.addEventListener("touchcancel", endTouch, { passive: true });
+    }
+
     function loadTomorrowHero() {
       const tom = new Date();
       tom.setDate(tom.getDate() + 1);
@@ -1718,19 +2092,41 @@
     }
 
     $("btnCalPrev").addEventListener("click", () => {
-      shiftMonth(-1);
-      loadMonth();
+      navigateMonth(-1);
     });
     $("btnCalNext").addEventListener("click", () => {
-      shiftMonth(1);
-      loadMonth();
+      navigateMonth(1);
     });
     $("btnCalToday").addEventListener("click", () => {
       const t = new Date();
-      viewYear = t.getFullYear();
-      viewMonth = t.getMonth() + 1;
-      loadMonth();
+      const ty = t.getFullYear();
+      const tm = t.getMonth() + 1;
+      if (ty === viewYear && tm === viewMonth) {
+        loadMonth();
+        return;
+      }
+      const delta = ty * 12 + tm - (viewYear * 12 + viewMonth);
+      const step = delta > 0 ? 1 : -1;
+      viewYear = ty;
+      viewMonth = tm;
+      // Jump with a short slide in the travel direction.
+      (async () => {
+        if (monthNavBusy) return;
+        monthNavBusy = true;
+        const width = ($("calViewport") && $("calViewport").offsetWidth) || 280;
+        const outDist = Math.round(width * 0.42);
+        try {
+          await animateCalSlide(0, -step * outDist, 1, 0, 180);
+          loadMonth();
+          await animateCalSlide(step * outDist, 0, 0, 1, 220);
+        } finally {
+          resetCalSlide();
+          monthNavBusy = false;
+        }
+      })();
     });
+
+    bindCalSwipe();
 
     $("btnGotoCal").addEventListener("click", () => setTab("cal"));
 
