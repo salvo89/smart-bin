@@ -28,7 +28,14 @@ jobs:
             exit 1
           fi
           BASE="${SITE_URL%/}"
-          curl -fsS -X POST \
+          RESP="$(curl -sS -w "\n%{http_code}" -X POST \
             -H "Content-Type: application/json" \
             -H "X-Dispatch-Secret: ${DISPATCH_SECRET}" \
-            "${BASE}/api/push/dispatch"
+            "${BASE}/api/push/dispatch")"
+          BODY="$(echo "$RESP" | sed '$d')"
+          CODE="$(echo "$RESP" | tail -n 1)"
+          echo "$BODY"
+          if [ "$CODE" != "200" ]; then
+            echo "HTTP $CODE" >&2
+            exit 1
+          fi

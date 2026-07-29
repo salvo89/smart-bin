@@ -78,36 +78,37 @@ async function entriesForCalendar(calendarId, years) {
 }
 
 export async function handler(event) {
-  if (event.httpMethod === "OPTIONS") {
-    return json(204, {});
-  }
-  if (event.httpMethod !== "POST" && event.httpMethod !== "GET") {
-    return methodNotAllowed("POST, GET");
-  }
-  if (!authorize(event)) {
-    return json(401, { error: "unauthorized" });
-  }
+  try {
+    if (event.httpMethod === "OPTIONS") {
+      return json(204, {});
+    }
+    if (event.httpMethod !== "POST" && event.httpMethod !== "GET") {
+      return methodNotAllowed("POST, GET");
+    }
+    if (!authorize(event)) {
+      return json(401, { error: "unauthorized" });
+    }
 
-  const publicKey = process.env.VAPID_PUBLIC_KEY;
-  const privateKey = process.env.VAPID_PRIVATE_KEY;
-  const subject = process.env.VAPID_SUBJECT || "mailto:salvatore.bonventre.ai@gmail.com";
-  if (!publicKey || !privateKey) {
-    return json(503, { error: "vapid_not_configured" });
-  }
+    const publicKey = process.env.VAPID_PUBLIC_KEY;
+    const privateKey = process.env.VAPID_PRIVATE_KEY;
+    const subject = process.env.VAPID_SUBJECT || "mailto:salvatore.bonventre.ai@gmail.com";
+    if (!publicKey || !privateKey) {
+      return json(503, { error: "vapid_not_configured" });
+    }
 
-  webpush.setVapidDetails(subject, publicKey, privateKey);
+    webpush.setVapidDetails(subject, publicKey, privateKey);
 
-  // TEST: PUSH_TEST_MODE=1 → ignora ora utente e lastSentDate (push a ogni dispatch se c’è ritiro).
-  // Prod: togliere/false + cron orario nel workflow.
-  const testMode =
-    process.env.PUSH_TEST_MODE === "1" ||
-    process.env.PUSH_TEST_MODE === "true";
+    // TEST: PUSH_TEST_MODE=1 → ignora ora utente e lastSentDate (push a ogni dispatch se c’è ritiro).
+    // Prod: togliere/false + cron orario nel workflow.
+    const testMode =
+      process.env.PUSH_TEST_MODE === "1" ||
+      process.env.PUSH_TEST_MODE === "true";
 
-  const now = romeParts();
-  const tomorrow = nextDay(now.year, now.month, now.day);
-  const years = await loadIndexYears(now.year);
-  const store = getPushStore();
-  const all = await listAllSubscriptions(store);
+    const now = romeParts();
+    const tomorrow = nextDay(now.year, now.month, now.day);
+    const years = await loadIndexYears(now.year);
+    const store = getPushStore();
+    const all = await listAllSubscriptions(store);
 
   let sent = 0;
   let skipped = 0;
@@ -175,15 +176,22 @@ export async function handler(event) {
     }
   }
 
-  return json(200, {
-    ok: true,
-    testMode,
-    rome: now,
-    tomorrow,
-    sent,
-    skipped,
-    removed,
-    errors,
-    total: all.length,
-  });
+    return json(200, {
+      ok: true,
+      testMode,
+      rome: now,
+      tomorrow,
+      sent,
+      skipped,
+      removed,
+      errors,
+      total: all.length,
+    });
+  } catch (err) {
+    console.error("push_dispatch_failed", err);
+    return json(500, {
+      error: "dispatch_failed",
+      message: err && err.message ? String(err.message) : "unknown",
+    });
+  }
 }
