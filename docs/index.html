@@ -79,17 +79,23 @@
       padding-top: max(0.75rem, env(safe-area-inset-top));
     }
     .brand-lockup {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "mark title"
+        "sub  sub";
+      column-gap: 0.55rem;
+      row-gap: 0.12rem;
       min-width: 0;
+      align-items: center;
     }
     .brand-mark {
       width: auto;
-      height: 2.55rem;
+      height: 2.15rem;
       flex-shrink: 0;
       display: block;
       object-fit: contain;
+      grid-area: mark;
     }
     .brand {
       font-family: var(--display);
@@ -98,14 +104,16 @@
       letter-spacing: -0.03em;
       margin: 0;
       line-height: 1.15;
+      grid-area: title;
     }
     .brand-sub {
-      margin: 0.1rem 0 0;
+      margin: 0;
       font-size: 0.72rem;
       font-weight: 600;
       color: var(--muted);
       line-height: 1.3;
-      max-width: 16rem;
+      max-width: 18rem;
+      grid-area: sub;
     }
 
     .panel {
@@ -375,117 +383,35 @@
     }
     .install-app:active { filter: brightness(0.95); }
 
-    .notify-card {
-      margin: 0;
-      padding: 0.95rem 1rem;
-      border-radius: 1rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: 0 1px 0 rgba(20, 32, 24, 0.04);
-    }
-    .notify-page {
-      padding: 0 var(--safe) 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-    .notify-page-head h2 {
-      margin: 0;
-      font-family: var(--display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .notify-page-lead {
-      margin: 0.35rem 0 0;
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.45;
-    }
-    .notify-active-bar {
-      display: flex;
+    .push-offer {
+      display: none;
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
-      padding: 0.65rem 0.85rem;
-      border-radius: 0.85rem;
-      background: var(--accent-soft);
-      border: 1px solid rgba(31, 92, 66, 0.12);
-    }
-    .notify-active-bar p {
-      margin: 0;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent);
-      line-height: 1.35;
-    }
-    .notify-settings-btn {
-      flex-shrink: 0;
-      font-size: 0.75rem;
-      font-weight: 650;
-      color: var(--accent);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      padding: 0.35rem 0.15rem;
-    }
-    #btnNotifySettingsClose {
-      display: block;
+      width: 100%;
+      min-height: var(--touch);
       margin-top: 0.65rem;
-      text-align: left;
-    }
-    .notify-history {
-      padding: 0.95rem 1rem;
+      padding: 0 1rem;
       border-radius: 1rem;
       background: var(--surface);
       border: 1px solid var(--line);
-    }
-    .notify-history h3 {
-      margin: 0 0 0.65rem;
+      font-weight: 650;
       font-size: 0.88rem;
-      font-weight: 700;
+      color: var(--ink);
+      text-align: left;
     }
-    .notify-history-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-    .notify-history-item {
-      padding: 0.65rem 0.75rem;
-      border-radius: 0.75rem;
-      background: var(--bg);
-      border: 1px solid var(--line);
-    }
-    .notify-history-item time {
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 600;
+    .push-offer.show { display: flex; }
+    .push-offer .hint {
       color: var(--muted-2);
-      margin-bottom: 0.25rem;
+      font-weight: 500;
+      font-size: 0.75rem;
     }
-    .notify-history-item strong {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 0.15rem;
-    }
-    .notify-history-item p {
-      margin: 0;
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.35;
-    }
-    .notify-history-empty {
-      margin: 0;
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.4;
-    }
+    .push-offer.is-on { color: var(--accent); }
+    .push-offer:active { filter: brightness(0.97); }
+
     .notify-head {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       gap: 0.85rem;
     }
@@ -494,19 +420,12 @@
       font-weight: 700;
       font-size: 0.95rem;
     }
-    .notify-desc {
-      margin: 0.25rem 0 0;
-      color: var(--muted);
-      font-size: 0.78rem;
-      line-height: 1.35;
-    }
     .notify-switch {
       position: relative;
       display: inline-flex;
       width: 2.75rem;
       height: 1.55rem;
       flex-shrink: 0;
-      margin-top: 0.1rem;
     }
     .notify-switch input {
       position: absolute;
@@ -576,12 +495,6 @@
       border-radius: 0.55rem;
       padding: 0.4rem 0.55rem;
       min-height: 2.25rem;
-    }
-    .notify-status {
-      margin: 0.55rem 0 0;
-      min-height: 1.1rem;
-      font-size: 0.72rem;
-      color: var(--muted-2);
     }
     .visually-hidden {
       position: absolute;
@@ -673,6 +586,9 @@
       color: #fff;
       font-weight: 650;
       font-size: 0.9rem;
+    }
+    .notify-row + .install-sheet-close {
+      margin-top: 1rem;
     }
 
     .cal-wrap {
@@ -927,7 +843,7 @@
       width: min(calc(100% - 1.3rem), 26.7rem);
       z-index: 30;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 0.2rem;
       padding: 0.35rem;
       border-radius: 1.35rem;
@@ -1017,14 +933,20 @@
       animation: rise 0.45s ease both;
     }
     .zone-gate-lockup {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "mark title"
+        "sub  sub";
+      column-gap: 0.7rem;
+      row-gap: 0.2rem;
       align-items: center;
-      gap: 0.7rem;
-      margin: 0 0 0.2rem;
+      margin: 0 0 1rem;
     }
     .zone-gate-lockup .brand-mark {
       height: 2.85rem;
       width: auto;
+      grid-area: mark;
     }
     .zone-gate-brand {
       margin: 0;
@@ -1034,13 +956,15 @@
       letter-spacing: -0.03em;
       line-height: 1.1;
       color: var(--accent);
+      grid-area: title;
     }
     .zone-gate-tagline {
-      margin: 0 0 1rem;
+      margin: 0;
       font-size: 0.92rem;
       font-weight: 500;
       color: var(--ink);
       line-height: 1.35;
+      grid-area: sub;
     }
     .zone-gate-card h2 {
       margin: 0 0 0.3rem;
@@ -1219,13 +1143,33 @@
     </div>
   </div>
 
+  <div class="install-sheet" id="notifySheet" hidden role="dialog" aria-modal="true" aria-labelledby="notifySheetTitle">
+    <div class="install-sheet-card">
+      <h2 id="notifySheetTitle" class="visually-hidden">Notifiche</h2>
+      <div class="notify-head">
+        <p class="notify-title">Notifiche</p>
+        <label class="notify-switch">
+          <input type="checkbox" id="notifyToggle" />
+          <span class="notify-slider" aria-hidden="true"></span>
+          <span class="visually-hidden">Abilita notifiche</span>
+        </label>
+      </div>
+      <p class="notify-hint" id="notifyHint" hidden></p>
+      <div class="notify-row" id="notifyHourRow">
+        <label for="notifyHour">Ricordami dopo le</label>
+        <select id="notifyHour" aria-label="Orario notifica"></select>
+      </div>
+      <button type="button" class="install-sheet-close" id="btnNotifySheetClose">Chiudi</button>
+    </div>
+  </div>
+
   <div class="zone-gate" id="zoneGate" hidden>
     <form class="zone-gate-card" id="zoneGateForm">
       <div class="zone-gate-lockup">
         <img class="brand-mark" src="brand-mark.png" width="48" height="49" alt="" aria-hidden="true" />
         <p class="zone-gate-brand">Escilo</p>
+        <p class="zone-gate-tagline">perché i cassonetti non si escono da soli</p>
       </div>
-      <p class="zone-gate-tagline">Perché i cassonetti non si escono da soli.</p>
       <h2>Scegli la tua zona</h2>
       <p class="lead">Indica comune e via per vedere cosa esporre domani. La scelta resta solo sul tuo dispositivo.</p>
       <div class="zone-field">
@@ -1258,10 +1202,8 @@
     <header class="topbar">
       <div class="brand-lockup">
         <img class="brand-mark" src="brand-mark.png" width="40" height="41" alt="" aria-hidden="true" />
-        <div>
-          <h1 class="brand">Escilo</h1>
-          <p class="brand-sub">perché i cassonetti non si escono da soli</p>
-        </div>
+        <h1 class="brand">Escilo</h1>
+        <p class="brand-sub">perché i cassonetti non si escono da soli</p>
       </div>
       <div class="zone-meta" id="zoneMeta" hidden>
         <p class="zone-label" id="zoneLabel">—</p>
@@ -1299,6 +1241,11 @@
       <button type="button" class="install-app" id="btnInstallApp" hidden>
         <span id="btnInstallAppLabel">Installa app</span>
         <span class="hint" id="btnInstallAppHint">Scorciatoia sul telefono</span>
+      </button>
+
+      <button type="button" class="push-offer" id="btnPushOffer" hidden>
+        <span id="btnPushOfferLabel">Notifiche</span>
+        <span class="hint" id="btnPushOfferHint">Attivale e Escilo te lo ricorda.</span>
       </button>
 
       <p class="data-source">
@@ -1356,49 +1303,6 @@
       </div>
     </section>
 
-    <section class="panel" id="panelNotify" data-panel="notify" hidden aria-label="Notifiche">
-      <div class="notify-page">
-        <div class="notify-page-head">
-          <h2>Notifiche</h2>
-          <p class="notify-page-lead" id="notifyPageLead">
-            Ricevi una <strong>notifica</strong> il <strong>giorno prima</strong> del ritiro, all’orario che scegli.
-            Funziona anche con l’app chiusa.
-          </p>
-        </div>
-
-        <div class="notify-active-bar" id="notifyActiveBar" hidden>
-          <p id="notifyActiveSummary">Notifiche attive</p>
-          <button type="button" class="notify-settings-btn" id="btnNotifySettings">Impostazioni</button>
-        </div>
-
-        <section class="notify-history" aria-labelledby="notifyHistoryTitle">
-          <h3 id="notifyHistoryTitle">Ultime notifiche</h3>
-          <ul class="notify-history-list" id="notifyHistoryList" hidden></ul>
-          <p class="notify-history-empty" id="notifyHistoryEmpty">Nessuna notifica negli ultimi 30 giorni.</p>
-        </section>
-
-        <section class="notify-card" id="notifyCard" hidden>
-          <div class="notify-head">
-            <div>
-              <p class="notify-title">Notifiche push</p>
-              <p class="notify-desc" id="notifyDesc">Attiva per ricevere la notifica automatica il giorno prima del ritiro.</p>
-            </div>
-            <label class="notify-switch">
-              <input type="checkbox" id="notifyToggle" />
-              <span class="notify-slider" aria-hidden="true"></span>
-              <span class="visually-hidden">Abilita notifiche</span>
-            </label>
-          </div>
-          <p class="notify-hint" id="notifyHint" hidden></p>
-          <div class="notify-row" id="notifyHourRow">
-            <label for="notifyHour">Orario (Europe/Rome)</label>
-            <select id="notifyHour" aria-label="Orario notifica"></select>
-          </div>
-          <p class="notify-status" id="notifyStatus" role="status"></p>
-          <button type="button" class="notify-settings-btn" id="btnNotifySettingsClose" hidden>Chiudi impostazioni</button>
-        </section>
-      </div>
-    </section>
   </div>
 
   <nav class="bottom-nav" id="bottomNav" aria-label="Sezioni">
@@ -1409,10 +1313,6 @@
     <button type="button" data-tab="cal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
       Mese
-    </button>
-    <button type="button" data-tab="notify">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-      Notifiche
     </button>
   </nav>
 
@@ -1840,7 +1740,7 @@
       loadMonth();
       $("liveLine").textContent =
         "Calendario ritiri — " + choice.comuneName + ", " + choice.via;
-      syncNotifyPanel();
+      syncPushOffer();
       refreshPushRegistration().catch((err) => console.error(err));
     }
 
@@ -1902,11 +1802,6 @@
         else btn.removeAttribute("aria-current");
       });
       window.scrollTo(0, 0);
-      if (tab !== "notify") notifySettingsOpen = false;
-      if (tab === "notify") {
-        syncNotifyPanel();
-        renderNotifyHistory();
-      }
     }
 
     function renderHero(t) {
@@ -2609,7 +2504,7 @@
       dayCache.clear();
       renderHero(null);
       showZoneGate();
-      syncNotifyPanel();
+      syncPushOffer();
     });
 
     /** @type {BeforeInstallPromptEvent | null} */
@@ -2734,9 +2629,6 @@
     const LS_PUSH_HOUR = "smartbin.pushHour";
     const LS_PUSH_HOUR_USER = "smartbin.pushHourUserSet";
     const LS_PUSH_REGISTERED = "smartbin.pushRegistered";
-    const NOTIFY_HISTORY_DB = "escilo-notify";
-    const NOTIFY_HISTORY_STORE = "history";
-    const NOTIFY_HISTORY_MAX_DAYS = 30;
 
     const PUSH_API = {
       vapid: "/api/push/vapid-public",
@@ -2754,127 +2646,19 @@
       localStorage.setItem(LS_PUSH_HOUR_USER, "1");
     }
 
-    function notifyHistoryCutoffIso() {
-      const d = new Date();
-      d.setDate(d.getDate() - NOTIFY_HISTORY_MAX_DAYS);
-      return d.toISOString();
+    function parseYmd(ymd) {
+      if (!ymd || !/^\d{4}-\d{2}-\d{2}$/.test(ymd)) return null;
+      const [y, m, d] = ymd.split("-").map(Number);
+      if (!y || m < 1 || m > 12 || d < 1 || d > 31) return null;
+      return { year: y, month: m, day: d };
     }
 
-    function openNotifyHistoryDb() {
-      return new Promise((resolve, reject) => {
-        const req = indexedDB.open(NOTIFY_HISTORY_DB, 1);
-        req.onupgradeneeded = () => {
-          const db = req.result;
-          if (!db.objectStoreNames.contains(NOTIFY_HISTORY_STORE)) {
-            db.createObjectStore(NOTIFY_HISTORY_STORE, { keyPath: "id" });
-          }
-        };
-        req.onsuccess = () => resolve(req.result);
-        req.onerror = () => reject(req.error);
-      });
-    }
-
-    function idbGetAll(store) {
-      return new Promise((resolve, reject) => {
-        const req = store.getAll();
-        req.onsuccess = () => resolve(req.result || []);
-        req.onerror = () => reject(req.error);
-      });
-    }
-
-    async function pruneNotifyHistory(db) {
-      const cutoff = notifyHistoryCutoffIso();
-      const tx = db.transaction(NOTIFY_HISTORY_STORE, "readwrite");
-      const store = tx.objectStore(NOTIFY_HISTORY_STORE);
-      const all = await idbGetAll(store);
-      for (const item of all) {
-        if (!item.at || item.at < cutoff) store.delete(item.id);
-      }
-      return new Promise((resolve, reject) => {
-        tx.oncomplete = () => resolve();
-        tx.onerror = () => reject(tx.error);
-      });
-    }
-
-    async function appendNotifyHistory(entry) {
-      if (!("indexedDB" in window)) return;
-      const at = entry.at || new Date().toISOString();
-      const record = {
-        id: entry.id || at,
-        at,
-        title: entry.title || "Escilo",
-        body: entry.body || "",
-      };
-      const db = await openNotifyHistoryDb();
-      await new Promise((resolve, reject) => {
-        const tx = db.transaction(NOTIFY_HISTORY_STORE, "readwrite");
-        tx.objectStore(NOTIFY_HISTORY_STORE).put(record);
-        tx.oncomplete = () => resolve();
-        tx.onerror = () => reject(tx.error);
-      });
-      await pruneNotifyHistory(db);
-      db.close();
-    }
-
-    async function loadNotifyHistory() {
-      if (!("indexedDB" in window)) return [];
-      const db = await openNotifyHistoryDb();
-      await pruneNotifyHistory(db);
-      const tx = db.transaction(NOTIFY_HISTORY_STORE, "readonly");
-      const all = await idbGetAll(tx.objectStore(NOTIFY_HISTORY_STORE));
-      db.close();
-      const cutoff = notifyHistoryCutoffIso();
-      return all
-        .filter((item) => item && item.at && item.at >= cutoff)
-        .sort((a, b) => String(b.at).localeCompare(String(a.at)));
-    }
-
-    function formatNotifyHistoryWhen(iso) {
-      const d = new Date(iso);
-      if (Number.isNaN(d.getTime())) return "—";
-      return d.toLocaleString("it-IT", {
-        timeZone: "Europe/Rome",
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-    }
-
-    async function renderNotifyHistory() {
-      const list = $("notifyHistoryList");
-      const empty = $("notifyHistoryEmpty");
-      if (!list || !empty) return;
-      let items = [];
-      try {
-        items = await loadNotifyHistory();
-      } catch (err) {
-        console.error(err);
-      }
-      list.innerHTML = "";
-      if (!items.length) {
-        list.hidden = true;
-        empty.hidden = false;
-        return;
-      }
-      empty.hidden = true;
-      list.hidden = false;
-      for (const item of items) {
-        const li = document.createElement("li");
-        li.className = "notify-history-item";
-        const time = document.createElement("time");
-        time.dateTime = item.at;
-        time.textContent = formatNotifyHistoryWhen(item.at);
-        const title = document.createElement("strong");
-        title.textContent = item.title || "Escilo";
-        const body = document.createElement("p");
-        body.textContent = item.body || "";
-        li.appendChild(time);
-        li.appendChild(title);
-        if (item.body) li.appendChild(body);
-        list.appendChild(li);
-      }
+    function openCalendarDay(y, m, d) {
+      selectedDayKey = ymdKey(y, m, d);
+      viewYear = y;
+      viewMonth = m;
+      loadMonth();
+      setTab("cal");
     }
 
     function pushSupported() {
@@ -2895,6 +2679,10 @@
       return 20;
     }
 
+    function formatPushHourLabel(hour) {
+      return String(hour).padStart(2, "0") + ":00";
+    }
+
     function fillNotifyHourSelect() {
       const sel = $("notifyHour");
       if (!sel) return;
@@ -2908,11 +2696,6 @@
         }
       }
       sel.value = String(readPushHour());
-    }
-
-    function setNotifyStatus(msg) {
-      const el = $("notifyStatus");
-      if (el) el.textContent = msg || "";
     }
 
     function setNotifyHint(msg) {
@@ -2983,7 +2766,6 @@
       if (isPushRegisteredLocally()) {
         if (Notification.permission !== "granted" || !sub) {
           clearPushRegistered();
-          notifySettingsOpen = false;
           if (sub) {
             try {
               await sub.unsubscribe();
@@ -2995,7 +2777,6 @@
         return;
       }
 
-      notifySettingsOpen = false;
       if (sub) {
         try {
           await sub.unsubscribe();
@@ -3017,60 +2798,52 @@
       }
     }
 
-    let notifySettingsOpen = false;
+    function openNotifySheet() {
+      const sheet = $("notifySheet");
+      if (!sheet) return;
+      sheet.hidden = false;
+      const closeBtn = $("btnNotifySheetClose");
+      if (closeBtn) closeBtn.focus();
+    }
 
-    function updateNotifyLayout(enabled) {
-      const card = $("notifyCard");
-      const bar = $("notifyActiveBar");
-      const lead = $("notifyPageLead");
-      const closeBtn = $("btnNotifySettingsClose");
-      const settingsBtn = $("btnNotifySettings");
-      const summary = $("notifyActiveSummary");
+    function closeNotifySheet() {
+      const sheet = $("notifySheet");
+      if (!sheet) return;
+      sheet.hidden = true;
+    }
 
-      if (!card || !bar) return;
+    async function syncPushOffer() {
+      const btn = $("btnPushOffer");
+      const toggle = $("notifyToggle");
+      const hourRow = $("notifyHourRow");
+      if (!btn || !toggle) return;
 
-      if (!enabled) {
-        notifySettingsOpen = false;
-        card.hidden = false;
-        bar.hidden = true;
-        if (lead) lead.hidden = false;
-        if (closeBtn) closeBtn.hidden = true;
-        if (settingsBtn) settingsBtn.textContent = "Impostazioni";
+      fillNotifyHourSelect();
+
+      const label = $("btnPushOfferLabel");
+      const hint = $("btnPushOfferHint");
+      const canOffer = !!ZONE_CHOICE && (pushSupported() || isIosDevice());
+
+      if (!canOffer) {
+        btn.hidden = true;
+        btn.classList.remove("show", "is-on");
+        toggle.checked = false;
+        toggle.disabled = true;
+        if (hourRow) hourRow.hidden = true;
         return;
       }
 
-      if (summary) {
-        summary.textContent =
-          "Notifiche attive · " + String(readPushHour()).padStart(2, "0") + ":00";
-      }
-
-      if (notifySettingsOpen) {
-        card.hidden = false;
-        bar.hidden = true;
-        if (lead) lead.hidden = false;
-        if (closeBtn) closeBtn.hidden = false;
-      } else {
-        card.hidden = true;
-        bar.hidden = false;
-        if (lead) lead.hidden = true;
-        if (closeBtn) closeBtn.hidden = true;
-      }
-    }
-
-    async function syncNotifyPanel() {
-      const toggle = $("notifyToggle");
-      const hourRow = $("notifyHourRow");
-      if (!toggle) return;
-
-      fillNotifyHourSelect();
+      btn.hidden = false;
+      btn.classList.add("show");
 
       if (!ZONE_CHOICE) {
         toggle.checked = false;
         toggle.disabled = true;
         if (hourRow) hourRow.hidden = true;
-        setNotifyHint("Scegli comune e via dalla Home per attivare le notifiche.");
-        setNotifyStatus("");
-        updateNotifyLayout(false);
+        setNotifyHint("Scegli comune e via per attivare gli avvisi.");
+        btn.classList.remove("is-on");
+        if (label) label.textContent = "Notifiche";
+        if (hint) hint.textContent = "Scegli prima la zona";
         return;
       }
 
@@ -3079,8 +2852,9 @@
         toggle.disabled = true;
         if (hourRow) hourRow.hidden = true;
         setNotifyHint("Questo browser non supporta le notifiche push.");
-        setNotifyStatus("");
-        updateNotifyLayout(false);
+        btn.classList.remove("is-on");
+        if (label) label.textContent = "Notifiche";
+        if (hint) hint.textContent = "Non disponibili qui";
         return;
       }
 
@@ -3091,34 +2865,35 @@
         setNotifyHint(
           "Su iPhone/iPad: apri Escilo da Safari → Condividi → Aggiungi a Home, poi riapri l’app dalla Home e abilita le notifiche."
         );
-        setNotifyStatus("");
-        updateNotifyLayout(false);
+        btn.classList.remove("is-on");
+        if (label) label.textContent = "Notifiche";
+        if (hint) hint.textContent = "Serve l’app sulla Home";
         return;
       }
 
       toggle.disabled = false;
       if (hourRow) hourRow.hidden = false;
-      fillNotifyHourSelect();
       setNotifyHint("");
       await reconcilePushState();
+
       let enabled = false;
       try {
         enabled = await isPushActive();
         toggle.checked = enabled;
-        setNotifyStatus(
-          enabled
-            ? "Notifiche attive · " +
-                String(readPushHour()).padStart(2, "0") +
-                ":00"
-            : "Notifiche disattivate"
-        );
       } catch (err) {
         console.error(err);
         enabled = false;
         toggle.checked = false;
-        setNotifyStatus("Stato notifiche non disponibile");
+        setNotifyHint("Stato notifiche non disponibile");
       }
-      updateNotifyLayout(enabled);
+
+      btn.classList.toggle("is-on", enabled);
+      if (label) label.textContent = "Notifiche";
+      if (enabled) {
+        if (hint) hint.textContent = "Attive · " + formatPushHourLabel(readPushHour());
+      } else {
+        if (hint) hint.textContent = "Attivale e Escilo te lo ricorda.";
+      }
     }
 
     async function subscribePush() {
@@ -3197,57 +2972,50 @@
       if (res.ok) markPushRegistered();
     }
 
+    $("btnPushOffer").addEventListener("click", async () => {
+      await syncPushOffer();
+      openNotifySheet();
+    });
+
+    $("btnNotifySheetClose").addEventListener("click", () => {
+      closeNotifySheet();
+    });
+
+    $("notifySheet").addEventListener("click", (ev) => {
+      if (ev.target === $("notifySheet")) closeNotifySheet();
+    });
+
     $("notifyToggle").addEventListener("change", async () => {
       const toggle = $("notifyToggle");
-      setNotifyStatus("…");
       try {
         if (toggle.checked) {
           if (!ZONE_CHOICE) {
             toggle.checked = false;
-            setNotifyStatus("Scegli prima una zona");
+            setNotifyHint("Scegli prima una zona");
             return;
           }
           await subscribePush();
-          notifySettingsOpen = false;
-          setNotifyStatus("Notifiche attivate");
         } else {
           await unsubscribePush();
-          notifySettingsOpen = false;
-          setNotifyStatus("Notifiche disattivate");
         }
+        setNotifyHint("");
       } catch (err) {
         console.error(err);
         toggle.checked = false;
-        notifySettingsOpen = false;
         try {
           await unsubscribePush();
         } catch (cleanupErr) {
           console.error(cleanupErr);
         }
         if (err && err.message === "permission_denied") {
-          setNotifyStatus("Permesso notifiche negato");
+          setNotifyHint("Permesso notifiche negato");
         } else if (err && err.message === "vapid_unavailable") {
-          setNotifyStatus("Server push non configurato");
+          setNotifyHint("Server push non configurato");
         } else {
-          setNotifyStatus("Attivazione non riuscita");
+          setNotifyHint("Attivazione non riuscita");
         }
       }
-      await syncNotifyPanel();
-    });
-
-    $("btnNotifySettings").addEventListener("click", async () => {
-      if (!(await isPushActive())) {
-        notifySettingsOpen = false;
-        await syncNotifyPanel();
-        return;
-      }
-      notifySettingsOpen = true;
-      await syncNotifyPanel();
-    });
-
-    $("btnNotifySettingsClose").addEventListener("click", async () => {
-      notifySettingsOpen = false;
-      await syncNotifyPanel();
+      await syncPushOffer();
     });
 
     $("notifyHour").addEventListener("change", async () => {
@@ -3256,23 +3024,18 @@
       savePushHour(hour);
       try {
         await refreshPushRegistration();
-        setNotifyStatus(
-          "Ora aggiornata · " + String(hour).padStart(2, "0") + ":00"
-        );
+        setNotifyHint("");
       } catch (err) {
         console.error(err);
-        setNotifyStatus("Ora salvata in locale; sync server fallito");
+        setNotifyHint("Ora salvata in locale; sync server fallito");
       }
+      await syncPushOffer();
     });
 
     async function registerServiceWorker() {
       if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
       try {
         await navigator.serviceWorker.register("sw.js");
-        navigator.serviceWorker.addEventListener("message", (ev) => {
-          if (!ev.data || ev.data.type !== "notify-history-updated") return;
-          if (activeTab === "notify") renderNotifyHistory();
-        });
       } catch (err) {
         console.error(err);
       }
@@ -3280,8 +3043,13 @@
 
     function initialTabFromUrl() {
       const tab = new URLSearchParams(window.location.search).get("tab");
-      if (tab === "cal" || tab === "notify" || tab === "home") return tab;
+      if (tab === "cal" || tab === "home") return tab;
       return null;
+    }
+
+    function initialDayFromUrl() {
+      const raw = new URLSearchParams(window.location.search).get("day");
+      return parseYmd(raw);
     }
 
     async function boot() {
@@ -3304,6 +3072,11 @@
       if (resolved) {
         try {
           await applyZoneAndRender(resolved);
+          const day = initialDayFromUrl();
+          if (day) {
+            openCalendarDay(day.year, day.month, day.day);
+            return;
+          }
           const tab = initialTabFromUrl();
           if (tab && tab !== "home") setTab(tab);
           return;
@@ -3315,9 +3088,7 @@
 
       renderHero(null);
       showZoneGate();
-      syncNotifyPanel();
-      const tab = initialTabFromUrl();
-      if (tab === "notify") setTab("notify");
+      syncPushOffer();
     }
 
     boot();

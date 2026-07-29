@@ -68,12 +68,41 @@
       text-decoration: none;
     }
     .back:hover { text-decoration: underline; }
+    .brand-lockup {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "mark title"
+        "sub  sub";
+      column-gap: 0.45rem;
+      row-gap: 0.08rem;
+      min-width: 0;
+      align-items: center;
+    }
+    .brand-mark {
+      width: auto;
+      height: 1.85rem;
+      display: block;
+      object-fit: contain;
+      grid-area: mark;
+    }
     .brand {
       font-family: var(--display);
       font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       margin: 0;
+      line-height: 1.15;
+      grid-area: title;
+    }
+    .brand-sub {
+      margin: 0;
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.25;
+      max-width: 11rem;
+      grid-area: sub;
     }
 
     .intro {
@@ -233,7 +262,11 @@
   <div class="page">
     <header class="topbar">
       <a class="back" href="index.html">← Calendario</a>
-      <p class="brand">Escilo</p>
+      <div class="brand-lockup">
+        <img class="brand-mark" src="brand-mark.png" width="40" height="41" alt="" aria-hidden="true" />
+        <p class="brand">Escilo</p>
+        <p class="brand-sub">perché i cassonetti non si escono da soli</p>
+      </div>
     </header>
 
     <section class="intro">

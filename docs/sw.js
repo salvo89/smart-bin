@@ -1,11 +1,12 @@
 /* Escilo — service worker: cache shell + Web Push + storico locale */
-const CACHE = "escilo-shell-v5";
+const CACHE = "escilo-shell-v8";
 const PRECACHE = [
   "./",
   "./index.html",
   "./icon-192.png",
   "./icon-512.png",
   "./icon-1024.png",
+  "./badge-96.png",
   "./brand-mark.png",
   "./manifest.webmanifest",
 ];
@@ -56,13 +57,27 @@ async function pruneNotifyHistory(db) {
   });
 }
 
+function normalizeBins(bins) {
+  if (!Array.isArray(bins)) return [];
+  return [...new Set(bins.map(Number).filter((n) => Number.isInteger(n) && n >= 0 && n <= 5))].sort(
+    (a, b) => a - b
+  );
+}
+
 async function appendNotifyHistory(entry) {
   const at = entry.at || new Date().toISOString();
+  const pickupDate =
+    typeof entry.pickupDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(entry.pickupDate)
+      ? entry.pickupDate
+      : "";
+  const bins = normalizeBins(entry.bins);
   const record = {
-    id: entry.id || at,
+    id: entry.id || (pickupDate ? `pickup:${pickupDate}` : at),
     at,
     title: entry.title || "Escilo",
     body: entry.body || "",
+    pickupDate,
+    bins,
   };
   const db = await openNotifyHistoryDb();
   await new Promise((resolve, reject) => {
@@ -115,7 +130,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("push", (event) => {
-  let data = { title: "Escilo", body: "Non dimenticartene!", url: "./" };
+  let data = { title: "Escilo", body: "Domani c’è un ritiro", url: "./" };
   if (event.data) {
     try {
       const parsed = event.data.json();
@@ -125,19 +140,37 @@ self.addEventListener("push", (event) => {
       if (text) data.body = text;
     }
   }
+  const pickupDate =
+    typeof data.pickupDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(data.pickupDate)
+      ? data.pickupDate
+      : "";
+  const bins = normalizeBins(data.bins);
+  const url =
+    data.url ||
+    (pickupDate ? `./?tab=cal&day=${pickupDate}` : "./");
+
   event.waitUntil(
-    appendNotifyHistory({ title: data.title, body: data.body })
+    appendNotifyHistory({
+      title: data.title,
+      body: data.body,
+      pickupDate,
+      bins,
+    })
       .then(() => notifyClientsHistoryUpdated())
       .catch((err) => console.error("notify_history_failed", err))
-      .then(() =>
-        self.registration.showNotification(data.title || "Escilo", {
+      .then(() => {
+        // Android: badge = status bar + left; omit icon so no large icon on the right.
+        const isAndroid = /Android/i.test(self.navigator.userAgent || "");
+        const opts = {
           body: data.body || "",
-          icon: "./icon-192.png",
-          badge: "./icon-192.png",
+          badge: "./badge-96.png",
           lang: "it",
-          data: { url: data.url || "./" },
-        })
-      )
+          data: { url, pickupDate, bins },
+        };
+        if (!isAndroid) opts.icon = "./icon-192.png";
+        // OS notification keeps fixed title/body; pickup metadata stays in history + data.
+        return self.registration.showNotification(data.title || "Escilo", opts);
+      })
   );
 });
 
