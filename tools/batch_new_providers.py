@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Batch-convert CCS / CISA / CIDIU sources into .h files and merge index.json."""
+"""Batch-convert provider calendars into .h files and merge index.json."""
 from __future__ import annotations
 
 import json
@@ -11,9 +11,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from tools.acsel_pdf_to_h import convert_pdf as convert_acsel  # noqa: E402
 from tools.ccs_pdf_to_h import convert_pdf as convert_ccs  # noqa: E402
 from tools.cisa_pdf_to_h import convert_pdf as convert_cisa  # noqa: E402
 from tools.cidiu_html_to_h import convert_comune as convert_cidiu  # noqa: E402
+from tools.scs_pdf_to_h import convert_pdf as convert_scs  # noqa: E402
+from tools.teknoservice_pdf_to_h import convert_pdf as convert_tekno  # noqa: E402
 
 OUT_DIR = ROOT / "docs" / "calendars"
 SOURCES = OUT_DIR / "sources.json"
@@ -165,6 +168,130 @@ def process_cisa(comune: dict, manifest: list, errors: list) -> None:
             print(f"ERR CISA {name} {label}: {exc}")
 
 
+def process_acsel(comune: dict, manifest: list, errors: list) -> None:
+    cid = comune["id"]
+    name = comune["name"]
+    for pdf in comune.get("pdfs", []):
+        url = pdf["url"]
+        label = pdf.get("label", "Calendario")
+        zslug = zone_file_slug(label)
+        zone_label = label if re.search(r"zona", label, re.I) else None
+        try:
+            results = convert_acsel(
+                url,
+                slug_base=cid,
+                comune=name,
+                outdir=OUT_DIR,
+                work_pdf=WORK / "acsel" / f"{cid}-{zslug}.pdf",
+                zone_label=zone_label,
+            )
+            for info in results:
+                manifest.append(
+                    {
+                        "provider": "ACSEL",
+                        "comune_id": cid,
+                        "comune_name": name,
+                        "file_slug": info["slug"],
+                        "zone_label": info["zone_label"],
+                        "years": info["years"],
+                        "entries": info["entries"],
+                        "addresses": info["addresses"],
+                        "url": url,
+                    }
+                )
+                print(
+                    f"OK ACSEL {info['slug']} years={info['years']} entries={info['entries']}"
+                )
+        except Exception as exc:  # noqa: BLE001
+            errors.append({"provider": "ACSEL", "comune": name, "error": str(exc)})
+            print(f"ERR ACSEL {name}: {exc}")
+
+
+def process_tekno(comune: dict, manifest: list, errors: list) -> None:
+    cid = comune["id"]
+    name = comune["name"]
+    years = comune.get("years") or [2026]
+    for pdf in comune.get("pdfs", []):
+        url = pdf["url"]
+        try:
+            info = convert_tekno(
+                url,
+                slug_base=cid,
+                comune=name,
+                outdir=OUT_DIR,
+                work_pdf=WORK / "teknoservice" / f"{cid}.pdf",
+                years=years,
+            )
+            manifest.append(
+                {
+                    "provider": "TeknoService",
+                    "comune_id": cid,
+                    "comune_name": name,
+                    "file_slug": info["slug"],
+                    "zone_label": info["zone_label"],
+                    "years": info["years"],
+                    "entries": info["entries"],
+                    "addresses": info["addresses"],
+                    "url": url,
+                }
+            )
+            print(
+                f"OK TeknoService {info['slug']} years={info['years']} entries={info['entries']}"
+            )
+        except Exception as exc:  # noqa: BLE001
+            errors.append({"provider": "TeknoService", "comune": name, "error": str(exc)})
+            print(f"ERR TeknoService {name}: {exc}")
+
+
+def scs_zone_slug(url: str, label: str) -> str:
+    name = url.rsplit("/", 1)[-1].lower().removesuffix(".pdf")
+    m = re.search(r"ivreazona-([a-z0-9.]+)", name, re.I)
+    if m:
+        return "z" + m.group(1).replace(".", "")
+    m = re.search(r"zona-([a-z0-9.]+)", name, re.I)
+    if m:
+        return "z" + m.group(1).replace(".", "")
+    return zone_file_slug(label)
+
+
+def process_scs(comune: dict, manifest: list, errors: list) -> None:
+    cid = comune["id"]
+    name = comune["name"]
+    for pdf in comune.get("pdfs", []):
+        label = pdf["label"]
+        url = pdf["url"]
+        zslug = scs_zone_slug(url, label)
+        file_slug = f"{cid}-{zslug}"
+        try:
+            info = convert_scs(
+                url,
+                slug=file_slug,
+                comune=name,
+                zone_label=label if label.lower().startswith("zona") else f"Zona {label}",
+                outdir=OUT_DIR,
+                work_pdf=WORK / "scs" / f"{file_slug}.pdf",
+            )
+            manifest.append(
+                {
+                    "provider": "SCS",
+                    "comune_id": cid,
+                    "comune_name": name,
+                    "file_slug": info["slug"],
+                    "zone_label": info["zone_label"],
+                    "years": info["years"],
+                    "entries": info["entries"],
+                    "addresses": info["addresses"],
+                    "url": url,
+                }
+            )
+            print(
+                f"OK SCS {info['slug']} years={info['years']} entries={info['entries']}"
+            )
+        except Exception as exc:  # noqa: BLE001
+            errors.append({"provider": "SCS", "comune": name, "label": label, "error": str(exc)})
+            print(f"ERR SCS {name} {label}: {exc}")
+
+
 def process_cidiu(comune: dict, manifest: list, errors: list) -> None:
     cid = comune["id"]
     name = comune["name"]
@@ -199,6 +326,17 @@ def process_cidiu(comune: dict, manifest: list, errors: list) -> None:
 
 
 def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--provider",
+        action="append",
+        help="Limit to provider id(s): CCS, CISA, ACSEL, TeknoService, SCS, CIDIU",
+    )
+    args = parser.parse_args()
+    only = {p.strip() for p in args.provider} if args.provider else None
+
     WORK.mkdir(parents=True, exist_ok=True)
     sources = json.loads(SOURCES.read_text(encoding="utf-8"))
     existing_index = (
@@ -212,10 +350,18 @@ def main() -> int:
 
     for comune in sources.get("comuni", []):
         provider = comune.get("provider")
+        if only and provider not in only:
+            continue
         if provider == "CCS":
             process_ccs(comune, manifest, errors)
         elif provider == "CISA":
             process_cisa(comune, manifest, errors)
+        elif provider == "ACSEL":
+            process_acsel(comune, manifest, errors)
+        elif provider == "TeknoService":
+            process_tekno(comune, manifest, errors)
+        elif provider == "SCS":
+            process_scs(comune, manifest, errors)
         elif provider == "CIDIU":
             process_cidiu(comune, manifest, errors)
 

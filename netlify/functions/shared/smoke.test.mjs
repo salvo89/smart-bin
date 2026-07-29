@@ -28,7 +28,7 @@ for (const rel of mustExist) {
 }
 
 const sw = await readFile(join(root, "docs/sw.js"), "utf8");
-for (const needle of ['addEventListener("push"', 'addEventListener("notificationclick"']) {
+for (const needle of ['addEventListener("push"', 'addEventListener("notificationclick"', "appendNotifyHistory"]) {
   if (!sw.includes(needle)) {
     console.error("sw.js missing", needle);
     failed += 1;
@@ -36,7 +36,7 @@ for (const needle of ['addEventListener("push"', 'addEventListener("notification
 }
 
 const html = await readFile(join(root, "docs/index.html"), "utf8");
-for (const needle of ["notifyCard", "notifyToggle", "/api/push/subscribe", "syncNotifyCard"]) {
+for (const needle of ["panelNotify", "notifyToggle", "/api/push/subscribe", "syncNotifyPanel", "notifyHistoryList"]) {
   if (!html.includes(needle)) {
     console.error("index.html missing", needle);
     failed += 1;

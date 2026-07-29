@@ -5,9 +5,50 @@
     "Queste fonti descrivono provenienza e disponibilita' dei calendari PDF/HTML per comune.",
     "La presenza qui non implica che il comune sia gia' convertito in docs/calendars/*.h.",
     "Mapping gestori: vedi docs/calendars/providers-map.json.",
-    "Esclusi i comuni solo Eco-Punti (ACEA Pinerolese): raccolta stradale senza calendario via/giorno."
+    "Esclusi i comuni solo Eco-Punti (ACEA Pinerolese): raccolta stradale senza calendario via/giorno.",
+    "Ampliato con ACSEL (Val Susa), TeknoService/CCA (Canavese), CCS e CIDIU residui.",
+    "Esclusi comuni senza calendario per zona/via in PDF o HTML (solo ricerca indirizzo)."
   ],
   "comuni": [
+    {
+      "id": "almese",
+      "name": "Almese",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/ALMESE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "alpette",
+      "name": "Alpette",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/alpette/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/alpette-2026.pdf"
+        }
+      ]
+    },
     {
       "id": "alpignano",
       "name": "Alpignano",
@@ -19,9 +60,93 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+        "PDF festivi/sfalci sulla stessa pagina."
       ],
       "pdfs": []
+    },
+    {
+      "id": "andezeno",
+      "name": "Andezeno",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=ANDEZENO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "arignano",
+      "name": "Arignano",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=ARIGNANO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "avigliana",
+      "name": "Avigliana",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/AVIGLIANA-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "baldissero-torinese",
+      "name": "Baldissero Torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=BALDISSERO1.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=BALDISSERO2.PDF&t=raccolta"
+        }
+      ]
     },
     {
       "id": "beinasco",
@@ -105,6 +230,65 @@
       ]
     },
     {
+      "id": "borgiallo",
+      "name": "Borgiallo",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/borgiallo/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/BORGIALLO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "borgone-susa",
+      "name": "Borgone Susa",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/BORGONE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "bosconero",
+      "name": "Bosconero",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/bosconero/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/01/bosconero-2026-1.pdf"
+        }
+      ]
+    },
+    {
       "id": "brandizzo",
       "name": "Brandizzo",
       "provider": "SETA",
@@ -131,6 +315,26 @@
           "year": 2027,
           "label": "Zona 3",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Brandizzo_zona-3.pdf"
+        }
+      ]
+    },
+    {
+      "id": "brosso",
+      "name": "Brosso",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/brosso/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/BROSSO.pdf"
         }
       ]
     },
@@ -201,6 +405,108 @@
       ]
     },
     {
+      "id": "bruzolo",
+      "name": "Bruzolo",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/BRUZOLO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "busano",
+      "name": "Busano",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/busano/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/BUSANO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "bussoleno",
+      "name": "Bussoleno",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.acselspa.it/wp-content/uploads/2026/01/BUSSOLENO-ZONA-1-2026.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.acselspa.it/wp-content/uploads/2026/01/BUSSOLENO-ZONA-2-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "buttigliera-alta",
+      "name": "Buttigliera Alta",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-buttigliera-alta/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "PDF festivi/sfalci sulla stessa pagina."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "cambiano",
+      "name": "Cambiano",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona 1",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CAMBIANO1.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona 2",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CAMBIANO2.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
       "id": "candiolo",
       "name": "Candiolo",
       "provider": "Covar14",
@@ -214,6 +520,25 @@
         "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
       ],
       "pdfs": []
+    },
+    {
+      "id": "caprie",
+      "name": "Caprie",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/CAPRIE-2026.pdf"
+        }
+      ]
     },
     {
       "id": "carignano",
@@ -347,6 +672,25 @@
       ]
     },
     {
+      "id": "caselette",
+      "name": "Caselette",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/CASELETTE-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "caselle-torinese",
       "name": "Caselle Torinese",
       "provider": "SETA",
@@ -438,6 +782,46 @@
       ]
     },
     {
+      "id": "castellamonte",
+      "name": "Castellamonte",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/castellamonte/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/CASTELLAMONTE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "castelnuovo-nigra",
+      "name": "Castelnuovo Nigra",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/castelnuovo-nigra/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/CASTELNUOVO-NIGRA-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "castiglione-torinese",
       "name": "Castiglione Torinese",
       "provider": "SETA",
@@ -479,6 +863,25 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Cavagnolo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "chianocco",
+      "name": "Chianocco",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/CHIANOCCO-2026.pdf"
         }
       ]
     },
@@ -558,6 +961,45 @@
       ]
     },
     {
+      "id": "chiesanuova",
+      "name": "Chiesanuova",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/chiesanuova/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/CHIESANUOVA-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "chiusa-di-san-michele",
+      "name": "Chiusa di San Michele",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/CHIUSA-SAN-MICHELE-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "chivasso",
       "name": "Chivasso",
       "provider": "SETA",
@@ -599,6 +1041,46 @@
           "year": 2027,
           "label": "Zona 6",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-6.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ciconio",
+      "name": "Ciconio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ciconio/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/ciconio-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cintano",
+      "name": "Cintano",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/cintano/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/CINTANO-2026.pdf"
         }
       ]
     },
@@ -649,6 +1131,20 @@
       ]
     },
     {
+      "id": "coazze",
+      "name": "Coazze",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-coazze/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "PDF festivi/sfalci sulla stessa pagina."
+      ],
+      "pdfs": []
+    },
+    {
       "id": "collegno",
       "name": "Collegno",
       "provider": "CIDIU",
@@ -659,9 +1155,122 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "14 zone: Santa Maria 1/2, Centro Storico, Terracorta, Regina Nord/Sud/San Remo, Paradiso Sud/Nord/Industriale, Luxemburg, Borgonuovo, OltreDora-PIP, Savonera.",
-        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+        "PDF festivi/sfalci sulla stessa pagina."
       ],
       "pdfs": []
+    },
+    {
+      "id": "colleretto-castelnuovo",
+      "name": "Colleretto Castelnuovo",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/colleretto-castelnuovo/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/COLLERETTO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "condove",
+      "name": "Condove",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/CONDOVE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cuorgne",
+      "name": "Cuorgnè",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/cuorgne/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/CUORGNE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "druento",
+      "name": "Druento",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-druento/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "PDF festivi/sfalci sulla stessa pagina."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "favria",
+      "name": "Favria",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/favria/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/FAVRIA-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "feletto",
+      "name": "Feletto",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/feletto/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/FELETTO-2026.pdf"
+        }
+      ]
     },
     {
       "id": "foglizzo",
@@ -680,6 +1289,46 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Foglizzo.pdf"
+        }
+      ]
+    },
+    {
+      "id": "forno-canavese",
+      "name": "Forno Canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/forno-canavese/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/FORNO-CANAVESE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "frassinetto",
+      "name": "Frassinetto",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/frassinetto/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/frassinetto-2026.pdf"
         }
       ]
     },
@@ -724,7 +1373,7 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+        "PDF festivi/sfalci sulla stessa pagina."
       ],
       "pdfs": []
     },
@@ -739,9 +1388,69 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "10 zone: Gerbido, Fabbrichetta, Centro, San Sebastiano, San Giacomo, San Francesco verde/arancio, Lesna-Quaglia, Paradiso, Santa Maria.",
-        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+        "PDF festivi/sfalci sulla stessa pagina."
       ],
       "pdfs": []
+    },
+    {
+      "id": "ingria",
+      "name": "Ingria",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ingria/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/ingria-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "isolabella",
+      "name": "Isolabella",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=ISOLABELLA.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "issiglio",
+      "name": "Issiglio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/issiglio/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/issiglio-2026.pdf"
+        }
+      ]
     },
     {
       "id": "ivrea",
@@ -752,10 +1461,135 @@
         2026
       ],
       "notes": [
-        "Pagina comune con PDF 2026 per molte zone alfabetiche e sottozone.",
-        "Verificato almeno il set di link pubblicati nella pagina il 2026-07-28."
+        "Pagina comune con PDF 2026 per zone alfabetiche e sottozone.",
+        "Catalogo aggiornato automaticamente: 27 PDF zona."
       ],
       "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona Bpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-B.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Cpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-C.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Dpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-D.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Epdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-E.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Fpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-F.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Hpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-H.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Ipdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-I.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Jpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-J.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Kpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-K.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Lpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-L.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona M1pdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-M.1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Mpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-M.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona N1pdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-N.1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Npdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-N.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Opdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-O.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Qpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-Q.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Rpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-R.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona S1pdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-S.1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Spdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-S.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Tpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-T.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Updf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-U.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Vpdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-V.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Z",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-Z-Copia.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Z1pdf",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-Z.1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Zona Z3",
+          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-Z.3-Copia.pdf"
+        },
         {
           "year": 2026,
           "label": "Zona A",
@@ -763,23 +1597,8 @@
         },
         {
           "year": 2026,
-          "label": "Zona B",
-          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-B.pdf"
-        },
-        {
-          "year": 2026,
-          "label": "Zona C",
-          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-C.pdf"
-        },
-        {
-          "year": 2026,
-          "label": "Zona G",
+          "label": "Zona Gpdf",
           "url": "https://scsivrea.it/wp-content/uploads/2026/02/Calendario-2026_UD_IVREA-ZONA-G.pdf"
-        },
-        {
-          "year": 2026,
-          "label": "Zona S",
-          "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-S.pdf"
         }
       ]
     },
@@ -895,6 +1714,46 @@
       ]
     },
     {
+      "id": "levone",
+      "name": "Levone",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/levone/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/LEVONE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "locana",
+      "name": "Locana",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/locana/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/locana-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "lombardore",
       "name": "Lombardore",
       "provider": "SETA",
@@ -952,6 +1811,65 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Mappano.pdf"
+        }
+      ]
+    },
+    {
+      "id": "marentino",
+      "name": "Marentino",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=MARENTINO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "mombello-di-torino",
+      "name": "Mombello di Torino",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=MOMBELLO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "mompantero",
+      "name": "Mompantero",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/MOMPANTERO-2026.pdf"
         }
       ]
     },
@@ -1037,6 +1955,46 @@
       ]
     },
     {
+      "id": "moncucco-torinese",
+      "name": "Moncucco Torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=MONCUCCO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "montaldo-torinese",
+      "name": "Montaldo Torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=MONTALDO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
       "id": "montanaro",
       "name": "Montanaro",
       "provider": "SETA",
@@ -1078,6 +2036,26 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Monteu-da-Po.pdf"
+        }
+      ]
+    },
+    {
+      "id": "moriondo-torinese",
+      "name": "Moriondo Torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=MORIONDO.PDF&t=raccolta"
         }
       ]
     },
@@ -1124,6 +2102,26 @@
           "year": 2026,
           "label": "Zona 6",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%206.pdf"
+        }
+      ]
+    },
+    {
+      "id": "oglianico",
+      "name": "Oglianico",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/oglianico/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/oglianico-2026.pdf"
         }
       ]
     },
@@ -1220,6 +2218,26 @@
       ]
     },
     {
+      "id": "ozegna",
+      "name": "Ozegna",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ozegna/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/OZEGNA-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "pancalieri",
       "name": "Pancalieri",
       "provider": "Covar14",
@@ -1241,6 +2259,66 @@
       ]
     },
     {
+      "id": "pavarolo",
+      "name": "Pavarolo",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PAVAROLO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "pecetto-torinese",
+      "name": "Pecetto Torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PECETTO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "pertusio",
+      "name": "Pertusio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/pertusio/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/PERTUSIO-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "pianezza",
       "name": "Pianezza",
       "provider": "CIDIU",
@@ -1251,7 +2329,7 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+        "PDF festivi/sfalci sulla stessa pagina."
       ],
       "pdfs": []
     },
@@ -1383,6 +2461,195 @@
       ]
     },
     {
+      "id": "poirino",
+      "name": "Poirino",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona CASESPARSEA",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCASESPARSEA.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona CASESPARSEB",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCASESPARSEB.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona CASESPARSEC",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCASESPARSEC.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona CASESPARSED",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCASESPARSED.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona CONCENTRICOA",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCONCENTRICOA.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona CONCENTRICOB",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCONCENTRICOB.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona CONCENTRICOC",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCONCENTRICOC.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Zona CONCENTRICOD",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=POIRINOCONCENTRICOD.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "pont-canavese",
+      "name": "Pont Canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/pont-canavese/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/PONT-CSE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pralormo",
+      "name": "Pralormo",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=PRALORMO.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
+      "id": "prascorsano",
+      "name": "Prascorsano",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/prascorsano/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/01/prascorsano-2026-1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pratiglione",
+      "name": "Pratiglione",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/pratiglione/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/PRATIGLIONE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "reano",
+      "name": "Reano",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-reano/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "PDF festivi/sfalci sulla stessa pagina."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "ribordone",
+      "name": "Ribordone",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ribordone/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/ribordone-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "riva-presso-chieri",
+      "name": "Riva presso Chieri",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF CCS validi ottobre 2025 - dicembre 2026.",
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Zona unica",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=RIVAPRESSOCHIERI.PDF&t=raccolta"
+        }
+      ]
+    },
+    {
       "id": "rivalba",
       "name": "Rivalba",
       "provider": "SETA",
@@ -1454,6 +2721,66 @@
       ]
     },
     {
+      "id": "rivara",
+      "name": "Rivara",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rivara/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/01/rivara-2026-1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rivarolo-canavese",
+      "name": "Rivarolo Canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rivarolo-canavese/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/RIVAROLO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rivarossa",
+      "name": "Rivarossa",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rivarossa/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/rivarossa-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "rivoli",
       "name": "Rivoli",
       "provider": "CIDIU",
@@ -1464,9 +2791,29 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "6 zone colore: Blu, Rossa, Verde, Bianca (centro), Gialla, Arancio.",
-        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+        "PDF festivi/sfalci sulla stessa pagina."
       ],
       "pdfs": []
+    },
+    {
+      "id": "ronco-canavese",
+      "name": "Ronco Canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ronco-canavese/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/ronco-2026.pdf"
+        }
+      ]
     },
     {
       "id": "rondissone",
@@ -1485,6 +2832,65 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Rondissone.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rubiana",
+      "name": "Rubiana",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/RUBIANA-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rueglio",
+      "name": "Rueglio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rueglio/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/RUEGLIO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "salassa",
+      "name": "Salassa",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/salassa/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/salassa-2026.pdf"
         }
       ]
     },
@@ -1514,6 +2920,26 @@
       ]
     },
     {
+      "id": "san-colombano-belmonte",
+      "name": "San Colombano Belmonte",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/san-colombano-belmonte/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/SAN-COLOMBANO-BELMONTE-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "san-mauro-torinese",
       "name": "San Mauro Torinese",
       "provider": "SETA",
@@ -1534,6 +2960,26 @@
           "year": 2026,
           "label": "Zona OLTREPO",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Mauro-Torinese_zona-OLTREPO.pdf"
+        }
+      ]
+    },
+    {
+      "id": "san-ponso",
+      "name": "San Ponso",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/san-ponso/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/san-ponso-2026.pdf"
         }
       ]
     },
@@ -1574,6 +3020,63 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Sebastiano-da-Po.pdf"
+        }
+      ]
+    },
+    {
+      "id": "sangano",
+      "name": "Sangano",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-sangano/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "PDF festivi/sfalci sulla stessa pagina."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "sant-ambrogio-di-torino",
+      "name": "Sant'Ambrogio di Torino",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2026/01/SANT-AMBROGIO-BERTASSI-2026.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/SANT-AMBROGIO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "sant-antonino-di-susa",
+      "name": "Sant'Antonino di Susa",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/SANT-ANTONINO-2026.pdf"
         }
       ]
     },
@@ -1673,22 +3176,41 @@
       ]
     },
     {
-      "id": "torino",
-      "name": "Torino",
-      "provider": "AMIAT",
-      "sourcePage": "https://www.amiat.it/i-nostri-servizi/servizi-di-raccolta-differenziata.html",
+      "id": "sparone",
+      "name": "Sparone",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/sparone/",
       "years": [
         2026
       ],
       "notes": [
-        "Il sito Amiat espone il calendario personalizzato via ricerca indirizzo.",
-        "Come PDF diretto e' stato verificato solo il calendario festivita' 2026."
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
       ],
       "pdfs": [
         {
           "year": 2026,
-          "label": "Calendario festivita' 2026",
-          "url": "https://www.amiat.it/content/dam/amiat/documents/servizi/Calendario-Festivit%C3%A0-Torino_2026.pdf"
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/sparone-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "susa",
+      "name": "Susa",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/SUSA-2026.pdf"
         }
       ]
     },
@@ -1709,6 +3231,40 @@
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Torrazza-Piemonte.pdf"
+        }
+      ]
+    },
+    {
+      "id": "trana",
+      "name": "Trana",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-trana/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "PDF festivi/sfalci sulla stessa pagina."
+      ],
+      "pdfs": []
+    },
+    {
+      "id": "traversella",
+      "name": "Traversella",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/traversella/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/CALENDARI-CCA-2026-4.pdf"
         }
       ]
     },
@@ -1754,6 +3310,105 @@
       ]
     },
     {
+      "id": "vaie",
+      "name": "Vaie",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/VAIE-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "val-di-chy",
+      "name": "Val di Chy",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/val-di-chy/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/val-di-chy-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "valchiusa",
+      "name": "Valchiusa",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/valchiusa/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/03/CALENDARI-CCA-2026-2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "valperga",
+      "name": "Valperga",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/valperga/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/VALPERGA-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "valprato-soana",
+      "name": "Valprato Soana",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/valprato-soana/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/04/valprato-soana-2026.pdf"
+        }
+      ]
+    },
+    {
       "id": "venaria-reale",
       "name": "Venaria Reale",
       "provider": "CIDIU",
@@ -1764,7 +3419,7 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina; app Junker per indirizzo."
+        "PDF festivi/sfalci sulla stessa pagina."
       ],
       "pdfs": []
     },
@@ -1812,6 +3467,78 @@
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Verrua-Savoia.pdf"
         }
       ]
+    },
+    {
+      "id": "vidracco",
+      "name": "Vidracco",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/vidracco/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/VIDRACCO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "villar-dora",
+      "name": "Villar Dora",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/VILLARDORA_2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "villar-focchiardo",
+      "name": "Villar Focchiardo",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "PDF calendario 2026 da acselspa.it."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario",
+          "url": "https://www.acselspa.it/wp-content/uploads/2025/12/VILLAR_FOCCHIARDO-2026.pdf"
+        }
+      ]
+    },
+    {
+      "id": "villarbasse",
+      "name": "Villarbasse",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-villarbasse/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
+        "PDF festivi/sfalci sulla stessa pagina."
+      ],
+      "pdfs": []
     },
     {
       "id": "villastellone",
@@ -1908,6 +3635,26 @@
           "year": 2026,
           "label": "Zona unica",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VIRLE%20PIEMONTE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "vistrorio",
+      "name": "Vistrorio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/vistrorio/",
+      "years": [
+        2026
+      ],
+      "notes": [
+        "Gestore TeknoService per Consorzio Canavesano Ambiente (CCA).",
+        "PDF calendario da teknoserviceitalia.com."
+      ],
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario 2026",
+          "url": "https://teknoserviceitalia.b-cdn.net/wp-content/uploads/2026/02/vistrorio-2026.pdf"
         }
       ]
     },

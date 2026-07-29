@@ -1,0 +1,57 @@
+// Poirino Zona CASESPARSEB (CCS): CASCINA BAGATTO, CASCINA BALME, CASCINA BALMETTA, CASCINA BECCHIO, CASCINA BENASSA, CASCINA CANTAVENNA, CASCINA CARENZA, CASCINA COLOMBARO, CASCINA FABBRICA, VIA ISOLABELLA, CASCINA LAMBELLA, CASCINA MELA ROSSA, CASCINA MERLO, CASCINA PESCHERETTA, CASCINA ROCCHE, CASCINA S. GIUSEPPE, CASCINA S. SECONDO, CASCINA SANTA CROCE, STRADA SAVONA, CASCINA TETTO ANTONIO, CASCINA TETTO LUPO, Via Carmagnola - Poirino
+// Anno 2026 — solo dati; struct e helper in docs/calendar.h
+// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Lista ORDINATA (YYYYMMDD) per ricerca binaria.
+
+  {2026, 1, 7, 0},  // 07/01/2026 Carta
+  {2026, 1, 7, 2},  // 07/01/2026 Indifferenziata
+  {2026, 1, 21, 3},  // 21/01/2026 Plastica
+  {2026, 1, 28, 5},  // 28/01/2026 Vetro
+  {2026, 2, 4, 0},  // 04/02/2026 Carta
+  {2026, 2, 4, 2},  // 04/02/2026 Indifferenziata
+  {2026, 2, 18, 3},  // 18/02/2026 Plastica
+  {2026, 2, 25, 5},  // 25/02/2026 Vetro
+  {2026, 3, 4, 0},  // 04/03/2026 Carta
+  {2026, 3, 4, 2},  // 04/03/2026 Indifferenziata
+  {2026, 3, 18, 3},  // 18/03/2026 Plastica
+  {2026, 3, 25, 5},  // 25/03/2026 Vetro
+  {2026, 4, 1, 0},  // 01/04/2026 Carta
+  {2026, 4, 1, 2},  // 01/04/2026 Indifferenziata
+  {2026, 4, 15, 3},  // 15/04/2026 Plastica
+  {2026, 4, 22, 5},  // 22/04/2026 Vetro
+  {2026, 4, 29, 0},  // 29/04/2026 Carta
+  {2026, 4, 29, 2},  // 29/04/2026 Indifferenziata
+  {2026, 5, 13, 3},  // 13/05/2026 Plastica
+  {2026, 5, 20, 5},  // 20/05/2026 Vetro
+  {2026, 5, 27, 0},  // 27/05/2026 Carta
+  {2026, 5, 27, 2},  // 27/05/2026 Indifferenziata
+  {2026, 6, 10, 3},  // 10/06/2026 Plastica
+  {2026, 6, 17, 5},  // 17/06/2026 Vetro
+  {2026, 6, 24, 0},  // 24/06/2026 Carta
+  {2026, 6, 24, 2},  // 24/06/2026 Indifferenziata
+  {2026, 7, 8, 3},  // 08/07/2026 Plastica
+  {2026, 7, 15, 5},  // 15/07/2026 Vetro
+  {2026, 7, 22, 0},  // 22/07/2026 Carta
+  {2026, 7, 22, 2},  // 22/07/2026 Indifferenziata
+  {2026, 8, 5, 3},  // 05/08/2026 Plastica
+  {2026, 8, 12, 5},  // 12/08/2026 Vetro
+  {2026, 8, 19, 0},  // 19/08/2026 Carta
+  {2026, 8, 19, 2},  // 19/08/2026 Indifferenziata
+  {2026, 9, 2, 3},  // 02/09/2026 Plastica
+  {2026, 9, 9, 5},  // 09/09/2026 Vetro
+  {2026, 9, 16, 0},  // 16/09/2026 Carta
+  {2026, 9, 16, 2},  // 16/09/2026 Indifferenziata
+  {2026, 9, 30, 3},  // 30/09/2026 Plastica
+  {2026, 10, 7, 5},  // 07/10/2026 Vetro
+  {2026, 10, 14, 0},  // 14/10/2026 Carta
+  {2026, 10, 14, 2},  // 14/10/2026 Indifferenziata
+  {2026, 10, 28, 3},  // 28/10/2026 Plastica
+  {2026, 11, 4, 5},  // 04/11/2026 Vetro
+  {2026, 11, 11, 0},  // 11/11/2026 Carta
+  {2026, 11, 11, 2},  // 11/11/2026 Indifferenziata
+  {2026, 11, 25, 3},  // 25/11/2026 Plastica
+  {2026, 12, 2, 5},  // 02/12/2026 Vetro
+  {2026, 12, 9, 0},  // 09/12/2026 Carta
+  {2026, 12, 9, 2},  // 09/12/2026 Indifferenziata
+  {2026, 12, 23, 3},  // 23/12/2026 Plastica
+  {2026, 12, 30, 5},  // 30/12/2026 Vetro

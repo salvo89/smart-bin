@@ -6,6 +6,26 @@
   ],
   "comuni": [
     {
+      "id": "almese",
+      "name": "Almese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/almese-zunica"
+        }
+      ]
+    },
+    {
+      "id": "alpette",
+      "name": "Alpette",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/alpette-zunica"
+        }
+      ]
+    },
+    {
       "id": "alpignano",
       "name": "Alpignano",
       "vie": [
@@ -20,6 +40,866 @@
         {
           "name": "Zona Zona Sud (sotto ferrovia)",
           "calendar": "calendars/alpignano-zsudsottoferrovia"
+        }
+      ]
+    },
+    {
+      "id": "andezeno",
+      "name": "Andezeno",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/andezeno-zunica"
+        }
+      ]
+    },
+    {
+      "id": "arignano",
+      "name": "Arignano",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/arignano-zunica"
+        }
+      ]
+    },
+    {
+      "id": "avigliana",
+      "name": "Avigliana",
+      "vie": [
+        {
+          "name": "Borgata Battagliotti",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Borgata Dino",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Borgata Girba",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Borgata Grignetto",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Borgata Malano",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Borgata Mortera",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Borgata Tetti Colombo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Cascina Dallosta",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Cascina Rolle",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Cascina Vernetti",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Corso Dora",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Corso Dora 1 > 23",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Corso Dora 2 > 18",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Corso Laghi",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Corso Torino",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Corso Torino 3 > 91",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Corso Torino 78 > 198",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Piazza Conte Rosso",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Piazza del Popolo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Piazza Sant’anna",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Strada Antica di Francia",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Strada Antica Giaveno",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Strada Benna Bianca",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Strada Cascina del Conte",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Strada dei Principi",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via al Tubo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Alliaud Augusto",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Almese",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Alpi Cozie",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Assietta",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Avigliana",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Avogadro Amedeo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Battisti Cesare",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Beato Antonio Le Coq",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Benettl",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Berta Mario",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Blandino Danilo",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Bonaudo Attllio",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Borgesa Oscar",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Borsellino Paolo",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Carli Carlo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Carnino Aldo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Cascina Bacchiasso",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Case Braida",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Cav. di Vittorio Veneto",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Ceresole",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Chiattera",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Croce Benedetto",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Dalla Chiesa Carlo Alberto",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Davì",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via dei Rosso",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via dei Suppo",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via dei Testa",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via del Messa",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via della Repubblica",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via delle Maddalene",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Dell’orologio",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Don Balbiano",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Don Campagna",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Don Cravotto Marco",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Don Menzio",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Drubiaglio",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Einaudi Luigi",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Einstein",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via F.lli Cervi",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via F.lli Girotto",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Falcone",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Fenoglio Beppe",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Frejus",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Frera",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Galiniè Adriano",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Gallo Ferruccio",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Garibaldi Giuseppe",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Giaveno",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Goffi Felice",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Gramsci Antonio",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Grangia",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Grignetto",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via I Maggio",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Iv Novembre",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Levi Primo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Madonna D. Grazie",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Madonna del Ponte",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Maritano Lino",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Martin Luter King",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Martiri della Libertà",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Matteotti Giacomo",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Mazzini Giuseppe",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Micheletta D.",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Mompellato",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Moncenisio",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Monginevro",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Montale Eugenio",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Monte Bianco",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Monte Capretto",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Monte Cristalliera",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Monte Cuneo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Monte Pirchiriano",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Montebello",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Montenero",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Moro Aldo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Mortera",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Musinè",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Nicol Giovan Battista",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Nobel Alfred",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Nota Oronte",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Olivero",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Ordine Mauriziano",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Orsiera",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Ortigara",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Partigiani D’italia",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Piave",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Pietra Piana",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Pinerolo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Pirandello Luigi",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Pontetto",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Porta Ferrata",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Portigliatti Guido",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Presidenta",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Prole",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Reano",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Rivera",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Rocciamelone",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Rosa Norberto",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Rossetti Ferdinando",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Sacra di S. Michele",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Sada",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Salvo D’acquisto",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via San Bartolomeo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via San Giovanni Bosco",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via San Giuseppe",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via San Grato",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via San Martino",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via San Pietro",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via San Rocco",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via San Sudario",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Santa Maria",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Sant’agostino",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Sant’ignazio di Loiola",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Sobrero Ascanio",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Suppo Giovanni",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Suriani Renzo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Tomasella Mario",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Umberto I",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Valloja",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Villar Dora",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Via Xx Settembre",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Via Xxv Aprile",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale Belvedere",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale Caduti",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale dei Mareschi",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale dei Tigli",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale delle Betulle",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale Fermi Enrico",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale Mahatma Gandhi",
+          "calendar": "calendars/avigliana-z2"
+        },
+        {
+          "name": "Viale Marconi Guglielmo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale Roma",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Viale Volta Alessandro",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo Autino Felice",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo B. Cherubino Testa",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo delle Vigne",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo Ferronia",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo Italiano Remo",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo Paglierino",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo Riboldi Fernando",
+          "calendar": "calendars/avigliana-z1"
+        },
+        {
+          "name": "Vicolo Statuto",
+          "calendar": "calendars/avigliana-z1"
+        }
+      ]
+    },
+    {
+      "id": "baldissero-torinese",
+      "name": "Baldissero Torinese",
+      "vie": [
+        {
+          "name": "Piazza Caduti Senza Croce",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Piazza Quattro Novembre",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Piazza Umberto I",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Piazza Xxv Aprile",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Basilica",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Bellavista",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Bertinetti",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada del Cervo",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Strada del Toetto",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Strada della Croce",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada della Fonte",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada delle Nuvole",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Strada Moncanino",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Palucco",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Pino Torinese",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Rivodora",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Tetti Berruto",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Strada Tetti Bragardo",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Strada Tetti Civera",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Tetti Fenoglio",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Tetti None",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Tetti Ronchi",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Tetti Spinello",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Valentino",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Strada Valle Ceppi",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Vecchia Baldissero",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Strada Viale",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Via Casabianca",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Via Chieri",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Via Cordova",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Via Cravera",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Via dei Colli",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Via Martiri della Liberta'",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Via Pavarolo",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Via Roma",
+          "calendar": "calendars/baldissero-torinese-z2"
+        },
+        {
+          "name": "Via Superga",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Via Tetti Cochis",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Via Tetti Collo",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Via Tetti Prussa",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Via Torino",
+          "calendar": "calendars/baldissero-torinese-z1"
+        },
+        {
+          "name": "Viale Vittorio Veneto",
+          "calendar": "calendars/baldissero-torinese-z2"
         }
       ]
     },
@@ -476,6 +1356,36 @@
         {
           "name": "Zona unica",
           "calendar": "calendars/borgaro-torinese-z1"
+        }
+      ]
+    },
+    {
+      "id": "borgiallo",
+      "name": "Borgiallo",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/borgiallo-zunica"
+        }
+      ]
+    },
+    {
+      "id": "borgone-susa",
+      "name": "Borgone Susa",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/borgone-susa-zunica"
+        }
+      ]
+    },
+    {
+      "id": "bosconero",
+      "name": "Bosconero",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/bosconero-zunica"
         }
       ]
     },
@@ -1070,6 +1980,16 @@
         {
           "name": "Vicolo Francesco Baracca",
           "calendar": "calendars/brandizzo-z1"
+        }
+      ]
+    },
+    {
+      "id": "brosso",
+      "name": "Brosso",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/brosso-zunica"
         }
       ]
     },
@@ -1944,6 +2864,712 @@
       ]
     },
     {
+      "id": "bruzolo",
+      "name": "Bruzolo",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/bruzolo-zunica"
+        }
+      ]
+    },
+    {
+      "id": "busano",
+      "name": "Busano",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/busano-zunica"
+        }
+      ]
+    },
+    {
+      "id": "bussoleno",
+      "name": "Bussoleno",
+      "vie": [
+        {
+          "name": "Corso Peirolo",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Piazza Cav. di V. Veneto",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Piazza Cavour",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Piazza del Moro",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Piazza Iv Novembre",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Strada Baroni",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Strada Camposciutto",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Strada Chianocco",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Strada Confreria",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Strada Monginevro",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Strada Ravoiretta",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Strada Roncaglie",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Strada San Giorio",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Strada Susa (dal Civ. 6)",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Strada Torino",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Balmfol",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Barges",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Battisti",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via C. Trattenero",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Calusetto",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Cambursano",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Carlo Carli",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Cascina del Gallo",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Chianale",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Circonvallazione",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Countier",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via del Campeggio",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via della Bocciofila",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Don Carlo Prinetto",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Don L. Milani",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via F. Bertone",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Fabbrica da Fer",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Fontan",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via G. Marconi",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Garibaldi",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Gran Borgata",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Gran Porta",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Mameli",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Martiri dei Lager",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Massimo D’azeglio",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Mattie",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Mazzini",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Moletta",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Olmo",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Piave",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Pietro Lavezzi",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Ravetto",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Rocca",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Rocciamelone",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Rubattera",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via S. Lorenzo",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via S. Pietro D’ollesia",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Salina",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via San Rocco",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Sant’albano",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Spina",
+          "calendar": "calendars/bussoleno-z1"
+        },
+        {
+          "name": "Via Tonelli",
+          "calendar": "calendars/bussoleno-z2"
+        },
+        {
+          "name": "Via Xxiv Maggio",
+          "calendar": "calendars/bussoleno-z1"
+        }
+      ]
+    },
+    {
+      "id": "buttigliera-alta",
+      "name": "Buttigliera Alta",
+      "vie": [
+        {
+          "name": "Zona Capoluogo",
+          "calendar": "calendars/buttigliera-alta-zcapoluogo"
+        },
+        {
+          "name": "Zona Le Fronde",
+          "calendar": "calendars/buttigliera-alta-zlefronde"
+        }
+      ]
+    },
+    {
+      "id": "cambiano",
+      "name": "Cambiano",
+      "vie": [
+        {
+          "name": "Cascina Aigota",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Cascina Becco",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Cascina Bisognosa",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Cascina Broglia",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Cascina Graitesca",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Cascina Molino Galle'",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Corso Lisa Onorio",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Piazza Burzio Giuseppe",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Piazza Don Bosco",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Piazza Folonari",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Piazza Grosso Giacomo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Piazza Jacomuzzi Angelo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Piazza Montessori Maria",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Piazza Squassino Vincenzo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Piazza Stazione",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Piazza Vittorio Veneto",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Strada Cassano",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Strada Passatempo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Strada Provinciale",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Strada Provinciale",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Strada Valle Torta",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via 4 Novembre",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via alla Chiesa",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Aquilonia",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Audenino Matteo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Battisti Cesare",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Bevilacqua Giuseppe",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Borgarelli Guglielmo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Borgarello Vincenzo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Burzio Agostino",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Bussolette",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Caduti Grande Guerra",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Campi Rotondi",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Camporelle",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Cardellini Giuseppe",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Carnia",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Casalegno Giuseppe",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Cavaglia' Luigi",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Cavalieri di Vittorio",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Cavour",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Cielo Guglielmo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Compajre Giacinto",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Costa Nino",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via D'ovia",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via de Gasperi Alcide",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via dei Prati",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via del Ghiaretto",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via delle Scuole",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Delleani Lorenzo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Einaudi Luigi",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Fontana Pietro",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Foscolo Ugo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Gastaldi",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Gaude Vincenzo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Giovanni Xxiii",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Hack Margherita",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Irpinia",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Lagrange",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Lame",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Leopardi Giacomo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Losano Roberto",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Madonna della Scala",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Mallone Anselmo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Malmontea",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Martini Lorenzo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Martiri della Liberta",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Matteotti Giacomo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Mazzini Giuseppe",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Menzio Carlo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Monteverde",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Monviso",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Mosso Onorio",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Mosso Vincenzo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Navone Giovanni",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Nazionale",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Palestrino Paolo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Pavese Cesare",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Pellico Silvio",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Pignari Stefano",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Piovano Giacomo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Polesine",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Pollone Matteo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via S. Carlo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via S. Francesco D'assisi",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via S. Giovanni",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via S. Giuseppe Cottolengo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via S. Rocco",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Stazione",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Temo",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Torino",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Triberti Giovanni",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Via Valle San Pietro",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Via Volta Alessandro",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Viale Roma",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Vicolo Bertone",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Campassi",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Castello",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Colombaro",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo del Quartiere",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Don Mosso",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Giardini",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Lucerne",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Peinelli",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo S. Giuseppe",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo S. Pietro",
+          "calendar": "calendars/cambiano-z2"
+        },
+        {
+          "name": "Vicolo S. Vincenzo",
+          "calendar": "calendars/cambiano-z1"
+        },
+        {
+          "name": "Vicolo Vergnano Lorenzo",
+          "calendar": "calendars/cambiano-z1"
+        }
+      ]
+    },
+    {
       "id": "candiolo",
       "name": "Candiolo",
       "vie": [
@@ -2310,6 +3936,16 @@
         {
           "name": "Vicolo S. Agnese",
           "calendar": "calendars/candiolo-z3"
+        }
+      ]
+    },
+    {
+      "id": "caprie",
+      "name": "Caprie",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/caprie-zunica"
         }
       ]
     },
@@ -5396,6 +7032,16 @@
       ]
     },
     {
+      "id": "caselette",
+      "name": "Caselette",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/caselette-zunica"
+        }
+      ]
+    },
+    {
       "id": "caselle-torinese",
       "name": "Caselle Torinese",
       "vie": [
@@ -6446,6 +8092,26 @@
       ]
     },
     {
+      "id": "castellamonte",
+      "name": "Castellamonte",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/castellamonte-zunica"
+        }
+      ]
+    },
+    {
+      "id": "castelnuovo-nigra",
+      "name": "Castelnuovo Nigra",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/castelnuovo-nigra-zunica"
+        }
+      ]
+    },
+    {
       "id": "castiglione-torinese",
       "name": "Castiglione Torinese",
       "vie": [
@@ -6786,6 +8452,16 @@
         {
           "name": "Vicolo dei Fiori",
           "calendar": "calendars/cavagnolo-z1"
+        }
+      ]
+    },
+    {
+      "id": "chianocco",
+      "name": "Chianocco",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/chianocco-zunica"
         }
       ]
     },
@@ -8492,6 +10168,26 @@
       ]
     },
     {
+      "id": "chiesanuova",
+      "name": "Chiesanuova",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/chiesanuova-zunica"
+        }
+      ]
+    },
+    {
+      "id": "chiusa-di-san-michele",
+      "name": "Chiusa di San Michele",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/chiusa-di-san-michele-zunica"
+        }
+      ]
+    },
+    {
       "id": "chivasso",
       "name": "Chivasso",
       "vie": [
@@ -9378,6 +11074,26 @@
       ]
     },
     {
+      "id": "ciconio",
+      "name": "Ciconio",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/ciconio-zunica"
+        }
+      ]
+    },
+    {
+      "id": "cintano",
+      "name": "Cintano",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/cintano-zunica"
+        }
+      ]
+    },
+    {
       "id": "cinzano",
       "name": "Cinzano",
       "vie": [
@@ -10174,6 +11890,28 @@
       ]
     },
     {
+      "id": "coazze",
+      "name": "Coazze",
+      "vie": [
+        {
+          "name": "Zona Zona Arancio",
+          "calendar": "calendars/coazze-zarancio"
+        },
+        {
+          "name": "Zona Zona Blu",
+          "calendar": "calendars/coazze-zblu"
+        },
+        {
+          "name": "Zona Zona Rosa",
+          "calendar": "calendars/coazze-zrosa"
+        },
+        {
+          "name": "Zona Zona Verde",
+          "calendar": "calendars/coazze-zverde"
+        }
+      ]
+    },
+    {
       "id": "collegno",
       "name": "Collegno",
       "vie": [
@@ -10232,6 +11970,82 @@
         {
           "name": "Zona Terracorta",
           "calendar": "calendars/collegno-zterracorta"
+        }
+      ]
+    },
+    {
+      "id": "colleretto-castelnuovo",
+      "name": "Colleretto Castelnuovo",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/colleretto-castelnuovo-zunica"
+        }
+      ]
+    },
+    {
+      "id": "condove",
+      "name": "Condove",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/condove-zunica"
+        }
+      ]
+    },
+    {
+      "id": "cuorgne",
+      "name": "Cuorgnè",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/cuorgne-zunica"
+        }
+      ]
+    },
+    {
+      "id": "druento",
+      "name": "Druento",
+      "vie": [
+        {
+          "name": "Zona Zona Centro",
+          "calendar": "calendars/druento-zcentro"
+        },
+        {
+          "name": "Zona Zona Periferia 1",
+          "calendar": "calendars/druento-zperiferia1"
+        },
+        {
+          "name": "Zona Zona Periferia 2",
+          "calendar": "calendars/druento-zperiferia2"
+        },
+        {
+          "name": "Zona Zona Periferia 3",
+          "calendar": "calendars/druento-zperiferia3"
+        },
+        {
+          "name": "Zona Zona Periferia 4",
+          "calendar": "calendars/druento-zperiferia4"
+        }
+      ]
+    },
+    {
+      "id": "favria",
+      "name": "Favria",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/favria-zunica"
+        }
+      ]
+    },
+    {
+      "id": "feletto",
+      "name": "Feletto",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/feletto-zunica"
         }
       ]
     },
@@ -10526,6 +12340,26 @@
         {
           "name": "Via Volta",
           "calendar": "calendars/foglizzo-z1"
+        }
+      ]
+    },
+    {
+      "id": "forno-canavese",
+      "name": "Forno Canavese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/forno-canavese-zunica"
+        }
+      ]
+    },
+    {
+      "id": "frassinetto",
+      "name": "Frassinetto",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/frassinetto-zunica"
         }
       ]
     },
@@ -10932,6 +12766,246 @@
         {
           "name": "Zona Santa Maria",
           "calendar": "calendars/grugliasco-zsantamaria"
+        }
+      ]
+    },
+    {
+      "id": "ingria",
+      "name": "Ingria",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/ingria-zunica"
+        }
+      ]
+    },
+    {
+      "id": "isolabella",
+      "name": "Isolabella",
+      "vie": [
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/isolabella-zunica"
+        }
+      ]
+    },
+    {
+      "id": "issiglio",
+      "name": "Issiglio",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/issiglio-zunica"
+        }
+      ]
+    },
+    {
+      "id": "ivrea",
+      "name": "Ivrea",
+      "vie": [
+        {
+          "name": "Zona A",
+          "calendar": "calendars/ivrea-za"
+        },
+        {
+          "name": "Zona Bpdf",
+          "calendar": "calendars/ivrea-zbpdf"
+        },
+        {
+          "name": "Zona Bpdf",
+          "calendar": "calendars/ivrea-zb"
+        },
+        {
+          "name": "Zona Cpdf",
+          "calendar": "calendars/ivrea-zcpdf"
+        },
+        {
+          "name": "Zona Cpdf",
+          "calendar": "calendars/ivrea-zc"
+        },
+        {
+          "name": "Zona Dpdf",
+          "calendar": "calendars/ivrea-zdpdf"
+        },
+        {
+          "name": "Zona Dpdf",
+          "calendar": "calendars/ivrea-zd"
+        },
+        {
+          "name": "Zona Epdf",
+          "calendar": "calendars/ivrea-zepdf"
+        },
+        {
+          "name": "Zona Epdf",
+          "calendar": "calendars/ivrea-ze"
+        },
+        {
+          "name": "Zona Fpdf",
+          "calendar": "calendars/ivrea-zfpdf"
+        },
+        {
+          "name": "Zona Fpdf",
+          "calendar": "calendars/ivrea-zf"
+        },
+        {
+          "name": "Zona Gpdf",
+          "calendar": "calendars/ivrea-zgpdf"
+        },
+        {
+          "name": "Zona Gpdf",
+          "calendar": "calendars/ivrea-zg"
+        },
+        {
+          "name": "Zona Hpdf",
+          "calendar": "calendars/ivrea-zhpdf"
+        },
+        {
+          "name": "Zona Hpdf",
+          "calendar": "calendars/ivrea-zh"
+        },
+        {
+          "name": "Zona Ipdf",
+          "calendar": "calendars/ivrea-zipdf"
+        },
+        {
+          "name": "Zona Ipdf",
+          "calendar": "calendars/ivrea-zi"
+        },
+        {
+          "name": "Zona Jpdf",
+          "calendar": "calendars/ivrea-zjpdf"
+        },
+        {
+          "name": "Zona Jpdf",
+          "calendar": "calendars/ivrea-zj"
+        },
+        {
+          "name": "Zona Kpdf",
+          "calendar": "calendars/ivrea-zkpdf"
+        },
+        {
+          "name": "Zona Kpdf",
+          "calendar": "calendars/ivrea-zk"
+        },
+        {
+          "name": "Zona Lpdf",
+          "calendar": "calendars/ivrea-zlpdf"
+        },
+        {
+          "name": "Zona Lpdf",
+          "calendar": "calendars/ivrea-zl"
+        },
+        {
+          "name": "Zona M1pdf",
+          "calendar": "calendars/ivrea-zm1pdf"
+        },
+        {
+          "name": "Zona M1pdf",
+          "calendar": "calendars/ivrea-zm1"
+        },
+        {
+          "name": "Zona Mpdf",
+          "calendar": "calendars/ivrea-zmpdf"
+        },
+        {
+          "name": "Zona Mpdf",
+          "calendar": "calendars/ivrea-zm"
+        },
+        {
+          "name": "Zona N1pdf",
+          "calendar": "calendars/ivrea-zn1pdf"
+        },
+        {
+          "name": "Zona N1pdf",
+          "calendar": "calendars/ivrea-zn1"
+        },
+        {
+          "name": "Zona Npdf",
+          "calendar": "calendars/ivrea-znpdf"
+        },
+        {
+          "name": "Zona Npdf",
+          "calendar": "calendars/ivrea-zn"
+        },
+        {
+          "name": "Zona Opdf",
+          "calendar": "calendars/ivrea-zopdf"
+        },
+        {
+          "name": "Zona Opdf",
+          "calendar": "calendars/ivrea-zo"
+        },
+        {
+          "name": "Zona Qpdf",
+          "calendar": "calendars/ivrea-zqpdf"
+        },
+        {
+          "name": "Zona Qpdf",
+          "calendar": "calendars/ivrea-zq"
+        },
+        {
+          "name": "Zona Rpdf",
+          "calendar": "calendars/ivrea-zrpdf"
+        },
+        {
+          "name": "Zona Rpdf",
+          "calendar": "calendars/ivrea-zr"
+        },
+        {
+          "name": "Zona S1pdf",
+          "calendar": "calendars/ivrea-zs1pdf"
+        },
+        {
+          "name": "Zona S1pdf",
+          "calendar": "calendars/ivrea-zs1"
+        },
+        {
+          "name": "Zona Spdf",
+          "calendar": "calendars/ivrea-zspdf"
+        },
+        {
+          "name": "Zona Spdf",
+          "calendar": "calendars/ivrea-zs"
+        },
+        {
+          "name": "Zona Tpdf",
+          "calendar": "calendars/ivrea-ztpdf"
+        },
+        {
+          "name": "Zona Tpdf",
+          "calendar": "calendars/ivrea-zt"
+        },
+        {
+          "name": "Zona Updf",
+          "calendar": "calendars/ivrea-zupdf"
+        },
+        {
+          "name": "Zona Updf",
+          "calendar": "calendars/ivrea-zu"
+        },
+        {
+          "name": "Zona Vpdf",
+          "calendar": "calendars/ivrea-zvpdf"
+        },
+        {
+          "name": "Zona Vpdf",
+          "calendar": "calendars/ivrea-zv"
+        },
+        {
+          "name": "Zona Z",
+          "calendar": "calendars/ivrea-zz"
+        },
+        {
+          "name": "Zona Z1pdf",
+          "calendar": "calendars/ivrea-zz1pdf"
+        },
+        {
+          "name": "Zona Z1pdf",
+          "calendar": "calendars/ivrea-zz1"
+        },
+        {
+          "name": "Zona Z3",
+          "calendar": "calendars/ivrea-zz3"
         }
       ]
     },
@@ -11990,6 +14064,26 @@
       ]
     },
     {
+      "id": "levone",
+      "name": "Levone",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/levone-zunica"
+        }
+      ]
+    },
+    {
+      "id": "locana",
+      "name": "Locana",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/locana-zunica"
+        }
+      ]
+    },
+    {
       "id": "lombardore",
       "name": "Lombardore",
       "vie": [
@@ -12180,6 +14274,36 @@
         {
           "name": "Zona unica",
           "calendar": "calendars/mappano-z1"
+        }
+      ]
+    },
+    {
+      "id": "marentino",
+      "name": "Marentino",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/marentino-zunica"
+        }
+      ]
+    },
+    {
+      "id": "mombello-di-torino",
+      "name": "Mombello di Torino",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/mombello-di-torino-zunica"
+        }
+      ]
+    },
+    {
+      "id": "mompantero",
+      "name": "Mompantero",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/mompantero-zunica"
         }
       ]
     },
@@ -13666,6 +15790,26 @@
       ]
     },
     {
+      "id": "moncucco-torinese",
+      "name": "Moncucco Torinese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/moncucco-torinese-zunica"
+        }
+      ]
+    },
+    {
+      "id": "montaldo-torinese",
+      "name": "Montaldo Torinese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/montaldo-torinese-zunica"
+        }
+      ]
+    },
+    {
       "id": "montanaro",
       "name": "Montanaro",
       "vie": [
@@ -14406,6 +16550,16 @@
         {
           "name": "Zona unica",
           "calendar": "calendars/monteu-da-po-z1"
+        }
+      ]
+    },
+    {
+      "id": "moriondo-torinese",
+      "name": "Moriondo Torinese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/moriondo-torinese-zunica"
         }
       ]
     },
@@ -15508,6 +17662,16 @@
       ]
     },
     {
+      "id": "oglianico",
+      "name": "Oglianico",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/oglianico-zunica"
+        }
+      ]
+    },
+    {
       "id": "orbassano",
       "name": "Orbassano",
       "vie": [
@@ -16504,6 +18668,16 @@
       ]
     },
     {
+      "id": "ozegna",
+      "name": "Ozegna",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/ozegna-zunica"
+        }
+      ]
+    },
+    {
       "id": "pancalieri",
       "name": "Pancalieri",
       "vie": [
@@ -16722,6 +18896,36 @@
         {
           "name": "Vicolo Teatro",
           "calendar": "calendars/pancalieri-z1"
+        }
+      ]
+    },
+    {
+      "id": "pavarolo",
+      "name": "Pavarolo",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/pavarolo-zunica"
+        }
+      ]
+    },
+    {
+      "id": "pecetto-torinese",
+      "name": "Pecetto Torinese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/pecetto-torinese-zunica"
+        }
+      ]
+    },
+    {
+      "id": "pertusio",
+      "name": "Pertusio",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/pertusio-zunica"
         }
       ]
     },
@@ -18474,6 +20678,958 @@
       ]
     },
     {
+      "id": "poirino",
+      "name": "Poirino",
+      "vie": [
+        {
+          "name": "Cascina Abbá Nuova",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina America",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Ansaldi",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Arsiglia",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Augusta",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Bagatto",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Balme",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Balmetta",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Becchio",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Belvedere",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Benassa",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Bergera",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Bergera Nuova",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Bonavalle",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Braida",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Cascina Brunasso",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Brunetta",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Cabianca",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Cacceri",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Canova",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Cantarana",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Cantavenna",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Capra",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Carenza",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Cascinetta",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Colombaro",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Copette",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Cortinelli",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Costa",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Fabbrica",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Fiorita",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Fonte Antico",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Cascina Fra Due Acque",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Gallesio",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Giovino",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Granata",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Greco",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Il Cavallino",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Isabella",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Italia",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina La Lunga",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Lago Ternavasso",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Lambella",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Lomello",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Lupa",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Madonera",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Maghina",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Malvirá",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Mela Rossa",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Merlo",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Mizzina",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Molino Porcile",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Muragliata",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Palazzetto",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Peirona",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Pescheretta",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Pilone S. Orsola",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Cascina Piscina Cotta",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Cascina Riasso",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Rivetta",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Rocche",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Rubina",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Ruá",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina S. Antonio",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Cascina S. Bartolomeo",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina S. Bernardo",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina S. Carlo",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina S. Gianetto",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina S. Giuseppe",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina S. Luca",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina S. Martino",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina S. Pietro",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina S. Secondo",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Santa Croce",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Santa Maria",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Santa Orsola",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Sant’anna",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Sant’emilia",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Sezza",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Sezza Nuova",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Susina",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Tegerone",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Tetti Battuti",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Tetti Maina",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Tettl Elia",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Tetto Antonio",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Tetto Banna",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Cascina Tetto Caveglio",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Tetto Cellaro",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Tetto Conte",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Tetto Grande",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Cascina Tetto Lupo",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Cascina Valbona",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Cascina Zucchea",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Corso Fiume",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Piazza Cavalieri",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Piazza Don Fassino",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Piazza Europa",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Piazza Italia",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Piazza Pavese Cesare",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Strada Comunale",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Strada Provinciale 134",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Strada Savona",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Strada Savona",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Strada Savona",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Strada Statale 29",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Strada Vecchia delle Poste",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via 4 Marzo",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Alberetta",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Alfazio Giovanni",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Alta",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Amaretti",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Arpino Jacopo",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Baldassarre Brossa",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Belvedere",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Borsellino Paolo",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Bosco Agostino",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Bruno Giordano",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Burzio Francesco",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Caduti di Nassiriya",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Cambiano",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Carmagnola",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zcasesparsea"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zcasesparsec"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zcasesparsed"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Cavour",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Chieri",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Colombo Cristoforo",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Costa Nino",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Croce Benedetto",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via D'acquisto Salvo",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Dante",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via de Amicis Edmondo",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via de Gasperi Alcide",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Degli Alteni",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Degli Asparagi",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Degli Oleandri",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via dei Boschi",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via dei Gerani",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via dei Giardini",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via dei Maurizi",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via dei Mughetti",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via del Beffa",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via del Borduaglio",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via del Castello",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via del Greco",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via del Lobetto",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via del Mulino",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via del Prato",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via del Vaschetto",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Dell'ospedale",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via della Bellezza",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via della Margherita",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via della Prevostura",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via della Santanella",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via delle Camelie",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via delle Querce",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via delle Rose",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via delle Scuole",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Don Alfonso Gribaldi",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Don Bava",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Don Fissore Nicola",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Eugenia Burzio",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Falcone Giovanni",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Ferraris Galileo",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Fonte Antico",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Fratelli Melano",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Gaidano Paolo",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Generale Dalla Chiesa",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Gentile Giovanni",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Gorizia",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Griva Giuseppe",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Grosso Maria",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Indipendenza",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Indipendenza",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Isolabella",
+          "calendar": "calendars/poirino-zcasesparseb"
+        },
+        {
+          "name": "Via Isolabella",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Leopardi Giacomo",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Maina Carlo",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Marchisio Giuseppe",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Marconi",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Marocchi",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Marocco",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Martiri della Libertá",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Mazzini Giuseppe",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Mazzucchi Generale",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Minelli Domenico",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Monviso",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Panizza Paolo",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Pessione",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Petrarca Francesco",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Pralormo",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Risorgimento",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Roma",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Rossi Cesare",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via S. Carlo Borromeo",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via S. Giorgio",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via S. Giovanni Bosco",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via S. Grato",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via S. Salvá",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Santa Croce",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Stuardi Giovanni Antonio",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Tavolazzo",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Ternavasso",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Tetto Nuovo",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Thaon di Revel",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Thaon di Revel",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Torino",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Trento",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Trieste",
+          "calendar": "calendars/poirino-zconcentricob"
+        },
+        {
+          "name": "Via Tripoli",
+          "calendar": "calendars/poirino-zconcentricoa"
+        },
+        {
+          "name": "Via Verdi Giuseppe",
+          "calendar": "calendars/poirino-zconcentricoc"
+        },
+        {
+          "name": "Via Villastellone",
+          "calendar": "calendars/poirino-zconcentricod"
+        },
+        {
+          "name": "Via Xx Settembre",
+          "calendar": "calendars/poirino-zconcentricoc"
+        }
+      ]
+    },
+    {
+      "id": "pont-canavese",
+      "name": "Pont Canavese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/pont-canavese-zunica"
+        }
+      ]
+    },
+    {
+      "id": "pralormo",
+      "name": "Pralormo",
+      "vie": [
+        {
+          "name": "Via Carmagnola - Poirino",
+          "calendar": "calendars/pralormo-zunica"
+        }
+      ]
+    },
+    {
+      "id": "prascorsano",
+      "name": "Prascorsano",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/prascorsano-zunica"
+        }
+      ]
+    },
+    {
+      "id": "pratiglione",
+      "name": "Pratiglione",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/pratiglione-zunica"
+        }
+      ]
+    },
+    {
+      "id": "reano",
+      "name": "Reano",
+      "vie": [
+        {
+          "name": "Zona Materiale",
+          "calendar": "calendars/reano-zmateriale"
+        }
+      ]
+    },
+    {
+      "id": "ribordone",
+      "name": "Ribordone",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/ribordone-zunica"
+        }
+      ]
+    },
+    {
+      "id": "riva-presso-chieri",
+      "name": "Riva presso Chieri",
+      "vie": [
+        {
+          "name": "Strada Ronello - Riva Presso Chieri",
+          "calendar": "calendars/riva-presso-chieri-zunica"
+        }
+      ]
+    },
+    {
       "id": "rivalba",
       "name": "Rivalba",
       "vie": [
@@ -19466,6 +22622,36 @@
       ]
     },
     {
+      "id": "rivara",
+      "name": "Rivara",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/rivara-zunica"
+        }
+      ]
+    },
+    {
+      "id": "rivarolo-canavese",
+      "name": "Rivarolo Canavese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/rivarolo-canavese-zunica"
+        }
+      ]
+    },
+    {
+      "id": "rivarossa",
+      "name": "Rivarossa",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/rivarossa-zunica"
+        }
+      ]
+    },
+    {
       "id": "rivoli",
       "name": "Rivoli",
       "vie": [
@@ -19496,12 +22682,52 @@
       ]
     },
     {
+      "id": "ronco-canavese",
+      "name": "Ronco Canavese",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/ronco-canavese-zunica"
+        }
+      ]
+    },
+    {
       "id": "rondissone",
       "name": "Rondissone",
       "vie": [
         {
           "name": "Zona unica",
           "calendar": "calendars/rondissone-z1"
+        }
+      ]
+    },
+    {
+      "id": "rubiana",
+      "name": "Rubiana",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/rubiana-zunica"
+        }
+      ]
+    },
+    {
+      "id": "rueglio",
+      "name": "Rueglio",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/rueglio-zunica"
+        }
+      ]
+    },
+    {
+      "id": "salassa",
+      "name": "Salassa",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/salassa-zunica"
         }
       ]
     },
@@ -19524,6 +22750,16 @@
       ]
     },
     {
+      "id": "san-colombano-belmonte",
+      "name": "San Colombano Belmonte",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/san-colombano-belmonte-zunica"
+        }
+      ]
+    },
+    {
       "id": "san-mauro-torinese",
       "name": "San Mauro Torinese",
       "vie": [
@@ -19538,6 +22774,16 @@
         {
           "name": "Zona unica",
           "calendar": "calendars/san-mauro-torinese-z1"
+        }
+      ]
+    },
+    {
+      "id": "san-ponso",
+      "name": "San Ponso",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/san-ponso-zunica"
         }
       ]
     },
@@ -19558,6 +22804,56 @@
         {
           "name": "Zona unica",
           "calendar": "calendars/san-sebastiano-da-po-z1"
+        }
+      ]
+    },
+    {
+      "id": "sangano",
+      "name": "Sangano",
+      "vie": [
+        {
+          "name": "Zona Materiale",
+          "calendar": "calendars/sangano-zmateriale"
+        }
+      ]
+    },
+    {
+      "id": "sant-ambrogio-di-torino",
+      "name": "Sant'Ambrogio di Torino",
+      "vie": [
+        {
+          "name": "Via Bertassi Dal Civico 13d In Avanti",
+          "calendar": "calendars/sant-ambrogio-di-torino-zunica"
+        },
+        {
+          "name": "Via Bertassi Dal Civico 40 In Avanti",
+          "calendar": "calendars/sant-ambrogio-di-torino-zunica"
+        },
+        {
+          "name": "Via Cascina Dosio",
+          "calendar": "calendars/sant-ambrogio-di-torino-zunica"
+        },
+        {
+          "name": "Via Luigi Einaudi",
+          "calendar": "calendars/sant-ambrogio-di-torino-zunica"
+        },
+        {
+          "name": "Via Maritano Lino",
+          "calendar": "calendars/sant-ambrogio-di-torino-zunica"
+        },
+        {
+          "name": "Via Mortera Tutti I Numeri Pari",
+          "calendar": "calendars/sant-ambrogio-di-torino-zunica"
+        }
+      ]
+    },
+    {
+      "id": "sant-antonino-di-susa",
+      "name": "Sant'Antonino di Susa",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/sant-antonino-di-susa-zunica"
         }
       ]
     },
@@ -21624,12 +24920,52 @@
       ]
     },
     {
+      "id": "sparone",
+      "name": "Sparone",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/sparone-zunica"
+        }
+      ]
+    },
+    {
+      "id": "susa",
+      "name": "Susa",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/susa-zunica"
+        }
+      ]
+    },
+    {
       "id": "torrazza-piemonte",
       "name": "Torrazza Piemonte",
       "vie": [
         {
           "name": "Zona unica",
           "calendar": "calendars/torrazza-piemonte-z1"
+        }
+      ]
+    },
+    {
+      "id": "trana",
+      "name": "Trana",
+      "vie": [
+        {
+          "name": "Zona Materiale",
+          "calendar": "calendars/trana-zmateriale"
+        }
+      ]
+    },
+    {
+      "id": "traversella",
+      "name": "Traversella",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/traversella-zunica"
         }
       ]
     },
@@ -22188,6 +25524,56 @@
       ]
     },
     {
+      "id": "vaie",
+      "name": "Vaie",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/vaie-zunica"
+        }
+      ]
+    },
+    {
+      "id": "val-di-chy",
+      "name": "Val di Chy",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/val-di-chy-zunica"
+        }
+      ]
+    },
+    {
+      "id": "valchiusa",
+      "name": "Valchiusa",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/valchiusa-zunica"
+        }
+      ]
+    },
+    {
+      "id": "valperga",
+      "name": "Valperga",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/valperga-zunica"
+        }
+      ]
+    },
+    {
+      "id": "valprato-soana",
+      "name": "Valprato Soana",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/valprato-soana-zunica"
+        }
+      ]
+    },
+    {
       "id": "venaria-reale",
       "name": "Venaria Reale",
       "vie": [
@@ -22250,6 +25636,46 @@
         {
           "name": "Zona unica",
           "calendar": "calendars/verrua-savoia-z1"
+        }
+      ]
+    },
+    {
+      "id": "vidracco",
+      "name": "Vidracco",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/vidracco-zunica"
+        }
+      ]
+    },
+    {
+      "id": "villar-dora",
+      "name": "Villar Dora",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/villar-dora-zunica"
+        }
+      ]
+    },
+    {
+      "id": "villar-focchiardo",
+      "name": "Villar Focchiardo",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/villar-focchiardo-zunica"
+        }
+      ]
+    },
+    {
+      "id": "villarbasse",
+      "name": "Villarbasse",
+      "vie": [
+        {
+          "name": "Zona Materiale",
+          "calendar": "calendars/villarbasse-zmateriale"
         }
       ]
     },
@@ -23208,6 +26634,16 @@
         {
           "name": "Vicolo I Casali",
           "calendar": "calendars/virle-piemonte-z1"
+        }
+      ]
+    },
+    {
+      "id": "vistrorio",
+      "name": "Vistrorio",
+      "vie": [
+        {
+          "name": "Zona unica",
+          "calendar": "calendars/vistrorio-zunica"
         }
       ]
     },

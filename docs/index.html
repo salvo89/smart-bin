@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <title>Escilo — perché i cassonetti non si escono da soli</title>
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -376,12 +376,112 @@
     .install-app:active { filter: brightness(0.95); }
 
     .notify-card {
-      margin: 0.85rem var(--safe) 0;
+      margin: 0;
       padding: 0.95rem 1rem;
       border-radius: 1rem;
       background: var(--surface);
       border: 1px solid var(--line);
       box-shadow: 0 1px 0 rgba(20, 32, 24, 0.04);
+    }
+    .notify-page {
+      padding: 0 var(--safe) 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .notify-page-head h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .notify-page-lead {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .notify-active-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 0.85rem;
+      background: var(--accent-soft);
+      border: 1px solid rgba(31, 92, 66, 0.12);
+    }
+    .notify-active-bar p {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.35;
+    }
+    .notify-settings-btn {
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      font-weight: 650;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      padding: 0.35rem 0.15rem;
+    }
+    #btnNotifySettingsClose {
+      display: block;
+      margin-top: 0.65rem;
+      text-align: left;
+    }
+    .notify-history {
+      padding: 0.95rem 1rem;
+      border-radius: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    .notify-history h3 {
+      margin: 0 0 0.65rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .notify-history-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .notify-history-item {
+      padding: 0.65rem 0.75rem;
+      border-radius: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+    }
+    .notify-history-item time {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--muted-2);
+      margin-bottom: 0.25rem;
+    }
+    .notify-history-item strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+    .notify-history-item p {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .notify-history-empty {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
     }
     .notify-head {
       display: flex;
@@ -827,8 +927,8 @@
       width: min(calc(100% - 1.3rem), 26.7rem);
       z-index: 30;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.25rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.2rem;
       padding: 0.35rem;
       border-radius: 1.35rem;
       background: rgba(255, 255, 255, 0.9);
@@ -1201,26 +1301,6 @@
         <span class="hint" id="btnInstallAppHint">Scorciatoia sul telefono</span>
       </button>
 
-      <section class="notify-card" id="notifyCard" hidden>
-        <div class="notify-head">
-          <div>
-            <p class="notify-title">Promemoria push</p>
-            <p class="notify-desc" id="notifyDesc">Sera prima del ritiro: “domani esce …”. Funziona anche con l’app chiusa.</p>
-          </div>
-          <label class="notify-switch">
-            <input type="checkbox" id="notifyToggle" />
-            <span class="notify-slider" aria-hidden="true"></span>
-            <span class="visually-hidden">Abilita notifiche</span>
-          </label>
-        </div>
-        <p class="notify-hint" id="notifyHint" hidden></p>
-        <div class="notify-row" id="notifyHourRow" hidden>
-          <label for="notifyHour">Ora (Europe/Rome)</label>
-          <select id="notifyHour" aria-label="Ora promemoria"></select>
-        </div>
-        <p class="notify-status" id="notifyStatus" role="status"></p>
-      </section>
-
       <p class="data-source">
         <span class="footer-source" hidden></span>
         <a href="fonti.html">Tutte le fonti</a>
@@ -1275,6 +1355,50 @@
         </p>
       </div>
     </section>
+
+    <section class="panel" id="panelNotify" data-panel="notify" hidden aria-label="Notifiche">
+      <div class="notify-page">
+        <div class="notify-page-head">
+          <h2>Notifiche</h2>
+          <p class="notify-page-lead" id="notifyPageLead">
+            Ricevi una <strong>notifica</strong> il <strong>giorno prima</strong> del ritiro, all’orario che scegli.
+            Funziona anche con l’app chiusa.
+          </p>
+        </div>
+
+        <div class="notify-active-bar" id="notifyActiveBar" hidden>
+          <p id="notifyActiveSummary">Notifiche attive</p>
+          <button type="button" class="notify-settings-btn" id="btnNotifySettings">Impostazioni</button>
+        </div>
+
+        <section class="notify-history" aria-labelledby="notifyHistoryTitle">
+          <h3 id="notifyHistoryTitle">Ultime notifiche</h3>
+          <ul class="notify-history-list" id="notifyHistoryList" hidden></ul>
+          <p class="notify-history-empty" id="notifyHistoryEmpty">Nessuna notifica negli ultimi 30 giorni.</p>
+        </section>
+
+        <section class="notify-card" id="notifyCard" hidden>
+          <div class="notify-head">
+            <div>
+              <p class="notify-title">Notifiche push</p>
+              <p class="notify-desc" id="notifyDesc">Attiva per ricevere la notifica automatica il giorno prima del ritiro.</p>
+            </div>
+            <label class="notify-switch">
+              <input type="checkbox" id="notifyToggle" />
+              <span class="notify-slider" aria-hidden="true"></span>
+              <span class="visually-hidden">Abilita notifiche</span>
+            </label>
+          </div>
+          <p class="notify-hint" id="notifyHint" hidden></p>
+          <div class="notify-row" id="notifyHourRow">
+            <label for="notifyHour">Orario (Europe/Rome)</label>
+            <select id="notifyHour" aria-label="Orario notifica"></select>
+          </div>
+          <p class="notify-status" id="notifyStatus" role="status"></p>
+          <button type="button" class="notify-settings-btn" id="btnNotifySettingsClose" hidden>Chiudi impostazioni</button>
+        </section>
+      </div>
+    </section>
   </div>
 
   <nav class="bottom-nav" id="bottomNav" aria-label="Sezioni">
@@ -1285,6 +1409,10 @@
     <button type="button" data-tab="cal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
       Mese
+    </button>
+    <button type="button" data-tab="notify">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      Notifiche
     </button>
   </nav>
 
@@ -1712,7 +1840,7 @@
       loadMonth();
       $("liveLine").textContent =
         "Calendario ritiri — " + choice.comuneName + ", " + choice.via;
-      syncNotifyCard();
+      syncNotifyPanel();
       refreshPushRegistration().catch((err) => console.error(err));
     }
 
@@ -1774,6 +1902,11 @@
         else btn.removeAttribute("aria-current");
       });
       window.scrollTo(0, 0);
+      if (tab !== "notify") notifySettingsOpen = false;
+      if (tab === "notify") {
+        syncNotifyPanel();
+        renderNotifyHistory();
+      }
     }
 
     function renderHero(t) {
@@ -2476,7 +2609,7 @@
       dayCache.clear();
       renderHero(null);
       showZoneGate();
-      syncNotifyCard();
+      syncNotifyPanel();
     });
 
     /** @type {BeforeInstallPromptEvent | null} */
@@ -2599,11 +2732,161 @@
     });
 
     const LS_PUSH_HOUR = "smartbin.pushHour";
+    const LS_PUSH_HOUR_USER = "smartbin.pushHourUserSet";
+    const LS_PUSH_REGISTERED = "smartbin.pushRegistered";
+    const PUSH_REMOTE_ORIGIN = "https://escilo.netlify.app";
+    const NOTIFY_HISTORY_DB = "escilo-notify";
+    const NOTIFY_HISTORY_STORE = "history";
+    const NOTIFY_HISTORY_MAX_DAYS = 30;
+
+    function isLocalDevHost() {
+      const h = location.hostname;
+      return h === "localhost" || h === "127.0.0.1" || h === "[::1]";
+    }
+
+    function pushApiUrl(path) {
+      if (isLocalDevHost()) return PUSH_REMOTE_ORIGIN + path;
+      return path;
+    }
+
     const PUSH_API = {
-      vapid: "/api/push/vapid-public",
-      subscribe: "/api/push/subscribe",
-      unsubscribe: "/api/push/unsubscribe",
+      vapid: pushApiUrl("/api/push/vapid-public"),
+      subscribe: pushApiUrl("/api/push/subscribe"),
+      unsubscribe: pushApiUrl("/api/push/unsubscribe"),
     };
+
+    function migratePushHourDefault() {
+      if (localStorage.getItem(LS_PUSH_HOUR_USER) === "1") return;
+      localStorage.removeItem(LS_PUSH_HOUR);
+    }
+
+    function savePushHour(hour) {
+      localStorage.setItem(LS_PUSH_HOUR, String(hour));
+      localStorage.setItem(LS_PUSH_HOUR_USER, "1");
+    }
+
+    function notifyHistoryCutoffIso() {
+      const d = new Date();
+      d.setDate(d.getDate() - NOTIFY_HISTORY_MAX_DAYS);
+      return d.toISOString();
+    }
+
+    function openNotifyHistoryDb() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(NOTIFY_HISTORY_DB, 1);
+        req.onupgradeneeded = () => {
+          const db = req.result;
+          if (!db.objectStoreNames.contains(NOTIFY_HISTORY_STORE)) {
+            db.createObjectStore(NOTIFY_HISTORY_STORE, { keyPath: "id" });
+          }
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    function idbGetAll(store) {
+      return new Promise((resolve, reject) => {
+        const req = store.getAll();
+        req.onsuccess = () => resolve(req.result || []);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function pruneNotifyHistory(db) {
+      const cutoff = notifyHistoryCutoffIso();
+      const tx = db.transaction(NOTIFY_HISTORY_STORE, "readwrite");
+      const store = tx.objectStore(NOTIFY_HISTORY_STORE);
+      const all = await idbGetAll(store);
+      for (const item of all) {
+        if (!item.at || item.at < cutoff) store.delete(item.id);
+      }
+      return new Promise((resolve, reject) => {
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    async function appendNotifyHistory(entry) {
+      if (!("indexedDB" in window)) return;
+      const at = entry.at || new Date().toISOString();
+      const record = {
+        id: entry.id || at,
+        at,
+        title: entry.title || "Escilo",
+        body: entry.body || "",
+      };
+      const db = await openNotifyHistoryDb();
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(NOTIFY_HISTORY_STORE, "readwrite");
+        tx.objectStore(NOTIFY_HISTORY_STORE).put(record);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+      await pruneNotifyHistory(db);
+      db.close();
+    }
+
+    async function loadNotifyHistory() {
+      if (!("indexedDB" in window)) return [];
+      const db = await openNotifyHistoryDb();
+      await pruneNotifyHistory(db);
+      const tx = db.transaction(NOTIFY_HISTORY_STORE, "readonly");
+      const all = await idbGetAll(tx.objectStore(NOTIFY_HISTORY_STORE));
+      db.close();
+      const cutoff = notifyHistoryCutoffIso();
+      return all
+        .filter((item) => item && item.at && item.at >= cutoff)
+        .sort((a, b) => String(b.at).localeCompare(String(a.at)));
+    }
+
+    function formatNotifyHistoryWhen(iso) {
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return "—";
+      return d.toLocaleString("it-IT", {
+        timeZone: "Europe/Rome",
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    }
+
+    async function renderNotifyHistory() {
+      const list = $("notifyHistoryList");
+      const empty = $("notifyHistoryEmpty");
+      if (!list || !empty) return;
+      let items = [];
+      try {
+        items = await loadNotifyHistory();
+      } catch (err) {
+        console.error(err);
+      }
+      list.innerHTML = "";
+      if (!items.length) {
+        list.hidden = true;
+        empty.hidden = false;
+        return;
+      }
+      empty.hidden = true;
+      list.hidden = false;
+      for (const item of items) {
+        const li = document.createElement("li");
+        li.className = "notify-history-item";
+        const time = document.createElement("time");
+        time.dateTime = item.at;
+        time.textContent = formatNotifyHistoryWhen(item.at);
+        const title = document.createElement("strong");
+        title.textContent = item.title || "Escilo";
+        const body = document.createElement("p");
+        body.textContent = item.body || "";
+        li.appendChild(time);
+        li.appendChild(title);
+        if (item.body) li.appendChild(body);
+        list.appendChild(li);
+      }
+    }
 
     function pushSupported() {
       return (
@@ -2615,19 +2898,25 @@
     }
 
     function readPushHour() {
-      const n = Number(localStorage.getItem(LS_PUSH_HOUR));
+      if (localStorage.getItem(LS_PUSH_HOUR_USER) !== "1") return 20;
+      const raw = localStorage.getItem(LS_PUSH_HOUR);
+      if (raw === null || raw === "") return 20;
+      const n = Number(raw);
       if (Number.isInteger(n) && n >= 0 && n <= 23) return n;
       return 20;
     }
 
     function fillNotifyHourSelect() {
       const sel = $("notifyHour");
-      if (!sel || sel.options.length) return;
-      for (let h = 0; h < 24; h++) {
-        const opt = document.createElement("option");
-        opt.value = String(h);
-        opt.textContent = String(h).padStart(2, "0") + ":00";
-        sel.appendChild(opt);
+      if (!sel) return;
+      if (!sel.options.length) {
+        for (let h = 0; h < 24; h++) {
+          const opt = document.createElement("option");
+          opt.value = String(h);
+          opt.textContent = String(h).padStart(2, "0") + ":00";
+          if (h === 20) opt.selected = true;
+          sel.appendChild(opt);
+        }
       }
       sel.value = String(readPushHour());
     }
@@ -2659,11 +2948,25 @@
     }
 
     async function fetchVapidPublicKey() {
-      const res = await fetch(PUSH_API.vapid, { cache: "no-cache" });
-      if (!res.ok) throw new Error("vapid_unavailable");
-      const data = await res.json();
-      if (!data || !data.publicKey) throw new Error("vapid_missing");
-      return data.publicKey;
+      const urls = [];
+      if (isLocalDevHost()) {
+        urls.push("/api/push/vapid-public");
+      }
+      urls.push(PUSH_API.vapid);
+      if (!isLocalDevHost()) {
+        urls.push("/.netlify/functions/push-vapid-public");
+      }
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: "no-cache" });
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (data && data.publicKey) return data.publicKey;
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      throw new Error("vapid_unavailable");
     }
 
     async function getPushSubscription() {
@@ -2671,18 +2974,123 @@
       return reg.pushManager.getSubscription();
     }
 
-    async function syncNotifyCard() {
-      const card = $("notifyCard");
-      const toggle = $("notifyToggle");
-      const hourRow = $("notifyHourRow");
-      if (!card || !toggle) return;
+    function markPushRegistered() {
+      localStorage.setItem(LS_PUSH_REGISTERED, "1");
+    }
 
-      if (!ZONE_CHOICE) {
-        card.hidden = true;
+    function clearPushRegistered() {
+      localStorage.removeItem(LS_PUSH_REGISTERED);
+    }
+
+    function isPushRegisteredLocally() {
+      return localStorage.getItem(LS_PUSH_REGISTERED) === "1";
+    }
+
+    async function reconcilePushState() {
+      if (!pushSupported()) {
+        clearPushRegistered();
         return;
       }
-      card.hidden = false;
+      let sub = null;
+      try {
+        sub = await getPushSubscription();
+      } catch {
+        sub = null;
+      }
+
+      if (isPushRegisteredLocally()) {
+        if (Notification.permission !== "granted" || !sub) {
+          clearPushRegistered();
+          notifySettingsOpen = false;
+          if (sub) {
+            try {
+              await sub.unsubscribe();
+            } catch (err) {
+              console.error(err);
+            }
+          }
+        }
+        return;
+      }
+
+      notifySettingsOpen = false;
+      if (sub) {
+        try {
+          await sub.unsubscribe();
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    }
+
+    async function isPushActive() {
+      if (!isPushRegisteredLocally()) return false;
+      if (!pushSupported()) return false;
+      if (Notification.permission !== "granted") return false;
+      try {
+        const sub = await getPushSubscription();
+        return !!sub;
+      } catch {
+        return false;
+      }
+    }
+
+    let notifySettingsOpen = false;
+
+    function updateNotifyLayout(enabled) {
+      const card = $("notifyCard");
+      const bar = $("notifyActiveBar");
+      const lead = $("notifyPageLead");
+      const closeBtn = $("btnNotifySettingsClose");
+      const settingsBtn = $("btnNotifySettings");
+      const summary = $("notifyActiveSummary");
+
+      if (!card || !bar) return;
+
+      if (!enabled) {
+        notifySettingsOpen = false;
+        card.hidden = false;
+        bar.hidden = true;
+        if (lead) lead.hidden = false;
+        if (closeBtn) closeBtn.hidden = true;
+        if (settingsBtn) settingsBtn.textContent = "Impostazioni";
+        return;
+      }
+
+      if (summary) {
+        summary.textContent =
+          "Notifiche attive · " + String(readPushHour()).padStart(2, "0") + ":00";
+      }
+
+      if (notifySettingsOpen) {
+        card.hidden = false;
+        bar.hidden = true;
+        if (lead) lead.hidden = false;
+        if (closeBtn) closeBtn.hidden = false;
+      } else {
+        card.hidden = true;
+        bar.hidden = false;
+        if (lead) lead.hidden = true;
+        if (closeBtn) closeBtn.hidden = true;
+      }
+    }
+
+    async function syncNotifyPanel() {
+      const toggle = $("notifyToggle");
+      const hourRow = $("notifyHourRow");
+      if (!toggle) return;
+
       fillNotifyHourSelect();
+
+      if (!ZONE_CHOICE) {
+        toggle.checked = false;
+        toggle.disabled = true;
+        if (hourRow) hourRow.hidden = true;
+        setNotifyHint("Scegli comune e via dalla Home per attivare le notifiche.");
+        setNotifyStatus("");
+        updateNotifyLayout(false);
+        return;
+      }
 
       if (!pushSupported()) {
         toggle.checked = false;
@@ -2690,6 +3098,7 @@
         if (hourRow) hourRow.hidden = true;
         setNotifyHint("Questo browser non supporta le notifiche push.");
         setNotifyStatus("");
+        updateNotifyLayout(false);
         return;
       }
 
@@ -2701,29 +3110,33 @@
           "Su iPhone/iPad: apri Escilo da Safari → Condividi → Aggiungi a Home, poi riapri l’app dalla Home e abilita le notifiche."
         );
         setNotifyStatus("");
+        updateNotifyLayout(false);
         return;
       }
 
       toggle.disabled = false;
+      if (hourRow) hourRow.hidden = false;
+      fillNotifyHourSelect();
+      setNotifyHint("");
+      await reconcilePushState();
+      let enabled = false;
       try {
-        const sub = await getPushSubscription();
-        const enabled = !!sub && Notification.permission === "granted";
+        enabled = await isPushActive();
         toggle.checked = enabled;
-        if (hourRow) hourRow.hidden = !enabled;
-        setNotifyHint("");
         setNotifyStatus(
           enabled
-            ? "Attive · sera prima del ritiro alle " +
+            ? "Notifiche attive · " +
                 String(readPushHour()).padStart(2, "0") +
                 ":00"
-            : "Disattivate"
+            : "Notifiche disattivate"
         );
       } catch (err) {
         console.error(err);
+        enabled = false;
         toggle.checked = false;
-        if (hourRow) hourRow.hidden = true;
         setNotifyStatus("Stato notifiche non disponibile");
       }
+      updateNotifyLayout(enabled);
     }
 
     async function subscribePush() {
@@ -2741,23 +3154,35 @@
         });
       }
       const hour = readPushHour();
-      const res = await fetch(PUSH_API.subscribe, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          subscription: sub.toJSON(),
-          calendarId: ZONE_CHOICE.calendar,
-          hour,
-        }),
-      });
-      if (!res.ok) {
-        const errBody = await res.json().catch(() => ({}));
-        throw new Error(errBody.error || "subscribe_failed");
+      try {
+        const res = await fetch(PUSH_API.subscribe, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            subscription: sub.toJSON(),
+            calendarId: ZONE_CHOICE.calendar,
+            hour,
+          }),
+        });
+        if (!res.ok) {
+          const errBody = await res.json().catch(() => ({}));
+          throw new Error(errBody.error || "subscribe_failed");
+        }
+        markPushRegistered();
+        return sub;
+      } catch (err) {
+        clearPushRegistered();
+        try {
+          await sub.unsubscribe();
+        } catch (unsubErr) {
+          console.error(unsubErr);
+        }
+        throw err;
       }
-      return sub;
     }
 
     async function unsubscribePush() {
+      clearPushRegistered();
       const sub = await getPushSubscription();
       if (sub) {
         try {
@@ -2775,9 +3200,10 @@
 
     async function refreshPushRegistration() {
       if (!ZONE_CHOICE || Notification.permission !== "granted") return;
+      if (!isPushRegisteredLocally()) return;
       const sub = await getPushSubscription();
       if (!sub) return;
-      await fetch(PUSH_API.subscribe, {
+      const res = await fetch(PUSH_API.subscribe, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -2786,6 +3212,7 @@
           hour: readPushHour(),
         }),
       });
+      if (res.ok) markPushRegistered();
     }
 
     $("notifyToggle").addEventListener("change", async () => {
@@ -2799,14 +3226,22 @@
             return;
           }
           await subscribePush();
+          notifySettingsOpen = false;
           setNotifyStatus("Notifiche attivate");
         } else {
           await unsubscribePush();
+          notifySettingsOpen = false;
           setNotifyStatus("Notifiche disattivate");
         }
       } catch (err) {
         console.error(err);
         toggle.checked = false;
+        notifySettingsOpen = false;
+        try {
+          await unsubscribePush();
+        } catch (cleanupErr) {
+          console.error(cleanupErr);
+        }
         if (err && err.message === "permission_denied") {
           setNotifyStatus("Permesso notifiche negato");
         } else if (err && err.message === "vapid_unavailable") {
@@ -2815,13 +3250,28 @@
           setNotifyStatus("Attivazione non riuscita");
         }
       }
-      syncNotifyCard();
+      await syncNotifyPanel();
+    });
+
+    $("btnNotifySettings").addEventListener("click", async () => {
+      if (!(await isPushActive())) {
+        notifySettingsOpen = false;
+        await syncNotifyPanel();
+        return;
+      }
+      notifySettingsOpen = true;
+      await syncNotifyPanel();
+    });
+
+    $("btnNotifySettingsClose").addEventListener("click", async () => {
+      notifySettingsOpen = false;
+      await syncNotifyPanel();
     });
 
     $("notifyHour").addEventListener("change", async () => {
       const hour = Number($("notifyHour").value);
       if (!Number.isInteger(hour) || hour < 0 || hour > 23) return;
-      localStorage.setItem(LS_PUSH_HOUR, String(hour));
+      savePushHour(hour);
       try {
         await refreshPushRegistration();
         setNotifyStatus(
@@ -2837,13 +3287,24 @@
       if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
       try {
         await navigator.serviceWorker.register("sw.js");
+        navigator.serviceWorker.addEventListener("message", (ev) => {
+          if (!ev.data || ev.data.type !== "notify-history-updated") return;
+          if (activeTab === "notify") renderNotifyHistory();
+        });
       } catch (err) {
         console.error(err);
       }
     }
 
+    function initialTabFromUrl() {
+      const tab = new URLSearchParams(window.location.search).get("tab");
+      if (tab === "cal" || tab === "notify" || tab === "home") return tab;
+      return null;
+    }
+
     async function boot() {
       buildDowHeader();
+      migratePushHourDefault();
       fillNotifyHourSelect();
       await registerServiceWorker();
       syncInstallButton();
@@ -2861,6 +3322,8 @@
       if (resolved) {
         try {
           await applyZoneAndRender(resolved);
+          const tab = initialTabFromUrl();
+          if (tab && tab !== "home") setTab(tab);
           return;
         } catch (err) {
           console.error(err);
@@ -2870,7 +3333,9 @@
 
       renderHero(null);
       showZoneGate();
-      syncNotifyCard();
+      syncNotifyPanel();
+      const tab = initialTabFromUrl();
+      if (tab === "notify") setTab("notify");
     }
 
     boot();

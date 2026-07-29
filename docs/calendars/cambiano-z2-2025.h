@@ -1,0 +1,44 @@
+// Cambiano Zona 2 (CCS): VIA 4 NOVEMBRE, CASCINA AIGOTA, VIA AUDENINO MATTEO, CASCINA BECCO, VIA BEVILACQUA GIUSEPPE, CASCINA BISOGNOSA, CASCINA BROGLIA, VIA BUSSOLETTE, VIA CADUTI GRANDE GUERRA, VIA CAMPI ROTONDI, VIA CARDELLINI GIUSEPPE, STRADA PROVINCIALE, VIA CARNIA, VIA CAVAGLIA' LUIGI, VIA CAVALIERI DI VITTORIO, VIA CIELO GUGLIELMO, VIA COSTA NINO, VIA DEI PRATI, VIA DEL GHIARETTO, PIAZZA DON BOSCO, VIA EINAUDI LUIGI, VIA FONTANA PIETRO, VIA FOSCOLO UGO, VIA GIOVANNI XXIII, VIA IRPINIA, VIA LAGRANGE, VIA LAME, CORSO LISA ONORIO, VIA LOSANO ROBERTO, VIA MALLONE ANSELMO, VIA MAZZINI GIUSEPPE, CASCINA MOLINO GALLE', PIAZZA MONTESSORI MARIA, VIA MONVISO, VIA NAVONE GIOVANNI, VIA NAZIONALE, VIA PALESTRINO PAOLO, VIA PAVESE CESARE, VIA POLESINE, VIA POLLONE MATTEO, VIALE ROMA, VIA S. CARLO, VIA S. GIOVANNI, VICOLO S. PIETRO, VIA S. ROCCO, PIAZZA STAZIONE, VIA STAZIONE, VIA TEMO, VIA TORINO, VIA TRIBERTI GIOVANNI, VIA VOLTA ALESSANDRO
+// Anno 2025 — solo dati; struct e helper in docs/calendar.h
+// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Lista ORDINATA (YYYYMMDD) per ricerca binaria.
+
+  {2025, 10, 4, 1},  // 04/10/2025 Organico
+  {2025, 10, 6, 0},  // 06/10/2025 Carta
+  {2025, 10, 7, 3},  // 07/10/2025 Plastica
+  {2025, 10, 8, 2},  // 08/10/2025 Indifferenziata
+  {2025, 10, 8, 4},  // 08/10/2025 Verde
+  {2025, 10, 11, 1},  // 11/10/2025 Organico
+  {2025, 10, 11, 5},  // 11/10/2025 Vetro
+  {2025, 10, 18, 1},  // 18/10/2025 Organico
+  {2025, 10, 20, 0},  // 20/10/2025 Carta
+  {2025, 10, 22, 2},  // 22/10/2025 Indifferenziata
+  {2025, 10, 22, 4},  // 22/10/2025 Verde
+  {2025, 10, 25, 1},  // 25/10/2025 Organico
+  {2025, 10, 28, 3},  // 28/10/2025 Plastica
+  {2025, 11, 1, 1},  // 01/11/2025 Organico
+  {2025, 11, 1, 5},  // 01/11/2025 Vetro
+  {2025, 11, 3, 0},  // 03/11/2025 Carta
+  {2025, 11, 5, 2},  // 05/11/2025 Indifferenziata
+  {2025, 11, 5, 4},  // 05/11/2025 Verde
+  {2025, 11, 8, 1},  // 08/11/2025 Organico
+  {2025, 11, 15, 1},  // 15/11/2025 Organico
+  {2025, 11, 17, 0},  // 17/11/2025 Carta
+  {2025, 11, 18, 3},  // 18/11/2025 Plastica
+  {2025, 11, 19, 2},  // 19/11/2025 Indifferenziata
+  {2025, 11, 19, 4},  // 19/11/2025 Verde
+  {2025, 11, 22, 1},  // 22/11/2025 Organico
+  {2025, 11, 22, 5},  // 22/11/2025 Vetro
+  {2025, 11, 29, 1},  // 29/11/2025 Organico
+  {2025, 12, 1, 0},  // 01/12/2025 Carta
+  {2025, 12, 6, 1},  // 06/12/2025 Organico
+  {2025, 12, 9, 3},  // 09/12/2025 Plastica
+  {2025, 12, 13, 1},  // 13/12/2025 Organico
+  {2025, 12, 13, 5},  // 13/12/2025 Vetro
+  {2025, 12, 15, 0},  // 15/12/2025 Carta
+  {2025, 12, 17, 2},  // 17/12/2025 Indifferenziata
+  {2025, 12, 17, 4},  // 17/12/2025 Verde
+  {2025, 12, 20, 1},  // 20/12/2025 Organico
+  {2025, 12, 28, 1},  // 28/12/2025 Organico
+  {2025, 12, 29, 0},  // 29/12/2025 Carta
+  {2025, 12, 30, 3},  // 30/12/2025 Plastica

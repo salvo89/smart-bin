@@ -5,7 +5,6 @@ import { json, methodNotAllowed } from "./shared/http.mjs";
 import {
   activeYears,
   binsForDate,
-  formatBinsLabel,
   loadCalendarEntries,
   nextDay,
   romeParts,
@@ -144,10 +143,9 @@ export async function handler(event) {
       continue;
     }
 
-    const label = formatBinsLabel(bins);
     const payload = JSON.stringify({
       title: testMode ? "Escilo (test)" : "Escilo",
-      body: `Domani: ${label}`,
+      body: "Non dimenticartene!",
       url: "./",
     });
 

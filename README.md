@@ -196,7 +196,7 @@ Web Push gratuito (VAPID + Netlify Functions + Blobs). Dopo il deploy:
 
 **Fase test (attuale):** il workflow chiama `/api/push/dispatch` ogni **5 minuti**; con `PUSH_TEST_MODE=1` ignora l’ora utente e l’anti-duplicato giornaliero (notifica a ogni run se domani c’è un ritiro; titolo “Escilo (test)”).
 
-**Prod (dopo i test):** togliere/mettere `PUSH_TEST_MODE=0` su Netlify e nel workflow ripristinare `cron: "5 * * * *"` (ogni ora). Allora invia solo all’ora scelta (default 20:00 Europe/Rome), una volta al giorno.
+**Prod (dopo i test):** togliere/mettere `PUSH_TEST_MODE=0` su Netlify e nel workflow ripristinare `cron: "5 * * * *"` (ogni ora). Allora invia solo all’ora scelta dall’utente (default 20:00 Europe/Rome), una volta al giorno.
 
 ## Struttura del repository
 

@@ -4,17 +4,20 @@
     "Mapping gestori rifiuti Città metropolitana di Torino (bacini ATO).",
     "Usato per prioritizzare il censimento in sources.json.",
     "ACSEL: elenco stimato = CADOS meno CIDIU; da verificare.",
-    "ACEA Pinerolese escluso: solo Eco-Punti, non adatto a Smart Bin."
+    "ACEA Pinerolese escluso: solo Eco-Punti, non adatto a Smart Bin.",
+    "Aggiornato: ACSEL PDF Val Susa e TeknoService/CCA Canavese aggiunti a sources.json (2026-07-28).",
+    "AMIAT Torino escluso: calendario solo per indirizzo."
   ],
   "providers": {
     "AMIAT": {
       "bacino": "18",
       "consorzio": "Bacino 18",
       "operator": "AMIAT SpA",
-      "calendarKind": "address-lookup + festivita PDF",
+      "calendarKind": "ricerca indirizzo (non compatibile Smart Bin)",
       "sourceHub": "https://www.amiat.it/i-nostri-servizi/servizi-di-raccolta-differenziata.html",
-      "comuni": [
-        "Torino"
+      "comuni": [],
+      "notes": [
+        "Escluso dal censimento .h: nessun calendario statico per zona."
       ]
     },
     "SETA": {
@@ -89,7 +92,7 @@
       "bacino": "15",
       "consorzio": "CADOS",
       "operator": "CIDIU SpA",
-      "calendarKind": "HTML settimanale per zona su cidiu.it (+ Junker)",
+      "calendarKind": "HTML settimanale per zona su cidiu.it",
       "sourceHub": "https://cidiu.it/",
       "comuni": [
         "Alpignano",
@@ -102,11 +105,8 @@
         "Pianezza",
         "Reano",
         "Rivoli",
-        "Rosta",
-        "San Gillio",
         "Sangano",
         "Trana",
-        "Valgioie",
         "Venaria Reale",
         "Villarbasse"
       ]
@@ -115,8 +115,8 @@
       "bacino": "15",
       "consorzio": "CADOS",
       "operator": "ACSEL SpA",
-      "calendarKind": "da verificare (sito ACSEL / comuni)",
-      "sourceHub": "https://www.acselspa.it/",
+      "calendarKind": "PDF annuale porta a porta su acselspa.it",
+      "sourceHub": "https://www.acselspa.it/calendari-raccolta-rifiuti/",
       "comuni": [
         "Almese",
         "Avigliana",
@@ -254,6 +254,17 @@
       "comuni": [],
       "notes": [
         "Residuo Canavese non coperto da SETA/SCS/CISA; elenco calcolato per differenza."
+      ]
+    },
+    "TeknoService": {
+      "bacino": "17B/D",
+      "consorzio": "CCA",
+      "operator": "TeknoService",
+      "calendarKind": "PDF annuale su teknoserviceitalia.com",
+      "sourceHub": "https://www.teknoserviceitalia.com/",
+      "comuni": [],
+      "notes": [
+        "Gestore operativo CCA Canavese; elenco comuni in sources.json."
       ]
     }
   },
