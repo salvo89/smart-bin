@@ -190,13 +190,11 @@ HTTPS di Netlify soddisfa i requisiti PWA (manifest + service worker + “Instal
 Web Push gratuito (VAPID + Netlify Functions + Blobs). Dopo il deploy:
 
 1. Genera chiavi: `npx web-push generate-vapid-keys`
-2. Su Netlify → Environment variables: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` (`mailto:…`), `DISPATCH_SECRET`, e in fase test `PUSH_TEST_MODE=1`
+2. Su Netlify → Environment variables: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` (`mailto:…`), `DISPATCH_SECRET`
 3. Su GitHub → Actions secrets: `DISPATCH_SECRET` (stesso valore), `SITE_URL` (URL del sito)
 4. Dalla Home, tocca **Ricordami sul telefono** (su iOS: prima Aggiungi a Home, poi opt-in)
 
-**Fase test (attuale):** il workflow chiama `/api/push/dispatch` ogni **5 minuti**; con `PUSH_TEST_MODE=1` ignora l’ora utente e l’anti-duplicato giornaliero (notifica a ogni run se domani c’è un ritiro; titolo “Escilo (test)”).
-
-**Prod (dopo i test):** togliere/mettere `PUSH_TEST_MODE=0` su Netlify e nel workflow ripristinare `cron: "5 * * * *"` (ogni ora). Allora invia solo all’ora scelta dall’utente (default 20:00 Europe/Rome), una volta al giorno.
+Il workflow chiama `/api/push/dispatch` ogni ora (`cron: "5 * * * *"`). Invia solo all’ora scelta dall’utente (default 20:00 Europe/Rome), una volta al giorno, se domani c’è un ritiro.
 
 ## Struttura del repository
 

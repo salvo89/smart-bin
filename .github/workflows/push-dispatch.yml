@@ -7,8 +7,8 @@ name: push-dispatch
 
 on:
   schedule:
-    # TEST: ogni 5 minuti. In prod: ripristinare `5 * * * *` (ogni ora).
-    - cron: "*/5 * * * *"
+    # Ogni ora (minuto 5): invia solo all’ora scelta dall’utente (Europe/Rome).
+    - cron: "5 * * * *"
   workflow_dispatch:
 
 jobs:
