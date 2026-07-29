@@ -107,7 +107,7 @@ export async function handler(event) {
     const now = romeParts();
     const tomorrow = nextDay(now.year, now.month, now.day);
     const years = await loadIndexYears(now.year);
-    const store = getPushStore();
+    const store = getPushStore(event);
     const all = await listAllSubscriptions(store);
 
   let sent = 0;

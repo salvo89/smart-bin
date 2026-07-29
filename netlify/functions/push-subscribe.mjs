@@ -36,7 +36,7 @@ export async function handler(event) {
 
   const now = new Date().toISOString();
   const key = subscriptionKey(body.subscription.endpoint);
-  const store = getPushStore();
+  const store = getPushStore(event);
   const existing = await store.get(key, { type: "json" });
 
   const record = {

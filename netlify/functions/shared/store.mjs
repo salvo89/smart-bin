@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { getStore } from "@netlify/blobs";
+import { connectLambda, getStore } from "@netlify/blobs";
 
 const STORE_NAME = "push-subscriptions";
 
@@ -7,7 +7,20 @@ export function subscriptionKey(endpoint) {
   return createHash("sha256").update(String(endpoint)).digest("hex");
 }
 
-export function getPushStore() {
+/** Netlify Functions v1 need connectLambda(event) before getStore. */
+export function getPushStore(event) {
+  if (event) connectLambda(event);
+
+  const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID;
+  const token =
+    process.env.NETLIFY_BLOBS_TOKEN ||
+    process.env.NETLIFY_AUTH_TOKEN ||
+    process.env.NETLIFY_PERSONAL_ACCESS_TOKEN;
+
+  if (siteID && token) {
+    return getStore({ name: STORE_NAME, siteID, token });
+  }
+
   return getStore(STORE_NAME);
 }
 

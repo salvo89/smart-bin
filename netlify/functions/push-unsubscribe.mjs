@@ -17,7 +17,7 @@ export async function handler(event) {
     return json(400, { error: "missing_endpoint" });
   }
 
-  const store = getPushStore();
+  const store = getPushStore(event);
   await store.delete(subscriptionKey(endpoint));
   return json(200, { ok: true });
 }
