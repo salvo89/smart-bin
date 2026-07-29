@@ -78,9 +78,6 @@ async function entriesForCalendar(calendarId, years) {
 
 export async function handler(event) {
   try {
-    if (event.httpMethod === "OPTIONS") {
-      return json(204, {});
-    }
     if (event.httpMethod !== "POST" && event.httpMethod !== "GET") {
       return methodNotAllowed("POST, GET");
     }

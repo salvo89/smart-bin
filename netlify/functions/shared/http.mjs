@@ -5,9 +5,6 @@ export function json(statusCode, body, extra = {}) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "no-store",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, X-Dispatch-Secret, Authorization",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       ...extra,
     },
     body: JSON.stringify(body),

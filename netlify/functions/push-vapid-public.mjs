@@ -1,9 +1,6 @@
 import { json, methodNotAllowed } from "./shared/http.mjs";
 
 export async function handler(event) {
-  if (event.httpMethod === "OPTIONS") {
-    return json(204, {});
-  }
   if (event.httpMethod !== "GET") {
     return methodNotAllowed("GET");
   }

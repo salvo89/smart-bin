@@ -2,9 +2,6 @@ import { json, methodNotAllowed, parseJsonBody } from "./shared/http.mjs";
 import { getPushStore, subscriptionKey } from "./shared/store.mjs";
 
 export async function handler(event) {
-  if (event.httpMethod === "OPTIONS") {
-    return json(204, {});
-  }
   if (event.httpMethod !== "POST") {
     return methodNotAllowed("POST");
   }

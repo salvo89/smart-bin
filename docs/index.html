@@ -2734,25 +2734,14 @@
     const LS_PUSH_HOUR = "smartbin.pushHour";
     const LS_PUSH_HOUR_USER = "smartbin.pushHourUserSet";
     const LS_PUSH_REGISTERED = "smartbin.pushRegistered";
-    const PUSH_REMOTE_ORIGIN = "https://escilo.netlify.app";
     const NOTIFY_HISTORY_DB = "escilo-notify";
     const NOTIFY_HISTORY_STORE = "history";
     const NOTIFY_HISTORY_MAX_DAYS = 30;
 
-    function isLocalDevHost() {
-      const h = location.hostname;
-      return h === "localhost" || h === "127.0.0.1" || h === "[::1]";
-    }
-
-    function pushApiUrl(path) {
-      if (isLocalDevHost()) return PUSH_REMOTE_ORIGIN + path;
-      return path;
-    }
-
     const PUSH_API = {
-      vapid: pushApiUrl("/api/push/vapid-public"),
-      subscribe: pushApiUrl("/api/push/subscribe"),
-      unsubscribe: pushApiUrl("/api/push/unsubscribe"),
+      vapid: "/api/push/vapid-public",
+      subscribe: "/api/push/subscribe",
+      unsubscribe: "/api/push/unsubscribe",
     };
 
     function migratePushHourDefault() {
@@ -2948,14 +2937,7 @@
     }
 
     async function fetchVapidPublicKey() {
-      const urls = [];
-      if (isLocalDevHost()) {
-        urls.push("/api/push/vapid-public");
-      }
-      urls.push(PUSH_API.vapid);
-      if (!isLocalDevHost()) {
-        urls.push("/.netlify/functions/push-vapid-public");
-      }
+      const urls = [PUSH_API.vapid, "/.netlify/functions/push-vapid-public"];
       for (const url of urls) {
         try {
           const res = await fetch(url, { cache: "no-cache" });
