@@ -9,3 +9,5 @@ node_modules/
 # Skill Cursor locali (non parte del firmware)
 .agents/
 skills-lock.json
+
+tmp_calendars/

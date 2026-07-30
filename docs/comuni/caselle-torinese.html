@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <title>Calendario raccolta differenziata Caselle Torinese — Escilo</title>
+  <meta name="description" content="Calendario ritiri rifiuti a Caselle Torinese (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/comuni/caselle-torinese.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Calendario raccolta differenziata Caselle Torinese — Escilo" />
+  <meta property="og:description" content="Calendario ritiri rifiuti a Caselle Torinese (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta property="og:url" content="https://escilo.netlify.app/comuni/caselle-torinese.html" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calendario raccolta differenziata Caselle Torinese — Escilo" />
+  <meta name="twitter:description" content="Calendario ritiri rifiuti a Caselle Torinese (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --row-bg: #f7fbf8;
+  --safe: 1rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --row-bg: #151e1a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.45;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.topbar { margin-bottom: 1rem; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.crumbs {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crumbs a:hover { text-decoration: underline; }
+.intro {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.05rem 1.05rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+  color: #f3faf6;
+  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+}
+.intro h1 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+.intro .meta {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+.intro a {
+  color: #f3faf6;
+  font-weight: 650;
+}
+.note {
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.card {
+  margin: 0 0 0.85rem;
+  border-radius: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta {
+  display: block;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.95rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.cta:hover { filter: brightness(1.05); }
+ul.zones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+ul.zones li {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.comuni-grid a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  border: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid a:hover { background: var(--accent-soft); }
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Calendario raccolta differenziata Caselle Torinese — Escilo",
+    "url": "https://escilo.netlify.app/comuni/caselle-torinese.html",
+    "description": "Calendario ritiri rifiuti a Caselle Torinese (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
+    "inLanguage": "it-IT",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Escilo",
+      "url": "https://escilo.netlify.app/"
+    },
+    "about": {
+      "@type": "Place",
+      "name": "Caselle Torinese",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Caselle Torinese",
+        "addressRegion": "Piemonte",
+        "addressCountry": "IT"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Escilo",
+        "item": "https://escilo.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Comuni",
+        "item": "https://escilo.netlify.app/comuni/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Caselle Torinese",
+        "item": "https://escilo.netlify.app/comuni/caselle-torinese.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← Calendario</a>
+    </header>
+    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Caselle Torinese</p>
+    <section class="intro">
+      <h1>Calendario raccolta differenziata — Caselle Torinese</h1>
+      <p>
+        Ritiri rifiuti a Caselle Torinese (provincia di Torino): carta, organico,
+        indifferenziata, plastica, verde e vetro. Escilo ti ricorda cosa esporre domani.
+      </p>
+    </section>
+    <div class="card">
+      <h2>Zone e vie disponibili</h2>
+      <ul class="zones">
+<li>1-43</li>
+<li>10-16</li>
+<li>Borgata Rocci</li>
+<li>Piazza A. Mensa</li>
+<li>Piazza Andrea Mensa</li>
+<li>Piazza Boschiassi</li>
+<li>Piazza Europa</li>
+<li>Piazza Falcone</li>
+<li>Piazza G. Matteotti</li>
+<li>Piazza P. Borsellino</li>
+<li>Piazza Resistenza</li>
+<li>Strada Aeroporto, 38</li>
+<li>Strada Aeroporto, Tranne(38)</li>
+<li>Strada Cirie</li>
+<li>Strada Commenda</li>
+<li>Strada Filatoio, P(10+);d(19+)</li>
+<li>Strada Filatoio, P(2-8);d(1-17)</li>
+<li>Strada Leini</li>
+<li>Strada Malanghero</li>
+<li>Strada Montrucca</li>
+<li>Strada Salga</li>
+<li>Strada San Maurizio, P(2-20);d(1-31)</li>
+<li>Strada San Maurizio, P(22+);d(33+)</li>
+<li>Strada Torino</li>
+<li>Strada Torino</li>
+<li>Via A. Brofferio</li>
+<li>Via A. Casella</li>
+<li>Via A. D&#x27;andra</li>
+<li>Via A. D&#x27;oria</li>
+<li>Via A. di Castellamonte</li>
+<li>Via A. Fogazzaro</li>
+<li>Via A. Gastaldi</li>
+<li>Via A. Graglia</li>
+<li>Via A. Manzoni</li>
+<li>Via A. Moro</li>
+<li>Via A. Pertini</li>
+<li>Via A. Piovano</li>
+<li>Via A. Trabalzi</li>
+<li>Via A. Vespucci</li>
+<li>Via Acacie</li>
+<li>Via Accossato</li>
+<li>Via Andrea Doria</li>
+<li>Via Antonio Gramsci</li>
+<li>Via Assietta</li>
+<li>Via Audello, 48</li>
+<li>Via Audello, Tranne(48)</li>
+<li>Via Auture</li>
+<li>Via B. Castagneri</li>
+<li>Via B. Colleoni</li>
+<li>Via B. Confalonieri</li>
+<li>Via Basilio Bona</li>
+<li>Via Bianco di Barbania</li>
+<li>Via Bollettina</li>
+<li>Via Bussone</li>
+<li>Via C. Botta</li>
+<li>Via C. Colombo</li>
+<li>Via C. Cravero</li>
+<li>Via C. Crosetto</li>
+<li>Via C. Scotto</li>
+<li>Via Caldano</li>
+<li>Via Canavera</li>
+<li>Via Capra</li>
+<li>Via Capuccino</li>
+<li>Via Casella</li>
+<li>Via Casorati</li>
+<li>Via Cavour</li>
+<li>Via Cesare Battisti</li>
+<li>Via Che Guevara</li>
+<li>Via Ciamarella</li>
+<li>Via Circonvallazione, 72,82</li>
+<li>Via Circonvallazione, Tranne(72,82)</li>
+<li>Via D&#x27;oria</li>
+<li>Via D. Ferrari</li>
+<li>Via Dante Alighieri</li>
+<li>Via Degli Alpini</li>
+<li>Via dei Canaprili</li>
+<li>Via dei Castori</li>
+<li>Via dei Cuccioli</li>
+<li>Via dei Passeri</li>
+<li>Via del Fanghetto, 6</li>
+<li>Via del Lago</li>
+<li>Via del Lazzaretto</li>
+<li>Via del Lupo</li>
+<li>Via del Teatro</li>
+<li>Via della Zecca</li>
+<li>Via delle Cartiere</li>
+<li>Via Demonte</li>
+<li>Via Don Marchetti</li>
+<li>Via E. Lattes</li>
+<li>Via E. Toti</li>
+<li>Via Enrico da Susa</li>
+<li>Via F. Degli Orologi</li>
+<li>Via F. Magellano</li>
+<li>Via F.lli Kennedy</li>
+<li>Via F.lli Quadro</li>
+<li>Via Fabbri</li>
+<li>Via Fabbriche, P(130-188); D(107-183)</li>
+<li>Via Fabbriche, P(190+); D(185+)</li>
+<li>Via Fabbriche, P(2-128); D(1-105)</li>
+<li>Via Fanghetto</li>
+<li>Via Follone</li>
+<li>Via Fontanili</li>
+<li>Via Francia</li>
+<li>Via G. Carena</li>
+<li>Via G. Cena</li>
+<li>Via G. Converso</li>
+<li>Via G. da Verazzano</li>
+<li>Via G. Fattori</li>
+<li>Via G. Garibaldi</li>
+<li>Via G. Giacosa</li>
+<li>Via G. Giusti</li>
+<li>Via G. Gozzano</li>
+<li>Via G. Laclaire</li>
+<li>Via G. Mazzini</li>
+<li>Via G. Mussa</li>
+<li>Via G. Papini</li>
+<li>Via G. Perotti</li>
+<li>Via G. Puccini</li>
+<li>Via G. Tua</li>
+<li>Via Garolla</li>
+<li>Via Gastaldi</li>
+<li>Via Gen. Guibert</li>
+<li>Via Gibellini</li>
+<li>Via Giovanni Bosco</li>
+<li>Via Gobetti</li>
+<li>Via Gonella</li>
+<li>Via Goretta</li>
+<li>Via Grangiotti</li>
+<li>Via Italia 61</li>
+<li>Via L. Bernini</li>
+<li>Via L. Castagna</li>
+<li>Via L. Einaudi</li>
+<li>Via L. Grassi</li>
+<li>Via L. Pirandello</li>
+<li>Via Lavoresco</li>
+<li>Via Leini</li>
+<li>Via Levanne</li>
+<li>Via M. Gandhi</li>
+<li>Via M. Montessori</li>
+<li>Via M.teresa di Calcutta</li>
+<li>Via Madonnina</li>
+<li>Via Mappano, P(2-106);d(1-113)</li>
+<li>Via Marco Polo</li>
+<li>Via Martin Luther King</li>
+<li>Via Martiri della Liberta, P(2-26);d(1-23)</li>
+<li>Via Martiri della Liberta, P(28+);d(25+)</li>
+<li>Via Meano</li>
+<li>Via Meucci</li>
+<li>Via Molinotto</li>
+<li>Via Monache</li>
+<li>Via Mons. Spandre</li>
+<li>Via Nazario Sauro</li>
+<li>Via Oltrestura</li>
+<li>Via P. Braccini</li>
+<li>Via Papa Giovanni Xxiii</li>
+<li>Via Pitocca</li>
+<li>Via Prato Fiera</li>
+<li>Via Quarantelli</li>
+<li>Via Quattro Case</li>
+<li>Via Raby</li>
+<li>Via Risorgimento</li>
+<li>Via Rocciamelone</li>
+<li>Via Roma</li>
+<li>Via S. Caboto</li>
+<li>Via Savonarola</li>
+<li>Via Suor Vincenza B.</li>
+<li>Via Torino</li>
+<li>Via Trilussa</li>
+<li>Via U. Fiore</li>
+<li>Via V. Monti</li>
+<li>Via Vanicola</li>
+<li>Via Venaria</li>
+<li>Via Venaria, Tranne(10-16)</li>
+<li>Via Vernone</li>
+<li>Via Vietta, 1</li>
+<li>Via Vietta, Tranne(1)</li>
+<li>Viale Aceri</li>
+<li>Viale Alcide Bona</li>
+<li>Vicolo Balchis</li>
+<li>Vicolo Bugella</li>
+<li>Vicolo Massa Cerutti</li>
+      </ul>
+      <a class="cta" href="https://escilo.netlify.app/?comune=caselle-torinese">Apri il calendario di Caselle Torinese</a>
+    </div>
+    <p class="note">Gestore: <strong>SETA</strong> · dati da <a href="https://www.setaspa.com/comuni/148-comuni/785-caselle-torinese" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="meta">
+      Puoi installare Escilo come app e attivare le notifiche sul telefono.
+      Verifica sempre eventuali variazioni sul sito del gestore.
+    </p>
+    <p class="footer">
+      <a href="../">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="./">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="../fonti.html">Fonti</a>
+    </p>
+  </div>
+</body>
+</html>

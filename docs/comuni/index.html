@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <title>Comuni — calendario raccolta differenziata Escilo</title>
+  <meta name="description" content="Elenco dei comuni della provincia di Torino con calendario ritiri rifiuti su Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/comuni/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Comuni — calendario raccolta differenziata Escilo" />
+  <meta property="og:description" content="Elenco dei comuni della provincia di Torino con calendario ritiri rifiuti su Escilo." />
+  <meta property="og:url" content="https://escilo.netlify.app/comuni/" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Comuni — calendario raccolta differenziata Escilo" />
+  <meta name="twitter:description" content="Elenco dei comuni della provincia di Torino con calendario ritiri rifiuti su Escilo." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --row-bg: #f7fbf8;
+  --safe: 1rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --row-bg: #151e1a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.45;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.topbar { margin-bottom: 1rem; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.crumbs {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crumbs a:hover { text-decoration: underline; }
+.intro {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.05rem 1.05rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+  color: #f3faf6;
+  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+}
+.intro h1 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+.intro .meta {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+.intro a {
+  color: #f3faf6;
+  font-weight: 650;
+}
+.note {
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.card {
+  margin: 0 0 0.85rem;
+  border-radius: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta {
+  display: block;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.95rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.cta:hover { filter: brightness(1.05); }
+ul.zones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+ul.zones li {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.comuni-grid a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  border: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid a:hover { background: var(--accent-soft); }
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Comuni — calendario raccolta differenziata Escilo",
+  "url": "https://escilo.netlify.app/comuni/",
+  "description": "Elenco dei comuni della provincia di Torino con calendario ritiri rifiuti su Escilo.",
+  "inLanguage": "it-IT",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Escilo",
+    "url": "https://escilo.netlify.app/"
+  },
+  "numberOfItems": 146
+}
+</script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← Calendario</a>
+    </header>
+    <p class="crumbs"><a href="../">Home</a> · Comuni</p>
+    <section class="intro">
+      <h1>Comuni con calendario differenziata</h1>
+      <p>
+        146 comuni della provincia di Torino: apri la pagina del tuo comune
+        per vedere le zone e avviare il calendario ritiri.
+      </p>
+      <p class="meta">146 comuni supportati</p>
+    </section>
+    <ul class="comuni-grid">
+<li><a href="almese.html">Almese</a></li>
+<li><a href="alpette.html">Alpette</a></li>
+<li><a href="alpignano.html">Alpignano</a></li>
+<li><a href="andezeno.html">Andezeno</a></li>
+<li><a href="arignano.html">Arignano</a></li>
+<li><a href="avigliana.html">Avigliana</a></li>
+<li><a href="baldissero-torinese.html">Baldissero Torinese</a></li>
+<li><a href="beinasco.html">Beinasco</a></li>
+<li><a href="borgaro-torinese.html">Borgaro Torinese</a></li>
+<li><a href="borgiallo.html">Borgiallo</a></li>
+<li><a href="borgone-susa.html">Borgone Susa</a></li>
+<li><a href="bosconero.html">Bosconero</a></li>
+<li><a href="brandizzo.html">Brandizzo</a></li>
+<li><a href="brosso.html">Brosso</a></li>
+<li><a href="brozolo.html">Brozolo</a></li>
+<li><a href="bruino.html">Bruino</a></li>
+<li><a href="brusasco.html">Brusasco</a></li>
+<li><a href="bruzolo.html">Bruzolo</a></li>
+<li><a href="busano.html">Busano</a></li>
+<li><a href="bussoleno.html">Bussoleno</a></li>
+<li><a href="buttigliera-alta.html">Buttigliera Alta</a></li>
+<li><a href="cambiano.html">Cambiano</a></li>
+<li><a href="candiolo.html">Candiolo</a></li>
+<li><a href="caprie.html">Caprie</a></li>
+<li><a href="carignano.html">Carignano</a></li>
+<li><a href="carmagnola.html">Carmagnola</a></li>
+<li><a href="casalborgone.html">Casalborgone</a></li>
+<li><a href="caselette.html">Caselette</a></li>
+<li><a href="caselle-torinese.html">Caselle Torinese</a></li>
+<li><a href="castagnole-po.html">Castagneto Po</a></li>
+<li><a href="castagnole-piemonte.html">Castagnole Piemonte</a></li>
+<li><a href="castellamonte.html">Castellamonte</a></li>
+<li><a href="castelnuovo-nigra.html">Castelnuovo Nigra</a></li>
+<li><a href="castiglione-torinese.html">Castiglione Torinese</a></li>
+<li><a href="cavagnolo.html">Cavagnolo</a></li>
+<li><a href="chianocco.html">Chianocco</a></li>
+<li><a href="chieri.html">Chieri</a></li>
+<li><a href="chiesanuova.html">Chiesanuova</a></li>
+<li><a href="chiusa-di-san-michele.html">Chiusa di San Michele</a></li>
+<li><a href="chivasso.html">Chivasso</a></li>
+<li><a href="ciconio.html">Ciconio</a></li>
+<li><a href="cintano.html">Cintano</a></li>
+<li><a href="cinzano.html">Cinzano</a></li>
+<li><a href="cirie.html">Ciriè</a></li>
+<li><a href="coazze.html">Coazze</a></li>
+<li><a href="collegno.html">Collegno</a></li>
+<li><a href="colleretto-castelnuovo.html">Colleretto Castelnuovo</a></li>
+<li><a href="condove.html">Condove</a></li>
+<li><a href="cuorgne.html">Cuorgnè</a></li>
+<li><a href="druento.html">Druento</a></li>
+<li><a href="favria.html">Favria</a></li>
+<li><a href="feletto.html">Feletto</a></li>
+<li><a href="foglizzo.html">Foglizzo</a></li>
+<li><a href="forno-canavese.html">Forno Canavese</a></li>
+<li><a href="frassinetto.html">Frassinetto</a></li>
+<li><a href="gassino-torinese.html">Gassino Torinese</a></li>
+<li><a href="giaveno.html">Giaveno</a></li>
+<li><a href="grugliasco.html">Grugliasco</a></li>
+<li><a href="ingria.html">Ingria</a></li>
+<li><a href="isolabella.html">Isolabella</a></li>
+<li><a href="issiglio.html">Issiglio</a></li>
+<li><a href="ivrea.html">Ivrea</a></li>
+<li><a href="la-loggia.html">La Loggia</a></li>
+<li><a href="lauriano.html">Lauriano</a></li>
+<li><a href="leini.html">Leinì</a></li>
+<li><a href="levone.html">Levone</a></li>
+<li><a href="locana.html">Locana</a></li>
+<li><a href="lombardore.html">Lombardore</a></li>
+<li><a href="lombriasco.html">Lombriasco</a></li>
+<li><a href="mappano.html">Mappano</a></li>
+<li><a href="marentino.html">Marentino</a></li>
+<li><a href="mombello-di-torino.html">Mombello di Torino</a></li>
+<li><a href="mompantero.html">Mompantero</a></li>
+<li><a href="moncalieri.html">Moncalieri</a></li>
+<li><a href="moncucco-torinese.html">Moncucco Torinese</a></li>
+<li><a href="montaldo-torinese.html">Montaldo Torinese</a></li>
+<li><a href="montanaro.html">Montanaro</a></li>
+<li><a href="monteu-da-po.html">Monteu da Po</a></li>
+<li><a href="moriondo-torinese.html">Moriondo Torinese</a></li>
+<li><a href="nichelino.html">Nichelino</a></li>
+<li><a href="oglianico.html">Oglianico</a></li>
+<li><a href="orbassano.html">Orbassano</a></li>
+<li><a href="osasio.html">Osasio</a></li>
+<li><a href="ozegna.html">Ozegna</a></li>
+<li><a href="pancalieri.html">Pancalieri</a></li>
+<li><a href="pavarolo.html">Pavarolo</a></li>
+<li><a href="pecetto-torinese.html">Pecetto Torinese</a></li>
+<li><a href="pertusio.html">Pertusio</a></li>
+<li><a href="pianezza.html">Pianezza</a></li>
+<li><a href="pino-torinese.html">Pino Torinese</a></li>
+<li><a href="piobesi-torinese.html">Piobesi Torinese</a></li>
+<li><a href="piossasco.html">Piossasco</a></li>
+<li><a href="poirino.html">Poirino</a></li>
+<li><a href="pont-canavese.html">Pont Canavese</a></li>
+<li><a href="pralormo.html">Pralormo</a></li>
+<li><a href="prascorsano.html">Prascorsano</a></li>
+<li><a href="pratiglione.html">Pratiglione</a></li>
+<li><a href="reano.html">Reano</a></li>
+<li><a href="ribordone.html">Ribordone</a></li>
+<li><a href="riva-presso-chieri.html">Riva presso Chieri</a></li>
+<li><a href="rivalba.html">Rivalba</a></li>
+<li><a href="rivalta-di-torino.html">Rivalta di Torino</a></li>
+<li><a href="rivara.html">Rivara</a></li>
+<li><a href="rivarolo-canavese.html">Rivarolo Canavese</a></li>
+<li><a href="rivarossa.html">Rivarossa</a></li>
+<li><a href="rivoli.html">Rivoli</a></li>
+<li><a href="ronco-canavese.html">Ronco Canavese</a></li>
+<li><a href="rondissone.html">Rondissone</a></li>
+<li><a href="rubiana.html">Rubiana</a></li>
+<li><a href="rueglio.html">Rueglio</a></li>
+<li><a href="salassa.html">Salassa</a></li>
+<li><a href="san-benigno-canavese.html">San Benigno Canavese</a></li>
+<li><a href="san-colombano-belmonte.html">San Colombano Belmonte</a></li>
+<li><a href="san-mauro-torinese.html">San Mauro Torinese</a></li>
+<li><a href="san-ponso.html">San Ponso</a></li>
+<li><a href="san-raffaele-cimena.html">San Raffaele Cimena</a></li>
+<li><a href="san-sebastiano-da-po.html">San Sebastiano da Po</a></li>
+<li><a href="sangano.html">Sangano</a></li>
+<li><a href="sant-ambrogio-di-torino.html">Sant&#x27;Ambrogio di Torino</a></li>
+<li><a href="sant-antonino-di-susa.html">Sant&#x27;Antonino di Susa</a></li>
+<li><a href="santena.html">Santena</a></li>
+<li><a href="sciolze.html">Sciolze</a></li>
+<li><a href="settimo-torinese.html">Settimo Torinese</a></li>
+<li><a href="sparone.html">Sparone</a></li>
+<li><a href="susa.html">Susa</a></li>
+<li><a href="torrazza-piemonte.html">Torrazza Piemonte</a></li>
+<li><a href="trana.html">Trana</a></li>
+<li><a href="traversella.html">Traversella</a></li>
+<li><a href="trofarello.html">Trofarello</a></li>
+<li><a href="vaie.html">Vaie</a></li>
+<li><a href="val-di-chy.html">Val di Chy</a></li>
+<li><a href="valchiusa.html">Valchiusa</a></li>
+<li><a href="valperga.html">Valperga</a></li>
+<li><a href="valprato-soana.html">Valprato Soana</a></li>
+<li><a href="venaria-reale.html">Venaria Reale</a></li>
+<li><a href="verolengo.html">Verolengo</a></li>
+<li><a href="verrua-savoia.html">Verrua Savoia</a></li>
+<li><a href="vidracco.html">Vidracco</a></li>
+<li><a href="villar-dora.html">Villar Dora</a></li>
+<li><a href="villar-focchiardo.html">Villar Focchiardo</a></li>
+<li><a href="villarbasse.html">Villarbasse</a></li>
+<li><a href="villastellone.html">Villastellone</a></li>
+<li><a href="vinovo.html">Vinovo</a></li>
+<li><a href="virle-piemonte.html">Virle Piemonte</a></li>
+<li><a href="vistrorio.html">Vistrorio</a></li>
+<li><a href="volpiano.html">Volpiano</a></li>
+    </ul>
+    <p class="footer">
+      <a href="../">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="../fonti.html">Fonti</a>
+    </p>
+  </div>
+</body>
+</html>

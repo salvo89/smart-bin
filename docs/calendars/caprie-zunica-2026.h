@@ -3,6 +3,55 @@
 // Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 1, 6, 2},  // 06/01/2026 Indifferenziata
+  {2026, 1, 13, 2},  // 13/01/2026 Indifferenziata
+  {2026, 1, 20, 2},  // 20/01/2026 Indifferenziata
+  {2026, 1, 27, 2},  // 27/01/2026 Indifferenziata
+  {2026, 2, 3, 2},  // 03/02/2026 Indifferenziata
+  {2026, 2, 10, 2},  // 10/02/2026 Indifferenziata
+  {2026, 2, 17, 2},  // 17/02/2026 Indifferenziata
+  {2026, 2, 24, 2},  // 24/02/2026 Indifferenziata
+  {2026, 3, 3, 2},  // 03/03/2026 Indifferenziata
+  {2026, 3, 10, 2},  // 10/03/2026 Indifferenziata
+  {2026, 3, 17, 2},  // 17/03/2026 Indifferenziata
+  {2026, 3, 24, 2},  // 24/03/2026 Indifferenziata
+  {2026, 3, 31, 2},  // 31/03/2026 Indifferenziata
+  {2026, 4, 7, 2},  // 07/04/2026 Indifferenziata
+  {2026, 4, 14, 2},  // 14/04/2026 Indifferenziata
+  {2026, 4, 21, 2},  // 21/04/2026 Indifferenziata
+  {2026, 4, 28, 2},  // 28/04/2026 Indifferenziata
+  {2026, 5, 5, 2},  // 05/05/2026 Indifferenziata
+  {2026, 5, 12, 2},  // 12/05/2026 Indifferenziata
+  {2026, 5, 19, 2},  // 19/05/2026 Indifferenziata
+  {2026, 5, 26, 2},  // 26/05/2026 Indifferenziata
+  {2026, 6, 2, 2},  // 02/06/2026 Indifferenziata
+  {2026, 6, 9, 2},  // 09/06/2026 Indifferenziata
+  {2026, 6, 16, 2},  // 16/06/2026 Indifferenziata
+  {2026, 6, 23, 2},  // 23/06/2026 Indifferenziata
+  {2026, 6, 30, 2},  // 30/06/2026 Indifferenziata
+  {2026, 7, 7, 2},  // 07/07/2026 Indifferenziata
+  {2026, 7, 14, 2},  // 14/07/2026 Indifferenziata
+  {2026, 7, 21, 2},  // 21/07/2026 Indifferenziata
+  {2026, 7, 28, 2},  // 28/07/2026 Indifferenziata
+  {2026, 8, 4, 2},  // 04/08/2026 Indifferenziata
+  {2026, 8, 11, 2},  // 11/08/2026 Indifferenziata
+  {2026, 8, 18, 2},  // 18/08/2026 Indifferenziata
+  {2026, 8, 25, 2},  // 25/08/2026 Indifferenziata
   {2026, 9, 1, 2},  // 01/09/2026 Indifferenziata
-  {2026, 9, 3, 2},  // 03/09/2026 Indifferenziata
-  {2026, 12, 6, 5},  // 06/12/2026 Vetro
+  {2026, 9, 8, 2},  // 08/09/2026 Indifferenziata
+  {2026, 9, 15, 2},  // 15/09/2026 Indifferenziata
+  {2026, 9, 22, 2},  // 22/09/2026 Indifferenziata
+  {2026, 9, 29, 2},  // 29/09/2026 Indifferenziata
+  {2026, 10, 6, 2},  // 06/10/2026 Indifferenziata
+  {2026, 10, 13, 2},  // 13/10/2026 Indifferenziata
+  {2026, 10, 20, 2},  // 20/10/2026 Indifferenziata
+  {2026, 10, 27, 2},  // 27/10/2026 Indifferenziata
+  {2026, 11, 3, 2},  // 03/11/2026 Indifferenziata
+  {2026, 11, 10, 2},  // 10/11/2026 Indifferenziata
+  {2026, 11, 17, 2},  // 17/11/2026 Indifferenziata
+  {2026, 11, 24, 2},  // 24/11/2026 Indifferenziata
+  {2026, 12, 1, 2},  // 01/12/2026 Indifferenziata
+  {2026, 12, 8, 2},  // 08/12/2026 Indifferenziata
+  {2026, 12, 15, 2},  // 15/12/2026 Indifferenziata
+  {2026, 12, 22, 2},  // 22/12/2026 Indifferenziata
+  {2026, 12, 29, 2},  // 29/12/2026 Indifferenziata

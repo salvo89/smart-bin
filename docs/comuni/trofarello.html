@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <title>Calendario raccolta differenziata Trofarello — Escilo</title>
+  <meta name="description" content="Calendario ritiri rifiuti a Trofarello (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/comuni/trofarello.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Calendario raccolta differenziata Trofarello — Escilo" />
+  <meta property="og:description" content="Calendario ritiri rifiuti a Trofarello (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta property="og:url" content="https://escilo.netlify.app/comuni/trofarello.html" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calendario raccolta differenziata Trofarello — Escilo" />
+  <meta name="twitter:description" content="Calendario ritiri rifiuti a Trofarello (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --row-bg: #f7fbf8;
+  --safe: 1rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --row-bg: #151e1a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.45;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.topbar { margin-bottom: 1rem; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.crumbs {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crumbs a:hover { text-decoration: underline; }
+.intro {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.05rem 1.05rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+  color: #f3faf6;
+  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+}
+.intro h1 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+.intro .meta {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+.intro a {
+  color: #f3faf6;
+  font-weight: 650;
+}
+.note {
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.card {
+  margin: 0 0 0.85rem;
+  border-radius: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta {
+  display: block;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.95rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.cta:hover { filter: brightness(1.05); }
+ul.zones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+ul.zones li {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.comuni-grid a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  border: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid a:hover { background: var(--accent-soft); }
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Calendario raccolta differenziata Trofarello — Escilo",
+    "url": "https://escilo.netlify.app/comuni/trofarello.html",
+    "description": "Calendario ritiri rifiuti a Trofarello (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
+    "inLanguage": "it-IT",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Escilo",
+      "url": "https://escilo.netlify.app/"
+    },
+    "about": {
+      "@type": "Place",
+      "name": "Trofarello",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Trofarello",
+        "addressRegion": "Piemonte",
+        "addressCountry": "IT"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Escilo",
+        "item": "https://escilo.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Comuni",
+        "item": "https://escilo.netlify.app/comuni/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Trofarello",
+        "item": "https://escilo.netlify.app/comuni/trofarello.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← Calendario</a>
+    </header>
+    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Trofarello</p>
+    <section class="intro">
+      <h1>Calendario raccolta differenziata — Trofarello</h1>
+      <p>
+        Ritiri rifiuti a Trofarello (provincia di Torino): carta, organico,
+        indifferenziata, plastica, verde e vetro. Escilo ti ricorda cosa esporre domani.
+      </p>
+    </section>
+    <div class="card">
+      <h2>Zone e vie disponibili</h2>
+      <ul class="zones">
+<li>Borgata Rivera</li>
+<li>Piazza Duca D&#x27;aosta</li>
+<li>Piazza Generale Sussio</li>
+<li>Piazza I° Maggio</li>
+<li>Strada A Valle della Stazione</li>
+<li>Strada del Molino della Splua</li>
+<li>Strada del Podio</li>
+<li>Strada del Rondello</li>
+<li>Strada della Braia</li>
+<li>Strada Galle&#x27;</li>
+<li>Strada Privata Cuneo</li>
+<li>Strada Privata del Sole</li>
+<li>Strada Privata del Valprato</li>
+<li>Strada Privata della Pace</li>
+<li>Strada Privata Martin Luther King</li>
+<li>Strada Privata Pavese</li>
+<li>Strada Revigliasco</li>
+<li>Strada Sabbioni</li>
+<li>Strada Serene</li>
+<li>Strada Statale 29</li>
+<li>Via A Valle della Stazione</li>
+<li>Via Alcide de Gasperi</li>
+<li>Via Aldo Moro</li>
+<li>Via Alessandro Volta</li>
+<li>Via Amerio</li>
+<li>Via Antonio Gramsci</li>
+<li>Via Armando Diaz</li>
+<li>Via Bachelet</li>
+<li>Via Belvedere</li>
+<li>Via Beppe Fenoglio</li>
+<li>Via Bocchetto</li>
+<li>Via Brofferio</li>
+<li>Via C.a. Dalla Chiesa</li>
+<li>Via Carlo Artuffo</li>
+<li>Via Casavecchia</li>
+<li>Via Castelletti</li>
+<li>Via Cavour</li>
+<li>Via Cesare Battisti</li>
+<li>Via Chiribiri</li>
+<li>Via Cleo Balbo</li>
+<li>Via Cosmonauti</li>
+<li>Via Costi</li>
+<li>Via Croce Rossa</li>
+<li>Via Cuneo</li>
+<li>Via D&#x27;annunzio</li>
+<li>Via Dante di Nanni</li>
+<li>Via Dante Grassi</li>
+<li>Via dei Mille</li>
+<li>Via della Conceria</li>
+<li>Via della Rocca</li>
+<li>Via Don Tommaso Masera</li>
+<li>Via Duca Degli Abruzzi</li>
+<li>Via E. de Nicola</li>
+<li>Via E. Torricelli (no N. 34)</li>
+<li>Via E. Torricelli - N. 34</li>
+<li>Via Edmondo de Amicis</li>
+<li>Via Enrico Berlinguer</li>
+<li>Via Enrico de Mattei</li>
+<li>Via Enrico Fermi</li>
+<li>Via Enzo Ferrari</li>
+<li>Via Esperanto</li>
+<li>Via Europa</li>
+<li>Via Filippo Turati</li>
+<li>Via G. Lombardi</li>
+<li>Via Galileo Ferraris</li>
+<li>Via Galileo Galilei</li>
+<li>Via Garibaldi</li>
+<li>Via Giorgio La Pira</li>
+<li>Via Giovanni Amendola</li>
+<li>Via Giovanni Giolitti</li>
+<li>Via Giuseppe Mazzini</li>
+<li>Via Giuseppe Romita</li>
+<li>Via Giuseppe Verdi</li>
+<li>Via Gorizia</li>
+<li>Via Grazia Deledda</li>
+<li>Via Guglielmo Marconi</li>
+<li>Via Guido Rossa</li>
+<li>Via Iv Novembre</li>
+<li>Via Lame</li>
+<li>Via Lej</li>
+<li>Via Leonardo da Vinci</li>
+<li>Via Luigi Einaudi</li>
+<li>Via Luigi Galvani</li>
+<li>Via Luigi Pirandello</li>
+<li>Via Macario</li>
+<li>Via Madonna di Celle</li>
+<li>Via Marco Biagi</li>
+<li>Via Maroncelli</li>
+<li>Via Massimo D&#x27;antona</li>
+<li>Via Nino Costa</li>
+<li>Via Oddino Morgari</li>
+<li>Via Palere</li>
+<li>Via Palmiro Togliatti</li>
+<li>Via Parri</li>
+<li>Via Piave</li>
+<li>Via Pietro Nenni</li>
+<li>Via Principe Amedeo</li>
+<li>Via Raunheim</li>
+<li>Via Riccardo Lombardi</li>
+<li>Via Rigolfo</li>
+<li>Via Risorgimento</li>
+<li>Via Rocchette</li>
+<li>Via Roma</li>
+<li>Via Salvatore Quasimodo</li>
+<li>Via San Giovanni Bosco</li>
+<li>Via San Giovanni D&#x27;arena</li>
+<li>Via San Pietro</li>
+<li>Via San Rocco</li>
+<li>Via Santo Stefano</li>
+<li>Via Serra</li>
+<li>Via Silvio Pellico</li>
+<li>Via Tazio Nuvolari</li>
+<li>Via Terracini</li>
+<li>Via Torino - Civici 69,</li>
+<li>Via Torino - Esclusi Civici 69, 71 E Dal 80 al 95</li>
+<li>Via Torretta</li>
+<li>Via Trento</li>
+<li>Via Trieste</li>
+<li>Via Ugo La Malfa</li>
+<li>Via Umberto I°</li>
+<li>Via Umberto Saba</li>
+<li>Via Vagnone</li>
+<li>Via Valtorta</li>
+<li>Via Vicoforte</li>
+<li>Via Vincenzo Gioberti</li>
+<li>Via Vittime di Bologna</li>
+<li>Via Vittorio Veneto</li>
+<li>Via Xx Settembre</li>
+<li>Via Xxiv Maggio</li>
+<li>Via Xxv Aprile</li>
+<li>Viale della Resistenza</li>
+<li>Viale F.lli Kennedy</li>
+<li>Vicolo Banco</li>
+<li>Vicolo della Fontana</li>
+<li>Vicolo Rej</li>
+<li>Vicolo Salzea</li>
+<li>Vicolo Santa Croce</li>
+      </ul>
+      <a class="cta" href="https://escilo.netlify.app/?comune=trofarello">Apri il calendario di Trofarello</a>
+    </div>
+    <p class="note">Gestore: <strong>Covar14</strong> · dati da <a href="https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="meta">
+      Puoi installare Escilo come app e attivare le notifiche sul telefono.
+      Verifica sempre eventuali variazioni sul sito del gestore.
+    </p>
+    <p class="footer">
+      <a href="../">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="./">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="../fonti.html">Fonti</a>
+    </p>
+  </div>
+</body>
+</html>

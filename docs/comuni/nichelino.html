@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <title>Calendario raccolta differenziata Nichelino — Escilo</title>
+  <meta name="description" content="Calendario ritiri rifiuti a Nichelino (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/comuni/nichelino.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Calendario raccolta differenziata Nichelino — Escilo" />
+  <meta property="og:description" content="Calendario ritiri rifiuti a Nichelino (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta property="og:url" content="https://escilo.netlify.app/comuni/nichelino.html" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calendario raccolta differenziata Nichelino — Escilo" />
+  <meta name="twitter:description" content="Calendario ritiri rifiuti a Nichelino (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --row-bg: #f7fbf8;
+  --safe: 1rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --row-bg: #151e1a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.45;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.topbar { margin-bottom: 1rem; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.crumbs {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crumbs a:hover { text-decoration: underline; }
+.intro {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.05rem 1.05rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+  color: #f3faf6;
+  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+}
+.intro h1 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+.intro .meta {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+.intro a {
+  color: #f3faf6;
+  font-weight: 650;
+}
+.note {
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.card {
+  margin: 0 0 0.85rem;
+  border-radius: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta {
+  display: block;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.95rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.cta:hover { filter: brightness(1.05); }
+ul.zones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+ul.zones li {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.comuni-grid a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  border: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid a:hover { background: var(--accent-soft); }
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Calendario raccolta differenziata Nichelino — Escilo",
+    "url": "https://escilo.netlify.app/comuni/nichelino.html",
+    "description": "Calendario ritiri rifiuti a Nichelino (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
+    "inLanguage": "it-IT",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Escilo",
+      "url": "https://escilo.netlify.app/"
+    },
+    "about": {
+      "@type": "Place",
+      "name": "Nichelino",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nichelino",
+        "addressRegion": "Piemonte",
+        "addressCountry": "IT"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Escilo",
+        "item": "https://escilo.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Comuni",
+        "item": "https://escilo.netlify.app/comuni/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Nichelino",
+        "item": "https://escilo.netlify.app/comuni/nichelino.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← Calendario</a>
+    </header>
+    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Nichelino</p>
+    <section class="intro">
+      <h1>Calendario raccolta differenziata — Nichelino</h1>
+      <p>
+        Ritiri rifiuti a Nichelino (provincia di Torino): carta, organico,
+        indifferenziata, plastica, verde e vetro. Escilo ti ricorda cosa esporre domani.
+      </p>
+    </section>
+    <div class="card">
+      <h2>Zone e vie disponibili</h2>
+      <ul class="zones">
+<li>Corso Vittime del</li>
+<li>Piazza A. Moro</li>
+<li>Piazza C.a. Dalla Chiesa</li>
+<li>Piazza Camandona</li>
+<li>Piazza di Vittorio</li>
+<li>Piazza F. Tamagno</li>
+<li>Piazza G. Barile</li>
+<li>Piazza Liberta&#x27;</li>
+<li>Piazza Madre Teresa di Calcutta</li>
+<li>Piazza Pertini</li>
+<li>Piazza Salbertrand</li>
+<li>Piazza San Quirico</li>
+<li>Strada Castello Mirafiori</li>
+<li>Strada delle Finanze</li>
+<li>Via A. Antonelli</li>
+<li>Via A. Avogadro</li>
+<li>Via A. Boito</li>
+<li>Via A. Brofferio</li>
+<li>Via A. Canova</li>
+<li>Via A. Cecchi</li>
+<li>Via A. de Gasperi</li>
+<li>Via A. Diaz</li>
+<li>Via A. Doria</li>
+<li>Via A. Graf</li>
+<li>Via A. Manzoni</li>
+<li>Via A. Meucci</li>
+<li>Via A. Occelli</li>
+<li>Via A. Pacinotti</li>
+<li>Via A. Ponchielli</li>
+<li>Via A. Sobrero</li>
+<li>Via A. Spinelli</li>
+<li>Via A. Vespucci</li>
+<li>Via A. Vivaldi</li>
+<li>Via A. Volta</li>
+<li>Via Accampamento</li>
+<li>Via Ada Negri</li>
+<li>Via Adamello</li>
+<li>Via Alba</li>
+<li>Via Alessandria</li>
+<li>Via Aosta</li>
+<li>Via Archimede</li>
+<li>Via Aspromonte</li>
+<li>Via Assietta</li>
+<li>Via Asti</li>
+<li>Via B. Cellini</li>
+<li>Via Bardonecchia</li>
+<li>Via Belfiore</li>
+<li>Via Bengasi</li>
+<li>Via Biella</li>
+<li>Via Boves</li>
+<li>Via Bra</li>
+<li>Via Brescia</li>
+<li>Via Buffa</li>
+<li>Via C. Casalegno</li>
+<li>Via C. Cattaneo</li>
+<li>Via C. Cavour</li>
+<li>Via C. Colombo</li>
+<li>Via C. Pavese</li>
+<li>Via C. Pisacane</li>
+<li>Via Cagliari</li>
+<li>Via Calatafimi</li>
+<li>Via Caprera</li>
+<li>Via Casa Comunale</li>
+<li>Via Cervino</li>
+<li>Via Cesana</li>
+<li>Via Cimarosa</li>
+<li>Via Colombetto</li>
+<li>Via Como</li>
+<li>Via Consolata</li>
+<li>Via Cuneo</li>
+<li>Via D. Chiesa</li>
+<li>Via D. di Nanni</li>
+<li>Via D.alighieri</li>
+<li>Via Debouche&#x27; (tranne I N. 1-3-5)</li>
+<li>Via Debouche’ (solo N.</li>
+<li>Via Degli Alleati</li>
+<li>Via Degli Artigiani</li>
+<li>Via dei Cacciatori</li>
+<li>Via dei Martiri</li>
+<li>Via dei Mille</li>
+<li>Via dei Mughetti</li>
+<li>Via del Castello</li>
+<li>Via del Pascolo</li>
+<li>Via della Concordia</li>
+<li>Via delle Ginestre</li>
+<li>Via Don Bosco</li>
+<li>Via Don Minzoni</li>
+<li>Via E. Berlinguer</li>
+<li>Via E. de Amicis</li>
+<li>Via E. Fermi</li>
+<li>Via E. Segre</li>
+<li>Via E. Torricelli</li>
+<li>Via E. Toti</li>
+<li>Via Elsa Morante</li>
+<li>Via Exilles</li>
+<li>Via F. Donizetti</li>
+<li>Via F. Filzi</li>
+<li>Via F. Juvarra</li>
+<li>Via F. Magellano</li>
+<li>Via F. Parri</li>
+<li>Via F. Petrarca</li>
+<li>Via F. Santi</li>
+<li>Via F. Turati</li>
+<li>Via F.lli Bandiera</li>
+<li>Via F.lli Cervi</li>
+<li>Via Falcone E Borsellino</li>
+<li>Via Fenestrelle</li>
+<li>Via Fiume</li>
+<li>Via G. Amendola</li>
+<li>Via G. Baretti</li>
+<li>Via G. Belli</li>
+<li>Via G. Berruti</li>
+<li>Via G. Boccaccio</li>
+<li>Via G. Boccardo</li>
+<li>Via G. Carducci</li>
+<li>Via G. Ferraris</li>
+<li>Via G. Galilei</li>
+<li>Via G. Garibaldi</li>
+<li>Via G. Giacosa</li>
+<li>Via G. Giolitti</li>
+<li>Via G. Giusti (dx - Da 2 A 26 / Sx - Da 1 A 39)</li>
+<li>Via G. Giusti (dx - Da 30</li>
+<li>Via G. Gozzano</li>
+<li>Via G. Lagrange</li>
+<li>Via G. Leopardi</li>
+<li>Via G. Mameli</li>
+<li>Via G. Marconi</li>
+<li>Via G. Mazzini</li>
+<li>Via G. Oberdan</li>
+<li>Via G. Paisiello</li>
+<li>Via G. Parini</li>
+<li>Via G. Pascoli</li>
+<li>Via G. Perotti</li>
+<li>Via G. Puccini</li>
+<li>Via G. Rossini (dx - Da</li>
+<li>Via G. Rossini (dx - Da 4 A 44 / Sx - Da 5 A 15)</li>
+<li>Via G. Spadolini</li>
+<li>Via G. Verdi</li>
+<li>Via G. Verrazzano</li>
+<li>Via Gandhi</li>
+<li>Via Genova</li>
+<li>Via Goito</li>
+<li>Via Grazia Deledda</li>
+<li>Via I. Nievo</li>
+<li>Via Iv Novembre</li>
+<li>Via Iv Novembre Tutti I Civici Esclusi Il Numero</li>
+<li>Via I° Maggio</li>
+<li>Via J.kennedy</li>
+<li>Via L .pirandello</li>
+<li>Via L. Ariosto</li>
+<li>Via L. Conti</li>
+<li>Via L. da Vinci</li>
+<li>Via L. Galvani</li>
+<li>Via L. Tenco</li>
+<li>Via M. Buonarroti</li>
+<li>Via M. D&#x27;azeglio</li>
+<li>Via M.polo</li>
+<li>Via Marsala</li>
+<li>Via Martin Luther King</li>
+<li>Via Mattei</li>
+<li>Via Mentana</li>
+<li>Via Milano</li>
+<li>Via Milazzo</li>
+<li>Via Miraflores</li>
+<li>Via Moncalieri</li>
+<li>Via Moncenisio</li>
+<li>Via Mondovi&#x27;</li>
+<li>Via Monginevro</li>
+<li>Via Montebianco</li>
+<li>Via Monterosa</li>
+<li>Via Montessori</li>
+<li>Via Monviso</li>
+<li>Via N . Sauro</li>
+<li>Via N. Bixio</li>
+<li>Via N. Copernico</li>
+<li>Via N. Costa</li>
+<li>Via N. Paganini</li>
+<li>Via N.s. di Lourdes</li>
+<li>Via Napoli</li>
+<li>Via Nilde Iotti</li>
+<li>Via Novalesa</li>
+<li>Via Novara</li>
+<li>Via Olimpia</li>
+<li>Via Oristano</li>
+<li>Via P. Mascagni</li>
+<li>Via P. Micca</li>
+<li>Via P. Nenni</li>
+<li>Via P.l. Palestrina</li>
+<li>Via Paesana</li>
+<li>Via Palermo</li>
+<li>Via Pallavicino</li>
+<li>Via Papa Giovanni Xxiii</li>
+<li>Via Parco Rimembranza</li>
+<li>Via Pastrengo</li>
+<li>Via Pateri</li>
+<li>Via Piave</li>
+<li>Via Pinerolo</li>
+<li>Via Pio La Torre</li>
+<li>Via Pio X</li>
+<li>Via Pitagora</li>
+<li>Via Po</li>
+<li>Via Polveriera</li>
+<li>Via Pracavallo</li>
+<li>Via Prali</li>
+<li>Via Prunotto</li>
+<li>Via Q. Sella</li>
+<li>Via Quarto</li>
+<li>Via R. Leoncavallo</li>
+<li>Via R. Lombardi</li>
+<li>Via Rita Levi</li>
+<li>Via Rocciamelone</li>
+<li>Via Roma</li>
+<li>Via Rondo&#x27; Bernardo</li>
+<li>Via Rusca</li>
+<li>Via S. Francesco D&#x27;assisi (dx -</li>
+<li>Via S. Francesco D&#x27;assisi (dx - Da 2 A 70 / Sx - Da 1 A 59/c)</li>
+<li>Via S. Martino D.</li>
+<li>Via S. Pellico</li>
+<li>Via Salemi</li>
+<li>Via San Carlo</li>
+<li>Via San Giovanni</li>
+<li>Via San Giuseppe</li>
+<li>Via San Matteo</li>
+<li>Via San Quirico (dx - Da 2 A 36 / Sx - Da 3 A 37)</li>
+<li>Via San Quirico (dx - Da 42 A Fine</li>
+<li>Via San Vincenzo De&#x27; Paoli</li>
+<li>Via Sangone</li>
+<li>Via Sant&#x27; Umberto</li>
+<li>Via Santhia&#x27;</li>
+<li>Via Santorre di Santarosa</li>
+<li>Via Sassari</li>
+<li>Via Scarrone</li>
+<li>Via Solferino</li>
+<li>Via Stupinigi</li>
+<li>Via Superga (dx - Da 2 A 44/ Sx - Da 1 A 49)</li>
+<li>Via Superga (dx - Da 46 A Fine /</li>
+<li>Via Susa</li>
+<li>Via T. Galimberti</li>
+<li>Via T. Tasso</li>
+<li>Via Teano</li>
+<li>Via Tetti Rolle</li>
+<li>Via Torino (dx - Da 234 A 364 /</li>
+<li>Via Torino (dx - Da 366 A Fine</li>
+<li>Via Torino (dx - Da 48 A 232 (escluso 210/6) / Sx - Da 57 A 201)</li>
+<li>Via Torino (dx - Da 6 A 46 / Sx -</li>
+<li>Via Toscanini</li>
+<li>Via Trento</li>
+<li>Via Trieste</li>
+<li>Via U. Foscolo</li>
+<li>Via U. Giordano</li>
+<li>Via Ulzio</li>
+<li>Via V. Alfieri</li>
+<li>Via V. Bellini</li>
+<li>Via V. Bersezio</li>
+<li>Via V. Gioberti</li>
+<li>Via V. Monti</li>
+<li>Via V. Veneto</li>
+<li>Via Vercelli</li>
+<li>Via Vernea</li>
+<li>Via Vernea (da 2 A 40</li>
+<li>Via Verona</li>
+<li>Via Vittime di Chernobyl</li>
+<li>Via Volturno</li>
+<li>Via Xi Febbraio</li>
+<li>Via Xx Settembre</li>
+<li>Via Xxv Aprile (dx -</li>
+<li>Via Xxv Aprile (dx -</li>
+<li>Viale dei Parchi</li>
+<li>Viale della</li>
+<li>Viale G. Matteotti</li>
+<li>Viale Stazione</li>
+<li>Vicolo Ponente</li>
+<li>Vicolo Tiziano</li>
+      </ul>
+      <a class="cta" href="https://escilo.netlify.app/?comune=nichelino">Apri il calendario di Nichelino</a>
+    </div>
+    <p class="note">Gestore: <strong>Covar14</strong> · dati da <a href="https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="meta">
+      Puoi installare Escilo come app e attivare le notifiche sul telefono.
+      Verifica sempre eventuali variazioni sul sito del gestore.
+    </p>
+    <p class="footer">
+      <a href="../">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="./">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="../fonti.html">Fonti</a>
+    </p>
+  </div>
+</body>
+</html>

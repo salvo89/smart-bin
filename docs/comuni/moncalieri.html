@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <title>Calendario raccolta differenziata Moncalieri — Escilo</title>
+  <meta name="description" content="Calendario ritiri rifiuti a Moncalieri (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/comuni/moncalieri.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Calendario raccolta differenziata Moncalieri — Escilo" />
+  <meta property="og:description" content="Calendario ritiri rifiuti a Moncalieri (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta property="og:url" content="https://escilo.netlify.app/comuni/moncalieri.html" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calendario raccolta differenziata Moncalieri — Escilo" />
+  <meta name="twitter:description" content="Calendario ritiri rifiuti a Moncalieri (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --row-bg: #f7fbf8;
+  --safe: 1rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --row-bg: #151e1a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.45;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.topbar { margin-bottom: 1rem; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.crumbs {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crumbs a:hover { text-decoration: underline; }
+.intro {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.05rem 1.05rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+  color: #f3faf6;
+  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+}
+.intro h1 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+.intro .meta {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+.intro a {
+  color: #f3faf6;
+  font-weight: 650;
+}
+.note {
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.card {
+  margin: 0 0 0.85rem;
+  border-radius: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta {
+  display: block;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.95rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.cta:hover { filter: brightness(1.05); }
+ul.zones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+ul.zones li {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.comuni-grid a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  border: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid a:hover { background: var(--accent-soft); }
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Calendario raccolta differenziata Moncalieri — Escilo",
+    "url": "https://escilo.netlify.app/comuni/moncalieri.html",
+    "description": "Calendario ritiri rifiuti a Moncalieri (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
+    "inLanguage": "it-IT",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Escilo",
+      "url": "https://escilo.netlify.app/"
+    },
+    "about": {
+      "@type": "Place",
+      "name": "Moncalieri",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Moncalieri",
+        "addressRegion": "Piemonte",
+        "addressCountry": "IT"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Escilo",
+        "item": "https://escilo.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Comuni",
+        "item": "https://escilo.netlify.app/comuni/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Moncalieri",
+        "item": "https://escilo.netlify.app/comuni/moncalieri.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← Calendario</a>
+    </header>
+    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Moncalieri</p>
+    <section class="intro">
+      <h1>Calendario raccolta differenziata — Moncalieri</h1>
+      <p>
+        Ritiri rifiuti a Moncalieri (provincia di Torino): carta, organico,
+        indifferenziata, plastica, verde e vetro. Escilo ti ricorda cosa esporre domani.
+      </p>
+    </section>
+    <div class="card">
+      <h2>Zone e vie disponibili</h2>
+      <ul class="zones">
+<li>Borgata Bauducchi</li>
+<li>Borgata La Gorra</li>
+<li>Borgata La Rotta</li>
+<li>Borgata Tagliaferro - N.ro Civico 105 (scuola Tagliaferro )</li>
+<li>Borgata Tetti Piatti - Eccetto N.ro Civico 109 (scuola Materna Mirò)</li>
+<li>Borgata Tetti Piatti - N.ro Civico 109 (scuola Materna Mirò)</li>
+<li>Borgata Tetti Rolle</li>
+<li>Borgata Tetti Sapini</li>
+<li>Corso Dante</li>
+<li>Corso Fratelli Rosselli</li>
+<li>Corso Giuseppe Parini</li>
+<li>Corso Roma</li>
+<li>Corso Roma</li>
+<li>Corso Savona</li>
+<li>Corso Trieste</li>
+<li>Piazza Amedeo Ferdinando</li>
+<li>Piazza Amerigo Sagna</li>
+<li>Piazza Argiroupoli - Via Argiroupoli</li>
+<li>Piazza Baden Baden</li>
+<li>Piazza Bengasi</li>
+<li>Piazza Brennero</li>
+<li>Piazza Caduti Per La Liberta&#x27;</li>
+<li>Piazza Comunale</li>
+<li>Piazza del Fieno</li>
+<li>Piazza Giuseppe Failla</li>
+<li>Piazza Guglielmo Marconi</li>
+<li>Piazza Mercato</li>
+<li>Piazza Panissera</li>
+<li>Piazza Risorgimento</li>
+<li>Piazza S. Croce</li>
+<li>Piazza Umberto I°</li>
+<li>Piazza Vittorio Emanuele</li>
+<li>Strada Barauda</li>
+<li>Strada Baraudina</li>
+<li>Strada Barchetto</li>
+<li>Strada Bellavista</li>
+<li>Strada Belmonte</li>
+<li>Strada Boccia D&#x27;oro</li>
+<li>Strada Brandina</li>
+<li>Strada Cantamerla</li>
+<li>Strada Carignano</li>
+<li>Strada Castelvecchio</li>
+<li>Strada Cenasco</li>
+<li>Strada Chisola</li>
+<li>Strada Cigala</li>
+<li>Strada Colombero</li>
+<li>Strada Colombetto</li>
+<li>Strada Comunale Ferrero di Cambiano</li>
+<li>Strada Costalunga</li>
+<li>Strada Culla&#x27;</li>
+<li>Strada Cunioli Alti</li>
+<li>Strada dei Bussi</li>
+<li>Strada dei Manzi (dal N. 1 al N. 3 E Dal N. 2 al N. 6 )</li>
+<li>Strada dei Manzi (dal N. 5 al</li>
+<li>Strada del Bossolo</li>
+<li>Strada del Cervo</li>
+<li>Strada del Mughetto</li>
+<li>Strada del Pesco</li>
+<li>Strada del Redentore</li>
+<li>Strada della Rovere</li>
+<li>Strada delle Finanze</li>
+<li>Strada delle Margherite</li>
+<li>Strada delle Primule</li>
+<li>Strada Gavoni</li>
+<li>Strada Genova</li>
+<li>Strada Giorgio Devalle</li>
+<li>Strada Gorree</li>
+<li>Strada Loreto</li>
+<li>Strada Maddalena</li>
+<li>Strada Maiole</li>
+<li>Strada Marse&#x27;</li>
+<li>Strada Milus Ronsaglia</li>
+<li>Strada Miravalle</li>
+<li>Strada Moncalieri</li>
+<li>Strada Moncalvo</li>
+<li>Strada Mongina</li>
+<li>Strada Palera</li>
+<li>Strada Paniasso</li>
+<li>Strada Pasubio</li>
+<li>Strada Pecenasco</li>
+<li>Strada Pecetto</li>
+<li>Strada Piobba</li>
+<li>Strada Praciosa</li>
+<li>Strada Preserasca</li>
+<li>Strada Privata Chiuso</li>
+<li>Strada Privata Nasi</li>
+<li>Strada Rebaude</li>
+<li>Strada Revigliasco</li>
+<li>Strada Rigolfo</li>
+<li>Strada Rigolino</li>
+<li>Strada Riofreddo</li>
+<li>Strada Rivamare</li>
+<li>Strada Roccacatene</li>
+<li>Strada Ronchi Ai Cunioli Alti</li>
+<li>Strada Rondapaletto</li>
+<li>Strada Rosario Scalero</li>
+<li>Strada S. Ambrogio</li>
+<li>Strada S. Anselmo</li>
+<li>Strada S. Brigida</li>
+<li>Strada S. Michele</li>
+<li>Strada S. Sebastiano</li>
+<li>Strada S. Vittoria</li>
+<li>Strada Sanda</li>
+<li>Strada Scalette</li>
+<li>Strada Statale 393</li>
+<li>Strada Stazione Sangone</li>
+<li>Strada Stupinigi</li>
+<li>Strada Tiro A Segno</li>
+<li>Strada Torino</li>
+<li>Strada Trofarello</li>
+<li>Strada Vado&#x27;</li>
+<li>Strada Vecchia del Moriondo</li>
+<li>Strada Villa Stella</li>
+<li>Strada Villastellone</li>
+<li>Strada Vinovo</li>
+<li>Strada Visone</li>
+<li>Strada Vivero</li>
+<li>Via Ada Negri</li>
+<li>Via Adolfo Arduino</li>
+<li>Via Alba</li>
+<li>Via Albini</li>
+<li>Via Alcide de Gasperi</li>
+<li>Via Alessandro Cruto</li>
+<li>Via Alessandro Manzoni</li>
+<li>Via Alfonso Lamarmora</li>
+<li>Via Amilcare Ponchielli</li>
+<li>Via Angelo Brofferio</li>
+<li>Via Antonio Bertero</li>
+<li>Via Antonio Fogazzaro</li>
+<li>Via Antonio Gramsci</li>
+<li>Via Armando Diaz</li>
+<li>Via Asilo Dubbie&#x27;</li>
+<li>Via Baretti</li>
+<li>Via Baricco</li>
+<li>Via Basse Lingotto</li>
+<li>Via Beato Bernardo</li>
+<li>Via Benvenuto Cellini</li>
+<li>Via Berlinguer</li>
+<li>Via Boccaccio</li>
+<li>Via Bogino</li>
+<li>Via Boves</li>
+<li>Via Bruno Buozzi</li>
+<li>Via Bullio</li>
+<li>Via Candido Viberti</li>
+<li>Via Carlo Alberto</li>
+<li>Via Carlo Collodi</li>
+<li>Via Cavalieri del Lavoro</li>
+<li>Via Cavour (numeri Pari E N. 1)</li>
+<li>Via Cavour - Numeri Dispari</li>
+<li>Via Cernaia</li>
+<li>Via Cervino</li>
+<li>Via Cesare Battisti</li>
+<li>Via Cesare Pavese</li>
+<li>Via Cherasco</li>
+<li>Via Cimabue</li>
+<li>Via Col di Cadibona</li>
+<li>Via Col di Tenda</li>
+<li>Via Corrado Corradino</li>
+<li>Via Cristoforo Colombo</li>
+<li>Via Custoza</li>
+<li>Via de Fernex</li>
+<li>Via de Filippo</li>
+<li>Via de Nicola</li>
+<li>Via Degli Artigiani</li>
+<li>Via dei Combattenti</li>
+<li>Via dei Mille</li>
+<li>Via dei Tigli</li>
+<li>Via del Ballo</li>
+<li>Via del Molino</li>
+<li>Via Dell&#x27;infanzia</li>
+<li>Via della Cava</li>
+<li>Via della Fonderia</li>
+<li>Via della Ghiacciaia</li>
+<li>Via della Ginestra</li>
+<li>Via della Petraia</li>
+<li>Via della Vittoria</li>
+<li>Via delle Acacie</li>
+<li>Via delle Imprese</li>
+<li>Via delle Mimose</li>
+<li>Via Dell’acciaio</li>
+<li>Via Don Minzoni</li>
+<li>Via Don Secondino Micca</li>
+<li>Via Duca D&#x27;aosta</li>
+<li>Via Duccio Galimberti</li>
+<li>Via Edmondo de Amicis</li>
+<li>Via Enrico Fermi</li>
+<li>Via Enzo Ferrari</li>
+<li>Via Ettore Bugatti</li>
+<li>Via Eugenio Curiel</li>
+<li>Via Europa</li>
+<li>Via F.lli Ceirano</li>
+<li>Via Federico Confalonieri</li>
+<li>Via Fernando Santi</li>
+<li>Via Filippo Turati</li>
+<li>Via Fiume</li>
+<li>Via Flora Manfrinati</li>
+<li>Via Fortunato Postiglione</li>
+<li>Via Fossano</li>
+<li>Via Francesco Baracca</li>
+<li>Via Francesco Cerutti</li>
+<li>Via Fratelli Beato Boccardo</li>
+<li>Via Fratelli Cairoli</li>
+<li>Via Fratelli Cervi</li>
+<li>Via Fratelli Masera</li>
+<li>Via Fratelli Masino</li>
+<li>Via Gaetano Donizetti</li>
+<li>Via Galileo Galilei</li>
+<li>Via Garibaldi</li>
+<li>Via Giacomo Bosso</li>
+<li>Via Giacomo Leopardi</li>
+<li>Via Giacomo Matteotti</li>
+<li>Via Giacomo Puccini</li>
+<li>Via Gianbattista Vico</li>
+<li>Via Gioacchino Rossini</li>
+<li>Via Giordano Bruno</li>
+<li>Via Giosue&#x27; Carducci</li>
+<li>Via Giotto</li>
+<li>Via Giovanni B. Pininfarina</li>
+<li>Via Giovanni Pascoli</li>
+<li>Via Giovanni Segantini</li>
+<li>Via Giulio Pastore</li>
+<li>Via Giuseppe Boccardo</li>
+<li>Via Giuseppe di Vittorio</li>
+<li>Via Giuseppe Giacosa</li>
+<li>Via Giuseppe Mazzini</li>
+<li>Via Giuseppe Robaldo</li>
+<li>Via Giuseppe Romita</li>
+<li>Via Giuseppe Ungaretti</li>
+<li>Via Giuseppe Verdi</li>
+<li>Via Goffredo Mameli</li>
+<li>Via Goito</li>
+<li>Via Gorizia</li>
+<li>Via Gozzano</li>
+<li>Via Grandi</li>
+<li>Via Grazia Deledda</li>
+<li>Via Guido Rossa</li>
+<li>Via Ippolito Nievo</li>
+<li>Via Iv Novembre</li>
+<li>Via I° Maggio</li>
+<li>Via John F. Kennedy</li>
+<li>Via Juglaris</li>
+<li>Via Lagrange</li>
+<li>Via Legnano</li>
+<li>Via Livorno</li>
+<li>Via Lodovico Ariosto</li>
+<li>Via Lucio Catullo</li>
+<li>Via Lucrezio Caro</li>
+<li>Via Luigi Einaudi</li>
+<li>Via Luigi Pirandello</li>
+<li>Via Luigi Settembrini</li>
+<li>Via Lurisia</li>
+<li>Via Marco Polo</li>
+<li>Via Marengo</li>
+<li>Via Mario Pannunzio</li>
+<li>Via Marsala</li>
+<li>Via Martiri della Liberta&#x27;</li>
+<li>Via Martiri di Belfiore</li>
+<li>Via Martiri di Cefalonia</li>
+<li>Via Massimo D&#x27;azeglio</li>
+<li>Via Massimo Montano</li>
+<li>Via Matilde Serao</li>
+<li>Via Maurizio Beria</li>
+<li>Via Mentana</li>
+<li>Via Mirafiori</li>
+<li>Via Molino del Pascolo</li>
+<li>Via Moncenisio</li>
+<li>Via Monfalcone</li>
+<li>Via Monte Bianco</li>
+<li>Via Monte Grappa</li>
+<li>Via Monte Nero</li>
+<li>Via Montebello</li>
+<li>Via Monviso</li>
+<li>Via Natale Palli</li>
+<li>Via Nazzario Sauro</li>
+<li>Via Nicolo&#x27; Machiavelli</li>
+<li>Via Nicolo&#x27; Tommaseo</li>
+<li>Via Nilde Iotti</li>
+<li>Via Nino Bixio</li>
+<li>Via Orazio Flacco</li>
+<li>Via Palestro</li>
+<li>Via Papa Giovanni Xxiii°</li>
+<li>Via Pastrengo</li>
+<li>Via Pateri</li>
+<li>Via Peschiera</li>
+<li>Via Petrarca</li>
+<li>Via Piave</li>
+<li>Via Pier Capponi</li>
+<li>Via Piero Gobetti</li>
+<li>Via Pietro Maroncelli</li>
+<li>Via Pietro Mascagni</li>
+<li>Via Plauto</li>
+<li>Via Principessa Maria Clotilde</li>
+<li>Via Privata Alta Italia</li>
+<li>Via Publio Virgilio Marone</li>
+<li>Via Quintino Sella</li>
+<li>Via Real Collegio</li>
+<li>Via Renzo Cattaneo</li>
+<li>Via Robert Baden Powel</li>
+<li>Via S. Croce</li>
+<li>Via S. Maria</li>
+<li>Via S. Martino</li>
+<li>Via S. Matteo</li>
+<li>Via S. Vincenzo</li>
+<li>Via Saluzzo</li>
+<li>Via San Giovanni Bosco</li>
+<li>Via Santa Maria Goretti</li>
+<li>Via Sen. Pietro Canonica</li>
+<li>Via Sestriere</li>
+<li>Via Silvio Pellico</li>
+<li>Via Sofia Novellis di Coarazze</li>
+<li>Via Solferino</li>
+<li>Via Somalia</li>
+<li>Via Tamagnone</li>
+<li>Via Tenivelli</li>
+<li>Via Teofilo Gauthier</li>
+<li>Via Tiepolo</li>
+<li>Via Tito Speri</li>
+<li>Via Torquato Tasso</li>
+<li>Via Torrazza Piemonte</li>
+<li>Via Trento</li>
+<li>Via Ugo Foscolo</li>
+<li>Via Vignotto</li>
+<li>Via Villafranca</li>
+<li>Via Vincenzo Bellini</li>
+<li>Via Vincenzo Lancia</li>
+<li>Via Vincenzo Monti</li>
+<li>Via Vittime del Vajont</li>
+<li>Via Vittime delle Foibe</li>
+<li>Via Vittime di Bologna</li>
+<li>Via Vittime di Piazza Fontana</li>
+<li>Via Vittime Piazza della Loggia</li>
+<li>Via Vittorio Alfieri</li>
+<li>Via Xxiv Maggio</li>
+<li>Via Xxv Aprile</li>
+<li>Via Zara</li>
+<li>Viale Carlo Felice Giordana</li>
+<li>Viale dei Castagni</li>
+<li>Viale dei Cigliegi</li>
+<li>Viale dei Pioppi</li>
+<li>Viale del Castello</li>
+<li>Viale del Parco</li>
+<li>Viale della Rimembranza</li>
+<li>Viale delle Betulle</li>
+<li>Viale Porta Piacentina</li>
+<li>Viale Stazione</li>
+<li>Vicolo Andrea Cotta</li>
+<li>Vicolo Appiano</li>
+<li>Vicolo Buonarroti</li>
+<li>Vicolo Carlo Botta</li>
+<li>Vicolo Cesare Beccaria</li>
+<li>Vicolo dei Fiori</li>
+<li>Vicolo del Forno</li>
+<li>Vicolo della Cha&#x27;</li>
+<li>Vicolo Denina</li>
+<li>Vicolo Duch</li>
+<li>Vicolo Ferrante Aporti</li>
+<li>Vicolo Flavio Gioia</li>
+<li>Vicolo Francesco Ferrucci</li>
+<li>Vicolo Gallea</li>
+<li>Vicolo Gerolamo Savonarola</li>
+<li>Vicolo Giadini</li>
+<li>Vicolo Martini</li>
+<li>Vicolo Mombello</li>
+<li>Vicolo Muratori</li>
+<li>Vicolo Raffaello</li>
+<li>Vicolo Rovelli</li>
+<li>Vicolo S. Rocco</li>
+<li>Vicolo Tiziano</li>
+<li>Vicolo Vincenzo Gioberti</li>
+      </ul>
+      <a class="cta" href="https://escilo.netlify.app/?comune=moncalieri">Apri il calendario di Moncalieri</a>
+    </div>
+    <p class="note">Gestore: <strong>Covar14</strong> · dati da <a href="https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="meta">
+      Puoi installare Escilo come app e attivare le notifiche sul telefono.
+      Verifica sempre eventuali variazioni sul sito del gestore.
+    </p>
+    <p class="footer">
+      <a href="../">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="./">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="../fonti.html">Fonti</a>
+    </p>
+  </div>
+</body>
+</html>

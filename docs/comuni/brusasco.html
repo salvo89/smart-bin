@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <title>Calendario raccolta differenziata Brusasco — Escilo</title>
+  <meta name="description" content="Calendario ritiri rifiuti a Brusasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/comuni/brusasco.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Calendario raccolta differenziata Brusasco — Escilo" />
+  <meta property="og:description" content="Calendario ritiri rifiuti a Brusasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta property="og:url" content="https://escilo.netlify.app/comuni/brusasco.html" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calendario raccolta differenziata Brusasco — Escilo" />
+  <meta name="twitter:description" content="Calendario ritiri rifiuti a Brusasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --row-bg: #f7fbf8;
+  --safe: 1rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --row-bg: #151e1a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.45;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.topbar { margin-bottom: 1rem; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.crumbs {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crumbs a:hover { text-decoration: underline; }
+.intro {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.05rem 1.05rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+  color: #f3faf6;
+  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+}
+.intro h1 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+.intro .meta {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+.intro a {
+  color: #f3faf6;
+  font-weight: 650;
+}
+.note {
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.card {
+  margin: 0 0 0.85rem;
+  border-radius: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta {
+  display: block;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.95rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.cta:hover { filter: brightness(1.05); }
+ul.zones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+ul.zones li {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.comuni-grid a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  border: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid a:hover { background: var(--accent-soft); }
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Calendario raccolta differenziata Brusasco — Escilo",
+    "url": "https://escilo.netlify.app/comuni/brusasco.html",
+    "description": "Calendario ritiri rifiuti a Brusasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
+    "inLanguage": "it-IT",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Escilo",
+      "url": "https://escilo.netlify.app/"
+    },
+    "about": {
+      "@type": "Place",
+      "name": "Brusasco",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Brusasco",
+        "addressRegion": "Piemonte",
+        "addressCountry": "IT"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Escilo",
+        "item": "https://escilo.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Comuni",
+        "item": "https://escilo.netlify.app/comuni/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Brusasco",
+        "item": "https://escilo.netlify.app/comuni/brusasco.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← Calendario</a>
+    </header>
+    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Brusasco</p>
+    <section class="intro">
+      <h1>Calendario raccolta differenziata — Brusasco</h1>
+      <p>
+        Ritiri rifiuti a Brusasco (provincia di Torino): carta, organico,
+        indifferenziata, plastica, verde e vetro. Escilo ti ricorda cosa esporre domani.
+      </p>
+    </section>
+    <div class="card">
+      <h2>Zone e vie disponibili</h2>
+      <ul class="zones">
+<li>Borgo Case Sparse</li>
+<li>Borgo Casetta Alta</li>
+<li>Borgo Casetta Bassa</li>
+<li>Borgo Garibaldi</li>
+<li>Cascina Battaglina</li>
+<li>Località Serramezzana</li>
+<li>Piazza dei Partigiani Brusaschesi</li>
+<li>Piazza Roma</li>
+<li>Piazza San Pietro</li>
+<li>Strada Sp110</li>
+<li>Strada Ss590</li>
+<li>Strada Vicinale Cascina Ignese</li>
+<li>Via 24 Maggio</li>
+<li>Via 25 Aprile</li>
+<li>Via 4 Novembre</li>
+<li>Via A. Moro</li>
+<li>Via Aldo Moro</li>
+<li>Via Annunziata</li>
+<li>Via Brozolo</li>
+<li>Via Cadacorte</li>
+<li>Via Canonico Giuseppe Raiteri</li>
+<li>Via Casa Coppa</li>
+<li>Via Casale</li>
+<li>Via Case Sparse</li>
+<li>Via Cavour</li>
+<li>Via Circonvallazione</li>
+<li>Via del Bricco</li>
+<li>Via del Ghiaro</li>
+<li>Via del Tamlino</li>
+<li>Via Dell&#x27;ospedale</li>
+<li>Via della Fornace</li>
+<li>Via della Foschetta</li>
+<li>Via della Ronca</li>
+<li>Via della Valle</li>
+<li>Via delle Mollie</li>
+<li>Via delle Scuole</li>
+<li>Via Don Dell&#x27;aglio</li>
+<li>Via G. Garibaldi</li>
+<li>Via G. Marconi</li>
+<li>Via G. Mazzini</li>
+<li>Via Giulio Romano Vercelli</li>
+<li>Via Inesistente</li>
+<li>Via Martiri della Liberta</li>
+<li>Via Martiri della Libertà</li>
+<li>Via Monsignor Sismondo</li>
+<li>Via Monte Grappa</li>
+<li>Via Piave</li>
+<li>Via Rivanova</li>
+<li>Via Roccabauda</li>
+<li>Via San Bernardo</li>
+<li>Via San Francesco</li>
+<li>Via San Pietro</li>
+<li>Via Sant&#x27;orsola</li>
+<li>Via Trincavena</li>
+<li>Via Verrua Savoia</li>
+<li>Vicolo Professor G. Arietti</li>
+<li>Vicolo San Carlo</li>
+      </ul>
+      <a class="cta" href="https://escilo.netlify.app/?comune=brusasco">Apri il calendario di Brusasco</a>
+    </div>
+    <p class="note">Gestore: <strong>SETA</strong> · dati da <a href="https://www.setaspa.com/comuni/148-comuni/783-brusasco" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="meta">
+      Puoi installare Escilo come app e attivare le notifiche sul telefono.
+      Verifica sempre eventuali variazioni sul sito del gestore.
+    </p>
+    <p class="footer">
+      <a href="../">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="./">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="../fonti.html">Fonti</a>
+    </p>
+  </div>
+</body>
+</html>

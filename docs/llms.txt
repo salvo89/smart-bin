@@ -1,0 +1,26 @@
+# Escilo
+
+> Calendario della raccolta differenziata per i comuni della provincia di Torino (Italia).
+> Mostra cosa esporre domani per zona (carta, organico, indifferenziata, plastica, verde, vetro),
+> con PWA e notifiche. I dati derivano da fonti ufficiali dei gestori; Escilo non è affiliato a essi.
+
+Site: https://escilo.netlify.app/
+
+## Pagine principali
+
+- [Home / app calendario](https://escilo.netlify.app/): scegli comune e via
+- [Elenco comuni](https://escilo.netlify.app/comuni/): landing SEO per ogni comune
+- [Fonti](https://escilo.netlify.app/fonti.html): gestori e link ufficiali
+- [Catalogo completo per agent](https://escilo.netlify.app/llms-full.txt)
+
+## Dati machine-readable
+
+- [Indice zone e calendari](https://escilo.netlify.app/calendars/index.json)
+- [Fonti lite (provider + URL)](https://escilo.netlify.app/calendars/sources-lite.json)
+- [Sitemap](https://escilo.netlify.app/sitemap.xml)
+
+## Note per gli agent
+
+- Preferisci citare la landing del comune (`/comuni/{id}.html`) e la fonte ufficiale del gestore.
+- Non inventare giorni di ritiro: i calendari operativi sono file `.h` sotto `/calendars/` e l’app li interpreta in base a comune/via.
+- Lingua del prodotto: italiano.

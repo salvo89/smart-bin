@@ -9,13 +9,41 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Escilo" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
-  <title>Escilo — perché i cassonetti non si escono da soli</title>
+  <title>Escilo — calendario raccolta differenziata</title>
+  <meta name="description" content="Calendario della raccolta differenziata per i comuni della provincia di Torino: scopri cosa esporre domani, zona per zona, con notifiche e app installabile." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Escilo — calendario raccolta differenziata" />
+  <meta property="og:description" content="Calendario ritiri rifiuti per i comuni della provincia di Torino. Indica comune e via: Escilo ti dice cosa esporre domani." />
+  <meta property="og:url" content="https://escilo.netlify.app/" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Escilo — calendario raccolta differenziata" />
+  <meta name="twitter:description" content="Calendario ritiri rifiuti per i comuni della provincia di Torino. Indica comune e via: Escilo ti dice cosa esporre domani." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Escilo",
+    "url": "https://escilo.netlify.app/",
+    "description": "Calendario della raccolta differenziata per i comuni della provincia di Torino: ritiri per zona, notifiche e PWA.",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "it-IT",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "image": "https://escilo.netlify.app/icon-512.png"
+  }
+  </script>
   <script>
     (function () {
       var dark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -1315,6 +1343,20 @@
   </style>
 </head>
 <body>
+  <section class="visually-hidden" aria-label="Informazioni Escilo">
+    <h2>Calendario raccolta differenziata — provincia di Torino</h2>
+    <p>
+      Escilo mostra il calendario dei ritiri rifiuti per comune e zona:
+      carta, organico, indifferenziata, plastica, verde e vetro.
+      Scegli il tuo comune, indica la via o la zona e scopri cosa esporre domani.
+      Puoi installare l’app e attivare le notifiche.
+    </p>
+    <p>
+      Elenco comuni: <a href="comuni/">Comuni</a>.
+      Fonti ufficiali dei gestori: <a href="fonti.html">Fonti</a>.
+      App calendario: <a href="./">Home</a>.
+    </p>
+  </section>
   <div class="install-sheet" id="installSheet" hidden role="dialog" aria-modal="true" aria-labelledby="installSheetTitle">
     <div class="install-sheet-card">
       <h2 id="installSheetTitle">Installa Escilo su iPhone</h2>
@@ -1449,9 +1491,11 @@
 
       <p class="data-source">
         <span class="footer-source" hidden></span>
-        <a href="fonti.html">Tutte le fonti</a>
+        <a href="fonti.html">Fonti</a>
         <span class="sep">&middot;</span>
-        <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala errore o zona</a>
+        <a href="comuni/">Comuni</a>
+        <span class="sep">&middot;</span>
+        <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala</a>
         <span class="sep">&middot;</span>
         <button type="button" class="share-link" data-share>Condividi</button>
       </p>
@@ -1497,9 +1541,11 @@
         </div>
         <p class="data-source">
           <span class="footer-source" hidden></span>
-          <a href="fonti.html">Tutte le fonti</a>
+          <a href="fonti.html">Fonti</a>
           <span class="sep">&middot;</span>
-          <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala errore o zona</a>
+          <a href="comuni/">Comuni</a>
+          <span class="sep">&middot;</span>
+          <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala</a>
           <span class="sep">&middot;</span>
           <button type="button" class="share-link" data-share>Condividi</button>
         </p>
@@ -1936,6 +1982,10 @@
         setItems,
         clearSelection,
         setDisabled,
+        selectByValue: (value) => {
+          const it = items.find((x) => x.value === value);
+          if (it) selectItem(it);
+        },
         focus: () => input.focus(),
         getValue: () => hidden.value,
       };
@@ -1984,20 +2034,24 @@
       updateGateSubmitState();
     }
 
-    function showZoneGate() {
+    function showZoneGate(prefillComuneId) {
       $("zoneGateError").textContent = "";
       setZoneGateBusy(false);
       populateComuneSelect();
-      populateViaSelect("");
       $("zoneGate").hidden = false;
+      if (prefillComuneId && ZONES_INDEX.comuni.some((c) => c.id === prefillComuneId)) {
+        comunePicker.selectByValue(prefillComuneId);
+        return;
+      }
+      populateViaSelect("");
       comunePicker.focus();
     }
 
     /** Apre il gate caricando index.json solo se non è ancora in memoria. */
-    async function openZoneGate() {
+    async function openZoneGate(prefillComuneId) {
       try {
         await ensureZonesIndex();
-        showZoneGate();
+        showZoneGate(prefillComuneId || null);
       } catch (err) {
         console.error(err);
         $("liveLine").textContent = "Elenco zone non disponibile";
@@ -3585,6 +3639,13 @@
       return parseYmd(raw);
     }
 
+    function initialComuneFromUrl() {
+      const raw = new URLSearchParams(window.location.search).get("comune");
+      if (!raw) return null;
+      const id = String(raw).trim().toLowerCase();
+      return id || null;
+    }
+
     async function boot() {
       buildDowHeader();
       migratePushHourDefault();
@@ -3593,9 +3654,10 @@
       watchNotificationPermission();
       syncInstallButton();
 
+      const comuneParam = initialComuneFromUrl();
       const stored = readStoredChoice();
       const resolved = resolveStoredChoice(stored);
-      if (resolved) {
+      if (resolved && (!comuneParam || comuneParam === resolved.comuneId)) {
         showHomeSkeleton();
         setMonthLoading(true);
         try {
@@ -3620,7 +3682,7 @@
       }
 
       renderHero(null);
-      await openZoneGate();
+      await openZoneGate(comuneParam);
       syncPushOffer();
     }
 

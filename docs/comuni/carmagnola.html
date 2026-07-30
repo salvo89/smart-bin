@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <title>Calendario raccolta differenziata Carmagnola — Escilo</title>
+  <meta name="description" content="Calendario ritiri rifiuti a Carmagnola (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.netlify.app/comuni/carmagnola.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Calendario raccolta differenziata Carmagnola — Escilo" />
+  <meta property="og:description" content="Calendario ritiri rifiuti a Carmagnola (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta property="og:url" content="https://escilo.netlify.app/comuni/carmagnola.html" />
+  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calendario raccolta differenziata Carmagnola — Escilo" />
+  <meta name="twitter:description" content="Calendario ritiri rifiuti a Carmagnola (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
+  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --row-bg: #f7fbf8;
+  --safe: 1rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --row-bg: #151e1a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.45;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.topbar { margin-bottom: 1rem; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.crumbs {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a {
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crumbs a:hover { text-decoration: underline; }
+.intro {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.05rem 1.05rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
+  color: #f3faf6;
+  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
+}
+.intro h1 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+.intro .meta {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+.intro a {
+  color: #f3faf6;
+  font-weight: 650;
+}
+.note {
+  margin: 0 0 1.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.card {
+  margin: 0 0 0.85rem;
+  border-radius: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta {
+  display: block;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.95rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.cta:hover { filter: brightness(1.05); }
+ul.zones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+ul.zones li {
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.comuni-grid a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  background: var(--row-bg);
+  border: none;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.comuni-grid a:hover { background: var(--accent-soft); }
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Calendario raccolta differenziata Carmagnola — Escilo",
+    "url": "https://escilo.netlify.app/comuni/carmagnola.html",
+    "description": "Calendario ritiri rifiuti a Carmagnola (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
+    "inLanguage": "it-IT",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Escilo",
+      "url": "https://escilo.netlify.app/"
+    },
+    "about": {
+      "@type": "Place",
+      "name": "Carmagnola",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Carmagnola",
+        "addressRegion": "Piemonte",
+        "addressCountry": "IT"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Escilo",
+        "item": "https://escilo.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Comuni",
+        "item": "https://escilo.netlify.app/comuni/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Carmagnola",
+        "item": "https://escilo.netlify.app/comuni/carmagnola.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← Calendario</a>
+    </header>
+    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Carmagnola</p>
+    <section class="intro">
+      <h1>Calendario raccolta differenziata — Carmagnola</h1>
+      <p>
+        Ritiri rifiuti a Carmagnola (provincia di Torino): carta, organico,
+        indifferenziata, plastica, verde e vetro. Escilo ti ricorda cosa esporre domani.
+      </p>
+    </section>
+    <div class="card">
+      <h2>Zone e vie disponibili</h2>
+      <ul class="zones">
+<li>Corso Europa</li>
+<li>Corso Matteotti</li>
+<li>Corso Roma</li>
+<li>Corso Sacchirone</li>
+<li>Piazza 1° Maggio</li>
+<li>Piazza Antica Abbazia</li>
+<li>Piazza Antichi Bastioni</li>
+<li>Piazza Berti</li>
+<li>Piazza Campo Sportivo</li>
+<li>Piazza Canonico Bella</li>
+<li>Piazza Canonico Cappello</li>
+<li>Piazza Chiaravalle</li>
+<li>Piazza Concordia</li>
+<li>Piazza del Piano</li>
+<li>Piazza del Popolo</li>
+<li>Piazza Falcone Borsellino</li>
+<li>Piazza Garavella</li>
+<li>Piazza Goldoni</li>
+<li>Piazza Italia</li>
+<li>Piazza Iv Martiri</li>
+<li>Piazza Ludovico I</li>
+<li>Piazza Maestri Cordai</li>
+<li>Piazza Manzoni</li>
+<li>Piazza Mazzini</li>
+<li>Piazza Olimpiadi</li>
+<li>Piazza Pertini</li>
+<li>Piazza Raineri</li>
+<li>Piazza Risorgimento</li>
+<li>Piazza S. Agostino</li>
+<li>Piazza Santa Maria di Viurso</li>
+<li>Piazza Sud America</li>
+<li>Piazza Verdi</li>
+<li>Piazza Xxx Aprile</li>
+<li>Strada Comunale</li>
+<li>Strada Marrucano</li>
+<li>Strada Pramorano</li>
+<li>Strada Provinciale 136</li>
+<li>Strada Vicinale</li>
+<li>Via Abrate</li>
+<li>Via Agnelli</li>
+<li>Via Alba</li>
+<li>Via Alberti</li>
+<li>Via Aleardi</li>
+<li>Via Alfieri</li>
+<li>Via Allerino Teologo</li>
+<li>Via Almese</li>
+<li>Via Alpi Ilaria</li>
+<li>Via Amedeo Savoia</li>
+<li>Via Angonoa</li>
+<li>Via Anna Frank</li>
+<li>Via Antonelli</li>
+<li>Via Antonetto</li>
+<li>Via Arbia</li>
+<li>Via Argentera</li>
+<li>Via Arpino Giovanni</li>
+<li>Via Asilo</li>
+<li>Via Aurora</li>
+<li>Via Avigliana</li>
+<li>Via Avv. Ferrero</li>
+<li>Via Avv. Ferrero</li>
+<li>Via Avv. Milanesio</li>
+<li>Via Bagnolo</li>
+<li>Via Bainsizza</li>
+<li>Via Baldessano</li>
+<li>Via Barchero</li>
+<li>Via Bardonecchia</li>
+<li>Via Bellini</li>
+<li>Via Bellino</li>
+<li>Via Benso</li>
+<li>Via Bergamina</li>
+<li>Via Bersani Igino</li>
+<li>Via Bertini</li>
+<li>Via Bibiana</li>
+<li>Via Bobba</li>
+<li>Via Boccaccio</li>
+<li>Via Bonetto</li>
+<li>Via Borghetto</li>
+<li>Via Bornaresio</li>
+<li>Via Boselli</li>
+<li>Via Bossola</li>
+<li>Via Boves</li>
+<li>Via Bra</li>
+<li>Via Braida</li>
+<li>Via Brera</li>
+<li>Via Bricherasio</li>
+<li>Via Bucci</li>
+<li>Via Buonarroti</li>
+<li>Via Buriasco</li>
+<li>Via Busca</li>
+<li>Via Bussoleno</li>
+<li>Via Caduti di Nassiriya</li>
+<li>Via Campagnino</li>
+<li>Via Canale</li>
+<li>Via Canonico Chicco</li>
+<li>Via Canonico Filipponi</li>
+<li>Via Cantú</li>
+<li>Via Capitini</li>
+<li>Via Cappellino</li>
+<li>Via Caramagna</li>
+<li>Via Carducci</li>
+<li>Via Carena</li>
+<li>Via Carignano</li>
+<li>Via Carrú</li>
+<li>Via Casalgrasso</li>
+<li>Via Casanova</li>
+<li>Via Cascauda</li>
+<li>Via Cascina Madama</li>
+<li>Via Case Nuove</li>
+<li>Via Castagnole</li>
+<li>Via Castellero</li>
+<li>Via Cavalcavia</li>
+<li>Via Cavalleri</li>
+<li>Via Cavalleri Piccoli</li>
+<li>Via Cavallermaggiore</li>
+<li>Via Cavalli</li>
+<li>Via Cavassa</li>
+<li>Via Cavour</li>
+<li>Via Ceis</li>
+<li>Via Cellini</li>
+<li>Via Ceresole</li>
+<li>Via Ceretto</li>
+<li>Via Cesare Battisti</li>
+<li>Via Chiaberti</li>
+<li>Via Chieri</li>
+<li>Via Chiffi</li>
+<li>Via Chiomonte</li>
+<li>Via Cinzano</li>
+<li>Via Cocchi Meletta</li>
+<li>Via Col di Nava</li>
+<li>Via Collegno</li>
+<li>Via Colombé</li>
+<li>Via Commende</li>
+<li>Via Commende</li>
+<li>Via Confreria</li>
+<li>Via Conte di Carmagnola</li>
+<li>Via Corno</li>
+<li>Via Crissolo</li>
+<li>Via Cristoforo Colombo</li>
+<li>Via Croce</li>
+<li>Via Cuneo</li>
+<li>Via da Vinci</li>
+<li>Via Dante</li>
+<li>Via de Amicis</li>
+<li>Via Decorati al Valor Civile</li>
+<li>Via Degasperi</li>
+<li>Via Degli Orti</li>
+<li>Via dei Sospiri</li>
+<li>Via dei Tetti</li>
+<li>Via del Bruccio</li>
+<li>Via del Porto</li>
+<li>Via del Porto</li>
+<li>Via del Sole</li>
+<li>Via Dell&#x27;isola</li>
+<li>Via della Guardia</li>
+<li>Via della Piramide</li>
+<li>Via delle Benne</li>
+<li>Via delle Cherche</li>
+<li>Via Dogliani</li>
+<li>Via Don Audisio</li>
+<li>Via Don Milani</li>
+<li>Via Don Pipino Giuseppe</li>
+<li>Via Don Sturzo</li>
+<li>Via Donizetti</li>
+<li>Via Durando Giraudi</li>
+<li>Via Duse</li>
+<li>Via E.dominici</li>
+<li>Via Einaudi</li>
+<li>Via Emanuele Filiberto</li>
+<li>Via F.lli Bandiera</li>
+<li>Via F.lli Boasso</li>
+<li>Via F.lli Cervi</li>
+<li>Via F.lli Marengo</li>
+<li>Via F.lli Mina</li>
+<li>Via F.lli Rosselli</li>
+<li>Via F.lli Vercelli</li>
+<li>Via Faule</li>
+<li>Via Fermi</li>
+<li>Via Ferrari Enzo</li>
+<li>Via Fiore Teologo</li>
+<li>Via Fogazzaro</li>
+<li>Via Fossano</li>
+<li>Via Fra Luigi</li>
+<li>Via Franco Don Giovanni</li>
+<li>Via Fumeri</li>
+<li>Via Gaidi</li>
+<li>Via Galimberti</li>
+<li>Via Gallina</li>
+<li>Via Gardezzana</li>
+<li>Via Gatti</li>
+<li>Via Gavuzzi</li>
+<li>Via Gen. Demichelis</li>
+<li>Via Genola</li>
+<li>Via Genova</li>
+<li>Via Ghirarda</li>
+<li>Via Giolitti</li>
+<li>Via Giorgina Devalle</li>
+<li>Via Giovanni Paolo Il</li>
+<li>Via Giovanni Xxiii</li>
+<li>Via Giusti</li>
+<li>Via Gobetti</li>
+<li>Via Gonin</li>
+<li>Via Gozzano</li>
+<li>Via Granaglie</li>
+<li>Via Grangia</li>
+<li>Via Gregoria</li>
+<li>Via Grua Grossa</li>
+<li>Via Gruassa</li>
+<li>Via Guido Rossa</li>
+<li>Via Industria 90</li>
+<li>Via Isolabella</li>
+<li>Via Ivrea</li>
+<li>Via Juvarra Filippo</li>
+<li>Via Lagnasco</li>
+<li>Via Laiolo</li>
+<li>Via Lame</li>
+<li>Via Lanzo</li>
+<li>Via Lavagna</li>
+<li>Via Leiní</li>
+<li>Via Leopardi</li>
+<li>Via Levaldigi</li>
+<li>Via Lionne</li>
+<li>Via Loano</li>
+<li>Via Lombriasco</li>
+<li>Via Longo Vaschetti</li>
+<li>Via Lovera</li>
+<li>Via Luda di Cortemiglia</li>
+<li>Via Ludovico Vay</li>
+<li>Via Luserna</li>
+<li>Via Macario Erminio</li>
+<li>Via Madonna della Mercede</li>
+<li>Via Magone</li>
+<li>Via Maira</li>
+<li>Via Maniotto</li>
+<li>Via Marconi</li>
+<li>Via Marenghi</li>
+<li>Via Martina</li>
+<li>Via Martiri della Libertá</li>
+<li>Via Menocchio</li>
+<li>Via Metastasio</li>
+<li>Via Migliabruna</li>
+<li>Via Milanesio di Coassolo</li>
+<li>Via Molinasso</li>
+<li>Via Molinasso</li>
+<li>Via Molino Fittaria</li>
+<li>Via Moncalieri</li>
+<li>Via Mondoví</li>
+<li>Via Monforte</li>
+<li>Via Monginevro</li>
+<li>Via Monsignor Romero</li>
+<li>Via Montecucco</li>
+<li>Via Montello</li>
+<li>Via Montemagno</li>
+<li>Via Montessori</li>
+<li>Via Monteu Roero</li>
+<li>Via Monteu Roero,13 Carmagnola.</li>
+<li>Via Monteu Roero,13 Carmagnola.</li>
+<li>Via Monteu Roero,13 Carmagnola.</li>
+<li>Via Monteu Roero,13 Carmagnola.</li>
+<li>Via Monteu Roero,13 Carmagnola.</li>
+<li>Via Monteu Roero,13 Carmagnola.</li>
+<li>Via Monticello</li>
+<li>Via Montá</li>
+<li>Via Monviso</li>
+<li>Via Morello</li>
+<li>Via Moretta</li>
+<li>Via Murazzano</li>
+<li>Via Murina</li>
+<li>Via Naviglio</li>
+<li>Via Negrelli</li>
+<li>Via Negri</li>
+<li>Via Nervo</li>
+<li>Via Novara</li>
+<li>Via Occhini</li>
+<li>Via Oia</li>
+<li>Via Orbassano</li>
+<li>Via Ormea</li>
+<li>Via Ortigara</li>
+<li>Via Oselle</li>
+<li>Via Ospedale</li>
+<li>Via Padre Baravalle</li>
+<li>Via Paesana</li>
+<li>Via Palazzotto</li>
+<li>Via Paleocapa</li>
+<li>Via Pancalieri</li>
+<li>Via Parrucchetto</li>
+<li>Via Pascoli</li>
+<li>Via Pastore</li>
+<li>Via Pavese</li>
+<li>Via Pegolo</li>
+<li>Via Pelleri</li>
+<li>Via Pellico</li>
+<li>Via Perotti</li>
+<li>Via Pertusia Lomellini</li>
+<li>Via Petrarca</li>
+<li>Via Peyla</li>
+<li>Via Piave</li>
+<li>Via Pie&#x27; delle Terre</li>
+<li>Via Pinerolo</li>
+<li>Via Piobesi</li>
+<li>Via Pirandello Luigi</li>
+<li>Via Piscina</li>
+<li>Via Piscina Vecchia</li>
+<li>Via Pizzio</li>
+<li>Via Pochettino</li>
+<li>Via Poirino</li>
+<li>Via Pollenzo</li>
+<li>Via Ponte Rotto</li>
+<li>Via Ponzio</li>
+<li>Via Porta Zucchetta</li>
+<li>Via Portofino</li>
+<li>Via Pralormo</li>
+<li>Via Prata Piccola</li>
+<li>Via Pret</li>
+<li>Via Primo Levi</li>
+<li>Via Provvidenza</li>
+<li>Via Puccini</li>
+<li>Via Quadri</li>
+<li>Via Quasimodo Salvatore</li>
+<li>Via Quintino Sella</li>
+<li>Via Racconigi</li>
+<li>Via Raciti Filippo</li>
+<li>Via Rattera</li>
+<li>Via Reggenza</li>
+<li>Via Ricchiardo</li>
+<li>Via Rio Tercero</li>
+<li>Via Rivoli</li>
+<li>Via Robilante</li>
+<li>Via Roccati</li>
+<li>Via Ronco Bartolomeo</li>
+<li>Via Rossini</li>
+<li>Via Rubatto</li>
+<li>Via Rubinetti</li>
+<li>Via S. Maria Maddalena</li>
+<li>Via S.francesco di Sales</li>
+<li>Via S.lle Monterzino</li>
+<li>Via Sacra Croce</li>
+<li>Via Salsasio</li>
+<li>Via Saluzzo</li>
+<li>Via San Antonio</li>
+<li>Via San Benedetto</li>
+<li>Via San Bernardino</li>
+<li>Via San Carlo</li>
+<li>Via San Cristoforo</li>
+<li>Via San Domenico</li>
+<li>Via San Donato</li>
+<li>Via San Francesco di Sales</li>
+<li>Via San Giacomo</li>
+<li>Via San Giorgio</li>
+<li>Via San Giorgio 20</li>
+<li>Via San Giovanni</li>
+<li>Via San Giovanni Bosco</li>
+<li>Via San Giusto</li>
+<li>Via San Lorenzo</li>
+<li>Via San Luigi</li>
+<li>Via San Michele</li>
+<li>Via San Paolo</li>
+<li>Via San Pietro</li>
+<li>Via San Remo</li>
+<li>Via San Rocco</li>
+<li>Via Sanfré</li>
+<li>Via Santo Stefano</li>
+<li>Via Santorre Santarosa</li>
+<li>Via Sant’andrea</li>
+<li>Via Sant’anna</li>
+<li>Via Sapino Don Giovanni Battista</li>
+<li>Via Savarino</li>
+<li>Via Savona</li>
+<li>Via Savonarola</li>
+<li>Via Scalenghe</li>
+<li>Via Scarchini</li>
+<li>Via Scuole</li>
+<li>Via Segheria</li>
+<li>Via Serao</li>
+<li>Via Serralunga</li>
+<li>Via Serravalle</li>
+<li>Via Sestriere</li>
+<li>Via Solavagione</li>
+<li>Via Sommariva</li>
+<li>Via Spanzotti</li>
+<li>Via Speranza</li>
+<li>Via Staffarda</li>
+<li>Via Stea</li>
+<li>Via Stella</li>
+<li>Via Streppe</li>
+<li>Via Strumia</li>
+<li>Via Superga</li>
+<li>Via Sura</li>
+<li>Via Susa</li>
+<li>Via Teglia</li>
+<li>Via Teodoro Dalfi</li>
+<li>Via Tesio</li>
+<li>Via Tetii Laghi</li>
+<li>Via Tetti Frati</li>
+<li>Via Tetti Grandi</li>
+<li>Via Tetti Mogna</li>
+<li>Via Tetti Pecchi</li>
+<li>Via Tetti Vaira</li>
+<li>Via Tetto del Ratto</li>
+<li>Via Thaon di Revel Paolo</li>
+<li>Via Torino</li>
+<li>Via Torino</li>
+<li>Via Torre Pellice</li>
+<li>Via Toscanini</li>
+<li>Via Tosi</li>
+<li>Via Trana</li>
+<li>Via Triora</li>
+<li>Via Tumedei Casalis</li>
+<li>Via Tuninetti</li>
+<li>Via Umberto</li>
+<li>Via Vado della Valle</li>
+<li>Via Valfré</li>
+<li>Via Valobra</li>
+<li>Via Valperga</li>
+<li>Via Verga</li>
+<li>Via Verne</li>
+<li>Via Vernea Grossa</li>
+<li>Via Vernea Piccola</li>
+<li>Via Verzuolo</li>
+<li>Via Vescovo Pietro Sola</li>
+<li>Via Viglione</li>
+<li>Via Vignassa</li>
+<li>Via Villafranca</li>
+<li>Via Villanova</li>
+<li>Via Villastellone</li>
+<li>Via Vinovo</li>
+<li>Via Virle</li>
+<li>Via Virle</li>
+<li>Via Volta</li>
+<li>Via Xx Settembre</li>
+<li>Via Zappino Don Antonio</li>
+<li>Viale Barbaroux</li>
+<li>Viale Barbaroux</li>
+<li>Viale della Libertá</li>
+<li>Viale Ex Internati</li>
+<li>Viale Garibaldi</li>
+<li>Vicolo Accastello</li>
+<li>Vicolo Antico Quartiere</li>
+<li>Vicolo Balbo Luigia</li>
+<li>Vicolo Balme</li>
+<li>Vicolo Baravalle</li>
+<li>Vicolo Barge</li>
+<li>Vicolo Becchio</li>
+<li>Vicolo Belletti</li>
+<li>Vicolo Bonino</li>
+<li>Vicolo Bosio Teologo</li>
+<li>Vicolo Bricco</li>
+<li>Vicolo Candiolo</li>
+<li>Vicolo Cardé</li>
+<li>Vicolo Casalis</li>
+<li>Vicolo Chiaraviglio</li>
+<li>Vicolo Congregazione</li>
+<li>Vicolo Cornaglia</li>
+<li>Vicolo Cortassa</li>
+<li>Vicolo Costa</li>
+<li>Vicolo Crocetta</li>
+<li>Vicolo Don Ardizzone</li>
+<li>Vicolo F.lli Bosco</li>
+<li>Vicolo Famigliare</li>
+<li>Vicolo Galliate</li>
+<li>Vicolo Gallo</li>
+<li>Vicolo Gamna</li>
+<li>Vicolo Garessio</li>
+<li>Vicolo Ghietti</li>
+<li>Vicolo Laugier</li>
+<li>Vicolo Moneta</li>
+<li>Vicolo Montoso</li>
+<li>Vicolo Murialdo</li>
+<li>Vicolo Mussetti</li>
+<li>Vicolo Novaresio</li>
+<li>Vicolo Oggero</li>
+<li>Vicolo Pelazza</li>
+<li>Vicolo Prof. Mantellino</li>
+<li>Vicolo Quaranta</li>
+<li>Vicolo Rabiotto</li>
+<li>Vicolo Revello</li>
+<li>Vicolo Ricovero</li>
+<li>Vicolo Ritana</li>
+<li>Vicolo Rolle</li>
+<li>Vicolo Ronco</li>
+<li>Vicolo San Germano</li>
+<li>Vicolo San Gerolamo</li>
+<li>Vicolo Santa Agata</li>
+<li>Vicolo Serratrice</li>
+<li>Vicolo Sola</li>
+<li>Vicolo Sud</li>
+<li>Vicolo Tassoni</li>
+<li>Vicolo Teatro</li>
+<li>Vicolo Terni</li>
+<li>Vicolo Tesio</li>
+<li>Vicolo Trapani</li>
+<li>Vicolo Trinitá</li>
+<li>Vicolo Turletti</li>
+<li>Vicolo Valerio</li>
+      </ul>
+      <a class="cta" href="https://escilo.netlify.app/?comune=carmagnola">Apri il calendario di Carmagnola</a>
+    </div>
+    <p class="note">Gestore: <strong>CCS</strong> · dati da <a href="https://www.ccs.to.it/calendari-raccolta" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="meta">
+      Puoi installare Escilo come app e attivare le notifiche sul telefono.
+      Verifica sempre eventuali variazioni sul sito del gestore.
+    </p>
+    <p class="footer">
+      <a href="../">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="./">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="../fonti.html">Fonti</a>
+    </p>
+  </div>
+</body>
+</html>

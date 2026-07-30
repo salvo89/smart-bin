@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import argparse
+import calendar
 import re
 import sys
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
@@ -39,6 +41,9 @@ COLOR_BINS: dict[tuple[float, float, float], int] = {
     (1.0, 0.83, 0.0): 3,  # plastica
     (0.93, 0.11, 0.14): 0,  # carta
 }
+
+# Weekday labels in "solo Indifferenziato porta a porta" grids (accent-folded).
+_WD_PREFIXES = ("sabat", "luned", "marted", "mercoled", "gioved", "venerd", "domenic")
 
 
 def normalize(text: str) -> str:
@@ -86,7 +91,82 @@ def zone_label_on_page(page: fitz.Page) -> str | None:
     return None
 
 
-def extract_entries(page: fitz.Page, year: int) -> list[tuple[int, int, int, int]]:
+def _fold_alpha(text: str) -> str:
+    folded = unicodedata.normalize("NFKD", text)
+    return "".join(c for c in folded if c.isascii() and c.isalpha()).lower()
+
+
+def _is_weekday_label(text: str) -> bool:
+    token = _fold_alpha(text)
+    return any(token.startswith(p) for p in _WD_PREFIXES) and 3 <= len(token) <= 12
+
+
+def extract_indiff_weekday_grid(
+    page: fitz.Page, year: int, *, bin_id: int = 2
+) -> list[tuple[int, int, int, int]]:
+    """Parse single-page ACSEL flyers with weekday+day columns (solo Indifferenziato).
+
+    Used when other streams are isole di prossimità and the PDF has no color grid page.
+    """
+    words = page.get_text("words")
+    months: list[tuple[float, float, int]] = []
+    seen: set[str] = set()
+    for x0, y0, x1, _y1, text, *_ in words:
+        raw = text.strip()
+        up = raw.upper()
+        if up in MONTHS and up not in seen and raw.isupper():
+            months.append(((x0 + x1) / 2, y0, MONTHS[up]))
+            seen.add(up)
+    if len(months) < 12:
+        return []
+
+    months = sorted(months, key=lambda t: (t[1], t[0]))
+    y0 = months[0][1]
+    row1 = sorted([m for m in months if abs(m[1] - y0) < 25], key=lambda t: t[0])
+    row2 = sorted([m for m in months if abs(m[1] - y0) >= 25], key=lambda t: t[0])
+    if len(row1) < 6 or len(row2) < 6:
+        return []
+
+    row2_y = row2[0][1]
+    min_x = min(m[0] for m in months) - 50
+    max_x = max(m[0] for m in months) + 80
+    max_y = row2_y + 130
+
+    labels = [
+        (w[0], w[1], w[2], w[4])
+        for w in words
+        if _is_weekday_label(w[4]) and y0 - 5 < w[1] < max_y and min_x <= w[0] <= max_x
+    ]
+    days = [
+        (w[0], w[1], w[2], int(w[4]))
+        for w in words
+        if w[4].isdigit()
+        and 1 <= int(w[4]) <= 31
+        and y0 + 5 < w[1] < max_y
+        and min_x <= w[0] <= max_x
+    ]
+
+    entries: set[tuple[int, int, int, int]] = set()
+    for lx0, ly0, _lx1, _lab in labels:
+        best = None
+        best_dist = 1e9
+        for dx0, dy0, _dx1, day in days:
+            if abs(dy0 - ly0) > 10 or dx0 < lx0 - 5:
+                continue
+            dist = dx0 - lx0
+            if dist < best_dist:
+                best_dist = dist
+                best = day
+        if best is None or best_dist > 80:
+            continue
+        row = row1 if ly0 < row2_y - 5 else row2
+        month = min(row, key=lambda m: abs(m[0] - lx0))[2]
+        if best <= calendar.monthrange(year, month)[1]:
+            entries.add((year, month, best, bin_id))
+    return sorted(entries)
+
+
+def extract_color_grid_entries(page: fitz.Page, year: int) -> list[tuple[int, int, int, int]]:
     words = page.get_text("words")
     pw, ph = page.rect.width, page.rect.height
     landscape = pw > ph
@@ -158,6 +238,16 @@ def extract_entries(page: fitz.Page, year: int) -> list[tuple[int, int, int, int
     return sorted(entries)
 
 
+def extract_entries(page: fitz.Page, year: int) -> list[tuple[int, int, int, int]]:
+    color = extract_color_grid_entries(page, year)
+    if len(color) >= 20:
+        return color
+    weekday = extract_indiff_weekday_grid(page, year)
+    if len(weekday) > len(color):
+        return weekday
+    return color
+
+
 def detect_year(doc: fitz.Document) -> int:
     for page in doc:
         for _x0, _y0, _x1, _y1, text, *_ in page.get_text("words"):
@@ -207,9 +297,16 @@ def convert_pdf(
         slug = f"{slug_base}-z{m.group(1)}" if m else f"{slug_base}-zunica"
         zone_pages = [(0, zone_label, all_addresses, sorted(set(all_entries)))]
     else:
+        # Prefer color-grid pages (>=20). Keep weekday-grid pages (>=20) when
+        # that is the only content (isole di prossimità / solo Indifferenziato).
         substantial = [zp for zp in zone_pages if len(zp[3]) >= 20]
         if substantial:
             zone_pages = substantial
+        else:
+            # Accept smaller weekday grids (biweekly ~26) if nothing better.
+            modest = [zp for zp in zone_pages if len(zp[3]) >= 12]
+            if modest:
+                zone_pages = modest
 
     multi_zone = len(zone_pages) > 1 and not zone_label
     for page_index, zlabel, addresses, entries in zone_pages:
