@@ -2893,10 +2893,17 @@
     $("btnGotoCal").addEventListener("click", () => setTab("cal"));
 
     async function shareAppLink() {
-      const url = location.origin + location.pathname;
+      const comuneId = ZONE_CHOICE && ZONE_CHOICE.comuneId;
+      const comuneName = ZONE_CHOICE && ZONE_CHOICE.comuneName;
+      const url = comuneId
+        ? location.origin + "/?comune=" + encodeURIComponent(comuneId)
+        : location.origin + "/";
+      const text = comuneName
+        ? "Calendario ritiri rifiuti a " + comuneName + " — Escilo"
+        : "Calendario ritiri rifiuti — Escilo";
       const shareData = {
         title: "Escilo",
-        text: "Calendario ritiri rifiuti — Escilo",
+        text,
         url,
       };
       try {

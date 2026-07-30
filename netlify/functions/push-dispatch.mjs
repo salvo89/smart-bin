@@ -141,7 +141,7 @@ export async function handler(event) {
       const payload = JSON.stringify({
         title: "Escilo",
         body: binLabel ? `Domani: ${binLabel}` : "Domani c’è un ritiro",
-        url: `./?tab=home`,
+        url: `./?tab=cal&day=${pickupDate}`,
         pickupDate,
         bins,
       });
