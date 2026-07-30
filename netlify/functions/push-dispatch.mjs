@@ -4,7 +4,6 @@ import { join } from "node:path";
 import { json, methodNotAllowed } from "./shared/http.mjs";
 import {
   activeYears,
-  BIN_NAMES,
   binsForDate,
   loadCalendarEntries,
   nextDay,
@@ -136,14 +135,10 @@ export async function handler(event) {
       }
 
       const pickupDate = `${String(tomorrow.year).padStart(4, "0")}-${String(tomorrow.month).padStart(2, "0")}-${String(tomorrow.day).padStart(2, "0")}`;
-      const binLabel = bins
-        .map((i) => BIN_NAMES[i])
-        .filter(Boolean)
-        .join(", ");
       const payload = JSON.stringify({
         title: "Escilo",
-        body: binLabel ? `Domani: ${binLabel}` : "Domani c’è un ritiro",
-        url: `./?tab=cal&day=${pickupDate}`,
+        body: "Domani c’è un ritiro",
+        url: "./",
         pickupDate,
         bins,
       });

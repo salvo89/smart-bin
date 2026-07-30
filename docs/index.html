@@ -3170,7 +3170,8 @@
       const raw = localStorage.getItem(LS_PUSH_HOUR);
       if (raw === null || raw === "") return 20;
       const n = Number(raw);
-      if (Number.isInteger(n) && n >= 0 && n <= 23) return n;
+      // Solo ore intere 01–23 (niente mezz'ore, né 00/24 limite giornata).
+      if (Number.isInteger(n) && n >= 1 && n <= 23) return n;
       return 20;
     }
 
@@ -3182,7 +3183,7 @@
       const sel = $("notifyHour");
       if (!sel) return;
       if (!sel.options.length) {
-        for (let h = 0; h < 24; h++) {
+        for (let h = 1; h <= 23; h++) {
           const opt = document.createElement("option");
           opt.value = String(h);
           opt.textContent = String(h).padStart(2, "0") + ":00";
@@ -3608,7 +3609,7 @@
 
     $("notifyHour").addEventListener("change", async () => {
       const hour = Number($("notifyHour").value);
-      if (!Number.isInteger(hour) || hour < 0 || hour > 23) return;
+      if (!Number.isInteger(hour) || hour < 1 || hour > 23) return;
       savePushHour(hour);
       const sel = $("notifyHour");
       sel.disabled = true;

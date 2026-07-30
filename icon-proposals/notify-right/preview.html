@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proposte icona notifica (destra)</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 1.5rem; background: #101814; color: #e6f0ea; }
+    h1 { font-size: 1.1rem; font-weight: 700; }
+    p { color: #8fa396; max-width: 36rem; line-height: 1.4; }
+    .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 1.25rem; }
+    figure {
+      margin: 0; padding: 1rem; border-radius: 1rem;
+      background: #1a2420; border: 1px solid #2c3b33;
+    }
+    figcaption { margin-top: 0.75rem; font-size: 0.9rem; }
+    figcaption strong { display: block; margin-bottom: 0.25rem; }
+    .row { display: flex; gap: 0.75rem; align-items: center; }
+    .row img, .row object { width: 96px; height: 96px; border-radius: 20px; background: #fff; }
+    code { font-size: 0.75rem; color: #8fa396; }
+    .mock {
+      margin-top: 0.85rem; display: flex; align-items: center; gap: 0.65rem;
+      padding: 0.65rem 0.75rem; border-radius: 0.75rem; background: #24302a;
+    }
+    .mock .badge { width: 28px; height: 28px; border-radius: 50%; background: #1f5c42; }
+    .mock .txt { flex: 1; min-width: 0; }
+    .mock .txt b { display: block; font-size: 0.82rem; }
+    .mock .txt span { display: block; font-size: 0.72rem; color: #8fa396; }
+    .mock .right { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; background: #eef6f1; }
+  </style>
+</head>
+<body>
+  <h1>Proposte icona a destra della notifica</h1>
+  <p>Apri questa pagina in browser. Ogni card mostra SVG + PNG e una mini anteprima stile Android. Scegli 1, 2 o 3.</p>
+  <div class="grid">
+    <figure>
+      <div class="row">
+        <object data="01-cassonetto.svg" type="image/svg+xml" width="96" height="96"></object>
+        <img src="01-cassonetto.png" width="96" height="96" alt="Cassonetto PNG" />
+      </div>
+      <figcaption>
+        <strong>1 · Cassonetto</strong>
+        <code>01-cassonetto.svg / .png</code>
+      </figcaption>
+      <div class="mock">
+        <div class="badge" aria-hidden="true"></div>
+        <div class="txt"><b>Escilo</b><span>Domani c’è un ritiro</span></div>
+        <img class="right" src="01-cassonetto.png" alt="" />
+      </div>
+    </figure>
+    <figure>
+      <div class="row">
+        <object data="02-calendario.svg" type="image/svg+xml" width="96" height="96"></object>
+        <img src="02-calendario.png" width="96" height="96" alt="Calendario PNG" />
+      </div>
+      <figcaption>
+        <strong>2 · Calendario</strong>
+        <code>02-calendario.svg / .png</code>
+      </figcaption>
+      <div class="mock">
+        <div class="badge" aria-hidden="true"></div>
+        <div class="txt"><b>Escilo</b><span>Domani c’è un ritiro</span></div>
+        <img class="right" src="02-calendario.png" alt="" />
+      </div>
+    </figure>
+    <figure>
+      <div class="row">
+        <object data="03-campanella.svg" type="image/svg+xml" width="96" height="96"></object>
+        <img src="03-campanella.png" width="96" height="96" alt="Campanella PNG" />
+      </div>
+      <figcaption>
+        <strong>3 · Campanella</strong>
+        <code>03-campanella.svg / .png</code>
+      </figcaption>
+      <div class="mock">
+        <div class="badge" aria-hidden="true"></div>
+        <div class="txt"><b>Escilo</b><span>Domani c’è un ritiro</span></div>
+        <img class="right" src="03-campanella.png" alt="" />
+      </div>
+    </figure>
+  </div>
+</body>
+</html>

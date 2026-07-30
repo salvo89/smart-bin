@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" role="img" aria-label="Calendario domani">
+  <rect width="192" height="192" rx="40" fill="#eef6f1"/>
+  <!-- page -->
+  <rect x="44" y="52" width="104" height="108" rx="14" fill="#1f5c42"/>
+  <!-- rings -->
+  <rect x="68" y="40" width="12" height="28" rx="6" fill="#1f5c42"/>
+  <rect x="112" y="40" width="12" height="28" rx="6" fill="#1f5c42"/>
+  <rect x="68" y="40" width="12" height="14" rx="6" fill="#3d9a6e"/>
+  <rect x="112" y="40" width="12" height="14" rx="6" fill="#3d9a6e"/>
+  <!-- header strip -->
+  <rect x="44" y="52" width="104" height="28" rx="14" fill="#163d2c"/>
+  <rect x="44" y="66" width="104" height="14" fill="#163d2c"/>
+  <!-- grid cells (mint) -->
+  <rect x="58" y="92" width="22" height="18" rx="4" fill="#eef6f1" opacity="0.35"/>
+  <rect x="85" y="92" width="22" height="18" rx="4" fill="#eef6f1" opacity="0.35"/>
+  <rect x="112" y="92" width="22" height="18" rx="4" fill="#eef6f1" opacity="0.35"/>
+  <rect x="58" y="116" width="22" height="18" rx="4" fill="#eef6f1" opacity="0.35"/>
+  <!-- highlighted tomorrow cell -->
+  <rect x="85" y="116" width="22" height="18" rx="4" fill="#eef6f1"/>
+  <circle cx="96" cy="125" r="4" fill="#1f5c42"/>
+  <rect x="112" y="116" width="22" height="18" rx="4" fill="#eef6f1" opacity="0.35"/>
+  <!-- forward cue -->
+  <path d="M128 148h18m0 0l-6-6m6 6l-6 6" stroke="#3d9a6e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

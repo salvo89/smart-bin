@@ -1,5 +1,5 @@
 /* Escilo — service worker: cache shell + zona selezionata + Web Push */
-const SHELL_CACHE = "escilo-shell-v9";
+const SHELL_CACHE = "escilo-shell-v10";
 const ZONE_CACHE = "escilo-zone-v1";
 const PRECACHE = [
   "./",
@@ -8,6 +8,7 @@ const PRECACHE = [
   "./icon-512.png",
   "./icon-1024.png",
   "./badge-96.png",
+  "./notify-icon-192.png",
   "./brand-mark.png",
   "./manifest.webmanifest",
 ];
@@ -115,22 +116,18 @@ self.addEventListener("push", (event) => {
       ? data.pickupDate
       : "";
   const bins = normalizeBins(data.bins);
-  const url =
-    data.url ||
-    (pickupDate ? `./?tab=cal&day=${pickupDate}` : "./");
+  const url = data.url || "./";
 
   event.waitUntil(
     (async () => {
-      // Android: badge = status bar + left; omit icon so no large icon on the right.
-      const isAndroid = /Android/i.test(self.navigator.userAgent || "");
-      const opts = {
+      // badge = status bar / sinistra; icon = cassonetto a destra (evita monogramma "E").
+      return self.registration.showNotification(data.title || "Escilo", {
         body: data.body || "",
         badge: "./badge-96.png",
+        icon: "./notify-icon-192.png",
         lang: "it",
         data: { url, pickupDate, bins },
-      };
-      if (!isAndroid) opts.icon = "./icon-192.png";
-      return self.registration.showNotification(data.title || "Escilo", opts);
+      });
     })()
   );
 });

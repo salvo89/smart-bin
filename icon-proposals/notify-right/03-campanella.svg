@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" role="img" aria-label="Campanella reminder">
+  <rect width="192" height="192" rx="40" fill="#eef6f1"/>
+  <circle cx="96" cy="48" r="11" fill="none" stroke="#1f5c42" stroke-width="7"/>
+  <path d="M58 92c0-22 16-40 38-40s38 18 38 40v36H58V92z" fill="#1f5c42"/>
+  <path d="M58 88a38 38 0 0 1 76 0" fill="#1f5c42"/>
+  <rect x="48" y="124" width="96" height="16" rx="8" fill="#1f5c42"/>
+  <circle cx="96" cy="150" r="10" fill="#1f5c42"/>
+  <circle cx="130" cy="68" r="12" fill="#3d9a6e"/>
+  <circle cx="130" cy="68" r="5" fill="#eef6f1"/>
+</svg>

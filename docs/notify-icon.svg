@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" role="img" aria-label="Cassonetto">
+  <rect width="192" height="192" rx="40" fill="#eef6f1"/>
+  <!-- lid -->
+  <rect x="48" y="54" width="96" height="18" rx="6" fill="#1f5c42"/>
+  <rect x="84" y="44" width="24" height="14" rx="5" fill="#1f5c42"/>
+  <!-- body -->
+  <path d="M56 78h80l-8 70a12 12 0 0 1-12 10H76a12 12 0 0 1-12-10L56 78z" fill="#1f5c42"/>
+  <!-- front panel cut -->
+  <rect x="78" y="96" width="36" height="40" rx="6" fill="#eef6f1" opacity="0.35"/>
+  <!-- wheels -->
+  <circle cx="74" cy="158" r="8" fill="#1f5c42"/>
+  <circle cx="118" cy="158" r="8" fill="#1f5c42"/>
+  <circle cx="74" cy="158" r="3" fill="#eef6f1"/>
+  <circle cx="118" cy="158" r="3" fill="#eef6f1"/>
+</svg>

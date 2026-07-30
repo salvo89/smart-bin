@@ -14,6 +14,7 @@ const mustExist = [
   "netlify/functions/push-dispatch.mjs",
   "netlify/functions/push-vapid-public.mjs",
   "docs/sw.js",
+  "docs/notify-icon-192.png",
   "docs/calendars/sources-lite.json",
   "docs/robots.txt",
   "docs/sitemap.xml",
@@ -46,6 +47,8 @@ for (const needle of [
   "ZONE_CACHE",
   "pickupDate",
   "normalizeBins",
+  "notify-icon-192.png",
+  'icon: "./notify-icon-192.png"',
 ]) {
   if (!sw.includes(needle)) {
     console.error("sw.js missing", needle);
@@ -87,9 +90,8 @@ const dispatch = await readFile(join(root, "netlify/functions/push-dispatch.mjs"
 for (const needle of [
   "pickupDate",
   "bins",
-  "BIN_NAMES",
-  "Domani:",
-  "tab=cal&day=",
+  "Domani c’è un ritiro",
+  'url: "./"',
   "now.hour < preferHour",
 ]) {
   if (!dispatch.includes(needle)) {
@@ -101,8 +103,12 @@ if (dispatch.includes("Number(record.hour) !== now.hour")) {
   console.error("push-dispatch.mjs still requires exact hour match");
   failed += 1;
 }
-if (dispatch.includes('url: `./?tab=home`')) {
-  console.error("push-dispatch.mjs still opens home tab on notification");
+if (dispatch.includes("tab=cal&day=")) {
+  console.error("push-dispatch.mjs should open home, not calendar, on notification");
+  failed += 1;
+}
+if (dispatch.includes("Domani:")) {
+  console.error("push-dispatch.mjs should not list bins in notification body");
   failed += 1;
 }
 

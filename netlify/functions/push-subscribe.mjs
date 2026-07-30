@@ -29,7 +29,7 @@ export async function handler(event) {
   }
 
   let hour = Number(body.hour);
-  if (!Number.isInteger(hour) || hour < 0 || hour > 23) hour = 20;
+  if (!Number.isInteger(hour) || hour < 1 || hour > 23) hour = 20;
 
   const now = new Date().toISOString();
   const key = subscriptionKey(body.subscription.endpoint);
