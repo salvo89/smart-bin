@@ -21,6 +21,7 @@ const mustExist = [
   "docs/llms-full.txt",
   "docs/comuni/index.html",
   "docs/comuni/rivoli.html",
+  "docs/googled19b3747a0a192a7.html",
   "tools/build_seo_pages.py",
   ".github/workflows/push-dispatch.yml",
   ".env.example",
