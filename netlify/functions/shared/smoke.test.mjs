@@ -84,11 +84,22 @@ for (const banned of ["panelNotify", 'data-tab="notify"', "notifyHistoryList"]) 
 }
 
 const dispatch = await readFile(join(root, "netlify/functions/push-dispatch.mjs"), "utf8");
-for (const needle of ["pickupDate", "bins", "BIN_NAMES", "Domani:", "tab=cal&day="]) {
+for (const needle of [
+  "pickupDate",
+  "bins",
+  "BIN_NAMES",
+  "Domani:",
+  "tab=cal&day=",
+  "now.hour < preferHour",
+]) {
   if (!dispatch.includes(needle)) {
     console.error("push-dispatch.mjs missing", needle);
     failed += 1;
   }
+}
+if (dispatch.includes("Number(record.hour) !== now.hour")) {
+  console.error("push-dispatch.mjs still requires exact hour match");
+  failed += 1;
 }
 if (dispatch.includes('url: `./?tab=home`')) {
   console.error("push-dispatch.mjs still opens home tab on notification");

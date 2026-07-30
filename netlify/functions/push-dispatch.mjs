@@ -107,7 +107,9 @@ export async function handler(event) {
     let errors = 0;
 
     for (const { key, record } of all) {
-      if (Number(record.hour) !== now.hour) {
+      // "Ricordami dopo le H": invia da H in poi (catch-up se il cron ritarda).
+      const preferHour = Number(record.hour);
+      if (!Number.isInteger(preferHour) || now.hour < preferHour) {
         skipped += 1;
         continue;
       }

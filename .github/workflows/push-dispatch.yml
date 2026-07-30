@@ -1,4 +1,6 @@
-# Dispatch orario notifiche push Escilo (Web Push).
+# Backup orario notifiche push Escilo (Web Push).
+# Trigger primario consigliato: cron-job.org → POST /api/push/dispatch
+# (GitHub schedule è best-effort e può saltare ore intere).
 # Secrets richiesti sul repo:
 #   DISPATCH_SECRET — stesso valore di Netlify env DISPATCH_SECRET
 #   SITE_URL — es. https://tuosito.netlify.app
@@ -7,8 +9,8 @@ name: push-dispatch
 
 on:
   schedule:
-    # Ogni ora (minuto 5): invia solo all’ora scelta dall’utente (Europe/Rome).
-    - cron: "5 * * * *"
+    # Backup ogni ora (minuto 17, offset per ridurre coda :00/:05).
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 jobs:

@@ -191,10 +191,15 @@ Web Push gratuito (VAPID + Netlify Functions + Blobs). Dopo il deploy:
 
 1. Genera chiavi: `npx web-push generate-vapid-keys`
 2. Su Netlify → Environment variables: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` (`mailto:…`), `DISPATCH_SECRET`
-3. Su GitHub → Actions secrets: `DISPATCH_SECRET` (stesso valore), `SITE_URL` (URL del sito)
-4. Dalla Home, tocca **Ricordami sul telefono** (su iOS: prima Aggiungi a Home, poi opt-in)
+3. **Cron primario (gratis, affidabile):** su [cron-job.org](https://cron-job.org) crea un job orario:
+   - URL: `https://<tuo-sito>/api/push/dispatch`
+   - Method: `POST`
+   - Header: `X-Dispatch-Secret: <DISPATCH_SECRET>` e `Content-Type: application/json`
+   - Schedule: ogni ora (es. minuto 5)
+4. **Backup:** su GitHub → Actions secrets (`DISPATCH_SECRET`, `SITE_URL`) — il workflow `push-dispatch` resta come fallback (lo schedule GitHub può ritardare ore)
+5. Dalla Home, tocca **Ricordami sul telefono** (su iOS: prima Aggiungi a Home, poi opt-in)
 
-Il workflow chiama `/api/push/dispatch` ogni ora (`cron: "5 * * * *"`). Invia solo all’ora scelta dall’utente (default 20:00 Europe/Rome), una volta al giorno, se domani c’è un ritiro.
+Il dispatch invia **dall’ora scelta in poi** (“Ricordami dopo le…”, default 20:00 Europe/Rome), una volta al giorno, se domani c’è un ritiro. Così un ritardo del cron non salta la giornata.
 
 ## Struttura del repository
 
