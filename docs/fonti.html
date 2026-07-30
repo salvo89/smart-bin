@@ -3,17 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1f5c42" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
   <title>Escilo — Fonti dati</title>
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      var dark = window.matchMedia("(prefers-color-scheme: dark)");
+      function syncIosBar() {
+        var el = document.getElementById("iosStatusBar");
+        if (el) el.setAttribute("content", dark.matches ? "black-translucent" : "default");
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", syncIosBar);
+      } else {
+        syncIosBar();
+      }
+      if (dark.addEventListener) dark.addEventListener("change", syncIosBar);
+      else if (dark.addListener) dark.addListener(syncIosBar);
+    })();
+  </script>
   <style>
     :root {
+      color-scheme: light;
       --bg: #eef6f1;
       --bg-top: #d8f0e2;
+      --bg-bottom: #f4f7f5;
       --surface: #ffffff;
       --ink: #142018;
       --muted: #5a7266;
@@ -21,9 +41,33 @@
       --line: #d5e2da;
       --accent: #1f5c42;
       --accent-soft: #e4f3eb;
+      --row-bg: #f7fbf8;
+      --danger: #8b3a3a;
+      --sk-a: #e8eee9;
+      --sk-b: #d5e2da;
       --safe: 1rem;
       --font: "Outfit", "Segoe UI", system-ui, sans-serif;
       --display: "Fraunces", Georgia, serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #101814;
+        --bg-top: #152019;
+        --bg-bottom: #0c1210;
+        --surface: #1a2420;
+        --ink: #e6f0ea;
+        --muted: #8fa396;
+        --muted-2: #7a9084;
+        --line: #2c3b33;
+        --accent: #3d9a6e;
+        --accent-soft: #1c3228;
+        --row-bg: #151e1a;
+        --danger: #e07070;
+        --sk-a: #1e2a24;
+        --sk-b: #2a3830;
+      }
     }
 
     * { box-sizing: border-box; }
@@ -35,7 +79,7 @@
       color: var(--ink);
       line-height: 1.45;
       background:
-        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, #f4f7f5 100%);
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
     }
     a {
       color: var(--accent);
@@ -52,10 +96,6 @@
     }
 
     .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
       margin-bottom: 1rem;
     }
     .back {
@@ -68,42 +108,6 @@
       text-decoration: none;
     }
     .back:hover { text-decoration: underline; }
-    .brand-lockup {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      grid-template-areas:
-        "mark title"
-        "sub  sub";
-      column-gap: 0.45rem;
-      row-gap: 0.08rem;
-      min-width: 0;
-      align-items: center;
-    }
-    .brand-mark {
-      width: auto;
-      height: 1.85rem;
-      display: block;
-      object-fit: contain;
-      grid-area: mark;
-    }
-    .brand {
-      font-family: var(--display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin: 0;
-      line-height: 1.15;
-      grid-area: title;
-    }
-    .brand-sub {
-      margin: 0;
-      font-size: 0.62rem;
-      font-weight: 600;
-      color: var(--muted);
-      line-height: 1.25;
-      max-width: 11rem;
-      grid-area: sub;
-    }
 
     .intro {
       margin: 0 0 1.25rem;
@@ -148,7 +152,46 @@
       font-size: 0.85rem;
       color: var(--muted);
     }
-    .status.error { color: #8b3a3a; }
+    .status.error { color: var(--danger); }
+
+    .sk-bar {
+      display: block;
+      border-radius: 4px;
+      height: 0.55rem;
+      background: linear-gradient(90deg, var(--sk-a), var(--sk-b), var(--sk-a));
+      background-size: 220% 100%;
+      animation: sk-shimmer 1.15s ease-in-out infinite;
+    }
+    .sk-bar.short { width: 28%; }
+    .sk-bar.mid { width: 55%; }
+    .sk-bar.long { width: 78%; }
+    @keyframes sk-shimmer {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+    .provider.skeleton {
+      pointer-events: none;
+    }
+    .provider.skeleton .provider-sk-head {
+      padding: 0.95rem 1rem;
+    }
+    .provider.skeleton .provider-name {
+      min-height: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+    .provider.skeleton .provider-count {
+      min-height: 0.85rem;
+      display: flex;
+      align-items: center;
+      margin-top: 0.35rem;
+    }
+    .provider.skeleton .sk-bar {
+      height: 0.65rem;
+    }
+    .provider.skeleton .provider-count .sk-bar {
+      height: 0.45rem;
+    }
 
     .provider {
       margin: 0 0 0.85rem;
@@ -223,7 +266,7 @@
       gap: 0.6rem;
       padding: 0.45rem 0.55rem;
       border-radius: 0.65rem;
-      background: #f7fbf8;
+      background: var(--row-bg);
       font-size: 0.86rem;
     }
     .comuni .name { font-weight: 600; }
@@ -262,11 +305,6 @@
   <div class="page">
     <header class="topbar">
       <a class="back" href="index.html">← Calendario</a>
-      <div class="brand-lockup">
-        <img class="brand-mark" src="brand-mark.png" width="40" height="41" alt="" aria-hidden="true" />
-        <p class="brand">Escilo</p>
-        <p class="brand-sub">perché i cassonetti non si escono da soli</p>
-      </div>
     </header>
 
     <section class="intro">
@@ -284,7 +322,7 @@
     </p>
 
     <p class="status" id="status" hidden></p>
-    <div id="providers"></div>
+    <div id="providers" aria-busy="true"></div>
 
     <p class="footer">
       Errori o zona mancante?
@@ -319,9 +357,26 @@
       return pages.length === 1 ? pages[0] : null;
     }
 
+    function renderSkeleton(count) {
+      const root = document.getElementById("providers");
+      root.setAttribute("aria-busy", "true");
+      const n = count || 5;
+      let html = "";
+      for (let i = 0; i < n; i++) {
+        html +=
+          '<div class="provider skeleton" aria-hidden="true">'
+          + '<div class="provider-sk-head">'
+          + '<p class="provider-name"><span class="sk-bar ' + (i % 2 ? "mid" : "long") + '"></span></p>'
+          + '<p class="provider-count"><span class="sk-bar short"></span></p>'
+          + "</div></div>";
+      }
+      root.innerHTML = html;
+    }
+
     function render(data) {
       const meta = document.getElementById("metaLine");
       const root = document.getElementById("providers");
+      root.removeAttribute("aria-busy");
       const comuni = Array.isArray(data.comuni) ? data.comuni : [];
       const groups = groupByProvider(comuni);
 
@@ -369,12 +424,16 @@
 
     async function main() {
       const status = document.getElementById("status");
+      renderSkeleton(5);
       try {
         const res = await fetch("calendars/sources.json", { cache: "no-cache" });
         if (!res.ok) throw new Error("HTTP " + res.status);
         render(await res.json());
       } catch (err) {
         document.getElementById("metaLine").textContent = "Fonti non disponibili";
+        const root = document.getElementById("providers");
+        root.innerHTML = "";
+        root.removeAttribute("aria-busy");
         status.hidden = false;
         status.className = "status error";
         status.textContent = "Impossibile caricare calendars/sources.json.";

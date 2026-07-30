@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1f5c42" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Escilo" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
   <title>Escilo — perché i cassonetti non si escono da soli</title>
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
@@ -15,10 +16,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      var dark = window.matchMedia("(prefers-color-scheme: dark)");
+      function syncIosBar() {
+        var el = document.getElementById("iosStatusBar");
+        if (el) el.setAttribute("content", dark.matches ? "black-translucent" : "default");
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", syncIosBar);
+      } else {
+        syncIosBar();
+      }
+      if (dark.addEventListener) dark.addEventListener("change", syncIosBar);
+      else if (dark.addListener) dark.addListener(syncIosBar);
+    })();
+  </script>
   <style>
     :root {
+      color-scheme: light;
       --bg: #eef6f1;
       --bg-top: #d8f0e2;
+      --bg-bottom: #f4f7f5;
       --surface: #ffffff;
       --ink: #142018;
       --muted: #5a7266;
@@ -26,6 +45,23 @@
       --line: #d5e2da;
       --accent: #1f5c42;
       --accent-soft: #e4f3eb;
+      --chip-bg: #f0f5f2;
+      --mix-base: #ffffff;
+      --track: #c5d4cb;
+      --input-disabled: #f3f6f4;
+      --danger: #a33;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+      --nav-border: rgba(255, 255, 255, 0.95);
+      --nav-shadow: 0 8px 24px rgba(20, 40, 30, 0.12);
+      --sheet-scrim: rgba(20, 32, 24, 0.45);
+      --card-shadow: 0 16px 36px rgba(20, 40, 30, 0.12);
+      --sk-a: #e8eee9;
+      --sk-b: #d5e2da;
+      --empty-veil: rgba(238, 246, 241, 0.55);
+      --empty-card-bg: rgba(255, 255, 255, 0.82);
+      --empty-card-border: rgba(213, 226, 218, 0.95);
+      --focus-ring: rgba(31, 92, 66, 0.35);
+      --today-border: rgba(31, 92, 66, 0.35);
       --safe: 1rem;
       --touch: 2.75rem;
       --nav-h: 4.25rem;
@@ -41,6 +77,39 @@
       --tag-x: #a88bc8;
     }
 
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #101814;
+        --bg-top: #152019;
+        --bg-bottom: #0c1210;
+        --surface: #1a2420;
+        --ink: #e6f0ea;
+        --muted: #8fa396;
+        --muted-2: #7a9084;
+        --line: #2c3b33;
+        --accent: #3d9a6e;
+        --accent-soft: #1c3228;
+        --chip-bg: #24302a;
+        --mix-base: #1a2420;
+        --track: #2f4037;
+        --input-disabled: #151e1a;
+        --danger: #e07070;
+        --nav-bg: rgba(22, 30, 26, 0.92);
+        --nav-border: rgba(44, 59, 51, 0.95);
+        --nav-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        --sheet-scrim: rgba(0, 0, 0, 0.55);
+        --card-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        --sk-a: #1e2a24;
+        --sk-b: #2a3830;
+        --empty-veil: rgba(16, 24, 20, 0.55);
+        --empty-card-bg: rgba(26, 36, 32, 0.92);
+        --empty-card-border: rgba(44, 59, 51, 0.95);
+        --focus-ring: rgba(61, 154, 110, 0.45);
+        --today-border: rgba(61, 154, 110, 0.5);
+      }
+    }
+
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body {
@@ -50,7 +119,7 @@
       color: var(--ink);
       line-height: 1.4;
       background:
-        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, #f4f7f5 100%);
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
     }
     button {
       font: inherit;
@@ -263,7 +332,7 @@
       height: 0.38rem;
       border-radius: 50%;
     }
-    .day-chip.today { border-color: rgba(31, 92, 66, 0.35); }
+    .day-chip.today { border-color: var(--today-border); }
     .day-chip.selected {
       background: var(--accent);
       border-color: var(--accent);
@@ -296,7 +365,7 @@
       border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 650;
-      background: #f0f5f2;
+      background: var(--chip-bg);
       border: 1px solid var(--line);
     }
     .chip .mark {
@@ -306,31 +375,31 @@
       flex-shrink: 0;
     }
     .chip.sw-c {
-      background: color-mix(in srgb, var(--tag-c) 16%, white);
+      background: color-mix(in srgb, var(--tag-c) 16%, var(--mix-base));
       border-color: color-mix(in srgb, var(--tag-c) 40%, transparent);
     }
     .chip.sw-o {
-      background: color-mix(in srgb, var(--tag-o) 16%, white);
+      background: color-mix(in srgb, var(--tag-o) 16%, var(--mix-base));
       border-color: color-mix(in srgb, var(--tag-o) 40%, transparent);
     }
     .chip.sw-i {
-      background: color-mix(in srgb, var(--tag-i) 18%, white);
+      background: color-mix(in srgb, var(--tag-i) 18%, var(--mix-base));
       border-color: color-mix(in srgb, var(--tag-i) 40%, transparent);
     }
     .chip.sw-p {
-      background: color-mix(in srgb, var(--tag-p) 18%, white);
+      background: color-mix(in srgb, var(--tag-p) 18%, var(--mix-base));
       border-color: color-mix(in srgb, var(--tag-p) 42%, transparent);
     }
     .chip.sw-v {
-      background: color-mix(in srgb, var(--tag-v) 16%, white);
+      background: color-mix(in srgb, var(--tag-v) 16%, var(--mix-base));
       border-color: color-mix(in srgb, var(--tag-v) 40%, transparent);
     }
     .chip.sw-g {
-      background: color-mix(in srgb, var(--tag-g) 16%, white);
+      background: color-mix(in srgb, var(--tag-g) 16%, var(--mix-base));
       border-color: color-mix(in srgb, var(--tag-g) 40%, transparent);
     }
     .chip.sw-x {
-      background: color-mix(in srgb, var(--tag-x) 16%, white);
+      background: color-mix(in srgb, var(--tag-x) 16%, var(--mix-base));
       border-color: color-mix(in srgb, var(--tag-x) 40%, transparent);
     }
     .day-detail .empty-day {
@@ -440,7 +509,7 @@
       position: absolute;
       inset: 0;
       border-radius: 999px;
-      background: #c5d4cb;
+      background: var(--track);
       transition: background 0.15s ease;
     }
     .notify-slider::after {
@@ -463,6 +532,31 @@
     }
     .notify-switch input:disabled + .notify-slider {
       opacity: 0.55;
+    }
+    .notify-switch.is-busy .notify-slider {
+      opacity: 0.85;
+    }
+    .notify-switch.is-busy .notify-slider::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin: -0.36rem 0 0 -0.36rem;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: btn-spin 0.7s linear infinite;
+      z-index: 2;
+    }
+    .notify-switch.is-busy input:not(:checked) + .notify-slider::before {
+      border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+      border-top-color: var(--accent);
+    }
+    .notify-row select:disabled {
+      opacity: 0.55;
+      cursor: wait;
     }
     .notify-hint {
       margin: 0.65rem 0 0;
@@ -516,7 +610,7 @@
       align-items: flex-end;
       justify-content: center;
       padding: 0 var(--safe) max(1rem, env(safe-area-inset-bottom));
-      background: rgba(20, 32, 24, 0.45);
+      background: var(--sheet-scrim);
     }
     .install-sheet[hidden] { display: none; }
     .install-sheet-card {
@@ -525,7 +619,7 @@
       border-radius: 1.25rem;
       background: var(--surface);
       border: 1px solid var(--line);
-      box-shadow: 0 16px 36px rgba(20, 40, 30, 0.18);
+      box-shadow: var(--card-shadow);
       animation: rise 0.35s ease both;
     }
     .install-sheet-card h2 {
@@ -657,18 +751,92 @@
     .cal-cell.skeleton .num {
       opacity: 0.55;
     }
-    .cal-cell.skeleton .sk-bar {
+    .sk-bar {
       display: block;
-      border-radius: 3px;
-      height: 0.42rem;
-      background: linear-gradient(90deg, #e4ece7, #d5e2da, #e4ece7);
+      border-radius: 4px;
+      height: 0.45rem;
+      background: linear-gradient(90deg, var(--sk-a), var(--sk-b), var(--sk-a));
+      background-size: 220% 100%;
+      animation: sk-shimmer 1.15s ease-in-out infinite;
+    }
+    .sk-bar.short { width: 42%; }
+    .sk-bar.mid { width: 72%; }
+    .sk-bar.long { width: 100%; }
+    .sk-bar.on-dark {
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.38),
+        rgba(255, 255, 255, 0.18)
+      );
       background-size: 220% 100%;
     }
-    .cal-cell.skeleton .sk-bar.short { width: 42%; }
-    .cal-cell.skeleton .sk-bar.mid { width: 78%; margin-top: 3px; }
+    @keyframes sk-shimmer {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+    .cal-cell.skeleton .sk-bar {
+      height: 0.42rem;
+    }
+    .cal-cell.skeleton .sk-bar.mid { margin-top: 3px; }
+    .cal-wrap.loading {
+      pointer-events: none;
+    }
+    .cal-wrap.loading .cal-nav {
+      opacity: 0.45;
+    }
+    .cal-wrap.loading .cal-empty {
+      display: none !important;
+    }
     .cal-wrap.is-empty-month .cal-legend {
       opacity: 0.4;
       pointer-events: none;
+    }
+    .hero.is-loading .hero-empty { display: none; }
+    .hero.is-loading #heroTitle {
+      min-height: 1.65rem;
+      display: flex;
+      align-items: center;
+    }
+    .hero.is-loading #heroWhen {
+      min-height: 0.85rem;
+    }
+    .hero.is-loading .sk-bar.on-dark {
+      height: 0.7rem;
+    }
+    .hero.is-loading #heroWhen .sk-bar.on-dark {
+      height: 0.5rem;
+      width: 55%;
+    }
+    .pickup.sk-pickup {
+      min-height: var(--touch);
+      pointer-events: none;
+    }
+    .pickup.sk-pickup .sk-bar {
+      height: 0.55rem;
+      width: 70%;
+    }
+    .day-chip.skeleton {
+      pointer-events: none;
+      gap: 0.35rem;
+      justify-content: center;
+      padding-top: 0.7rem;
+    }
+    .day-chip.skeleton .sk-bar {
+      height: 0.4rem;
+    }
+    .day-chip.skeleton .sk-bar.short { width: 48%; }
+    .day-chip.skeleton .sk-bar.mid { width: 36%; height: 0.85rem; border-radius: 0.35rem; }
+    .day-detail.is-loading .label {
+      min-height: 0.85rem;
+    }
+    .day-detail.is-loading .chips {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .day-detail.is-loading .sk-bar {
+      height: 0.55rem;
     }
     .cal-empty {
       display: none;
@@ -681,9 +849,9 @@
       background:
         linear-gradient(
           180deg,
-          rgba(238, 246, 241, 0.28) 0%,
-          rgba(238, 246, 241, 0.55) 45%,
-          rgba(238, 246, 241, 0.28) 100%
+          color-mix(in srgb, var(--empty-veil) 50%, transparent) 0%,
+          var(--empty-veil) 45%,
+          color-mix(in srgb, var(--empty-veil) 50%, transparent) 100%
         );
       backdrop-filter: blur(1.5px);
       -webkit-backdrop-filter: blur(1.5px);
@@ -696,9 +864,9 @@
       width: min(100%, 18.5rem);
       padding: 1.15rem 1rem 1.05rem;
       border-radius: 1rem;
-      border: 1px solid rgba(213, 226, 218, 0.95);
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 10px 28px rgba(20, 40, 30, 0.1);
+      border: 1px solid var(--empty-card-border);
+      background: var(--empty-card-bg);
+      box-shadow: var(--card-shadow);
     }
     .cal-empty-title {
       margin: 0 0 0.45rem;
@@ -847,10 +1015,10 @@
       gap: 0.2rem;
       padding: 0.35rem;
       border-radius: 1.35rem;
-      background: rgba(255, 255, 255, 0.9);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
-      box-shadow: 0 8px 24px rgba(20, 40, 30, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: var(--nav-shadow);
+      border: 1px solid var(--nav-border);
     }
     .bottom-nav button {
       display: flex;
@@ -920,7 +1088,7 @@
       padding-top: max(1.25rem, env(safe-area-inset-top));
       padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
       background:
-        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 40%, #f4f7f5 100%);
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 40%, var(--bg-bottom) 100%);
     }
     .zone-gate[hidden] { display: none; }
     .zone-gate-card {
@@ -929,7 +1097,7 @@
       border-radius: 1.35rem;
       background: var(--surface);
       border: 1px solid var(--line);
-      box-shadow: 0 16px 36px rgba(20, 40, 30, 0.12);
+      box-shadow: var(--card-shadow);
       animation: rise 0.45s ease both;
     }
     .zone-gate-lockup {
@@ -1006,13 +1174,13 @@
       color: var(--ink);
     }
     .zone-picker-input:focus {
-      outline: 2px solid rgba(31, 92, 66, 0.35);
+      outline: 2px solid var(--focus-ring);
       outline-offset: 1px;
-      border-color: rgba(31, 92, 66, 0.45);
+      border-color: var(--accent);
     }
     .zone-picker-input:disabled {
       opacity: 0.55;
-      background-color: #f3f6f4;
+      background-color: var(--input-disabled);
       cursor: not-allowed;
     }
     .zone-picker.open .zone-picker-input {
@@ -1035,7 +1203,7 @@
       border-top: none;
       border-radius: 0 0 0.85rem 0.85rem;
       background: var(--surface);
-      box-shadow: 0 10px 24px rgba(20, 40, 30, 0.12);
+      box-shadow: var(--card-shadow);
     }
     .zone-picker-list[hidden] { display: none; }
     .zone-picker-item {
@@ -1064,7 +1232,7 @@
     .zone-gate-error {
       margin: 0 0 0.75rem;
       font-size: 0.8rem;
-      color: #a33;
+      color: var(--danger);
       min-height: 1.1em;
     }
     .zone-gate-submit {
@@ -1075,10 +1243,30 @@
       color: #f3faf6;
       font-weight: 650;
       font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
     .zone-gate-submit:disabled {
       opacity: 0.45;
       cursor: not-allowed;
+    }
+    .zone-gate-submit.is-busy:disabled {
+      opacity: 1;
+      cursor: wait;
+    }
+    .btn-spinner {
+      width: 0.95rem;
+      height: 0.95rem;
+      border: 2px solid rgba(243, 250, 246, 0.35);
+      border-top-color: #f3faf6;
+      border-radius: 50%;
+      animation: btn-spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes btn-spin {
+      to { transform: rotate(360deg); }
     }
     .zone-gate-help {
       margin: 0.85rem 0 0;
@@ -1101,11 +1289,22 @@
       color: var(--muted-2);
       text-align: center;
     }
-    .data-source a {
+    .data-source a,
+    .data-source button.share-link {
       color: var(--accent);
       font-weight: 600;
       text-decoration: underline;
       text-underline-offset: 2px;
+    }
+    .data-source button.share-link {
+      display: inline;
+      padding: 0;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
     }
     .data-source .sep {
       padding: 0 0.22rem;
@@ -1253,6 +1452,8 @@
         <a href="fonti.html">Tutte le fonti</a>
         <span class="sep">&middot;</span>
         <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala errore o zona</a>
+        <span class="sep">&middot;</span>
+        <button type="button" class="share-link" data-share>Condividi</button>
       </p>
     </section>
 
@@ -1299,6 +1500,8 @@
           <a href="fonti.html">Tutte le fonti</a>
           <span class="sep">&middot;</span>
           <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala errore o zona</a>
+          <span class="sep">&middot;</span>
+          <button type="button" class="share-link" data-share>Condividi</button>
         </p>
       </div>
     </section>
@@ -1320,11 +1523,17 @@
     let CALENDAR_ENTRIES = [];
     /** @type {{ years?: number[], comuni: Array<{ id: string, name: string, vie: Array<{ name: string, calendar: string }> }> } | null} */
     let ZONES_INDEX = null;
-    let SOURCES_INDEX = null;
+    /** @type {Record<string, { id: string, provider: string, sourcePage: string }> | null} */
+    let SOURCES_LITE = null;
+    /** @type {Promise<void> | null} */
+    let zonesIndexPromise = null;
+    /** @type {Promise<void> | null} */
+    let sourcesLitePromise = null;
     /** @type {{ comuneId: string, comuneName: string, via: string, calendar: string } | null} */
     let ZONE_CHOICE = null;
 
     const LS_COMUNE = "smartbin.comune";
+    const LS_COMUNE_NAME = "smartbin.comuneName";
     const LS_VIA = "smartbin.via";
     const LS_CALENDAR = "smartbin.calendar";
     const CONTACT_EMAIL = "salvatore.bonventre.ai@gmail.com";
@@ -1350,11 +1559,23 @@
         .replace(/\.h$/i, "");
     }
 
-    /** Al massimo due anni attivi da index.json (i più recenti). */
+    /** Anno civile Europe/Rome (fallback se index.json non è ancora caricato). */
+    function romeCalendarYear() {
+      const parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Europe/Rome",
+        year: "numeric",
+      }).formatToParts(new Date());
+      const y = Number((parts.find((p) => p.type === "year") || {}).value);
+      return Number.isInteger(y) && y > 2000 ? y : new Date().getFullYear();
+    }
+
+    /** Al massimo due anni attivi da index.json (i più recenti); altrimenti anno Rome + next. */
     function activeYears() {
       const raw = ZONES_INDEX && Array.isArray(ZONES_INDEX.years) ? ZONES_INDEX.years : [];
       const years = [...new Set(raw.map(Number).filter((y) => y > 2000))].sort((a, b) => a - b);
-      return years.slice(-2);
+      if (years.length) return years.slice(-2);
+      const y = romeCalendarYear();
+      return [y, y + 1];
     }
 
     /** Estrae entry {anno,mese,giorno,bin} da file calendario (solo dati). */
@@ -1381,22 +1602,60 @@
       if (!ZONES_INDEX || !Array.isArray(ZONES_INDEX.comuni)) {
         throw new Error("index.json non valido");
       }
-      if (!activeYears().length) {
+      if (!Array.isArray(ZONES_INDEX.years) || !ZONES_INDEX.years.length) {
         throw new Error("index.json: manca years[] (max 2 anni attivi)");
       }
     }
 
-    async function loadSourcesIndex() {
-      const res = await fetch("calendars/sources.json", { cache: "no-cache" });
+    /** Carica index.json solo quando serve il gate zona (non al boot se la zona è già salvata). */
+    function ensureZonesIndex() {
+      if (ZONES_INDEX) return Promise.resolve();
+      if (!zonesIndexPromise) {
+        zonesIndexPromise = loadZonesIndex().catch((err) => {
+          zonesIndexPromise = null;
+          throw err;
+        });
+      }
+      return zonesIndexPromise;
+    }
+
+    async function loadSourcesLite() {
+      const res = await fetch("calendars/sources-lite.json");
       if (!res.ok) return;
       const data = await res.json();
       if (!data || !Array.isArray(data.comuni)) return;
-      SOURCES_INDEX = data;
+      /** @type {Record<string, { id: string, provider: string, sourcePage: string }>} */
+      const map = Object.create(null);
+      for (const c of data.comuni) {
+        if (!c || !c.id) continue;
+        map[c.id] = {
+          id: c.id,
+          provider: String(c.provider || ""),
+          sourcePage: String(c.sourcePage || ""),
+        };
+      }
+      SOURCES_LITE = map;
+    }
+
+    /** Footer “Fonte”: carica sources-lite solo dopo la scelta zona. */
+    function ensureSourcesLite() {
+      if (SOURCES_LITE) return Promise.resolve();
+      if (!sourcesLitePromise) {
+        sourcesLitePromise = loadSourcesLite()
+          .catch((err) => {
+            console.error(err);
+            SOURCES_LITE = Object.create(null);
+          })
+          .then(() => {
+            if (!SOURCES_LITE) SOURCES_LITE = Object.create(null);
+          });
+      }
+      return sourcesLitePromise;
     }
 
     function sourceForComune(comuneId) {
-      if (!SOURCES_INDEX || !Array.isArray(SOURCES_INDEX.comuni)) return null;
-      return SOURCES_INDEX.comuni.find((c) => c.id === comuneId) || null;
+      if (!SOURCES_LITE || !comuneId) return null;
+      return SOURCES_LITE[comuneId] || null;
     }
 
     function readStoredChoice() {
@@ -1404,29 +1663,40 @@
       const via = localStorage.getItem(LS_VIA);
       const calendar = normalizeCalendarBase(localStorage.getItem(LS_CALENDAR));
       if (!comuneId || !via || !calendar) return null;
-      return { comuneId, via, calendar };
+      const comuneName = localStorage.getItem(LS_COMUNE_NAME) || "";
+      return { comuneId, comuneName, via, calendar };
     }
 
+    /** Con index caricato valida comune/via; altrimenti si fida di localStorage (boot veloce). */
     function resolveStoredChoice(stored) {
-      if (!ZONES_INDEX || !stored) return null;
-      const comune = ZONES_INDEX.comuni.find((c) => c.id === stored.comuneId);
-      if (!comune) return null;
-      const base = normalizeCalendarBase(stored.calendar);
-      const viaEntry = comune.vie.find(
-        (v) => v.name === stored.via && normalizeCalendarBase(v.calendar) === base
-      );
-      if (!viaEntry) return null;
+      if (!stored) return null;
+      if (ZONES_INDEX) {
+        const comune = ZONES_INDEX.comuni.find((c) => c.id === stored.comuneId);
+        if (!comune) return null;
+        const base = normalizeCalendarBase(stored.calendar);
+        const viaEntry = comune.vie.find(
+          (v) => v.name === stored.via && normalizeCalendarBase(v.calendar) === base
+        );
+        if (!viaEntry) return null;
+        return {
+          comuneId: comune.id,
+          comuneName: comune.name,
+          via: viaEntry.name,
+          calendar: normalizeCalendarBase(viaEntry.calendar),
+        };
+      }
       return {
-        comuneId: comune.id,
-        comuneName: comune.name,
-        via: viaEntry.name,
-        calendar: normalizeCalendarBase(viaEntry.calendar),
+        comuneId: stored.comuneId,
+        comuneName: stored.comuneName || stored.comuneId,
+        via: stored.via,
+        calendar: normalizeCalendarBase(stored.calendar),
       };
     }
 
     function saveChoice(choice) {
       const calendar = normalizeCalendarBase(choice.calendar);
       localStorage.setItem(LS_COMUNE, choice.comuneId);
+      localStorage.setItem(LS_COMUNE_NAME, choice.comuneName || "");
       localStorage.setItem(LS_VIA, choice.via);
       localStorage.setItem(LS_CALENDAR, calendar);
       ZONE_CHOICE = { ...choice, calendar };
@@ -1434,6 +1704,7 @@
 
     function clearChoice() {
       localStorage.removeItem(LS_COMUNE);
+      localStorage.removeItem(LS_COMUNE_NAME);
       localStorage.removeItem(LS_VIA);
       localStorage.removeItem(LS_CALENDAR);
       ZONE_CHOICE = null;
@@ -1497,8 +1768,18 @@
         return;
       }
       label.textContent = ZONE_CHOICE.comuneName + " · " + ZONE_CHOICE.via;
-      updateFooterSources(sourceForComune(ZONE_CHOICE.comuneId));
       meta.hidden = false;
+      refreshFooterSources();
+    }
+
+    async function refreshFooterSources() {
+      if (!ZONE_CHOICE) {
+        updateFooterSources(null);
+        return;
+      }
+      await ensureSourcesLite();
+      if (!ZONE_CHOICE) return;
+      updateFooterSources(sourceForComune(ZONE_CHOICE.comuneId));
     }
 
     function normalizeSearch(s) {
@@ -1705,10 +1986,23 @@
 
     function showZoneGate() {
       $("zoneGateError").textContent = "";
+      setZoneGateBusy(false);
       populateComuneSelect();
       populateViaSelect("");
       $("zoneGate").hidden = false;
       comunePicker.focus();
+    }
+
+    /** Apre il gate caricando index.json solo se non è ancora in memoria. */
+    async function openZoneGate() {
+      try {
+        await ensureZonesIndex();
+        showZoneGate();
+      } catch (err) {
+        console.error(err);
+        $("liveLine").textContent = "Elenco zone non disponibile";
+        $("zoneGate").hidden = true;
+      }
     }
 
     function hideZoneGate() {
@@ -1729,12 +2023,36 @@
       };
     }
 
+    /** Chiede al SW di tenere in cache solo indici + calendari della zona attiva. */
+    function precacheSelectedZone(calendarBase) {
+      if (!("serviceWorker" in navigator)) return;
+      const base = normalizeCalendarBase(calendarBase);
+      if (!base) return;
+      const urls = ["calendars/index.json"];
+      for (const year of activeYears()) {
+        urls.push(base + "-" + year + ".h");
+      }
+      const post = (sw) => {
+        if (sw) sw.postMessage({ type: "cache-zone", urls });
+      };
+      if (navigator.serviceWorker.controller) {
+        post(navigator.serviceWorker.controller);
+        return;
+      }
+      navigator.serviceWorker.ready
+        .then((reg) => post(reg.active))
+        .catch((err) => console.error(err));
+    }
+
     async function applyZoneAndRender(choice) {
       ZONE_CHOICE = choice;
       updateZoneMeta();
       dayCache.clear();
-      await loadCalendarEntries(choice.calendar);
       hideZoneGate();
+      showHomeSkeleton();
+      setMonthLoading(true);
+      await loadCalendarEntries(choice.calendar);
+      precacheSelectedZone(choice.calendar);
       loadTomorrowHero();
       ensureWeekMonthsCached();
       loadMonth();
@@ -1806,7 +2124,8 @@
 
     function renderHero(t) {
       const hero = $("hero");
-      hero.classList.remove("empty");
+      hero.classList.remove("empty", "is-loading");
+      hero.removeAttribute("aria-busy");
 
       if (!t || !t.year) {
         $("heroTitle").textContent = "Dati non disponibili";
@@ -2000,8 +2319,87 @@
       return d;
     }
 
+    function showHomeSkeleton() {
+      const hero = $("hero");
+      hero.classList.remove("empty");
+      hero.classList.add("is-loading");
+      hero.setAttribute("aria-busy", "true");
+      $("heroTitle").innerHTML = '<span class="sk-bar on-dark long"></span>';
+      $("heroWhen").innerHTML = '<span class="sk-bar on-dark mid"></span>';
+      $("heroPickups").innerHTML =
+        '<div class="pickup sk-pickup" aria-hidden="true"><span class="sk-bar on-dark long"></span></div>' +
+        '<div class="pickup sk-pickup" aria-hidden="true"><span class="sk-bar on-dark mid"></span></div>';
+
+      const strip = $("weekStrip");
+      strip.innerHTML = "";
+      strip.setAttribute("aria-busy", "true");
+      for (let i = 0; i < 7; i++) {
+        const el = document.createElement("div");
+        el.className = "day-chip skeleton";
+        el.setAttribute("aria-hidden", "true");
+        el.innerHTML =
+          '<span class="sk-bar short"></span>' +
+          '<span class="sk-bar mid"></span>' +
+          '<span class="sk-bar short"></span>';
+        strip.appendChild(el);
+      }
+
+      const detail = $("dayDetail");
+      detail.classList.add("is-loading");
+      detail.setAttribute("aria-busy", "true");
+      $("dayDetailLabel").innerHTML = '<span class="sk-bar mid"></span>';
+      $("dayDetailChips").innerHTML =
+        '<span class="sk-bar long"></span><span class="sk-bar mid"></span>';
+      $("weekMonthHint").textContent = "—";
+    }
+
+    function setMonthLoading(on) {
+      const wrap = $("calWrap");
+      const body = $("calBody");
+      if (!wrap || !body) return;
+      if (on) {
+        wrap.classList.add("loading");
+        wrap.classList.remove("is-empty-month");
+        body.classList.remove("is-empty");
+        body.setAttribute("aria-busy", "true");
+        const title = MONTH_IT[viewMonth - 1] + " " + viewYear;
+        $("calTitle").textContent = title;
+        $("calTitleShort").textContent = MONTH_IT[viewMonth - 1].slice(0, 3) + " ▸";
+        renderSkeletonMonth(viewYear, viewMonth);
+      } else {
+        wrap.classList.remove("loading");
+        body.removeAttribute("aria-busy");
+      }
+    }
+
+    function setZoneGateBusy(on) {
+      const btn = $("zoneGateSubmit");
+      if (!btn) return;
+      if (on) {
+        if (!btn.dataset.label) btn.dataset.label = btn.textContent.trim() || "Mostra calendario";
+        btn.disabled = true;
+        btn.classList.add("is-busy");
+        btn.setAttribute("aria-busy", "true");
+        btn.innerHTML =
+          '<span class="btn-spinner" aria-hidden="true"></span> Caricamento…';
+        $("inpComune").disabled = true;
+        $("inpVia").disabled = true;
+      } else {
+        btn.classList.remove("is-busy");
+        btn.removeAttribute("aria-busy");
+        btn.textContent = btn.dataset.label || "Mostra calendario";
+        $("inpComune").disabled = false;
+        populateViaSelect($("valComune").value);
+        updateGateSubmitState();
+      }
+    }
+
     function renderWeekStrip() {
       const strip = $("weekStrip");
+      strip.removeAttribute("aria-busy");
+      const detail = $("dayDetail");
+      detail.classList.remove("is-loading");
+      detail.removeAttribute("aria-busy");
       strip.innerHTML = "";
       const today = new Date();
       const monday = mondayOfWeek(today);
@@ -2142,6 +2540,7 @@
     }
 
     function loadMonth() {
+      setMonthLoading(false);
       const title = MONTH_IT[viewMonth - 1] + " " + viewYear;
       $("calTitle").textContent = title;
       $("calTitleShort").textContent = MONTH_IT[viewMonth - 1].slice(0, 3) + " ▸";
@@ -2439,6 +2838,34 @@
 
     $("btnGotoCal").addEventListener("click", () => setTab("cal"));
 
+    async function shareAppLink() {
+      const url = location.origin + location.pathname;
+      const shareData = {
+        title: "Escilo",
+        text: "Calendario ritiri rifiuti — Escilo",
+        url,
+      };
+      try {
+        if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(url);
+      } catch (e) {
+        if (e && e.name === "AbortError") return;
+        try {
+          await navigator.clipboard.writeText(url);
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+    document.querySelectorAll("[data-share]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        void shareAppLink();
+      });
+    });
+
     document.querySelectorAll("#bottomNav [data-tab]").forEach((btn) => {
       btn.addEventListener("click", () => setTab(btn.dataset.tab));
     });
@@ -2485,7 +2912,7 @@
         $("zoneGateError").textContent = "Seleziona comune e via.";
         return;
       }
-      $("zoneGateSubmit").disabled = true;
+      setZoneGateBusy(true);
       $("zoneGateError").textContent = "";
       try {
         saveChoice(choice);
@@ -2493,7 +2920,14 @@
       } catch (err) {
         console.error(err);
         $("zoneGateError").textContent = "Impossibile caricare il calendario.";
-        $("zoneGateSubmit").disabled = false;
+        setMonthLoading(false);
+        renderHero(null);
+        $("weekStrip").innerHTML = "";
+        $("dayDetail").classList.remove("is-loading");
+        $("dayDetailLabel").textContent = "—";
+        $("dayDetailChips").innerHTML = "";
+        showZoneGate();
+        setZoneGateBusy(false);
       }
     });
 
@@ -2503,7 +2937,7 @@
       CALENDAR_ENTRIES = [];
       dayCache.clear();
       renderHero(null);
-      showZoneGate();
+      openZoneGate();
       syncPushOffer();
     });
 
@@ -2812,7 +3246,12 @@
       sheet.hidden = true;
     }
 
-    async function syncPushOffer() {
+    let pushEnableWanted = false;
+    let notifyToggleBusy = false;
+    let notifyPermissionWatch = null;
+
+    async function syncPushOffer(opts) {
+      const keepHint = !!(opts && opts.keepHint);
       const btn = $("btnPushOffer");
       const toggle = $("notifyToggle");
       const hourRow = $("notifyHourRow");
@@ -2871,20 +3310,20 @@
         return;
       }
 
-      toggle.disabled = false;
+      toggle.disabled = notifyToggleBusy;
       if (hourRow) hourRow.hidden = false;
-      setNotifyHint("");
+      if (!keepHint) setNotifyHint("");
       await reconcilePushState();
 
       let enabled = false;
       try {
         enabled = await isPushActive();
-        toggle.checked = enabled;
+        if (!notifyToggleBusy) toggle.checked = enabled;
       } catch (err) {
         console.error(err);
         enabled = false;
-        toggle.checked = false;
-        setNotifyHint("Stato notifiche non disponibile");
+        if (!notifyToggleBusy) toggle.checked = false;
+        if (!keepHint) setNotifyHint("Stato notifiche non disponibile");
       }
 
       btn.classList.toggle("is-on", enabled);
@@ -2896,11 +3335,24 @@
       }
     }
 
-    async function subscribePush() {
-      const permission = await Notification.requestPermission();
-      if (permission !== "granted") {
+    async function requestNotificationPermission() {
+      if (!("Notification" in window)) {
         throw new Error("permission_denied");
       }
+      // Ogni attivazione richiama il prompt di sistema finché il permesso
+      // resta "default". Se è già "denied" il browser non mostra più il
+      // dialogo: la chiamata risolve subito e l'UI guida alle impostazioni.
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") return permission;
+      throw new Error(
+        Notification.permission === "denied"
+          ? "permission_blocked"
+          : "permission_denied"
+      );
+    }
+
+    async function subscribePush() {
+      await requestNotificationPermission();
       const publicKey = await fetchVapidPublicKey();
       const reg = await navigator.serviceWorker.ready;
       let sub = await reg.pushManager.getSubscription();
@@ -2926,6 +3378,7 @@
           throw new Error(errBody.error || "subscribe_failed");
         }
         markPushRegistered();
+        pushEnableWanted = false;
         return sub;
       } catch (err) {
         clearPushRegistered();
@@ -2936,6 +3389,47 @@
         }
         throw err;
       }
+    }
+
+    async function resumePushIfPermitted() {
+      if (!pushEnableWanted || !ZONE_CHOICE || notifyToggleBusy) return;
+      if (!pushSupported() || Notification.permission !== "granted") return;
+      if (await isPushActive()) {
+        pushEnableWanted = false;
+        await syncPushOffer();
+        return;
+      }
+      const toggle = $("notifyToggle");
+      const sw = toggle && toggle.closest(".notify-switch");
+      notifyToggleBusy = true;
+      if (toggle) toggle.disabled = true;
+      if (sw) sw.classList.add("is-busy");
+      setNotifyHint("Attivazione…");
+      try {
+        await subscribePush();
+        setNotifyHint("");
+      } catch (err) {
+        console.error(err);
+      } finally {
+        notifyToggleBusy = false;
+        if (sw) sw.classList.remove("is-busy");
+        await syncPushOffer({ keepHint: true });
+      }
+    }
+
+    function watchNotificationPermission() {
+      if (notifyPermissionWatch || !navigator.permissions || !navigator.permissions.query) {
+        return;
+      }
+      navigator.permissions
+        .query({ name: "notifications" })
+        .then((status) => {
+          notifyPermissionWatch = status;
+          status.addEventListener("change", () => {
+            resumePushIfPermitted();
+          });
+        })
+        .catch(() => {});
     }
 
     async function unsubscribePush() {
@@ -2987,6 +3481,16 @@
 
     $("notifyToggle").addEventListener("change", async () => {
       const toggle = $("notifyToggle");
+      const sw = toggle.closest(".notify-switch");
+      if (notifyToggleBusy) {
+        toggle.checked = !toggle.checked;
+        return;
+      }
+      notifyToggleBusy = true;
+      toggle.disabled = true;
+      if (sw) sw.classList.add("is-busy");
+      let keepHint = true;
+      setNotifyHint(toggle.checked ? "Attivazione…" : "Disattivazione…");
       try {
         if (toggle.checked) {
           if (!ZONE_CHOICE) {
@@ -2994,11 +3498,19 @@
             setNotifyHint("Scegli prima una zona");
             return;
           }
+          pushEnableWanted = true;
+          watchNotificationPermission();
+          // Ogni ON richiama il consenso di sistema; lo switch resta ON
+          // solo se il permesso è granted e la subscribe va a buon fine.
           await subscribePush();
+          setNotifyHint("");
+          keepHint = false;
         } else {
+          pushEnableWanted = false;
           await unsubscribePush();
+          setNotifyHint("");
+          keepHint = false;
         }
-        setNotifyHint("");
       } catch (err) {
         console.error(err);
         toggle.checked = false;
@@ -3007,29 +3519,50 @@
         } catch (cleanupErr) {
           console.error(cleanupErr);
         }
-        if (err && err.message === "permission_denied") {
-          setNotifyHint("Permesso notifiche negato");
+        keepHint = true;
+        if (err && err.message === "permission_blocked") {
+          setNotifyHint(
+            "Notifiche bloccate dal dispositivo. Abilitale nelle impostazioni del browser/sito, poi riprova con lo switch."
+          );
+        } else if (err && err.message === "permission_denied") {
+          setNotifyHint("Permesso non concesso. Riprova e accetta per attivarle.");
         } else if (err && err.message === "vapid_unavailable") {
           setNotifyHint("Server push non configurato");
         } else {
           setNotifyHint("Attivazione non riuscita");
         }
+      } finally {
+        notifyToggleBusy = false;
+        if (sw) sw.classList.remove("is-busy");
+        await syncPushOffer({ keepHint });
       }
-      await syncPushOffer();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") resumePushIfPermitted();
+    });
+    window.addEventListener("focus", () => {
+      resumePushIfPermitted();
     });
 
     $("notifyHour").addEventListener("change", async () => {
       const hour = Number($("notifyHour").value);
       if (!Number.isInteger(hour) || hour < 0 || hour > 23) return;
       savePushHour(hour);
+      const sel = $("notifyHour");
+      sel.disabled = true;
+      setNotifyHint("Aggiornamento…");
       try {
         await refreshPushRegistration();
         setNotifyHint("");
+        await syncPushOffer();
       } catch (err) {
         console.error(err);
         setNotifyHint("Ora salvata in locale; sync server fallito");
+        await syncPushOffer({ keepHint: true });
+      } finally {
+        sel.disabled = false;
       }
-      await syncPushOffer();
     });
 
     async function registerServiceWorker() {
@@ -3057,19 +3590,14 @@
       migratePushHourDefault();
       fillNotifyHourSelect();
       await registerServiceWorker();
+      watchNotificationPermission();
       syncInstallButton();
-      try {
-        await loadZonesIndex();
-        await loadSourcesIndex();
-      } catch (err) {
-        console.error(err);
-        $("liveLine").textContent = "Elenco zone non disponibile";
-        renderHero(null);
-        return;
-      }
 
-      const resolved = resolveStoredChoice(readStoredChoice());
+      const stored = readStoredChoice();
+      const resolved = resolveStoredChoice(stored);
       if (resolved) {
+        showHomeSkeleton();
+        setMonthLoading(true);
         try {
           await applyZoneAndRender(resolved);
           const day = initialDayFromUrl();
@@ -3083,11 +3611,16 @@
         } catch (err) {
           console.error(err);
           clearChoice();
+          setMonthLoading(false);
+          $("weekStrip").innerHTML = "";
+          $("dayDetail").classList.remove("is-loading");
+          $("dayDetailLabel").textContent = "—";
+          $("dayDetailChips").innerHTML = "";
         }
       }
 
       renderHero(null);
-      showZoneGate();
+      await openZoneGate();
       syncPushOffer();
     }
 

@@ -56,3 +56,10 @@
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
     Cache-Control = "public, max-age=3600"
+
+# Indici JSON (index / sources / sources-lite): cache CDN 1h
+[[headers]]
+  for = "/calendars/*.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"

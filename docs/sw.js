@@ -1,5 +1,6 @@
-/* Escilo — service worker: cache shell + Web Push + storico locale */
-const CACHE = "escilo-shell-v8";
+/* Escilo — service worker: cache shell + zona selezionata + Web Push */
+const SHELL_CACHE = "escilo-shell-v9";
+const ZONE_CACHE = "escilo-zone-v1";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -11,52 +12,6 @@ const PRECACHE = [
   "./manifest.webmanifest",
 ];
 
-const NOTIFY_HISTORY_DB = "escilo-notify";
-const NOTIFY_HISTORY_STORE = "history";
-const NOTIFY_HISTORY_MAX_DAYS = 30;
-
-function notifyHistoryCutoffIso() {
-  const d = new Date();
-  d.setDate(d.getDate() - NOTIFY_HISTORY_MAX_DAYS);
-  return d.toISOString();
-}
-
-function openNotifyHistoryDb() {
-  return new Promise((resolve, reject) => {
-    const req = indexedDB.open(NOTIFY_HISTORY_DB, 1);
-    req.onupgradeneeded = () => {
-      const db = req.result;
-      if (!db.objectStoreNames.contains(NOTIFY_HISTORY_STORE)) {
-        db.createObjectStore(NOTIFY_HISTORY_STORE, { keyPath: "id" });
-      }
-    };
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
-  });
-}
-
-function idbGetAll(store) {
-  return new Promise((resolve, reject) => {
-    const req = store.getAll();
-    req.onsuccess = () => resolve(req.result || []);
-    req.onerror = () => reject(req.error);
-  });
-}
-
-async function pruneNotifyHistory(db) {
-  const cutoff = notifyHistoryCutoffIso();
-  const tx = db.transaction(NOTIFY_HISTORY_STORE, "readwrite");
-  const store = tx.objectStore(NOTIFY_HISTORY_STORE);
-  const all = await idbGetAll(store);
-  for (const item of all) {
-    if (!item.at || item.at < cutoff) store.delete(item.id);
-  }
-  return new Promise((resolve, reject) => {
-    tx.oncomplete = () => resolve();
-    tx.onerror = () => reject(tx.error);
-  });
-}
-
 function normalizeBins(bins) {
   if (!Array.isArray(bins)) return [];
   return [...new Set(bins.map(Number).filter((n) => Number.isInteger(n) && n >= 0 && n <= 5))].sort(
@@ -64,43 +19,44 @@ function normalizeBins(bins) {
   );
 }
 
-async function appendNotifyHistory(entry) {
-  const at = entry.at || new Date().toISOString();
-  const pickupDate =
-    typeof entry.pickupDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(entry.pickupDate)
-      ? entry.pickupDate
-      : "";
-  const bins = normalizeBins(entry.bins);
-  const record = {
-    id: entry.id || (pickupDate ? `pickup:${pickupDate}` : at),
-    at,
-    title: entry.title || "Escilo",
-    body: entry.body || "",
-    pickupDate,
-    bins,
-  };
-  const db = await openNotifyHistoryDb();
-  await new Promise((resolve, reject) => {
-    const tx = db.transaction(NOTIFY_HISTORY_STORE, "readwrite");
-    tx.objectStore(NOTIFY_HISTORY_STORE).put(record);
-    tx.oncomplete = () => resolve();
-    tx.onerror = () => reject(tx.error);
-  });
-  await pruneNotifyHistory(db);
-  db.close();
+function sameOrigin(url) {
+  try {
+    return new URL(url, self.location.href).origin === self.location.origin;
+  } catch {
+    return false;
+  }
 }
 
-async function notifyClientsHistoryUpdated() {
-  const clients = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
-  for (const client of clients) {
-    client.postMessage({ type: "notify-history-updated" });
-  }
+/** Sostituisce la cache zona con le URL della zona corrente (calendari + indici). */
+async function replaceZoneCache(urls) {
+  const list = [...new Set((urls || []).filter((u) => typeof u === "string" && u && sameOrigin(u)))];
+  await caches.delete(ZONE_CACHE);
+  if (!list.length) return;
+  const cache = await caches.open(ZONE_CACHE);
+  await Promise.all(
+    list.map(async (url) => {
+      try {
+        const res = await fetch(url, { cache: "no-cache" });
+        if (res.ok) await cache.put(url, res);
+      } catch (err) {
+        console.error("zone_cache_failed", url, err);
+      }
+    })
+  );
+}
+
+async function matchCached(request) {
+  const zoneHit = await caches.match(request, { cacheName: ZONE_CACHE });
+  if (zoneHit) return zoneHit;
+  const shellHit = await caches.match(request, { cacheName: SHELL_CACHE });
+  if (shellHit) return shellHit;
+  return caches.match("./index.html", { cacheName: SHELL_CACHE });
 }
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
-      .open(CACHE)
+      .open(SHELL_CACHE)
       .then((cache) => cache.addAll(PRECACHE))
       .then(() => self.skipWaiting())
   );
@@ -108,24 +64,38 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
-    ).then(() => self.clients.claim())
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((k) => k !== SHELL_CACHE && k !== ZONE_CACHE)
+            .map((k) => caches.delete(k))
+        )
+      )
+      .then(() => {
+        try {
+          indexedDB.deleteDatabase("escilo-notify");
+        } catch {
+          /* ignore */
+        }
+      })
+      .then(() => self.clients.claim())
   );
+});
+
+self.addEventListener("message", (event) => {
+  const data = event.data;
+  if (!data || data.type !== "cache-zone") return;
+  event.waitUntil(replaceZoneCache(data.urls));
 });
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   event.respondWith(
     fetch(event.request)
-      .then((res) => {
-        const copy = res.clone();
-        if (res.ok && new URL(event.request.url).origin === self.location.origin) {
-          caches.open(CACHE).then((cache) => cache.put(event.request, copy));
-        }
-        return res;
-      })
-      .catch(() => caches.match(event.request).then((hit) => hit || caches.match("./index.html")))
+      .then((res) => res)
+      .catch(() => matchCached(event.request))
   );
 });
 
@@ -150,27 +120,18 @@ self.addEventListener("push", (event) => {
     (pickupDate ? `./?tab=cal&day=${pickupDate}` : "./");
 
   event.waitUntil(
-    appendNotifyHistory({
-      title: data.title,
-      body: data.body,
-      pickupDate,
-      bins,
-    })
-      .then(() => notifyClientsHistoryUpdated())
-      .catch((err) => console.error("notify_history_failed", err))
-      .then(() => {
-        // Android: badge = status bar + left; omit icon so no large icon on the right.
-        const isAndroid = /Android/i.test(self.navigator.userAgent || "");
-        const opts = {
-          body: data.body || "",
-          badge: "./badge-96.png",
-          lang: "it",
-          data: { url, pickupDate, bins },
-        };
-        if (!isAndroid) opts.icon = "./icon-192.png";
-        // OS notification keeps fixed title/body; pickup metadata stays in history + data.
-        return self.registration.showNotification(data.title || "Escilo", opts);
-      })
+    (async () => {
+      // Android: badge = status bar + left; omit icon so no large icon on the right.
+      const isAndroid = /Android/i.test(self.navigator.userAgent || "");
+      const opts = {
+        body: data.body || "",
+        badge: "./badge-96.png",
+        lang: "it",
+        data: { url, pickupDate, bins },
+      };
+      if (!isAndroid) opts.icon = "./icon-192.png";
+      return self.registration.showNotification(data.title || "Escilo", opts);
+    })()
   );
 });
 

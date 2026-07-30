@@ -1,0 +1,735 @@
+{
+  "generatedAt": "2026-07-28",
+  "comuni": [
+    {
+      "id": "almese",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "alpette",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/alpette/"
+    },
+    {
+      "id": "alpignano",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-alpignano/"
+    },
+    {
+      "id": "andezeno",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "arignano",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "avigliana",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "baldissero-torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "beinasco",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "borgaro-torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/780-borgaro-torinese"
+    },
+    {
+      "id": "borgiallo",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/borgiallo/"
+    },
+    {
+      "id": "borgone-susa",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "bosconero",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/bosconero/"
+    },
+    {
+      "id": "brandizzo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/781-brandizzo"
+    },
+    {
+      "id": "brosso",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/brosso/"
+    },
+    {
+      "id": "brozolo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/782-brozolo"
+    },
+    {
+      "id": "bruino",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "brusasco",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/783-brusasco"
+    },
+    {
+      "id": "bruzolo",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "busano",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/busano/"
+    },
+    {
+      "id": "bussoleno",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "buttigliera-alta",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-buttigliera-alta/"
+    },
+    {
+      "id": "cambiano",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "candiolo",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "caprie",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "carignano",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "carmagnola",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "casalborgone",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/784-casalborgone"
+    },
+    {
+      "id": "caselette",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "caselle-torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/785-caselle-torinese"
+    },
+    {
+      "id": "castagnole-po",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/786-castagneto-po"
+    },
+    {
+      "id": "castagnole-piemonte",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "castellamonte",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/castellamonte/"
+    },
+    {
+      "id": "castelnuovo-nigra",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/castelnuovo-nigra/"
+    },
+    {
+      "id": "castiglione-torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/787-castiglione-torinese"
+    },
+    {
+      "id": "cavagnolo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/788-cavagnolo"
+    },
+    {
+      "id": "chianocco",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "chieri",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "chiesanuova",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/chiesanuova/"
+    },
+    {
+      "id": "chiusa-di-san-michele",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "chivasso",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/789-chivasso"
+    },
+    {
+      "id": "ciconio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ciconio/"
+    },
+    {
+      "id": "cintano",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/cintano/"
+    },
+    {
+      "id": "cinzano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/790-cinzano"
+    },
+    {
+      "id": "cirie",
+      "provider": "CISA",
+      "sourcePage": "https://www.cisaweb.info/it-it/comune/cirie/servizi-/servizi/raccolta-differenziata/calendari-di-raccolta-1108-1-03cafa5c763d98cbb41785113ae4463e"
+    },
+    {
+      "id": "coazze",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-coazze/"
+    },
+    {
+      "id": "collegno",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-collegno/"
+    },
+    {
+      "id": "colleretto-castelnuovo",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/colleretto-castelnuovo/"
+    },
+    {
+      "id": "condove",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "cuorgne",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/cuorgne/"
+    },
+    {
+      "id": "druento",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-druento/"
+    },
+    {
+      "id": "favria",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/favria/"
+    },
+    {
+      "id": "feletto",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/feletto/"
+    },
+    {
+      "id": "foglizzo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/791-foglizzo"
+    },
+    {
+      "id": "forno-canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/forno-canavese/"
+    },
+    {
+      "id": "frassinetto",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/frassinetto/"
+    },
+    {
+      "id": "gassino-torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/792-gassino-torinese"
+    },
+    {
+      "id": "giaveno",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-giaveno/"
+    },
+    {
+      "id": "grugliasco",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-grugliasco/"
+    },
+    {
+      "id": "ingria",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ingria/"
+    },
+    {
+      "id": "isolabella",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "issiglio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/issiglio/"
+    },
+    {
+      "id": "ivrea",
+      "provider": "SCS",
+      "sourcePage": "https://scsivrea.it/calendario-2-0/calendario-comune-di-ivrea/"
+    },
+    {
+      "id": "la-loggia",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "lauriano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/793-lauriano"
+    },
+    {
+      "id": "leini",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/794-leini"
+    },
+    {
+      "id": "levone",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/levone/"
+    },
+    {
+      "id": "locana",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/locana/"
+    },
+    {
+      "id": "lombardore",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/795-lombardore"
+    },
+    {
+      "id": "lombriasco",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "mappano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/862-mappano"
+    },
+    {
+      "id": "marentino",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "mombello-di-torino",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "mompantero",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "moncalieri",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "moncucco-torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "montaldo-torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "montanaro",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/796-montanaro"
+    },
+    {
+      "id": "monteu-da-po",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/797-monteu-da-po"
+    },
+    {
+      "id": "moriondo-torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "nichelino",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "oglianico",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/oglianico/"
+    },
+    {
+      "id": "orbassano",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "osasio",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "ozegna",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ozegna/"
+    },
+    {
+      "id": "pancalieri",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "pavarolo",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "pecetto-torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "pertusio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/pertusio/"
+    },
+    {
+      "id": "pianezza",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-pianezza/"
+    },
+    {
+      "id": "pino-torinese",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "piobesi-torinese",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "piossasco",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "poirino",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "pont-canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/pont-canavese/"
+    },
+    {
+      "id": "pralormo",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "prascorsano",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/prascorsano/"
+    },
+    {
+      "id": "pratiglione",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/pratiglione/"
+    },
+    {
+      "id": "reano",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-reano/"
+    },
+    {
+      "id": "ribordone",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ribordone/"
+    },
+    {
+      "id": "riva-presso-chieri",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "rivalba",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/798-rivalba"
+    },
+    {
+      "id": "rivalta-di-torino",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "rivara",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rivara/"
+    },
+    {
+      "id": "rivarolo-canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rivarolo-canavese/"
+    },
+    {
+      "id": "rivarossa",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rivarossa/"
+    },
+    {
+      "id": "rivoli",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-rivoli/"
+    },
+    {
+      "id": "ronco-canavese",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/ronco-canavese/"
+    },
+    {
+      "id": "rondissone",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/799-rondissone"
+    },
+    {
+      "id": "rubiana",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "rueglio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/rueglio/"
+    },
+    {
+      "id": "salassa",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/salassa/"
+    },
+    {
+      "id": "san-benigno-canavese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/800-san-benigno-canavese"
+    },
+    {
+      "id": "san-colombano-belmonte",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/san-colombano-belmonte/"
+    },
+    {
+      "id": "san-mauro-torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/801-san-mauro-torinese"
+    },
+    {
+      "id": "san-ponso",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/san-ponso/"
+    },
+    {
+      "id": "san-raffaele-cimena",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/802-san-raffaele-cimena"
+    },
+    {
+      "id": "san-sebastiano-da-po",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/803-san-sebastiano-da-po"
+    },
+    {
+      "id": "sangano",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-sangano/"
+    },
+    {
+      "id": "sant-ambrogio-di-torino",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "sant-antonino-di-susa",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "santena",
+      "provider": "CCS",
+      "sourcePage": "https://www.ccs.to.it/calendari-raccolta"
+    },
+    {
+      "id": "sciolze",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/804-sciolze"
+    },
+    {
+      "id": "settimo-torinese",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/805-settimo-torinese"
+    },
+    {
+      "id": "sparone",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/sparone/"
+    },
+    {
+      "id": "susa",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "torrazza-piemonte",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/806-torrazza-piemonte"
+    },
+    {
+      "id": "trana",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-trana/"
+    },
+    {
+      "id": "traversella",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/traversella/"
+    },
+    {
+      "id": "trofarello",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "vaie",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "val-di-chy",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/val-di-chy/"
+    },
+    {
+      "id": "valchiusa",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/valchiusa/"
+    },
+    {
+      "id": "valperga",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/valperga/"
+    },
+    {
+      "id": "valprato-soana",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/valprato-soana/"
+    },
+    {
+      "id": "venaria-reale",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-venaria-reale/"
+    },
+    {
+      "id": "verolengo",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/807-verolengo"
+    },
+    {
+      "id": "verrua-savoia",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/808-verrua-savoia"
+    },
+    {
+      "id": "vidracco",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/vidracco/"
+    },
+    {
+      "id": "villar-dora",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "villar-focchiardo",
+      "provider": "ACSEL",
+      "sourcePage": "https://www.acselspa.it/calendari-raccolta-rifiuti/"
+    },
+    {
+      "id": "villarbasse",
+      "provider": "CIDIU",
+      "sourcePage": "https://cidiu.it/cidiu/comune-di-villarbasse/"
+    },
+    {
+      "id": "villastellone",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "vinovo",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "virle-piemonte",
+      "provider": "Covar14",
+      "sourcePage": "https://www.covar14.it/it/servizi-e-impianti/servizi/calendario-di-raccolta"
+    },
+    {
+      "id": "vistrorio",
+      "provider": "TeknoService",
+      "sourcePage": "https://www.teknoserviceitalia.com/piemonte/torino/vistrorio/"
+    },
+    {
+      "id": "volpiano",
+      "provider": "SETA",
+      "sourcePage": "https://www.setaspa.com/comuni/148-comuni/809-volpiano"
+    }
+  ]
+}
