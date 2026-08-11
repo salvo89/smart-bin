@@ -514,6 +514,16 @@ html.is-sheet-open body {
 }
 .trend-chart.is-down .tl-dot { stroke: var(--bad); }
 .trend-chart.is-up .tl-dot { stroke: var(--good); }
+.trend-chart .tl-dot-end {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 45%, transparent));
+}
+.trend-chart.is-up .tl-dot-end {
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--good) 55%, transparent));
+}
+.trend-chart.is-down .tl-dot-end {
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--bad) 55%, transparent));
+}
 .trend-chart .tl-val {
   fill: var(--ink);
   font-size: 11px;
@@ -528,37 +538,59 @@ html.is-sheet-open body {
   font-family: var(--font);
   text-anchor: middle;
 }
-.delta-chip {
-  display: inline-flex;
-  align-items: center;
-  margin: 0.75rem 0 0;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-  background: var(--accent-soft);
+.trend-chart .tl-delta {
   color: var(--accent);
 }
-.delta-chip.tone-good {
-  background: var(--accent-soft);
-  color: var(--good);
+.trend-chart.tone-good .tl-delta { color: var(--good); }
+.trend-chart.tone-bad .tl-delta { color: var(--bad); }
+.trend-chart.tone-warn .tl-delta { color: var(--warn); }
+.trend-chart .tl-delta-bg {
+  fill: color-mix(in srgb, var(--surface) 92%, currentColor);
+  stroke: currentColor;
+  stroke-width: 1.4;
+  filter: drop-shadow(0 5px 10px rgba(26, 74, 54, 0.14));
 }
-.delta-chip.tone-bad {
-  background: color-mix(in srgb, var(--bad) 14%, transparent);
-  color: var(--bad);
+.trend-chart .tl-delta-val {
+  fill: currentColor;
+  font-size: 11px;
+  font-weight: 800;
+  font-family: var(--font);
+  font-variant-numeric: tabular-nums;
+  text-anchor: middle;
+  dominant-baseline: alphabetic;
 }
-.delta-chip.tone-warn {
-  background: color-mix(in srgb, var(--warn) 14%, transparent);
-  color: var(--warn);
+.trend-chart .tl-delta-sub {
+  fill: var(--muted);
+  font-size: 7px;
+  font-weight: 650;
+  font-family: var(--font);
+  letter-spacing: 0.02em;
+  text-anchor: middle;
+  dominant-baseline: alphabetic;
 }
-.delta-chip.is-plain {
-  display: block;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  color: var(--muted);
+.trend-chart .tl-delta-badge {
+  animation: tl-delta-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes tl-delta-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trend-chart .tl-delta-badge { animation: none; }
+}
+.trend-note {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
   font-weight: 600;
+  color: var(--muted);
 }
 
 .compare-grid {

@@ -59,7 +59,7 @@ function resolveComuneId() {
   return comuneIdFromUrl() || localStorage.getItem(LS_COMUNE) || "";
 }
 
-function renderSpark(series) {
+function renderSpark(series, delta) {
   const root = $("spark");
   const years = ["2022", "2023", "2024"];
   const pts = years.map((y) => {
@@ -84,10 +84,10 @@ function renderSpark(series) {
   const span = yMax - yMin || 1;
 
   const W = 320;
-  const H = 128;
+  const H = 148;
   const left = 28;
   const right = W - 28;
-  const top = 26;
+  const top = 34;
   const bottom = H - 28;
   const n = pts.length;
   const xAt = function (i) {
@@ -125,10 +125,16 @@ function renderSpark(series) {
   const first = known[0].v;
   const last = known[known.length - 1].v;
   const dir = last > first + 0.05 ? "is-up" : last < first - 0.05 ? "is-down" : "";
-  root.className = "trend-chart" + (dir ? " " + dir : "");
+  const tone = toneClass(delta, false);
+  root.className =
+    "trend-chart" +
+    (dir ? " " + dir : "") +
+    (tone ? " " + tone : "");
 
+  const lastIdx = plotted.length - 1;
   const labels = plotted
-    .map(function (p) {
+    .map(function (p, idx) {
+      const isEnd = idx === lastIdx;
       return (
         '<text class="tl-val" x="' +
         p.x.toFixed(1) +
@@ -137,11 +143,15 @@ function renderSpark(series) {
         '">' +
         fmtPct(p.v, 1) +
         "</text>" +
-        '<circle class="tl-dot" cx="' +
+        '<circle class="tl-dot' +
+        (isEnd ? " tl-dot-end" : "") +
+        '" cx="' +
         p.x.toFixed(1) +
         '" cy="' +
         p.y.toFixed(1) +
-        '" r="4.5"/>' +
+        '" r="' +
+        (isEnd ? "6" : "4.5") +
+        '"/>' +
         '<text class="tl-year" x="' +
         p.x.toFixed(1) +
         '" y="' +
@@ -153,6 +163,61 @@ function renderSpark(series) {
     })
     .join("");
 
+  let deltaSvg = "";
+  let deltaAria = "";
+  if (delta != null && plotted.length >= 2) {
+    const b = plotted[lastIdx];
+    const abs = fmtNum(Math.abs(delta), 1);
+    const arrow = delta > 0.05 ? "↑" : delta < -0.05 ? "↓" : "→";
+    const signed = arrow + " " + (delta >= 0 ? "+" : "−") + abs + "%";
+    deltaAria =
+      (delta >= 0 ? "In crescita di " : "In calo di ") +
+      abs +
+      "% dal 2022 al 2024.";
+
+    const badgeW = 74;
+    const badgeH = 30;
+    const gap = 12;
+    // Keep near the last point (original spot), smaller so it clears % labels.
+    let badgeX = b.x - badgeW - 12;
+    let badgeY = b.y - badgeH - gap;
+    if (badgeX < 6) badgeX = Math.min(W - badgeW - 6, b.x + 8);
+    if (badgeY < 4) badgeY = Math.min(bottom - badgeH - 8, b.y + gap);
+    // Clear the last point % label (above the dot).
+    const lastLabelTop = b.y - 12 - 12;
+    if (badgeY + badgeH > lastLabelTop - 3 && badgeX + badgeW > b.x - 28) {
+      badgeY = Math.max(4, lastLabelTop - badgeH - 4);
+    }
+    badgeX = Math.max(6, Math.min(W - badgeW - 6, badgeX));
+    badgeY = Math.max(4, Math.min(H - badgeH - 22, badgeY));
+
+    deltaSvg =
+      '<g class="tl-delta" aria-hidden="true">' +
+      '<g class="tl-delta-badge">' +
+      '<rect class="tl-delta-bg" x="' +
+      badgeX.toFixed(1) +
+      '" y="' +
+      badgeY.toFixed(1) +
+      '" width="' +
+      badgeW +
+      '" height="' +
+      badgeH +
+      '" rx="8" ry="8"/>' +
+      '<text class="tl-delta-val" x="' +
+      (badgeX + badgeW / 2).toFixed(1) +
+      '" y="' +
+      (badgeY + 13).toFixed(1) +
+      '">' +
+      signed +
+      "</text>" +
+      '<text class="tl-delta-sub" x="' +
+      (badgeX + badgeW / 2).toFixed(1) +
+      '" y="' +
+      (badgeY + 24).toFixed(1) +
+      '">2022→2024</text>' +
+      "</g></g>";
+  }
+
   root.innerHTML =
     '<svg viewBox="0 0 ' +
     W +
@@ -163,6 +228,7 @@ function renderSpark(series) {
     '" aria-hidden="true">' +
     (areaD ? '<path class="tl-area" d="' + areaD + '"/>' : "") +
     (lineD ? '<path class="tl-line" d="' + lineD + '"/>' : "") +
+    deltaSvg +
     labels +
     "</svg>";
 
@@ -173,7 +239,8 @@ function renderSpark(series) {
         .map(function (p) {
           return p.year + " " + fmtPct(p.v, 1);
         })
-        .join(", ")
+        .join(", ") +
+      (deltaAria ? ". " + deltaAria : "")
   );
 }
 
@@ -694,24 +761,15 @@ function render(rec, baselines) {
   );
   renderKpiBench(rec, baselines || {});
 
-  renderSpark(rec.series_rd || {});
   const delta = rec.delta_rd_22_24;
+  renderSpark(rec.series_rd || {}, delta);
   const deltaEl = $("trendDelta");
   if (delta == null) {
+    deltaEl.hidden = false;
     deltaEl.textContent = "Serie storica incompleta.";
-    deltaEl.removeAttribute("aria-label");
-    deltaEl.className = "delta-chip is-plain";
   } else {
-    const abs = fmtNum(Math.abs(delta), 1);
-    const signed = (delta >= 0 ? "+" : "−") + abs;
-    deltaEl.className = "delta-chip " + toneClass(delta, false);
-    deltaEl.textContent = signed + "% · 2022→2024";
-    deltaEl.setAttribute(
-      "aria-label",
-      (delta >= 0 ? "In crescita di " : "In calo di ") +
-        abs +
-        "% dal 2022 al 2024."
-    );
+    deltaEl.hidden = true;
+    deltaEl.textContent = "";
   }
 
   renderProdCards(rec, baselines || {});
