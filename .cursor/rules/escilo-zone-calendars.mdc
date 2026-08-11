@@ -1,0 +1,19 @@
+---
+description: After calendar .h, index.json, or vie/zone list changes, run validate-zone-calendars so Mostra calendario keeps working.
+globs: docs/calendars/**/*.{h,json},tools/batch_*.py,tools/*_pdf_to_h.py,tools/merge_*.py,tools/validate_zone_calendars.py,tools/check_calendar_anomalies.py
+alwaysApply: false
+---
+
+# Escilo calendari / index → test zone obbligatorio
+
+Quando modifichi file che matchano questi glob, **leggi e segui**:
+
+`.cursor/skills/validate-zone-calendars/SKILL.md`
+
+Ogni volta che viene aggiornato un calendario, l'indice dei comuni o l'elenco delle vie, vanno eseguiti questi test per accertarsi che l'app continui a funzionare.
+
+Prima di considerare il task finito:
+
+1. `py -3 tools/validate_zone_calendars.py` (exit 0) — oppure `npm run test:zones`
+2. Se hai toccato `.h`: anche skill `check-calendar-anomalies`
+3. Se hai cambiato comuni/zone in `index.json`: anche skill `maintain-escilo-seo`

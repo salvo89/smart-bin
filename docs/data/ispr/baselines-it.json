@@ -1,0 +1,891 @@
+{
+  "generatedAt": "2026-08-11",
+  "source": "ISPRA Catasto nazionale rifiuti — dettaglio comunale",
+  "sourceUrl": "https://www.catasto-rifiuti.isprambiente.it/",
+  "latestYear": 2024,
+  "yearsAvailable": [
+    2022,
+    2023,
+    2024
+  ],
+  "targetRdPct": 65.0,
+  "targetNote": "Obiettivo minimo di raccolta differenziata ex art. 205 D.Lgs. 152/2006 (65% entro il 31/12/2012).",
+  "years": {
+    "2022": {
+      "rd_pct": {
+        "n": 7727,
+        "mean": 68.41,
+        "median": 72.05,
+        "p10": 45.76,
+        "p90": 84.79
+      },
+      "kg_ru_ab": {
+        "n": 7727,
+        "mean": 459.81,
+        "median": 429.0,
+        "p10": 300.4,
+        "p90": 633.3
+      },
+      "kg_ind_ab": {
+        "n": 7727,
+        "mean": 145.82,
+        "median": 113.1,
+        "p10": 57.7,
+        "p90": 278.5
+      },
+      "share_ge_65": 69.0
+    },
+    "2023": {
+      "rd_pct": {
+        "n": 7771,
+        "mean": 69.41,
+        "median": 72.56,
+        "p10": 47.77,
+        "p90": 85.85
+      },
+      "kg_ru_ab": {
+        "n": 7771,
+        "mean": 464.29,
+        "median": 432.6,
+        "p10": 296.9,
+        "p90": 647.7
+      },
+      "kg_ind_ab": {
+        "n": 7771,
+        "mean": 142.43,
+        "median": 111.1,
+        "p10": 56.6,
+        "p90": 266.7
+      },
+      "share_ge_65": 70.7
+    },
+    "2024": {
+      "rd_pct": {
+        "n": 7767,
+        "mean": 70.17,
+        "median": 73.13,
+        "p10": 49.87,
+        "p90": 86.13
+      },
+      "kg_ru_ab": {
+        "n": 7767,
+        "mean": 476.75,
+        "median": 445.0,
+        "p10": 301.5,
+        "p90": 664.5
+      },
+      "kg_ind_ab": {
+        "n": 7766,
+        "mean": 142.84,
+        "median": 113.3,
+        "p10": 58.1,
+        "p90": 260.9
+      },
+      "share_ge_65": 72.4
+    }
+  },
+  "by_regione": {
+    "Abruzzo": {
+      "rd_pct_median": 71.34,
+      "rd_pct_n": 295,
+      "kg_ru_ab_median": 366.6,
+      "kg_ind_ab_median": 106.4
+    },
+    "Basilicata": {
+      "rd_pct_median": 67.77,
+      "rd_pct_n": 129,
+      "kg_ru_ab_median": 291.7,
+      "kg_ind_ab_median": 96.6
+    },
+    "Calabria": {
+      "rd_pct_median": 62.18,
+      "rd_pct_n": 394,
+      "kg_ru_ab_median": 322.2,
+      "kg_ind_ab_median": 126.75
+    },
+    "Campania": {
+      "rd_pct_median": 68.72,
+      "rd_pct_n": 550,
+      "kg_ru_ab_median": 376.25,
+      "kg_ind_ab_median": 116.05
+    },
+    "Emilia-Romagna": {
+      "rd_pct_median": 80.02,
+      "rd_pct_n": 330,
+      "kg_ru_ab_median": 645.3,
+      "kg_ind_ab_median": 127.05
+    },
+    "Friuli-Venezia Giulia": {
+      "rd_pct_median": 78.43,
+      "rd_pct_n": 215,
+      "kg_ru_ab_median": 507.9,
+      "kg_ind_ab_median": 106.6
+    },
+    "Lazio": {
+      "rd_pct_median": 67.44,
+      "rd_pct_n": 350,
+      "kg_ru_ab_median": 366.9,
+      "kg_ind_ab_median": 116.8
+    },
+    "Liguria": {
+      "rd_pct_median": 66.56,
+      "rd_pct_n": 234,
+      "kg_ru_ab_median": 487.3,
+      "kg_ind_ab_median": 170.65
+    },
+    "Lombardia": {
+      "rd_pct_median": 77.47,
+      "rd_pct_n": 1494,
+      "kg_ru_ab_median": 471.25,
+      "kg_ind_ab_median": 106.6
+    },
+    "Marche": {
+      "rd_pct_median": 73.29,
+      "rd_pct_n": 225,
+      "kg_ru_ab_median": 465.1,
+      "kg_ind_ab_median": 120.6
+    },
+    "Molise": {
+      "rd_pct_median": 61.63,
+      "rd_pct_n": 134,
+      "kg_ru_ab_median": 315.7,
+      "kg_ind_ab_median": 110.5
+    },
+    "Piemonte": {
+      "rd_pct_median": 70.31,
+      "rd_pct_n": 1180,
+      "kg_ru_ab_median": 478.35,
+      "kg_ind_ab_median": 132.4
+    },
+    "Puglia": {
+      "rd_pct_median": 66.92,
+      "rd_pct_n": 257,
+      "kg_ru_ab_median": 433.2,
+      "kg_ind_ab_median": 138.4
+    },
+    "Sardegna": {
+      "rd_pct_median": 79.96,
+      "rd_pct_n": 377,
+      "kg_ru_ab_median": 372.9,
+      "kg_ind_ab_median": 66.5
+    },
+    "Sicilia": {
+      "rd_pct_median": 71.2,
+      "rd_pct_n": 391,
+      "kg_ru_ab_median": 366.7,
+      "kg_ind_ab_median": 104.5
+    },
+    "Toscana": {
+      "rd_pct_median": 68.21,
+      "rd_pct_n": 273,
+      "kg_ru_ab_median": 545.3,
+      "kg_ind_ab_median": 174.4
+    },
+    "Trentino-Alto Adige": {
+      "rd_pct_median": 79.81,
+      "rd_pct_n": 282,
+      "kg_ru_ab_median": 474.95,
+      "kg_ind_ab_median": 89.65
+    },
+    "Umbria": {
+      "rd_pct_median": 68.76,
+      "rd_pct_n": 92,
+      "kg_ru_ab_median": 487.75,
+      "kg_ind_ab_median": 150.35
+    },
+    "Valle d'Aosta": {
+      "rd_pct_median": 73.19,
+      "rd_pct_n": 5,
+      "kg_ru_ab_median": 669.7,
+      "kg_ind_ab_median": 162.2
+    },
+    "Veneto": {
+      "rd_pct_median": 83.25,
+      "rd_pct_n": 560,
+      "kg_ru_ab_median": 459.55,
+      "kg_ind_ab_median": 76.7
+    }
+  },
+  "by_provincia": {
+    "Agrigento": {
+      "rd_pct_median": 67.72,
+      "rd_pct_n": 43,
+      "kg_ru_ab_median": 381.6,
+      "kg_ind_ab_median": 123.9
+    },
+    "Alessandria": {
+      "rd_pct_median": 79.73,
+      "rd_pct_n": 187,
+      "kg_ru_ab_median": 440.9,
+      "kg_ind_ab_median": 84.1
+    },
+    "Ancona": {
+      "rd_pct_median": 70.49,
+      "rd_pct_n": 47,
+      "kg_ru_ab_median": 448.0,
+      "kg_ind_ab_median": 129.5
+    },
+    "Aosta": {
+      "rd_pct_median": 73.19,
+      "rd_pct_n": 5,
+      "kg_ru_ab_median": 669.7,
+      "kg_ind_ab_median": 162.2
+    },
+    "Arezzo": {
+      "rd_pct_median": 54.15,
+      "rd_pct_n": 36,
+      "kg_ru_ab_median": 577.95,
+      "kg_ind_ab_median": 260.95
+    },
+    "Ascoli Piceno": {
+      "rd_pct_median": 64.99,
+      "rd_pct_n": 33,
+      "kg_ru_ab_median": 462.2,
+      "kg_ind_ab_median": 147.7
+    },
+    "Asti": {
+      "rd_pct_median": 69.27,
+      "rd_pct_n": 117,
+      "kg_ru_ab_median": 422.4,
+      "kg_ind_ab_median": 126.8
+    },
+    "Avellino": {
+      "rd_pct_median": 62.77,
+      "rd_pct_n": 118,
+      "kg_ru_ab_median": 342.2,
+      "kg_ind_ab_median": 124.35
+    },
+    "Bari": {
+      "rd_pct_median": 74.04,
+      "rd_pct_n": 41,
+      "kg_ru_ab_median": 403.5,
+      "kg_ind_ab_median": 106.1
+    },
+    "Barletta-Andria-Trani": {
+      "rd_pct_median": 66.6,
+      "rd_pct_n": 10,
+      "kg_ru_ab_median": 444.0,
+      "kg_ind_ab_median": 144.85
+    },
+    "Belluno": {
+      "rd_pct_median": 88.78,
+      "rd_pct_n": 60,
+      "kg_ru_ab_median": 558.4,
+      "kg_ind_ab_median": 62.6
+    },
+    "Benevento": {
+      "rd_pct_median": 77.34,
+      "rd_pct_n": 78,
+      "kg_ru_ab_median": 335.35,
+      "kg_ind_ab_median": 71.95
+    },
+    "Bergamo": {
+      "rd_pct_median": 81.07,
+      "rd_pct_n": 243,
+      "kg_ru_ab_median": 458.7,
+      "kg_ind_ab_median": 89.0
+    },
+    "Biella": {
+      "rd_pct_median": 68.28,
+      "rd_pct_n": 74,
+      "kg_ru_ab_median": 523.6,
+      "kg_ind_ab_median": 164.35
+    },
+    "Bologna": {
+      "rd_pct_median": 80.0,
+      "rd_pct_n": 55,
+      "kg_ru_ab_median": 636.0,
+      "kg_ind_ab_median": 127.8
+    },
+    "Bolzano": {
+      "rd_pct_median": 70.87,
+      "rd_pct_n": 116,
+      "kg_ru_ab_median": 449.85,
+      "kg_ind_ab_median": 128.7
+    },
+    "Brescia": {
+      "rd_pct_median": 79.38,
+      "rd_pct_n": 205,
+      "kg_ru_ab_median": 501.6,
+      "kg_ind_ab_median": 104.1
+    },
+    "Brindisi": {
+      "rd_pct_median": 70.0,
+      "rd_pct_n": 20,
+      "kg_ru_ab_median": 465.55,
+      "kg_ind_ab_median": 140.55
+    },
+    "Cagliari - fino al 2024": {
+      "rd_pct_median": 79.96,
+      "rd_pct_n": 17,
+      "kg_ru_ab_median": 418.0,
+      "kg_ind_ab_median": 80.7
+    },
+    "Caltanissetta": {
+      "rd_pct_median": 71.66,
+      "rd_pct_n": 22,
+      "kg_ru_ab_median": 356.15,
+      "kg_ind_ab_median": 100.6
+    },
+    "Campobasso": {
+      "rd_pct_median": 62.49,
+      "rd_pct_n": 83,
+      "kg_ru_ab_median": 316.5,
+      "kg_ind_ab_median": 110.0
+    },
+    "Caserta": {
+      "rd_pct_median": 62.14,
+      "rd_pct_n": 104,
+      "kg_ru_ab_median": 411.8,
+      "kg_ind_ab_median": 153.9
+    },
+    "Catania": {
+      "rd_pct_median": 72.14,
+      "rd_pct_n": 58,
+      "kg_ru_ab_median": 392.5,
+      "kg_ind_ab_median": 105.0
+    },
+    "Catanzaro": {
+      "rd_pct_median": 65.46,
+      "rd_pct_n": 77,
+      "kg_ru_ab_median": 333.9,
+      "kg_ind_ab_median": 120.6
+    },
+    "Chieti": {
+      "rd_pct_median": 77.91,
+      "rd_pct_n": 96,
+      "kg_ru_ab_median": 349.2,
+      "kg_ind_ab_median": 76.65
+    },
+    "Como": {
+      "rd_pct_median": 72.79,
+      "rd_pct_n": 145,
+      "kg_ru_ab_median": 467.2,
+      "kg_ind_ab_median": 127.0
+    },
+    "Cosenza": {
+      "rd_pct_median": 65.16,
+      "rd_pct_n": 148,
+      "kg_ru_ab_median": 314.15,
+      "kg_ind_ab_median": 109.05
+    },
+    "Cremona": {
+      "rd_pct_median": 80.31,
+      "rd_pct_n": 113,
+      "kg_ru_ab_median": 479.9,
+      "kg_ind_ab_median": 93.7
+    },
+    "Crotone": {
+      "rd_pct_median": 61.02,
+      "rd_pct_n": 27,
+      "kg_ru_ab_median": 343.8,
+      "kg_ind_ab_median": 129.7
+    },
+    "Cuneo": {
+      "rd_pct_median": 67.34,
+      "rd_pct_n": 247,
+      "kg_ru_ab_median": 495.9,
+      "kg_ind_ab_median": 144.6
+    },
+    "Enna": {
+      "rd_pct_median": 66.03,
+      "rd_pct_n": 20,
+      "kg_ru_ab_median": 332.2,
+      "kg_ind_ab_median": 112.65
+    },
+    "Fermo": {
+      "rd_pct_median": 74.41,
+      "rd_pct_n": 40,
+      "kg_ru_ab_median": 371.55,
+      "kg_ind_ab_median": 92.15
+    },
+    "Ferrara": {
+      "rd_pct_median": 77.74,
+      "rd_pct_n": 21,
+      "kg_ru_ab_median": 530.9,
+      "kg_ind_ab_median": 120.6
+    },
+    "Firenze": {
+      "rd_pct_median": 79.5,
+      "rd_pct_n": 41,
+      "kg_ru_ab_median": 513.5,
+      "kg_ind_ab_median": 99.3
+    },
+    "Foggia": {
+      "rd_pct_median": 59.87,
+      "rd_pct_n": 61,
+      "kg_ru_ab_median": 377.1,
+      "kg_ind_ab_median": 151.5
+    },
+    "Forli'-Cesena": {
+      "rd_pct_median": 84.29,
+      "rd_pct_n": 30,
+      "kg_ru_ab_median": 514.0,
+      "kg_ind_ab_median": 79.45
+    },
+    "Frosinone": {
+      "rd_pct_median": 63.86,
+      "rd_pct_n": 81,
+      "kg_ru_ab_median": 330.6,
+      "kg_ind_ab_median": 116.3
+    },
+    "Genova": {
+      "rd_pct_median": 63.13,
+      "rd_pct_n": 67,
+      "kg_ru_ab_median": 520.0,
+      "kg_ind_ab_median": 188.5
+    },
+    "Gorizia": {
+      "rd_pct_median": 80.36,
+      "rd_pct_n": 25,
+      "kg_ru_ab_median": 515.5,
+      "kg_ind_ab_median": 97.8
+    },
+    "Grosseto": {
+      "rd_pct_median": 62.48,
+      "rd_pct_n": 28,
+      "kg_ru_ab_median": 542.15,
+      "kg_ind_ab_median": 226.45
+    },
+    "Imperia": {
+      "rd_pct_median": 64.01,
+      "rd_pct_n": 66,
+      "kg_ru_ab_median": 498.95,
+      "kg_ind_ab_median": 176.2
+    },
+    "Isernia": {
+      "rd_pct_median": 59.57,
+      "rd_pct_n": 51,
+      "kg_ru_ab_median": 313.3,
+      "kg_ind_ab_median": 121.6
+    },
+    "L'Aquila": {
+      "rd_pct_median": 69.86,
+      "rd_pct_n": 108,
+      "kg_ru_ab_median": 413.3,
+      "kg_ind_ab_median": 123.5
+    },
+    "La Spezia": {
+      "rd_pct_median": 70.62,
+      "rd_pct_n": 32,
+      "kg_ru_ab_median": 435.0,
+      "kg_ind_ab_median": 125.7
+    },
+    "Latina": {
+      "rd_pct_median": 69.97,
+      "rd_pct_n": 33,
+      "kg_ru_ab_median": 420.0,
+      "kg_ind_ab_median": 136.6
+    },
+    "Lecce": {
+      "rd_pct_median": 65.47,
+      "rd_pct_n": 96,
+      "kg_ru_ab_median": 454.95,
+      "kg_ind_ab_median": 162.4
+    },
+    "Lecco": {
+      "rd_pct_median": 79.11,
+      "rd_pct_n": 84,
+      "kg_ru_ab_median": 482.45,
+      "kg_ind_ab_median": 105.3
+    },
+    "Livorno": {
+      "rd_pct_median": 65.3,
+      "rd_pct_n": 19,
+      "kg_ru_ab_median": 791.7,
+      "kg_ind_ab_median": 273.3
+    },
+    "Lodi": {
+      "rd_pct_median": 75.75,
+      "rd_pct_n": 57,
+      "kg_ru_ab_median": 428.5,
+      "kg_ind_ab_median": 107.5
+    },
+    "Lucca": {
+      "rd_pct_median": 69.38,
+      "rd_pct_n": 33,
+      "kg_ru_ab_median": 495.4,
+      "kg_ind_ab_median": 177.3
+    },
+    "Macerata": {
+      "rd_pct_median": 73.63,
+      "rd_pct_n": 55,
+      "kg_ru_ab_median": 488.1,
+      "kg_ind_ab_median": 125.0
+    },
+    "Mantova": {
+      "rd_pct_median": 89.38,
+      "rd_pct_n": 64,
+      "kg_ru_ab_median": 529.7,
+      "kg_ind_ab_median": 53.6
+    },
+    "Massa-Carrara": {
+      "rd_pct_median": 71.64,
+      "rd_pct_n": 17,
+      "kg_ru_ab_median": 425.9,
+      "kg_ind_ab_median": 123.9
+    },
+    "Matera": {
+      "rd_pct_median": 70.61,
+      "rd_pct_n": 30,
+      "kg_ru_ab_median": 314.15,
+      "kg_ind_ab_median": 104.55
+    },
+    "Messina": {
+      "rd_pct_median": 72.02,
+      "rd_pct_n": 108,
+      "kg_ru_ab_median": 359.5,
+      "kg_ind_ab_median": 103.45
+    },
+    "Milano": {
+      "rd_pct_median": 78.84,
+      "rd_pct_n": 133,
+      "kg_ru_ab_median": 445.6,
+      "kg_ind_ab_median": 95.9
+    },
+    "Modena": {
+      "rd_pct_median": 86.51,
+      "rd_pct_n": 47,
+      "kg_ru_ab_median": 639.0,
+      "kg_ind_ab_median": 86.9
+    },
+    "Monza e della Brianza": {
+      "rd_pct_median": 82.69,
+      "rd_pct_n": 55,
+      "kg_ru_ab_median": 428.8,
+      "kg_ind_ab_median": 73.1
+    },
+    "Napoli": {
+      "rd_pct_median": 62.51,
+      "rd_pct_n": 92,
+      "kg_ru_ab_median": 453.05,
+      "kg_ind_ab_median": 178.25
+    },
+    "Novara": {
+      "rd_pct_median": 82.13,
+      "rd_pct_n": 87,
+      "kg_ru_ab_median": 507.4,
+      "kg_ind_ab_median": 90.4
+    },
+    "Nuoro - fino al 2024": {
+      "rd_pct_median": 79.38,
+      "rd_pct_n": 74,
+      "kg_ru_ab_median": 292.6,
+      "kg_ind_ab_median": 54.0
+    },
+    "Oristano - fino al 2024": {
+      "rd_pct_median": 80.51,
+      "rd_pct_n": 87,
+      "kg_ru_ab_median": 346.4,
+      "kg_ind_ab_median": 71.2
+    },
+    "Padova": {
+      "rd_pct_median": 80.01,
+      "rd_pct_n": 101,
+      "kg_ru_ab_median": 494.1,
+      "kg_ind_ab_median": 100.6
+    },
+    "Palermo": {
+      "rd_pct_median": 71.19,
+      "rd_pct_n": 82,
+      "kg_ru_ab_median": 348.6,
+      "kg_ind_ab_median": 92.9
+    },
+    "Parma": {
+      "rd_pct_median": 74.25,
+      "rd_pct_n": 44,
+      "kg_ru_ab_median": 628.45,
+      "kg_ind_ab_median": 163.55
+    },
+    "Pavia": {
+      "rd_pct_median": 60.79,
+      "rd_pct_n": 185,
+      "kg_ru_ab_median": 515.2,
+      "kg_ind_ab_median": 195.5
+    },
+    "Perugia": {
+      "rd_pct_median": 64.57,
+      "rd_pct_n": 59,
+      "kg_ru_ab_median": 521.0,
+      "kg_ind_ab_median": 170.7
+    },
+    "Pesaro e Urbino": {
+      "rd_pct_median": 77.41,
+      "rd_pct_n": 50,
+      "kg_ru_ab_median": 503.05,
+      "kg_ind_ab_median": 109.1
+    },
+    "Pescara": {
+      "rd_pct_median": 68.08,
+      "rd_pct_n": 44,
+      "kg_ru_ab_median": 354.35,
+      "kg_ind_ab_median": 109.3
+    },
+    "Piacenza": {
+      "rd_pct_median": 69.93,
+      "rd_pct_n": 46,
+      "kg_ru_ab_median": 682.15,
+      "kg_ind_ab_median": 204.75
+    },
+    "Pisa": {
+      "rd_pct_median": 70.05,
+      "rd_pct_n": 37,
+      "kg_ru_ab_median": 508.3,
+      "kg_ind_ab_median": 156.3
+    },
+    "Pistoia": {
+      "rd_pct_median": 77.11,
+      "rd_pct_n": 20,
+      "kg_ru_ab_median": 536.9,
+      "kg_ind_ab_median": 103.95
+    },
+    "Pordenone": {
+      "rd_pct_median": 83.45,
+      "rd_pct_n": 50,
+      "kg_ru_ab_median": 506.8,
+      "kg_ind_ab_median": 78.15
+    },
+    "Potenza": {
+      "rd_pct_median": 66.42,
+      "rd_pct_n": 99,
+      "kg_ru_ab_median": 276.5,
+      "kg_ind_ab_median": 95.7
+    },
+    "Prato": {
+      "rd_pct_median": 71.41,
+      "rd_pct_n": 7,
+      "kg_ru_ab_median": 523.8,
+      "kg_ind_ab_median": 148.0
+    },
+    "Ragusa": {
+      "rd_pct_median": 71.97,
+      "rd_pct_n": 12,
+      "kg_ru_ab_median": 402.45,
+      "kg_ind_ab_median": 110.05
+    },
+    "Ravenna": {
+      "rd_pct_median": 82.13,
+      "rd_pct_n": 18,
+      "kg_ru_ab_median": 718.85,
+      "kg_ind_ab_median": 130.95
+    },
+    "Reggio di Calabria": {
+      "rd_pct_median": 43.52,
+      "rd_pct_n": 92,
+      "kg_ru_ab_median": 308.7,
+      "kg_ind_ab_median": 160.9
+    },
+    "Reggio nell'Emilia": {
+      "rd_pct_median": 88.09,
+      "rd_pct_n": 42,
+      "kg_ru_ab_median": 789.95,
+      "kg_ind_ab_median": 96.05
+    },
+    "Rieti": {
+      "rd_pct_median": 60.66,
+      "rd_pct_n": 65,
+      "kg_ru_ab_median": 355.6,
+      "kg_ind_ab_median": 126.9
+    },
+    "Rimini": {
+      "rd_pct_median": 60.36,
+      "rd_pct_n": 27,
+      "kg_ru_ab_median": 615.9,
+      "kg_ind_ab_median": 241.6
+    },
+    "Roma": {
+      "rd_pct_median": 67.94,
+      "rd_pct_n": 112,
+      "kg_ru_ab_median": 382.55,
+      "kg_ind_ab_median": 119.95
+    },
+    "Rovigo": {
+      "rd_pct_median": 82.92,
+      "rd_pct_n": 50,
+      "kg_ru_ab_median": 487.7,
+      "kg_ind_ab_median": 82.05
+    },
+    "Salerno": {
+      "rd_pct_median": 72.63,
+      "rd_pct_n": 158,
+      "kg_ru_ab_median": 346.6,
+      "kg_ind_ab_median": 90.45
+    },
+    "Sassari - fino al 2024": {
+      "rd_pct_median": 77.31,
+      "rd_pct_n": 92,
+      "kg_ru_ab_median": 394.85,
+      "kg_ind_ab_median": 80.1
+    },
+    "Savona": {
+      "rd_pct_median": 69.42,
+      "rd_pct_n": 69,
+      "kg_ru_ab_median": 435.3,
+      "kg_ind_ab_median": 132.6
+    },
+    "Siena": {
+      "rd_pct_median": 66.46,
+      "rd_pct_n": 35,
+      "kg_ru_ab_median": 621.2,
+      "kg_ind_ab_median": 187.7
+    },
+    "Siracusa": {
+      "rd_pct_median": 69.5,
+      "rd_pct_n": 21,
+      "kg_ru_ab_median": 401.8,
+      "kg_ind_ab_median": 138.3
+    },
+    "Sondrio": {
+      "rd_pct_median": 56.1,
+      "rd_pct_n": 74,
+      "kg_ru_ab_median": 440.35,
+      "kg_ind_ab_median": 193.45
+    },
+    "Sud Sardegna - fino al 2024": {
+      "rd_pct_median": 81.32,
+      "rd_pct_n": 107,
+      "kg_ru_ab_median": 384.5,
+      "kg_ind_ab_median": 67.2
+    },
+    "Taranto": {
+      "rd_pct_median": 68.69,
+      "rd_pct_n": 29,
+      "kg_ru_ab_median": 437.2,
+      "kg_ind_ab_median": 126.6
+    },
+    "Teramo": {
+      "rd_pct_median": 65.34,
+      "rd_pct_n": 47,
+      "kg_ru_ab_median": 382.3,
+      "kg_ind_ab_median": 130.7
+    },
+    "Terni": {
+      "rd_pct_median": 73.6,
+      "rd_pct_n": 33,
+      "kg_ru_ab_median": 428.2,
+      "kg_ind_ab_median": 102.0
+    },
+    "Torino": {
+      "rd_pct_median": 68.92,
+      "rd_pct_n": 312,
+      "kg_ru_ab_median": 490.95,
+      "kg_ind_ab_median": 147.0
+    },
+    "Trapani": {
+      "rd_pct_median": 81.31,
+      "rd_pct_n": 25,
+      "kg_ru_ab_median": 427.2,
+      "kg_ind_ab_median": 72.7
+    },
+    "Trento": {
+      "rd_pct_median": 83.57,
+      "rd_pct_n": 166,
+      "kg_ru_ab_median": 478.3,
+      "kg_ind_ab_median": 72.95
+    },
+    "Treviso": {
+      "rd_pct_median": 90.6,
+      "rd_pct_n": 94,
+      "kg_ru_ab_median": 407.45,
+      "kg_ind_ab_median": 37.55
+    },
+    "Trieste": {
+      "rd_pct_median": 60.75,
+      "rd_pct_n": 6,
+      "kg_ru_ab_median": 648.75,
+      "kg_ind_ab_median": 228.25
+    },
+    "Udine": {
+      "rd_pct_median": 74.86,
+      "rd_pct_n": 134,
+      "kg_ru_ab_median": 506.2,
+      "kg_ind_ab_median": 119.05
+    },
+    "Varese": {
+      "rd_pct_median": 81.71,
+      "rd_pct_n": 136,
+      "kg_ru_ab_median": 455.8,
+      "kg_ind_ab_median": 74.3
+    },
+    "Venezia": {
+      "rd_pct_median": 83.48,
+      "rd_pct_n": 44,
+      "kg_ru_ab_median": 515.5,
+      "kg_ind_ab_median": 85.15
+    },
+    "Verbano-Cusio-Ossola": {
+      "rd_pct_median": 65.88,
+      "rd_pct_n": 74,
+      "kg_ru_ab_median": 494.45,
+      "kg_ind_ab_median": 155.7
+    },
+    "Vercelli": {
+      "rd_pct_median": 67.32,
+      "rd_pct_n": 82,
+      "kg_ru_ab_median": 439.7,
+      "kg_ind_ab_median": 148.3
+    },
+    "Verona": {
+      "rd_pct_median": 79.83,
+      "rd_pct_n": 98,
+      "kg_ru_ab_median": 458.9,
+      "kg_ind_ab_median": 84.0
+    },
+    "Vibo Valentia": {
+      "rd_pct_median": 61.37,
+      "rd_pct_n": 50,
+      "kg_ru_ab_median": 297.3,
+      "kg_ind_ab_median": 131.15
+    },
+    "Vicenza": {
+      "rd_pct_median": 81.04,
+      "rd_pct_n": 113,
+      "kg_ru_ab_median": 416.2,
+      "kg_ind_ab_median": 77.5
+    },
+    "Viterbo": {
+      "rd_pct_median": 74.2,
+      "rd_pct_n": 59,
+      "kg_ru_ab_median": 374.3,
+      "kg_ind_ab_median": 98.8
+    }
+  },
+  "pop_clusters": [
+    {
+      "id": "p0",
+      "lo": 0,
+      "hi": 1004,
+      "label": "fino a ~1.000 ab.",
+      "ordinal": 1,
+      "rd_pct_median": 67.51,
+      "rd_pct_n": 1945
+    },
+    {
+      "id": "p1",
+      "lo": 1005,
+      "hi": 2442,
+      "label": "~1.000-2.400 ab.",
+      "ordinal": 2,
+      "rd_pct_median": 73.06,
+      "rd_pct_n": 1940
+    },
+    {
+      "id": "p2",
+      "lo": 2443,
+      "hi": 6353,
+      "label": "~2.400-6.400 ab.",
+      "ordinal": 3,
+      "rd_pct_median": 75.68,
+      "rd_pct_n": 1941
+    },
+    {
+      "id": "p3",
+      "lo": 6354,
+      "hi": null,
+      "label": "oltre ~6.400 ab.",
+      "ordinal": 4,
+      "rd_pct_median": 74.75,
+      "rd_pct_n": 1941
+    }
+  ]
+}

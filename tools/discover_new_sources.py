@@ -21,7 +21,7 @@ def fetch(url: str, timeout: int = 90) -> str:
         import urllib.request
 
         ctx = ssl.create_default_context()
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 SmartBin"})
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 Escilo"})
         with urllib.request.urlopen(req, context=ctx, timeout=timeout) as resp:
             return resp.read().decode("utf-8", "replace")
     except Exception:

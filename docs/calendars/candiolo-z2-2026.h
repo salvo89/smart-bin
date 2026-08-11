@@ -1,8 +1,9 @@
-// Candiolo Zona 2 (Covar14): PIAZZA D.ALIGHIERI, VIA CASE SPARSE, VIA E.MONTALE, VIA G. CARDUCCI, VIA G. DELEDDA, VIA G. LEOPARDI, VIA G. PARINI, VIA G. PASCOLI, VIA G. UNGARETTI, VIA G. VERGA, VIA I. SVEVO, VIA S. QUASIMODO
+// Candiolo Zona 2 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 3, 2, 6},  // 02/03/2026 Spazzamento
   {2026, 3, 3, 1},  // 03/03/2026 Organico
   {2026, 3, 3, 2},  // 03/03/2026 Indifferenziata
   {2026, 3, 3, 3},  // 03/03/2026 Plastica
@@ -43,6 +44,7 @@
   {2026, 4, 28, 2},  // 28/04/2026 Indifferenziata
   {2026, 4, 28, 3},  // 28/04/2026 Plastica
   {2026, 4, 30, 1},  // 30/04/2026 Organico
+  {2026, 5, 4, 6},  // 04/05/2026 Spazzamento
   {2026, 5, 5, 1},  // 05/05/2026 Organico
   {2026, 5, 5, 2},  // 05/05/2026 Indifferenziata
   {2026, 5, 8, 0},  // 08/05/2026 Carta
@@ -62,6 +64,7 @@
   {2026, 5, 26, 3},  // 26/05/2026 Plastica
   {2026, 5, 29, 1},  // 29/05/2026 Organico
   {2026, 6, 1, 1},  // 01/06/2026 Organico
+  {2026, 6, 1, 6},  // 01/06/2026 Spazzamento
   {2026, 6, 3, 2},  // 03/06/2026 Indifferenziata
   {2026, 6, 5, 0},  // 05/06/2026 Carta
   {2026, 6, 5, 1},  // 05/06/2026 Organico
@@ -84,6 +87,7 @@
   {2026, 7, 3, 0},  // 03/07/2026 Carta
   {2026, 7, 3, 1},  // 03/07/2026 Organico
   {2026, 7, 4, 4},  // 04/07/2026 Verde
+  {2026, 7, 6, 6},  // 06/07/2026 Spazzamento
   {2026, 7, 7, 1},  // 07/07/2026 Organico
   {2026, 7, 7, 2},  // 07/07/2026 Indifferenziata
   {2026, 7, 7, 3},  // 07/07/2026 Plastica
@@ -125,6 +129,7 @@
   {2026, 9, 1, 3},  // 01/09/2026 Plastica
   {2026, 9, 4, 1},  // 04/09/2026 Organico
   {2026, 9, 5, 4},  // 05/09/2026 Verde
+  {2026, 9, 7, 6},  // 07/09/2026 Spazzamento
   {2026, 9, 8, 1},  // 08/09/2026 Organico
   {2026, 9, 8, 2},  // 08/09/2026 Indifferenziata
   {2026, 9, 11, 0},  // 11/09/2026 Carta
@@ -164,6 +169,7 @@
   {2026, 10, 27, 3},  // 27/10/2026 Plastica
   {2026, 10, 30, 1},  // 30/10/2026 Organico
   {2026, 10, 31, 4},  // 31/10/2026 Verde
+  {2026, 11, 2, 6},  // 02/11/2026 Spazzamento
   {2026, 11, 3, 1},  // 03/11/2026 Organico
   {2026, 11, 3, 2},  // 03/11/2026 Indifferenziata
   {2026, 11, 6, 0},  // 06/11/2026 Carta

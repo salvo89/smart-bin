@@ -1,0 +1,34 @@
+---
+description: Titoli dei box Escilo — usare sempre class box-title
+globs: docs/**/*.{html,css,js},tools/build_seo_pages.py
+alwaysApply: false
+---
+
+# Escilo box title standard
+
+Ogni **titolo di box/card** nella web app usa lo stesso template:
+
+```html
+<h2 class="box-title">Titolo del box</h2>
+```
+
+Definizione unica in `docs/assets/css/chrome.css` (`.box-title`):
+
+- `font-family: var(--font)` (Outfit) — **mai** `var(--display)` / Fraunces
+- `font-size: 0.68rem`, `font-weight: 700`
+- `text-transform: uppercase`, `letter-spacing: 0.04em`
+- `color: var(--muted)`
+
+## Dove applicare
+
+Home, Dati (`stats`), Fonti, Comuni/landing, e qualsiasi nuova card.
+
+Selettori legacy coperti in CSS: `.week-head h2`, `.section > h2`, `.card > h2`, `.ispr-box > h2`, `a.stats-teaser .st-title`, `.kpi-card > .label`. Preferisci comunque `class="box-title"` nel markup nuovo.
+
+## Dove NON applicare
+
+- Headline di pagina / hero (`intro h1`, `hero h2`, intro stats con Fraunces)
+- Titoli di dialog/sheet grandi (`install-sheet`, `zone-gate`, …)
+- Nomi propri in liste (es. gestori in Fonti)
+
+Landing comuni: aggiorna il template in `tools/build_seo_pages.py`, poi `py -3 tools/build_seo_pages.py`.

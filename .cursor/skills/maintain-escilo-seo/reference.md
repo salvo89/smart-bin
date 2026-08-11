@@ -31,11 +31,12 @@ Build Netlify (`netlify.toml`): `npm install && python3 tools/build_seo_pages.py
 
 | Cambio | Azione agent |
 |--------|----------------|
-| Nuovo comune in `index.json` | Rigenera SEO; smoke; ricorda GSC se deploy ampio |
-| Rinomina zona/via | Rigenera landing di quel comune |
+| Nuovo comune in `index.json` | `validate_zone_calendars.py`; rigenera SEO; smoke; ricorda GSC se deploy ampio |
+| Rinomina zona/via | `validate_zone_calendars.py`; rigenera landing di quel comune |
+| Nuovo/aggiornato `.h` o batch import | `validate_zone_calendars.py` + `check_calendar_anomalies.py` |
 | Cambio title/tagline brand | Aggiorna index + fonti + generatore (title/OG) + eventualmente manifest |
 | Nuovo footer link | Aggiorna vocabolario in skill + tutte le superfici (index, fonti, generatore) |
-| Dominio custom | Sostituisci `SITE` / canonical ovunque; utente: nuova proprietà GSC + sitemap |
+| Dominio / SITE | `SITE` in `build_seo_pages.py` = `https://escilo.it`; meta canoniche + GSC su `.it`; 301 da `.netlify.app` / `.com` |
 | Solo bug JS calendario | Verifica che meta/footer non siano stati toccati accidentalmente |
 
 ## Ranking (aspettative)

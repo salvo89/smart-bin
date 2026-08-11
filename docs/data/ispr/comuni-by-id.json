@@ -1,0 +1,6956 @@
+{
+  "generatedAt": "2026-08-11",
+  "source": "ISPRA Catasto nazionale rifiuti — dettaglio comunale",
+  "sourceUrl": "https://www.catasto-rifiuti.isprambiente.it/",
+  "latestYear": 2024,
+  "yearsAvailable": [
+    2022,
+    2023,
+    2024
+  ],
+  "targetRdPct": 65.0,
+  "baselines": {
+    "rd_pct_median": 73.13,
+    "rd_pct_n": 7767,
+    "kg_ru_ab_median": 445.0,
+    "kg_ind_ab_median": 113.3,
+    "by_regione": {
+      "Abruzzo": {
+        "rd_pct_median": 71.34,
+        "rd_pct_n": 295,
+        "kg_ru_ab_median": 366.6,
+        "kg_ind_ab_median": 106.4
+      },
+      "Basilicata": {
+        "rd_pct_median": 67.77,
+        "rd_pct_n": 129,
+        "kg_ru_ab_median": 291.7,
+        "kg_ind_ab_median": 96.6
+      },
+      "Calabria": {
+        "rd_pct_median": 62.18,
+        "rd_pct_n": 394,
+        "kg_ru_ab_median": 322.2,
+        "kg_ind_ab_median": 126.75
+      },
+      "Campania": {
+        "rd_pct_median": 68.72,
+        "rd_pct_n": 550,
+        "kg_ru_ab_median": 376.25,
+        "kg_ind_ab_median": 116.05
+      },
+      "Emilia-Romagna": {
+        "rd_pct_median": 80.02,
+        "rd_pct_n": 330,
+        "kg_ru_ab_median": 645.3,
+        "kg_ind_ab_median": 127.05
+      },
+      "Friuli-Venezia Giulia": {
+        "rd_pct_median": 78.43,
+        "rd_pct_n": 215,
+        "kg_ru_ab_median": 507.9,
+        "kg_ind_ab_median": 106.6
+      },
+      "Lazio": {
+        "rd_pct_median": 67.44,
+        "rd_pct_n": 350,
+        "kg_ru_ab_median": 366.9,
+        "kg_ind_ab_median": 116.8
+      },
+      "Liguria": {
+        "rd_pct_median": 66.56,
+        "rd_pct_n": 234,
+        "kg_ru_ab_median": 487.3,
+        "kg_ind_ab_median": 170.65
+      },
+      "Lombardia": {
+        "rd_pct_median": 77.47,
+        "rd_pct_n": 1494,
+        "kg_ru_ab_median": 471.25,
+        "kg_ind_ab_median": 106.6
+      },
+      "Marche": {
+        "rd_pct_median": 73.29,
+        "rd_pct_n": 225,
+        "kg_ru_ab_median": 465.1,
+        "kg_ind_ab_median": 120.6
+      },
+      "Molise": {
+        "rd_pct_median": 61.63,
+        "rd_pct_n": 134,
+        "kg_ru_ab_median": 315.7,
+        "kg_ind_ab_median": 110.5
+      },
+      "Piemonte": {
+        "rd_pct_median": 70.31,
+        "rd_pct_n": 1180,
+        "kg_ru_ab_median": 478.35,
+        "kg_ind_ab_median": 132.4
+      },
+      "Puglia": {
+        "rd_pct_median": 66.92,
+        "rd_pct_n": 257,
+        "kg_ru_ab_median": 433.2,
+        "kg_ind_ab_median": 138.4
+      },
+      "Sardegna": {
+        "rd_pct_median": 79.96,
+        "rd_pct_n": 377,
+        "kg_ru_ab_median": 372.9,
+        "kg_ind_ab_median": 66.5
+      },
+      "Sicilia": {
+        "rd_pct_median": 71.2,
+        "rd_pct_n": 391,
+        "kg_ru_ab_median": 366.7,
+        "kg_ind_ab_median": 104.5
+      },
+      "Toscana": {
+        "rd_pct_median": 68.21,
+        "rd_pct_n": 273,
+        "kg_ru_ab_median": 545.3,
+        "kg_ind_ab_median": 174.4
+      },
+      "Trentino-Alto Adige": {
+        "rd_pct_median": 79.81,
+        "rd_pct_n": 282,
+        "kg_ru_ab_median": 474.95,
+        "kg_ind_ab_median": 89.65
+      },
+      "Umbria": {
+        "rd_pct_median": 68.76,
+        "rd_pct_n": 92,
+        "kg_ru_ab_median": 487.75,
+        "kg_ind_ab_median": 150.35
+      },
+      "Valle d'Aosta": {
+        "rd_pct_median": 73.19,
+        "rd_pct_n": 5,
+        "kg_ru_ab_median": 669.7,
+        "kg_ind_ab_median": 162.2
+      },
+      "Veneto": {
+        "rd_pct_median": 83.25,
+        "rd_pct_n": 560,
+        "kg_ru_ab_median": 459.55,
+        "kg_ind_ab_median": 76.7
+      }
+    },
+    "by_provincia": {
+      "Agrigento": {
+        "rd_pct_median": 67.72,
+        "rd_pct_n": 43,
+        "kg_ru_ab_median": 381.6,
+        "kg_ind_ab_median": 123.9
+      },
+      "Alessandria": {
+        "rd_pct_median": 79.73,
+        "rd_pct_n": 187,
+        "kg_ru_ab_median": 440.9,
+        "kg_ind_ab_median": 84.1
+      },
+      "Ancona": {
+        "rd_pct_median": 70.49,
+        "rd_pct_n": 47,
+        "kg_ru_ab_median": 448.0,
+        "kg_ind_ab_median": 129.5
+      },
+      "Aosta": {
+        "rd_pct_median": 73.19,
+        "rd_pct_n": 5,
+        "kg_ru_ab_median": 669.7,
+        "kg_ind_ab_median": 162.2
+      },
+      "Arezzo": {
+        "rd_pct_median": 54.15,
+        "rd_pct_n": 36,
+        "kg_ru_ab_median": 577.95,
+        "kg_ind_ab_median": 260.95
+      },
+      "Ascoli Piceno": {
+        "rd_pct_median": 64.99,
+        "rd_pct_n": 33,
+        "kg_ru_ab_median": 462.2,
+        "kg_ind_ab_median": 147.7
+      },
+      "Asti": {
+        "rd_pct_median": 69.27,
+        "rd_pct_n": 117,
+        "kg_ru_ab_median": 422.4,
+        "kg_ind_ab_median": 126.8
+      },
+      "Avellino": {
+        "rd_pct_median": 62.77,
+        "rd_pct_n": 118,
+        "kg_ru_ab_median": 342.2,
+        "kg_ind_ab_median": 124.35
+      },
+      "Bari": {
+        "rd_pct_median": 74.04,
+        "rd_pct_n": 41,
+        "kg_ru_ab_median": 403.5,
+        "kg_ind_ab_median": 106.1
+      },
+      "Barletta-Andria-Trani": {
+        "rd_pct_median": 66.6,
+        "rd_pct_n": 10,
+        "kg_ru_ab_median": 444.0,
+        "kg_ind_ab_median": 144.85
+      },
+      "Belluno": {
+        "rd_pct_median": 88.78,
+        "rd_pct_n": 60,
+        "kg_ru_ab_median": 558.4,
+        "kg_ind_ab_median": 62.6
+      },
+      "Benevento": {
+        "rd_pct_median": 77.34,
+        "rd_pct_n": 78,
+        "kg_ru_ab_median": 335.35,
+        "kg_ind_ab_median": 71.95
+      },
+      "Bergamo": {
+        "rd_pct_median": 81.07,
+        "rd_pct_n": 243,
+        "kg_ru_ab_median": 458.7,
+        "kg_ind_ab_median": 89.0
+      },
+      "Biella": {
+        "rd_pct_median": 68.28,
+        "rd_pct_n": 74,
+        "kg_ru_ab_median": 523.6,
+        "kg_ind_ab_median": 164.35
+      },
+      "Bologna": {
+        "rd_pct_median": 80.0,
+        "rd_pct_n": 55,
+        "kg_ru_ab_median": 636.0,
+        "kg_ind_ab_median": 127.8
+      },
+      "Bolzano": {
+        "rd_pct_median": 70.87,
+        "rd_pct_n": 116,
+        "kg_ru_ab_median": 449.85,
+        "kg_ind_ab_median": 128.7
+      },
+      "Brescia": {
+        "rd_pct_median": 79.38,
+        "rd_pct_n": 205,
+        "kg_ru_ab_median": 501.6,
+        "kg_ind_ab_median": 104.1
+      },
+      "Brindisi": {
+        "rd_pct_median": 70.0,
+        "rd_pct_n": 20,
+        "kg_ru_ab_median": 465.55,
+        "kg_ind_ab_median": 140.55
+      },
+      "Cagliari - fino al 2024": {
+        "rd_pct_median": 79.96,
+        "rd_pct_n": 17,
+        "kg_ru_ab_median": 418.0,
+        "kg_ind_ab_median": 80.7
+      },
+      "Caltanissetta": {
+        "rd_pct_median": 71.66,
+        "rd_pct_n": 22,
+        "kg_ru_ab_median": 356.15,
+        "kg_ind_ab_median": 100.6
+      },
+      "Campobasso": {
+        "rd_pct_median": 62.49,
+        "rd_pct_n": 83,
+        "kg_ru_ab_median": 316.5,
+        "kg_ind_ab_median": 110.0
+      },
+      "Caserta": {
+        "rd_pct_median": 62.14,
+        "rd_pct_n": 104,
+        "kg_ru_ab_median": 411.8,
+        "kg_ind_ab_median": 153.9
+      },
+      "Catania": {
+        "rd_pct_median": 72.14,
+        "rd_pct_n": 58,
+        "kg_ru_ab_median": 392.5,
+        "kg_ind_ab_median": 105.0
+      },
+      "Catanzaro": {
+        "rd_pct_median": 65.46,
+        "rd_pct_n": 77,
+        "kg_ru_ab_median": 333.9,
+        "kg_ind_ab_median": 120.6
+      },
+      "Chieti": {
+        "rd_pct_median": 77.91,
+        "rd_pct_n": 96,
+        "kg_ru_ab_median": 349.2,
+        "kg_ind_ab_median": 76.65
+      },
+      "Como": {
+        "rd_pct_median": 72.79,
+        "rd_pct_n": 145,
+        "kg_ru_ab_median": 467.2,
+        "kg_ind_ab_median": 127.0
+      },
+      "Cosenza": {
+        "rd_pct_median": 65.16,
+        "rd_pct_n": 148,
+        "kg_ru_ab_median": 314.15,
+        "kg_ind_ab_median": 109.05
+      },
+      "Cremona": {
+        "rd_pct_median": 80.31,
+        "rd_pct_n": 113,
+        "kg_ru_ab_median": 479.9,
+        "kg_ind_ab_median": 93.7
+      },
+      "Crotone": {
+        "rd_pct_median": 61.02,
+        "rd_pct_n": 27,
+        "kg_ru_ab_median": 343.8,
+        "kg_ind_ab_median": 129.7
+      },
+      "Cuneo": {
+        "rd_pct_median": 67.34,
+        "rd_pct_n": 247,
+        "kg_ru_ab_median": 495.9,
+        "kg_ind_ab_median": 144.6
+      },
+      "Enna": {
+        "rd_pct_median": 66.03,
+        "rd_pct_n": 20,
+        "kg_ru_ab_median": 332.2,
+        "kg_ind_ab_median": 112.65
+      },
+      "Fermo": {
+        "rd_pct_median": 74.41,
+        "rd_pct_n": 40,
+        "kg_ru_ab_median": 371.55,
+        "kg_ind_ab_median": 92.15
+      },
+      "Ferrara": {
+        "rd_pct_median": 77.74,
+        "rd_pct_n": 21,
+        "kg_ru_ab_median": 530.9,
+        "kg_ind_ab_median": 120.6
+      },
+      "Firenze": {
+        "rd_pct_median": 79.5,
+        "rd_pct_n": 41,
+        "kg_ru_ab_median": 513.5,
+        "kg_ind_ab_median": 99.3
+      },
+      "Foggia": {
+        "rd_pct_median": 59.87,
+        "rd_pct_n": 61,
+        "kg_ru_ab_median": 377.1,
+        "kg_ind_ab_median": 151.5
+      },
+      "Forli'-Cesena": {
+        "rd_pct_median": 84.29,
+        "rd_pct_n": 30,
+        "kg_ru_ab_median": 514.0,
+        "kg_ind_ab_median": 79.45
+      },
+      "Frosinone": {
+        "rd_pct_median": 63.86,
+        "rd_pct_n": 81,
+        "kg_ru_ab_median": 330.6,
+        "kg_ind_ab_median": 116.3
+      },
+      "Genova": {
+        "rd_pct_median": 63.13,
+        "rd_pct_n": 67,
+        "kg_ru_ab_median": 520.0,
+        "kg_ind_ab_median": 188.5
+      },
+      "Gorizia": {
+        "rd_pct_median": 80.36,
+        "rd_pct_n": 25,
+        "kg_ru_ab_median": 515.5,
+        "kg_ind_ab_median": 97.8
+      },
+      "Grosseto": {
+        "rd_pct_median": 62.48,
+        "rd_pct_n": 28,
+        "kg_ru_ab_median": 542.15,
+        "kg_ind_ab_median": 226.45
+      },
+      "Imperia": {
+        "rd_pct_median": 64.01,
+        "rd_pct_n": 66,
+        "kg_ru_ab_median": 498.95,
+        "kg_ind_ab_median": 176.2
+      },
+      "Isernia": {
+        "rd_pct_median": 59.57,
+        "rd_pct_n": 51,
+        "kg_ru_ab_median": 313.3,
+        "kg_ind_ab_median": 121.6
+      },
+      "L'Aquila": {
+        "rd_pct_median": 69.86,
+        "rd_pct_n": 108,
+        "kg_ru_ab_median": 413.3,
+        "kg_ind_ab_median": 123.5
+      },
+      "La Spezia": {
+        "rd_pct_median": 70.62,
+        "rd_pct_n": 32,
+        "kg_ru_ab_median": 435.0,
+        "kg_ind_ab_median": 125.7
+      },
+      "Latina": {
+        "rd_pct_median": 69.97,
+        "rd_pct_n": 33,
+        "kg_ru_ab_median": 420.0,
+        "kg_ind_ab_median": 136.6
+      },
+      "Lecce": {
+        "rd_pct_median": 65.47,
+        "rd_pct_n": 96,
+        "kg_ru_ab_median": 454.95,
+        "kg_ind_ab_median": 162.4
+      },
+      "Lecco": {
+        "rd_pct_median": 79.11,
+        "rd_pct_n": 84,
+        "kg_ru_ab_median": 482.45,
+        "kg_ind_ab_median": 105.3
+      },
+      "Livorno": {
+        "rd_pct_median": 65.3,
+        "rd_pct_n": 19,
+        "kg_ru_ab_median": 791.7,
+        "kg_ind_ab_median": 273.3
+      },
+      "Lodi": {
+        "rd_pct_median": 75.75,
+        "rd_pct_n": 57,
+        "kg_ru_ab_median": 428.5,
+        "kg_ind_ab_median": 107.5
+      },
+      "Lucca": {
+        "rd_pct_median": 69.38,
+        "rd_pct_n": 33,
+        "kg_ru_ab_median": 495.4,
+        "kg_ind_ab_median": 177.3
+      },
+      "Macerata": {
+        "rd_pct_median": 73.63,
+        "rd_pct_n": 55,
+        "kg_ru_ab_median": 488.1,
+        "kg_ind_ab_median": 125.0
+      },
+      "Mantova": {
+        "rd_pct_median": 89.38,
+        "rd_pct_n": 64,
+        "kg_ru_ab_median": 529.7,
+        "kg_ind_ab_median": 53.6
+      },
+      "Massa-Carrara": {
+        "rd_pct_median": 71.64,
+        "rd_pct_n": 17,
+        "kg_ru_ab_median": 425.9,
+        "kg_ind_ab_median": 123.9
+      },
+      "Matera": {
+        "rd_pct_median": 70.61,
+        "rd_pct_n": 30,
+        "kg_ru_ab_median": 314.15,
+        "kg_ind_ab_median": 104.55
+      },
+      "Messina": {
+        "rd_pct_median": 72.02,
+        "rd_pct_n": 108,
+        "kg_ru_ab_median": 359.5,
+        "kg_ind_ab_median": 103.45
+      },
+      "Milano": {
+        "rd_pct_median": 78.84,
+        "rd_pct_n": 133,
+        "kg_ru_ab_median": 445.6,
+        "kg_ind_ab_median": 95.9
+      },
+      "Modena": {
+        "rd_pct_median": 86.51,
+        "rd_pct_n": 47,
+        "kg_ru_ab_median": 639.0,
+        "kg_ind_ab_median": 86.9
+      },
+      "Monza e della Brianza": {
+        "rd_pct_median": 82.69,
+        "rd_pct_n": 55,
+        "kg_ru_ab_median": 428.8,
+        "kg_ind_ab_median": 73.1
+      },
+      "Napoli": {
+        "rd_pct_median": 62.51,
+        "rd_pct_n": 92,
+        "kg_ru_ab_median": 453.05,
+        "kg_ind_ab_median": 178.25
+      },
+      "Novara": {
+        "rd_pct_median": 82.13,
+        "rd_pct_n": 87,
+        "kg_ru_ab_median": 507.4,
+        "kg_ind_ab_median": 90.4
+      },
+      "Nuoro - fino al 2024": {
+        "rd_pct_median": 79.38,
+        "rd_pct_n": 74,
+        "kg_ru_ab_median": 292.6,
+        "kg_ind_ab_median": 54.0
+      },
+      "Oristano - fino al 2024": {
+        "rd_pct_median": 80.51,
+        "rd_pct_n": 87,
+        "kg_ru_ab_median": 346.4,
+        "kg_ind_ab_median": 71.2
+      },
+      "Padova": {
+        "rd_pct_median": 80.01,
+        "rd_pct_n": 101,
+        "kg_ru_ab_median": 494.1,
+        "kg_ind_ab_median": 100.6
+      },
+      "Palermo": {
+        "rd_pct_median": 71.19,
+        "rd_pct_n": 82,
+        "kg_ru_ab_median": 348.6,
+        "kg_ind_ab_median": 92.9
+      },
+      "Parma": {
+        "rd_pct_median": 74.25,
+        "rd_pct_n": 44,
+        "kg_ru_ab_median": 628.45,
+        "kg_ind_ab_median": 163.55
+      },
+      "Pavia": {
+        "rd_pct_median": 60.79,
+        "rd_pct_n": 185,
+        "kg_ru_ab_median": 515.2,
+        "kg_ind_ab_median": 195.5
+      },
+      "Perugia": {
+        "rd_pct_median": 64.57,
+        "rd_pct_n": 59,
+        "kg_ru_ab_median": 521.0,
+        "kg_ind_ab_median": 170.7
+      },
+      "Pesaro e Urbino": {
+        "rd_pct_median": 77.41,
+        "rd_pct_n": 50,
+        "kg_ru_ab_median": 503.05,
+        "kg_ind_ab_median": 109.1
+      },
+      "Pescara": {
+        "rd_pct_median": 68.08,
+        "rd_pct_n": 44,
+        "kg_ru_ab_median": 354.35,
+        "kg_ind_ab_median": 109.3
+      },
+      "Piacenza": {
+        "rd_pct_median": 69.93,
+        "rd_pct_n": 46,
+        "kg_ru_ab_median": 682.15,
+        "kg_ind_ab_median": 204.75
+      },
+      "Pisa": {
+        "rd_pct_median": 70.05,
+        "rd_pct_n": 37,
+        "kg_ru_ab_median": 508.3,
+        "kg_ind_ab_median": 156.3
+      },
+      "Pistoia": {
+        "rd_pct_median": 77.11,
+        "rd_pct_n": 20,
+        "kg_ru_ab_median": 536.9,
+        "kg_ind_ab_median": 103.95
+      },
+      "Pordenone": {
+        "rd_pct_median": 83.45,
+        "rd_pct_n": 50,
+        "kg_ru_ab_median": 506.8,
+        "kg_ind_ab_median": 78.15
+      },
+      "Potenza": {
+        "rd_pct_median": 66.42,
+        "rd_pct_n": 99,
+        "kg_ru_ab_median": 276.5,
+        "kg_ind_ab_median": 95.7
+      },
+      "Prato": {
+        "rd_pct_median": 71.41,
+        "rd_pct_n": 7,
+        "kg_ru_ab_median": 523.8,
+        "kg_ind_ab_median": 148.0
+      },
+      "Ragusa": {
+        "rd_pct_median": 71.97,
+        "rd_pct_n": 12,
+        "kg_ru_ab_median": 402.45,
+        "kg_ind_ab_median": 110.05
+      },
+      "Ravenna": {
+        "rd_pct_median": 82.13,
+        "rd_pct_n": 18,
+        "kg_ru_ab_median": 718.85,
+        "kg_ind_ab_median": 130.95
+      },
+      "Reggio di Calabria": {
+        "rd_pct_median": 43.52,
+        "rd_pct_n": 92,
+        "kg_ru_ab_median": 308.7,
+        "kg_ind_ab_median": 160.9
+      },
+      "Reggio nell'Emilia": {
+        "rd_pct_median": 88.09,
+        "rd_pct_n": 42,
+        "kg_ru_ab_median": 789.95,
+        "kg_ind_ab_median": 96.05
+      },
+      "Rieti": {
+        "rd_pct_median": 60.66,
+        "rd_pct_n": 65,
+        "kg_ru_ab_median": 355.6,
+        "kg_ind_ab_median": 126.9
+      },
+      "Rimini": {
+        "rd_pct_median": 60.36,
+        "rd_pct_n": 27,
+        "kg_ru_ab_median": 615.9,
+        "kg_ind_ab_median": 241.6
+      },
+      "Roma": {
+        "rd_pct_median": 67.94,
+        "rd_pct_n": 112,
+        "kg_ru_ab_median": 382.55,
+        "kg_ind_ab_median": 119.95
+      },
+      "Rovigo": {
+        "rd_pct_median": 82.92,
+        "rd_pct_n": 50,
+        "kg_ru_ab_median": 487.7,
+        "kg_ind_ab_median": 82.05
+      },
+      "Salerno": {
+        "rd_pct_median": 72.63,
+        "rd_pct_n": 158,
+        "kg_ru_ab_median": 346.6,
+        "kg_ind_ab_median": 90.45
+      },
+      "Sassari - fino al 2024": {
+        "rd_pct_median": 77.31,
+        "rd_pct_n": 92,
+        "kg_ru_ab_median": 394.85,
+        "kg_ind_ab_median": 80.1
+      },
+      "Savona": {
+        "rd_pct_median": 69.42,
+        "rd_pct_n": 69,
+        "kg_ru_ab_median": 435.3,
+        "kg_ind_ab_median": 132.6
+      },
+      "Siena": {
+        "rd_pct_median": 66.46,
+        "rd_pct_n": 35,
+        "kg_ru_ab_median": 621.2,
+        "kg_ind_ab_median": 187.7
+      },
+      "Siracusa": {
+        "rd_pct_median": 69.5,
+        "rd_pct_n": 21,
+        "kg_ru_ab_median": 401.8,
+        "kg_ind_ab_median": 138.3
+      },
+      "Sondrio": {
+        "rd_pct_median": 56.1,
+        "rd_pct_n": 74,
+        "kg_ru_ab_median": 440.35,
+        "kg_ind_ab_median": 193.45
+      },
+      "Sud Sardegna - fino al 2024": {
+        "rd_pct_median": 81.32,
+        "rd_pct_n": 107,
+        "kg_ru_ab_median": 384.5,
+        "kg_ind_ab_median": 67.2
+      },
+      "Taranto": {
+        "rd_pct_median": 68.69,
+        "rd_pct_n": 29,
+        "kg_ru_ab_median": 437.2,
+        "kg_ind_ab_median": 126.6
+      },
+      "Teramo": {
+        "rd_pct_median": 65.34,
+        "rd_pct_n": 47,
+        "kg_ru_ab_median": 382.3,
+        "kg_ind_ab_median": 130.7
+      },
+      "Terni": {
+        "rd_pct_median": 73.6,
+        "rd_pct_n": 33,
+        "kg_ru_ab_median": 428.2,
+        "kg_ind_ab_median": 102.0
+      },
+      "Torino": {
+        "rd_pct_median": 68.92,
+        "rd_pct_n": 312,
+        "kg_ru_ab_median": 490.95,
+        "kg_ind_ab_median": 147.0
+      },
+      "Trapani": {
+        "rd_pct_median": 81.31,
+        "rd_pct_n": 25,
+        "kg_ru_ab_median": 427.2,
+        "kg_ind_ab_median": 72.7
+      },
+      "Trento": {
+        "rd_pct_median": 83.57,
+        "rd_pct_n": 166,
+        "kg_ru_ab_median": 478.3,
+        "kg_ind_ab_median": 72.95
+      },
+      "Treviso": {
+        "rd_pct_median": 90.6,
+        "rd_pct_n": 94,
+        "kg_ru_ab_median": 407.45,
+        "kg_ind_ab_median": 37.55
+      },
+      "Trieste": {
+        "rd_pct_median": 60.75,
+        "rd_pct_n": 6,
+        "kg_ru_ab_median": 648.75,
+        "kg_ind_ab_median": 228.25
+      },
+      "Udine": {
+        "rd_pct_median": 74.86,
+        "rd_pct_n": 134,
+        "kg_ru_ab_median": 506.2,
+        "kg_ind_ab_median": 119.05
+      },
+      "Varese": {
+        "rd_pct_median": 81.71,
+        "rd_pct_n": 136,
+        "kg_ru_ab_median": 455.8,
+        "kg_ind_ab_median": 74.3
+      },
+      "Venezia": {
+        "rd_pct_median": 83.48,
+        "rd_pct_n": 44,
+        "kg_ru_ab_median": 515.5,
+        "kg_ind_ab_median": 85.15
+      },
+      "Verbano-Cusio-Ossola": {
+        "rd_pct_median": 65.88,
+        "rd_pct_n": 74,
+        "kg_ru_ab_median": 494.45,
+        "kg_ind_ab_median": 155.7
+      },
+      "Vercelli": {
+        "rd_pct_median": 67.32,
+        "rd_pct_n": 82,
+        "kg_ru_ab_median": 439.7,
+        "kg_ind_ab_median": 148.3
+      },
+      "Verona": {
+        "rd_pct_median": 79.83,
+        "rd_pct_n": 98,
+        "kg_ru_ab_median": 458.9,
+        "kg_ind_ab_median": 84.0
+      },
+      "Vibo Valentia": {
+        "rd_pct_median": 61.37,
+        "rd_pct_n": 50,
+        "kg_ru_ab_median": 297.3,
+        "kg_ind_ab_median": 131.15
+      },
+      "Vicenza": {
+        "rd_pct_median": 81.04,
+        "rd_pct_n": 113,
+        "kg_ru_ab_median": 416.2,
+        "kg_ind_ab_median": 77.5
+      },
+      "Viterbo": {
+        "rd_pct_median": 74.2,
+        "rd_pct_n": 59,
+        "kg_ru_ab_median": 374.3,
+        "kg_ind_ab_median": 98.8
+      }
+    },
+    "pop_clusters": [
+      {
+        "id": "p0",
+        "lo": 0,
+        "hi": 1004,
+        "label": "fino a ~1.000 ab.",
+        "ordinal": 1,
+        "rd_pct_median": 67.51,
+        "rd_pct_n": 1945
+      },
+      {
+        "id": "p1",
+        "lo": 1005,
+        "hi": 2442,
+        "label": "~1.000-2.400 ab.",
+        "ordinal": 2,
+        "rd_pct_median": 73.06,
+        "rd_pct_n": 1940
+      },
+      {
+        "id": "p2",
+        "lo": 2443,
+        "hi": 6353,
+        "label": "~2.400-6.400 ab.",
+        "ordinal": 3,
+        "rd_pct_median": 75.68,
+        "rd_pct_n": 1941
+      },
+      {
+        "id": "p3",
+        "lo": 6354,
+        "hi": null,
+        "label": "oltre ~6.400 ab.",
+        "ordinal": 4,
+        "rd_pct_median": 74.75,
+        "rd_pct_n": 1941
+      }
+    ]
+  },
+  "comuni": {
+    "almese": {
+      "id": "almese",
+      "name": "Almese",
+      "isprName": "ALMESE",
+      "istat": "01001006",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 6298,
+      "year": 2024,
+      "rd_pct": 75.99,
+      "kg_ru_ab": 575.0,
+      "kg_ind_ab": 138.1,
+      "mix_rd_pct": {
+        "umida": 15.77,
+        "carta": 12.42,
+        "plastica": 6.43,
+        "verde": 31.96,
+        "vetro": 9.09
+      },
+      "series_rd": {
+        "2022": 77.93,
+        "2023": 77.32,
+        "2024": 75.99
+      },
+      "rd_pctile_it": 59.1,
+      "gap_65": 10.99,
+      "rd_vs_median_it": 2.86,
+      "rd_vs_median_reg": 5.68,
+      "kg_ru_pctile_it": 81.9,
+      "kg_ru_vs_median_it": 130.0,
+      "kg_ru_vs_median_reg": 96.6,
+      "kg_ind_better_pctile_it": 34.9,
+      "kg_ind_vs_median_it": 24.8,
+      "kg_ind_vs_median_reg": 5.7,
+      "delta_rd_22_24": -1.94,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +11.0 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 0.31
+    },
+    "alpette": {
+      "id": "alpette",
+      "name": "Alpette",
+      "isprName": "ALPETTE",
+      "istat": "01001007",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 247,
+      "year": 2024,
+      "rd_pct": 42.54,
+      "kg_ru_ab": 765.5,
+      "kg_ind_ab": 418.3,
+      "mix_rd_pct": {
+        "umida": null,
+        "carta": 15.45,
+        "plastica": 16.18,
+        "verde": 7.2,
+        "vetro": 27.46
+      },
+      "series_rd": {
+        "2022": 38.72,
+        "2023": 35.34,
+        "2024": 42.54
+      },
+      "rd_pctile_it": 6.2,
+      "gap_65": -22.46,
+      "rd_vs_median_it": -30.59,
+      "rd_vs_median_reg": -27.77,
+      "kg_ru_pctile_it": 94.5,
+      "kg_ru_vs_median_it": 320.5,
+      "kg_ru_vs_median_reg": 287.1,
+      "kg_ind_better_pctile_it": 3.3,
+      "kg_ind_vs_median_it": 305.0,
+      "kg_ind_vs_median_reg": 285.9,
+      "delta_rd_22_24": 3.82,
+      "hook": {
+        "key": "below_target",
+        "text": "A -22.5 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -24.97
+    },
+    "alpignano": {
+      "id": "alpignano",
+      "name": "Alpignano",
+      "isprName": "ALPIGNANO",
+      "istat": "01001008",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 16572,
+      "year": 2024,
+      "rd_pct": 66.78,
+      "kg_ru_ab": 471.8,
+      "kg_ind_ab": 156.7,
+      "mix_rd_pct": {
+        "umida": 21.62,
+        "carta": 23.18,
+        "plastica": 10.87,
+        "verde": 13.21,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 65.94,
+        "2023": 67.11,
+        "2024": 66.78
+      },
+      "rd_pctile_it": 31.5,
+      "gap_65": 1.78,
+      "rd_vs_median_it": -6.35,
+      "rd_vs_median_reg": -3.53,
+      "kg_ru_pctile_it": 58.8,
+      "kg_ru_vs_median_it": 26.8,
+      "kg_ru_vs_median_reg": -6.6,
+      "kg_ind_better_pctile_it": 27.6,
+      "kg_ind_vs_median_it": 43.4,
+      "kg_ind_vs_median_reg": 24.3,
+      "delta_rd_22_24": 0.84,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.8 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -7.97
+    },
+    "andezeno": {
+      "id": "andezeno",
+      "name": "Andezeno",
+      "isprName": "ANDEZENO",
+      "istat": "01001009",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1989,
+      "year": 2024,
+      "rd_pct": 73.93,
+      "kg_ru_ab": 515.4,
+      "kg_ind_ab": 134.4,
+      "mix_rd_pct": {
+        "umida": 26.86,
+        "carta": 15.81,
+        "plastica": 10.69,
+        "verde": 17.39,
+        "vetro": 11.36
+      },
+      "series_rd": {
+        "2022": 74.43,
+        "2023": 79.09,
+        "2024": 73.93
+      },
+      "rd_pctile_it": 52.3,
+      "gap_65": 8.93,
+      "rd_vs_median_it": 0.8,
+      "rd_vs_median_reg": 3.62,
+      "kg_ru_pctile_it": 70.9,
+      "kg_ru_vs_median_it": 70.4,
+      "kg_ru_vs_median_reg": 37.0,
+      "kg_ind_better_pctile_it": 36.7,
+      "kg_ind_vs_median_it": 21.1,
+      "kg_ind_vs_median_reg": 2.0,
+      "delta_rd_22_24": -0.5,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +8.9 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 0.87
+    },
+    "arignano": {
+      "id": "arignano",
+      "name": "Arignano",
+      "isprName": "ARIGNANO",
+      "istat": "01001012",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1070,
+      "year": 2024,
+      "rd_pct": 67.53,
+      "kg_ru_ab": 403.1,
+      "kg_ind_ab": 130.9,
+      "mix_rd_pct": {
+        "umida": 36.42,
+        "carta": 16.34,
+        "plastica": 14.23,
+        "verde": 4.31,
+        "vetro": 12.39
+      },
+      "series_rd": {
+        "2022": 64.67,
+        "2023": 62.65,
+        "2024": 67.53
+      },
+      "rd_pctile_it": 33.2,
+      "gap_65": 2.53,
+      "rd_vs_median_it": -5.6,
+      "rd_vs_median_reg": -2.78,
+      "kg_ru_pctile_it": 35.5,
+      "kg_ru_vs_median_it": -41.9,
+      "kg_ru_vs_median_reg": -75.2,
+      "kg_ind_better_pctile_it": 38.4,
+      "kg_ind_vs_median_it": 17.6,
+      "kg_ind_vs_median_reg": -1.5,
+      "delta_rd_22_24": 2.86,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +2.5 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -5.53
+    },
+    "avigliana": {
+      "id": "avigliana",
+      "name": "Avigliana",
+      "isprName": "AVIGLIANA",
+      "istat": "01001013",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 12172,
+      "year": 2024,
+      "rd_pct": 67.12,
+      "kg_ru_ab": 603.1,
+      "kg_ind_ab": 198.3,
+      "mix_rd_pct": {
+        "umida": 18.16,
+        "carta": 16.09,
+        "plastica": 8.39,
+        "verde": 20.64,
+        "vetro": 10.12
+      },
+      "series_rd": {
+        "2022": 65.85,
+        "2023": 71.03,
+        "2024": 67.12
+      },
+      "rd_pctile_it": 32.3,
+      "gap_65": 2.12,
+      "rd_vs_median_it": -6.01,
+      "rd_vs_median_reg": -3.19,
+      "kg_ru_pctile_it": 85.0,
+      "kg_ru_vs_median_it": 158.1,
+      "kg_ru_vs_median_reg": 124.8,
+      "kg_ind_better_pctile_it": 17.6,
+      "kg_ind_vs_median_it": 85.0,
+      "kg_ind_vs_median_reg": 65.9,
+      "delta_rd_22_24": 1.27,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +2.1 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -7.63
+    },
+    "baldissero-torinese": {
+      "id": "baldissero-torinese",
+      "name": "Baldissero Torinese",
+      "isprName": "BALDISSERO TORINESE",
+      "istat": "01001018",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3730,
+      "year": 2024,
+      "rd_pct": 83.82,
+      "kg_ru_ab": 391.4,
+      "kg_ind_ab": 63.3,
+      "mix_rd_pct": {
+        "umida": 24.14,
+        "carta": 10.31,
+        "plastica": 9.03,
+        "verde": 31.79,
+        "vetro": 12.31
+      },
+      "series_rd": {
+        "2022": 82.19,
+        "2023": 84.23,
+        "2024": 83.82
+      },
+      "rd_pctile_it": 84.8,
+      "gap_65": 18.82,
+      "rd_vs_median_it": 10.69,
+      "rd_vs_median_reg": 13.51,
+      "kg_ru_pctile_it": 31.6,
+      "kg_ru_vs_median_it": -53.6,
+      "kg_ru_vs_median_reg": -87.0,
+      "kg_ind_better_pctile_it": 86.7,
+      "kg_ind_vs_median_it": -50.0,
+      "kg_ind_vs_median_reg": -69.1,
+      "delta_rd_22_24": 1.63,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +18.8 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 8.14
+    },
+    "beinasco": {
+      "id": "beinasco",
+      "name": "Beinasco",
+      "isprName": "BEINASCO",
+      "istat": "01001024",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 17358,
+      "year": 2024,
+      "rd_pct": 63.58,
+      "kg_ru_ab": 513.8,
+      "kg_ind_ab": 187.1,
+      "mix_rd_pct": {
+        "umida": 18.93,
+        "carta": 28.44,
+        "plastica": 10.97,
+        "verde": 8.55,
+        "vetro": 9.12
+      },
+      "series_rd": {
+        "2022": 63.1,
+        "2023": 63.6,
+        "2024": 63.58
+      },
+      "rd_pctile_it": 25.0,
+      "gap_65": -1.42,
+      "rd_vs_median_it": -9.55,
+      "rd_vs_median_reg": -6.73,
+      "kg_ru_pctile_it": 70.6,
+      "kg_ru_vs_median_it": 68.8,
+      "kg_ru_vs_median_reg": 35.4,
+      "kg_ind_better_pctile_it": 19.6,
+      "kg_ind_vs_median_it": 73.8,
+      "kg_ind_vs_median_reg": 54.7,
+      "delta_rd_22_24": 0.48,
+      "hook": {
+        "key": "below_target",
+        "text": "A -1.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -11.17
+    },
+    "borgaro-torinese": {
+      "id": "borgaro-torinese",
+      "name": "Borgaro Torinese",
+      "isprName": "BORGARO TORINESE",
+      "istat": "01001028",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 11641,
+      "year": 2024,
+      "rd_pct": 71.65,
+      "kg_ru_ab": 630.7,
+      "kg_ind_ab": 178.8,
+      "mix_rd_pct": {
+        "umida": 15.35,
+        "carta": 36.19,
+        "plastica": 9.03,
+        "verde": 5.02,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 60.42,
+        "2023": 72.02,
+        "2024": 71.65
+      },
+      "rd_pctile_it": 45.3,
+      "gap_65": 6.65,
+      "rd_vs_median_it": -1.48,
+      "rd_vs_median_reg": 1.34,
+      "kg_ru_pctile_it": 87.6,
+      "kg_ru_vs_median_it": 185.7,
+      "kg_ru_vs_median_reg": 152.4,
+      "kg_ind_better_pctile_it": 21.3,
+      "kg_ind_vs_median_it": 65.5,
+      "kg_ind_vs_median_reg": 46.4,
+      "delta_rd_22_24": 11.23,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +6.7 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -3.1
+    },
+    "borgiallo": {
+      "id": "borgiallo",
+      "name": "Borgiallo",
+      "isprName": "BORGIALLO",
+      "istat": "01001029",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 585,
+      "year": 2024,
+      "rd_pct": 57.27,
+      "kg_ru_ab": 319.6,
+      "kg_ind_ab": 132.9,
+      "mix_rd_pct": {
+        "umida": 5.34,
+        "carta": 29.88,
+        "plastica": 12.67,
+        "verde": 4.88,
+        "vetro": 19.77
+      },
+      "series_rd": {
+        "2022": 55.18,
+        "2023": 51.53,
+        "2024": 57.27
+      },
+      "rd_pctile_it": 16.3,
+      "gap_65": -7.73,
+      "rd_vs_median_it": -15.86,
+      "rd_vs_median_reg": -13.04,
+      "kg_ru_pctile_it": 13.2,
+      "kg_ru_vs_median_it": -125.4,
+      "kg_ru_vs_median_reg": -158.8,
+      "kg_ind_better_pctile_it": 37.4,
+      "kg_ind_vs_median_it": 19.6,
+      "kg_ind_vs_median_reg": 0.5,
+      "delta_rd_22_24": 2.09,
+      "hook": {
+        "key": "below_target",
+        "text": "A -7.7 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -10.24
+    },
+    "borgone-susa": {
+      "id": "borgone-susa",
+      "name": "Borgone Susa",
+      "isprName": "BORGONE SUSA",
+      "istat": "01001032",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2228,
+      "year": 2024,
+      "rd_pct": 73.73,
+      "kg_ru_ab": 488.9,
+      "kg_ind_ab": 128.5,
+      "mix_rd_pct": {
+        "umida": 18.79,
+        "carta": 13.81,
+        "plastica": 10.66,
+        "verde": 25.26,
+        "vetro": 11.12
+      },
+      "series_rd": {
+        "2022": 72.84,
+        "2023": 73.49,
+        "2024": 73.73
+      },
+      "rd_pctile_it": 51.9,
+      "gap_65": 8.73,
+      "rd_vs_median_it": 0.6,
+      "rd_vs_median_reg": 3.42,
+      "kg_ru_pctile_it": 64.2,
+      "kg_ru_vs_median_it": 43.9,
+      "kg_ru_vs_median_reg": 10.5,
+      "kg_ind_better_pctile_it": 39.8,
+      "kg_ind_vs_median_it": 15.2,
+      "kg_ind_vs_median_reg": -3.9,
+      "delta_rd_22_24": 0.89,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +8.7 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 0.67
+    },
+    "bosconero": {
+      "id": "bosconero",
+      "name": "Bosconero",
+      "isprName": "BOSCONERO",
+      "istat": "01001033",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3077,
+      "year": 2024,
+      "rd_pct": 63.15,
+      "kg_ru_ab": 415.6,
+      "kg_ind_ab": 145.3,
+      "mix_rd_pct": {
+        "umida": 5.74,
+        "carta": 23.07,
+        "plastica": 12.1,
+        "verde": 14.57,
+        "vetro": 14.02
+      },
+      "series_rd": {
+        "2022": 68.25,
+        "2023": 66.61,
+        "2024": 63.15
+      },
+      "rd_pctile_it": 24.3,
+      "gap_65": -1.85,
+      "rd_vs_median_it": -9.98,
+      "rd_vs_median_reg": -7.16,
+      "kg_ru_pctile_it": 39.7,
+      "kg_ru_vs_median_it": -29.4,
+      "kg_ru_vs_median_reg": -62.8,
+      "kg_ind_better_pctile_it": 31.8,
+      "kg_ind_vs_median_it": 32.0,
+      "kg_ind_vs_median_reg": 12.9,
+      "delta_rd_22_24": -5.1,
+      "hook": {
+        "key": "below_target",
+        "text": "A -1.9 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -12.53
+    },
+    "brandizzo": {
+      "id": "brandizzo",
+      "name": "Brandizzo",
+      "isprName": "BRANDIZZO",
+      "istat": "01001034",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 8728,
+      "year": 2024,
+      "rd_pct": 77.5,
+      "kg_ru_ab": 604.9,
+      "kg_ind_ab": 136.1,
+      "mix_rd_pct": {
+        "umida": 14.84,
+        "carta": 29.97,
+        "plastica": 6.41,
+        "verde": 5.75,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 73.26,
+        "2023": 75.44,
+        "2024": 77.5
+      },
+      "rd_pctile_it": 63.9,
+      "gap_65": 12.5,
+      "rd_vs_median_it": 4.37,
+      "rd_vs_median_reg": 7.19,
+      "kg_ru_pctile_it": 85.2,
+      "kg_ru_vs_median_it": 159.9,
+      "kg_ru_vs_median_reg": 126.5,
+      "kg_ind_better_pctile_it": 36.0,
+      "kg_ind_vs_median_it": 22.8,
+      "kg_ind_vs_median_reg": 3.7,
+      "delta_rd_22_24": 4.24,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +12.5 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 2.75
+    },
+    "brosso": {
+      "id": "brosso",
+      "name": "Brosso",
+      "isprName": "BROSSO",
+      "istat": "01001036",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 388,
+      "year": 2024,
+      "rd_pct": 67.37,
+      "kg_ru_ab": 380.0,
+      "kg_ind_ab": 124.0,
+      "mix_rd_pct": {
+        "umida": 4.05,
+        "carta": 32.18,
+        "plastica": 21.58,
+        "verde": 5.06,
+        "vetro": 13.46
+      },
+      "series_rd": {
+        "2022": 56.9,
+        "2023": 55.45,
+        "2024": 67.37
+      },
+      "rd_pctile_it": 32.8,
+      "gap_65": 2.37,
+      "rd_vs_median_it": -5.76,
+      "rd_vs_median_reg": -2.94,
+      "kg_ru_pctile_it": 27.9,
+      "kg_ru_vs_median_it": -65.0,
+      "kg_ru_vs_median_reg": -98.4,
+      "kg_ind_better_pctile_it": 42.5,
+      "kg_ind_vs_median_it": 10.7,
+      "kg_ind_vs_median_reg": -8.4,
+      "delta_rd_22_24": 10.47,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +2.4 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -0.14
+    },
+    "brozolo": {
+      "id": "brozolo",
+      "name": "Brozolo",
+      "isprName": "BROZOLO",
+      "istat": "01001037",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 436,
+      "year": 2024,
+      "rd_pct": 71.27,
+      "kg_ru_ab": 529.7,
+      "kg_ind_ab": 152.2,
+      "mix_rd_pct": {
+        "umida": 36.66,
+        "carta": 11.95,
+        "plastica": 19.76,
+        "verde": 3.02,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 73.75,
+        "2023": 74.56,
+        "2024": 71.27
+      },
+      "rd_pctile_it": 44.0,
+      "gap_65": 6.27,
+      "rd_vs_median_it": -1.86,
+      "rd_vs_median_reg": 0.96,
+      "kg_ru_pctile_it": 74.2,
+      "kg_ru_vs_median_it": 84.7,
+      "kg_ru_vs_median_reg": 51.4,
+      "kg_ind_better_pctile_it": 29.1,
+      "kg_ind_vs_median_it": 38.9,
+      "kg_ind_vs_median_reg": 19.8,
+      "delta_rd_22_24": -2.48,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +6.3 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": 3.76
+    },
+    "bruino": {
+      "id": "bruino",
+      "name": "Bruino",
+      "isprName": "BRUINO",
+      "istat": "01001038",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 8370,
+      "year": 2024,
+      "rd_pct": 79.91,
+      "kg_ru_ab": 511.8,
+      "kg_ind_ab": 102.8,
+      "mix_rd_pct": {
+        "umida": 15.71,
+        "carta": 14.68,
+        "plastica": 9.71,
+        "verde": 26.55,
+        "vetro": 8.39
+      },
+      "series_rd": {
+        "2022": 78.0,
+        "2023": 79.25,
+        "2024": 79.91
+      },
+      "rd_pctile_it": 72.2,
+      "gap_65": 14.91,
+      "rd_vs_median_it": 6.78,
+      "rd_vs_median_reg": 9.6,
+      "kg_ru_pctile_it": 70.3,
+      "kg_ru_vs_median_it": 66.8,
+      "kg_ru_vs_median_reg": 33.4,
+      "kg_ind_better_pctile_it": 57.3,
+      "kg_ind_vs_median_it": -10.5,
+      "kg_ind_vs_median_reg": -29.6,
+      "delta_rd_22_24": 1.91,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +14.9 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 5.16
+    },
+    "brusasco": {
+      "id": "brusasco",
+      "name": "Brusasco",
+      "isprName": "BRUSASCO",
+      "istat": "01001039",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1490,
+      "year": 2024,
+      "rd_pct": 68.38,
+      "kg_ru_ab": 469.8,
+      "kg_ind_ab": 148.5,
+      "mix_rd_pct": {
+        "umida": 29.76,
+        "carta": 13.64,
+        "plastica": 22.66,
+        "verde": 2.96,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 72.49,
+        "2023": 73.0,
+        "2024": 68.38
+      },
+      "rd_pctile_it": 35.7,
+      "gap_65": 3.38,
+      "rd_vs_median_it": -4.75,
+      "rd_vs_median_reg": -1.93,
+      "kg_ru_pctile_it": 58.0,
+      "kg_ru_vs_median_it": 24.8,
+      "kg_ru_vs_median_reg": -8.6,
+      "kg_ind_better_pctile_it": 30.6,
+      "kg_ind_vs_median_it": 35.2,
+      "kg_ind_vs_median_reg": 16.1,
+      "delta_rd_22_24": -4.11,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +3.4 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -4.68
+    },
+    "bruzolo": {
+      "id": "bruzolo",
+      "name": "Bruzolo",
+      "isprName": "BRUZOLO",
+      "istat": "01001040",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1474,
+      "year": 2024,
+      "rd_pct": 69.95,
+      "kg_ru_ab": 473.3,
+      "kg_ind_ab": 142.2,
+      "mix_rd_pct": {
+        "umida": 19.0,
+        "carta": 13.8,
+        "plastica": 10.14,
+        "verde": 25.32,
+        "vetro": 11.06
+      },
+      "series_rd": {
+        "2022": 69.69,
+        "2023": 69.71,
+        "2024": 69.95
+      },
+      "rd_pctile_it": 39.8,
+      "gap_65": 4.95,
+      "rd_vs_median_it": -3.18,
+      "rd_vs_median_reg": -0.36,
+      "kg_ru_pctile_it": 59.4,
+      "kg_ru_vs_median_it": 28.3,
+      "kg_ru_vs_median_reg": -5.1,
+      "kg_ind_better_pctile_it": 33.0,
+      "kg_ind_vs_median_it": 28.9,
+      "kg_ind_vs_median_reg": 9.8,
+      "delta_rd_22_24": 0.26,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -3.11
+    },
+    "busano": {
+      "id": "busano",
+      "name": "Busano",
+      "isprName": "BUSANO",
+      "istat": "01001043",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1611,
+      "year": 2024,
+      "rd_pct": 50.11,
+      "kg_ru_ab": 516.0,
+      "kg_ind_ab": 256.5,
+      "mix_rd_pct": {
+        "umida": 4.71,
+        "carta": 35.4,
+        "plastica": 20.32,
+        "verde": 8.42,
+        "vetro": 16.1
+      },
+      "series_rd": {
+        "2022": 45.26,
+        "2023": 46.37,
+        "2024": 50.11
+      },
+      "rd_pctile_it": 10.2,
+      "gap_65": -14.89,
+      "rd_vs_median_it": -23.02,
+      "rd_vs_median_reg": -20.2,
+      "kg_ru_pctile_it": 71.1,
+      "kg_ru_vs_median_it": 71.0,
+      "kg_ru_vs_median_reg": 37.6,
+      "kg_ind_better_pctile_it": 10.4,
+      "kg_ind_vs_median_it": 143.2,
+      "kg_ind_vs_median_reg": 124.1,
+      "delta_rd_22_24": 4.85,
+      "hook": {
+        "key": "below_target",
+        "text": "A -14.9 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -22.95
+    },
+    "bussoleno": {
+      "id": "bussoleno",
+      "name": "Bussoleno",
+      "isprName": "BUSSOLENO",
+      "istat": "01001044",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 5775,
+      "year": 2024,
+      "rd_pct": 62.73,
+      "kg_ru_ab": 460.3,
+      "kg_ind_ab": 171.6,
+      "mix_rd_pct": {
+        "umida": 21.6,
+        "carta": 15.63,
+        "plastica": 8.59,
+        "verde": 16.06,
+        "vetro": 11.95
+      },
+      "series_rd": {
+        "2022": 62.74,
+        "2023": 61.76,
+        "2024": 62.73
+      },
+      "rd_pctile_it": 23.7,
+      "gap_65": -2.27,
+      "rd_vs_median_it": -10.4,
+      "rd_vs_median_reg": -7.58,
+      "kg_ru_pctile_it": 55.2,
+      "kg_ru_vs_median_it": 15.3,
+      "kg_ru_vs_median_reg": -18.1,
+      "kg_ind_better_pctile_it": 22.9,
+      "kg_ind_vs_median_it": 58.3,
+      "kg_ind_vs_median_reg": 39.2,
+      "delta_rd_22_24": -0.01,
+      "hook": {
+        "key": "below_target",
+        "text": "A -2.3 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -12.95
+    },
+    "buttigliera-alta": {
+      "id": "buttigliera-alta",
+      "name": "Buttigliera Alta",
+      "isprName": "BUTTIGLIERA ALTA",
+      "istat": "01001045",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 6227,
+      "year": 2024,
+      "rd_pct": 61.42,
+      "kg_ru_ab": 537.1,
+      "kg_ind_ab": 207.2,
+      "mix_rd_pct": {
+        "umida": 16.15,
+        "carta": 20.49,
+        "plastica": 12.11,
+        "verde": 17.95,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 59.87,
+        "2023": 62.51,
+        "2024": 61.42
+      },
+      "rd_pctile_it": 21.4,
+      "gap_65": -3.58,
+      "rd_vs_median_it": -11.71,
+      "rd_vs_median_reg": -8.89,
+      "kg_ru_pctile_it": 75.6,
+      "kg_ru_vs_median_it": 92.1,
+      "kg_ru_vs_median_reg": 58.8,
+      "kg_ind_better_pctile_it": 15.9,
+      "kg_ind_vs_median_it": 93.9,
+      "kg_ind_vs_median_reg": 74.8,
+      "delta_rd_22_24": 1.55,
+      "hook": {
+        "key": "below_target",
+        "text": "A -3.6 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -14.26
+    },
+    "cambiano": {
+      "id": "cambiano",
+      "name": "Cambiano",
+      "isprName": "CAMBIANO",
+      "istat": "01001048",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 5835,
+      "year": 2024,
+      "rd_pct": 84.96,
+      "kg_ru_ab": 487.6,
+      "kg_ind_ab": 73.4,
+      "mix_rd_pct": {
+        "umida": 22.88,
+        "carta": 14.78,
+        "plastica": 9.84,
+        "verde": 16.35,
+        "vetro": 7.67
+      },
+      "series_rd": {
+        "2022": 84.3,
+        "2023": 84.64,
+        "2024": 84.96
+      },
+      "rd_pctile_it": 87.7,
+      "gap_65": 19.96,
+      "rd_vs_median_it": 11.83,
+      "rd_vs_median_reg": 14.65,
+      "kg_ru_pctile_it": 63.7,
+      "kg_ru_vs_median_it": 42.6,
+      "kg_ru_vs_median_reg": 9.2,
+      "kg_ind_better_pctile_it": 79.1,
+      "kg_ind_vs_median_it": -39.9,
+      "kg_ind_vs_median_reg": -59.0,
+      "delta_rd_22_24": 0.66,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +20.0 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 9.28
+    },
+    "candiolo": {
+      "id": "candiolo",
+      "name": "Candiolo",
+      "isprName": "CANDIOLO",
+      "istat": "01001051",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 5571,
+      "year": 2024,
+      "rd_pct": 77.76,
+      "kg_ru_ab": 550.8,
+      "kg_ind_ab": 122.5,
+      "mix_rd_pct": {
+        "umida": 19.03,
+        "carta": 24.5,
+        "plastica": 8.26,
+        "verde": 16.73,
+        "vetro": 7.68
+      },
+      "series_rd": {
+        "2022": 77.39,
+        "2023": 79.93,
+        "2024": 77.76
+      },
+      "rd_pctile_it": 64.8,
+      "gap_65": 12.76,
+      "rd_vs_median_it": 4.63,
+      "rd_vs_median_reg": 7.45,
+      "kg_ru_pctile_it": 77.9,
+      "kg_ru_vs_median_it": 105.8,
+      "kg_ru_vs_median_reg": 72.4,
+      "kg_ind_better_pctile_it": 43.5,
+      "kg_ind_vs_median_it": 9.2,
+      "kg_ind_vs_median_reg": -9.9,
+      "delta_rd_22_24": 0.37,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +12.8 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 2.08
+    },
+    "caprie": {
+      "id": "caprie",
+      "name": "Caprie",
+      "isprName": "CAPRIE",
+      "istat": "01001055",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2002,
+      "year": 2024,
+      "rd_pct": 72.7,
+      "kg_ru_ab": 498.1,
+      "kg_ind_ab": 136.0,
+      "mix_rd_pct": {
+        "umida": 13.55,
+        "carta": 11.71,
+        "plastica": 9.0,
+        "verde": 28.27,
+        "vetro": 10.2
+      },
+      "series_rd": {
+        "2022": 68.35,
+        "2023": 72.3,
+        "2024": 72.7
+      },
+      "rd_pctile_it": 48.6,
+      "gap_65": 7.7,
+      "rd_vs_median_it": -0.43,
+      "rd_vs_median_reg": 2.39,
+      "kg_ru_pctile_it": 66.8,
+      "kg_ru_vs_median_it": 53.1,
+      "kg_ru_vs_median_reg": 19.8,
+      "kg_ind_better_pctile_it": 36.0,
+      "kg_ind_vs_median_it": 22.7,
+      "kg_ind_vs_median_reg": 3.6,
+      "delta_rd_22_24": 4.35,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +7.7 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -0.36
+    },
+    "carignano": {
+      "id": "carignano",
+      "name": "Carignano",
+      "isprName": "CARIGNANO",
+      "istat": "01001058",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 9226,
+      "year": 2024,
+      "rd_pct": 75.94,
+      "kg_ru_ab": 528.5,
+      "kg_ind_ab": 127.1,
+      "mix_rd_pct": {
+        "umida": 18.22,
+        "carta": 16.12,
+        "plastica": 12.35,
+        "verde": 11.6,
+        "vetro": 8.57
+      },
+      "series_rd": {
+        "2022": 72.99,
+        "2023": 74.56,
+        "2024": 75.94
+      },
+      "rd_pctile_it": 59.0,
+      "gap_65": 10.94,
+      "rd_vs_median_it": 2.81,
+      "rd_vs_median_reg": 5.63,
+      "kg_ru_pctile_it": 73.9,
+      "kg_ru_vs_median_it": 83.5,
+      "kg_ru_vs_median_reg": 50.1,
+      "kg_ind_better_pctile_it": 40.7,
+      "kg_ind_vs_median_it": 13.8,
+      "kg_ind_vs_median_reg": -5.3,
+      "delta_rd_22_24": 2.95,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.9 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 1.19
+    },
+    "carmagnola": {
+      "id": "carmagnola",
+      "name": "Carmagnola",
+      "isprName": "CARMAGNOLA",
+      "istat": "01001059",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 28080,
+      "year": 2024,
+      "rd_pct": 86.97,
+      "kg_ru_ab": 695.9,
+      "kg_ind_ab": 90.7,
+      "mix_rd_pct": {
+        "umida": 17.5,
+        "carta": 39.78,
+        "plastica": 8.19,
+        "verde": 5.61,
+        "vetro": 6.2
+      },
+      "series_rd": {
+        "2022": 82.57,
+        "2023": 86.73,
+        "2024": 86.97
+      },
+      "rd_pctile_it": 92.0,
+      "gap_65": 21.97,
+      "rd_vs_median_it": 13.84,
+      "rd_vs_median_reg": 16.66,
+      "kg_ru_pctile_it": 91.8,
+      "kg_ru_vs_median_it": 250.9,
+      "kg_ru_vs_median_reg": 217.5,
+      "kg_ind_better_pctile_it": 65.6,
+      "kg_ind_vs_median_it": -22.6,
+      "kg_ind_vs_median_reg": -41.7,
+      "delta_rd_22_24": 4.4,
+      "hook": {
+        "key": "top_pctile",
+        "text": "Tra i migliori in Italia (meglio del 92%)"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 12.22
+    },
+    "casalborgone": {
+      "id": "casalborgone",
+      "name": "Casalborgone",
+      "isprName": "CASALBORGONE",
+      "istat": "01001060",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1878,
+      "year": 2024,
+      "rd_pct": 69.92,
+      "kg_ru_ab": 488.4,
+      "kg_ind_ab": 146.9,
+      "mix_rd_pct": {
+        "umida": 33.09,
+        "carta": 12.7,
+        "plastica": 21.07,
+        "verde": 2.94,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 64.02,
+        "2023": 72.69,
+        "2024": 69.92
+      },
+      "rd_pctile_it": 39.8,
+      "gap_65": 4.92,
+      "rd_vs_median_it": -3.21,
+      "rd_vs_median_reg": -0.39,
+      "kg_ru_pctile_it": 64.0,
+      "kg_ru_vs_median_it": 43.4,
+      "kg_ru_vs_median_reg": 10.0,
+      "kg_ind_better_pctile_it": 31.3,
+      "kg_ind_vs_median_it": 33.6,
+      "kg_ind_vs_median_reg": 14.5,
+      "delta_rd_22_24": 5.9,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +4.9 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -3.14
+    },
+    "caselette": {
+      "id": "caselette",
+      "name": "Caselette",
+      "isprName": "CASELETTE",
+      "istat": "01001062",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3034,
+      "year": 2024,
+      "rd_pct": 73.73,
+      "kg_ru_ab": 601.2,
+      "kg_ind_ab": 158.0,
+      "mix_rd_pct": {
+        "umida": 18.4,
+        "carta": 14.41,
+        "plastica": 8.79,
+        "verde": 33.74,
+        "vetro": 8.38
+      },
+      "series_rd": {
+        "2022": 75.15,
+        "2023": 73.18,
+        "2024": 73.73
+      },
+      "rd_pctile_it": 51.9,
+      "gap_65": 8.73,
+      "rd_vs_median_it": 0.6,
+      "rd_vs_median_reg": 3.42,
+      "kg_ru_pctile_it": 84.8,
+      "kg_ru_vs_median_it": 156.2,
+      "kg_ru_vs_median_reg": 122.9,
+      "kg_ind_better_pctile_it": 27.0,
+      "kg_ind_vs_median_it": 44.7,
+      "kg_ind_vs_median_reg": 25.6,
+      "delta_rd_22_24": -1.42,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +8.7 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -1.95
+    },
+    "caselle-torinese": {
+      "id": "caselle-torinese",
+      "name": "Caselle Torinese",
+      "isprName": "CASELLE TORINESE",
+      "istat": "01001063",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 13733,
+      "year": 2024,
+      "rd_pct": 66.07,
+      "kg_ru_ab": 510.4,
+      "kg_ind_ab": 173.2,
+      "mix_rd_pct": {
+        "umida": 21.08,
+        "carta": 23.45,
+        "plastica": 8.01,
+        "verde": 6.24,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 62.89,
+        "2023": 61.46,
+        "2024": 66.07
+      },
+      "rd_pctile_it": 29.9,
+      "gap_65": 1.07,
+      "rd_vs_median_it": -7.06,
+      "rd_vs_median_reg": -4.24,
+      "kg_ru_pctile_it": 69.9,
+      "kg_ru_vs_median_it": 65.4,
+      "kg_ru_vs_median_reg": 32.0,
+      "kg_ind_better_pctile_it": 22.5,
+      "kg_ind_vs_median_it": 59.9,
+      "kg_ind_vs_median_reg": 40.8,
+      "delta_rd_22_24": 3.18,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.1 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -8.68
+    },
+    "castagnole-po": {
+      "id": "castagnole-po",
+      "name": "Castagneto Po",
+      "isprName": "CASTAGNETO PO",
+      "istat": "01001064",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1750,
+      "year": 2024,
+      "rd_pct": 70.05,
+      "kg_ru_ab": 500.4,
+      "kg_ind_ab": 149.9,
+      "mix_rd_pct": {
+        "umida": 30.6,
+        "carta": 12.62,
+        "plastica": 21.2,
+        "verde": 3.74,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 67.39,
+        "2023": 68.31,
+        "2024": 70.05
+      },
+      "rd_pctile_it": 40.2,
+      "gap_65": 5.05,
+      "rd_vs_median_it": -3.08,
+      "rd_vs_median_reg": -0.26,
+      "kg_ru_pctile_it": 67.5,
+      "kg_ru_vs_median_it": 55.4,
+      "kg_ru_vs_median_reg": 22.0,
+      "kg_ind_better_pctile_it": 30.0,
+      "kg_ind_vs_median_it": 36.6,
+      "kg_ind_vs_median_reg": 17.5,
+      "delta_rd_22_24": 2.66,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -3.01
+    },
+    "castagnole-piemonte": {
+      "id": "castagnole-piemonte",
+      "name": "Castagnole Piemonte",
+      "isprName": "CASTAGNOLE PIEMONTE",
+      "istat": "01001065",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2191,
+      "year": 2024,
+      "rd_pct": 73.25,
+      "kg_ru_ab": 423.7,
+      "kg_ind_ab": 113.3,
+      "mix_rd_pct": {
+        "umida": 30.1,
+        "carta": 12.59,
+        "plastica": 10.44,
+        "verde": 10.5,
+        "vetro": 10.05
+      },
+      "series_rd": {
+        "2022": 74.41,
+        "2023": 74.25,
+        "2024": 73.25
+      },
+      "rd_pctile_it": 50.5,
+      "gap_65": 8.25,
+      "rd_vs_median_it": 0.12,
+      "rd_vs_median_reg": 2.94,
+      "kg_ru_pctile_it": 42.4,
+      "kg_ru_vs_median_it": -21.3,
+      "kg_ru_vs_median_reg": -54.7,
+      "kg_ind_better_pctile_it": 49.9,
+      "kg_ind_vs_median_it": 0.0,
+      "kg_ind_vs_median_reg": -19.1,
+      "delta_rd_22_24": -1.16,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +8.2 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 0.19
+    },
+    "castellamonte": {
+      "id": "castellamonte",
+      "name": "Castellamonte",
+      "isprName": "CASTELLAMONTE",
+      "istat": "01001066",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 9828,
+      "year": 2024,
+      "rd_pct": 52.57,
+      "kg_ru_ab": 455.4,
+      "kg_ind_ab": 200.6,
+      "mix_rd_pct": {
+        "umida": 4.51,
+        "carta": 20.06,
+        "plastica": 15.89,
+        "verde": 14.36,
+        "vetro": 18.28
+      },
+      "series_rd": {
+        "2022": 48.8,
+        "2023": 48.71,
+        "2024": 52.57
+      },
+      "rd_pctile_it": 12.1,
+      "gap_65": -12.43,
+      "rd_vs_median_it": -20.56,
+      "rd_vs_median_reg": -17.74,
+      "kg_ru_pctile_it": 53.6,
+      "kg_ru_vs_median_it": 10.4,
+      "kg_ru_vs_median_reg": -23.0,
+      "kg_ind_better_pctile_it": 17.1,
+      "kg_ind_vs_median_it": 87.3,
+      "kg_ind_vs_median_reg": 68.2,
+      "delta_rd_22_24": 3.77,
+      "hook": {
+        "key": "below_target",
+        "text": "A -12.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -22.18
+    },
+    "castelnuovo-nigra": {
+      "id": "castelnuovo-nigra",
+      "name": "Castelnuovo Nigra",
+      "isprName": "CASTELNUOVO NIGRA",
+      "istat": "01001067",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 406,
+      "year": 2024,
+      "rd_pct": 42.37,
+      "kg_ru_ab": 477.5,
+      "kg_ind_ab": 271.8,
+      "mix_rd_pct": {
+        "umida": 3.05,
+        "carta": 17.79,
+        "plastica": 21.4,
+        "verde": 7.37,
+        "vetro": 27.82
+      },
+      "series_rd": {
+        "2022": 33.31,
+        "2023": 34.34,
+        "2024": 42.37
+      },
+      "rd_pctile_it": 6.1,
+      "gap_65": -22.63,
+      "rd_vs_median_it": -30.76,
+      "rd_vs_median_reg": -27.94,
+      "kg_ru_pctile_it": 60.6,
+      "kg_ru_vs_median_it": 32.5,
+      "kg_ru_vs_median_reg": -0.9,
+      "kg_ind_better_pctile_it": 9.2,
+      "kg_ind_vs_median_it": 158.5,
+      "kg_ind_vs_median_reg": 139.4,
+      "delta_rd_22_24": 9.06,
+      "hook": {
+        "key": "below_target",
+        "text": "A -22.6 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -25.14
+    },
+    "castiglione-torinese": {
+      "id": "castiglione-torinese",
+      "name": "Castiglione Torinese",
+      "isprName": "CASTIGLIONE TORINESE",
+      "istat": "01001068",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 6488,
+      "year": 2024,
+      "rd_pct": 65.65,
+      "kg_ru_ab": 451.4,
+      "kg_ind_ab": 155.1,
+      "mix_rd_pct": {
+        "umida": 25.51,
+        "carta": 15.84,
+        "plastica": 8.51,
+        "verde": 6.29,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 59.42,
+        "2023": 60.32,
+        "2024": 65.65
+      },
+      "rd_pctile_it": 28.9,
+      "gap_65": 0.65,
+      "rd_vs_median_it": -7.48,
+      "rd_vs_median_reg": -4.66,
+      "kg_ru_pctile_it": 52.3,
+      "kg_ru_vs_median_it": 6.4,
+      "kg_ru_vs_median_reg": -27.0,
+      "kg_ind_better_pctile_it": 28.0,
+      "kg_ind_vs_median_it": 41.8,
+      "kg_ind_vs_median_reg": 22.7,
+      "delta_rd_22_24": 6.23,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.7 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -9.1
+    },
+    "cavagnolo": {
+      "id": "cavagnolo",
+      "name": "Cavagnolo",
+      "isprName": "CAVAGNOLO",
+      "istat": "01001069",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2335,
+      "year": 2024,
+      "rd_pct": 69.26,
+      "kg_ru_ab": 458.7,
+      "kg_ind_ab": 141.0,
+      "mix_rd_pct": {
+        "umida": 30.32,
+        "carta": 13.1,
+        "plastica": 22.54,
+        "verde": 3.5,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 73.57,
+        "2023": 74.69,
+        "2024": 69.26
+      },
+      "rd_pctile_it": 38.1,
+      "gap_65": 4.26,
+      "rd_vs_median_it": -3.87,
+      "rd_vs_median_reg": -1.05,
+      "kg_ru_pctile_it": 54.7,
+      "kg_ru_vs_median_it": 13.7,
+      "kg_ru_vs_median_reg": -19.7,
+      "kg_ind_better_pctile_it": 33.6,
+      "kg_ind_vs_median_it": 27.7,
+      "kg_ind_vs_median_reg": 8.6,
+      "delta_rd_22_24": -4.31,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +4.3 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -3.8
+    },
+    "chianocco": {
+      "id": "chianocco",
+      "name": "Chianocco",
+      "isprName": "CHIANOCCO",
+      "istat": "01001076",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1500,
+      "year": 2024,
+      "rd_pct": 69.57,
+      "kg_ru_ab": 586.2,
+      "kg_ind_ab": 178.4,
+      "mix_rd_pct": {
+        "umida": 22.95,
+        "carta": 10.48,
+        "plastica": 10.75,
+        "verde": 23.77,
+        "vetro": 10.68
+      },
+      "series_rd": {
+        "2022": 68.45,
+        "2023": 69.94,
+        "2024": 69.57
+      },
+      "rd_pctile_it": 38.9,
+      "gap_65": 4.57,
+      "rd_vs_median_it": -3.56,
+      "rd_vs_median_reg": -0.74,
+      "kg_ru_pctile_it": 83.2,
+      "kg_ru_vs_median_it": 141.2,
+      "kg_ru_vs_median_reg": 107.9,
+      "kg_ind_better_pctile_it": 21.3,
+      "kg_ind_vs_median_it": 65.1,
+      "kg_ind_vs_median_reg": 46.0,
+      "delta_rd_22_24": 1.12,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +4.6 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -3.49
+    },
+    "chieri": {
+      "id": "chieri",
+      "name": "Chieri",
+      "isprName": "CHIERI",
+      "istat": "01001078",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 35865,
+      "year": 2024,
+      "rd_pct": 82.56,
+      "kg_ru_ab": 480.5,
+      "kg_ind_ab": 83.8,
+      "mix_rd_pct": {
+        "umida": 26.13,
+        "carta": 14.86,
+        "plastica": 9.44,
+        "verde": 11.87,
+        "vetro": 9.88
+      },
+      "series_rd": {
+        "2022": 85.12,
+        "2023": 83.52,
+        "2024": 82.56
+      },
+      "rd_pctile_it": 80.5,
+      "gap_65": 17.56,
+      "rd_vs_median_it": 9.43,
+      "rd_vs_median_reg": 12.25,
+      "kg_ru_pctile_it": 61.4,
+      "kg_ru_vs_median_it": 35.5,
+      "kg_ru_vs_median_reg": 2.1,
+      "kg_ind_better_pctile_it": 70.9,
+      "kg_ind_vs_median_it": -29.5,
+      "kg_ind_vs_median_reg": -48.6,
+      "delta_rd_22_24": -2.56,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +17.6 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 7.81
+    },
+    "chiesanuova": {
+      "id": "chiesanuova",
+      "name": "Chiesanuova",
+      "isprName": "CHIESANUOVA",
+      "istat": "01001079",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 231,
+      "year": 2024,
+      "rd_pct": 61.95,
+      "kg_ru_ab": 426.4,
+      "kg_ind_ab": 158.7,
+      "mix_rd_pct": {
+        "umida": 3.23,
+        "carta": 26.5,
+        "plastica": 25.5,
+        "verde": 7.62,
+        "vetro": 19.44
+      },
+      "series_rd": {
+        "2022": 53.86,
+        "2023": 54.18,
+        "2024": 61.95
+      },
+      "rd_pctile_it": 22.3,
+      "gap_65": -3.05,
+      "rd_vs_median_it": -11.18,
+      "rd_vs_median_reg": -8.36,
+      "kg_ru_pctile_it": 43.6,
+      "kg_ru_vs_median_it": -18.6,
+      "kg_ru_vs_median_reg": -52.0,
+      "kg_ind_better_pctile_it": 26.8,
+      "kg_ind_vs_median_it": 45.4,
+      "kg_ind_vs_median_reg": 26.3,
+      "delta_rd_22_24": 8.09,
+      "hook": {
+        "key": "below_target",
+        "text": "A -3.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -5.56
+    },
+    "chiusa-di-san-michele": {
+      "id": "chiusa-di-san-michele",
+      "name": "Chiusa di San Michele",
+      "isprName": "CHIUSA DI SAN MICHELE",
+      "istat": "01001081",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1515,
+      "year": 2024,
+      "rd_pct": 75.1,
+      "kg_ru_ab": 479.8,
+      "kg_ind_ab": 119.5,
+      "mix_rd_pct": {
+        "umida": 18.2,
+        "carta": 14.15,
+        "plastica": 9.23,
+        "verde": 26.99,
+        "vetro": 9.72
+      },
+      "series_rd": {
+        "2022": 73.19,
+        "2023": 72.88,
+        "2024": 75.1
+      },
+      "rd_pctile_it": 56.4,
+      "gap_65": 10.1,
+      "rd_vs_median_it": 1.97,
+      "rd_vs_median_reg": 4.79,
+      "kg_ru_pctile_it": 61.2,
+      "kg_ru_vs_median_it": 34.8,
+      "kg_ru_vs_median_reg": 1.4,
+      "kg_ind_better_pctile_it": 45.6,
+      "kg_ind_vs_median_it": 6.2,
+      "kg_ind_vs_median_reg": -12.9,
+      "delta_rd_22_24": 1.91,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.1 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 2.04
+    },
+    "chivasso": {
+      "id": "chivasso",
+      "name": "Chivasso",
+      "isprName": "CHIVASSO",
+      "istat": "01001082",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 26074,
+      "year": 2024,
+      "rd_pct": 64.03,
+      "kg_ru_ab": 565.6,
+      "kg_ind_ab": 203.5,
+      "mix_rd_pct": {
+        "umida": 20.32,
+        "carta": 26.5,
+        "plastica": 8.03,
+        "verde": 8.6,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 64.29,
+        "2023": 62.79,
+        "2024": 64.03
+      },
+      "rd_pctile_it": 25.7,
+      "gap_65": -0.97,
+      "rd_vs_median_it": -9.1,
+      "rd_vs_median_reg": -6.28,
+      "kg_ru_pctile_it": 80.4,
+      "kg_ru_vs_median_it": 120.6,
+      "kg_ru_vs_median_reg": 87.2,
+      "kg_ind_better_pctile_it": 16.5,
+      "kg_ind_vs_median_it": 90.2,
+      "kg_ind_vs_median_reg": 71.1,
+      "delta_rd_22_24": -0.26,
+      "hook": {
+        "key": "below_target",
+        "text": "A -1.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -10.72
+    },
+    "ciconio": {
+      "id": "ciconio",
+      "name": "Ciconio",
+      "isprName": "CICONIO",
+      "istat": "01001083",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 365,
+      "year": 2024,
+      "rd_pct": 60.09,
+      "kg_ru_ab": 416.0,
+      "kg_ind_ab": 158.2,
+      "mix_rd_pct": {
+        "umida": 6.63,
+        "carta": 23.03,
+        "plastica": 9.69,
+        "verde": 10.55,
+        "vetro": 20.71
+      },
+      "series_rd": {
+        "2022": 54.02,
+        "2023": 65.1,
+        "2024": 60.09
+      },
+      "rd_pctile_it": 19.6,
+      "gap_65": -4.91,
+      "rd_vs_median_it": -13.04,
+      "rd_vs_median_reg": -10.22,
+      "kg_ru_pctile_it": 39.8,
+      "kg_ru_vs_median_it": -29.0,
+      "kg_ru_vs_median_reg": -62.4,
+      "kg_ind_better_pctile_it": 27.0,
+      "kg_ind_vs_median_it": 44.9,
+      "kg_ind_vs_median_reg": 25.8,
+      "delta_rd_22_24": 6.07,
+      "hook": {
+        "key": "below_target",
+        "text": "A -4.9 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -7.42
+    },
+    "cintano": {
+      "id": "cintano",
+      "name": "Cintano",
+      "isprName": "CINTANO",
+      "istat": "01001084",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 236,
+      "year": 2024,
+      "rd_pct": 52.04,
+      "kg_ru_ab": 500.9,
+      "kg_ind_ab": 226.0,
+      "mix_rd_pct": {
+        "umida": 4.82,
+        "carta": 18.8,
+        "plastica": 17.84,
+        "verde": 9.66,
+        "vetro": 14.98
+      },
+      "series_rd": {
+        "2022": 43.99,
+        "2023": 43.09,
+        "2024": 52.04
+      },
+      "rd_pctile_it": 11.6,
+      "gap_65": -12.96,
+      "rd_vs_median_it": -21.09,
+      "rd_vs_median_reg": -18.27,
+      "kg_ru_pctile_it": 67.6,
+      "kg_ru_vs_median_it": 55.9,
+      "kg_ru_vs_median_reg": 22.5,
+      "kg_ind_better_pctile_it": 13.4,
+      "kg_ind_vs_median_it": 112.7,
+      "kg_ind_vs_median_reg": 93.6,
+      "delta_rd_22_24": 8.05,
+      "hook": {
+        "key": "below_target",
+        "text": "A -13.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -15.47
+    },
+    "cinzano": {
+      "id": "cinzano",
+      "name": "Cinzano",
+      "isprName": "CINZANO",
+      "istat": "01001085",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 339,
+      "year": 2024,
+      "rd_pct": 69.0,
+      "kg_ru_ab": 497.4,
+      "kg_ind_ab": 154.2,
+      "mix_rd_pct": {
+        "umida": 38.61,
+        "carta": 9.59,
+        "plastica": 13.9,
+        "verde": 3.68,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 56.22,
+        "2023": 58.0,
+        "2024": 69.0
+      },
+      "rd_pctile_it": 37.5,
+      "gap_65": 4.0,
+      "rd_vs_median_it": -4.13,
+      "rd_vs_median_reg": -1.31,
+      "kg_ru_pctile_it": 66.5,
+      "kg_ru_vs_median_it": 52.4,
+      "kg_ru_vs_median_reg": 19.0,
+      "kg_ind_better_pctile_it": 28.3,
+      "kg_ind_vs_median_it": 40.9,
+      "kg_ind_vs_median_reg": 21.8,
+      "delta_rd_22_24": 12.78,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +4.0 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": 1.49
+    },
+    "cirie": {
+      "id": "cirie",
+      "name": "Ciriè",
+      "isprName": "CIRIE'",
+      "istat": "01001086",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 18073,
+      "year": 2024,
+      "rd_pct": 76.38,
+      "kg_ru_ab": 501.9,
+      "kg_ind_ab": 118.6,
+      "mix_rd_pct": {
+        "umida": 22.75,
+        "carta": 15.21,
+        "plastica": 3.07,
+        "verde": 7.4,
+        "vetro": 17.22
+      },
+      "series_rd": {
+        "2022": 73.68,
+        "2023": 74.69,
+        "2024": 76.38
+      },
+      "rd_pctile_it": 60.4,
+      "gap_65": 11.38,
+      "rd_vs_median_it": 3.25,
+      "rd_vs_median_reg": 6.07,
+      "kg_ru_pctile_it": 67.8,
+      "kg_ru_vs_median_it": 56.9,
+      "kg_ru_vs_median_reg": 23.5,
+      "kg_ind_better_pctile_it": 46.3,
+      "kg_ind_vs_median_it": 5.3,
+      "kg_ind_vs_median_reg": -13.8,
+      "delta_rd_22_24": 2.7,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +11.4 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 1.63
+    },
+    "coazze": {
+      "id": "coazze",
+      "name": "Coazze",
+      "isprName": "COAZZE",
+      "istat": "01001089",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3352,
+      "year": 2024,
+      "rd_pct": 67.23,
+      "kg_ru_ab": 485.5,
+      "kg_ind_ab": 159.1,
+      "mix_rd_pct": {
+        "umida": 16.62,
+        "carta": 11.93,
+        "plastica": 18.93,
+        "verde": 26.62,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 70.19,
+        "2023": 72.32,
+        "2024": 67.23
+      },
+      "rd_pctile_it": 32.5,
+      "gap_65": 2.23,
+      "rd_vs_median_it": -5.9,
+      "rd_vs_median_reg": -3.08,
+      "kg_ru_pctile_it": 63.1,
+      "kg_ru_vs_median_it": 40.5,
+      "kg_ru_vs_median_reg": 7.1,
+      "kg_ind_better_pctile_it": 26.7,
+      "kg_ind_vs_median_it": 45.8,
+      "kg_ind_vs_median_reg": 26.7,
+      "delta_rd_22_24": -2.96,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +2.2 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -8.45
+    },
+    "collegno": {
+      "id": "collegno",
+      "name": "Collegno",
+      "isprName": "COLLEGNO",
+      "istat": "01001090",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 47779,
+      "year": 2024,
+      "rd_pct": 67.33,
+      "kg_ru_ab": 493.2,
+      "kg_ind_ab": 161.2,
+      "mix_rd_pct": {
+        "umida": 20.14,
+        "carta": 30.37,
+        "plastica": 11.48,
+        "verde": 5.42,
+        "vetro": 0.07
+      },
+      "series_rd": {
+        "2022": 65.02,
+        "2023": 68.6,
+        "2024": 67.33
+      },
+      "rd_pctile_it": 32.7,
+      "gap_65": 2.33,
+      "rd_vs_median_it": -5.8,
+      "rd_vs_median_reg": -2.98,
+      "kg_ru_pctile_it": 65.4,
+      "kg_ru_vs_median_it": 48.2,
+      "kg_ru_vs_median_reg": 14.8,
+      "kg_ind_better_pctile_it": 26.0,
+      "kg_ind_vs_median_it": 47.9,
+      "kg_ind_vs_median_reg": 28.8,
+      "delta_rd_22_24": 2.31,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +2.3 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -7.42
+    },
+    "colleretto-castelnuovo": {
+      "id": "colleretto-castelnuovo",
+      "name": "Colleretto Castelnuovo",
+      "isprName": "COLLERETTO CASTELNUOVO",
+      "istat": "01001091",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 324,
+      "year": 2024,
+      "rd_pct": 73.94,
+      "kg_ru_ab": 445.0,
+      "kg_ind_ab": 110.7,
+      "mix_rd_pct": {
+        "umida": 3.5,
+        "carta": 53.13,
+        "plastica": 15.28,
+        "verde": 1.52,
+        "vetro": 12.86
+      },
+      "series_rd": {
+        "2022": 61.28,
+        "2023": 60.27,
+        "2024": 73.94
+      },
+      "rd_pctile_it": 52.4,
+      "gap_65": 8.94,
+      "rd_vs_median_it": 0.81,
+      "rd_vs_median_reg": 3.63,
+      "kg_ru_pctile_it": 50.0,
+      "kg_ru_vs_median_it": 0.0,
+      "kg_ru_vs_median_reg": -33.4,
+      "kg_ind_better_pctile_it": 51.6,
+      "kg_ind_vs_median_it": -2.6,
+      "kg_ind_vs_median_reg": -21.7,
+      "delta_rd_22_24": 12.66,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +8.9 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": 6.43
+    },
+    "condove": {
+      "id": "condove",
+      "name": "Condove",
+      "isprName": "CONDOVE",
+      "istat": "01001093",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4420,
+      "year": 2024,
+      "rd_pct": 73.2,
+      "kg_ru_ab": 507.2,
+      "kg_ind_ab": 135.9,
+      "mix_rd_pct": {
+        "umida": 18.62,
+        "carta": 11.91,
+        "plastica": 7.1,
+        "verde": 28.41,
+        "vetro": 9.69
+      },
+      "series_rd": {
+        "2022": 70.33,
+        "2023": 72.96,
+        "2024": 73.2
+      },
+      "rd_pctile_it": 50.3,
+      "gap_65": 8.2,
+      "rd_vs_median_it": 0.07,
+      "rd_vs_median_reg": 2.89,
+      "kg_ru_pctile_it": 69.2,
+      "kg_ru_vs_median_it": 62.2,
+      "kg_ru_vs_median_reg": 28.8,
+      "kg_ind_better_pctile_it": 36.1,
+      "kg_ind_vs_median_it": 22.6,
+      "kg_ind_vs_median_reg": 3.5,
+      "delta_rd_22_24": 2.87,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +8.2 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -2.48
+    },
+    "cuorgne": {
+      "id": "cuorgne",
+      "name": "Cuorgnè",
+      "isprName": "CUORGNE'",
+      "istat": "01001098",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 9509,
+      "year": 2024,
+      "rd_pct": 55.01,
+      "kg_ru_ab": 365.3,
+      "kg_ind_ab": 162.6,
+      "mix_rd_pct": {
+        "umida": 6.31,
+        "carta": 27.2,
+        "plastica": 15.02,
+        "verde": 9.58,
+        "vetro": 19.97
+      },
+      "series_rd": {
+        "2022": 49.29,
+        "2023": 48.45,
+        "2024": 55.01
+      },
+      "rd_pctile_it": 14.1,
+      "gap_65": -9.99,
+      "rd_vs_median_it": -18.12,
+      "rd_vs_median_reg": -15.3,
+      "kg_ru_pctile_it": 23.6,
+      "kg_ru_vs_median_it": -79.7,
+      "kg_ru_vs_median_reg": -113.1,
+      "kg_ind_better_pctile_it": 25.5,
+      "kg_ind_vs_median_it": 49.3,
+      "kg_ind_vs_median_reg": 30.2,
+      "delta_rd_22_24": 5.72,
+      "hook": {
+        "key": "below_target",
+        "text": "A -10.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -19.74
+    },
+    "druento": {
+      "id": "druento",
+      "name": "Druento",
+      "isprName": "DRUENTO",
+      "istat": "01001099",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 9001,
+      "year": 2024,
+      "rd_pct": 64.72,
+      "kg_ru_ab": 477.2,
+      "kg_ind_ab": 168.4,
+      "mix_rd_pct": {
+        "umida": 21.74,
+        "carta": 14.7,
+        "plastica": 20.55,
+        "verde": 13.79,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 65.27,
+        "2023": 64.53,
+        "2024": 64.72
+      },
+      "rd_pctile_it": 26.9,
+      "gap_65": -0.28,
+      "rd_vs_median_it": -8.41,
+      "rd_vs_median_reg": -5.59,
+      "kg_ru_pctile_it": 60.5,
+      "kg_ru_vs_median_it": 32.2,
+      "kg_ru_vs_median_reg": -1.2,
+      "kg_ind_better_pctile_it": 23.8,
+      "kg_ind_vs_median_it": 55.1,
+      "kg_ind_vs_median_reg": 36.0,
+      "delta_rd_22_24": -0.55,
+      "hook": {
+        "key": "below_target",
+        "text": "A -0.3 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -10.03
+    },
+    "favria": {
+      "id": "favria",
+      "name": "Favria",
+      "isprName": "FAVRIA",
+      "istat": "01001101",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4972,
+      "year": 2024,
+      "rd_pct": 60.52,
+      "kg_ru_ab": 278.7,
+      "kg_ind_ab": 108.2,
+      "mix_rd_pct": {
+        "umida": 7.49,
+        "carta": 18.86,
+        "plastica": 16.49,
+        "verde": 13.35,
+        "vetro": 21.63
+      },
+      "series_rd": {
+        "2022": 51.2,
+        "2023": 57.69,
+        "2024": 60.52
+      },
+      "rd_pctile_it": 20.2,
+      "gap_65": -4.48,
+      "rd_vs_median_it": -12.61,
+      "rd_vs_median_reg": -9.79,
+      "kg_ru_pctile_it": 5.7,
+      "kg_ru_vs_median_it": -166.3,
+      "kg_ru_vs_median_reg": -199.7,
+      "kg_ind_better_pctile_it": 53.5,
+      "kg_ind_vs_median_it": -5.1,
+      "kg_ind_vs_median_reg": -24.2,
+      "delta_rd_22_24": 9.32,
+      "hook": {
+        "key": "below_target",
+        "text": "A -4.5 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -15.16
+    },
+    "feletto": {
+      "id": "feletto",
+      "name": "Feletto",
+      "isprName": "FELETTO",
+      "istat": "01001102",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2147,
+      "year": 2024,
+      "rd_pct": 61.87,
+      "kg_ru_ab": 368.2,
+      "kg_ind_ab": 133.5,
+      "mix_rd_pct": {
+        "umida": 6.86,
+        "carta": 21.97,
+        "plastica": 11.02,
+        "verde": 11.67,
+        "vetro": 13.57
+      },
+      "series_rd": {
+        "2022": 59.22,
+        "2023": 58.68,
+        "2024": 61.87
+      },
+      "rd_pctile_it": 22.1,
+      "gap_65": -3.13,
+      "rd_vs_median_it": -11.26,
+      "rd_vs_median_reg": -8.44,
+      "kg_ru_pctile_it": 24.5,
+      "kg_ru_vs_median_it": -76.8,
+      "kg_ru_vs_median_reg": -110.2,
+      "kg_ind_better_pctile_it": 37.1,
+      "kg_ind_vs_median_it": 20.2,
+      "kg_ind_vs_median_reg": 1.1,
+      "delta_rd_22_24": 2.65,
+      "hook": {
+        "key": "below_target",
+        "text": "A -3.1 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -11.19
+    },
+    "foglizzo": {
+      "id": "foglizzo",
+      "name": "Foglizzo",
+      "isprName": "FOGLIZZO",
+      "istat": "01001106",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2250,
+      "year": 2024,
+      "rd_pct": 65.72,
+      "kg_ru_ab": 524.3,
+      "kg_ind_ab": 179.7,
+      "mix_rd_pct": {
+        "umida": 18.63,
+        "carta": 15.44,
+        "plastica": 15.68,
+        "verde": 16.63,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 60.17,
+        "2023": 62.47,
+        "2024": 65.72
+      },
+      "rd_pctile_it": 29.0,
+      "gap_65": 0.72,
+      "rd_vs_median_it": -7.41,
+      "rd_vs_median_reg": -4.59,
+      "kg_ru_pctile_it": 72.8,
+      "kg_ru_vs_median_it": 79.3,
+      "kg_ru_vs_median_reg": 45.9,
+      "kg_ind_better_pctile_it": 21.1,
+      "kg_ind_vs_median_it": 66.4,
+      "kg_ind_vs_median_reg": 47.3,
+      "delta_rd_22_24": 5.55,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.7 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -7.34
+    },
+    "forno-canavese": {
+      "id": "forno-canavese",
+      "name": "Forno Canavese",
+      "isprName": "FORNO CANAVESE",
+      "istat": "01001107",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3164,
+      "year": 2024,
+      "rd_pct": 63.96,
+      "kg_ru_ab": 291.6,
+      "kg_ind_ab": 100.5,
+      "mix_rd_pct": {
+        "umida": 5.35,
+        "carta": 23.76,
+        "plastica": 13.29,
+        "verde": 11.82,
+        "vetro": 19.49
+      },
+      "series_rd": {
+        "2022": 54.39,
+        "2023": 52.17,
+        "2024": 63.96
+      },
+      "rd_pctile_it": 25.6,
+      "gap_65": -1.04,
+      "rd_vs_median_it": -9.17,
+      "rd_vs_median_reg": -6.35,
+      "kg_ru_pctile_it": 7.9,
+      "kg_ru_vs_median_it": -153.4,
+      "kg_ru_vs_median_reg": -186.8,
+      "kg_ind_better_pctile_it": 58.9,
+      "kg_ind_vs_median_it": -12.8,
+      "kg_ind_vs_median_reg": -31.9,
+      "delta_rd_22_24": 9.57,
+      "hook": {
+        "key": "below_target",
+        "text": "A -1.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -11.72
+    },
+    "frassinetto": {
+      "id": "frassinetto",
+      "name": "Frassinetto",
+      "isprName": "FRASSINETTO",
+      "istat": "01001108",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 271,
+      "year": 2024,
+      "rd_pct": 36.72,
+      "kg_ru_ab": 794.2,
+      "kg_ind_ab": 467.8,
+      "mix_rd_pct": {
+        "umida": null,
+        "carta": 18.84,
+        "plastica": 18.84,
+        "verde": 2.58,
+        "vetro": 19.44
+      },
+      "series_rd": {
+        "2022": 45.06,
+        "2023": 32.13,
+        "2024": 36.72
+      },
+      "rd_pctile_it": 4.2,
+      "gap_65": -28.28,
+      "rd_vs_median_it": -36.41,
+      "rd_vs_median_reg": -33.59,
+      "kg_ru_pctile_it": 95.2,
+      "kg_ru_vs_median_it": 349.2,
+      "kg_ru_vs_median_reg": 315.9,
+      "kg_ind_better_pctile_it": 2.2,
+      "kg_ind_vs_median_it": 354.5,
+      "kg_ind_vs_median_reg": 335.4,
+      "delta_rd_22_24": -8.34,
+      "hook": {
+        "key": "below_target",
+        "text": "A -28.3 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -30.79
+    },
+    "gassino-torinese": {
+      "id": "gassino-torinese",
+      "name": "Gassino Torinese",
+      "isprName": "GASSINO TORINESE",
+      "istat": "01001112",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 9224,
+      "year": 2024,
+      "rd_pct": 65.84,
+      "kg_ru_ab": 467.1,
+      "kg_ind_ab": 159.6,
+      "mix_rd_pct": {
+        "umida": 26.16,
+        "carta": 18.84,
+        "plastica": 8.02,
+        "verde": 5.57,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 57.8,
+        "2023": 59.27,
+        "2024": 65.84
+      },
+      "rd_pctile_it": 29.3,
+      "gap_65": 0.84,
+      "rd_vs_median_it": -7.29,
+      "rd_vs_median_reg": -4.47,
+      "kg_ru_pctile_it": 57.3,
+      "kg_ru_vs_median_it": 22.1,
+      "kg_ru_vs_median_reg": -11.2,
+      "kg_ind_better_pctile_it": 26.6,
+      "kg_ind_vs_median_it": 46.3,
+      "kg_ind_vs_median_reg": 27.2,
+      "delta_rd_22_24": 8.04,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.8 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -8.91
+    },
+    "giaveno": {
+      "id": "giaveno",
+      "name": "Giaveno",
+      "isprName": "GIAVENO",
+      "istat": "01001115",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 16286,
+      "year": 2024,
+      "rd_pct": 68.09,
+      "kg_ru_ab": 516.8,
+      "kg_ind_ab": 164.9,
+      "mix_rd_pct": {
+        "umida": 17.14,
+        "carta": 18.07,
+        "plastica": 20.25,
+        "verde": 22.13,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 67.44,
+        "2023": 68.56,
+        "2024": 68.09
+      },
+      "rd_pctile_it": 34.8,
+      "gap_65": 3.09,
+      "rd_vs_median_it": -5.04,
+      "rd_vs_median_reg": -2.22,
+      "kg_ru_pctile_it": 71.3,
+      "kg_ru_vs_median_it": 71.8,
+      "kg_ru_vs_median_reg": 38.4,
+      "kg_ind_better_pctile_it": 24.8,
+      "kg_ind_vs_median_it": 51.6,
+      "kg_ind_vs_median_reg": 32.5,
+      "delta_rd_22_24": 0.65,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +3.1 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -6.66
+    },
+    "grugliasco": {
+      "id": "grugliasco",
+      "name": "Grugliasco",
+      "isprName": "GRUGLIASCO",
+      "istat": "01001120",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 36499,
+      "year": 2024,
+      "rd_pct": 69.73,
+      "kg_ru_ab": 498.4,
+      "kg_ind_ab": 150.9,
+      "mix_rd_pct": {
+        "umida": 22.6,
+        "carta": 32.86,
+        "plastica": 12.59,
+        "verde": 2.22,
+        "vetro": 0.34
+      },
+      "series_rd": {
+        "2022": 68.93,
+        "2023": 69.42,
+        "2024": 69.73
+      },
+      "rd_pctile_it": 39.3,
+      "gap_65": 4.73,
+      "rd_vs_median_it": -3.4,
+      "rd_vs_median_reg": -0.58,
+      "kg_ru_pctile_it": 67.0,
+      "kg_ru_vs_median_it": 53.4,
+      "kg_ru_vs_median_reg": 20.0,
+      "kg_ind_better_pctile_it": 29.6,
+      "kg_ind_vs_median_it": 37.6,
+      "kg_ind_vs_median_reg": 18.5,
+      "delta_rd_22_24": 0.8,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +4.7 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -5.02
+    },
+    "ingria": {
+      "id": "ingria",
+      "name": "Ingria",
+      "isprName": "INGRIA",
+      "istat": "01001121",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 44,
+      "year": 2024,
+      "rd_pct": 57.76,
+      "kg_ru_ab": 977.9,
+      "kg_ind_ab": 408.0,
+      "mix_rd_pct": {
+        "umida": null,
+        "carta": 26.79,
+        "plastica": 12.36,
+        "verde": 2.37,
+        "vetro": 29.26
+      },
+      "series_rd": {
+        "2022": 51.61,
+        "2023": 48.37,
+        "2024": 57.76
+      },
+      "rd_pctile_it": 16.9,
+      "gap_65": -7.24,
+      "rd_vs_median_it": -15.37,
+      "rd_vs_median_reg": -12.55,
+      "kg_ru_pctile_it": 97.8,
+      "kg_ru_vs_median_it": 532.9,
+      "kg_ru_vs_median_reg": 499.5,
+      "kg_ind_better_pctile_it": 3.6,
+      "kg_ind_vs_median_it": 294.7,
+      "kg_ind_vs_median_reg": 275.6,
+      "delta_rd_22_24": 6.15,
+      "hook": {
+        "key": "below_target",
+        "text": "A -7.2 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -9.75
+    },
+    "isolabella": {
+      "id": "isolabella",
+      "name": "Isolabella",
+      "isprName": "ISOLABELLA",
+      "istat": "01001123",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 350,
+      "year": 2024,
+      "rd_pct": 66.84,
+      "kg_ru_ab": 298.4,
+      "kg_ind_ab": 98.9,
+      "mix_rd_pct": {
+        "umida": 23.92,
+        "carta": 16.93,
+        "plastica": 12.99,
+        "verde": 3.37,
+        "vetro": 16.45
+      },
+      "series_rd": {
+        "2022": 63.99,
+        "2023": 64.77,
+        "2024": 66.84
+      },
+      "rd_pctile_it": 31.6,
+      "gap_65": 1.84,
+      "rd_vs_median_it": -6.29,
+      "rd_vs_median_reg": -3.47,
+      "kg_ru_pctile_it": 9.3,
+      "kg_ru_vs_median_it": -146.6,
+      "kg_ru_vs_median_reg": -180.0,
+      "kg_ind_better_pctile_it": 59.9,
+      "kg_ind_vs_median_it": -14.4,
+      "kg_ind_vs_median_reg": -33.5,
+      "delta_rd_22_24": 2.85,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.8 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -0.67
+    },
+    "issiglio": {
+      "id": "issiglio",
+      "name": "Issiglio",
+      "isprName": "ISSIGLIO",
+      "istat": "01001124",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 431,
+      "year": 2024,
+      "rd_pct": 59.46,
+      "kg_ru_ab": 378.0,
+      "kg_ind_ab": 136.5,
+      "mix_rd_pct": {
+        "umida": 1.81,
+        "carta": 23.61,
+        "plastica": 17.24,
+        "verde": 3.74,
+        "vetro": 24.55
+      },
+      "series_rd": {
+        "2022": 52.73,
+        "2023": 49.65,
+        "2024": 59.46
+      },
+      "rd_pctile_it": 18.7,
+      "gap_65": -5.54,
+      "rd_vs_median_it": -13.67,
+      "rd_vs_median_reg": -10.85,
+      "kg_ru_pctile_it": 27.3,
+      "kg_ru_vs_median_it": -67.0,
+      "kg_ru_vs_median_reg": -100.4,
+      "kg_ind_better_pctile_it": 35.7,
+      "kg_ind_vs_median_it": 23.2,
+      "kg_ind_vs_median_reg": 4.1,
+      "delta_rd_22_24": 6.73,
+      "hook": {
+        "key": "below_target",
+        "text": "A -5.5 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -8.05
+    },
+    "ivrea": {
+      "id": "ivrea",
+      "name": "Ivrea",
+      "isprName": "IVREA",
+      "istat": "01001125",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 22532,
+      "year": 2024,
+      "rd_pct": 65.16,
+      "kg_ru_ab": 649.7,
+      "kg_ind_ab": 226.3,
+      "mix_rd_pct": {
+        "umida": 26.08,
+        "carta": 17.71,
+        "plastica": 6.74,
+        "verde": 15.04,
+        "vetro": 9.58
+      },
+      "series_rd": {
+        "2022": 62.07,
+        "2023": 64.82,
+        "2024": 65.16
+      },
+      "rd_pctile_it": 28.0,
+      "gap_65": 0.16,
+      "rd_vs_median_it": -7.97,
+      "rd_vs_median_reg": -5.15,
+      "kg_ru_pctile_it": 89.0,
+      "kg_ru_vs_median_it": 204.7,
+      "kg_ru_vs_median_reg": 171.4,
+      "kg_ind_better_pctile_it": 13.4,
+      "kg_ind_vs_median_it": 113.0,
+      "kg_ind_vs_median_reg": 93.9,
+      "delta_rd_22_24": 3.09,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.2 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -9.59
+    },
+    "la-loggia": {
+      "id": "la-loggia",
+      "name": "La Loggia",
+      "isprName": "LA LOGGIA",
+      "istat": "01001127",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 8686,
+      "year": 2024,
+      "rd_pct": 71.08,
+      "kg_ru_ab": 493.2,
+      "kg_ind_ab": 142.6,
+      "mix_rd_pct": {
+        "umida": 23.48,
+        "carta": 14.79,
+        "plastica": 14.57,
+        "verde": 13.35,
+        "vetro": 7.89
+      },
+      "series_rd": {
+        "2022": 67.76,
+        "2023": 68.04,
+        "2024": 71.08
+      },
+      "rd_pctile_it": 43.4,
+      "gap_65": 6.08,
+      "rd_vs_median_it": -2.05,
+      "rd_vs_median_reg": 0.77,
+      "kg_ru_pctile_it": 65.4,
+      "kg_ru_vs_median_it": 48.2,
+      "kg_ru_vs_median_reg": 14.8,
+      "kg_ind_better_pctile_it": 32.9,
+      "kg_ind_vs_median_it": 29.3,
+      "kg_ind_vs_median_reg": 10.2,
+      "delta_rd_22_24": 3.32,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +6.1 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -3.67
+    },
+    "lauriano": {
+      "id": "lauriano",
+      "name": "Lauriano",
+      "isprName": "LAURIANO",
+      "istat": "01001129",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1404,
+      "year": 2024,
+      "rd_pct": 71.69,
+      "kg_ru_ab": 523.1,
+      "kg_ind_ab": 148.1,
+      "mix_rd_pct": {
+        "umida": 22.52,
+        "carta": 11.65,
+        "plastica": 19.35,
+        "verde": 18.57,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 65.67,
+        "2023": 69.44,
+        "2024": 71.69
+      },
+      "rd_pctile_it": 45.4,
+      "gap_65": 6.69,
+      "rd_vs_median_it": -1.44,
+      "rd_vs_median_reg": 1.38,
+      "kg_ru_pctile_it": 72.6,
+      "kg_ru_vs_median_it": 78.1,
+      "kg_ru_vs_median_reg": 44.8,
+      "kg_ind_better_pctile_it": 30.7,
+      "kg_ind_vs_median_it": 34.8,
+      "kg_ind_vs_median_reg": 15.7,
+      "delta_rd_22_24": 6.02,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +6.7 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -1.37
+    },
+    "leini": {
+      "id": "leini",
+      "name": "Leinì",
+      "isprName": "LEINI'",
+      "istat": "01001130",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 16209,
+      "year": 2024,
+      "rd_pct": 62.67,
+      "kg_ru_ab": 615.8,
+      "kg_ind_ab": 229.8,
+      "mix_rd_pct": {
+        "umida": 19.31,
+        "carta": 24.55,
+        "plastica": 9.2,
+        "verde": 4.08,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 61.43,
+        "2023": 63.37,
+        "2024": 62.67
+      },
+      "rd_pctile_it": 23.5,
+      "gap_65": -2.33,
+      "rd_vs_median_it": -10.46,
+      "rd_vs_median_reg": -7.64,
+      "kg_ru_pctile_it": 86.2,
+      "kg_ru_vs_median_it": 170.8,
+      "kg_ru_vs_median_reg": 137.4,
+      "kg_ind_better_pctile_it": 13.0,
+      "kg_ind_vs_median_it": 116.5,
+      "kg_ind_vs_median_reg": 97.4,
+      "delta_rd_22_24": 1.24,
+      "hook": {
+        "key": "below_target",
+        "text": "A -2.3 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -12.08
+    },
+    "levone": {
+      "id": "levone",
+      "name": "Levone",
+      "isprName": "LEVONE",
+      "istat": "01001133",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 460,
+      "year": 2024,
+      "rd_pct": 65.82,
+      "kg_ru_ab": 330.0,
+      "kg_ind_ab": 110.0,
+      "mix_rd_pct": {
+        "umida": 5.16,
+        "carta": 26.63,
+        "plastica": 12.47,
+        "verde": 9.04,
+        "vetro": 23.03
+      },
+      "series_rd": {
+        "2022": 66.6,
+        "2023": 63.12,
+        "2024": 65.82
+      },
+      "rd_pctile_it": 29.3,
+      "gap_65": 0.82,
+      "rd_vs_median_it": -7.31,
+      "rd_vs_median_reg": -4.49,
+      "kg_ru_pctile_it": 15.0,
+      "kg_ru_vs_median_it": -115.0,
+      "kg_ru_vs_median_reg": -148.4,
+      "kg_ind_better_pctile_it": 52.2,
+      "kg_ind_vs_median_it": -3.3,
+      "kg_ind_vs_median_reg": -22.4,
+      "delta_rd_22_24": -0.78,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.8 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -1.69
+    },
+    "locana": {
+      "id": "locana",
+      "name": "Locana",
+      "isprName": "LOCANA",
+      "istat": "01001134",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1285,
+      "year": 2024,
+      "rd_pct": 41.75,
+      "kg_ru_ab": 516.8,
+      "kg_ind_ab": 297.8,
+      "mix_rd_pct": {
+        "umida": 4.3,
+        "carta": 29.04,
+        "plastica": 13.93,
+        "verde": 2.17,
+        "vetro": 26.7
+      },
+      "series_rd": {
+        "2022": 41.37,
+        "2023": 37.59,
+        "2024": 41.75
+      },
+      "rd_pctile_it": 5.9,
+      "gap_65": -23.25,
+      "rd_vs_median_it": -31.38,
+      "rd_vs_median_reg": -28.56,
+      "kg_ru_pctile_it": 71.3,
+      "kg_ru_vs_median_it": 71.8,
+      "kg_ru_vs_median_reg": 38.4,
+      "kg_ind_better_pctile_it": 7.6,
+      "kg_ind_vs_median_it": 184.5,
+      "kg_ind_vs_median_reg": 165.4,
+      "delta_rd_22_24": 0.38,
+      "hook": {
+        "key": "below_target",
+        "text": "A -23.2 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -31.31
+    },
+    "lombardore": {
+      "id": "lombardore",
+      "name": "Lombardore",
+      "isprName": "LOMBARDORE",
+      "istat": "01001135",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1730,
+      "year": 2024,
+      "rd_pct": 64.87,
+      "kg_ru_ab": 542.1,
+      "kg_ind_ab": 190.5,
+      "mix_rd_pct": {
+        "umida": 16.48,
+        "carta": 18.51,
+        "plastica": 11.21,
+        "verde": 3.49,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 55.01,
+        "2023": 57.73,
+        "2024": 64.87
+      },
+      "rd_pctile_it": 27.3,
+      "gap_65": -0.13,
+      "rd_vs_median_it": -8.26,
+      "rd_vs_median_reg": -5.44,
+      "kg_ru_pctile_it": 76.5,
+      "kg_ru_vs_median_it": 97.1,
+      "kg_ru_vs_median_reg": 63.8,
+      "kg_ind_better_pctile_it": 18.9,
+      "kg_ind_vs_median_it": 77.2,
+      "kg_ind_vs_median_reg": 58.1,
+      "delta_rd_22_24": 9.86,
+      "hook": {
+        "key": "below_target",
+        "text": "A -0.1 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -8.19
+    },
+    "lombriasco": {
+      "id": "lombriasco",
+      "name": "Lombriasco",
+      "isprName": "LOMBRIASCO",
+      "istat": "01001136",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1054,
+      "year": 2024,
+      "rd_pct": 70.62,
+      "kg_ru_ab": 391.2,
+      "kg_ind_ab": 115.0,
+      "mix_rd_pct": {
+        "umida": 34.88,
+        "carta": 18.63,
+        "plastica": 12.8,
+        "verde": 4.42,
+        "vetro": 9.01
+      },
+      "series_rd": {
+        "2022": 70.93,
+        "2023": 70.99,
+        "2024": 70.62
+      },
+      "rd_pctile_it": 41.9,
+      "gap_65": 5.62,
+      "rd_vs_median_it": -2.51,
+      "rd_vs_median_reg": 0.31,
+      "kg_ru_pctile_it": 31.5,
+      "kg_ru_vs_median_it": -53.8,
+      "kg_ru_vs_median_reg": -87.2,
+      "kg_ind_better_pctile_it": 48.9,
+      "kg_ind_vs_median_it": 1.7,
+      "kg_ind_vs_median_reg": -17.4,
+      "delta_rd_22_24": -0.31,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.6 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -2.44
+    },
+    "mappano": {
+      "id": "mappano",
+      "name": "Mappano",
+      "isprName": "MAPPANO",
+      "istat": "01001316",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 7268,
+      "year": 2024,
+      "rd_pct": 73.42,
+      "kg_ru_ab": 680.2,
+      "kg_ind_ab": 180.8,
+      "mix_rd_pct": {
+        "umida": 13.75,
+        "carta": 28.34,
+        "plastica": 8.95,
+        "verde": 3.45,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 66.65,
+        "2023": 67.38,
+        "2024": 73.42
+      },
+      "rd_pctile_it": 50.9,
+      "gap_65": 8.42,
+      "rd_vs_median_it": 0.29,
+      "rd_vs_median_reg": 3.11,
+      "kg_ru_pctile_it": 91.1,
+      "kg_ru_vs_median_it": 235.2,
+      "kg_ru_vs_median_reg": 201.9,
+      "kg_ind_better_pctile_it": 20.9,
+      "kg_ind_vs_median_it": 67.5,
+      "kg_ind_vs_median_reg": 48.4,
+      "delta_rd_22_24": 6.77,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +8.4 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -1.33
+    },
+    "marentino": {
+      "id": "marentino",
+      "name": "Marentino",
+      "isprName": "MARENTINO",
+      "istat": "01001144",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1261,
+      "year": 2024,
+      "rd_pct": 75.79,
+      "kg_ru_ab": 372.0,
+      "kg_ind_ab": 90.0,
+      "mix_rd_pct": {
+        "umida": 27.6,
+        "carta": 8.67,
+        "plastica": 9.34,
+        "verde": 19.22,
+        "vetro": 15.6
+      },
+      "series_rd": {
+        "2022": 69.78,
+        "2023": 70.54,
+        "2024": 75.79
+      },
+      "rd_pctile_it": 58.5,
+      "gap_65": 10.79,
+      "rd_vs_median_it": 2.66,
+      "rd_vs_median_reg": 5.48,
+      "kg_ru_pctile_it": 25.6,
+      "kg_ru_vs_median_it": -73.0,
+      "kg_ru_vs_median_reg": -106.4,
+      "kg_ind_better_pctile_it": 66.2,
+      "kg_ind_vs_median_it": -23.3,
+      "kg_ind_vs_median_reg": -42.4,
+      "delta_rd_22_24": 6.01,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.8 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 2.73
+    },
+    "mombello-di-torino": {
+      "id": "mombello-di-torino",
+      "name": "Mombello di Torino",
+      "isprName": "MOMBELLO DI TORINO",
+      "istat": "01001153",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 398,
+      "year": 2024,
+      "rd_pct": 58.53,
+      "kg_ru_ab": 268.0,
+      "kg_ind_ab": 111.1,
+      "mix_rd_pct": {
+        "umida": null,
+        "carta": 20.71,
+        "plastica": 19.4,
+        "verde": 5.0,
+        "vetro": 28.69
+      },
+      "series_rd": {
+        "2022": 59.16,
+        "2023": 60.08,
+        "2024": 58.53
+      },
+      "rd_pctile_it": 17.8,
+      "gap_65": -6.47,
+      "rd_vs_median_it": -14.6,
+      "rd_vs_median_reg": -11.78,
+      "kg_ru_pctile_it": 4.2,
+      "kg_ru_vs_median_it": -177.0,
+      "kg_ru_vs_median_reg": -210.4,
+      "kg_ind_better_pctile_it": 51.5,
+      "kg_ind_vs_median_it": -2.2,
+      "kg_ind_vs_median_reg": -21.3,
+      "delta_rd_22_24": -0.63,
+      "hook": {
+        "key": "below_target",
+        "text": "A -6.5 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -8.98
+    },
+    "mompantero": {
+      "id": "mompantero",
+      "name": "Mompantero",
+      "isprName": "MOMPANTERO",
+      "istat": "01001154",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 611,
+      "year": 2024,
+      "rd_pct": 66.96,
+      "kg_ru_ab": 437.3,
+      "kg_ind_ab": 144.5,
+      "mix_rd_pct": {
+        "umida": 22.56,
+        "carta": 11.39,
+        "plastica": 11.02,
+        "verde": 12.5,
+        "vetro": 11.72
+      },
+      "series_rd": {
+        "2022": 66.72,
+        "2023": 67.54,
+        "2024": 66.96
+      },
+      "rd_pctile_it": 31.9,
+      "gap_65": 1.96,
+      "rd_vs_median_it": -6.17,
+      "rd_vs_median_reg": -3.35,
+      "kg_ru_pctile_it": 47.4,
+      "kg_ru_vs_median_it": -7.7,
+      "kg_ru_vs_median_reg": -41.1,
+      "kg_ind_better_pctile_it": 32.2,
+      "kg_ind_vs_median_it": 31.2,
+      "kg_ind_vs_median_reg": 12.1,
+      "delta_rd_22_24": 0.24,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +2.0 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -0.55
+    },
+    "moncalieri": {
+      "id": "moncalieri",
+      "name": "Moncalieri",
+      "isprName": "MONCALIERI",
+      "istat": "01001156",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 55489,
+      "year": 2024,
+      "rd_pct": 65.84,
+      "kg_ru_ab": 541.9,
+      "kg_ind_ab": 185.1,
+      "mix_rd_pct": {
+        "umida": 16.84,
+        "carta": 25.81,
+        "plastica": 9.44,
+        "verde": 11.87,
+        "vetro": 9.44
+      },
+      "series_rd": {
+        "2022": 64.81,
+        "2023": 66.38,
+        "2024": 65.84
+      },
+      "rd_pctile_it": 29.3,
+      "gap_65": 0.84,
+      "rd_vs_median_it": -7.29,
+      "rd_vs_median_reg": -4.47,
+      "kg_ru_pctile_it": 76.4,
+      "kg_ru_vs_median_it": 96.9,
+      "kg_ru_vs_median_reg": 63.5,
+      "kg_ind_better_pctile_it": 20.1,
+      "kg_ind_vs_median_it": 71.8,
+      "kg_ind_vs_median_reg": 52.7,
+      "delta_rd_22_24": 1.03,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.8 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -8.91
+    },
+    "moncucco-torinese": {
+      "id": "moncucco-torinese",
+      "name": "Moncucco Torinese",
+      "isprName": "MONCUCCO TORINESE",
+      "istat": "01005070",
+      "provincia": "Asti",
+      "regione": "Piemonte",
+      "pop": 860,
+      "year": 2024,
+      "rd_pct": 66.06,
+      "kg_ru_ab": 323.4,
+      "kg_ind_ab": 109.8,
+      "mix_rd_pct": {
+        "umida": 40.36,
+        "carta": 10.97,
+        "plastica": 11.53,
+        "verde": 2.31,
+        "vetro": 17.29
+      },
+      "series_rd": {
+        "2022": 67.4,
+        "2023": 65.56,
+        "2024": 66.06
+      },
+      "rd_pctile_it": 29.9,
+      "gap_65": 1.06,
+      "rd_vs_median_it": -7.07,
+      "rd_vs_median_reg": -4.25,
+      "kg_ru_pctile_it": 13.8,
+      "kg_ru_vs_median_it": -121.6,
+      "kg_ru_vs_median_reg": -155.0,
+      "kg_ind_better_pctile_it": 52.4,
+      "kg_ind_vs_median_it": -3.5,
+      "kg_ind_vs_median_reg": -22.6,
+      "delta_rd_22_24": -1.34,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.1 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -1.45
+    },
+    "montaldo-torinese": {
+      "id": "montaldo-torinese",
+      "name": "Montaldo Torinese",
+      "isprName": "MONTALDO TORINESE",
+      "istat": "01001158",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 715,
+      "year": 2024,
+      "rd_pct": 65.09,
+      "kg_ru_ab": 375.9,
+      "kg_ind_ab": 131.2,
+      "mix_rd_pct": {
+        "umida": 26.77,
+        "carta": 14.96,
+        "plastica": 9.63,
+        "verde": 5.49,
+        "vetro": 20.57
+      },
+      "series_rd": {
+        "2022": 66.92,
+        "2023": 67.55,
+        "2024": 65.09
+      },
+      "rd_pctile_it": 27.8,
+      "gap_65": 0.09,
+      "rd_vs_median_it": -8.04,
+      "rd_vs_median_reg": -5.22,
+      "kg_ru_pctile_it": 26.8,
+      "kg_ru_vs_median_it": -69.1,
+      "kg_ru_vs_median_reg": -102.5,
+      "kg_ind_better_pctile_it": 38.2,
+      "kg_ind_vs_median_it": 17.9,
+      "kg_ind_vs_median_reg": -1.2,
+      "delta_rd_22_24": -1.83,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.1 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -2.42
+    },
+    "montanaro": {
+      "id": "montanaro",
+      "name": "Montanaro",
+      "isprName": "MONTANARO",
+      "istat": "01001161",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4999,
+      "year": 2024,
+      "rd_pct": 68.01,
+      "kg_ru_ab": 463.8,
+      "kg_ind_ab": 148.3,
+      "mix_rd_pct": {
+        "umida": 23.96,
+        "carta": 15.56,
+        "plastica": 20.84,
+        "verde": 3.69,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 67.01,
+        "2023": 67.43,
+        "2024": 68.01
+      },
+      "rd_pctile_it": 34.6,
+      "gap_65": 3.01,
+      "rd_vs_median_it": -5.12,
+      "rd_vs_median_reg": -2.3,
+      "kg_ru_pctile_it": 56.3,
+      "kg_ru_vs_median_it": 18.8,
+      "kg_ru_vs_median_reg": -14.6,
+      "kg_ind_better_pctile_it": 30.7,
+      "kg_ind_vs_median_it": 35.0,
+      "kg_ind_vs_median_reg": 15.9,
+      "delta_rd_22_24": 1.0,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +3.0 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -7.67
+    },
+    "monteu-da-po": {
+      "id": "monteu-da-po",
+      "name": "Monteu da Po",
+      "isprName": "MONTEU DA PO",
+      "istat": "01001162",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 835,
+      "year": 2024,
+      "rd_pct": 66.38,
+      "kg_ru_ab": 460.2,
+      "kg_ind_ab": 154.7,
+      "mix_rd_pct": {
+        "umida": 19.55,
+        "carta": 14.95,
+        "plastica": 24.81,
+        "verde": 3.78,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 67.14,
+        "2023": 70.3,
+        "2024": 66.38
+      },
+      "rd_pctile_it": 30.6,
+      "gap_65": 1.38,
+      "rd_vs_median_it": -6.75,
+      "rd_vs_median_reg": -3.93,
+      "kg_ru_pctile_it": 55.1,
+      "kg_ru_vs_median_it": 15.2,
+      "kg_ru_vs_median_reg": -18.2,
+      "kg_ind_better_pctile_it": 28.2,
+      "kg_ind_vs_median_it": 41.4,
+      "kg_ind_vs_median_reg": 22.3,
+      "delta_rd_22_24": -0.76,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.4 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -1.13
+    },
+    "moriondo-torinese": {
+      "id": "moriondo-torinese",
+      "name": "Moriondo Torinese",
+      "isprName": "MORIONDO TORINESE",
+      "istat": "01001163",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 830,
+      "year": 2024,
+      "rd_pct": 67.63,
+      "kg_ru_ab": 315.2,
+      "kg_ind_ab": 102.1,
+      "mix_rd_pct": {
+        "umida": 32.24,
+        "carta": 16.44,
+        "plastica": 13.4,
+        "verde": 2.33,
+        "vetro": 18.25
+      },
+      "series_rd": {
+        "2022": 66.62,
+        "2023": 68.88,
+        "2024": 67.63
+      },
+      "rd_pctile_it": 33.6,
+      "gap_65": 2.63,
+      "rd_vs_median_it": -5.5,
+      "rd_vs_median_reg": -2.68,
+      "kg_ru_pctile_it": 12.5,
+      "kg_ru_vs_median_it": -129.8,
+      "kg_ru_vs_median_reg": -163.2,
+      "kg_ind_better_pctile_it": 57.8,
+      "kg_ind_vs_median_it": -11.2,
+      "kg_ind_vs_median_reg": -30.3,
+      "delta_rd_22_24": 1.01,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +2.6 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": 0.12
+    },
+    "nichelino": {
+      "id": "nichelino",
+      "name": "Nichelino",
+      "isprName": "NICHELINO",
+      "istat": "01001164",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 45802,
+      "year": 2024,
+      "rd_pct": 60.6,
+      "kg_ru_ab": 526.3,
+      "kg_ind_ab": 207.4,
+      "mix_rd_pct": {
+        "umida": 19.13,
+        "carta": 22.68,
+        "plastica": 11.84,
+        "verde": 6.28,
+        "vetro": 8.23
+      },
+      "series_rd": {
+        "2022": 59.19,
+        "2023": 61.87,
+        "2024": 60.6
+      },
+      "rd_pctile_it": 20.4,
+      "gap_65": -4.4,
+      "rd_vs_median_it": -12.53,
+      "rd_vs_median_reg": -9.71,
+      "kg_ru_pctile_it": 73.3,
+      "kg_ru_vs_median_it": 81.3,
+      "kg_ru_vs_median_reg": 47.9,
+      "kg_ind_better_pctile_it": 15.9,
+      "kg_ind_vs_median_it": 94.1,
+      "kg_ind_vs_median_reg": 75.0,
+      "delta_rd_22_24": 1.41,
+      "hook": {
+        "key": "below_target",
+        "text": "A -4.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -14.15
+    },
+    "oglianico": {
+      "id": "oglianico",
+      "name": "Oglianico",
+      "isprName": "OGLIANICO",
+      "istat": "01001170",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1427,
+      "year": 2024,
+      "rd_pct": 57.14,
+      "kg_ru_ab": 425.9,
+      "kg_ind_ab": 181.7,
+      "mix_rd_pct": {
+        "umida": 3.58,
+        "carta": 34.51,
+        "plastica": 13.72,
+        "verde": 12.46,
+        "vetro": 16.96
+      },
+      "series_rd": {
+        "2022": 49.09,
+        "2023": 54.1,
+        "2024": 57.14
+      },
+      "rd_pctile_it": 16.1,
+      "gap_65": -7.86,
+      "rd_vs_median_it": -15.99,
+      "rd_vs_median_reg": -13.17,
+      "kg_ru_pctile_it": 43.3,
+      "kg_ru_vs_median_it": -19.1,
+      "kg_ru_vs_median_reg": -52.5,
+      "kg_ind_better_pctile_it": 20.7,
+      "kg_ind_vs_median_it": 68.4,
+      "kg_ind_vs_median_reg": 49.3,
+      "delta_rd_22_24": 8.05,
+      "hook": {
+        "key": "below_target",
+        "text": "A -7.9 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -15.92
+    },
+    "orbassano": {
+      "id": "orbassano",
+      "name": "Orbassano",
+      "isprName": "ORBASSANO",
+      "istat": "01001171",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 22858,
+      "year": 2024,
+      "rd_pct": 64.34,
+      "kg_ru_ab": 600.7,
+      "kg_ind_ab": 214.2,
+      "mix_rd_pct": {
+        "umida": 20.83,
+        "carta": 20.09,
+        "plastica": 10.89,
+        "verde": 7.04,
+        "vetro": 8.38
+      },
+      "series_rd": {
+        "2022": 60.92,
+        "2023": 62.99,
+        "2024": 64.34
+      },
+      "rd_pctile_it": 26.3,
+      "gap_65": -0.66,
+      "rd_vs_median_it": -8.79,
+      "rd_vs_median_reg": -5.97,
+      "kg_ru_pctile_it": 84.8,
+      "kg_ru_vs_median_it": 155.7,
+      "kg_ru_vs_median_reg": 122.4,
+      "kg_ind_better_pctile_it": 14.8,
+      "kg_ind_vs_median_it": 100.9,
+      "kg_ind_vs_median_reg": 81.8,
+      "delta_rd_22_24": 3.42,
+      "hook": {
+        "key": "below_target",
+        "text": "A -0.7 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -10.41
+    },
+    "osasio": {
+      "id": "osasio",
+      "name": "Osasio",
+      "isprName": "OSASIO",
+      "istat": "01001174",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 899,
+      "year": 2024,
+      "rd_pct": 72.55,
+      "kg_ru_ab": 404.6,
+      "kg_ind_ab": 111.1,
+      "mix_rd_pct": {
+        "umida": 30.67,
+        "carta": 17.02,
+        "plastica": 13.74,
+        "verde": 14.41,
+        "vetro": 12.57
+      },
+      "series_rd": {
+        "2022": 73.9,
+        "2023": 75.03,
+        "2024": 72.55
+      },
+      "rd_pctile_it": 48.2,
+      "gap_65": 7.55,
+      "rd_vs_median_it": -0.58,
+      "rd_vs_median_reg": 2.24,
+      "kg_ru_pctile_it": 36.0,
+      "kg_ru_vs_median_it": -40.4,
+      "kg_ru_vs_median_reg": -73.8,
+      "kg_ind_better_pctile_it": 51.5,
+      "kg_ind_vs_median_it": -2.2,
+      "kg_ind_vs_median_reg": -21.3,
+      "delta_rd_22_24": -1.35,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +7.5 punti percentuali"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": 5.04
+    },
+    "ozegna": {
+      "id": "ozegna",
+      "name": "Ozegna",
+      "isprName": "OZEGNA",
+      "istat": "01001176",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1178,
+      "year": 2024,
+      "rd_pct": 56.03,
+      "kg_ru_ab": 509.5,
+      "kg_ind_ab": 223.4,
+      "mix_rd_pct": {
+        "umida": 4.2,
+        "carta": 30.52,
+        "plastica": 14.26,
+        "verde": 17.25,
+        "vetro": 14.28
+      },
+      "series_rd": {
+        "2022": 47.59,
+        "2023": 48.74,
+        "2024": 56.03
+      },
+      "rd_pctile_it": 15.2,
+      "gap_65": -8.97,
+      "rd_vs_median_it": -17.1,
+      "rd_vs_median_reg": -14.28,
+      "kg_ru_pctile_it": 69.7,
+      "kg_ru_vs_median_it": 64.5,
+      "kg_ru_vs_median_reg": 31.1,
+      "kg_ind_better_pctile_it": 13.7,
+      "kg_ind_vs_median_it": 110.1,
+      "kg_ind_vs_median_reg": 91.0,
+      "delta_rd_22_24": 8.44,
+      "hook": {
+        "key": "below_target",
+        "text": "A -9.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -17.03
+    },
+    "pancalieri": {
+      "id": "pancalieri",
+      "name": "Pancalieri",
+      "isprName": "PANCALIERI",
+      "istat": "01001178",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1960,
+      "year": 2024,
+      "rd_pct": 68.98,
+      "kg_ru_ab": 505.9,
+      "kg_ind_ab": 156.9,
+      "mix_rd_pct": {
+        "umida": 32.32,
+        "carta": 16.19,
+        "plastica": 9.54,
+        "verde": 3.53,
+        "vetro": 10.25
+      },
+      "series_rd": {
+        "2022": 70.4,
+        "2023": 69.08,
+        "2024": 68.98
+      },
+      "rd_pctile_it": 37.4,
+      "gap_65": 3.98,
+      "rd_vs_median_it": -4.15,
+      "rd_vs_median_reg": -1.33,
+      "kg_ru_pctile_it": 68.8,
+      "kg_ru_vs_median_it": 60.9,
+      "kg_ru_vs_median_reg": 27.5,
+      "kg_ind_better_pctile_it": 27.5,
+      "kg_ind_vs_median_it": 43.6,
+      "kg_ind_vs_median_reg": 24.5,
+      "delta_rd_22_24": -1.42,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +4.0 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -4.08
+    },
+    "pavarolo": {
+      "id": "pavarolo",
+      "name": "Pavarolo",
+      "isprName": "PAVAROLO",
+      "istat": "01001180",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1167,
+      "year": 2024,
+      "rd_pct": 79.64,
+      "kg_ru_ab": 424.4,
+      "kg_ind_ab": 86.4,
+      "mix_rd_pct": {
+        "umida": 25.89,
+        "carta": 9.34,
+        "plastica": 7.32,
+        "verde": 17.64,
+        "vetro": 11.48
+      },
+      "series_rd": {
+        "2022": 82.71,
+        "2023": 80.49,
+        "2024": 79.64
+      },
+      "rd_pctile_it": 71.0,
+      "gap_65": 14.64,
+      "rd_vs_median_it": 6.51,
+      "rd_vs_median_reg": 9.33,
+      "kg_ru_pctile_it": 42.8,
+      "kg_ru_vs_median_it": -20.6,
+      "kg_ru_vs_median_reg": -54.0,
+      "kg_ind_better_pctile_it": 69.0,
+      "kg_ind_vs_median_it": -26.9,
+      "kg_ind_vs_median_reg": -46.0,
+      "delta_rd_22_24": -3.07,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +14.6 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 6.58
+    },
+    "pecetto-torinese": {
+      "id": "pecetto-torinese",
+      "name": "Pecetto Torinese",
+      "isprName": "PECETTO TORINESE",
+      "istat": "01001183",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4009,
+      "year": 2024,
+      "rd_pct": 82.08,
+      "kg_ru_ab": 454.3,
+      "kg_ind_ab": 81.4,
+      "mix_rd_pct": {
+        "umida": 23.56,
+        "carta": 12.31,
+        "plastica": 8.38,
+        "verde": 19.84,
+        "vetro": 11.19
+      },
+      "series_rd": {
+        "2022": 79.9,
+        "2023": 79.51,
+        "2024": 82.08
+      },
+      "rd_pctile_it": 78.9,
+      "gap_65": 17.08,
+      "rd_vs_median_it": 8.95,
+      "rd_vs_median_reg": 11.77,
+      "kg_ru_pctile_it": 53.2,
+      "kg_ru_vs_median_it": 9.3,
+      "kg_ru_vs_median_reg": -24.1,
+      "kg_ind_better_pctile_it": 72.8,
+      "kg_ind_vs_median_it": -31.9,
+      "kg_ind_vs_median_reg": -51.0,
+      "delta_rd_22_24": 2.18,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +17.1 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 6.4
+    },
+    "pertusio": {
+      "id": "pertusio",
+      "name": "Pertusio",
+      "isprName": "PERTUSIO",
+      "istat": "01001187",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 737,
+      "year": 2024,
+      "rd_pct": 62.05,
+      "kg_ru_ab": 331.4,
+      "kg_ind_ab": 125.2,
+      "mix_rd_pct": {
+        "umida": 2.54,
+        "carta": 34.37,
+        "plastica": 15.37,
+        "verde": 4.53,
+        "vetro": 19.25
+      },
+      "series_rd": {
+        "2022": 55.39,
+        "2023": 57.36,
+        "2024": 62.05
+      },
+      "rd_pctile_it": 22.5,
+      "gap_65": -2.95,
+      "rd_vs_median_it": -11.08,
+      "rd_vs_median_reg": -8.26,
+      "kg_ru_pctile_it": 15.3,
+      "kg_ru_vs_median_it": -113.6,
+      "kg_ru_vs_median_reg": -147.0,
+      "kg_ind_better_pctile_it": 41.7,
+      "kg_ind_vs_median_it": 11.9,
+      "kg_ind_vs_median_reg": -7.2,
+      "delta_rd_22_24": 6.66,
+      "hook": {
+        "key": "below_target",
+        "text": "A -3.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -5.46
+    },
+    "pianezza": {
+      "id": "pianezza",
+      "name": "Pianezza",
+      "isprName": "PIANEZZA",
+      "istat": "01001189",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 15593,
+      "year": 2024,
+      "rd_pct": 69.19,
+      "kg_ru_ab": 531.1,
+      "kg_ind_ab": 163.6,
+      "mix_rd_pct": {
+        "umida": 15.29,
+        "carta": 23.62,
+        "plastica": 11.29,
+        "verde": 19.24,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 66.07,
+        "2023": 67.23,
+        "2024": 69.19
+      },
+      "rd_pctile_it": 37.9,
+      "gap_65": 4.19,
+      "rd_vs_median_it": -3.94,
+      "rd_vs_median_reg": -1.12,
+      "kg_ru_pctile_it": 74.4,
+      "kg_ru_vs_median_it": 86.1,
+      "kg_ru_vs_median_reg": 52.8,
+      "kg_ind_better_pctile_it": 25.1,
+      "kg_ind_vs_median_it": 50.3,
+      "kg_ind_vs_median_reg": 31.2,
+      "delta_rd_22_24": 3.12,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +4.2 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -5.56
+    },
+    "pino-torinese": {
+      "id": "pino-torinese",
+      "name": "Pino Torinese",
+      "isprName": "PINO TORINESE",
+      "istat": "01001192",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 8354,
+      "year": 2024,
+      "rd_pct": 85.94,
+      "kg_ru_ab": 476.6,
+      "kg_ind_ab": 67.0,
+      "mix_rd_pct": {
+        "umida": 20.49,
+        "carta": 11.9,
+        "plastica": 6.07,
+        "verde": 26.85,
+        "vetro": 8.09
+      },
+      "series_rd": {
+        "2022": 84.57,
+        "2023": 85.2,
+        "2024": 85.94
+      },
+      "rd_pctile_it": 89.6,
+      "gap_65": 20.94,
+      "rd_vs_median_it": 12.81,
+      "rd_vs_median_reg": 15.63,
+      "kg_ru_pctile_it": 60.4,
+      "kg_ru_vs_median_it": 31.6,
+      "kg_ru_vs_median_reg": -1.8,
+      "kg_ind_better_pctile_it": 84.4,
+      "kg_ind_vs_median_it": -46.3,
+      "kg_ind_vs_median_reg": -65.4,
+      "delta_rd_22_24": 1.37,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +20.9 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 11.19
+    },
+    "piobesi-torinese": {
+      "id": "piobesi-torinese",
+      "name": "Piobesi Torinese",
+      "isprName": "PIOBESI TORINESE",
+      "istat": "01001193",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3759,
+      "year": 2024,
+      "rd_pct": 82.66,
+      "kg_ru_ab": 626.3,
+      "kg_ind_ab": 108.6,
+      "mix_rd_pct": {
+        "umida": 16.35,
+        "carta": 16.91,
+        "plastica": 14.47,
+        "verde": 8.55,
+        "vetro": 6.53
+      },
+      "series_rd": {
+        "2022": 76.48,
+        "2023": 80.66,
+        "2024": 82.66
+      },
+      "rd_pctile_it": 80.8,
+      "gap_65": 17.66,
+      "rd_vs_median_it": 9.53,
+      "rd_vs_median_reg": 12.35,
+      "kg_ru_pctile_it": 87.1,
+      "kg_ru_vs_median_it": 181.3,
+      "kg_ru_vs_median_reg": 147.9,
+      "kg_ind_better_pctile_it": 53.2,
+      "kg_ind_vs_median_it": -4.7,
+      "kg_ind_vs_median_reg": -23.8,
+      "delta_rd_22_24": 6.18,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +17.7 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 6.98
+    },
+    "piossasco": {
+      "id": "piossasco",
+      "name": "Piossasco",
+      "isprName": "PIOSSASCO",
+      "istat": "01001194",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 18029,
+      "year": 2024,
+      "rd_pct": 71.27,
+      "kg_ru_ab": 436.3,
+      "kg_ind_ab": 125.4,
+      "mix_rd_pct": {
+        "umida": 22.61,
+        "carta": 18.51,
+        "plastica": 10.52,
+        "verde": 15.94,
+        "vetro": 9.07
+      },
+      "series_rd": {
+        "2022": 69.07,
+        "2023": 69.3,
+        "2024": 71.27
+      },
+      "rd_pctile_it": 44.0,
+      "gap_65": 6.27,
+      "rd_vs_median_it": -1.86,
+      "rd_vs_median_reg": 0.96,
+      "kg_ru_pctile_it": 47.0,
+      "kg_ru_vs_median_it": -8.7,
+      "kg_ru_vs_median_reg": -42.1,
+      "kg_ind_better_pctile_it": 41.6,
+      "kg_ind_vs_median_it": 12.1,
+      "kg_ind_vs_median_reg": -7.0,
+      "delta_rd_22_24": 2.2,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +6.3 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -3.48
+    },
+    "poirino": {
+      "id": "poirino",
+      "name": "Poirino",
+      "isprName": "POIRINO",
+      "istat": "01001197",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 10215,
+      "year": 2024,
+      "rd_pct": 80.49,
+      "kg_ru_ab": 407.3,
+      "kg_ind_ab": 79.5,
+      "mix_rd_pct": {
+        "umida": 29.68,
+        "carta": 15.22,
+        "plastica": 10.73,
+        "verde": 8.93,
+        "vetro": 10.69
+      },
+      "series_rd": {
+        "2022": 81.34,
+        "2023": 82.24,
+        "2024": 80.49
+      },
+      "rd_pctile_it": 73.7,
+      "gap_65": 15.49,
+      "rd_vs_median_it": 7.36,
+      "rd_vs_median_reg": 10.18,
+      "kg_ru_pctile_it": 37.0,
+      "kg_ru_vs_median_it": -37.7,
+      "kg_ru_vs_median_reg": -71.1,
+      "kg_ind_better_pctile_it": 74.4,
+      "kg_ind_vs_median_it": -33.8,
+      "kg_ind_vs_median_reg": -52.9,
+      "delta_rd_22_24": -0.85,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +15.5 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 5.74
+    },
+    "pont-canavese": {
+      "id": "pont-canavese",
+      "name": "Pont Canavese",
+      "isprName": "PONT-CANAVESE",
+      "istat": "01001199",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3013,
+      "year": 2024,
+      "rd_pct": 50.65,
+      "kg_ru_ab": 345.9,
+      "kg_ind_ab": 164.5,
+      "mix_rd_pct": {
+        "umida": 4.84,
+        "carta": 25.58,
+        "plastica": 15.84,
+        "verde": 8.67,
+        "vetro": 21.14
+      },
+      "series_rd": {
+        "2022": 81.84,
+        "2023": 45.08,
+        "2024": 50.65
+      },
+      "rd_pctile_it": 10.6,
+      "gap_65": -14.35,
+      "rd_vs_median_it": -22.48,
+      "rd_vs_median_reg": -19.66,
+      "kg_ru_pctile_it": 18.7,
+      "kg_ru_vs_median_it": -99.1,
+      "kg_ru_vs_median_reg": -132.5,
+      "kg_ind_better_pctile_it": 24.8,
+      "kg_ind_vs_median_it": 51.2,
+      "kg_ind_vs_median_reg": 32.1,
+      "delta_rd_22_24": -31.19,
+      "hook": {
+        "key": "below_target",
+        "text": "A -14.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -25.03
+    },
+    "pralormo": {
+      "id": "pralormo",
+      "name": "Pralormo",
+      "isprName": "PRALORMO",
+      "istat": "01001203",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1872,
+      "year": 2024,
+      "rd_pct": 68.8,
+      "kg_ru_ab": 332.5,
+      "kg_ind_ab": 103.7,
+      "mix_rd_pct": {
+        "umida": 34.41,
+        "carta": 14.75,
+        "plastica": 14.81,
+        "verde": 2.0,
+        "vetro": 17.92
+      },
+      "series_rd": {
+        "2022": 62.61,
+        "2023": 63.59,
+        "2024": 68.8
+      },
+      "rd_pctile_it": 36.8,
+      "gap_65": 3.8,
+      "rd_vs_median_it": -4.33,
+      "rd_vs_median_reg": -1.51,
+      "kg_ru_pctile_it": 15.6,
+      "kg_ru_vs_median_it": -112.5,
+      "kg_ru_vs_median_reg": -145.9,
+      "kg_ind_better_pctile_it": 56.7,
+      "kg_ind_vs_median_it": -9.6,
+      "kg_ind_vs_median_reg": -28.7,
+      "delta_rd_22_24": 6.19,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +3.8 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -4.26
+    },
+    "prascorsano": {
+      "id": "prascorsano",
+      "name": "Prascorsano",
+      "isprName": "PRASCORSANO",
+      "istat": "01001206",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 695,
+      "year": 2024,
+      "rd_pct": 55.2,
+      "kg_ru_ab": 321.3,
+      "kg_ind_ab": 138.9,
+      "mix_rd_pct": {
+        "umida": 5.04,
+        "carta": 22.4,
+        "plastica": 20.07,
+        "verde": 5.73,
+        "vetro": 20.8
+      },
+      "series_rd": {
+        "2022": 56.62,
+        "2023": 55.12,
+        "2024": 55.2
+      },
+      "rd_pctile_it": 14.4,
+      "gap_65": -9.8,
+      "rd_vs_median_it": -17.93,
+      "rd_vs_median_reg": -15.11,
+      "kg_ru_pctile_it": 13.4,
+      "kg_ru_vs_median_it": -123.7,
+      "kg_ru_vs_median_reg": -157.1,
+      "kg_ind_better_pctile_it": 34.6,
+      "kg_ind_vs_median_it": 25.6,
+      "kg_ind_vs_median_reg": 6.5,
+      "delta_rd_22_24": -1.42,
+      "hook": {
+        "key": "below_target",
+        "text": "A -9.8 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -12.31
+    },
+    "pratiglione": {
+      "id": "pratiglione",
+      "name": "Pratiglione",
+      "isprName": "PRATIGLIONE",
+      "istat": "01001207",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 455,
+      "year": 2024,
+      "rd_pct": 55.58,
+      "kg_ru_ab": 462.0,
+      "kg_ind_ab": 199.9,
+      "mix_rd_pct": {
+        "umida": 5.32,
+        "carta": 31.55,
+        "plastica": 17.65,
+        "verde": 6.26,
+        "vetro": 21.27
+      },
+      "series_rd": {
+        "2022": 42.81,
+        "2023": 46.49,
+        "2024": 55.58
+      },
+      "rd_pctile_it": 14.7,
+      "gap_65": -9.42,
+      "rd_vs_median_it": -17.55,
+      "rd_vs_median_reg": -14.73,
+      "kg_ru_pctile_it": 55.7,
+      "kg_ru_vs_median_it": 17.0,
+      "kg_ru_vs_median_reg": -16.4,
+      "kg_ind_better_pctile_it": 17.2,
+      "kg_ind_vs_median_it": 86.6,
+      "kg_ind_vs_median_reg": 67.5,
+      "delta_rd_22_24": 12.77,
+      "hook": {
+        "key": "below_target",
+        "text": "A -9.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -11.93
+    },
+    "reano": {
+      "id": "reano",
+      "name": "Reano",
+      "isprName": "REANO",
+      "istat": "01001211",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1749,
+      "year": 2024,
+      "rd_pct": 70.04,
+      "kg_ru_ab": 431.5,
+      "kg_ind_ab": 129.3,
+      "mix_rd_pct": {
+        "umida": 14.59,
+        "carta": 12.0,
+        "plastica": 26.32,
+        "verde": 16.75,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 69.83,
+        "2023": 70.88,
+        "2024": 70.04
+      },
+      "rd_pctile_it": 40.1,
+      "gap_65": 5.04,
+      "rd_vs_median_it": -3.09,
+      "rd_vs_median_reg": -0.27,
+      "kg_ru_pctile_it": 45.4,
+      "kg_ru_vs_median_it": -13.5,
+      "kg_ru_vs_median_reg": -46.9,
+      "kg_ind_better_pctile_it": 39.4,
+      "kg_ind_vs_median_it": 16.0,
+      "kg_ind_vs_median_reg": -3.1,
+      "delta_rd_22_24": 0.21,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -3.02
+    },
+    "ribordone": {
+      "id": "ribordone",
+      "name": "Ribordone",
+      "isprName": "RIBORDONE",
+      "istat": "01001212",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 47,
+      "year": 2024,
+      "rd_pct": 55.63,
+      "kg_ru_ab": 1918.2,
+      "kg_ind_ab": 834.0,
+      "mix_rd_pct": {
+        "umida": null,
+        "carta": 56.6,
+        "plastica": 6.36,
+        "verde": 0.38,
+        "vetro": 18.69
+      },
+      "series_rd": {
+        "2022": 35.37,
+        "2023": 67.45,
+        "2024": 55.63
+      },
+      "rd_pctile_it": 14.8,
+      "gap_65": -9.37,
+      "rd_vs_median_it": -17.5,
+      "rd_vs_median_reg": -14.68,
+      "kg_ru_pctile_it": 99.9,
+      "kg_ru_vs_median_it": 1473.2,
+      "kg_ru_vs_median_reg": 1439.8,
+      "kg_ind_better_pctile_it": 0.2,
+      "kg_ind_vs_median_it": 720.7,
+      "kg_ind_vs_median_reg": 701.6,
+      "delta_rd_22_24": 20.26,
+      "hook": {
+        "key": "below_target",
+        "text": "A -9.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -11.88
+    },
+    "riva-presso-chieri": {
+      "id": "riva-presso-chieri",
+      "name": "Riva presso Chieri",
+      "isprName": "RIVA PRESSO CHIERI",
+      "istat": "01001215",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4738,
+      "year": 2024,
+      "rd_pct": 84.71,
+      "kg_ru_ab": 381.2,
+      "kg_ind_ab": 58.3,
+      "mix_rd_pct": {
+        "umida": 22.26,
+        "carta": 13.69,
+        "plastica": 10.13,
+        "verde": 16.18,
+        "vetro": 11.66
+      },
+      "series_rd": {
+        "2022": 83.48,
+        "2023": 84.99,
+        "2024": 84.71
+      },
+      "rd_pctile_it": 87.0,
+      "gap_65": 19.71,
+      "rd_vs_median_it": 11.58,
+      "rd_vs_median_reg": 14.4,
+      "kg_ru_pctile_it": 28.3,
+      "kg_ru_vs_median_it": -63.8,
+      "kg_ru_vs_median_reg": -97.2,
+      "kg_ind_better_pctile_it": 89.8,
+      "kg_ind_vs_median_it": -55.0,
+      "kg_ind_vs_median_reg": -74.1,
+      "delta_rd_22_24": 1.23,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +19.7 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 9.03
+    },
+    "rivalba": {
+      "id": "rivalba",
+      "name": "Rivalba",
+      "isprName": "RIVALBA",
+      "istat": "01001213",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1150,
+      "year": 2024,
+      "rd_pct": 66.17,
+      "kg_ru_ab": 457.2,
+      "kg_ind_ab": 154.7,
+      "mix_rd_pct": {
+        "umida": 33.01,
+        "carta": 10.84,
+        "plastica": 15.81,
+        "verde": 7.99,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 65.75,
+        "2023": 65.41,
+        "2024": 66.17
+      },
+      "rd_pctile_it": 30.1,
+      "gap_65": 1.17,
+      "rd_vs_median_it": -6.96,
+      "rd_vs_median_reg": -4.14,
+      "kg_ru_pctile_it": 54.3,
+      "kg_ru_vs_median_it": 12.2,
+      "kg_ru_vs_median_reg": -21.2,
+      "kg_ind_better_pctile_it": 28.2,
+      "kg_ind_vs_median_it": 41.4,
+      "kg_ind_vs_median_reg": 22.3,
+      "delta_rd_22_24": 0.42,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.2 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -6.89
+    },
+    "rivalta-di-torino": {
+      "id": "rivalta-di-torino",
+      "name": "Rivalta di Torino",
+      "isprName": "RIVALTA DI TORINO",
+      "istat": "01001214",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 20040,
+      "year": 2024,
+      "rd_pct": 71.78,
+      "kg_ru_ab": 585.3,
+      "kg_ind_ab": 165.2,
+      "mix_rd_pct": {
+        "umida": 16.28,
+        "carta": 20.78,
+        "plastica": 17.73,
+        "verde": 15.41,
+        "vetro": 7.96
+      },
+      "series_rd": {
+        "2022": 71.49,
+        "2023": 72.98,
+        "2024": 71.78
+      },
+      "rd_pctile_it": 45.7,
+      "gap_65": 6.78,
+      "rd_vs_median_it": -1.35,
+      "rd_vs_median_reg": 1.47,
+      "kg_ru_pctile_it": 83.1,
+      "kg_ru_vs_median_it": 140.3,
+      "kg_ru_vs_median_reg": 106.9,
+      "kg_ind_better_pctile_it": 24.7,
+      "kg_ind_vs_median_it": 51.9,
+      "kg_ind_vs_median_reg": 32.8,
+      "delta_rd_22_24": 0.29,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +6.8 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -2.97
+    },
+    "rivara": {
+      "id": "rivara",
+      "name": "Rivara",
+      "isprName": "RIVARA",
+      "istat": "01001216",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2477,
+      "year": 2024,
+      "rd_pct": 62.96,
+      "kg_ru_ab": 442.1,
+      "kg_ind_ab": 162.0,
+      "mix_rd_pct": {
+        "umida": 4.56,
+        "carta": 41.05,
+        "plastica": 11.94,
+        "verde": 9.36,
+        "vetro": 16.48
+      },
+      "series_rd": {
+        "2022": 58.76,
+        "2023": 59.69,
+        "2024": 62.96
+      },
+      "rd_pctile_it": 24.0,
+      "gap_65": -2.04,
+      "rd_vs_median_it": -10.17,
+      "rd_vs_median_reg": -7.35,
+      "kg_ru_pctile_it": 49.1,
+      "kg_ru_vs_median_it": -2.9,
+      "kg_ru_vs_median_reg": -36.2,
+      "kg_ind_better_pctile_it": 25.7,
+      "kg_ind_vs_median_it": 48.7,
+      "kg_ind_vs_median_reg": 29.6,
+      "delta_rd_22_24": 4.2,
+      "hook": {
+        "key": "below_target",
+        "text": "A -2.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -12.72
+    },
+    "rivarolo-canavese": {
+      "id": "rivarolo-canavese",
+      "name": "Rivarolo Canavese",
+      "isprName": "RIVAROLO CANAVESE",
+      "istat": "01001217",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 12333,
+      "year": 2024,
+      "rd_pct": 53.18,
+      "kg_ru_ab": 411.6,
+      "kg_ind_ab": 191.3,
+      "mix_rd_pct": {
+        "umida": 6.06,
+        "carta": 30.42,
+        "plastica": 15.06,
+        "verde": 10.77,
+        "vetro": 16.28
+      },
+      "series_rd": {
+        "2022": 49.12,
+        "2023": 48.7,
+        "2024": 53.18
+      },
+      "rd_pctile_it": 12.5,
+      "gap_65": -11.82,
+      "rd_vs_median_it": -19.95,
+      "rd_vs_median_reg": -17.13,
+      "kg_ru_pctile_it": 38.5,
+      "kg_ru_vs_median_it": -33.4,
+      "kg_ru_vs_median_reg": -66.8,
+      "kg_ind_better_pctile_it": 18.7,
+      "kg_ind_vs_median_it": 78.0,
+      "kg_ind_vs_median_reg": 58.9,
+      "delta_rd_22_24": 4.06,
+      "hook": {
+        "key": "below_target",
+        "text": "A -11.8 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -21.57
+    },
+    "rivarossa": {
+      "id": "rivarossa",
+      "name": "Rivarossa",
+      "isprName": "RIVAROSSA",
+      "istat": "01001218",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1540,
+      "year": 2024,
+      "rd_pct": 56.56,
+      "kg_ru_ab": 352.2,
+      "kg_ind_ab": 146.9,
+      "mix_rd_pct": {
+        "umida": 4.08,
+        "carta": 26.98,
+        "plastica": 12.66,
+        "verde": 9.86,
+        "vetro": 25.02
+      },
+      "series_rd": {
+        "2022": 48.96,
+        "2023": 43.76,
+        "2024": 56.56
+      },
+      "rd_pctile_it": 15.6,
+      "gap_65": -8.44,
+      "rd_vs_median_it": -16.57,
+      "rd_vs_median_reg": -13.75,
+      "kg_ru_pctile_it": 20.4,
+      "kg_ru_vs_median_it": -92.8,
+      "kg_ru_vs_median_reg": -126.2,
+      "kg_ind_better_pctile_it": 31.3,
+      "kg_ind_vs_median_it": 33.6,
+      "kg_ind_vs_median_reg": 14.5,
+      "delta_rd_22_24": 7.6,
+      "hook": {
+        "key": "below_target",
+        "text": "A -8.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -16.5
+    },
+    "rivoli": {
+      "id": "rivoli",
+      "name": "Rivoli",
+      "isprName": "RIVOLI",
+      "istat": "01001219",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 46567,
+      "year": 2024,
+      "rd_pct": 65.22,
+      "kg_ru_ab": 517.4,
+      "kg_ind_ab": 180.0,
+      "mix_rd_pct": {
+        "umida": 21.93,
+        "carta": 28.79,
+        "plastica": 11.55,
+        "verde": 5.76,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 66.54,
+        "2023": 66.88,
+        "2024": 65.22
+      },
+      "rd_pctile_it": 28.1,
+      "gap_65": 0.22,
+      "rd_vs_median_it": -7.91,
+      "rd_vs_median_reg": -5.09,
+      "kg_ru_pctile_it": 71.4,
+      "kg_ru_vs_median_it": 72.4,
+      "kg_ru_vs_median_reg": 39.0,
+      "kg_ind_better_pctile_it": 21.0,
+      "kg_ind_vs_median_it": 66.7,
+      "kg_ind_vs_median_reg": 47.6,
+      "delta_rd_22_24": -1.32,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.2 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -9.53
+    },
+    "ronco-canavese": {
+      "id": "ronco-canavese",
+      "name": "Ronco Canavese",
+      "isprName": "RONCO CANAVESE",
+      "istat": "01001224",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 386,
+      "year": 2024,
+      "rd_pct": 23.09,
+      "kg_ru_ab": 721.5,
+      "kg_ind_ab": 554.4,
+      "mix_rd_pct": {
+        "umida": null,
+        "carta": 24.63,
+        "plastica": 16.48,
+        "verde": 1.88,
+        "vetro": 20.19
+      },
+      "series_rd": {
+        "2022": 33.64,
+        "2023": 28.65,
+        "2024": 23.09
+      },
+      "rd_pctile_it": 1.2,
+      "gap_65": -41.91,
+      "rd_vs_median_it": -50.04,
+      "rd_vs_median_reg": -47.22,
+      "kg_ru_pctile_it": 92.7,
+      "kg_ru_vs_median_it": 276.5,
+      "kg_ru_vs_median_reg": 243.1,
+      "kg_ind_better_pctile_it": 1.1,
+      "kg_ind_vs_median_it": 441.1,
+      "kg_ind_vs_median_reg": 422.0,
+      "delta_rd_22_24": -10.55,
+      "hook": {
+        "key": "below_target",
+        "text": "A -41.9 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -44.42
+    },
+    "rondissone": {
+      "id": "rondissone",
+      "name": "Rondissone",
+      "isprName": "RONDISSONE",
+      "istat": "01001225",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1911,
+      "year": 2024,
+      "rd_pct": 65.98,
+      "kg_ru_ab": 500.1,
+      "kg_ind_ab": 170.2,
+      "mix_rd_pct": {
+        "umida": 21.55,
+        "carta": 16.89,
+        "plastica": 21.49,
+        "verde": 3.18,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 69.88,
+        "2023": 69.74,
+        "2024": 65.98
+      },
+      "rd_pctile_it": 29.7,
+      "gap_65": 0.98,
+      "rd_vs_median_it": -7.15,
+      "rd_vs_median_reg": -4.33,
+      "kg_ru_pctile_it": 67.4,
+      "kg_ru_vs_median_it": 55.1,
+      "kg_ru_vs_median_reg": 21.8,
+      "kg_ind_better_pctile_it": 23.4,
+      "kg_ind_vs_median_it": 56.9,
+      "kg_ind_vs_median_reg": 37.8,
+      "delta_rd_22_24": -3.9,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.0 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -7.08
+    },
+    "rubiana": {
+      "id": "rubiana",
+      "name": "Rubiana",
+      "isprName": "RUBIANA",
+      "istat": "01001229",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2509,
+      "year": 2024,
+      "rd_pct": 72.92,
+      "kg_ru_ab": 634.6,
+      "kg_ind_ab": 171.9,
+      "mix_rd_pct": {
+        "umida": 15.58,
+        "carta": 7.57,
+        "plastica": 6.61,
+        "verde": 33.89,
+        "vetro": 8.35
+      },
+      "series_rd": {
+        "2022": 74.45,
+        "2023": 73.24,
+        "2024": 72.92
+      },
+      "rd_pctile_it": 49.2,
+      "gap_65": 7.92,
+      "rd_vs_median_it": -0.21,
+      "rd_vs_median_reg": 2.61,
+      "kg_ru_pctile_it": 87.9,
+      "kg_ru_vs_median_it": 189.6,
+      "kg_ru_vs_median_reg": 156.2,
+      "kg_ind_better_pctile_it": 22.8,
+      "kg_ind_vs_median_it": 58.6,
+      "kg_ind_vs_median_reg": 39.5,
+      "delta_rd_22_24": -1.53,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +7.9 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -2.76
+    },
+    "rueglio": {
+      "id": "rueglio",
+      "name": "Rueglio",
+      "isprName": "RUEGLIO",
+      "istat": "01001230",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 788,
+      "year": 2024,
+      "rd_pct": 55.66,
+      "kg_ru_ab": 316.5,
+      "kg_ind_ab": 138.4,
+      "mix_rd_pct": {
+        "umida": 2.15,
+        "carta": 23.49,
+        "plastica": 12.34,
+        "verde": 3.02,
+        "vetro": 21.36
+      },
+      "series_rd": {
+        "2022": 90.5,
+        "2023": 50.51,
+        "2024": 55.66
+      },
+      "rd_pctile_it": 14.8,
+      "gap_65": -9.34,
+      "rd_vs_median_it": -17.47,
+      "rd_vs_median_reg": -14.65,
+      "kg_ru_pctile_it": 12.8,
+      "kg_ru_vs_median_it": -128.5,
+      "kg_ru_vs_median_reg": -161.9,
+      "kg_ind_better_pctile_it": 34.8,
+      "kg_ind_vs_median_it": 25.1,
+      "kg_ind_vs_median_reg": 6.0,
+      "delta_rd_22_24": -34.84,
+      "hook": {
+        "key": "below_target",
+        "text": "A -9.3 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -11.85
+    },
+    "salassa": {
+      "id": "salassa",
+      "name": "Salassa",
+      "isprName": "SALASSA",
+      "istat": "01001231",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1851,
+      "year": 2024,
+      "rd_pct": 59.27,
+      "kg_ru_ab": 346.9,
+      "kg_ind_ab": 140.8,
+      "mix_rd_pct": {
+        "umida": 3.79,
+        "carta": 28.79,
+        "plastica": 17.89,
+        "verde": 15.16,
+        "vetro": 15.19
+      },
+      "series_rd": {
+        "2022": 55.99,
+        "2023": 52.01,
+        "2024": 59.27
+      },
+      "rd_pctile_it": 18.5,
+      "gap_65": -5.73,
+      "rd_vs_median_it": -13.86,
+      "rd_vs_median_reg": -11.04,
+      "kg_ru_pctile_it": 19.1,
+      "kg_ru_vs_median_it": -98.1,
+      "kg_ru_vs_median_reg": -131.5,
+      "kg_ind_better_pctile_it": 33.7,
+      "kg_ind_vs_median_it": 27.5,
+      "kg_ind_vs_median_reg": 8.4,
+      "delta_rd_22_24": 3.28,
+      "hook": {
+        "key": "below_target",
+        "text": "A -5.7 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -13.79
+    },
+    "san-benigno-canavese": {
+      "id": "san-benigno-canavese",
+      "name": "San Benigno Canavese",
+      "isprName": "SAN BENIGNO CANAVESE",
+      "istat": "01001236",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 6079,
+      "year": 2024,
+      "rd_pct": 75.21,
+      "kg_ru_ab": 553.1,
+      "kg_ind_ab": 137.1,
+      "mix_rd_pct": {
+        "umida": 14.46,
+        "carta": 15.66,
+        "plastica": 6.63,
+        "verde": 10.27,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 66.09,
+        "2023": 67.18,
+        "2024": 75.21
+      },
+      "rd_pctile_it": 56.8,
+      "gap_65": 10.21,
+      "rd_vs_median_it": 2.08,
+      "rd_vs_median_reg": 4.9,
+      "kg_ru_pctile_it": 78.2,
+      "kg_ru_vs_median_it": 108.1,
+      "kg_ru_vs_median_reg": 74.8,
+      "kg_ind_better_pctile_it": 35.4,
+      "kg_ind_vs_median_it": 23.8,
+      "kg_ind_vs_median_reg": 4.7,
+      "delta_rd_22_24": 9.12,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.2 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -0.47
+    },
+    "san-colombano-belmonte": {
+      "id": "san-colombano-belmonte",
+      "name": "San Colombano Belmonte",
+      "isprName": "SAN COLOMBANO BELMONTE",
+      "istat": "01001238",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 358,
+      "year": 2024,
+      "rd_pct": 61.95,
+      "kg_ru_ab": 439.3,
+      "kg_ind_ab": 159.9,
+      "mix_rd_pct": {
+        "umida": 6.05,
+        "carta": 27.39,
+        "plastica": 17.62,
+        "verde": 2.65,
+        "vetro": 20.17
+      },
+      "series_rd": {
+        "2022": 49.16,
+        "2023": 50.43,
+        "2024": 61.95
+      },
+      "rd_pctile_it": 22.3,
+      "gap_65": -3.05,
+      "rd_vs_median_it": -11.18,
+      "rd_vs_median_reg": -8.36,
+      "kg_ru_pctile_it": 48.0,
+      "kg_ru_vs_median_it": -5.7,
+      "kg_ru_vs_median_reg": -39.1,
+      "kg_ind_better_pctile_it": 26.3,
+      "kg_ind_vs_median_it": 46.6,
+      "kg_ind_vs_median_reg": 27.5,
+      "delta_rd_22_24": 12.79,
+      "hook": {
+        "key": "below_target",
+        "text": "A -3.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -5.56
+    },
+    "san-mauro-torinese": {
+      "id": "san-mauro-torinese",
+      "name": "San Mauro Torinese",
+      "isprName": "SAN MAURO TORINESE",
+      "istat": "01001249",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 18424,
+      "year": 2024,
+      "rd_pct": 67.99,
+      "kg_ru_ab": 513.7,
+      "kg_ind_ab": 164.5,
+      "mix_rd_pct": {
+        "umida": 16.42,
+        "carta": 19.49,
+        "plastica": 20.79,
+        "verde": 8.72,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 65.15,
+        "2023": 65.84,
+        "2024": 67.99
+      },
+      "rd_pctile_it": 34.6,
+      "gap_65": 2.99,
+      "rd_vs_median_it": -5.14,
+      "rd_vs_median_reg": -2.32,
+      "kg_ru_pctile_it": 70.6,
+      "kg_ru_vs_median_it": 68.7,
+      "kg_ru_vs_median_reg": 35.4,
+      "kg_ind_better_pctile_it": 24.8,
+      "kg_ind_vs_median_it": 51.2,
+      "kg_ind_vs_median_reg": 32.1,
+      "delta_rd_22_24": 2.84,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +3.0 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -6.76
+    },
+    "san-ponso": {
+      "id": "san-ponso",
+      "name": "San Ponso",
+      "isprName": "SAN PONSO",
+      "istat": "01001251",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 233,
+      "year": 2024,
+      "rd_pct": 49.37,
+      "kg_ru_ab": 1026.1,
+      "kg_ind_ab": 513.3,
+      "mix_rd_pct": {
+        "umida": 5.47,
+        "carta": 29.94,
+        "plastica": 27.49,
+        "verde": 3.65,
+        "vetro": 15.24
+      },
+      "series_rd": {
+        "2022": 56.25,
+        "2023": 53.0,
+        "2024": 49.37
+      },
+      "rd_pctile_it": 9.6,
+      "gap_65": -15.63,
+      "rd_vs_median_it": -23.76,
+      "rd_vs_median_reg": -20.94,
+      "kg_ru_pctile_it": 98.1,
+      "kg_ru_vs_median_it": 581.1,
+      "kg_ru_vs_median_reg": 547.7,
+      "kg_ind_better_pctile_it": 1.6,
+      "kg_ind_vs_median_it": 400.0,
+      "kg_ind_vs_median_reg": 380.9,
+      "delta_rd_22_24": -6.88,
+      "hook": {
+        "key": "below_target",
+        "text": "A -15.6 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -18.14
+    },
+    "san-raffaele-cimena": {
+      "id": "san-raffaele-cimena",
+      "name": "San Raffaele Cimena",
+      "isprName": "SAN RAFFAELE CIMENA",
+      "istat": "01001252",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3151,
+      "year": 2024,
+      "rd_pct": 66.27,
+      "kg_ru_ab": 456.1,
+      "kg_ind_ab": 153.8,
+      "mix_rd_pct": {
+        "umida": 29.5,
+        "carta": 10.79,
+        "plastica": 16.1,
+        "verde": 6.59,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 56.54,
+        "2023": 63.68,
+        "2024": 66.27
+      },
+      "rd_pctile_it": 30.4,
+      "gap_65": 1.27,
+      "rd_vs_median_it": -6.86,
+      "rd_vs_median_reg": -4.04,
+      "kg_ru_pctile_it": 53.9,
+      "kg_ru_vs_median_it": 11.1,
+      "kg_ru_vs_median_reg": -22.2,
+      "kg_ind_better_pctile_it": 28.5,
+      "kg_ind_vs_median_it": 40.5,
+      "kg_ind_vs_median_reg": 21.4,
+      "delta_rd_22_24": 9.73,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +1.3 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -9.41
+    },
+    "san-sebastiano-da-po": {
+      "id": "san-sebastiano-da-po",
+      "name": "San Sebastiano da Po",
+      "isprName": "SAN SEBASTIANO DA PO",
+      "istat": "01001253",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1881,
+      "year": 2024,
+      "rd_pct": 70.36,
+      "kg_ru_ab": 500.8,
+      "kg_ind_ab": 148.4,
+      "mix_rd_pct": {
+        "umida": 32.18,
+        "carta": 12.44,
+        "plastica": 20.82,
+        "verde": 3.1,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 69.14,
+        "2023": 71.18,
+        "2024": 70.36
+      },
+      "rd_pctile_it": 41.2,
+      "gap_65": 5.36,
+      "rd_vs_median_it": -2.77,
+      "rd_vs_median_reg": 0.05,
+      "kg_ru_pctile_it": 67.6,
+      "kg_ru_vs_median_it": 55.8,
+      "kg_ru_vs_median_reg": 22.4,
+      "kg_ind_better_pctile_it": 30.6,
+      "kg_ind_vs_median_it": 35.1,
+      "kg_ind_vs_median_reg": 16.0,
+      "delta_rd_22_24": 1.22,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.4 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -2.7
+    },
+    "sangano": {
+      "id": "sangano",
+      "name": "Sangano",
+      "isprName": "SANGANO",
+      "istat": "01001241",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3675,
+      "year": 2024,
+      "rd_pct": 56.83,
+      "kg_ru_ab": 496.1,
+      "kg_ind_ab": 214.2,
+      "mix_rd_pct": {
+        "umida": 15.41,
+        "carta": 23.2,
+        "plastica": 27.26,
+        "verde": 10.5,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 70.35,
+        "2023": 71.89,
+        "2024": 56.83
+      },
+      "rd_pctile_it": 15.9,
+      "gap_65": -8.17,
+      "rd_vs_median_it": -16.3,
+      "rd_vs_median_reg": -13.48,
+      "kg_ru_pctile_it": 66.2,
+      "kg_ru_vs_median_it": 51.1,
+      "kg_ru_vs_median_reg": 17.8,
+      "kg_ind_better_pctile_it": 14.8,
+      "kg_ind_vs_median_it": 100.9,
+      "kg_ind_vs_median_reg": 81.8,
+      "delta_rd_22_24": -13.52,
+      "hook": {
+        "key": "below_target",
+        "text": "A -8.2 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -18.85
+    },
+    "sant-ambrogio-di-torino": {
+      "id": "sant-ambrogio-di-torino",
+      "name": "Sant'Ambrogio di Torino",
+      "isprName": "SANT'AMBROGIO DI TORINO",
+      "istat": "01001255",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4502,
+      "year": 2024,
+      "rd_pct": 70.49,
+      "kg_ru_ab": 504.4,
+      "kg_ind_ab": 148.8,
+      "mix_rd_pct": {
+        "umida": 18.4,
+        "carta": 16.5,
+        "plastica": 9.0,
+        "verde": 13.6,
+        "vetro": 9.76
+      },
+      "series_rd": {
+        "2022": 68.72,
+        "2023": 68.52,
+        "2024": 70.49
+      },
+      "rd_pctile_it": 41.5,
+      "gap_65": 5.49,
+      "rd_vs_median_it": -2.64,
+      "rd_vs_median_reg": 0.18,
+      "kg_ru_pctile_it": 68.4,
+      "kg_ru_vs_median_it": 59.4,
+      "kg_ru_vs_median_reg": 26.0,
+      "kg_ind_better_pctile_it": 30.5,
+      "kg_ind_vs_median_it": 35.5,
+      "kg_ind_vs_median_reg": 16.4,
+      "delta_rd_22_24": 1.77,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.5 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -5.19
+    },
+    "sant-antonino-di-susa": {
+      "id": "sant-antonino-di-susa",
+      "name": "Sant'Antonino di Susa",
+      "isprName": "SANT'ANTONINO DI SUSA",
+      "istat": "01001256",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4088,
+      "year": 2024,
+      "rd_pct": 75.3,
+      "kg_ru_ab": 478.0,
+      "kg_ind_ab": 118.0,
+      "mix_rd_pct": {
+        "umida": 24.13,
+        "carta": 15.59,
+        "plastica": 8.71,
+        "verde": 15.67,
+        "vetro": 10.24
+      },
+      "series_rd": {
+        "2022": 73.39,
+        "2023": 75.15,
+        "2024": 75.3
+      },
+      "rd_pctile_it": 57.2,
+      "gap_65": 10.3,
+      "rd_vs_median_it": 2.17,
+      "rd_vs_median_reg": 4.99,
+      "kg_ru_pctile_it": 60.7,
+      "kg_ru_vs_median_it": 33.0,
+      "kg_ru_vs_median_reg": -0.4,
+      "kg_ind_better_pctile_it": 46.8,
+      "kg_ind_vs_median_it": 4.7,
+      "kg_ind_vs_median_reg": -14.4,
+      "delta_rd_22_24": 1.91,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.3 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -0.38
+    },
+    "santena": {
+      "id": "santena",
+      "name": "Santena",
+      "isprName": "SANTENA",
+      "istat": "01001257",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 10491,
+      "year": 2024,
+      "rd_pct": 86.66,
+      "kg_ru_ab": 564.9,
+      "kg_ind_ab": 75.4,
+      "mix_rd_pct": {
+        "umida": 22.56,
+        "carta": 11.92,
+        "plastica": 8.63,
+        "verde": 9.09,
+        "vetro": 7.78
+      },
+      "series_rd": {
+        "2022": 84.32,
+        "2023": 85.21,
+        "2024": 86.66
+      },
+      "rd_pctile_it": 91.3,
+      "gap_65": 21.66,
+      "rd_vs_median_it": 13.53,
+      "rd_vs_median_reg": 16.35,
+      "kg_ru_pctile_it": 80.3,
+      "kg_ru_vs_median_it": 119.9,
+      "kg_ru_vs_median_reg": 86.5,
+      "kg_ind_better_pctile_it": 77.5,
+      "kg_ind_vs_median_it": -37.9,
+      "kg_ind_vs_median_reg": -57.0,
+      "delta_rd_22_24": 2.34,
+      "hook": {
+        "key": "top_pctile",
+        "text": "Tra i migliori in Italia (meglio del 91%)"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 11.91
+    },
+    "sciolze": {
+      "id": "sciolze",
+      "name": "Sciolze",
+      "isprName": "SCIOLZE",
+      "istat": "01001262",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1430,
+      "year": 2024,
+      "rd_pct": 67.98,
+      "kg_ru_ab": 486.4,
+      "kg_ind_ab": 155.7,
+      "mix_rd_pct": {
+        "umida": 36.36,
+        "carta": 9.99,
+        "plastica": 14.56,
+        "verde": 3.81,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 58.69,
+        "2023": 62.18,
+        "2024": 67.98
+      },
+      "rd_pctile_it": 34.5,
+      "gap_65": 2.98,
+      "rd_vs_median_it": -5.15,
+      "rd_vs_median_reg": -2.33,
+      "kg_ru_pctile_it": 63.4,
+      "kg_ru_vs_median_it": 41.4,
+      "kg_ru_vs_median_reg": 8.0,
+      "kg_ind_better_pctile_it": 27.8,
+      "kg_ind_vs_median_it": 42.4,
+      "kg_ind_vs_median_reg": 23.3,
+      "delta_rd_22_24": 9.29,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +3.0 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -5.08
+    },
+    "settimo-torinese": {
+      "id": "settimo-torinese",
+      "name": "Settimo Torinese",
+      "isprName": "SETTIMO TORINESE",
+      "istat": "01001265",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 45623,
+      "year": 2024,
+      "rd_pct": 64.19,
+      "kg_ru_ab": 579.5,
+      "kg_ind_ab": 207.5,
+      "mix_rd_pct": {
+        "umida": 17.08,
+        "carta": 27.84,
+        "plastica": 7.9,
+        "verde": 3.4,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 68.71,
+        "2023": 64.05,
+        "2024": 64.19
+      },
+      "rd_pctile_it": 25.9,
+      "gap_65": -0.81,
+      "rd_vs_median_it": -8.94,
+      "rd_vs_median_reg": -6.12,
+      "kg_ru_pctile_it": 82.4,
+      "kg_ru_vs_median_it": 134.5,
+      "kg_ru_vs_median_reg": 101.1,
+      "kg_ind_better_pctile_it": 15.8,
+      "kg_ind_vs_median_it": 94.2,
+      "kg_ind_vs_median_reg": 75.1,
+      "delta_rd_22_24": -4.52,
+      "hook": {
+        "key": "below_target",
+        "text": "A -0.8 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -10.56
+    },
+    "sparone": {
+      "id": "sparone",
+      "name": "Sparone",
+      "isprName": "SPARONE",
+      "istat": "01001267",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 907,
+      "year": 2024,
+      "rd_pct": 45.32,
+      "kg_ru_ab": 428.3,
+      "kg_ind_ab": 226.9,
+      "mix_rd_pct": {
+        "umida": 4.52,
+        "carta": 29.87,
+        "plastica": 18.26,
+        "verde": 2.27,
+        "vetro": 19.37
+      },
+      "series_rd": {
+        "2022": 43.19,
+        "2023": 42.74,
+        "2024": 45.32
+      },
+      "rd_pctile_it": 7.5,
+      "gap_65": -19.68,
+      "rd_vs_median_it": -27.81,
+      "rd_vs_median_reg": -24.99,
+      "kg_ru_pctile_it": 44.4,
+      "kg_ru_vs_median_it": -16.7,
+      "kg_ru_vs_median_reg": -50.1,
+      "kg_ind_better_pctile_it": 13.3,
+      "kg_ind_vs_median_it": 113.6,
+      "kg_ind_vs_median_reg": 94.5,
+      "delta_rd_22_24": 2.13,
+      "hook": {
+        "key": "below_target",
+        "text": "A -19.7 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -22.19
+    },
+    "susa": {
+      "id": "susa",
+      "name": "Susa",
+      "isprName": "SUSA",
+      "istat": "01001270",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 5836,
+      "year": 2024,
+      "rd_pct": 64.32,
+      "kg_ru_ab": 556.5,
+      "kg_ind_ab": 198.6,
+      "mix_rd_pct": {
+        "umida": 24.57,
+        "carta": 18.85,
+        "plastica": 9.48,
+        "verde": 6.64,
+        "vetro": 10.95
+      },
+      "series_rd": {
+        "2022": 63.17,
+        "2023": 63.63,
+        "2024": 64.32
+      },
+      "rd_pctile_it": 26.2,
+      "gap_65": -0.68,
+      "rd_vs_median_it": -8.81,
+      "rd_vs_median_reg": -5.99,
+      "kg_ru_pctile_it": 78.7,
+      "kg_ru_vs_median_it": 111.5,
+      "kg_ru_vs_median_reg": 78.1,
+      "kg_ind_better_pctile_it": 17.5,
+      "kg_ind_vs_median_it": 85.3,
+      "kg_ind_vs_median_reg": 66.2,
+      "delta_rd_22_24": 1.15,
+      "hook": {
+        "key": "below_target",
+        "text": "A -0.7 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -11.36
+    },
+    "torrazza-piemonte": {
+      "id": "torrazza-piemonte",
+      "name": "Torrazza Piemonte",
+      "isprName": "TORRAZZA PIEMONTE",
+      "istat": "01001273",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3008,
+      "year": 2024,
+      "rd_pct": 90.15,
+      "kg_ru_ab": 1264.3,
+      "kg_ind_ab": 124.5,
+      "mix_rd_pct": {
+        "umida": 6.86,
+        "carta": 63.39,
+        "plastica": 12.1,
+        "verde": 1.18,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 72.05,
+        "2023": 93.37,
+        "2024": 90.15
+      },
+      "rd_pctile_it": 97.3,
+      "gap_65": 25.15,
+      "rd_vs_median_it": 17.02,
+      "rd_vs_median_reg": 19.84,
+      "kg_ru_pctile_it": 99.2,
+      "kg_ru_vs_median_it": 819.3,
+      "kg_ru_vs_median_reg": 785.9,
+      "kg_ind_better_pctile_it": 42.2,
+      "kg_ind_vs_median_it": 11.2,
+      "kg_ind_vs_median_reg": -7.9,
+      "delta_rd_22_24": 18.1,
+      "hook": {
+        "key": "top_pctile",
+        "text": "Tra i migliori in Italia (meglio del 97%)"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 14.47
+    },
+    "trana": {
+      "id": "trana",
+      "name": "Trana",
+      "isprName": "TRANA",
+      "istat": "01001276",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3742,
+      "year": 2024,
+      "rd_pct": 70.01,
+      "kg_ru_ab": 483.6,
+      "kg_ind_ab": 145.0,
+      "mix_rd_pct": {
+        "umida": 22.21,
+        "carta": 12.1,
+        "plastica": 21.01,
+        "verde": 15.09,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 69.08,
+        "2023": 70.39,
+        "2024": 70.01
+      },
+      "rd_pctile_it": 40.1,
+      "gap_65": 5.01,
+      "rd_vs_median_it": -3.12,
+      "rd_vs_median_reg": -0.3,
+      "kg_ru_pctile_it": 62.5,
+      "kg_ru_vs_median_it": 38.6,
+      "kg_ru_vs_median_reg": 5.2,
+      "kg_ind_better_pctile_it": 32.0,
+      "kg_ind_vs_median_it": 31.7,
+      "kg_ind_vs_median_reg": 12.6,
+      "delta_rd_22_24": 0.93,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -5.67
+    },
+    "traversella": {
+      "id": "traversella",
+      "name": "Traversella",
+      "isprName": "TRAVERSELLA",
+      "istat": "01001278",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 309,
+      "year": 2024,
+      "rd_pct": 63.55,
+      "kg_ru_ab": 510.5,
+      "kg_ind_ab": 185.7,
+      "mix_rd_pct": {
+        "umida": 2.31,
+        "carta": 43.63,
+        "plastica": 14.47,
+        "verde": 1.88,
+        "vetro": 14.86
+      },
+      "series_rd": {
+        "2022": 47.48,
+        "2023": 49.6,
+        "2024": 63.55
+      },
+      "rd_pctile_it": 24.9,
+      "gap_65": -1.45,
+      "rd_vs_median_it": -9.58,
+      "rd_vs_median_reg": -6.76,
+      "kg_ru_pctile_it": 69.9,
+      "kg_ru_vs_median_it": 65.5,
+      "kg_ru_vs_median_reg": 32.1,
+      "kg_ind_better_pctile_it": 20.0,
+      "kg_ind_vs_median_it": 72.4,
+      "kg_ind_vs_median_reg": 53.3,
+      "delta_rd_22_24": 16.07,
+      "hook": {
+        "key": "below_target",
+        "text": "A -1.5 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -3.96
+    },
+    "trofarello": {
+      "id": "trofarello",
+      "name": "Trofarello",
+      "isprName": "TROFARELLO",
+      "istat": "01001280",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 10497,
+      "year": 2024,
+      "rd_pct": 76.23,
+      "kg_ru_ab": 540.3,
+      "kg_ind_ab": 128.4,
+      "mix_rd_pct": {
+        "umida": 19.63,
+        "carta": 18.75,
+        "plastica": 11.73,
+        "verde": 12.85,
+        "vetro": 7.5
+      },
+      "series_rd": {
+        "2022": 72.31,
+        "2023": 75.65,
+        "2024": 76.23
+      },
+      "rd_pctile_it": 59.8,
+      "gap_65": 11.23,
+      "rd_vs_median_it": 3.1,
+      "rd_vs_median_reg": 5.92,
+      "kg_ru_pctile_it": 76.2,
+      "kg_ru_vs_median_it": 95.3,
+      "kg_ru_vs_median_reg": 61.9,
+      "kg_ind_better_pctile_it": 39.9,
+      "kg_ind_vs_median_it": 15.1,
+      "kg_ind_vs_median_reg": -4.0,
+      "delta_rd_22_24": 3.92,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +11.2 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 1.48
+    },
+    "vaie": {
+      "id": "vaie",
+      "name": "Vaie",
+      "isprName": "VAIE",
+      "istat": "01001283",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1349,
+      "year": 2024,
+      "rd_pct": 75.48,
+      "kg_ru_ab": 600.1,
+      "kg_ind_ab": 147.2,
+      "mix_rd_pct": {
+        "umida": 12.07,
+        "carta": 33.22,
+        "plastica": 11.8,
+        "verde": 14.42,
+        "vetro": 8.22
+      },
+      "series_rd": {
+        "2022": 67.84,
+        "2023": 76.62,
+        "2024": 75.48
+      },
+      "rd_pctile_it": 57.6,
+      "gap_65": 10.48,
+      "rd_vs_median_it": 2.35,
+      "rd_vs_median_reg": 5.17,
+      "kg_ru_pctile_it": 84.7,
+      "kg_ru_vs_median_it": 155.1,
+      "kg_ru_vs_median_reg": 121.8,
+      "kg_ind_better_pctile_it": 31.1,
+      "kg_ind_vs_median_it": 33.9,
+      "kg_ind_vs_median_reg": 14.8,
+      "delta_rd_22_24": 7.64,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.5 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 2.42
+    },
+    "val-di-chy": {
+      "id": "val-di-chy",
+      "name": "Val di Chy",
+      "isprName": "VAL DI CHY",
+      "istat": "01001317",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1228,
+      "year": 2024,
+      "rd_pct": 59.58,
+      "kg_ru_ab": 209.2,
+      "kg_ind_ab": 80.4,
+      "mix_rd_pct": {
+        "umida": 6.07,
+        "carta": 21.78,
+        "plastica": 12.64,
+        "verde": 6.39,
+        "vetro": 22.61
+      },
+      "series_rd": {
+        "2022": 55.5,
+        "2023": 57.92,
+        "2024": 59.58
+      },
+      "rd_pctile_it": 18.8,
+      "gap_65": -5.42,
+      "rd_vs_median_it": -13.55,
+      "rd_vs_median_reg": -10.73,
+      "kg_ru_pctile_it": 0.7,
+      "kg_ru_vs_median_it": -235.8,
+      "kg_ru_vs_median_reg": -269.2,
+      "kg_ind_better_pctile_it": 73.6,
+      "kg_ind_vs_median_it": -32.9,
+      "kg_ind_vs_median_reg": -52.0,
+      "delta_rd_22_24": 4.08,
+      "hook": {
+        "key": "below_target",
+        "text": "A -5.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -13.48
+    },
+    "valchiusa": {
+      "id": "valchiusa",
+      "name": "Valchiusa",
+      "isprName": "VALCHIUSA",
+      "istat": "01001318",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1030,
+      "year": 2024,
+      "rd_pct": 56.03,
+      "kg_ru_ab": 227.8,
+      "kg_ind_ab": 99.2,
+      "mix_rd_pct": {
+        "umida": 7.06,
+        "carta": 25.14,
+        "plastica": 15.47,
+        "verde": 3.76,
+        "vetro": 28.3
+      },
+      "series_rd": {
+        "2022": 45.83,
+        "2023": 47.32,
+        "2024": 56.03
+      },
+      "rd_pctile_it": 15.2,
+      "gap_65": -8.97,
+      "rd_vs_median_it": -17.1,
+      "rd_vs_median_reg": -14.28,
+      "kg_ru_pctile_it": 1.5,
+      "kg_ru_vs_median_it": -217.2,
+      "kg_ru_vs_median_reg": -250.6,
+      "kg_ind_better_pctile_it": 59.7,
+      "kg_ind_vs_median_it": -14.1,
+      "kg_ind_vs_median_reg": -33.2,
+      "delta_rd_22_24": 10.2,
+      "hook": {
+        "key": "below_target",
+        "text": "A -9.0 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -17.03
+    },
+    "valperga": {
+      "id": "valperga",
+      "name": "Valperga",
+      "isprName": "VALPERGA",
+      "istat": "01001287",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2963,
+      "year": 2024,
+      "rd_pct": 57.62,
+      "kg_ru_ab": 240.0,
+      "kg_ind_ab": 95.9,
+      "mix_rd_pct": {
+        "umida": 8.05,
+        "carta": 32.92,
+        "plastica": 16.86,
+        "verde": 2.87,
+        "vetro": 17.94
+      },
+      "series_rd": {
+        "2022": 48.22,
+        "2023": 49.43,
+        "2024": 57.62
+      },
+      "rd_pctile_it": 16.7,
+      "gap_65": -7.38,
+      "rd_vs_median_it": -15.51,
+      "rd_vs_median_reg": -12.69,
+      "kg_ru_pctile_it": 2.0,
+      "kg_ru_vs_median_it": -205.0,
+      "kg_ru_vs_median_reg": -238.4,
+      "kg_ind_better_pctile_it": 61.9,
+      "kg_ind_vs_median_it": -17.4,
+      "kg_ind_vs_median_reg": -36.5,
+      "delta_rd_22_24": 9.4,
+      "hook": {
+        "key": "below_target",
+        "text": "A -7.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -18.06
+    },
+    "valprato-soana": {
+      "id": "valprato-soana",
+      "name": "Valprato Soana",
+      "isprName": "VALPRATO SOANA",
+      "istat": "01001288",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 87,
+      "year": 2024,
+      "rd_pct": 48.5,
+      "kg_ru_ab": 1310.8,
+      "kg_ind_ab": 646.0,
+      "mix_rd_pct": {
+        "umida": null,
+        "carta": 22.79,
+        "plastica": 16.19,
+        "verde": 8.85,
+        "vetro": 22.24
+      },
+      "series_rd": {
+        "2022": 37.21,
+        "2023": 50.79,
+        "2024": 48.5
+      },
+      "rd_pctile_it": 9.1,
+      "gap_65": -16.5,
+      "rd_vs_median_it": -24.63,
+      "rd_vs_median_reg": -21.81,
+      "kg_ru_pctile_it": 99.3,
+      "kg_ru_vs_median_it": 865.8,
+      "kg_ru_vs_median_reg": 832.4,
+      "kg_ind_better_pctile_it": 0.6,
+      "kg_ind_vs_median_it": 532.7,
+      "kg_ind_vs_median_reg": 513.6,
+      "delta_rd_22_24": 11.29,
+      "hook": {
+        "key": "below_target",
+        "text": "A -16.5 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -19.01
+    },
+    "venaria-reale": {
+      "id": "venaria-reale",
+      "name": "Venaria Reale",
+      "isprName": "VENARIA REALE",
+      "istat": "01001292",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 32013,
+      "year": 2024,
+      "rd_pct": 60.91,
+      "kg_ru_ab": 437.7,
+      "kg_ind_ab": 171.1,
+      "mix_rd_pct": {
+        "umida": 24.67,
+        "carta": 24.65,
+        "plastica": 10.04,
+        "verde": 2.25,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 59.8,
+        "2023": 58.65,
+        "2024": 60.91
+      },
+      "rd_pctile_it": 20.8,
+      "gap_65": -4.09,
+      "rd_vs_median_it": -12.22,
+      "rd_vs_median_reg": -9.4,
+      "kg_ru_pctile_it": 47.6,
+      "kg_ru_vs_median_it": -7.3,
+      "kg_ru_vs_median_reg": -40.7,
+      "kg_ind_better_pctile_it": 23.0,
+      "kg_ind_vs_median_it": 57.8,
+      "kg_ind_vs_median_reg": 38.7,
+      "delta_rd_22_24": 1.11,
+      "hook": {
+        "key": "below_target",
+        "text": "A -4.1 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -13.84
+    },
+    "verolengo": {
+      "id": "verolengo",
+      "name": "Verolengo",
+      "isprName": "VEROLENGO",
+      "istat": "01001293",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4793,
+      "year": 2024,
+      "rd_pct": 68.73,
+      "kg_ru_ab": 432.1,
+      "kg_ind_ab": 135.1,
+      "mix_rd_pct": {
+        "umida": 22.37,
+        "carta": 16.42,
+        "plastica": 23.36,
+        "verde": 3.84,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 70.18,
+        "2023": 74.11,
+        "2024": 68.73
+      },
+      "rd_pctile_it": 36.7,
+      "gap_65": 3.73,
+      "rd_vs_median_it": -4.4,
+      "rd_vs_median_reg": -1.58,
+      "kg_ru_pctile_it": 45.6,
+      "kg_ru_vs_median_it": -12.9,
+      "kg_ru_vs_median_reg": -46.2,
+      "kg_ind_better_pctile_it": 36.4,
+      "kg_ind_vs_median_it": 21.8,
+      "kg_ind_vs_median_reg": 2.7,
+      "delta_rd_22_24": -1.45,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +3.7 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -6.95
+    },
+    "verrua-savoia": {
+      "id": "verrua-savoia",
+      "name": "Verrua Savoia",
+      "isprName": "VERRUA SAVOIA",
+      "istat": "01001294",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1321,
+      "year": 2024,
+      "rd_pct": 65.04,
+      "kg_ru_ab": 428.1,
+      "kg_ind_ab": 149.7,
+      "mix_rd_pct": {
+        "umida": 20.51,
+        "carta": 15.86,
+        "plastica": 26.34,
+        "verde": 3.98,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 67.9,
+        "2023": 68.37,
+        "2024": 65.04
+      },
+      "rd_pctile_it": 27.7,
+      "gap_65": 0.04,
+      "rd_vs_median_it": -8.09,
+      "rd_vs_median_reg": -5.27,
+      "kg_ru_pctile_it": 44.3,
+      "kg_ru_vs_median_it": -16.9,
+      "kg_ru_vs_median_reg": -50.2,
+      "kg_ind_better_pctile_it": 30.1,
+      "kg_ind_vs_median_it": 36.4,
+      "kg_ind_vs_median_reg": 17.3,
+      "delta_rd_22_24": -2.86,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +0.0 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -8.02
+    },
+    "vidracco": {
+      "id": "vidracco",
+      "name": "Vidracco",
+      "isprName": "VIDRACCO",
+      "istat": "01001298",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 454,
+      "year": 2024,
+      "rd_pct": 50.66,
+      "kg_ru_ab": 437.1,
+      "kg_ind_ab": 214.9,
+      "mix_rd_pct": {
+        "umida": 0.71,
+        "carta": 26.65,
+        "plastica": 21.69,
+        "verde": 19.68,
+        "vetro": 15.35
+      },
+      "series_rd": {
+        "2022": 47.46,
+        "2023": 46.58,
+        "2024": 50.66
+      },
+      "rd_pctile_it": 10.6,
+      "gap_65": -14.34,
+      "rd_vs_median_it": -22.47,
+      "rd_vs_median_reg": -19.65,
+      "kg_ru_pctile_it": 47.2,
+      "kg_ru_vs_median_it": -7.9,
+      "kg_ru_vs_median_reg": -41.2,
+      "kg_ind_better_pctile_it": 14.7,
+      "kg_ind_vs_median_it": 101.6,
+      "kg_ind_vs_median_reg": 82.5,
+      "delta_rd_22_24": 3.2,
+      "hook": {
+        "key": "below_target",
+        "text": "A -14.3 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -16.85
+    },
+    "villar-dora": {
+      "id": "villar-dora",
+      "name": "Villar Dora",
+      "isprName": "VILLAR DORA",
+      "istat": "01001303",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 2782,
+      "year": 2024,
+      "rd_pct": 71.99,
+      "kg_ru_ab": 648.9,
+      "kg_ind_ab": 181.8,
+      "mix_rd_pct": {
+        "umida": 9.84,
+        "carta": 14.04,
+        "plastica": 8.43,
+        "verde": 39.35,
+        "vetro": 7.82
+      },
+      "series_rd": {
+        "2022": 73.45,
+        "2023": 72.68,
+        "2024": 71.99
+      },
+      "rd_pctile_it": 46.3,
+      "gap_65": 6.99,
+      "rd_vs_median_it": -1.14,
+      "rd_vs_median_reg": 1.68,
+      "kg_ru_pctile_it": 88.9,
+      "kg_ru_vs_median_it": 203.9,
+      "kg_ru_vs_median_reg": 170.5,
+      "kg_ind_better_pctile_it": 20.7,
+      "kg_ind_vs_median_it": 68.5,
+      "kg_ind_vs_median_reg": 49.4,
+      "delta_rd_22_24": -1.46,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +7.0 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -3.69
+    },
+    "villar-focchiardo": {
+      "id": "villar-focchiardo",
+      "name": "Villar Focchiardo",
+      "isprName": "VILLAR FOCCHIARDO",
+      "istat": "01001305",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1935,
+      "year": 2024,
+      "rd_pct": 80.62,
+      "kg_ru_ab": 448.4,
+      "kg_ind_ab": 86.9,
+      "mix_rd_pct": {
+        "umida": 24.78,
+        "carta": 10.88,
+        "plastica": 9.4,
+        "verde": 23.11,
+        "vetro": 9.79
+      },
+      "series_rd": {
+        "2022": 78.03,
+        "2023": 82.9,
+        "2024": 80.62
+      },
+      "rd_pctile_it": 74.4,
+      "gap_65": 15.62,
+      "rd_vs_median_it": 7.49,
+      "rd_vs_median_reg": 10.31,
+      "kg_ru_pctile_it": 51.2,
+      "kg_ru_vs_median_it": 3.4,
+      "kg_ru_vs_median_reg": -30.0,
+      "kg_ind_better_pctile_it": 68.6,
+      "kg_ind_vs_median_it": -26.4,
+      "kg_ind_vs_median_reg": -45.5,
+      "delta_rd_22_24": 2.59,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +15.6 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": 7.56
+    },
+    "villarbasse": {
+      "id": "villarbasse",
+      "name": "Villarbasse",
+      "isprName": "VILLARBASSE",
+      "istat": "01001302",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 3504,
+      "year": 2024,
+      "rd_pct": 75.53,
+      "kg_ru_ab": 529.7,
+      "kg_ind_ab": 129.6,
+      "mix_rd_pct": {
+        "umida": 18.62,
+        "carta": 13.36,
+        "plastica": 16.94,
+        "verde": 25.29,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 74.6,
+        "2023": 75.77,
+        "2024": 75.53
+      },
+      "rd_pctile_it": 57.8,
+      "gap_65": 10.53,
+      "rd_vs_median_it": 2.4,
+      "rd_vs_median_reg": 5.22,
+      "kg_ru_pctile_it": 74.2,
+      "kg_ru_vs_median_it": 84.7,
+      "kg_ru_vs_median_reg": 51.4,
+      "kg_ind_better_pctile_it": 39.2,
+      "kg_ind_vs_median_it": 16.3,
+      "kg_ind_vs_median_reg": -2.8,
+      "delta_rd_22_24": 0.93,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.5 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": -0.15
+    },
+    "villastellone": {
+      "id": "villastellone",
+      "name": "Villastellone",
+      "isprName": "VILLASTELLONE",
+      "istat": "01001308",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 4314,
+      "year": 2024,
+      "rd_pct": 86.0,
+      "kg_ru_ab": 619.1,
+      "kg_ind_ab": 86.7,
+      "mix_rd_pct": {
+        "umida": 16.6,
+        "carta": 12.77,
+        "plastica": 26.81,
+        "verde": 9.99,
+        "vetro": 6.08
+      },
+      "series_rd": {
+        "2022": 76.24,
+        "2023": 82.77,
+        "2024": 86.0
+      },
+      "rd_pctile_it": 89.8,
+      "gap_65": 21.0,
+      "rd_vs_median_it": 12.87,
+      "rd_vs_median_reg": 15.69,
+      "kg_ru_pctile_it": 86.5,
+      "kg_ru_vs_median_it": 174.1,
+      "kg_ru_vs_median_reg": 140.8,
+      "kg_ind_better_pctile_it": 68.7,
+      "kg_ind_vs_median_it": -26.6,
+      "kg_ind_vs_median_reg": -45.7,
+      "delta_rd_22_24": 9.76,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +21.0 punti percentuali"
+      },
+      "pop_cluster_id": "p2",
+      "rd_vs_median_pop": 10.32
+    },
+    "vinovo": {
+      "id": "vinovo",
+      "name": "Vinovo",
+      "isprName": "VINOVO",
+      "istat": "01001309",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 15337,
+      "year": 2024,
+      "rd_pct": 75.53,
+      "kg_ru_ab": 531.4,
+      "kg_ind_ab": 130.0,
+      "mix_rd_pct": {
+        "umida": 18.11,
+        "carta": 15.23,
+        "plastica": 7.82,
+        "verde": 11.82,
+        "vetro": 7.64
+      },
+      "series_rd": {
+        "2022": 67.85,
+        "2023": 70.51,
+        "2024": 75.53
+      },
+      "rd_pctile_it": 57.8,
+      "gap_65": 10.53,
+      "rd_vs_median_it": 2.4,
+      "rd_vs_median_reg": 5.22,
+      "kg_ru_pctile_it": 74.5,
+      "kg_ru_vs_median_it": 86.4,
+      "kg_ru_vs_median_reg": 53.0,
+      "kg_ind_better_pctile_it": 38.8,
+      "kg_ind_vs_median_it": 16.7,
+      "kg_ind_vs_median_reg": -2.4,
+      "delta_rd_22_24": 7.68,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +10.5 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": 0.78
+    },
+    "virle-piemonte": {
+      "id": "virle-piemonte",
+      "name": "Virle Piemonte",
+      "isprName": "VIRLE PIEMONTE",
+      "istat": "01001310",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 1177,
+      "year": 2024,
+      "rd_pct": 70.71,
+      "kg_ru_ab": 409.9,
+      "kg_ind_ab": 120.1,
+      "mix_rd_pct": {
+        "umida": 29.6,
+        "carta": 13.7,
+        "plastica": 10.92,
+        "verde": 12.22,
+        "vetro": 12.31
+      },
+      "series_rd": {
+        "2022": 71.05,
+        "2023": 69.62,
+        "2024": 70.71
+      },
+      "rd_pctile_it": 42.2,
+      "gap_65": 5.71,
+      "rd_vs_median_it": -2.42,
+      "rd_vs_median_reg": 0.4,
+      "kg_ru_pctile_it": 37.8,
+      "kg_ru_vs_median_it": -35.1,
+      "kg_ru_vs_median_reg": -68.5,
+      "kg_ind_better_pctile_it": 45.2,
+      "kg_ind_vs_median_it": 6.8,
+      "kg_ind_vs_median_reg": -12.3,
+      "delta_rd_22_24": -0.34,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.7 punti percentuali"
+      },
+      "pop_cluster_id": "p1",
+      "rd_vs_median_pop": -2.35
+    },
+    "vistrorio": {
+      "id": "vistrorio",
+      "name": "Vistrorio",
+      "isprName": "VISTRORIO",
+      "istat": "01001312",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 527,
+      "year": 2024,
+      "rd_pct": 48.57,
+      "kg_ru_ab": 259.0,
+      "kg_ind_ab": 131.3,
+      "mix_rd_pct": {
+        "umida": 4.77,
+        "carta": 28.33,
+        "plastica": 12.81,
+        "verde": 1.37,
+        "vetro": 24.89
+      },
+      "series_rd": {
+        "2022": 51.67,
+        "2023": 48.43,
+        "2024": 48.57
+      },
+      "rd_pctile_it": 9.2,
+      "gap_65": -16.43,
+      "rd_vs_median_it": -24.56,
+      "rd_vs_median_reg": -21.74,
+      "kg_ru_pctile_it": 3.3,
+      "kg_ru_vs_median_it": -186.0,
+      "kg_ru_vs_median_reg": -219.4,
+      "kg_ind_better_pctile_it": 38.1,
+      "kg_ind_vs_median_it": 18.0,
+      "kg_ind_vs_median_reg": -1.1,
+      "delta_rd_22_24": -3.1,
+      "hook": {
+        "key": "below_target",
+        "text": "A -16.4 punti percentuali dall'obiettivo nazionale del 65%"
+      },
+      "pop_cluster_id": "p0",
+      "rd_vs_median_pop": -18.94
+    },
+    "volpiano": {
+      "id": "volpiano",
+      "name": "Volpiano",
+      "isprName": "VOLPIANO",
+      "istat": "01001314",
+      "provincia": "Torino",
+      "regione": "Piemonte",
+      "pop": 15031,
+      "year": 2024,
+      "rd_pct": 70.92,
+      "kg_ru_ab": 659.6,
+      "kg_ind_ab": 191.8,
+      "mix_rd_pct": {
+        "umida": 16.31,
+        "carta": 34.84,
+        "plastica": 6.98,
+        "verde": 2.87,
+        "vetro": null
+      },
+      "series_rd": {
+        "2022": 64.18,
+        "2023": 65.57,
+        "2024": 70.92
+      },
+      "rd_pctile_it": 42.8,
+      "gap_65": 5.92,
+      "rd_vs_median_it": -2.21,
+      "rd_vs_median_reg": 0.61,
+      "kg_ru_pctile_it": 89.7,
+      "kg_ru_vs_median_it": 214.6,
+      "kg_ru_vs_median_reg": 181.2,
+      "kg_ind_better_pctile_it": 18.7,
+      "kg_ind_vs_median_it": 78.5,
+      "kg_ind_vs_median_reg": 59.4,
+      "delta_rd_22_24": 6.74,
+      "hook": {
+        "key": "target_met",
+        "text": "Obiettivo 65% raggiunto · +5.9 punti percentuali"
+      },
+      "pop_cluster_id": "p3",
+      "rd_vs_median_pop": -3.83
+    }
+  }
+}

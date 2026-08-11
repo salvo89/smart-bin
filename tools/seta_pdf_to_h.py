@@ -1,4 +1,4 @@
-"""Convert SETA ecocalendar PDFs to Smart Bin calendar data files."""
+"""Convert SETA ecocalendar PDFs to Escilo calendar data files."""
 from __future__ import annotations
 
 import argparse

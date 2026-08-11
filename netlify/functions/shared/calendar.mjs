@@ -5,6 +5,7 @@ export const BIN_NAMES = [
   "Plastica",
   "Verde",
   "Vetro",
+  "Spazzamento", // PWA-only (firmware LED restano 0–5)
 ];
 
 /** Base zona senza anno/estensione. */

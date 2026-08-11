@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Convert CIDIU weekly HTML calendars to Smart Bin .h yearly data files."""
+"""Convert CIDIU weekly HTML calendars to Escilo .h yearly data files."""
 from __future__ import annotations
 
 import argparse
@@ -235,13 +235,19 @@ def convert_comune(
     results = []
     for zone_name, schedule in zones.items():
         file_slug = f"{comune_id}-z{zone_slug(zone_name)}"
+        # HTML headers often already include "Zona …"
+        zone_label = (
+            zone_name
+            if zone_name.strip().lower().startswith("zona ")
+            else f"Zona {zone_name}"
+        )
 
         for year in years:
             entries = expand_year(schedule, year)
             write_year_file(
                 out_path=outdir / f"{file_slug}-{year}.h",
                 comune_name=comune_name,
-                zone_label=f"Zona {zone_name}",
+                zone_label=zone_label,
                 provider="CIDIU",
                 addresses=[],
                 year=year,
@@ -250,7 +256,7 @@ def convert_comune(
         results.append(
             {
                 "slug": file_slug,
-                "zone_label": f"Zona {zone_name}",
+                "zone_label": zone_label,
                 "years": years,
                 "entries": {
                     str(y): len(expand_year(schedule, y)) for y in years

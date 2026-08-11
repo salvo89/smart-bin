@@ -22,4 +22,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://escilo.netlify.app/sitemap.xml
+Sitemap: https://escilo.it/sitemap.xml

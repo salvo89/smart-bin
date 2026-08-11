@@ -8,242 +8,39 @@
   <title>Calendario raccolta differenziata Pianezza — Escilo</title>
   <meta name="description" content="Calendario ritiri rifiuti a Pianezza (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://escilo.netlify.app/comuni/pianezza.html" />
+  <link rel="canonical" href="https://escilo.it/comuni/pianezza.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="Escilo" />
   <meta property="og:title" content="Calendario raccolta differenziata Pianezza — Escilo" />
   <meta property="og:description" content="Calendario ritiri rifiuti a Pianezza (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
-  <meta property="og:url" content="https://escilo.netlify.app/comuni/pianezza.html" />
-  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta property="og:url" content="https://escilo.it/comuni/pianezza.html" />
+  <meta property="og:image" content="https://escilo.it/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Calendario raccolta differenziata Pianezza — Escilo" />
   <meta name="twitter:description" content="Calendario ritiri rifiuti a Pianezza (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
-  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:image" content="https://escilo.it/icon-512.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-:root {
-  color-scheme: light;
-  --bg: #eef6f1;
-  --bg-top: #d8f0e2;
-  --bg-bottom: #f4f7f5;
-  --surface: #ffffff;
-  --ink: #142018;
-  --muted: #5a7266;
-  --muted-2: #6a8074;
-  --line: #d5e2da;
-  --accent: #1f5c42;
-  --accent-soft: #e4f3eb;
-  --row-bg: #f7fbf8;
-  --safe: 1rem;
-  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
-  --display: "Fraunces", Georgia, serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --bg: #101814;
-    --bg-top: #152019;
-    --bg-bottom: #0c1210;
-    --surface: #1a2420;
-    --ink: #e6f0ea;
-    --muted: #8fa396;
-    --muted-2: #7a9084;
-    --line: #2c3b33;
-    --accent: #3d9a6e;
-    --accent-soft: #1c3228;
-    --row-bg: #151e1a;
-  }
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  min-height: 100dvh;
-  font-family: var(--font);
-  color: var(--ink);
-  line-height: 1.45;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
-}
-a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.page {
-  max-width: 28rem;
-  margin: 0 auto;
-  padding: 0.75rem var(--safe) 2.5rem;
-  padding-top: max(0.75rem, env(safe-area-inset-top));
-}
-.topbar { margin-bottom: 1rem; }
-.back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.85rem;
-  font-weight: 650;
-  color: var(--accent);
-  text-decoration: none;
-}
-.back:hover { text-decoration: underline; }
-.crumbs {
-  margin: 0 0 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-.crumbs a {
-  color: var(--muted);
-  font-weight: 600;
-  text-decoration: none;
-}
-.crumbs a:hover { text-decoration: underline; }
-.intro {
-  margin: 0 0 1.25rem;
-  padding: 1.1rem 1.05rem 1.05rem;
-  border-radius: 1.25rem;
-  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
-  color: #f3faf6;
-  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
-}
-.intro h1 {
-  margin: 0 0 0.45rem;
-  font-family: var(--display);
-  font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-}
-.intro p {
-  margin: 0;
-  font-size: 0.88rem;
-  opacity: 0.88;
-}
-.intro .meta {
-  margin-top: 0.7rem;
-  font-size: 0.72rem;
-  opacity: 0.7;
-  font-weight: 600;
-}
-.intro a {
-  color: #f3faf6;
-  font-weight: 650;
-}
-.note {
-  margin: 0 0 1.15rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 0.85rem;
-  background: var(--accent-soft);
-  color: var(--ink);
-  font-size: 0.78rem;
-  line-height: 1.4;
-}
-.card {
-  margin: 0 0 0.85rem;
-  border-radius: 1.1rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 0.95rem 1rem 1rem;
-}
-.card h2 {
-  margin: 0 0 0.65rem;
-  font-size: 1.02rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.cta {
-  display: block;
-  width: 100%;
-  margin: 0.85rem 0 0;
-  padding: 0.85rem 1rem;
-  border-radius: 0.95rem;
-  background: var(--accent);
-  color: #fff !important;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-.cta:hover { filter: brightness(1.05); }
-ul.zones {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-ul.zones li {
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.65rem;
-  background: var(--row-bg);
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-.comuni-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.comuni-grid a {
-  display: block;
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.65rem;
-  background: var(--row-bg);
-  border: none;
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-.comuni-grid a:hover { background: var(--accent-soft); }
-.meta {
-  margin: 0 0 0.85rem;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.4;
-}
-.footer {
-  margin: 1.5rem 0 0;
-  text-align: center;
-  font-size: 0.72rem;
-  color: var(--muted-2);
-  line-height: 1.4;
-}
-.footer a {
-  color: var(--accent);
-  font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.footer .sep {
-  padding: 0 0.22rem;
-  color: var(--accent);
-  font-weight: 700;
-}
-</style>
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/css/chrome.css?v=18" />
+  <link rel="stylesheet" href="../assets/css/seo.css?v=18" />
   <script type="application/ld+json">
 [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Calendario raccolta differenziata Pianezza — Escilo",
-    "url": "https://escilo.netlify.app/comuni/pianezza.html",
+    "url": "https://escilo.it/comuni/pianezza.html",
     "description": "Calendario ritiri rifiuti a Pianezza (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
     "inLanguage": "it-IT",
     "isPartOf": {
       "@type": "WebSite",
       "name": "Escilo",
-      "url": "https://escilo.netlify.app/"
+      "url": "https://escilo.it/"
     },
     "about": {
       "@type": "Place",
@@ -255,30 +52,6 @@ ul.zones li {
         "addressCountry": "IT"
       }
     }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Escilo",
-        "item": "https://escilo.netlify.app/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Comuni",
-        "item": "https://escilo.netlify.app/comuni/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Pianezza",
-        "item": "https://escilo.netlify.app/comuni/pianezza.html"
-      }
-    ]
   }
 ]
 </script>
@@ -286,9 +59,8 @@ ul.zones li {
 <body>
   <div class="page">
     <header class="topbar">
-      <a class="back" href="../">← Calendario</a>
+      <a class="back" href="../">← Home</a>
     </header>
-    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Pianezza</p>
     <section class="intro">
       <h1>Calendario raccolta differenziata — Pianezza</h1>
       <p>
@@ -297,17 +69,228 @@ ul.zones li {
       </p>
     </section>
     <div class="card">
-      <h2>Zone e vie disponibili</h2>
+      <h2 class="box-title">Zone e vie disponibili</h2>
       <ul class="zones">
+<li>piazza Cavour</li>
+<li>piazza Del Millenario</li>
+<li>piazza I°Maggio</li>
+<li>piazza Macario</li>
+<li>piazza Macario – area mercato</li>
+<li>piazza O.Fallacci</li>
+<li>piazza P. G .Paolo II</li>
+<li>piazza Rossi di Montelera</li>
+<li>piazza San Pietro e Paolo</li>
+<li>piazza Vittorio Veneto</li>
+<li>SP 178 – piazzale cimitero</li>
+<li>Spazzamento SETT 1 (giovedi)</li>
+<li>Spazzamento SETT 1 (mercoledi)</li>
+<li>Spazzamento SETT 1 (sabato)</li>
+<li>Spazzamento SETT 1 (venerdi)</li>
+<li>Spazzamento SETT 1 giovedi</li>
+<li>Spazzamento SETT 1 lunedi</li>
+<li>Spazzamento SETT 1 martedi</li>
+<li>Spazzamento SETT 1 mercoledi</li>
+<li>Spazzamento SETT 1 sabato</li>
+<li>Spazzamento SETT 1 venerdi</li>
+<li>Spazzamento SETT 1-3 (lunedi)</li>
+<li>Spazzamento SETT 1-3 (martedi)</li>
+<li>Spazzamento SETT 1-3 lunedi</li>
+<li>Spazzamento SETT 1-3 martedi</li>
+<li>Spazzamento SETT 2 (giovedi)</li>
+<li>Spazzamento SETT 2 (lunedi)</li>
+<li>Spazzamento SETT 2 (martedi)</li>
+<li>Spazzamento SETT 2 (mercoledi)</li>
+<li>Spazzamento SETT 2 (sabato)</li>
+<li>Spazzamento SETT 2 (venerdi)</li>
+<li>Spazzamento SETT 2 giovedi</li>
+<li>Spazzamento SETT 2 lunedi</li>
+<li>Spazzamento SETT 2 martedi</li>
+<li>Spazzamento SETT 2 mercoledi</li>
+<li>Spazzamento SETT 2 sabato</li>
+<li>Spazzamento SETT 2 venerdi</li>
+<li>Spazzamento SETT 3 (giovedi)</li>
+<li>Spazzamento SETT 3 (mercoledi)</li>
+<li>Spazzamento SETT 3 (sabato)</li>
+<li>Spazzamento SETT 3 (venerdi)</li>
+<li>Spazzamento SETT 3 giovedi</li>
+<li>Spazzamento SETT 3 lunedi</li>
+<li>Spazzamento SETT 3 martedi</li>
+<li>Spazzamento SETT 3 mercoledi</li>
+<li>Spazzamento SETT 3 sabato</li>
+<li>Spazzamento SETT 3 venerdi</li>
+<li>Spazzamento SETT 4 (giovedi)</li>
+<li>Spazzamento SETT 4 (lunedi)</li>
+<li>Spazzamento SETT 4 (martedi)</li>
+<li>Spazzamento SETT 4 (mercoledi)</li>
+<li>Spazzamento SETT 4 (sabato)</li>
+<li>Spazzamento SETT 4 giovedi</li>
+<li>Spazzamento SETT 4 lunedi</li>
+<li>Spazzamento SETT 4 martedi</li>
+<li>Spazzamento SETT 4 mercoledi</li>
+<li>Spazzamento SETT 4 sabato</li>
+<li>strada della Cortassa</li>
+<li>strada Signagatta</li>
+<li>via A. Garrone</li>
+<li>via A. Moro</li>
+<li>via A.Tonelli</li>
+<li>via Airauda</li>
+<li>via Al Borgo</li>
+<li>via Alessandria</li>
+<li>via Almese</li>
+<li>via Alpignano</li>
+<li>via Antonelli</li>
+<li>via Aosta</li>
+<li>via Asti</li>
+<li>via Avigliana</li>
+<li>via B.Fenoglio</li>
+<li>via Bachelet</li>
+<li>via Benefica</li>
+<li>via Biella</li>
+<li>via Birotto</li>
+<li>via Boito</li>
+<li>via Borsellino</li>
+<li>via Brione</li>
+<li>via Buozzi</li>
+<li>via Caduti per la Libertà</li>
+<li>via Calamandrei</li>
+<li>via Calvetti</li>
+<li>via Caporal Magg. Positano</li>
+<li>via Carducci</li>
+<li>via Casalegno</li>
+<li>via Caselette</li>
+<li>via Cassagna – tratto via Ferrari – punto ambiente</li>
+<li>via Cassagna – tratto via Ferrari – via Piave</li>
+<li>via Cervino</li>
+<li>via Claviere</li>
+<li>via Collegno – compresi interni</li>
+<li>via Colombo</li>
+<li>via Commissetti</li>
+<li>via Cottolengo</li>
+<li>via Cuneo</li>
+<li>via De Gasperi</li>
+<li>via dei Prati</li>
+<li>via Don Bosco</li>
+<li>via Don Bosco – area mercato</li>
+<li>via Don Bosco – tratto via Susa – via Musinè</li>
+<li>via Don Cafasso</li>
+<li>via Don Minzoni</li>
+<li>via Donizetti</li>
+<li>via Dora Riparia</li>
+<li>via Druento</li>
+<li>via Ducale</li>
+<li>via D’Antona</li>
+<li>via F.lli Cervi</li>
+<li>via f.lli Kennedy</li>
+<li>via Falcone</li>
+<li>via Ferrari</li>
+<li>via Foscolo</li>
+<li>via G. da Verrazzano</li>
+<li>via G. Leopardi</li>
+<li>via G. Pascoli</li>
+<li>via G.Arpino</li>
+<li>via G.La Pira</li>
+<li>via Gariglietti</li>
+<li>via Giaveno</li>
+<li>via Giolitti</li>
+<li>via Givoletto</li>
+<li>via Gorisia</li>
+<li>via Gramsci</li>
+<li>via Grande Torino</li>
+<li>via Grange</li>
+<li>via I. Alpi</li>
+<li>via I. Calvino</li>
+<li>via IV Novembre</li>
+<li>via Ivrea</li>
+<li>via Jaquerio</li>
+<li>via Jotti</li>
+<li>via Juvarra</li>
+<li>via L. Firpo</li>
+<li>via La Cassa</li>
+<li>via Lanzo</li>
+<li>via Lascaris</li>
+<li>via Levante</li>
+<li>via Livatino</li>
+<li>via M. Montessori</li>
+<li>via M. P. Moriondo</li>
+<li>via M.D’Azeglio</li>
+<li>via M.L.King</li>
+<li>via Madonna Della Stella</li>
+<li>via Magellano</li>
+<li>via Maiolo</li>
+<li>via Maiolo – fino via Piave</li>
+<li>via Maiolo – tratto via Piave – via Prati</li>
+<li>via Manzoni</li>
+<li>via Marchionne</li>
+<li>via Marco Polo</li>
+<li>via Marconi</li>
+<li>via Margari</li>
+<li>via Maria Bricca</li>
+<li>via Mario Lisa</li>
+<li>via Mascagni</li>
+<li>via Masso Gastaldi</li>
+<li>via Matteotti</li>
+<li>via Mazzini</li>
+<li>via Mollardi</li>
+<li>via Monbello</li>
+<li>via Moncenisio</li>
+<li>via Monginevro</li>
+<li>via Monte Bianco</li>
+<li>via Monte Grappa</li>
+<li>via Monte Rosa</li>
+<li>via Monviso</li>
+<li>via Musinè</li>
+<li>via N. Bobbio</li>
+<li>via N. Costa</li>
+<li>via Novara</li>
+<li>via P. Levi</li>
+<li>via Parrocchia</li>
+<li>via Parucco – tratto via Casalegno – via Almese</li>
+<li>via Parucco – tratto via Casalegno – via Moncenisio</li>
+<li>via Pavese</li>
+<li>via Pellegrino</li>
+<li>via Piave</li>
+<li>via Piave – lato numeri pari</li>
+<li>via Ponente</li>
+<li>via Praglia</li>
+<li>via Puccini</li>
+<li>via Rocciamelone</li>
+<li>via Rosmini</li>
+<li>via Rosselli</li>
+<li>via Rossini</li>
+<li>via Rosta</li>
+<li>via Rubiana</li>
+<li>via S. P. Della Croce</li>
+<li>via S. Pertini</li>
+<li>via S.Caboto</li>
+<li>via San Bernardo – tratto via A. Moro – via Ducale</li>
+<li>via San Bernardo – tratto via Ducale – via Susa</li>
+<li>via San Gabriele</li>
+<li>via San Giglio</li>
+<li>via San Pancrazio</li>
+<li>via San Paolo</li>
+<li>via Soffietti</li>
+<li>via Stresa</li>
+<li>via Susa</li>
+<li>via Torino – lato numeri dispari</li>
+<li>via Torino – lato numeri pari</li>
+<li>via Urbani</li>
+<li>via Vajont</li>
+<li>via Val della Torre</li>
+<li>via Verbania</li>
+<li>via Vercelli</li>
+<li>via Verdi</li>
+<li>via Vespucci</li>
+<li>via Vignolini</li>
+<li>via XXV Aprile</li>
 <li>Zona Zona Arancione</li>
 <li>Zona Zona Blu</li>
 <li>Zona Zona Gialla</li>
 <li>Zona Zona Gialla integrale</li>
 <li>Zona Zona Verde</li>
       </ul>
-      <a class="cta" href="https://escilo.netlify.app/?comune=pianezza">Apri il calendario di Pianezza</a>
+      <a class="cta" href="https://escilo.it/?comune=pianezza">Apri il calendario di Pianezza</a>
     </div>
-    <p class="note">Gestore: <strong>CIDIU</strong> · dati da <a href="https://cidiu.it/cidiu/comune-di-pianezza/" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="note">Gestore: <strong>CIDIU</strong> · dati da <a class="ext-link" href="https://cidiu.it/cidiu/comune-di-pianezza/" target="_blank" rel="noopener noreferrer">pagina ufficiale<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>. Escilo non è affiliato al gestore.</p>
     <p class="meta">
       Puoi installare Escilo come app e attivare le notifiche sul telefono.
       Verifica sempre eventuali variazioni sul sito del gestore.

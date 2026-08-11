@@ -6,7 +6,8 @@
   "license": "GPL-3.0-or-later",
   "type": "module",
   "scripts": {
-    "test:push": "node netlify/functions/shared/calendar.test.mjs && node netlify/functions/shared/smoke.test.mjs"
+    "test:push": "node netlify/functions/shared/calendar.test.mjs && node netlify/functions/shared/smoke.test.mjs",
+    "test:zones": "py -3 tools/validate_zone_calendars.py"
   },
   "dependencies": {
     "@netlify/blobs": "^10.7.10",

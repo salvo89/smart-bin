@@ -1,4 +1,4 @@
-# Smart Bin
+# Escilo
 
 Indicatore luminoso per la raccolta differenziata: un ESP32 accende i LED dei cassonetti da portare fuori **la sera prima del ritiro**, in fascia oraria configurabile. Include web UI locale (SoftAP / LAN) e una pagina calendario pubblica su Netlify.
 
@@ -116,7 +116,7 @@ Cose da sistemare subito in `bin/config.h`:
 | `ledPins[]` / `BUTTON_PIN`           | Mapping GPIO al tuo cablaggio                                               |
 | `AP_SSID`                            | Nome della rete SoftAP creata dalla ESP                                     |
 | `AP_PASSWORD`                        | Password SoftAP (**minimo 8 caratteri**). Sostituisci `CHANGE_ME_MIN8`      |
-| `AP_HOSTNAME`                        | Hostname DNS captivo SoftAP (es. `smartbin.home` → `http://smartbin.home/`) |
+| `AP_HOSTNAME`                        | Hostname DNS captivo SoftAP (es. `escilo.home` → `http://escilo.home/`) |
 | `HTTP_API_PORT`                      | Porta HTTP (default `80`)                                                   |
 | `NTP_SERVER`                         | Server NTP (default `europe.pool.ntp.org`)                                  |
 
@@ -165,7 +165,7 @@ Al boot, sulla seriale vedi diagnostica Wi‑Fi, IP STA e conferma SoftAP.
 **Via SoftAP (senza passare dalla rete di casa):**
 
 1. Connettiti al Wi‑Fi `AP_SSID` con `AP_PASSWORD`.
-2. Apri `http://AP_HOSTNAME/` (default `http://smartbin.home/`) oppure l’IP SoftAP stampato in seriale.
+2. Apri `http://AP_HOSTNAME/` (default `http://escilo.home/`) oppure l’IP SoftAP stampato in seriale.
 
 **Via LAN (stessa rete della ESP):**
 

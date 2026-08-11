@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-07-28",
   "notes": [
-    "Catalogo fonti per la pagina web Smart Bin.",
+    "Catalogo fonti per la pagina web Escilo.",
     "Queste fonti descrivono provenienza e disponibilita' dei calendari PDF/HTML per comune.",
     "La presenza qui non implica che il comune sia gia' convertito in docs/calendars/*.h.",
     "Mapping gestori: vedi docs/calendars/providers-map.json.",
@@ -60,9 +60,17 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Spazzamento meccanizzato CIDIU (HTML) importato come calendari spa-* e mergiato nelle zone raccolta quando i nomi coincidono.",
+        "Vie unificate: raccolta porta a porta (Junker areaId→zona) + spazzamento meccanizzato CIDIU nella stessa selezione via (calendari *-plus-spa-*)."
       ],
-      "pdfs": []
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario spazzamento meccanizzato",
+          "url": "https://cidiu.it/cidiu/calendario-spazzamento-meccanizzato-alpignano/"
+        }
+      ]
     },
     {
       "id": "andezeno",
@@ -113,7 +121,7 @@
         2026
       ],
       "notes": [
-        "PDF calendario 2026 da acselspa.it."
+        "PDF calendario 2026 da acselspa.it (identico a wwwdevel.acselspa.it/.../CALENDARI/AVIGLIANA-2026.pdf)."
       ],
       "pdfs": [
         {
@@ -159,7 +167,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -201,6 +210,11 @@
           "year": 2026,
           "label": "Zona 5B",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BEINASCO%20ZONA%205B.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -214,7 +228,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -226,6 +241,16 @@
           "year": 2027,
           "label": "Zona B",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Borgaro-Torinese_zona-B.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Borgaro-Torinese_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Borgaro-Torinese_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -298,7 +323,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -315,6 +341,16 @@
           "year": 2027,
           "label": "Zona 3",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Brandizzo_zona-3.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Brandizzo_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Brandizzo_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -369,7 +405,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -381,6 +418,11 @@
           "year": 2026,
           "label": "Zona 2",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20BRUINO%20ZONA%202_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -477,7 +519,8 @@
       ],
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Nessun calendario spazzamento meccanizzato dedicato su cidiu.it (solo testo generico o PDF manuale)."
       ],
       "pdfs": []
     },
@@ -517,9 +560,16 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
-      "pdfs": []
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
+        }
+      ]
     },
     {
       "id": "caprie",
@@ -551,7 +601,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -603,6 +654,11 @@
           "year": 2026,
           "label": "Zona 9",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CARIGNANO%20ZONA%209.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -700,7 +756,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -727,6 +784,16 @@
           "year": 2027,
           "label": "Zona 5",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Caselle-Torinese_zona-5.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Caselle-Torinese_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Caselle-Torinese_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -761,7 +828,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -778,6 +846,11 @@
           "year": 2026,
           "label": "Zona 3",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20CASTAGNOLE%20P.TE%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -831,7 +904,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -843,6 +917,16 @@
           "year": 2027,
           "label": "Zona 2",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Castiglione-Torinese_zona-2.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Castiglione-Torinese_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Castiglione-Torinese_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -895,7 +979,8 @@
       ],
       "notes": [
         "PDF CCS validi ottobre 2025 - dicembre 2026.",
-        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home"
+        "Disponibile anche web-app https://www.latuadifferenziata.it/pwarfoweb/home",
+        "Spazzamento 2026 (CCS XLSX) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -957,6 +1042,11 @@
           "year": 2026,
           "label": "Zona 6B",
           "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=CHIERI6B.PDF&t=raccolta"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento 2026",
+          "url": "https://www.ccs.to.it/flex/Extensions/appCCSCalendario/pages/serveDownload.php?a=2026&f=2026_CHIERI_CALENDARIO_SPAZZAMENTI.xlsx&t=spazzamento"
         }
       ]
     },
@@ -1009,7 +1099,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -1041,6 +1132,16 @@
           "year": 2027,
           "label": "Zona 6",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Chivasso_zona-6.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Chivasso_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Chivasso_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -1140,7 +1241,8 @@
       ],
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Nessun calendario spazzamento meccanizzato dedicato su cidiu.it (solo testo generico o PDF manuale)."
       ],
       "pdfs": []
     },
@@ -1155,9 +1257,16 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "14 zone: Santa Maria 1/2, Centro Storico, Terracorta, Regina Nord/Sud/San Remo, Paradiso Sud/Nord/Industriale, Luxemburg, Borgonuovo, OltreDora-PIP, Savonera.",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Spazzamento meccanizzato CIDIU (HTML) importato come calendari spa-* e mergiato nelle zone raccolta quando i nomi coincidono."
       ],
-      "pdfs": []
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario spazzamento meccanizzato",
+          "url": "https://cidiu.it/cidiu/calendario-spazzamento-meccanizzato-collegno/"
+        }
+      ]
     },
     {
       "id": "colleretto-castelnuovo",
@@ -1228,9 +1337,16 @@
       ],
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Spazzamento meccanizzato CIDIU (HTML) importato come calendari spa-* e mergiato nelle zone raccolta quando i nomi coincidono."
       ],
-      "pdfs": []
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario spazzamento meccanizzato",
+          "url": "https://cidiu.it/cidiu/calendario-spazzamento-meccanizzato-druento/"
+        }
+      ]
     },
     {
       "id": "favria",
@@ -1342,7 +1458,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -1359,6 +1476,16 @@
           "year": 2027,
           "label": "Zona 4",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_Gassino-Torinese_zona-4.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Gassino-Torinese_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Gassino-Torinese_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -1373,7 +1500,8 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Nessun calendario spazzamento meccanizzato dedicato su cidiu.it (solo testo generico o PDF manuale)."
       ],
       "pdfs": []
     },
@@ -1388,9 +1516,16 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "10 zone: Gerbido, Fabbrichetta, Centro, San Sebastiano, San Giacomo, San Francesco verde/arancio, Lesna-Quaglia, Paradiso, Santa Maria.",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Spazzamento meccanizzato CIDIU (HTML) importato come calendari spa-* e mergiato nelle zone raccolta quando i nomi coincidono."
       ],
-      "pdfs": []
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario spazzamento meccanizzato",
+          "url": "https://cidiu.it/cidiu/calendario-spazzamento-meccanizzato-grugliasco/"
+        }
+      ]
     },
     {
       "id": "ingria",
@@ -1462,117 +1597,118 @@
       ],
       "notes": [
         "Pagina comune con PDF 2026 per zone alfabetiche e sottozone.",
-        "Catalogo aggiornato automaticamente: 27 PDF zona."
+        "Catalogo aggiornato automaticamente: 27 PDF zona.",
+        "Verde/sfalci 2026 mergiati nei calendari zona lettera (bin Verde); fonti PDF zone sfalci 1-7 (mappa vie -> zona dominante)."
       ],
       "pdfs": [
         {
           "year": 2026,
-          "label": "Zona Bpdf",
+          "label": "Zona B",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-B.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Cpdf",
+          "label": "Zona C",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-C.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Dpdf",
+          "label": "Zona D",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-D.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Epdf",
+          "label": "Zona E",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-E.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Fpdf",
+          "label": "Zona F",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-F.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Hpdf",
+          "label": "Zona H",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-H.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Ipdf",
+          "label": "Zona I",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-I.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Jpdf",
+          "label": "Zona J",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-J.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Kpdf",
+          "label": "Zona K",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-K.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Lpdf",
+          "label": "Zona L",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-L.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona M1pdf",
+          "label": "Zona M1",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-M.1.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Mpdf",
+          "label": "Zona M",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-M.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona N1pdf",
+          "label": "Zona N1",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-N.1.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Npdf",
+          "label": "Zona N",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-N.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Opdf",
+          "label": "Zona O",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-O.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Qpdf",
+          "label": "Zona Q",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-Q.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Rpdf",
+          "label": "Zona R",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-R.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona S1pdf",
+          "label": "Zona S1",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-S.1.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Spdf",
+          "label": "Zona S",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-S.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Tpdf",
+          "label": "Zona T",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-T.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Updf",
+          "label": "Zona U",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-U.pdf"
         },
         {
           "year": 2026,
-          "label": "Zona Vpdf",
+          "label": "Zona V",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-V.pdf"
         },
         {
@@ -1582,7 +1718,7 @@
         },
         {
           "year": 2026,
-          "label": "Zona Z1pdf",
+          "label": "Zona Z1",
           "url": "https://scsivrea.it/wp-content/uploads/2025/12/Calendario-2026_UD_IVREA-ZONA-Z.1.pdf"
         },
         {
@@ -1597,8 +1733,43 @@
         },
         {
           "year": 2026,
-          "label": "Zona Gpdf",
+          "label": "Zona G",
           "url": "https://scsivrea.it/wp-content/uploads/2026/02/Calendario-2026_UD_IVREA-ZONA-G.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Verde/sfalci zona 1",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Ivrea-Zona-01-Calendario-2026_verde-e-sfalci.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Verde/sfalci zona 2",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Ivrea-Zona-02-Calendario-2026_verde-e-sfalci.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Verde/sfalci zona 3",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Ivrea-Zona-03-Calendario-2026_verde-e-sfalci.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Verde/sfalci zona 4",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Ivrea-Zona-04-Calendario-2026_verde-e-sfalci.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Verde/sfalci zona 5",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Ivrea-Zona-05-Calendario-2026_verde-e-sfalci.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Verde/sfalci zona 6",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Ivrea-Zona-06-Calendario-2026_verde-e-sfalci.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Verde/sfalci zona 7",
+          "url": "https://scsivrea.it/wp-content/uploads/2026/02/Ivrea-Zona-07-Calendario-2026_verde-e-sfalci.pdf"
         }
       ]
     },
@@ -1613,7 +1784,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -1645,6 +1817,11 @@
           "year": 2026,
           "label": "Zona 6",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LA%20LOGGIA%20ZONA%206_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -1678,7 +1855,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -1710,6 +1888,16 @@
           "year": 2027,
           "label": "Zona 6",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Leini_zona-6.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Leini_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Leini_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -1784,13 +1972,19 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
           "year": 2026,
           "label": "Zona unica",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20LOMBRIASCO.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -1804,13 +1998,24 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Mappano.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Mappano_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Mappano_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -1884,7 +2089,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -1951,6 +2157,11 @@
           "year": 2026,
           "label": "Zona 9A",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20Moncalieri%20ZONA%209A.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2004,7 +2215,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2016,6 +2228,16 @@
           "year": 2027,
           "label": "Zona 2",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Montanaro_zona-2.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Montanaro_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Montanaro_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -2070,7 +2292,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2102,6 +2325,11 @@
           "year": 2026,
           "label": "Zona 6",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20NICHELINO%20ZONA%206.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2136,7 +2364,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2193,6 +2422,11 @@
           "year": 2026,
           "label": "Zona 6",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20ORBASSANO%20ZONA%206_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2207,13 +2441,19 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
           "year": 2026,
           "label": "Zona unica",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20OSASIO.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2248,13 +2488,19 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
           "year": 2026,
           "label": "Zona unica ​",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PANCALIERI.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2329,7 +2575,8 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Spazzamento meccanizzato CIDIU (HTML) importato come calendari spa-* e mergiato nelle zone raccolta quando i nomi coincidono."
       ],
       "pdfs": []
     },
@@ -2389,7 +2636,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2421,6 +2669,11 @@
           "year": 2026,
           "label": "Zona 6",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOBESI%20ZONA%206.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2435,7 +2688,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2457,6 +2711,11 @@
           "year": 2026,
           "label": "Zona 4",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20PIOSSASCO%20ZONA%204_1.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2605,7 +2864,8 @@
       ],
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Nessun calendario spazzamento meccanizzato dedicato su cidiu.it (solo testo generico o PDF manuale)."
       ],
       "pdfs": []
     },
@@ -2680,7 +2940,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2717,6 +2978,11 @@
           "year": 2026,
           "label": "Zona 6",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20RIVALTA%20ZONA%206.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -2791,9 +3057,16 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "6 zone colore: Blu, Rossa, Verde, Bianca (centro), Gialla, Arancio.",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Spazzamento meccanizzato CIDIU (HTML) importato come calendari spa-* e mergiato nelle zone raccolta quando i nomi coincidono."
       ],
-      "pdfs": []
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario spazzamento meccanizzato",
+          "url": "https://cidiu.it/cidiu/calendario-spazzamento-meccanizzato-rivoli/"
+        }
+      ]
     },
     {
       "id": "ronco-canavese",
@@ -2904,7 +3177,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2916,6 +3190,16 @@
           "year": 2027,
           "label": "Zona SUD",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Benigno-Canavese_zona-SUD.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/San-Benigno-Canavese_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/San-Benigno-Canavese_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -2948,7 +3232,8 @@
         2026
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -2960,6 +3245,16 @@
           "year": 2026,
           "label": "Zona OLTREPO",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_San-Mauro-Torinese_zona-OLTREPO.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/San-Mauro-Torinese_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/San-Mauro-Torinese_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -2993,13 +3288,19 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
           "year": 2027,
           "label": "Zona unica",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-Luglio2026-Gennaio2027_San-Raffaele-Cimena.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/San-Raffaele-Cimena_Servizio-di-spazzamento-manuale_Stradario.pdf"
         }
       ]
     },
@@ -3033,7 +3334,8 @@
       ],
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Nessun calendario spazzamento meccanizzato dedicato su cidiu.it (solo testo generico o PDF manuale)."
       ],
       "pdfs": []
     },
@@ -3051,12 +3353,12 @@
       "pdfs": [
         {
           "year": 2026,
-          "label": "Calendario",
+          "label": "Bertassi",
           "url": "https://www.acselspa.it/wp-content/uploads/2026/01/SANT-AMBROGIO-BERTASSI-2026.pdf"
         },
         {
           "year": 2026,
-          "label": "Calendario",
+          "label": "Zona unica",
           "url": "https://www.acselspa.it/wp-content/uploads/2025/12/SANT-AMBROGIO-2026.pdf"
         }
       ]
@@ -3140,7 +3442,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -3172,6 +3475,16 @@
           "year": 2027,
           "label": "Zona 6",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Settimo-Torinese_zona-6.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Settimo-Torinese_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Settimo-Torinese_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -3244,7 +3557,8 @@
       ],
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Nessun calendario spazzamento meccanizzato dedicato su cidiu.it (solo testo generico o PDF manuale)."
       ],
       "pdfs": []
     },
@@ -3279,7 +3593,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -3306,6 +3621,11 @@
           "year": 2026,
           "label": "Zona 5",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20TROFARELLO%20ZONA%205.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -3419,9 +3739,16 @@
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
         "Zone di raccolta descritte sulla pagina CIDIU del comune.",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Spazzamento meccanizzato CIDIU (HTML) importato come calendari spa-* e mergiato nelle zone raccolta quando i nomi coincidono."
       ],
-      "pdfs": []
+      "pdfs": [
+        {
+          "year": 2026,
+          "label": "Calendario spazzamento meccanizzato",
+          "url": "https://cidiu.it/cidiu/calendario-spazzamento-meccanizzato-venaria/"
+        }
+      ]
     },
     {
       "id": "verolengo",
@@ -3433,7 +3760,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -3445,6 +3773,11 @@
           "year": 2027,
           "label": "Zona 2",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Verolengo_zona-2.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Verolengo_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     },
@@ -3536,7 +3869,8 @@
       ],
       "notes": [
         "Calendario settimanale HTML per zona su cidiu.it (porta a porta).",
-        "PDF festivi/sfalci sulla stessa pagina."
+        "PDF festivi/sfalci sulla stessa pagina.",
+        "Nessun calendario spazzamento meccanizzato dedicato su cidiu.it (solo testo generico o PDF manuale)."
       ],
       "pdfs": []
     },
@@ -3551,7 +3885,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -3568,6 +3903,11 @@
           "year": 2026,
           "label": "Zona 3",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VILLASTELLONE%20ZONA%203.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -3582,7 +3922,8 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -3614,6 +3955,11 @@
           "year": 2026,
           "label": "Zona 6",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VINOVO%20ZONA%206.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -3628,13 +3974,19 @@
       ],
       "notes": [
         "PDF 2026 pubblicati per singola zona (marzo-dicembre 2026).",
-        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto."
+        "I PDF 2026 includono anche gennaio-febbraio 2027 in coda al libretto.",
+        "Spazzamento Covar14 (search-calendario-spazzamento) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
           "year": 2026,
           "label": "Zona unica",
           "url": "https://www.covar14.it/sites/default/files/2026-02/Calendario%20Covar14%202026%20VIRLE%20PIEMONTE.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Spazzamento (ricerca via)",
+          "url": "https://www.covar14.it/it/search-calendario-spazzamento"
         }
       ]
     },
@@ -3668,7 +4020,8 @@
         2027
       ],
       "notes": [
-        "PDF ecocalendario da setaspa.com per zona."
+        "PDF ecocalendario da setaspa.com per zona.",
+        "Spazzamento SETA (stradario manuale/meccanizzato) mergiato come bin Spazzamento nelle zone esistenti."
       ],
       "pdfs": [
         {
@@ -3685,6 +4038,16 @@
           "year": 2027,
           "label": "Zona OVEST",
           "url": "https://www.setaspa.com/images/ecocalendari-2026/ECOCALENDARIO-2026_Volpiano_zona-OVEST.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento manuale - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Volpiano_Servizio-di-spazzamento-manuale_Stradario.pdf"
+        },
+        {
+          "year": 2026,
+          "label": "Servizio di spazzamento meccanizzato - Stradario",
+          "url": "https://www.setaspa.com/images/piani-di-spazzamento/Volpiano_Servizio-di-spazzamento-meccanizzato_Stradario.pdf"
         }
       ]
     }

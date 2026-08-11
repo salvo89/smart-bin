@@ -1,8 +1,10 @@
-// Trofarello Zona 5 (Covar14): BORGATA RIVERA, STRADA A VALLE DELLA STAZIONE, STRADA DEL MOLINO DELLA SPLUA, STRADA DEL RONDELLO, STRADA GALLE', STRADA PRIVATA CUNEO, STRADA PRIVATA DEL SOLE, STRADA PRIVATA PAVESE, STRADA SABBIONI, VIA A VALLE DELLA STAZIONE, VIA ALCIDE DE GASPERI, VIA ALESSANDRO VOLTA, VIA ANTONIO GRAMSCI, VIA BEPPE FENOGLIO, VIA BOCCHETTO, VIA CARLO ARTUFFO, VIA CHIRIBIRI, VIA CROCE ROSSA, VIA CUNEO, VIA E. DE NICOLA, VIA E. TORRICELLI (NO N. 34), VIA ENRICO BERLINGUER, VIA ENRICO DE MATTEI, VIA ENRICO FERMI, VIA ENZO FERRARI, VIA G. LOMBARDI, VIA GALILEO FERRARIS, VIA GALILEO GALILEI, VIA GIORGIO LA PIRA, VIA GIOVANNI AMENDOLA, VIA GUGLIELMO MARCONI, VIA LEJ, VIA LEONARDO DA VINCI, VIA LUIGI EINAUDI, VIA LUIGI GALVANI, VIA MACARIO, VIA MARCO BIAGI, VIA MASSIMO D'ANTONA, VIA PARRI, VIA PIETRO NENNI, VIA RICCARDO LOMBARDI, VIA SAN GIOVANNI D'ARENA, VIA TAZIO NUVOLARI, VIA TERRACINI, VIA UGO LA MALFA, VIA UMBERTO SABA, VIA VITTIME DI BOLOGNA
+// Trofarello Zona 5 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 2, 2, 6},  // 02/02/2026 Spazzamento
+  {2026, 2, 3, 6},  // 03/02/2026 Spazzamento
   {2026, 3, 3, 4},  // 03/03/2026 Verde
   {2026, 3, 4, 1},  // 04/03/2026 Organico
   {2026, 3, 6, 0},  // 06/03/2026 Carta
@@ -32,6 +34,8 @@
   {2026, 4, 3, 2},  // 03/04/2026 Indifferenziata
   {2026, 4, 3, 3},  // 03/04/2026 Plastica
   {2026, 4, 4, 1},  // 04/04/2026 Organico
+  {2026, 4, 6, 6},  // 06/04/2026 Spazzamento
+  {2026, 4, 7, 6},  // 07/04/2026 Spazzamento
   {2026, 4, 8, 1},  // 08/04/2026 Organico
   {2026, 4, 10, 0},  // 10/04/2026 Carta
   {2026, 4, 10, 2},  // 10/04/2026 Indifferenziata
@@ -107,7 +111,9 @@
   {2026, 7, 3, 2},  // 03/07/2026 Indifferenziata
   {2026, 7, 3, 3},  // 03/07/2026 Plastica
   {2026, 7, 4, 1},  // 04/07/2026 Organico
+  {2026, 7, 6, 6},  // 06/07/2026 Spazzamento
   {2026, 7, 7, 4},  // 07/07/2026 Verde
+  {2026, 7, 7, 6},  // 07/07/2026 Spazzamento
   {2026, 7, 8, 1},  // 08/07/2026 Organico
   {2026, 7, 10, 0},  // 10/07/2026 Carta
   {2026, 7, 10, 2},  // 10/07/2026 Indifferenziata
@@ -184,7 +190,9 @@
   {2026, 10, 2, 2},  // 02/10/2026 Indifferenziata
   {2026, 10, 2, 3},  // 02/10/2026 Plastica
   {2026, 10, 3, 1},  // 03/10/2026 Organico
+  {2026, 10, 5, 6},  // 05/10/2026 Spazzamento
   {2026, 10, 6, 4},  // 06/10/2026 Verde
+  {2026, 10, 6, 6},  // 06/10/2026 Spazzamento
   {2026, 10, 7, 1},  // 07/10/2026 Organico
   {2026, 10, 9, 0},  // 09/10/2026 Carta
   {2026, 10, 9, 2},  // 09/10/2026 Indifferenziata

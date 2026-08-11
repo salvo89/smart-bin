@@ -4,7 +4,7 @@
     "Mapping gestori rifiuti Città metropolitana di Torino (bacini ATO).",
     "Usato per prioritizzare il censimento in sources.json.",
     "ACSEL: elenco stimato = CADOS meno CIDIU; da verificare.",
-    "ACEA Pinerolese escluso: solo Eco-Punti, non adatto a Smart Bin.",
+    "ACEA Pinerolese escluso: solo Eco-Punti, non adatto a Escilo.",
     "Aggiornato: ACSEL PDF Val Susa e TeknoService/CCA Canavese aggiunti a sources.json (2026-07-28).",
     "AMIAT Torino escluso: calendario solo per indirizzo."
   ],
@@ -13,7 +13,7 @@
       "bacino": "18",
       "consorzio": "Bacino 18",
       "operator": "AMIAT SpA",
-      "calendarKind": "ricerca indirizzo (non compatibile Smart Bin)",
+      "calendarKind": "ricerca indirizzo (non compatibile Escilo)",
       "sourceHub": "https://www.amiat.it/i-nostri-servizi/servizi-di-raccolta-differenziata.html",
       "comuni": [],
       "notes": [

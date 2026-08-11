@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Convert SCS Ivrea annual calendar PDFs (color grid) to Smart Bin .h files."""
+"""Convert SCS Ivrea annual calendar PDFs (color grid) to Escilo .h files."""
 from __future__ import annotations
 
 import argparse
@@ -40,6 +40,10 @@ COLOR_BINS: dict[tuple[float, float, float], int] = {
     (0.27, 0.28, 0.27): 2,
     (0.63, 0.62, 0.62): 2,
     (0.42, 0.41, 0.41): 2,
+    # Verde / sfalci (calendari dedicati SCS)
+    (0.22, 0.65, 0.47): 4,
+    (0.0, 0.8, 0.4): 4,
+    (0.75, 0.91, 0.85): 4,
 }
 
 

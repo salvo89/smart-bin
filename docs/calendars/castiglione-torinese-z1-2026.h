@@ -1,8 +1,12 @@
 // Castiglione Torinese Zona 1 (SETA)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 3, 6, 6},  // 06/03/2026 Spazzamento
+  {2026, 3, 13, 6},  // 13/03/2026 Spazzamento
+  {2026, 3, 20, 6},  // 20/03/2026 Spazzamento
+  {2026, 3, 27, 6},  // 27/03/2026 Spazzamento
   {2026, 7, 1, 1},  // 01/07/2026 Organico
   {2026, 7, 2, 1},  // 02/07/2026 Organico
   {2026, 7, 4, 1},  // 04/07/2026 Organico
@@ -82,8 +86,12 @@
   {2026, 11, 3, 3},  // 03/11/2026 Plastica
   {2026, 11, 4, 1},  // 04/11/2026 Organico
   {2026, 11, 5, 1},  // 05/11/2026 Organico
+  {2026, 11, 6, 6},  // 06/11/2026 Spazzamento
   {2026, 11, 7, 1},  // 07/11/2026 Organico
   {2026, 11, 9, 4},  // 09/11/2026 Verde
+  {2026, 11, 13, 6},  // 13/11/2026 Spazzamento
+  {2026, 11, 20, 6},  // 20/11/2026 Spazzamento
+  {2026, 11, 27, 6},  // 27/11/2026 Spazzamento
   {2026, 12, 1, 1},  // 01/12/2026 Organico
   {2026, 12, 1, 3},  // 01/12/2026 Plastica
   {2026, 12, 2, 1},  // 02/12/2026 Organico

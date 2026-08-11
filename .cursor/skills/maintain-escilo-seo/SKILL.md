@@ -8,12 +8,12 @@ description: >-
   docs/calendars/index.json, docs/calendars/sources-lite.json, netlify.toml,
   or any user-facing web/PWA copy, meta, footers, deep-links, or comune list.
   Also use when adding/removing comuni or renaming zone labels that appear on
-  landing pages.
+  landing pages. After index/vie/calendar changes, run validate-zone-calendars.
 ---
 
 # Maintain Escilo SEO (web + PWA)
 
-Site canonico: `https://escilo.netlify.app/`  
+Site canonico: `https://escilo.it/`  
 Publish dir: `docs/` (Netlify). Landing SEO generate da `tools/build_seo_pages.py`.
 
 ## Quando applicare (obbligatorio)
@@ -59,15 +59,23 @@ py -3 tools/build_seo_pages.py
 
 (Netlify lo fa già in build; in locale rigenera se vuoi verificare i file sotto `docs/comuni/` o se committi l’output.)
 
-6. Smoke SEO ancora verde:
+6. Se hai toccato `index.json`, calendari `.h`, o elenco vie/zone → **validate zone calendars** (obbligatorio). Ogni volta che viene aggiornato un calendario, l'indice dei comuni o l'elenco delle vie, vanno eseguiti questi test per accertarsi che l'app continui a funzionare:
+
+```bash
+py -3 tools/validate_zone_calendars.py
+```
+
+Exit 0 required. Dettaglio: `.cursor/skills/validate-zone-calendars/SKILL.md`.
+
+7. Smoke SEO ancora verde:
 
 ```bash
 npm run test:push
 ```
 
-7. **Non** aggiungere le landing `/comuni/*` al precache di `docs/sw.js` (restano SEO, non shell PWA).
+8. **Non** aggiungere le landing `/comuni/*` al precache di `docs/sw.js` (restano SEO, non shell PWA).
 
-8. In fine risposta: elenca cosa SEO hai aggiornato + eventuali **azioni manuali utente** (sotto).
+9. In fine risposta: elenca cosa SEO hai aggiornato + eventuali **azioni manuali utente** (sotto).
 
 ## Cosa NON fare
 
@@ -79,11 +87,11 @@ npm run test:push
 
 Dopo deploy che cambia URL pubblici, sitemap, o molte landing, **diglielo esplicitamente**:
 
-1. Aprire [Google Search Console](https://search.google.com/search-console) → proprietà `https://escilo.netlify.app/`
-2. Se nuovo sito / nuova sitemap: inviare `https://escilo.netlify.app/sitemap.xml`
+1. Aprire [Google Search Console](https://search.google.com/search-console) → proprietà `https://escilo.it/`
+2. Se nuovo sito / nuova sitemap: inviare `https://escilo.it/sitemap.xml`
 3. Richiedere indicizzazione per: home, `/comuni/`, e 2–3 comuni campione toccati
-4. Se dominio custom in futuro: aggiornare `SITE` nel generatore + meta canoniche + GSC sulla nuova proprietà
-5. Opzionale agent AI: verificare che `https://escilo.netlify.app/llms.txt` sia raggiungibile post-deploy
+4. Dominio legacy: tenere 301 da `escilo.netlify.app` e `escilo.com` verso `escilo.it`; in GSC usare “Cambio di indirizzo” dalla vecchia proprietà se disponibile
+5. Opzionale agent AI: verificare che `https://escilo.it/llms.txt` sia raggiungibile post-deploy
 
 **Verifica Search Console (file HTML):** non rimuovere `docs/google*.html` (es. `docs/googled19b3747a0a192a7.html`). Deve restare in publish root per mantenere la proprietà verificata.
 

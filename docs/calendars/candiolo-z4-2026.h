@@ -1,6 +1,6 @@
-// Candiolo Zona 4 (Covar14): CASCINA PRATO FIORITO, CASCINA VANZETTI, STRADA STATALE 23, VIA G.AGNELLI, VIA G.DONIZETTI, VIA G.PUCCINI, VIA G.ROSSINI, VIA G.VERDI, VIA GIOTTO, VIA KENNEDY, VIA P.MASCAGNI, VIA R.LEONCAVALLO, VIA SESTRIERE, VIA V. BELLINI, VIA PINEROLO, CASCINA BARACCONE, CASCINA DEL GALLO, CASCINA ROLLE' BARTOLO, VIA UNITA' D'ITALIA
+// Candiolo Zona 4 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 3, 2, 1},  // 02/03/2026 Organico
@@ -18,6 +18,7 @@
   {2026, 3, 19, 3},  // 19/03/2026 Plastica
   {2026, 3, 23, 0},  // 23/03/2026 Carta
   {2026, 3, 23, 1},  // 23/03/2026 Organico
+  {2026, 3, 23, 6},  // 23/03/2026 Spazzamento
   {2026, 3, 26, 1},  // 26/03/2026 Organico
   {2026, 3, 26, 2},  // 26/03/2026 Indifferenziata
   {2026, 3, 28, 4},  // 28/03/2026 Verde
@@ -58,6 +59,7 @@
   {2026, 5, 21, 2},  // 21/05/2026 Indifferenziata
   {2026, 5, 23, 4},  // 23/05/2026 Verde
   {2026, 5, 25, 1},  // 25/05/2026 Organico
+  {2026, 5, 25, 6},  // 25/05/2026 Spazzamento
   {2026, 5, 28, 1},  // 28/05/2026 Organico
   {2026, 5, 28, 2},  // 28/05/2026 Indifferenziata
   {2026, 5, 28, 3},  // 28/05/2026 Plastica
@@ -99,6 +101,7 @@
   {2026, 7, 23, 3},  // 23/07/2026 Plastica
   {2026, 7, 27, 0},  // 27/07/2026 Carta
   {2026, 7, 27, 1},  // 27/07/2026 Organico
+  {2026, 7, 27, 6},  // 27/07/2026 Spazzamento
   {2026, 7, 30, 1},  // 30/07/2026 Organico
   {2026, 7, 30, 2},  // 30/07/2026 Indifferenziata
   {2026, 8, 1, 4},  // 01/08/2026 Verde
@@ -140,6 +143,7 @@
   {2026, 9, 24, 2},  // 24/09/2026 Indifferenziata
   {2026, 9, 26, 4},  // 26/09/2026 Verde
   {2026, 9, 28, 1},  // 28/09/2026 Organico
+  {2026, 9, 28, 6},  // 28/09/2026 Spazzamento
   {2026, 10, 1, 1},  // 01/10/2026 Organico
   {2026, 10, 1, 2},  // 01/10/2026 Indifferenziata
   {2026, 10, 1, 3},  // 01/10/2026 Plastica
@@ -180,6 +184,7 @@
   {2026, 11, 19, 2},  // 19/11/2026 Indifferenziata
   {2026, 11, 21, 4},  // 21/11/2026 Verde
   {2026, 11, 23, 1},  // 23/11/2026 Organico
+  {2026, 11, 23, 6},  // 23/11/2026 Spazzamento
   {2026, 11, 26, 1},  // 26/11/2026 Organico
   {2026, 11, 26, 2},  // 26/11/2026 Indifferenziata
   {2026, 11, 26, 3},  // 26/11/2026 Plastica

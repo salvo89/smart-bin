@@ -1,10 +1,12 @@
-// Rivalta Zona 4 (Covar14): VIA ALFIERI, VIA CAVOUR, VIA DA VERRAZZANO, VIA DEL GHETTO, VIA F.LLI BANDIERA, VIA F.LLI MARCONETTO, VIA F.LLI ROSSELLI, VIA FILZI, VIA GARIBALDI, VIA GIACOSA, VIA GIAVENO, VIA GIOBERTI, VIA GIOTTO, VIA GOBETTI, VIA GOLDONI, VIA LAMARMORA, VIA MACCHIAVELLI, VIA MAMELI, VIA MATTEOTTI, VIA MAZZINI, VIA MEDICI, VIA NENNI, VIA PAVESE, VIA POLO, VIA S. DI SANTAROSA, VIA TASSONI, VIA TRANA, VIA NILDE IOTTI, STRADA PROVINCIALE ORBASSANO-BRUINO, VIA PECCEI, VIA NUTO REVELLI, VIA RITA LEVI MONTALCINI
+// Rivalta di Torino Zona 4 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 2, 3, 6},  // 03/02/2026 Spazzamento
   {2026, 3, 2, 0},  // 02/03/2026 Carta
   {2026, 3, 2, 1},  // 02/03/2026 Organico
+  {2026, 3, 3, 6},  // 03/03/2026 Spazzamento
   {2026, 3, 5, 1},  // 05/03/2026 Organico
   {2026, 3, 5, 2},  // 05/03/2026 Indifferenziata
   {2026, 3, 5, 3},  // 05/03/2026 Plastica
@@ -30,6 +32,7 @@
   {2026, 4, 2, 3},  // 02/04/2026 Plastica
   {2026, 4, 2, 4},  // 02/04/2026 Verde
   {2026, 4, 5, 1},  // 05/04/2026 Organico
+  {2026, 4, 7, 6},  // 07/04/2026 Spazzamento
   {2026, 4, 9, 1},  // 09/04/2026 Organico
   {2026, 4, 9, 2},  // 09/04/2026 Indifferenziata
   {2026, 4, 9, 3},  // 09/04/2026 Plastica
@@ -50,6 +53,7 @@
   {2026, 4, 30, 3},  // 30/04/2026 Plastica
   {2026, 4, 30, 4},  // 30/04/2026 Verde
   {2026, 5, 4, 1},  // 04/05/2026 Organico
+  {2026, 5, 5, 6},  // 05/05/2026 Spazzamento
   {2026, 5, 7, 1},  // 07/05/2026 Organico
   {2026, 5, 7, 2},  // 07/05/2026 Indifferenziata
   {2026, 5, 7, 3},  // 07/05/2026 Plastica
@@ -72,6 +76,7 @@
   {2026, 5, 28, 3},  // 28/05/2026 Plastica
   {2026, 5, 28, 4},  // 28/05/2026 Verde
   {2026, 6, 1, 1},  // 01/06/2026 Organico
+  {2026, 6, 2, 6},  // 02/06/2026 Spazzamento
   {2026, 6, 4, 1},  // 04/06/2026 Organico
   {2026, 6, 4, 2},  // 04/06/2026 Indifferenziata
   {2026, 6, 4, 3},  // 04/06/2026 Plastica
@@ -100,6 +105,7 @@
   {2026, 7, 2, 4},  // 02/07/2026 Verde
   {2026, 7, 6, 0},  // 06/07/2026 Carta
   {2026, 7, 6, 1},  // 06/07/2026 Organico
+  {2026, 7, 7, 6},  // 07/07/2026 Spazzamento
   {2026, 7, 9, 1},  // 09/07/2026 Organico
   {2026, 7, 9, 2},  // 09/07/2026 Indifferenziata
   {2026, 7, 9, 3},  // 09/07/2026 Plastica
@@ -122,6 +128,7 @@
   {2026, 7, 30, 4},  // 30/07/2026 Verde
   {2026, 8, 3, 0},  // 03/08/2026 Carta
   {2026, 8, 3, 1},  // 03/08/2026 Organico
+  {2026, 8, 4, 6},  // 04/08/2026 Spazzamento
   {2026, 8, 6, 1},  // 06/08/2026 Organico
   {2026, 8, 6, 2},  // 06/08/2026 Indifferenziata
   {2026, 8, 6, 3},  // 06/08/2026 Plastica
@@ -144,6 +151,7 @@
   {2026, 8, 27, 4},  // 27/08/2026 Verde
   {2026, 8, 31, 0},  // 31/08/2026 Carta
   {2026, 8, 31, 1},  // 31/08/2026 Organico
+  {2026, 9, 1, 6},  // 01/09/2026 Spazzamento
   {2026, 9, 3, 1},  // 03/09/2026 Organico
   {2026, 9, 3, 2},  // 03/09/2026 Indifferenziata
   {2026, 9, 3, 3},  // 03/09/2026 Plastica
@@ -171,6 +179,7 @@
   {2026, 10, 1, 3},  // 01/10/2026 Plastica
   {2026, 10, 1, 4},  // 01/10/2026 Verde
   {2026, 10, 5, 1},  // 05/10/2026 Organico
+  {2026, 10, 6, 6},  // 06/10/2026 Spazzamento
   {2026, 10, 8, 1},  // 08/10/2026 Organico
   {2026, 10, 8, 2},  // 08/10/2026 Indifferenziata
   {2026, 10, 8, 3},  // 08/10/2026 Plastica
@@ -193,6 +202,7 @@
   {2026, 10, 29, 3},  // 29/10/2026 Plastica
   {2026, 10, 29, 4},  // 29/10/2026 Verde
   {2026, 11, 1, 1},  // 01/11/2026 Organico
+  {2026, 11, 3, 6},  // 03/11/2026 Spazzamento
   {2026, 11, 5, 1},  // 05/11/2026 Organico
   {2026, 11, 5, 2},  // 05/11/2026 Indifferenziata
   {2026, 11, 5, 3},  // 05/11/2026 Plastica

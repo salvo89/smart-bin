@@ -272,7 +272,7 @@ def calendar_data_header_lines(
         lines.append(f"// {comune_name} {zone_label} ({provider})")
     lines.append(f"// Anno {year} — solo dati; struct e helper in docs/calendar.h")
     lines.append(
-        "// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro"
+        "// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento"
     )
     lines.append("// Lista ORDINATA (YYYYMMDD) per ricerca binaria.")
     return lines
@@ -294,13 +294,15 @@ def write_year_file(
         3: "Plastica",
         4: "Verde",
         5: "Vetro",
+        6: "Spazzamento",
     }
     lines = calendar_data_header_lines(
         comune_name, zone_label, provider, addresses, year
     )
     lines.append("")
     for y, m, d, b in entries:
-        lines.append(f"  {{{y}, {m}, {d}, {b}}},  // {d:02d}/{m:02d}/{y} {bins_name[b]}")
+        label = bins_name.get(b, f"bin{b}")
+        lines.append(f"  {{{y}, {m}, {d}, {b}}},  // {d:02d}/{m:02d}/{y} {label}")
     lines.append("")
 
     out_path.write_text("\n".join(lines), encoding="utf-8")
@@ -309,11 +311,11 @@ def write_year_file(
 def strip_calendar_to_data_only(path: Path) -> bool:
     """Converte un file legacy (fragment + standalone) in solo-dati."""
     text = path.read_text(encoding="utf-8")
-    if "#if defined(SMART_BIN_CALENDAR_FRAGMENT)" not in text:
+    if "#if defined(ESCILO_CALENDAR_FRAGMENT)" not in text:
         return False
 
     frag_match = re.search(
-        r"#if defined\(SMART_BIN_CALENDAR_FRAGMENT\)\s*\n([\s\S]*?)\n#else",
+        r"#if defined\(ESCILO_CALENDAR_FRAGMENT\)\s*\n([\s\S]*?)\n#else",
         text,
     )
     if not frag_match:

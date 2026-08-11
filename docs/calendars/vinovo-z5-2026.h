@@ -1,6 +1,6 @@
-// Vinovo Zona 5 (Covar14): CORSO BELGIO, CORSO ITALIA, PIAZZA ITALIA, LOCALITA’ TETTI BEL RIPARO, STRADA CASCINA NUOVA, STRADA REGIONALE CONFIGNASCO, STRADA ROTTA LUNGA, STRADA TETTI CAGLIERI, STRADA PRATO NUOVO, VIA ALIGHIERI, VIA AOSTA, VIA BUONARROTI, VIA C. COLOMBO, VIA CANDIOLO, VIA DEL MARE, VIA GAIDANO, VIA MANZONI, VIA MARTINETTO, VIA MONCALIERI, VIA S. PELLICO, VIA STUPINIGI, VIA TETTI BORNO, VIA TETTI GRELLA, VIA TETTI ROSA, VIA VERDI, VIA CAVALIER MICHELE PIPINO
+// Vinovo Zona 5 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 3, 3, 1},  // 03/03/2026 Organico
@@ -28,6 +28,7 @@
   {2026, 4, 3, 2},  // 03/04/2026 Indifferenziata
   {2026, 4, 3, 3},  // 03/04/2026 Plastica
   {2026, 4, 7, 1},  // 07/04/2026 Organico
+  {2026, 4, 8, 6},  // 08/04/2026 Spazzamento
   {2026, 4, 10, 0},  // 10/04/2026 Carta
   {2026, 4, 10, 1},  // 10/04/2026 Organico
   {2026, 4, 10, 2},  // 10/04/2026 Indifferenziata
@@ -72,6 +73,7 @@
   {2026, 6, 5, 2},  // 05/06/2026 Indifferenziata
   {2026, 6, 9, 1},  // 09/06/2026 Organico
   {2026, 6, 10, 4},  // 10/06/2026 Verde
+  {2026, 6, 10, 6},  // 10/06/2026 Spazzamento
   {2026, 6, 12, 1},  // 12/06/2026 Organico
   {2026, 6, 12, 2},  // 12/06/2026 Indifferenziata
   {2026, 6, 12, 3},  // 12/06/2026 Plastica
@@ -82,6 +84,7 @@
   {2026, 6, 19, 2},  // 19/06/2026 Indifferenziata
   {2026, 6, 23, 1},  // 23/06/2026 Organico
   {2026, 6, 24, 4},  // 24/06/2026 Verde
+  {2026, 6, 24, 6},  // 24/06/2026 Spazzamento
   {2026, 6, 26, 1},  // 26/06/2026 Organico
   {2026, 6, 26, 2},  // 26/06/2026 Indifferenziata
   {2026, 6, 26, 3},  // 26/06/2026 Plastica
@@ -92,6 +95,7 @@
   {2026, 7, 3, 2},  // 03/07/2026 Indifferenziata
   {2026, 7, 7, 1},  // 07/07/2026 Organico
   {2026, 7, 8, 4},  // 08/07/2026 Verde
+  {2026, 7, 8, 6},  // 08/07/2026 Spazzamento
   {2026, 7, 10, 1},  // 10/07/2026 Organico
   {2026, 7, 10, 2},  // 10/07/2026 Indifferenziata
   {2026, 7, 10, 3},  // 10/07/2026 Plastica
@@ -102,6 +106,7 @@
   {2026, 7, 17, 2},  // 17/07/2026 Indifferenziata
   {2026, 7, 21, 1},  // 21/07/2026 Organico
   {2026, 7, 22, 4},  // 22/07/2026 Verde
+  {2026, 7, 22, 6},  // 22/07/2026 Spazzamento
   {2026, 7, 24, 1},  // 24/07/2026 Organico
   {2026, 7, 24, 2},  // 24/07/2026 Indifferenziata
   {2026, 7, 24, 3},  // 24/07/2026 Plastica
@@ -137,6 +142,7 @@
   {2026, 9, 4, 3},  // 04/09/2026 Plastica
   {2026, 9, 8, 1},  // 08/09/2026 Organico
   {2026, 9, 9, 4},  // 09/09/2026 Verde
+  {2026, 9, 9, 6},  // 09/09/2026 Spazzamento
   {2026, 9, 11, 0},  // 11/09/2026 Carta
   {2026, 9, 11, 1},  // 11/09/2026 Organico
   {2026, 9, 11, 2},  // 11/09/2026 Indifferenziata
@@ -147,6 +153,7 @@
   {2026, 9, 18, 3},  // 18/09/2026 Plastica
   {2026, 9, 22, 1},  // 22/09/2026 Organico
   {2026, 9, 23, 4},  // 23/09/2026 Verde
+  {2026, 9, 23, 6},  // 23/09/2026 Spazzamento
   {2026, 9, 25, 0},  // 25/09/2026 Carta
   {2026, 9, 25, 1},  // 25/09/2026 Organico
   {2026, 9, 25, 2},  // 25/09/2026 Indifferenziata

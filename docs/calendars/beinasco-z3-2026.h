@@ -1,8 +1,9 @@
-// Beinasco Zona 3 (Covar14): PIAZZA GARELLI, STRADA ANTICA DI NONE, STRADA COMUNALE DEI BOSCHI, STRADA ORBASSANO, VIA AMENDOLA, VIA BOLOGNA, VIA CARDUCCI, VIA D' ANNUNZIO, VIA DE GASPERI, VIA DE NICOLA, VIA FERMI, VIA FERRARA, VIA FORNACI, VIA GOLDONI, VIA LEOPARDI, VIA LOSE, VIA MANZONI, VIA MASCAGNI, VIA MONTELLO, VIA NENNI, VIA PADOVA, VIA PUCCINI, VIA ROSSINI, VIA SAN GIOVANNI, VIA SERAFINO, VIA SEREA, VIA SPINELLI, VIA VENEZIA, VIA VOLTA, VIA PIO LA TORRE, STRADA COMUNALE DI NONE
+// Beinasco Zona 3 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 2, 14, 6},  // 14/02/2026 Spazzamento
   {2026, 3, 2, 1},  // 02/03/2026 Organico
   {2026, 3, 4, 0},  // 04/03/2026 Carta
   {2026, 3, 4, 2},  // 04/03/2026 Indifferenziata
@@ -37,6 +38,7 @@
   {2026, 4, 8, 3},  // 08/04/2026 Plastica
   {2026, 4, 9, 1},  // 09/04/2026 Organico
   {2026, 4, 10, 4},  // 10/04/2026 Verde
+  {2026, 4, 11, 6},  // 11/04/2026 Spazzamento
   {2026, 4, 13, 1},  // 13/04/2026 Organico
   {2026, 4, 15, 0},  // 15/04/2026 Carta
   {2026, 4, 15, 1},  // 15/04/2026 Organico
@@ -91,6 +93,7 @@
   {2026, 6, 10, 3},  // 10/06/2026 Plastica
   {2026, 6, 11, 1},  // 11/06/2026 Organico
   {2026, 6, 12, 4},  // 12/06/2026 Verde
+  {2026, 6, 13, 6},  // 13/06/2026 Spazzamento
   {2026, 6, 15, 1},  // 15/06/2026 Organico
   {2026, 6, 17, 0},  // 17/06/2026 Carta
   {2026, 6, 17, 2},  // 17/06/2026 Indifferenziata
@@ -139,6 +142,7 @@
   {2026, 8, 5, 3},  // 05/08/2026 Plastica
   {2026, 8, 6, 1},  // 06/08/2026 Organico
   {2026, 8, 7, 4},  // 07/08/2026 Verde
+  {2026, 8, 8, 6},  // 08/08/2026 Spazzamento
   {2026, 8, 10, 1},  // 10/08/2026 Organico
   {2026, 8, 12, 0},  // 12/08/2026 Carta
   {2026, 8, 12, 2},  // 12/08/2026 Indifferenziata
@@ -192,6 +196,7 @@
   {2026, 10, 7, 3},  // 07/10/2026 Plastica
   {2026, 10, 8, 1},  // 08/10/2026 Organico
   {2026, 10, 9, 4},  // 09/10/2026 Verde
+  {2026, 10, 10, 6},  // 10/10/2026 Spazzamento
   {2026, 10, 12, 1},  // 12/10/2026 Organico
   {2026, 10, 14, 0},  // 14/10/2026 Carta
   {2026, 10, 14, 3},  // 14/10/2026 Plastica
@@ -241,6 +246,7 @@
   {2026, 12, 9, 2},  // 09/12/2026 Indifferenziata
   {2026, 12, 9, 3},  // 09/12/2026 Plastica
   {2026, 12, 10, 1},  // 10/12/2026 Organico
+  {2026, 12, 12, 6},  // 12/12/2026 Spazzamento
   {2026, 12, 14, 1},  // 14/12/2026 Organico
   {2026, 12, 16, 0},  // 16/12/2026 Carta
   {2026, 12, 16, 2},  // 16/12/2026 Indifferenziata

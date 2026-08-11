@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Convert TeknoService/CCA Canavese weekly-grid PDFs to Smart Bin .h files."""
+"""Convert TeknoService/CCA Canavese weekly-grid PDFs to Escilo .h files."""
 from __future__ import annotations
 
 import argparse

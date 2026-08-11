@@ -1,13 +1,17 @@
-// Montanaro Zona 2 (SETA): Cascina Ronchi Superiore, Corso Primo Maggio, Frazione Pogliani, Piazza Luigi Massa, Piazza Senatore Frola, Strada CROVA, Strada del Porto, Strada Goretta, Strada Pogliani, Strada Sottoripa, Strada SP82, Via Adige, Via Alberto Picco, Via Andrea Costa, Via Antonio Gramsci, Via Assietta, Via Atene, Via Averardi, Via Belfiore, Via Biagio Frola, Via C. Ferreri, Via C. Fiorio, Via C. Vita, Via Carlo Fiorio, Via Carlo Vita, Via Carso, Via Cascine Bertetti, Via Cavour, Via Cernaia, Via Cesare Battisti, Via Cesare Pavese, Via Chivasso, Via Costantino Nigra, Via Defendente Ferrari, Via Degli Artigiani, Via Domenico Bevilacqua, Via Don Giovanni Minzoni, Via Don Pierino Minetti, 1-35, Via Don Varchi, Via DON VIGNA, Via Filippo Visetti, Via Fratelli Cervi, Via Fratelli Ponchia, Via G. B. Clara, Via G.B. Periatti, Via Galilei, Via Giordano Bruno, Via Giuseppe Garibaldi, Via Goito, Via Governolo, Via Guido Rossa, Via I. Giavarini, Via Ippolito Frassale, Via Ivrea, Via L. Fontana, Via Largo Bistolfi, Via Lombardore, Via Loreto, Via M. Farcito, Via M. Fontana, Via Madrid, Via Marconi, Via Martiri della Liberta, Via Montebello, Via Montegrappa, Via P. Gobetti, Via Pastrengo, Via Piave, Via Po, Via Pogliani, Via Revel, Via Roma, Via Rondissone, Via San Martino, Via Statuto, Via Torino, Via Tremoli, Via Valeggio, Via Varese, Via Vittorio Veneto, Via Volta, Via Volturno, Viale Guarino Guarini, Vicolo Almasio
+// Montanaro Zona 2 (SETA)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 1, 1, 6},  // 01/01/2026 Spazzamento
+  {2026, 1, 15, 6},  // 15/01/2026 Spazzamento
+  {2026, 1, 29, 6},  // 29/01/2026 Spazzamento
   {2026, 2, 3, 1},  // 03/02/2026 Organico
   {2026, 2, 3, 3},  // 03/02/2026 Plastica
   {2026, 2, 4, 1},  // 04/02/2026 Organico
   {2026, 2, 4, 3},  // 04/02/2026 Plastica
   {2026, 2, 5, 0},  // 05/02/2026 Carta
+  {2026, 2, 5, 6},  // 05/02/2026 Spazzamento
   {2026, 2, 6, 0},  // 06/02/2026 Carta
   {2026, 2, 6, 1},  // 06/02/2026 Organico
   {2026, 2, 6, 5},  // 06/02/2026 Vetro
@@ -20,6 +24,7 @@
   {2026, 2, 17, 1},  // 17/02/2026 Organico
   {2026, 2, 17, 3},  // 17/02/2026 Plastica
   {2026, 2, 19, 0},  // 19/02/2026 Carta
+  {2026, 2, 19, 6},  // 19/02/2026 Spazzamento
   {2026, 2, 20, 0},  // 20/02/2026 Carta
   {2026, 2, 20, 1},  // 20/02/2026 Organico
   {2026, 2, 20, 5},  // 20/02/2026 Vetro
@@ -28,6 +33,7 @@
   {2026, 3, 4, 1},  // 04/03/2026 Organico
   {2026, 3, 4, 3},  // 04/03/2026 Plastica
   {2026, 3, 5, 0},  // 05/03/2026 Carta
+  {2026, 3, 5, 6},  // 05/03/2026 Spazzamento
   {2026, 3, 6, 0},  // 06/03/2026 Carta
   {2026, 3, 6, 1},  // 06/03/2026 Organico
   {2026, 3, 6, 5},  // 06/03/2026 Vetro
@@ -44,12 +50,14 @@
   {2026, 3, 17, 1},  // 17/03/2026 Organico
   {2026, 3, 17, 3},  // 17/03/2026 Plastica
   {2026, 3, 19, 0},  // 19/03/2026 Carta
+  {2026, 3, 19, 6},  // 19/03/2026 Spazzamento
   {2026, 3, 20, 0},  // 20/03/2026 Carta
   {2026, 3, 20, 1},  // 20/03/2026 Organico
   {2026, 3, 20, 5},  // 20/03/2026 Vetro
   {2026, 3, 21, 4},  // 21/03/2026 Verde
   {2026, 3, 22, 4},  // 22/03/2026 Verde
   {2026, 4, 2, 0},  // 02/04/2026 Carta
+  {2026, 4, 2, 6},  // 02/04/2026 Spazzamento
   {2026, 4, 3, 0},  // 03/04/2026 Carta
   {2026, 4, 3, 1},  // 03/04/2026 Organico
   {2026, 4, 3, 5},  // 03/04/2026 Vetro
@@ -70,6 +78,7 @@
   {2026, 4, 16, 0},  // 16/04/2026 Carta
   {2026, 4, 16, 1},  // 16/04/2026 Organico
   {2026, 4, 16, 5},  // 16/04/2026 Vetro
+  {2026, 4, 16, 6},  // 16/04/2026 Spazzamento
   {2026, 4, 17, 0},  // 17/04/2026 Carta
   {2026, 4, 17, 1},  // 17/04/2026 Organico
   {2026, 4, 17, 5},  // 17/04/2026 Vetro
@@ -77,12 +86,14 @@
   {2026, 4, 21, 1},  // 21/04/2026 Organico
   {2026, 4, 22, 1},  // 22/04/2026 Organico
   {2026, 4, 22, 2},  // 22/04/2026 Indifferenziata
+  {2026, 4, 30, 6},  // 30/04/2026 Spazzamento
   {2026, 5, 2, 4},  // 02/05/2026 Verde
   {2026, 5, 3, 5},  // 03/05/2026 Vetro
   {2026, 5, 4, 5},  // 04/05/2026 Vetro
   {2026, 5, 5, 1},  // 05/05/2026 Organico
   {2026, 5, 6, 1},  // 06/05/2026 Organico
   {2026, 5, 6, 2},  // 06/05/2026 Indifferenziata
+  {2026, 5, 7, 6},  // 07/05/2026 Spazzamento
   {2026, 5, 8, 1},  // 08/05/2026 Organico
   {2026, 5, 9, 4},  // 09/05/2026 Verde
   {2026, 5, 12, 1},  // 12/05/2026 Organico
@@ -97,9 +108,11 @@
   {2026, 5, 19, 1},  // 19/05/2026 Organico
   {2026, 5, 20, 1},  // 20/05/2026 Organico
   {2026, 5, 20, 2},  // 20/05/2026 Indifferenziata
+  {2026, 5, 21, 6},  // 21/05/2026 Spazzamento
   {2026, 5, 22, 1},  // 22/05/2026 Organico
   {2026, 6, 3, 2},  // 03/06/2026 Indifferenziata
   {2026, 6, 4, 2},  // 04/06/2026 Indifferenziata
+  {2026, 6, 4, 6},  // 04/06/2026 Spazzamento
   {2026, 6, 5, 1},  // 05/06/2026 Organico
   {2026, 6, 6, 1},  // 06/06/2026 Organico
   {2026, 6, 6, 4},  // 06/06/2026 Verde
@@ -114,10 +127,12 @@
   {2026, 6, 16, 1},  // 16/06/2026 Organico
   {2026, 6, 16, 2},  // 16/06/2026 Indifferenziata
   {2026, 6, 17, 2},  // 17/06/2026 Indifferenziata
+  {2026, 6, 18, 6},  // 18/06/2026 Spazzamento
   {2026, 6, 19, 1},  // 19/06/2026 Organico
   {2026, 6, 20, 1},  // 20/06/2026 Organico
   {2026, 6, 20, 4},  // 20/06/2026 Verde
   {2026, 7, 1, 2},  // 01/07/2026 Indifferenziata
+  {2026, 7, 2, 6},  // 02/07/2026 Spazzamento
   {2026, 7, 3, 1},  // 03/07/2026 Organico
   {2026, 7, 4, 1},  // 04/07/2026 Organico
   {2026, 7, 4, 4},  // 04/07/2026 Verde
@@ -126,10 +141,13 @@
   {2026, 7, 8, 1},  // 08/07/2026 Organico
   {2026, 7, 8, 3},  // 08/07/2026 Plastica
   {2026, 7, 9, 0},  // 09/07/2026 Carta
+  {2026, 7, 16, 6},  // 16/07/2026 Spazzamento
+  {2026, 7, 30, 6},  // 30/07/2026 Spazzamento
   {2026, 8, 1, 4},  // 01/08/2026 Verde
   {2026, 8, 4, 1},  // 04/08/2026 Organico
   {2026, 8, 4, 3},  // 04/08/2026 Plastica
   {2026, 8, 6, 0},  // 06/08/2026 Carta
+  {2026, 8, 6, 6},  // 06/08/2026 Spazzamento
   {2026, 8, 7, 1},  // 07/08/2026 Organico
   {2026, 8, 7, 4},  // 07/08/2026 Verde
   {2026, 8, 7, 5},  // 07/08/2026 Vetro
@@ -144,6 +162,7 @@
   {2026, 8, 18, 1},  // 18/08/2026 Organico
   {2026, 8, 18, 3},  // 18/08/2026 Plastica
   {2026, 8, 20, 0},  // 20/08/2026 Carta
+  {2026, 8, 20, 6},  // 20/08/2026 Spazzamento
   {2026, 8, 21, 1},  // 21/08/2026 Organico
   {2026, 8, 21, 5},  // 21/08/2026 Vetro
   {2026, 8, 22, 1},  // 22/08/2026 Organico
@@ -152,6 +171,7 @@
   {2026, 9, 1, 1},  // 01/09/2026 Organico
   {2026, 9, 1, 3},  // 01/09/2026 Plastica
   {2026, 9, 3, 0},  // 03/09/2026 Carta
+  {2026, 9, 3, 6},  // 03/09/2026 Spazzamento
   {2026, 9, 4, 0},  // 04/09/2026 Carta
   {2026, 9, 4, 1},  // 04/09/2026 Organico
   {2026, 9, 4, 5},  // 04/09/2026 Vetro
@@ -167,12 +187,14 @@
   {2026, 9, 15, 3},  // 15/09/2026 Plastica
   {2026, 9, 16, 0},  // 16/09/2026 Carta
   {2026, 9, 17, 0},  // 17/09/2026 Carta
+  {2026, 9, 17, 6},  // 17/09/2026 Spazzamento
   {2026, 9, 18, 1},  // 18/09/2026 Organico
   {2026, 9, 18, 5},  // 18/09/2026 Vetro
   {2026, 9, 19, 4},  // 19/09/2026 Verde
   {2026, 9, 20, 4},  // 20/09/2026 Verde
   {2026, 9, 22, 1},  // 22/09/2026 Organico
   {2026, 10, 1, 0},  // 01/10/2026 Carta
+  {2026, 10, 1, 6},  // 01/10/2026 Spazzamento
   {2026, 10, 2, 1},  // 02/10/2026 Organico
   {2026, 10, 2, 5},  // 02/10/2026 Vetro
   {2026, 10, 3, 4},  // 03/10/2026 Verde
@@ -186,6 +208,7 @@
   {2026, 10, 13, 1},  // 13/10/2026 Organico
   {2026, 10, 13, 3},  // 13/10/2026 Plastica
   {2026, 10, 15, 0},  // 15/10/2026 Carta
+  {2026, 10, 15, 6},  // 15/10/2026 Spazzamento
   {2026, 10, 16, 1},  // 16/10/2026 Organico
   {2026, 10, 16, 4},  // 16/10/2026 Verde
   {2026, 10, 16, 5},  // 16/10/2026 Vetro
@@ -193,9 +216,11 @@
   {2026, 10, 20, 1},  // 20/10/2026 Organico
   {2026, 10, 21, 2},  // 21/10/2026 Indifferenziata
   {2026, 10, 22, 2},  // 22/10/2026 Indifferenziata
+  {2026, 10, 29, 6},  // 29/10/2026 Spazzamento
   {2026, 11, 3, 1},  // 03/11/2026 Organico
   {2026, 11, 4, 1},  // 04/11/2026 Organico
   {2026, 11, 4, 2},  // 04/11/2026 Indifferenziata
+  {2026, 11, 5, 6},  // 05/11/2026 Spazzamento
   {2026, 11, 6, 1},  // 06/11/2026 Organico
   {2026, 11, 7, 4},  // 07/11/2026 Verde
   {2026, 11, 8, 4},  // 08/11/2026 Verde
@@ -212,12 +237,14 @@
   {2026, 11, 16, 1},  // 16/11/2026 Organico
   {2026, 11, 17, 1},  // 17/11/2026 Organico
   {2026, 11, 18, 2},  // 18/11/2026 Indifferenziata
+  {2026, 11, 19, 6},  // 19/11/2026 Spazzamento
   {2026, 11, 20, 1},  // 20/11/2026 Organico
   {2026, 11, 21, 4},  // 21/11/2026 Verde
   {2026, 11, 22, 4},  // 22/11/2026 Verde
   {2026, 12, 1, 1},  // 01/12/2026 Organico
   {2026, 12, 2, 2},  // 02/12/2026 Indifferenziata
   {2026, 12, 3, 2},  // 03/12/2026 Indifferenziata
+  {2026, 12, 3, 6},  // 03/12/2026 Spazzamento
   {2026, 12, 4, 1},  // 04/12/2026 Organico
   {2026, 12, 7, 3},  // 07/12/2026 Plastica
   {2026, 12, 8, 3},  // 08/12/2026 Plastica
@@ -228,6 +255,8 @@
   {2026, 12, 15, 1},  // 15/12/2026 Organico
   {2026, 12, 16, 2},  // 16/12/2026 Indifferenziata
   {2026, 12, 17, 2},  // 17/12/2026 Indifferenziata
+  {2026, 12, 17, 6},  // 17/12/2026 Spazzamento
   {2026, 12, 18, 1},  // 18/12/2026 Organico
   {2026, 12, 22, 1},  // 22/12/2026 Organico
   {2026, 12, 22, 3},  // 22/12/2026 Plastica
+  {2026, 12, 31, 6},  // 31/12/2026 Spazzamento

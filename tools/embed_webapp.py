@@ -33,8 +33,8 @@ def main() -> None:
     icon = ICON.read_bytes()
     lines = [
         "// Auto-generato da tools/embed_webapp.py — non modificare a mano.",
-        "#ifndef SMART_BIN_WEB_UI_EMBED_H",
-        "#define SMART_BIN_WEB_UI_EMBED_H",
+        "#ifndef ESCILO_WEB_UI_EMBED_H",
+        "#define ESCILO_WEB_UI_EMBED_H",
         "",
         "#include <Arduino.h>",
         "",
@@ -42,9 +42,9 @@ def main() -> None:
         f"// Icona PNG: {len(icon)} byte",
         "",
     ]
-    emit_bytes_array(lines, "SMART_BIN_WEB_UI_GZ", gz)
+    emit_bytes_array(lines, "ESCILO_WEB_UI_GZ", gz)
     lines.append("")
-    emit_bytes_array(lines, "SMART_BIN_WEB_ICON_PNG", icon)
+    emit_bytes_array(lines, "ESCILO_WEB_ICON_PNG", icon)
     lines.extend(["", "#endif", ""])
     OUT.write_text("\n".join(lines), encoding="utf-8")
     saved = len(raw) - len(gz)

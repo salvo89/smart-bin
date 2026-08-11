@@ -1,5 +1,6 @@
+// Villastellone Anno 2026 — solo dati; struct e helper in docs/calendar.h (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 3, 2, 0},  // 02/03/2026 Carta
@@ -64,6 +65,7 @@
   {2026, 5, 18, 3},  // 18/05/2026 Plastica
   {2026, 5, 20, 1},  // 20/05/2026 Organico
   {2026, 5, 20, 2},  // 20/05/2026 Indifferenziata
+  {2026, 5, 21, 6},  // 21/05/2026 Spazzamento
   {2026, 5, 23, 1},  // 23/05/2026 Organico
   {2026, 5, 23, 4},  // 23/05/2026 Verde
   {2026, 5, 25, 0},  // 25/05/2026 Carta
@@ -86,6 +88,7 @@
   {2026, 6, 15, 3},  // 15/06/2026 Plastica
   {2026, 6, 17, 1},  // 17/06/2026 Organico
   {2026, 6, 17, 2},  // 17/06/2026 Indifferenziata
+  {2026, 6, 18, 6},  // 18/06/2026 Spazzamento
   {2026, 6, 20, 1},  // 20/06/2026 Organico
   {2026, 6, 20, 4},  // 20/06/2026 Verde
   {2026, 6, 22, 0},  // 22/06/2026 Carta
@@ -108,6 +111,7 @@
   {2026, 7, 13, 3},  // 13/07/2026 Plastica
   {2026, 7, 15, 1},  // 15/07/2026 Organico
   {2026, 7, 15, 2},  // 15/07/2026 Indifferenziata
+  {2026, 7, 16, 6},  // 16/07/2026 Spazzamento
   {2026, 7, 18, 1},  // 18/07/2026 Organico
   {2026, 7, 18, 4},  // 18/07/2026 Verde
   {2026, 7, 20, 0},  // 20/07/2026 Carta
@@ -135,6 +139,7 @@
   {2026, 8, 17, 0},  // 17/08/2026 Carta
   {2026, 8, 19, 1},  // 19/08/2026 Organico
   {2026, 8, 19, 2},  // 19/08/2026 Indifferenziata
+  {2026, 8, 20, 6},  // 20/08/2026 Spazzamento
   {2026, 8, 22, 1},  // 22/08/2026 Organico
   {2026, 8, 22, 4},  // 22/08/2026 Verde
   {2026, 8, 24, 0},  // 24/08/2026 Carta
@@ -157,6 +162,7 @@
   {2026, 9, 14, 0},  // 14/09/2026 Carta
   {2026, 9, 16, 1},  // 16/09/2026 Organico
   {2026, 9, 16, 2},  // 16/09/2026 Indifferenziata
+  {2026, 9, 17, 6},  // 17/09/2026 Spazzamento
   {2026, 9, 19, 1},  // 19/09/2026 Organico
   {2026, 9, 19, 4},  // 19/09/2026 Verde
   {2026, 9, 21, 0},  // 21/09/2026 Carta

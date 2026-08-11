@@ -8,242 +8,39 @@
   <title>Calendario raccolta differenziata Grugliasco — Escilo</title>
   <meta name="description" content="Calendario ritiri rifiuti a Grugliasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://escilo.netlify.app/comuni/grugliasco.html" />
+  <link rel="canonical" href="https://escilo.it/comuni/grugliasco.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="Escilo" />
   <meta property="og:title" content="Calendario raccolta differenziata Grugliasco — Escilo" />
   <meta property="og:description" content="Calendario ritiri rifiuti a Grugliasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
-  <meta property="og:url" content="https://escilo.netlify.app/comuni/grugliasco.html" />
-  <meta property="og:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta property="og:url" content="https://escilo.it/comuni/grugliasco.html" />
+  <meta property="og:image" content="https://escilo.it/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Calendario raccolta differenziata Grugliasco — Escilo" />
   <meta name="twitter:description" content="Calendario ritiri rifiuti a Grugliasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo." />
-  <meta name="twitter:image" content="https://escilo.netlify.app/icon-512.png" />
+  <meta name="twitter:image" content="https://escilo.it/icon-512.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="../icon-512.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-:root {
-  color-scheme: light;
-  --bg: #eef6f1;
-  --bg-top: #d8f0e2;
-  --bg-bottom: #f4f7f5;
-  --surface: #ffffff;
-  --ink: #142018;
-  --muted: #5a7266;
-  --muted-2: #6a8074;
-  --line: #d5e2da;
-  --accent: #1f5c42;
-  --accent-soft: #e4f3eb;
-  --row-bg: #f7fbf8;
-  --safe: 1rem;
-  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
-  --display: "Fraunces", Georgia, serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --bg: #101814;
-    --bg-top: #152019;
-    --bg-bottom: #0c1210;
-    --surface: #1a2420;
-    --ink: #e6f0ea;
-    --muted: #8fa396;
-    --muted-2: #7a9084;
-    --line: #2c3b33;
-    --accent: #3d9a6e;
-    --accent-soft: #1c3228;
-    --row-bg: #151e1a;
-  }
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  min-height: 100dvh;
-  font-family: var(--font);
-  color: var(--ink);
-  line-height: 1.45;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
-}
-a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.page {
-  max-width: 28rem;
-  margin: 0 auto;
-  padding: 0.75rem var(--safe) 2.5rem;
-  padding-top: max(0.75rem, env(safe-area-inset-top));
-}
-.topbar { margin-bottom: 1rem; }
-.back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.85rem;
-  font-weight: 650;
-  color: var(--accent);
-  text-decoration: none;
-}
-.back:hover { text-decoration: underline; }
-.crumbs {
-  margin: 0 0 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-.crumbs a {
-  color: var(--muted);
-  font-weight: 600;
-  text-decoration: none;
-}
-.crumbs a:hover { text-decoration: underline; }
-.intro {
-  margin: 0 0 1.25rem;
-  padding: 1.1rem 1.05rem 1.05rem;
-  border-radius: 1.25rem;
-  background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
-  color: #f3faf6;
-  box-shadow: 0 12px 28px rgba(26, 74, 54, 0.22);
-}
-.intro h1 {
-  margin: 0 0 0.45rem;
-  font-family: var(--display);
-  font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-}
-.intro p {
-  margin: 0;
-  font-size: 0.88rem;
-  opacity: 0.88;
-}
-.intro .meta {
-  margin-top: 0.7rem;
-  font-size: 0.72rem;
-  opacity: 0.7;
-  font-weight: 600;
-}
-.intro a {
-  color: #f3faf6;
-  font-weight: 650;
-}
-.note {
-  margin: 0 0 1.15rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 0.85rem;
-  background: var(--accent-soft);
-  color: var(--ink);
-  font-size: 0.78rem;
-  line-height: 1.4;
-}
-.card {
-  margin: 0 0 0.85rem;
-  border-radius: 1.1rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 0.95rem 1rem 1rem;
-}
-.card h2 {
-  margin: 0 0 0.65rem;
-  font-size: 1.02rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.cta {
-  display: block;
-  width: 100%;
-  margin: 0.85rem 0 0;
-  padding: 0.85rem 1rem;
-  border-radius: 0.95rem;
-  background: var(--accent);
-  color: #fff !important;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-.cta:hover { filter: brightness(1.05); }
-ul.zones {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-ul.zones li {
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.65rem;
-  background: var(--row-bg);
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-.comuni-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.comuni-grid a {
-  display: block;
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.65rem;
-  background: var(--row-bg);
-  border: none;
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-.comuni-grid a:hover { background: var(--accent-soft); }
-.meta {
-  margin: 0 0 0.85rem;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.4;
-}
-.footer {
-  margin: 1.5rem 0 0;
-  text-align: center;
-  font-size: 0.72rem;
-  color: var(--muted-2);
-  line-height: 1.4;
-}
-.footer a {
-  color: var(--accent);
-  font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.footer .sep {
-  padding: 0 0.22rem;
-  color: var(--accent);
-  font-weight: 700;
-}
-</style>
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/css/chrome.css?v=18" />
+  <link rel="stylesheet" href="../assets/css/seo.css?v=18" />
   <script type="application/ld+json">
 [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Calendario raccolta differenziata Grugliasco — Escilo",
-    "url": "https://escilo.netlify.app/comuni/grugliasco.html",
+    "url": "https://escilo.it/comuni/grugliasco.html",
     "description": "Calendario ritiri rifiuti a Grugliasco (provincia di Torino): scopri cosa esporre domani per zona con Escilo.",
     "inLanguage": "it-IT",
     "isPartOf": {
       "@type": "WebSite",
       "name": "Escilo",
-      "url": "https://escilo.netlify.app/"
+      "url": "https://escilo.it/"
     },
     "about": {
       "@type": "Place",
@@ -255,30 +52,6 @@ ul.zones li {
         "addressCountry": "IT"
       }
     }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Escilo",
-        "item": "https://escilo.netlify.app/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Comuni",
-        "item": "https://escilo.netlify.app/comuni/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Grugliasco",
-        "item": "https://escilo.netlify.app/comuni/grugliasco.html"
-      }
-    ]
   }
 ]
 </script>
@@ -286,9 +59,8 @@ ul.zones li {
 <body>
   <div class="page">
     <header class="topbar">
-      <a class="back" href="../">← Calendario</a>
+      <a class="back" href="../">← Home</a>
     </header>
-    <p class="crumbs"><a href="../">Home</a> · <a href="./">Comuni</a> · Grugliasco</p>
     <section class="intro">
       <h1>Calendario raccolta differenziata — Grugliasco</h1>
       <p>
@@ -297,8 +69,334 @@ ul.zones li {
       </p>
     </section>
     <div class="card">
-      <h2>Zone e vie disponibili</h2>
+      <h2 class="box-title">Zone e vie disponibili</h2>
       <ul class="zones">
+<li>corso Adriatico</li>
+<li>corso Allamano – da strada del Gerbido a Via Crea</li>
+<li>corso Allamano – da via Rivalta a strada Gerbido</li>
+<li>corso Allamano – park fronte Pastorino</li>
+<li>corso Cervi – da corso King a via Rivalta</li>
+<li>corso Cervi – tratto negozi</li>
+<li>corso G. Salvemini</li>
+<li>corso King – da corso Cervi a corso Allamano</li>
+<li>corso King – da via Don Caustico a via Galimberti</li>
+<li>corso Tirreno</li>
+<li>corso Torino – da Da Vinci a A. di Grugliasco (centro+rotonde+controviali)</li>
+<li>corso Torino – da Giolitti a Lamarmora (centro+rotonde+controviale)</li>
+<li>corso Torino – da Lamarmora a Da Vinci (centro+rotonde+ controviali)</li>
+<li>corso Torino – da Lupo a Giolitti (centro+rotonde+controviale)</li>
+<li>piazza Allais</li>
+<li>piazza Don Cocco</li>
+<li>piazza I Maggio</li>
+<li>piazza Marconi</li>
+<li>piazza Matteotti</li>
+<li>piazza Morselli</li>
+<li>piazza Papa Giovanni</li>
+<li>Spazzamento A1 FABBRICHETTA</li>
+<li>Spazzamento A2 FABBRICHETTA</li>
+<li>Spazzamento B1 S.GIACOMO S.MARIA A</li>
+<li>Spazzamento B2 S.GIACOMO S.MARIA A</li>
+<li>Spazzamento B3 S.GIACOMO S.MARIA A</li>
+<li>Spazzamento B4 S.GIACOMO S.MARIA A</li>
+<li>Spazzamento C1 S.GIACOMO S.MARIA B</li>
+<li>Spazzamento C2 S.GIACOMO S.MARIA B</li>
+<li>Spazzamento D1 S.FIRMINO</li>
+<li>Spazzamento D2 S.FIRMINO</li>
+<li>Spazzamento D3 S.FIRMINO</li>
+<li>Spazzamento D4 SAN FIRMINO</li>
+<li>Spazzamento E1 FORNACE</li>
+<li>Spazzamento E2 FORNACE</li>
+<li>Spazzamento E3 FORNACE</li>
+<li>Spazzamento E4 FORNACE</li>
+<li>Spazzamento E5 FORNACE</li>
+<li>Spazzamento F1 SAN SEBASTIANO</li>
+<li>Spazzamento F2 SAN SEBASTIANO</li>
+<li>Spazzamento F3 SAN SEBASTIANO</li>
+<li>Spazzamento F4 SAN SEBASTIANO</li>
+<li>Spazzamento F5 SAN SEBASTIANO</li>
+<li>Spazzamento G1 PARADISO SUD</li>
+<li>Spazzamento G2 PARADISO SUD</li>
+<li>Spazzamento G3 PARADISO SUD</li>
+<li>Spazzamento H1 QUAGLIA</li>
+<li>Spazzamento H2 QUAGLIA</li>
+<li>Spazzamento I1 GERBIDO</li>
+<li>Spazzamento I2 GERBIDO</li>
+<li>Spazzamento I3 GERBIDO</li>
+<li>Spazzamento I4 GERBIDO</li>
+<li>Spazzamento L1 LESNA</li>
+<li>Spazzamento L2 LESNA</li>
+<li>Spazzamento L3 LESNA</li>
+<li>Spazzamento M1 QUAGLIA INDUSTRIALE A</li>
+<li>Spazzamento M2 QUAGLIA INDUSTRIALE A</li>
+<li>Spazzamento M3 QUAGLIA INDUSTRIALE A</li>
+<li>Spazzamento N1 QUAGLIA INDUSTRIALE B</li>
+<li>Spazzamento N2 QUAGLIA INDUSTRIALE B</li>
+<li>Spazzamento N3 QUAGLIA INDUSTRIALE B</li>
+<li>Spazzamento N4 QUAGLIA INDUSTRIALE B</li>
+<li>Spazzamento N5 QUAGLIA INDUSTRIALE B</li>
+<li>Spazzamento N6 QUAGLIA INDUSTRIALE B</li>
+<li>Spazzamento N7 QUAGLIA INDUSTRIALE B</li>
+<li>Spazzamento Q IL BORGO</li>
+<li>Spazzamento R1 INDUSTRIALE C</li>
+<li>Spazzamento R2 INDUSTRIALE C</li>
+<li>Spazzamento S1 MERCATO ECHIROLLES</li>
+<li>Spazzamento T1 CENTRO</li>
+<li>Spazzamento U1 VIA BARACCA 1</li>
+<li>Spazzamento U2 VIA BARACCA 2</li>
+<li>Spazzamento U3 VIA BARACCA 3</li>
+<li>Spazzamento U4 VIA BARACCA 4</li>
+<li>Spazzamento V1 GRAMSCI 1</li>
+<li>Spazzamento V2 GRAMSCI 2</li>
+<li>Spazzamento V3 GRAMSCI 3</li>
+<li>Spazzamento V4 GRAMSCI 4</li>
+<li>strada Antica di Grugliasco</li>
+<li>strada Antica di Rivoli</li>
+<li>strada Campagnola</li>
+<li>strada del Barocchio – da C.so Allamano al CUS</li>
+<li>strada del Barocchio – da via Grandi a corso Allamano</li>
+<li>strada del Gerbido – da corso Allamano a via L. Da Vinci</li>
+<li>strada del Gerbido – da corso Allamano a via Moncalieri</li>
+<li>strada del Portone – tratto f.te Conig</li>
+<li>strada della Pronda</li>
+<li>strada della Pronda park</li>
+<li>strada dell’Arco</li>
+<li>strada dell’Arco – da strada della Pronda</li>
+<li>strada San Firmino</li>
+<li>via A. Coletti</li>
+<li>via A. Corti</li>
+<li>via A. Fogazzaro</li>
+<li>via A. Germonio</li>
+<li>via A. Grandi</li>
+<li>via A. Lamarmora</li>
+<li>via A. Lamarmora – tratto Torino/Sabaudia</li>
+<li>via A. Manzoni</li>
+<li>via A. Sibona</li>
+<li>via A. Vespucci</li>
+<li>via Adria</li>
+<li>via Alberto Sordi</li>
+<li>via Alfieri – da Giaridno Ceresa a via Lesna</li>
+<li>via Alfieri – da via Di Vittorio a Giardino Ceresa</li>
+<li>via Allegri</li>
+<li>via Antica di Grugliasco – da via Crea a via Di Vittorio</li>
+<li>via Aosta</li>
+<li>via Arduino</li>
+<li>via Arduino – da via Giolitti a via Lamarmora</li>
+<li>via Aurelio Ceresa</li>
+<li>via B. Cellini</li>
+<li>via Baracca</li>
+<li>via Baracca – mercato</li>
+<li>via Barberà del Valles</li>
+<li>via Bassi</li>
+<li>via Bechis</li>
+<li>via Bengasi</li>
+<li>via Binello</li>
+<li>via Bolzano</li>
+<li>via Bongiovanni</li>
+<li>via Borgiacchi</li>
+<li>via Boves</li>
+<li>via Buozzi</li>
+<li>via C. Battisti</li>
+<li>via C. Cenni</li>
+<li>via C. Colombo</li>
+<li>via C. del Prete</li>
+<li>via C. Girardi</li>
+<li>via C. Pisacane</li>
+<li>via C.B. Cavour</li>
+<li>via C.L.N.</li>
+<li>via Caboto</li>
+<li>via Castagnevizza</li>
+<li>via Cav. di Vittorio Veneto</li>
+<li>via Cesare Battisti – da Lanza a via Toti</li>
+<li>via Cooperative Lime – da corso Cervi a corso Allamano</li>
+<li>via Costa – da via Latina a via Leon Tron</li>
+<li>via Cotta</li>
+<li>Via Cotta – da via R. Gaetano a rotonda Cervi</li>
+<li>via Cotta – tratto da Gaber a Rino Gaetano</li>
+<li>via Cravero</li>
+<li>via Crea – controviale da confine a via Moncalieri</li>
+<li>via Crea – controviale da via Mocalieri a via Salvemini</li>
+<li>via Crea – da c. Allamano a str. Antica di Grugliasco</li>
+<li>via Crea – da corso Allamano a via Doppi centro</li>
+<li>via Crea – fronte scuole</li>
+<li>via Cumiana</li>
+<li>via D. Chiesa</li>
+<li>via D. Zoppelli</li>
+<li>via Dante</li>
+<li>via De Andrè</li>
+<li>via della Libertà – da strada del Portone a via San Paolo</li>
+<li>via della Repubblica</li>
+<li>via Di Nanni – da corso Cervi a corso Allamano</li>
+<li>via Di Nanni – interni</li>
+<li>via Don Borio</li>
+<li>via Don Borio park</li>
+<li>via Don Borio – Area giochi</li>
+<li>via Don Caustico</li>
+<li>via Don Minzoni</li>
+<li>via E . Scali</li>
+<li>via E. Montanaro</li>
+<li>via E. Santorelli</li>
+<li>via F. Baracca</li>
+<li>via F. Cravero</li>
+<li>via F. Scalenghe</li>
+<li>via F. Scoffone</li>
+<li>via F. Vaglienti</li>
+<li>via F.lli Bandiera</li>
+<li>via F.lli Longo</li>
+<li>via F.lli Rosselli</li>
+<li>via Fabbrichetta – da confine con Rivoli a piazza I Maggio</li>
+<li>via Fabbrichetta – da piazza I maggio a via Latina</li>
+<li>via Ferrero</li>
+<li>via Fiume</li>
+<li>via Foscolo</li>
+<li>via Foscolo – da via Leopardi</li>
+<li>via Fratel Prospero</li>
+<li>via Frejus</li>
+<li>via G. Camerana</li>
+<li>via G. Cassinelli</li>
+<li>via G. Cena</li>
+<li>via G. Damaso</li>
+<li>via G. Di Vittorio – da via Alfieri a via Grandi</li>
+<li>via G. Di Vittorio – da via Antica Grugliasco a via Somalia</li>
+<li>via G. Donizetti</li>
+<li>via G. D’Amico</li>
+<li>via G. Garibaldi</li>
+<li>via G. Giacosa</li>
+<li>via G. Giolitti – da corso Torino a via Cravero</li>
+<li>via G. Gozzano</li>
+<li>via G. Leopardi</li>
+<li>via G. Mameli</li>
+<li>via G. Marengo</li>
+<li>via G. Mazzini</li>
+<li>via G. Michiardi – da via Mameli a via Montanaro</li>
+<li>via G. Puccini</li>
+<li>via G. Tobanelli</li>
+<li>via G. Verdi</li>
+<li>via G. Verga</li>
+<li>via G.B. de La Salle</li>
+<li>via Galimberti</li>
+<li>via Gen Perotti</li>
+<li>via Gen. Cantore</li>
+<li>via Genova</li>
+<li>via Giolitti – da corso Torino a via Cantore</li>
+<li>via Giorgio Gaber</li>
+<li>via Giotto</li>
+<li>via Goito – da corso Cervi a corso Allamano</li>
+<li>via Goitre</li>
+<li>via Gorizia</li>
+<li>via Indipendenza</li>
+<li>via IV Novembre</li>
+<li>via L. Borri</li>
+<li>via L. Da Vinci – da corso Torino a via La Salle</li>
+<li>via L. Da Vinci – da via Baracca a corso Torino</li>
+<li>via L. Da Vinci – da via Baracca a via Sabaudia</li>
+<li>via L. Da Vinci – da via La Salle a corso Allamano</li>
+<li>via L. Ughetto</li>
+<li>via Lanza</li>
+<li>via Latina – da via Costa a via Fabbrichetta</li>
+<li>via Latina – da viale Gramsci a via Costa</li>
+<li>via Leon di Nicaragua</li>
+<li>via Leon Tron (+spartitraffici +passaggi pedonali)</li>
+<li>via Leon Tron – mercato martedì</li>
+<li>via Lesna</li>
+<li>via Lesna – da via Tirreno a via Pininfarina</li>
+<li>via Lucio Battisti</li>
+<li>via Lupo</li>
+<li>via M. Berta</li>
+<li>via M. Cordero</li>
+<li>via M. Neirotti</li>
+<li>via M. Polo</li>
+<li>via M. Stuardo</li>
+<li>via Macedonia</li>
+<li>via Maestri del Lavoro</li>
+<li>via Marietta Aleina</li>
+<li>via Maroncelli</li>
+<li>via Marzabotto</li>
+<li>via Maserati – da via Bertone a corso Allamano</li>
+<li>via Micca</li>
+<li>via Michelangelo – da corso Torino a via Baracca</li>
+<li>via Michelangelo – da corso Torino a via Cravero</li>
+<li>via Milano</li>
+<li>via Moncalieri – da via Sibona a via Allason</li>
+<li>via Morandi</li>
+<li>via Morgari</li>
+<li>via N. Bertone</li>
+<li>via N. Palli</li>
+<li>via N. Sauro – da via Cantore a piazza Allais</li>
+<li>via N. Sauro – da via Palli a via Sabaudia</li>
+<li>via Napoli</li>
+<li>via O. Boccali</li>
+<li>via Olevano</li>
+<li>via P. Crosetto</li>
+<li>via P. Levi</li>
+<li>via P. Losa</li>
+<li>via Panealbo</li>
+<li>via Pawa</li>
+<li>via Perotti</li>
+<li>via Pierangelo Bertoli</li>
+<li>via Pininfarina</li>
+<li>via Podgora</li>
+<li>via Pola</li>
+<li>via Quarto dei Mille</li>
+<li>via Quenda</li>
+<li>via Raffaello</li>
+<li>via Riesi</li>
+<li>via Rieti</li>
+<li>via Rino Gaetano</li>
+<li>via Risorgimento</li>
+<li>via Rivalta – da corso Allamano a strada del Portone</li>
+<li>via Rivalta – da corso Cervi a corso Allamano</li>
+<li>via Rodi</li>
+<li>via Roma</li>
+<li>via Roma – vialetto scuola</li>
+<li>via Rossi</li>
+<li>via Rossini</li>
+<li>via Rovereto</li>
+<li>via S. Allason</li>
+<li>via S. Bertone</li>
+<li>via S. Doppi</li>
+<li>via S. Doppi park</li>
+<li>via s. D’ Acquisto</li>
+<li>via S. Pellico</li>
+<li>via S. Santarosa</li>
+<li>via Sabaudia – da via Morselli a viale Gramsci</li>
+<li>via San Greorio Magno</li>
+<li>via San Martino</li>
+<li>via San Paolo – da via Bertonea viale Lidice</li>
+<li>via San Rocco</li>
+<li>via San Rocco park</li>
+<li>via San Rocco park posta</li>
+<li>via Solferino</li>
+<li>via Somalia</li>
+<li>via Spanna</li>
+<li>via Stampalia</li>
+<li>via Tirreno</li>
+<li>via Toti</li>
+<li>via Trento</li>
+<li>via Trieste</li>
+<li>via Tripoli</li>
+<li>via U. d’Italia</li>
+<li>via Unità d’Italia</li>
+<li>via V. Bellini</li>
+<li>via Vandalino</li>
+<li>via VIII Marzo</li>
+<li>via Vittime del Terrorismo</li>
+<li>via Vittime della Shoah</li>
+<li>via XX Settembre</li>
+<li>via XXV Aprile</li>
+<li>via Zara</li>
+<li>via. A. Volta</li>
+<li>viale Bruno</li>
+<li>Viale Echirolles (+spartitraffici +passaggi pedonali)</li>
+<li>viale Giustetti – da corso Torino a via Cravero</li>
+<li>viale Gramsci</li>
+<li>viale Lidice</li>
+<li>viale Radich</li>
+<li>viale Radich – da via Vitt. Della Shoah a strada della Pronda</li>
+<li>vialetto – da via Allason a via Crea</li>
+<li>vicolo E. Torricelli</li>
+<li>vicolo Lovo</li>
+<li>vicolo M. Monti</li>
+<li>vicolo Magellano</li>
 <li>Zona Centro</li>
 <li>Zona Fabbrichetta</li>
 <li>Zona Gerbido</li>
@@ -310,9 +408,9 @@ ul.zones li {
 <li>Zona San Sebastiano</li>
 <li>Zona Santa Maria</li>
       </ul>
-      <a class="cta" href="https://escilo.netlify.app/?comune=grugliasco">Apri il calendario di Grugliasco</a>
+      <a class="cta" href="https://escilo.it/?comune=grugliasco">Apri il calendario di Grugliasco</a>
     </div>
-    <p class="note">Gestore: <strong>CIDIU</strong> · dati da <a href="https://cidiu.it/cidiu/comune-di-grugliasco/" target="_blank" rel="noopener noreferrer">pagina ufficiale</a>. Escilo non è affiliato al gestore.</p>
+    <p class="note">Gestore: <strong>CIDIU</strong> · dati da <a class="ext-link" href="https://cidiu.it/cidiu/comune-di-grugliasco/" target="_blank" rel="noopener noreferrer">pagina ufficiale<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>. Escilo non è affiliato al gestore.</p>
     <p class="meta">
       Puoi installare Escilo come app e attivare le notifiche sul telefono.
       Verifica sempre eventuali variazioni sul sito del gestore.

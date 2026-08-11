@@ -1,8 +1,9 @@
-// Candiolo Zona 5 (Covar14): CASCINA LA MOTTA, CASCINA PARPAGLIA, CASCINA PINIERE, STRADA PROVINCIALE CANDIOLO - ORBASSANO, VIA EUROPA, VIA FAUDIZIO, VIA TORINO, VIA XXV APRILE, VICOLO ALFIERI
+// Candiolo Zona 5 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 2, 9, 6},  // 09/02/2026 Spazzamento
   {2026, 3, 3, 1},  // 03/03/2026 Organico
   {2026, 3, 6, 1},  // 06/03/2026 Organico
   {2026, 3, 6, 2},  // 06/03/2026 Indifferenziata
@@ -30,6 +31,7 @@
   {2026, 4, 10, 1},  // 10/04/2026 Organico
   {2026, 4, 10, 2},  // 10/04/2026 Indifferenziata
   {2026, 4, 11, 4},  // 11/04/2026 Verde
+  {2026, 4, 13, 6},  // 13/04/2026 Spazzamento
   {2026, 4, 14, 1},  // 14/04/2026 Organico
   {2026, 4, 17, 1},  // 17/04/2026 Organico
   {2026, 4, 17, 2},  // 17/04/2026 Indifferenziata
@@ -66,6 +68,7 @@
   {2026, 6, 5, 1},  // 05/06/2026 Organico
   {2026, 6, 5, 2},  // 05/06/2026 Indifferenziata
   {2026, 6, 6, 4},  // 06/06/2026 Verde
+  {2026, 6, 8, 6},  // 08/06/2026 Spazzamento
   {2026, 6, 9, 1},  // 09/06/2026 Organico
   {2026, 6, 12, 1},  // 12/06/2026 Organico
   {2026, 6, 12, 2},  // 12/06/2026 Indifferenziata
@@ -107,6 +110,7 @@
   {2026, 8, 7, 2},  // 07/08/2026 Indifferenziata
   {2026, 8, 7, 3},  // 07/08/2026 Plastica
   {2026, 8, 8, 4},  // 08/08/2026 Verde
+  {2026, 8, 10, 6},  // 10/08/2026 Spazzamento
   {2026, 8, 11, 0},  // 11/08/2026 Carta
   {2026, 8, 11, 1},  // 11/08/2026 Organico
   {2026, 8, 14, 1},  // 14/08/2026 Organico
@@ -149,6 +153,7 @@
   {2026, 10, 9, 1},  // 09/10/2026 Organico
   {2026, 10, 9, 2},  // 09/10/2026 Indifferenziata
   {2026, 10, 10, 4},  // 10/10/2026 Verde
+  {2026, 10, 12, 6},  // 12/10/2026 Spazzamento
   {2026, 10, 13, 1},  // 13/10/2026 Organico
   {2026, 10, 16, 1},  // 16/10/2026 Organico
   {2026, 10, 16, 2},  // 16/10/2026 Indifferenziata

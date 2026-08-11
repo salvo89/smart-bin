@@ -1,8 +1,10 @@
-// Bruino Zona 1 (Covar14): PIAZZA DELLA PACE, PIAZZA DONATORI DEL SANGUE, PIAZZA MUNICIPIO, STRADA DEL CHIAPUSSALE, STRADA DEL DORGNANO, STRADA DEL MEISINO, STRADA DELLA RUL, STRADA LORA, VIA AIRASCA, VIA BARDONECCHIA, VIA CANDIOLO, VIA COAZZE, VIA CORDERO, VIA CUMIANA, VIA DEI CICLAMINI, VIA DEI GELSOMINI, VIA DEI GLICINI, VIA DEI PLATANI, VIA DEL MULINO, VIA DELLE ACACIE, VIA DELLE BETULLE, VIA DELLE CAMELIE, VIA DELLE GINESTRE, VIA DELLE MAGNOLIE, VIA DELLE ROSE, VIA DELLE VIOLE, VIA GUARINI, VIA JUVARRA, VIA MONCENISIO, VIA MONTE BIANCO, VIA MONTE CERVINO, VIA MONTE ROSA, VIA MONTE SAN GIORGIO, VIA MONVISO, VIA MUSINE', VIA NONE, VIA ORBASSANO, VIA PALLADIO, VIA PIOSSASCO (N. 1-15 e 2-56), VIA PO, VIA REANO, VIA RIVALTA, VIA ROCCIAMELONE, VIA ROCCIAVRE', VIA ROGGERI, VIA ROMA, VIA SAN ROCCO, VIA SANGANO, VIA SANGONE, VIA SUSA PINEROLO (N. 1-15 e 2-28), VIA TORINO, VIA TRANA, VIA VALGIOIE, VIA VILLARBASSE, VIA VOLVERA (N. 5-17 e 2-6), VIALE DEI CIPRESSI, VIALE DEI TIGLI, VICOLO GRAN PARADISO, VICOLO MONGINEVRO, VICOLO RENATO AUDANO, VICOLO SAN MARTINO, VICOLO VIOLA, VIA XXV APRILE, STRADA VIC. FORNACE
+// Bruino Zona 1 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 2, 2, 6},  // 02/02/2026 Spazzamento
+  {2026, 2, 9, 6},  // 09/02/2026 Spazzamento
   {2026, 3, 2, 0},  // 02/03/2026 Carta
   {2026, 3, 2, 1},  // 02/03/2026 Organico
   {2026, 3, 2, 2},  // 02/03/2026 Indifferenziata
@@ -37,6 +39,7 @@
   {2026, 4, 13, 1},  // 13/04/2026 Organico
   {2026, 4, 13, 2},  // 13/04/2026 Indifferenziata
   {2026, 4, 13, 4},  // 13/04/2026 Verde
+  {2026, 4, 13, 6},  // 13/04/2026 Spazzamento
   {2026, 4, 15, 1},  // 15/04/2026 Organico
   {2026, 4, 20, 0},  // 20/04/2026 Carta
   {2026, 4, 20, 1},  // 20/04/2026 Organico
@@ -54,6 +57,7 @@
   {2026, 5, 4, 2},  // 04/05/2026 Indifferenziata
   {2026, 5, 4, 3},  // 04/05/2026 Plastica
   {2026, 5, 4, 4},  // 04/05/2026 Verde
+  {2026, 5, 4, 6},  // 04/05/2026 Spazzamento
   {2026, 5, 7, 1},  // 07/05/2026 Organico
   {2026, 5, 11, 0},  // 11/05/2026 Carta
   {2026, 5, 11, 1},  // 11/05/2026 Organico
@@ -81,6 +85,7 @@
   {2026, 6, 8, 1},  // 08/06/2026 Organico
   {2026, 6, 8, 2},  // 08/06/2026 Indifferenziata
   {2026, 6, 8, 4},  // 08/06/2026 Verde
+  {2026, 6, 8, 6},  // 08/06/2026 Spazzamento
   {2026, 6, 11, 1},  // 11/06/2026 Organico
   {2026, 6, 15, 0},  // 15/06/2026 Carta
   {2026, 6, 15, 1},  // 15/06/2026 Organico
@@ -124,12 +129,14 @@
   {2026, 8, 3, 0},  // 03/08/2026 Carta
   {2026, 8, 3, 1},  // 03/08/2026 Organico
   {2026, 8, 3, 4},  // 03/08/2026 Verde
+  {2026, 8, 3, 6},  // 03/08/2026 Spazzamento
   {2026, 8, 6, 1},  // 06/08/2026 Organico
   {2026, 8, 10, 0},  // 10/08/2026 Carta
   {2026, 8, 10, 1},  // 10/08/2026 Organico
   {2026, 8, 10, 2},  // 10/08/2026 Indifferenziata
   {2026, 8, 10, 3},  // 10/08/2026 Plastica
   {2026, 8, 10, 4},  // 10/08/2026 Verde
+  {2026, 8, 10, 6},  // 10/08/2026 Spazzamento
   {2026, 8, 13, 1},  // 13/08/2026 Organico
   {2026, 8, 17, 0},  // 17/08/2026 Carta
   {2026, 8, 17, 1},  // 17/08/2026 Organico
@@ -179,6 +186,7 @@
   {2026, 10, 12, 1},  // 12/10/2026 Organico
   {2026, 10, 12, 2},  // 12/10/2026 Indifferenziata
   {2026, 10, 12, 4},  // 12/10/2026 Verde
+  {2026, 10, 12, 6},  // 12/10/2026 Spazzamento
   {2026, 10, 15, 1},  // 15/10/2026 Organico
   {2026, 10, 19, 0},  // 19/10/2026 Carta
   {2026, 10, 19, 1},  // 19/10/2026 Organico
@@ -196,6 +204,7 @@
   {2026, 11, 1, 2},  // 01/11/2026 Indifferenziata
   {2026, 11, 1, 3},  // 01/11/2026 Plastica
   {2026, 11, 1, 4},  // 01/11/2026 Verde
+  {2026, 11, 2, 6},  // 02/11/2026 Spazzamento
   {2026, 11, 5, 1},  // 05/11/2026 Organico
   {2026, 11, 9, 0},  // 09/11/2026 Carta
   {2026, 11, 9, 1},  // 09/11/2026 Organico
@@ -225,6 +234,7 @@
   {2026, 12, 14, 1},  // 14/12/2026 Organico
   {2026, 12, 14, 2},  // 14/12/2026 Indifferenziata
   {2026, 12, 14, 3},  // 14/12/2026 Plastica
+  {2026, 12, 14, 6},  // 14/12/2026 Spazzamento
   {2026, 12, 17, 1},  // 17/12/2026 Organico
   {2026, 12, 21, 0},  // 21/12/2026 Carta
   {2026, 12, 21, 1},  // 21/12/2026 Organico

@@ -14,7 +14,8 @@ Prima di considerare il task finito:
 
 1. Checklist SEO della skill (meta/canonical/OG/JSON-LD, footer labels, crawlable HTML).
 2. Se tocchi comuni/dati o il generatore: `py -3 tools/build_seo_pages.py`.
-3. `npm run test:push` se hai toccato smoke/SEO assets.
-4. In risposta: aggiornamenti SEO fatti + **azioni manuali utente** (Search Console / sitemap / indicizzazione) se il deploy cambia URL pubblici.
+3. Se tocchi `index.json` / zone / vie / calendari: `py -3 tools/validate_zone_calendars.py` (skill `validate-zone-calendars`).
+4. `npm run test:push` se hai toccato smoke/SEO assets.
+5. In risposta: aggiornamenti SEO fatti + **azioni manuali utente** (Search Console / sitemap / indicizzazione) se il deploy cambia URL pubblici.
 
 Non editare a mano `docs/comuni/*.html` salvo emergenza: passa da `tools/build_seo_pages.py`.

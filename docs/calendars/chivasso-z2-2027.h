@@ -1,6 +1,6 @@
-// Chivasso Zona 2 (SETA): Frazione Mandria, Piazza San Giovanni, Strada SP81, Strada Statale 29, Strada Statale N. 26, km 6, Via Aldo Moro, Via Bays, Via Brugnone, Via Campagna, Via Cappuccini, Via Cene, Via Chiavarini, Via Colombaro, Via Don Francesco Raineri, Via Edmondo De Amicis, Via F. Talentino, P(50+), Via Favorita, Via Giovanni Cena, Via Giovanni Falcone, Via Giovanni Spanzotti, Via Marco Biagi, Via Matilde Mandolini, Via Mazze, D(27+);P(16+), Via Molinetto Rosso, Via Paolo Regis, P(42+), Via Rivera, Via Rosate, Via San Francesco, Via San Secondo, Via Sandro Pertini, Via Sant'Anna, Via Sant'Elena, Via Vietta, Via Viora, Vicolo Sant'Elena
+// Chivasso Zona 2 (SETA)
 // Anno 2027 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2027, 1, 2, 1},  // 02/01/2027 Organico
@@ -10,3 +10,8 @@
   {2027, 1, 7, 5},  // 07/01/2027 Vetro
   {2027, 1, 8, 5},  // 08/01/2027 Vetro
   {2027, 1, 9, 1},  // 09/01/2027 Organico
+  {2027, 2, 1, 6},  // 01/02/2027 Spazzamento
+  {2027, 2, 15, 6},  // 15/02/2027 Spazzamento
+  {2027, 11, 1, 6},  // 01/11/2027 Spazzamento
+  {2027, 11, 15, 6},  // 15/11/2027 Spazzamento
+  {2027, 11, 29, 6},  // 29/11/2027 Spazzamento

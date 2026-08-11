@@ -1,9 +1,10 @@
-// Chivasso Zona 2 (SETA): Frazione Mandria, Piazza San Giovanni, Strada SP81, Strada Statale 29, Strada Statale N. 26, km 6, Via Aldo Moro, Via Bays, Via Brugnone, Via Campagna, Via Cappuccini, Via Cene, Via Chiavarini, Via Colombaro, Via Don Francesco Raineri, Via Edmondo De Amicis, Via F. Talentino, P(50+), Via Favorita, Via Giovanni Cena, Via Giovanni Falcone, Via Giovanni Spanzotti, Via Marco Biagi, Via Matilde Mandolini, Via Mazze, D(27+);P(16+), Via Molinetto Rosso, Via Paolo Regis, P(42+), Via Rivera, Via Rosate, Via San Francesco, Via San Secondo, Via Sandro Pertini, Via Sant'Anna, Via Sant'Elena, Via Vietta, Via Viora, Vicolo Sant'Elena
+// Chivasso Zona 2 (SETA)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 2, 2, 0},  // 02/02/2026 Carta
+  {2026, 2, 2, 6},  // 02/02/2026 Spazzamento
   {2026, 2, 4, 1},  // 04/02/2026 Organico
   {2026, 2, 4, 3},  // 04/02/2026 Plastica
   {2026, 2, 6, 5},  // 06/02/2026 Vetro
@@ -16,6 +17,7 @@
   {2026, 2, 14, 1},  // 14/02/2026 Organico
   {2026, 2, 15, 1},  // 15/02/2026 Organico
   {2026, 2, 16, 0},  // 16/02/2026 Carta
+  {2026, 2, 16, 6},  // 16/02/2026 Spazzamento
   {2026, 2, 18, 1},  // 18/02/2026 Organico
   {2026, 2, 18, 3},  // 18/02/2026 Plastica
   {2026, 2, 20, 5},  // 20/02/2026 Vetro
@@ -213,6 +215,7 @@
   {2026, 10, 22, 2},  // 22/10/2026 Indifferenziata
   {2026, 10, 22, 3},  // 22/10/2026 Plastica
   {2026, 11, 2, 0},  // 02/11/2026 Carta
+  {2026, 11, 2, 6},  // 02/11/2026 Spazzamento
   {2026, 11, 4, 1},  // 04/11/2026 Organico
   {2026, 11, 4, 2},  // 04/11/2026 Indifferenziata
   {2026, 11, 4, 3},  // 04/11/2026 Plastica
@@ -227,11 +230,13 @@
   {2026, 11, 15, 1},  // 15/11/2026 Organico
   {2026, 11, 15, 4},  // 15/11/2026 Verde
   {2026, 11, 16, 0},  // 16/11/2026 Carta
+  {2026, 11, 16, 6},  // 16/11/2026 Spazzamento
   {2026, 11, 18, 1},  // 18/11/2026 Organico
   {2026, 11, 18, 2},  // 18/11/2026 Indifferenziata
   {2026, 11, 18, 3},  // 18/11/2026 Plastica
   {2026, 11, 21, 1},  // 21/11/2026 Organico
   {2026, 11, 22, 1},  // 22/11/2026 Organico
+  {2026, 11, 30, 6},  // 30/11/2026 Spazzamento
   {2026, 12, 2, 1},  // 02/12/2026 Organico
   {2026, 12, 2, 2},  // 02/12/2026 Indifferenziata
   {2026, 12, 2, 3},  // 02/12/2026 Plastica

@@ -1,27 +1,31 @@
-// Chivasso Zona 1 (SETA): Piazza dell'Assunta, Raccordo Est di Chivasso, Strada della campagna, Strada per Chivasso, Strada SP89, Strada SP91, Strada SS11, Strada VALTESA, Stradale Milano, Via 25 Aprile, Via 3 Marzo 1966, Via Avvocato Vincenzo Druetti, Via Bertolina, Via Borghetto, Via Casale, Via Cascina Ebreo, Via Case Nuove, Via Chiabotti, Via Cigliano, Via Conte Margherio, Via Del Cimitero, Via del Pellegrino, Via dell'Assunta, Via Don Francesco Pissardo, Via Don Giovanni Bosco, Via Don Vincenzo Actis, Via Giuseppe Cottolengo, Via Maestra, Via Monviso, Via Neirole, Via Nuova, Via Pietro Berra, Via Poasso, Via Rosa dei Banchi, Via San Giovanni, Via San Rocco, Via San Tommaso, Via San Vincenzo, Via Santa Margherita, Via Santa Maria, Via Sant'Antonio, Via Torre Alta, Via Trieste, Vicolo del Santuario, Vicolo Monte Rosa, Vicolo San Bernardo, Vicolo San Giuseppe, Vicolo San Grato, Vicolo San Luigi, Vicolo San Martino
+// Chivasso Zona 1 (SETA)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 2, 2, 0},  // 02/02/2026 Carta
   {2026, 2, 2, 1},  // 02/02/2026 Organico
   {2026, 2, 4, 2},  // 04/02/2026 Indifferenziata
   {2026, 2, 4, 3},  // 04/02/2026 Plastica
+  {2026, 2, 4, 6},  // 04/02/2026 Spazzamento
   {2026, 2, 5, 1},  // 05/02/2026 Organico
   {2026, 2, 6, 1},  // 06/02/2026 Organico
   {2026, 2, 6, 5},  // 06/02/2026 Vetro
   {2026, 2, 9, 0},  // 09/02/2026 Carta
   {2026, 2, 9, 1},  // 09/02/2026 Organico
   {2026, 2, 11, 3},  // 11/02/2026 Plastica
+  {2026, 2, 11, 6},  // 11/02/2026 Spazzamento
   {2026, 2, 12, 1},  // 12/02/2026 Organico
   {2026, 2, 13, 1},  // 13/02/2026 Organico
   {2026, 2, 16, 0},  // 16/02/2026 Carta
   {2026, 2, 16, 1},  // 16/02/2026 Organico
   {2026, 2, 18, 2},  // 18/02/2026 Indifferenziata
   {2026, 2, 18, 3},  // 18/02/2026 Plastica
+  {2026, 2, 18, 6},  // 18/02/2026 Spazzamento
   {2026, 2, 19, 1},  // 19/02/2026 Organico
   {2026, 2, 20, 1},  // 20/02/2026 Organico
   {2026, 2, 20, 5},  // 20/02/2026 Vetro
+  {2026, 2, 25, 6},  // 25/02/2026 Spazzamento
   {2026, 3, 2, 0},  // 02/03/2026 Carta
   {2026, 3, 2, 1},  // 02/03/2026 Organico
   {2026, 3, 4, 2},  // 04/03/2026 Indifferenziata
@@ -207,6 +211,7 @@
   {2026, 11, 2, 0},  // 02/11/2026 Carta
   {2026, 11, 2, 1},  // 02/11/2026 Organico
   {2026, 11, 4, 3},  // 04/11/2026 Plastica
+  {2026, 11, 4, 6},  // 04/11/2026 Spazzamento
   {2026, 11, 5, 1},  // 05/11/2026 Organico
   {2026, 11, 6, 1},  // 06/11/2026 Organico
   {2026, 11, 7, 4},  // 07/11/2026 Verde
@@ -215,16 +220,19 @@
   {2026, 11, 9, 1},  // 09/11/2026 Organico
   {2026, 11, 11, 2},  // 11/11/2026 Indifferenziata
   {2026, 11, 11, 3},  // 11/11/2026 Plastica
+  {2026, 11, 11, 6},  // 11/11/2026 Spazzamento
   {2026, 11, 12, 1},  // 12/11/2026 Organico
   {2026, 11, 13, 1},  // 13/11/2026 Organico
   {2026, 11, 13, 5},  // 13/11/2026 Vetro
   {2026, 11, 16, 0},  // 16/11/2026 Carta
   {2026, 11, 16, 1},  // 16/11/2026 Organico
   {2026, 11, 18, 3},  // 18/11/2026 Plastica
+  {2026, 11, 18, 6},  // 18/11/2026 Spazzamento
   {2026, 11, 19, 1},  // 19/11/2026 Organico
   {2026, 11, 20, 1},  // 20/11/2026 Organico
   {2026, 11, 21, 4},  // 21/11/2026 Verde
   {2026, 11, 22, 4},  // 22/11/2026 Verde
+  {2026, 11, 25, 6},  // 25/11/2026 Spazzamento
   {2026, 12, 2, 3},  // 02/12/2026 Plastica
   {2026, 12, 3, 1},  // 03/12/2026 Organico
   {2026, 12, 3, 3},  // 03/12/2026 Plastica

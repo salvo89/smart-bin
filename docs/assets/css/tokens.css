@@ -1,0 +1,91 @@
+:root {
+  color-scheme: light;
+  --bg: #eef6f1;
+  --bg-top: #d8f0e2;
+  --bg-bottom: #f4f7f5;
+  --surface: #ffffff;
+  --ink: #142018;
+  --muted: #5a7266;
+  --muted-2: #6a8074;
+  --line: #d5e2da;
+  --accent: #1f5c42;
+  --accent-soft: #e4f3eb;
+  --chip-bg: #f0f5f2;
+  --mix-base: #ffffff;
+  --track: #c5d4cb;
+  --input-disabled: #f3f6f4;
+  --row-bg: #f7fbf8;
+  --danger: #a33;
+  --good: #1f5c42;
+  --warn: #8a5a1a;
+  --bad: #8b3a3a;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-border: rgba(255, 255, 255, 0.95);
+  --nav-shadow: 0 8px 24px rgba(20, 40, 30, 0.12);
+  --sheet-scrim: rgba(20, 32, 24, 0.45);
+  --card-shadow: 0 16px 36px rgba(20, 40, 30, 0.12);
+  --sk-a: #e8eee9;
+  --sk-b: #d5e2da;
+  --empty-veil: rgba(238, 246, 241, 0.55);
+  --empty-card-bg: rgba(255, 255, 255, 0.82);
+  --empty-card-border: rgba(213, 226, 218, 0.95);
+  --focus-ring: rgba(31, 92, 66, 0.35);
+  --today-border: rgba(31, 92, 66, 0.35);
+  --safe: 1rem;
+  --touch: 2.75rem;
+  --nav-h: 4.25rem;
+  --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+  /* UNI 11686 / Covar14 Waste Visual Elements */
+  --tag-c: #0e518d;
+  --tag-o: #755c49;
+  --tag-i: #9da3a6;
+  --tag-p: #f3e03b;
+  --tag-v: #d1bc8a;
+  --tag-g: #28713e;
+  --tag-s: #5b7c99;
+  --tag-x: #a88bc8;
+  /* Stats bin mix colors */
+  --bin-o: #5a8f3a;
+  --bin-c: #3d6eb5;
+  --bin-p: #c9a227;
+  --bin-v: #2f8f6b;
+  --bin-g: #5b8f9a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #101814;
+    --bg-top: #152019;
+    --bg-bottom: #0c1210;
+    --surface: #1a2420;
+    --ink: #e6f0ea;
+    --muted: #8fa396;
+    --muted-2: #7a9084;
+    --line: #2c3b33;
+    --accent: #3d9a6e;
+    --accent-soft: #1c3228;
+    --chip-bg: #24302a;
+    --mix-base: #1a2420;
+    --track: #2f4037;
+    --input-disabled: #151e1a;
+    --row-bg: #151e1a;
+    --danger: #e07070;
+    --good: #3d9a6e;
+    --warn: #d4a35c;
+    --bad: #e07070;
+    --nav-bg: rgba(22, 30, 26, 0.92);
+    --nav-border: rgba(44, 59, 51, 0.95);
+    --nav-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --sheet-scrim: rgba(0, 0, 0, 0.55);
+    --card-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    --sk-a: #1e2a24;
+    --sk-b: #2a3830;
+    --empty-veil: rgba(16, 24, 20, 0.55);
+    --empty-card-bg: rgba(26, 36, 32, 0.92);
+    --empty-card-border: rgba(44, 59, 51, 0.95);
+    --focus-ring: rgba(61, 154, 110, 0.45);
+    --today-border: rgba(61, 154, 110, 0.5);
+  }
+}

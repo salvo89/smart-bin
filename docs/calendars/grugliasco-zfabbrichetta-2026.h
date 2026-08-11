@@ -1,10 +1,11 @@
 // Grugliasco Zona Fabbrichetta (CIDIU)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 1, 2, 1},  // 02/01/2026 Organico
   {2026, 1, 5, 0},  // 05/01/2026 Carta
+  {2026, 1, 5, 6},  // 05/01/2026 Spazzamento
   {2026, 1, 6, 1},  // 06/01/2026 Organico
   {2026, 1, 6, 2},  // 06/01/2026 Indifferenziata
   {2026, 1, 9, 1},  // 09/01/2026 Organico
@@ -21,6 +22,7 @@
   {2026, 1, 27, 2},  // 27/01/2026 Indifferenziata
   {2026, 1, 30, 1},  // 30/01/2026 Organico
   {2026, 2, 2, 0},  // 02/02/2026 Carta
+  {2026, 2, 2, 6},  // 02/02/2026 Spazzamento
   {2026, 2, 3, 1},  // 03/02/2026 Organico
   {2026, 2, 3, 2},  // 03/02/2026 Indifferenziata
   {2026, 2, 6, 1},  // 06/02/2026 Organico
@@ -37,6 +39,7 @@
   {2026, 2, 24, 2},  // 24/02/2026 Indifferenziata
   {2026, 2, 27, 1},  // 27/02/2026 Organico
   {2026, 3, 2, 0},  // 02/03/2026 Carta
+  {2026, 3, 2, 6},  // 02/03/2026 Spazzamento
   {2026, 3, 3, 1},  // 03/03/2026 Organico
   {2026, 3, 3, 2},  // 03/03/2026 Indifferenziata
   {2026, 3, 6, 1},  // 06/03/2026 Organico
@@ -53,6 +56,7 @@
   {2026, 3, 24, 2},  // 24/03/2026 Indifferenziata
   {2026, 3, 27, 1},  // 27/03/2026 Organico
   {2026, 3, 30, 0},  // 30/03/2026 Carta
+  {2026, 3, 30, 6},  // 30/03/2026 Spazzamento
   {2026, 3, 31, 1},  // 31/03/2026 Organico
   {2026, 3, 31, 2},  // 31/03/2026 Indifferenziata
   {2026, 4, 3, 1},  // 03/04/2026 Organico
@@ -69,6 +73,7 @@
   {2026, 4, 21, 2},  // 21/04/2026 Indifferenziata
   {2026, 4, 24, 1},  // 24/04/2026 Organico
   {2026, 4, 27, 0},  // 27/04/2026 Carta
+  {2026, 4, 27, 6},  // 27/04/2026 Spazzamento
   {2026, 4, 28, 1},  // 28/04/2026 Organico
   {2026, 4, 28, 2},  // 28/04/2026 Indifferenziata
   {2026, 5, 1, 1},  // 01/05/2026 Organico
@@ -85,6 +90,7 @@
   {2026, 5, 19, 2},  // 19/05/2026 Indifferenziata
   {2026, 5, 22, 1},  // 22/05/2026 Organico
   {2026, 5, 25, 0},  // 25/05/2026 Carta
+  {2026, 5, 25, 6},  // 25/05/2026 Spazzamento
   {2026, 5, 26, 1},  // 26/05/2026 Organico
   {2026, 5, 26, 2},  // 26/05/2026 Indifferenziata
   {2026, 5, 29, 1},  // 29/05/2026 Organico
@@ -101,6 +107,7 @@
   {2026, 6, 16, 2},  // 16/06/2026 Indifferenziata
   {2026, 6, 19, 1},  // 19/06/2026 Organico
   {2026, 6, 22, 0},  // 22/06/2026 Carta
+  {2026, 6, 22, 6},  // 22/06/2026 Spazzamento
   {2026, 6, 23, 1},  // 23/06/2026 Organico
   {2026, 6, 23, 2},  // 23/06/2026 Indifferenziata
   {2026, 6, 26, 1},  // 26/06/2026 Organico
@@ -117,6 +124,7 @@
   {2026, 7, 14, 2},  // 14/07/2026 Indifferenziata
   {2026, 7, 17, 1},  // 17/07/2026 Organico
   {2026, 7, 20, 0},  // 20/07/2026 Carta
+  {2026, 7, 20, 6},  // 20/07/2026 Spazzamento
   {2026, 7, 21, 1},  // 21/07/2026 Organico
   {2026, 7, 21, 2},  // 21/07/2026 Indifferenziata
   {2026, 7, 24, 1},  // 24/07/2026 Organico
@@ -133,6 +141,7 @@
   {2026, 8, 11, 2},  // 11/08/2026 Indifferenziata
   {2026, 8, 14, 1},  // 14/08/2026 Organico
   {2026, 8, 17, 0},  // 17/08/2026 Carta
+  {2026, 8, 17, 6},  // 17/08/2026 Spazzamento
   {2026, 8, 18, 1},  // 18/08/2026 Organico
   {2026, 8, 18, 2},  // 18/08/2026 Indifferenziata
   {2026, 8, 21, 1},  // 21/08/2026 Organico
@@ -149,6 +158,7 @@
   {2026, 9, 8, 2},  // 08/09/2026 Indifferenziata
   {2026, 9, 11, 1},  // 11/09/2026 Organico
   {2026, 9, 14, 0},  // 14/09/2026 Carta
+  {2026, 9, 14, 6},  // 14/09/2026 Spazzamento
   {2026, 9, 15, 1},  // 15/09/2026 Organico
   {2026, 9, 15, 2},  // 15/09/2026 Indifferenziata
   {2026, 9, 18, 1},  // 18/09/2026 Organico
@@ -165,6 +175,7 @@
   {2026, 10, 6, 2},  // 06/10/2026 Indifferenziata
   {2026, 10, 9, 1},  // 09/10/2026 Organico
   {2026, 10, 12, 0},  // 12/10/2026 Carta
+  {2026, 10, 12, 6},  // 12/10/2026 Spazzamento
   {2026, 10, 13, 1},  // 13/10/2026 Organico
   {2026, 10, 13, 2},  // 13/10/2026 Indifferenziata
   {2026, 10, 16, 1},  // 16/10/2026 Organico
@@ -181,6 +192,7 @@
   {2026, 11, 3, 2},  // 03/11/2026 Indifferenziata
   {2026, 11, 6, 1},  // 06/11/2026 Organico
   {2026, 11, 9, 0},  // 09/11/2026 Carta
+  {2026, 11, 9, 6},  // 09/11/2026 Spazzamento
   {2026, 11, 10, 1},  // 10/11/2026 Organico
   {2026, 11, 10, 2},  // 10/11/2026 Indifferenziata
   {2026, 11, 13, 1},  // 13/11/2026 Organico
@@ -197,6 +209,7 @@
   {2026, 12, 1, 2},  // 01/12/2026 Indifferenziata
   {2026, 12, 4, 1},  // 04/12/2026 Organico
   {2026, 12, 7, 0},  // 07/12/2026 Carta
+  {2026, 12, 7, 6},  // 07/12/2026 Spazzamento
   {2026, 12, 8, 1},  // 08/12/2026 Organico
   {2026, 12, 8, 2},  // 08/12/2026 Indifferenziata
   {2026, 12, 11, 1},  // 11/12/2026 Organico

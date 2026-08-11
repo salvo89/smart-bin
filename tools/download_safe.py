@@ -11,7 +11,7 @@ from pathlib import Path
 def download_bytes(url: str, timeout: int = 120) -> bytes:
     try:
         ctx = ssl.create_default_context()
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 SmartBin"})
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 Escilo"})
         with urllib.request.urlopen(req, context=ctx, timeout=timeout) as resp:
             return resp.read()
     except Exception:

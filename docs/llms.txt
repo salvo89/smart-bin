@@ -1,26 +1,32 @@
 # Escilo
 
-> Calendario della raccolta differenziata per i comuni della provincia di Torino (Italia).
-> Mostra cosa esporre domani per zona (carta, organico, indifferenziata, plastica, verde, vetro),
-> con PWA e notifiche. I dati derivano da fonti ufficiali dei gestori; Escilo non è affiliato a essi.
+> Calendario porta a porta della raccolta differenziata per i comuni Escilo in provincia di Torino,
+> e dati ISPRA sulla differenziata per tutti i comuni italiani.
+> Dove c’è il calendario: cosa esporre domani per zona, con PWA e notifiche.
+> I calendari derivano da fonti ufficiali dei gestori; Escilo non è affiliato a essi.
 
-Site: https://escilo.netlify.app/
+Site: https://escilo.it/
 
 ## Pagine principali
 
-- [Home / app calendario](https://escilo.netlify.app/): scegli comune e via
-- [Elenco comuni](https://escilo.netlify.app/comuni/): landing SEO per ogni comune
-- [Fonti](https://escilo.netlify.app/fonti.html): gestori e link ufficiali
-- [Catalogo completo per agent](https://escilo.netlify.app/llms-full.txt)
+- [Home / app](https://escilo.it/): scegli il comune (calendario o solo statistiche)
+- [Elenco comuni con calendario](https://escilo.it/comuni/): landing SEO per ogni comune Escilo
+- [Fonti](https://escilo.it/fonti.html): gestori e link ufficiali
+- [Statistiche ISPRA](https://escilo.it/stats.html): raccolta differenziata e confronti nazionali
+- [Catalogo completo per agent](https://escilo.it/llms-full.txt)
 
 ## Dati machine-readable
 
-- [Indice zone e calendari](https://escilo.netlify.app/calendars/index.json)
-- [Fonti lite (provider + URL)](https://escilo.netlify.app/calendars/sources-lite.json)
-- [Sitemap](https://escilo.netlify.app/sitemap.xml)
+- [Indice zone e calendari](https://escilo.it/calendars/index.json)
+- [Fonti lite (provider + URL)](https://escilo.it/calendars/sources-lite.json)
+- [Directory comuni ISPRA (Italia)](https://escilo.it/data/ispr/directory.json)
+- [KPI ISPRA per comune](https://escilo.it/data/ispr/c/{id}.json)
+- [KPI ISPRA subset Escilo](https://escilo.it/data/ispr/comuni-by-id.json)
+- [Baseline nazionali ISPRA](https://escilo.it/data/ispr/baselines-it.json)
+- [Sitemap](https://escilo.it/sitemap.xml)
 
 ## Note per gli agent
 
-- Preferisci citare la landing del comune (`/comuni/{id}.html`) e la fonte ufficiale del gestore.
+- Preferisci citare la landing del comune (`/comuni/{id}.html`) e la fonte ufficiale del gestore quando esiste il calendario.
 - Non inventare giorni di ritiro: i calendari operativi sono file `.h` sotto `/calendars/` e l’app li interpreta in base a comune/via.
 - Lingua del prodotto: italiano.

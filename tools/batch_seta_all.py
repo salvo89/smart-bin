@@ -110,7 +110,8 @@ def parse_zone(label: str, url: str) -> tuple[str, str, int | None]:
             return f"z{num}", f"Zona {num}", num
         return f"z{zraw.lower()}", f"Zona {zraw.upper()}", None
 
-    return "z1", "Zona unica", 1
+    # Prefer zunica over phantom z1 when the PDF has no zone token.
+    return "zunica", "Zona unica", None
 
 
 def zone_file_slug(comune_id: str) -> str:

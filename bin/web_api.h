@@ -1,5 +1,5 @@
-#ifndef SMART_BIN_WEB_API_H
-#define SMART_BIN_WEB_API_H
+#ifndef ESCILO_WEB_API_H
+#define ESCILO_WEB_API_H
 
 #include <Arduino.h>
 #include <WiFi.h>
@@ -254,18 +254,18 @@ static void sendBinary(WiFiClient& client, const char* contentType, const uint8_
 }
 
 static void sendDashboardHtml(WiFiClient& client) {
-  sendBinary(client, "text/html; charset=utf-8", SMART_BIN_WEB_UI_GZ, SMART_BIN_WEB_UI_GZ_LEN,
+  sendBinary(client, "text/html; charset=utf-8", ESCILO_WEB_UI_GZ, ESCILO_WEB_UI_GZ_LEN,
              true);
 }
 
 static void sendAppIconPng(WiFiClient& client) {
-  sendBinary(client, "image/png", SMART_BIN_WEB_ICON_PNG, SMART_BIN_WEB_ICON_PNG_LEN, false);
+  sendBinary(client, "image/png", ESCILO_WEB_ICON_PNG, ESCILO_WEB_ICON_PNG_LEN, false);
 }
 
 static void sendWebManifest(WiFiClient& client) {
   // Manifest minimo: una sola icona 192 (stesso PNG) — impatto flash trascurabile.
   sendHttp(client, 200, "application/manifest+json",
-           "{\"name\":\"Smart Bin\",\"short_name\":\"Smart Bin\",\"start_url\":\"/\","
+           "{\"name\":\"Escilo\",\"short_name\":\"Escilo\",\"start_url\":\"/\","
            "\"display\":\"standalone\",\"background_color\":\"#1f5c42\","
            "\"theme_color\":\"#1f5c42\",\"icons\":[{\"src\":\"/icon-192.png\","
            "\"sizes\":\"192x192\",\"type\":\"image/png\",\"purpose\":\"any maskable\"}]}");

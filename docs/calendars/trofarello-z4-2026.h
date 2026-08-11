@@ -1,8 +1,12 @@
-// Trofarello Zona 4 (Covar14): PIAZZA GENERALE SUSSIO, VIA ARMANDO DIAZ, VIA BACHELET, VIA CESARE BATTISTI, VIA CLEO BALBO, VIA D'ANNUNZIO, VIA DEI MILLE, VIA DELLA CONCERIA, VIA DON TOMMASO MASERA, VIA FILIPPO TURATI, VIA GARIBALDI, VIA GUIDO ROSSA, VIA ODDINO MORGARI, VIA PALMIRO TOGLIATTI, VIA RIGOLFO, VIA ROMA, VIA XX SETTEMBRE, VIA XXIV MAGGIO
+// Trofarello Zona 4 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 1, 6, 6},  // 06/01/2026 Spazzamento
+  {2026, 1, 13, 6},  // 13/01/2026 Spazzamento
+  {2026, 1, 20, 6},  // 20/01/2026 Spazzamento
+  {2026, 1, 27, 6},  // 27/01/2026 Spazzamento
   {2026, 3, 3, 4},  // 03/03/2026 Verde
   {2026, 3, 4, 1},  // 04/03/2026 Organico
   {2026, 3, 5, 0},  // 05/03/2026 Carta
@@ -233,27 +237,32 @@
   {2026, 11, 26, 2},  // 26/11/2026 Indifferenziata
   {2026, 11, 26, 3},  // 26/11/2026 Plastica
   {2026, 11, 28, 1},  // 28/11/2026 Organico
+  {2026, 12, 1, 6},  // 01/12/2026 Spazzamento
   {2026, 12, 2, 1},  // 02/12/2026 Organico
   {2026, 12, 3, 0},  // 03/12/2026 Carta
   {2026, 12, 3, 2},  // 03/12/2026 Indifferenziata
   {2026, 12, 3, 3},  // 03/12/2026 Plastica
   {2026, 12, 5, 1},  // 05/12/2026 Organico
+  {2026, 12, 8, 6},  // 08/12/2026 Spazzamento
   {2026, 12, 9, 1},  // 09/12/2026 Organico
   {2026, 12, 10, 0},  // 10/12/2026 Carta
   {2026, 12, 10, 2},  // 10/12/2026 Indifferenziata
   {2026, 12, 10, 3},  // 10/12/2026 Plastica
   {2026, 12, 12, 1},  // 12/12/2026 Organico
   {2026, 12, 15, 4},  // 15/12/2026 Verde
+  {2026, 12, 15, 6},  // 15/12/2026 Spazzamento
   {2026, 12, 16, 1},  // 16/12/2026 Organico
   {2026, 12, 17, 0},  // 17/12/2026 Carta
   {2026, 12, 17, 2},  // 17/12/2026 Indifferenziata
   {2026, 12, 17, 3},  // 17/12/2026 Plastica
   {2026, 12, 19, 1},  // 19/12/2026 Organico
+  {2026, 12, 22, 6},  // 22/12/2026 Spazzamento
   {2026, 12, 23, 1},  // 23/12/2026 Organico
   {2026, 12, 24, 0},  // 24/12/2026 Carta
   {2026, 12, 24, 2},  // 24/12/2026 Indifferenziata
   {2026, 12, 24, 3},  // 24/12/2026 Plastica
   {2026, 12, 28, 1},  // 28/12/2026 Organico
+  {2026, 12, 29, 6},  // 29/12/2026 Spazzamento
   {2026, 12, 30, 1},  // 30/12/2026 Organico
   {2026, 12, 31, 0},  // 31/12/2026 Carta
   {2026, 12, 31, 2},  // 31/12/2026 Indifferenziata

@@ -1,0 +1,58 @@
+// Collegno Spazzamento TERRACORTA 1 / TERRACORTA 2 / TERRACORTA 3 / TERRACORTA 5 (CIDIU)
+// Anno 2026 — solo dati; struct e helper in docs/calendar.h
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
+// Lista ORDINATA (YYYYMMDD) per ricerca binaria.
+
+  {2026, 1, 1, 6},  // 01/01/2026 Spazzamento
+  {2026, 1, 8, 6},  // 08/01/2026 Spazzamento
+  {2026, 1, 15, 6},  // 15/01/2026 Spazzamento
+  {2026, 1, 22, 6},  // 22/01/2026 Spazzamento
+  {2026, 1, 29, 6},  // 29/01/2026 Spazzamento
+  {2026, 2, 5, 6},  // 05/02/2026 Spazzamento
+  {2026, 2, 12, 6},  // 12/02/2026 Spazzamento
+  {2026, 2, 19, 6},  // 19/02/2026 Spazzamento
+  {2026, 2, 26, 6},  // 26/02/2026 Spazzamento
+  {2026, 3, 5, 6},  // 05/03/2026 Spazzamento
+  {2026, 3, 12, 6},  // 12/03/2026 Spazzamento
+  {2026, 3, 19, 6},  // 19/03/2026 Spazzamento
+  {2026, 3, 26, 6},  // 26/03/2026 Spazzamento
+  {2026, 4, 2, 6},  // 02/04/2026 Spazzamento
+  {2026, 4, 9, 6},  // 09/04/2026 Spazzamento
+  {2026, 4, 16, 6},  // 16/04/2026 Spazzamento
+  {2026, 4, 23, 6},  // 23/04/2026 Spazzamento
+  {2026, 4, 30, 6},  // 30/04/2026 Spazzamento
+  {2026, 5, 7, 6},  // 07/05/2026 Spazzamento
+  {2026, 5, 14, 6},  // 14/05/2026 Spazzamento
+  {2026, 5, 21, 6},  // 21/05/2026 Spazzamento
+  {2026, 5, 28, 6},  // 28/05/2026 Spazzamento
+  {2026, 6, 4, 6},  // 04/06/2026 Spazzamento
+  {2026, 6, 11, 6},  // 11/06/2026 Spazzamento
+  {2026, 6, 18, 6},  // 18/06/2026 Spazzamento
+  {2026, 6, 25, 6},  // 25/06/2026 Spazzamento
+  {2026, 7, 2, 6},  // 02/07/2026 Spazzamento
+  {2026, 7, 9, 6},  // 09/07/2026 Spazzamento
+  {2026, 7, 16, 6},  // 16/07/2026 Spazzamento
+  {2026, 7, 23, 6},  // 23/07/2026 Spazzamento
+  {2026, 7, 30, 6},  // 30/07/2026 Spazzamento
+  {2026, 8, 6, 6},  // 06/08/2026 Spazzamento
+  {2026, 8, 13, 6},  // 13/08/2026 Spazzamento
+  {2026, 8, 20, 6},  // 20/08/2026 Spazzamento
+  {2026, 8, 27, 6},  // 27/08/2026 Spazzamento
+  {2026, 9, 3, 6},  // 03/09/2026 Spazzamento
+  {2026, 9, 10, 6},  // 10/09/2026 Spazzamento
+  {2026, 9, 17, 6},  // 17/09/2026 Spazzamento
+  {2026, 9, 24, 6},  // 24/09/2026 Spazzamento
+  {2026, 10, 1, 6},  // 01/10/2026 Spazzamento
+  {2026, 10, 8, 6},  // 08/10/2026 Spazzamento
+  {2026, 10, 15, 6},  // 15/10/2026 Spazzamento
+  {2026, 10, 22, 6},  // 22/10/2026 Spazzamento
+  {2026, 10, 29, 6},  // 29/10/2026 Spazzamento
+  {2026, 11, 5, 6},  // 05/11/2026 Spazzamento
+  {2026, 11, 12, 6},  // 12/11/2026 Spazzamento
+  {2026, 11, 19, 6},  // 19/11/2026 Spazzamento
+  {2026, 11, 26, 6},  // 26/11/2026 Spazzamento
+  {2026, 12, 3, 6},  // 03/12/2026 Spazzamento
+  {2026, 12, 10, 6},  // 10/12/2026 Spazzamento
+  {2026, 12, 17, 6},  // 17/12/2026 Spazzamento
+  {2026, 12, 24, 6},  // 24/12/2026 Spazzamento
+  {2026, 12, 31, 6},  // 31/12/2026 Spazzamento

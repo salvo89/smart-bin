@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Convert ACSEL Val Susa calendar PDFs (color-coded annual grid) to Smart Bin .h files."""
+"""Convert ACSEL Val Susa calendar PDFs (color-coded annual grid) to Escilo .h files."""
 from __future__ import annotations
 
 import argparse
@@ -166,6 +166,43 @@ def extract_indiff_weekday_grid(
     return sorted(entries)
 
 
+def _select_month_header_row(
+    month_triplets: list[tuple[float, float, int]], *, landscape: bool
+) -> list[tuple[float, float, int]]:
+    """Pick the calendar month-header strip; ignore stray month words in legends/footers."""
+    if not month_triplets:
+        return []
+
+    # Bucket along the axis orthogonal to the month strip (y for landscape, x for portrait).
+    buckets: dict[int, list[tuple[float, float, int]]] = defaultdict(list)
+    for x, y, mon in month_triplets:
+        key = round((y if landscape else x) / 5) * 5
+        buckets[key].append((x, y, mon))
+
+    def score(items: list[tuple[float, float, int]]) -> tuple[int, float]:
+        unique = len({m for _, _, m in items})
+        # Prefer denser unique-month rows near the top/left of the page.
+        primary = min((y if landscape else x) for x, y, _ in items)
+        return (unique, -primary)
+
+    chosen = max(buckets.values(), key=score)
+    # Sort along the month-strip axis and keep first occurrence of each month.
+    axis = 0 if landscape else 1
+    ordered = sorted(chosen, key=lambda t: t[axis])
+    seen: set[int] = set()
+    headers: list[tuple[float, float, int]] = []
+    for x, y, mon in ordered:
+        if mon in seen:
+            continue
+        seen.add(mon)
+        # Store (primary_axis, secondary_axis, month) for callers.
+        if landscape:
+            headers.append((x, y, mon))
+        else:
+            headers.append((y, x, mon))
+    return headers
+
+
 def extract_color_grid_entries(page: fitz.Page, year: int) -> list[tuple[int, int, int, int]]:
     words = page.get_text("words")
     pw, ph = page.rect.width, page.rect.height
@@ -180,60 +217,92 @@ def extract_color_grid_entries(page: fitz.Page, year: int) -> list[tuple[int, in
     if not month_triplets:
         return []
 
-    xs = [m[0] for m in month_triplets]
-    ys = [m[1] for m in month_triplets]
-    month_headers: list[tuple[float, float, int]]
-    if max(xs) - min(xs) > max(ys) - min(ys):
-        month_headers = sorted([(x, y, mon) for x, y, mon in month_triplets], key=lambda t: t[0])
-    else:
-        month_headers = sorted([(y, x, mon) for x, y, mon in month_triplets], key=lambda t: t[0])
+    month_headers = _select_month_header_row(month_triplets, landscape=landscape)
+    if len(month_headers) < 6:
+        return []
 
+    # One anchor per (month, day), preferring the digit closest to the month label.
     anchors: list[tuple[int, float, float, int]] = []
     if landscape:
+        header_y = min(h[1] for h in month_headers)
+        y_max = ph - 20
         for i, (mx, _my, mon) in enumerate(month_headers):
-            x0 = mx - 12
-            x1 = month_headers[i + 1][0] - 8 if i + 1 < len(month_headers) else pw - 5
+            x0 = 0.0 if i == 0 else (month_headers[i - 1][0] + mx) / 2
+            x1 = pw if i + 1 >= len(month_headers) else (mx + month_headers[i + 1][0]) / 2
+            best_for_day: dict[int, tuple[float, float]] = {}
             for wx0, wy0, _wx1, _wy1, text, *_ in words:
-                if x0 <= wx0 <= x1 and re.fullmatch(r"\d{1,2}", text):
-                    day = int(text)
-                    if 1 <= day <= 31:
-                        anchors.append((day, wx0, wy0, mon))
+                if not (x0 <= wx0 <= x1 and header_y < wy0 < y_max):
+                    continue
+                if not re.fullmatch(r"\d{1,2}", text):
+                    continue
+                day = int(text)
+                if not (1 <= day <= calendar.monthrange(year, mon)[1]):
+                    continue
+                prev = best_for_day.get(day)
+                if prev is None or abs(wx0 - (mx - 18)) < abs(prev[0] - (mx - 18)):
+                    best_for_day[day] = (wx0, wy0)
+            for day, (ax, ay) in best_for_day.items():
+                anchors.append((day, ax, ay, mon))
     else:
+        header_x = min(h[1] for h in month_headers)
+        # Rotated ACSEL A4: month names on the right, day digits to their left.
         for i, (my, _mx, mon) in enumerate(month_headers):
-            y0 = my - 12
-            y1 = month_headers[i + 1][0] - 8 if i + 1 < len(month_headers) else ph - 5
+            y0 = 0.0 if i == 0 else (month_headers[i - 1][0] + my) / 2
+            y1 = ph if i + 1 >= len(month_headers) else (my + month_headers[i + 1][0]) / 2
+            best_for_day: dict[int, tuple[float, float]] = {}
             for wx0, wy0, _wx1, _wy1, text, *_ in words:
-                if y0 <= wy0 <= y1 and re.fullmatch(r"\d{1,2}", text):
-                    day = int(text)
-                    if 1 <= day <= 31:
-                        anchors.append((day, wx0, wy0, mon))
+                if not (y0 <= wy0 <= y1 and wx0 < header_x - 5):
+                    continue
+                if not re.fullmatch(r"\d{1,2}", text):
+                    continue
+                day = int(text)
+                if not (1 <= day <= calendar.monthrange(year, mon)[1]):
+                    continue
+                prev = best_for_day.get(day)
+                # Prefer digits close to the month label column.
+                if prev is None or abs(wx0 - (header_x - 20)) < abs(prev[0] - (header_x - 20)):
+                    best_for_day[day] = (wx0, wy0)
+            for day, (ax, ay) in best_for_day.items():
+                anchors.append((day, ax, ay, mon))
 
-    fills: list[tuple[float, float, int]] = []
+    # Icon chips: Avigliana tall icons, A4 squares (~8.5), and flat carta/vetro marks.
+    # Skip holiday asterisks (~10.5 red squares) and tiny 3×3 dots.
+    fills: list[tuple[float, float, int, float, float]] = []
     for draw in page.get_drawings():
         fill = draw.get("fill")
         rect = draw.get("rect")
-        if not fill or not rect or rect.height < 2 or rect.width < 2:
+        if not fill or not rect:
             continue
-        if landscape and rect.y0 < 65:
-            continue
-        if not landscape and rect.x0 < 10:
+        w, h = rect.width, rect.height
+        if not (5.0 <= w <= 16.0 and 5.0 <= h <= 16.0):
             continue
         bin_id = nearest_bin(fill)
         if bin_id is None:
             continue
-        fills.append(((rect.x0 + rect.x1) / 2, (rect.y0 + rect.y1) / 2, bin_id))
+        # Red holiday asterisks on Avigliana-style calendars.
+        if bin_id == 0 and 10.0 <= w <= 11.5 and 10.0 <= h <= 11.5:
+            continue
+        # Red bottle fragment inside Avigliana plastica icon (~7.8×12.7).
+        if bin_id == 0 and w < 8.0 and h > 11.0:
+            continue
+        fills.append(((rect.x0 + rect.x1) / 2, (rect.y0 + rect.y1) / 2, bin_id, w, h))
 
+    # Day-centric: chips sit just right of (landscape) / below (portrait) the day digit.
     entries: set[tuple[int, int, int, int]] = set()
-    for cx, cy, bin_id in fills:
-        best = None
-        best_dist = 1e9
-        for day, ax, ay, month in anchors:
-            dist = ((cx - ax) ** 2 + (cy - ay) ** 2) ** 0.5
-            if dist < best_dist:
-                best_dist = dist
-                best = (month, day, bin_id)
-        if best and best_dist < 40:
-            entries.add((year, best[0], best[1], best[2]))
+    for day, ax, ay, month in anchors:
+        found: dict[int, float] = {}
+        for cx, cy, bin_id, w, h in fills:
+            if landscape:
+                if abs(cy - ay) > 9 or not (8 < (cx - ax) < 58):
+                    continue
+            else:
+                if abs(cx - ax) > 9 or not (8 < (cy - ay) < 58):
+                    continue
+            area = w * h
+            if bin_id not in found or area > found[bin_id]:
+                found[bin_id] = area
+        for bin_id in found:
+            entries.add((year, month, day, bin_id))
 
     return sorted(entries)
 
@@ -255,6 +324,19 @@ def detect_year(doc: fitz.Document) -> int:
             if m:
                 return int(m.group())
     return 2026
+
+
+def zone_slug_from_label(slug_base: str, zone_label: str | None) -> str:
+    if not zone_label:
+        return f"{slug_base}-zunica"
+    m = re.search(r"(?i)zona\s*([a-z0-9]+)", zone_label)
+    if m:
+        return f"{slug_base}-z{m.group(1).lower()}"
+    m = re.search(r"(\d+)", zone_label)
+    if m:
+        return f"{slug_base}-z{m.group(1)}"
+    token = re.sub(r"[^a-z0-9]+", "-", zone_label.lower()).strip("-")
+    return f"{slug_base}-{token[:24] or 'zunica'}"
 
 
 def convert_pdf(
@@ -293,8 +375,7 @@ def convert_pdf(
         for _pi, _zl, addrs, entries in zone_pages:
             all_entries.extend(entries)
             all_addresses.extend(addrs)
-        m = re.search(r"(\d+)", zone_label)
-        slug = f"{slug_base}-z{m.group(1)}" if m else f"{slug_base}-zunica"
+        slug = zone_slug_from_label(slug_base, zone_label)
         zone_pages = [(0, zone_label, all_addresses, sorted(set(all_entries)))]
     else:
         # Prefer color-grid pages (>=20). Keep weekday-grid pages (>=20) when
@@ -311,11 +392,12 @@ def convert_pdf(
     multi_zone = len(zone_pages) > 1 and not zone_label
     for page_index, zlabel, addresses, entries in zone_pages:
         if multi_zone:
-            zslug = re.search(r"(\d+)", zlabel or "") if zlabel else None
-            slug = f"{slug_base}-z{zslug.group(1)}" if zslug else f"{slug_base}-z{page_index + 1}"
+            slug = zone_slug_from_label(slug_base, zlabel) if zlabel else f"{slug_base}-z{page_index + 1}"
+            if zlabel and slug == f"{slug_base}-zunica":
+                slug = f"{slug_base}-z{page_index + 1}"
             label = zlabel or f"Zona {page_index + 1}"
         else:
-            slug = f"{slug_base}-zunica" if not zone_label else slug
+            slug = zone_slug_from_label(slug_base, zone_label)
             label = zone_label or "Zona unica"
 
         grouped: dict[int, list[tuple[int, int, int, int]]] = defaultdict(list)

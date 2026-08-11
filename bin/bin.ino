@@ -1,5 +1,5 @@
 /**
- * PROJECT: SMART BIN INDICATOR (V3 - Resilient Edition)
+ * PROJECT: ESCILO INDICATOR (V3 - Resilient Edition)
  * PURPOSE: Visual notification system for waste collection schedules.
  * ARCHITECTURAL NOTE: Firmware per ESP32 (DevKit / ESP32-WROOM-32).
  * LOGIC PRIORITY: Network Integrity > DST Awareness > Time Windows > Bin Scheduling.

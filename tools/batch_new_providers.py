@@ -50,7 +50,7 @@ def title_case_street(name: str) -> str:
 
 
 def zone_file_slug(label: str) -> str:
-    label = label.strip()
+    label = re.sub(r"(?i)\.?pdf$", "", label.strip()).strip()
     m = re.search(r"zona\s*([a-z0-9]+)", label, re.I)
     if m:
         return "z" + m.group(1).lower()
@@ -176,6 +176,14 @@ def process_acsel(comune: dict, manifest: list, errors: list) -> None:
         label = pdf.get("label", "Calendario")
         zslug = zone_file_slug(label)
         zone_label = label if re.search(r"zona", label, re.I) else None
+        # Named non-numeric ACSEL annexes (e.g. SANT-AMBROGIO-BERTASSI-2026.pdf).
+        if zone_label is None:
+            fname = url.rsplit("/", 1)[-1].lower()
+            for token in ("bertassi",):
+                if token in fname:
+                    zone_label = token.title()
+                    zslug = "z" + token
+                    break
         try:
             results = convert_acsel(
                 url,
@@ -248,7 +256,8 @@ def scs_zone_slug(url: str, label: str) -> str:
     m = re.search(r"ivreazona-([a-z0-9.]+)", name, re.I)
     if m:
         return "z" + m.group(1).replace(".", "")
-    m = re.search(r"zona-([a-z0-9.]+)", name, re.I)
+    # Do not let ".pdf" bleed into the zone token (e.g. zona-b.pdf → b, not bpdf).
+    m = re.search(r"zona-([a-z0-9]+(?:\.[0-9]+)?)", name, re.I)
     if m:
         return "z" + m.group(1).replace(".", "")
     return zone_file_slug(label)
@@ -258,16 +267,17 @@ def process_scs(comune: dict, manifest: list, errors: list) -> None:
     cid = comune["id"]
     name = comune["name"]
     for pdf in comune.get("pdfs", []):
-        label = pdf["label"]
+        label = re.sub(r"(?i)\.?pdf$", "", str(pdf["label"] or "")).strip() or "Calendario"
         url = pdf["url"]
         zslug = scs_zone_slug(url, label)
         file_slug = f"{cid}-{zslug}"
+        zone_label = label if label.lower().startswith("zona") else f"Zona {label}"
         try:
             info = convert_scs(
                 url,
                 slug=file_slug,
                 comune=name,
-                zone_label=label if label.lower().startswith("zona") else f"Zona {label}",
+                zone_label=zone_label,
                 outdir=OUT_DIR,
                 work_pdf=WORK / "scs" / f"{file_slug}.pdf",
             )

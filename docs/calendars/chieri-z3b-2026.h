@@ -1,6 +1,6 @@
-// Chieri Zona 3B (CCS): STRADA AIRALI, VIA AMBUSCHETTI, STRADA ANDEZENO, VIA AVOLIO GERMANO, STRADA BALDISSERO, STRADA BORGARELLA, STRADA CANARONE, STRADA DEL CERVO, STRADA DEL FREISA, STRADA DEL TARIO, STRADA DELLA REZZA, STRADA DELLA ROSA, VIA DONIZETTI, VIA GANDHI, VIA KENNEDY JOHN, VIA MARTIN LUTHER KING, VIA MURRI DON ROMOLO, VIA NOBEL ALFRED BERNARD, VIA SANTA MARGHERITA, STRADA TETTI BORI, STRADA TETTI GRONDANA, STRADA TETTI QUAGLINO, VIA VERDI GIUSEPPE
+// Chieri Zona 3B (CCS)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 1, 2, 3},  // 02/01/2026 Plastica
@@ -19,6 +19,7 @@
   {2026, 2, 4, 5},  // 04/02/2026 Vetro
   {2026, 2, 6, 0},  // 06/02/2026 Carta
   {2026, 2, 10, 1},  // 10/02/2026 Organico
+  {2026, 2, 11, 6},  // 11/02/2026 Spazzamento
   {2026, 2, 12, 3},  // 12/02/2026 Plastica
   {2026, 2, 16, 4},  // 16/02/2026 Verde
   {2026, 2, 17, 1},  // 17/02/2026 Organico
@@ -46,6 +47,7 @@
   {2026, 4, 3, 0},  // 03/04/2026 Carta
   {2026, 4, 6, 4},  // 06/04/2026 Verde
   {2026, 4, 7, 1},  // 07/04/2026 Organico
+  {2026, 4, 8, 6},  // 08/04/2026 Spazzamento
   {2026, 4, 9, 3},  // 09/04/2026 Plastica
   {2026, 4, 13, 4},  // 13/04/2026 Verde
   {2026, 4, 14, 1},  // 14/04/2026 Organico
@@ -79,6 +81,7 @@
   {2026, 5, 29, 1},  // 29/05/2026 Organico
   {2026, 6, 1, 4},  // 01/06/2026 Verde
   {2026, 6, 2, 1},  // 02/06/2026 Organico
+  {2026, 6, 3, 6},  // 03/06/2026 Spazzamento
   {2026, 6, 4, 3},  // 04/06/2026 Plastica
   {2026, 6, 5, 1},  // 05/06/2026 Organico
   {2026, 6, 8, 4},  // 08/06/2026 Verde
@@ -112,6 +115,7 @@
   {2026, 7, 24, 0},  // 24/07/2026 Carta
   {2026, 7, 24, 1},  // 24/07/2026 Organico
   {2026, 7, 28, 1},  // 28/07/2026 Organico
+  {2026, 7, 29, 6},  // 29/07/2026 Spazzamento
   {2026, 7, 30, 3},  // 30/07/2026 Plastica
   {2026, 7, 31, 1},  // 31/07/2026 Organico
   {2026, 8, 3, 4},  // 03/08/2026 Verde
@@ -145,6 +149,7 @@
   {2026, 9, 18, 0},  // 18/09/2026 Carta
   {2026, 9, 18, 1},  // 18/09/2026 Organico
   {2026, 9, 22, 1},  // 22/09/2026 Organico
+  {2026, 9, 23, 6},  // 23/09/2026 Spazzamento
   {2026, 9, 24, 3},  // 24/09/2026 Plastica
   {2026, 9, 25, 1},  // 25/09/2026 Organico
   {2026, 9, 28, 4},  // 28/09/2026 Verde
@@ -170,6 +175,7 @@
   {2026, 11, 11, 5},  // 11/11/2026 Vetro
   {2026, 11, 13, 0},  // 13/11/2026 Carta
   {2026, 11, 17, 1},  // 17/11/2026 Organico
+  {2026, 11, 18, 6},  // 18/11/2026 Spazzamento
   {2026, 11, 19, 3},  // 19/11/2026 Plastica
   {2026, 11, 23, 4},  // 23/11/2026 Verde
   {2026, 11, 24, 1},  // 24/11/2026 Organico

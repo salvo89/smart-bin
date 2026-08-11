@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
+  <title>Escilo — come va la differenziata nel tuo comune</title>
+  <meta name="description" content="Percentuale di raccolta differenziata, trend 2022–2024 e confronto con Italia e regione: ultimi dati ISPRA per i comuni italiani su Escilo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.it/stats.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Escilo — come va la differenziata nel tuo comune" />
+  <meta property="og:description" content="Percentuale di raccolta differenziata, trend triennale e confronti nazionali e regionali ISPRA per il tuo comune." />
+  <meta property="og:url" content="https://escilo.it/stats.html" />
+  <meta property="og:image" content="https://escilo.it/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Escilo — come va la differenziata nel tuo comune" />
+  <meta name="twitter:description" content="Percentuale di raccolta differenziata, trend triennale e confronti nazionali e regionali ISPRA per il tuo comune." />
+  <meta name="twitter:image" content="https://escilo.it/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Come va la differenziata — Escilo",
+    "url": "https://escilo.it/stats.html",
+    "description": "Statistiche ISPRA sulla raccolta differenziata comunale in Italia, con confronti nazionali e regionali.",
+    "isPartOf": { "@type": "WebSite", "name": "Escilo", "url": "https://escilo.it/" },
+    "inLanguage": "it-IT"
+  }
+  </script>
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/chrome.css?v=19" />
+  <link rel="stylesheet" href="assets/css/stats.css?v=28" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="brand-mark.png" width="40" height="41" alt="" aria-hidden="true" />
+        <h1 class="brand">Escilo</h1>
+        <p class="brand-sub">perché i cassonetti non si escono da soli</p>
+      </div>
+      <div class="zone-meta" id="zoneMeta" hidden>
+        <p class="zone-label" id="zoneLabel">—</p>
+        <button type="button" class="zone-change" id="btnChangeZone">Cambia zona</button>
+      </div>
+    </header>
+
+    <div class="page-body">
+    <p class="status" id="status" hidden></p>
+
+    <aside class="propose-banner" id="proposeBanner" hidden>
+      <p id="proposeBannerText">
+        Per questo comune non abbiamo ancora il calendario porta a porta.
+      </p>
+      <a id="proposeBannerLink" href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20proponi%20calendario">Proponi il tuo comune</a>
+    </aside>
+
+    <div id="content" hidden>
+      <section class="intro" aria-labelledby="statsTitle">
+        <p class="eyebrow">ISPRA · anno <span id="statsYear">2024</span></p>
+        <h2 id="statsTitle">Come va la differenziata</h2>
+        <p class="meta" id="statsMeta">—</p>
+        <p class="agg-note" id="aggNote" hidden></p>
+      </section>
+
+      <div class="hero-kpi">
+        <article class="kpi-card" id="kpiCard">
+          <div class="kpi-card-head">
+            <p class="box-title label">Raccolta differenziata</p>
+            <button
+              type="button"
+              class="kpi-share-btn"
+              id="btnShareStats"
+              hidden
+              aria-label="Condividi sui social"
+              title="Condividi"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="18" cy="5" r="3"/>
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+              </svg>
+            </button>
+          </div>
+          <div class="share-stats-loader" id="shareStatsLoader" hidden aria-live="polite">
+            <span class="share-stats-spinner" aria-hidden="true"></span>
+            <span>Preparazione immagine…</span>
+          </div>
+          <p class="value" id="kpiRd">—</p>
+          <p class="sub" id="kpiRdSub">—</p>
+          <div class="kpi-bench" id="kpiBench" hidden>
+            <div class="kpi-bench-cell">
+              <p class="kpi-bench-label" id="kpiBenchProvLabel">Provincia</p>
+              <div class="kpi-bench-row">
+                <p class="kpi-bench-value" id="kpiBenchProv">—</p>
+                <p class="kpi-bench-delta" id="kpiBenchProvDelta">—</p>
+              </div>
+            </div>
+            <div class="kpi-bench-cell">
+              <p class="kpi-bench-label" id="kpiBenchRegLabel">Regione</p>
+              <div class="kpi-bench-row">
+                <p class="kpi-bench-value" id="kpiBenchReg">—</p>
+                <p class="kpi-bench-delta" id="kpiBenchRegDelta">—</p>
+              </div>
+            </div>
+            <div class="kpi-bench-cell">
+              <p class="kpi-bench-label">Italia</p>
+              <div class="kpi-bench-row">
+                <p class="kpi-bench-value" id="kpiBenchIt">—</p>
+                <p class="kpi-bench-delta" id="kpiBenchItDelta">—</p>
+              </div>
+            </div>
+            <div class="kpi-bench-cell" id="kpiBenchPeerCell" hidden>
+              <p class="kpi-bench-label">
+                <button
+                  type="button"
+                  class="kpi-bench-info"
+                  id="btnPopClusters"
+                  aria-haspopup="dialog"
+                  aria-controls="popClustersSheet"
+                >
+                  Per abitanti
+                  <span class="kpi-info-ico" aria-hidden="true">i</span>
+                </button>
+              </p>
+              <div class="kpi-bench-row">
+                <p class="kpi-bench-value" id="kpiBenchPeer">—</p>
+                <p class="kpi-bench-delta" id="kpiBenchPeerDelta">—</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="section" aria-labelledby="trendTitle">
+        <h2 class="box-title" id="trendTitle">Trend 2022–2024</h2>
+        <p class="lead">Percentuale di raccolta differenziata negli ultimi tre anni.</p>
+        <div class="trend-chart" id="spark" role="img" aria-label="Andamento percentuale di raccolta differenziata"></div>
+        <p class="delta-chip is-plain" id="trendDelta">—</p>
+      </section>
+
+      <section class="section" aria-labelledby="prodTitle">
+        <h2 class="box-title" id="prodTitle">Quanto produciamo</h2>
+        <p class="lead">Tutti i valori sono in kg/abitante.</p>
+        <p class="prod-legend" aria-hidden="true"><span class="prod-legend-it">Italia</span><span class="prod-legend-reg" id="prodLegendReg">Regione</span></p>
+        <div class="prod-cards" id="prodCards"></div>
+      </section>
+
+      <section class="section" aria-labelledby="mixTitle">
+        <h2 class="box-title" id="mixTitle">Cosa differenziamo</h2>
+        <p class="lead">Composizione della raccolta differenziata (quote sul totale differenziato).</p>
+        <div class="mix" id="mix"></div>
+      </section>
+
+      <p class="note">
+        <strong>Fonte:</strong>
+        <a class="ext-link" href="https://www.catasto-rifiuti.isprambiente.it/" target="_blank" rel="noopener noreferrer">Catasto nazionale dei rifiuti ISPRA</a>,
+        dettaglio comunale <span id="noteYears">2022–2024</span>.
+        L’obiettivo del 65% è quello minimo di raccolta differenziata previsto
+        dall’art.&nbsp;205 del D.Lgs.&nbsp;152/2006.
+      </p>
+    </div>
+
+    <p class="footer">
+      <a href="./">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="comuni/">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="fonti.html">Fonti</a>
+      <span class="sep">&middot;</span>
+      <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20statistiche">Segnala</a>
+    </p>
+    </div>
+  </div>
+
+  <nav class="bottom-nav has-stats" id="bottomNav" aria-label="Sezioni">
+    <a class="nav-item" id="navHome" href="./">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>
+      Home
+    </a>
+    <a class="nav-item" id="navCal" href="./?tab=cal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+      Mese
+    </a>
+    <a class="nav-item active" id="navStats" href="stats.html" aria-current="page" aria-label="Dati differenziata">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19h16M7 16V9M12 16V5M17 16v-5"/></svg>
+      Dati
+    </a>
+  </nav>
+
+  <div
+    class="stats-sheet"
+    id="popClustersSheet"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="popClustersTitle"
+  >
+    <div class="stats-sheet-card" role="document">
+      <div class="stats-sheet-head">
+        <h2 id="popClustersTitle">Confronto per abitanti</h2>
+        <p class="lead">
+          I comuni italiani ISPRA sono divisi in 4 cluster in base al numero di
+          abitanti (quantili sulla distribuzione nazionale).
+        </p>
+        <p class="pop-cluster-legend" id="popClustersLegend" hidden></p>
+      </div>
+      <div class="stats-sheet-body">
+        <ul class="pop-cluster-list" id="popClustersList"></ul>
+      </div>
+      <div class="stats-sheet-foot">
+        <button type="button" class="stats-sheet-close" id="btnPopClustersClose">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/stats.js?v=28"></script>
+</body>
+</html>

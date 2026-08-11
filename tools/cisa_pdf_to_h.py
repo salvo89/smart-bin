@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Convert CISA ecocalendar PDFs (Ciriè-style diary) to Smart Bin .h files."""
+"""Convert CISA ecocalendar PDFs (Ciriè-style diary) to Escilo .h files."""
 from __future__ import annotations
 
 import argparse

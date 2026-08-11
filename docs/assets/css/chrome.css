@@ -1,0 +1,299 @@
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.4;
+  background:
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 28%, var(--bg-bottom) 100%);
+}
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  background: none;
+}
+
+/*
+ * Box title — standard Escilo (template obbligatorio per titoli di card/box)
+ * ---------------------------------------------------------------------------
+ * Usa sempre class="box-title" sul titolo del box (h2 o p).
+ * Tipografia: Outfit, 0.68rem, weight 700, uppercase, letter-spacing 0.04em,
+ * colore --muted. Non usare Fraunces/--display per questi titoli.
+ * Headline di pagina (intro/hero) restano --display; questo standard vale
+ * solo per i titoli chrome dei contenitori (card, section, week, teaser, …).
+ */
+.box-title,
+.week-head h2,
+.day-detail .label,
+a.stats-teaser .st-title,
+.kpi-card > .label,
+.kpi-card > .box-title,
+.section > h2,
+.section > .box-title,
+.ispr-box > h2,
+.ispr-box > .box-title,
+.card > h2,
+.card > .box-title {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.2;
+}
+.day-detail .label { margin-bottom: 0.3rem; }
+.section > h2,
+.section > .box-title,
+.ispr-box > h2,
+.ispr-box > .box-title,
+.card > h2,
+.card > .box-title {
+  margin-bottom: 0.55rem;
+}
+
+.page {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--safe) 2.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem var(--safe) 0.5rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.brand-lockup {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "mark title"
+    "sub  sub";
+  column-gap: 0.55rem;
+  row-gap: 0.12rem;
+  min-width: 0;
+  align-items: center;
+}
+.brand-mark {
+  width: auto;
+  height: 2.15rem;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+  grid-area: mark;
+}
+.brand {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.15;
+  grid-area: title;
+}
+.brand-sub {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1.3;
+  max-width: 18rem;
+  grid-area: sub;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+
+.zone-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  max-width: 55%;
+}
+.zone-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.25;
+}
+.zone-change {
+  font-size: 0.68rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0.15rem 0;
+}
+
+.data-source {
+  margin: 0.35rem 0 0;
+  padding: 0.65rem 0.1rem 0.25rem;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: var(--muted-2);
+  text-align: center;
+}
+.data-source a,
+.data-source button.share-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.data-source button.share-link {
+  display: inline;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.data-source .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-size: 1.05em;
+  font-weight: 700;
+}
+
+.footer {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  line-height: 1.4;
+}
+.footer a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer .sep {
+  padding: 0 0.22rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: max(0.65rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: min(calc(100% - 1.3rem), 26.7rem);
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem;
+  padding: 0.35rem;
+  border-radius: 1.35rem;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--nav-shadow);
+  border: 1px solid var(--nav-border);
+}
+.bottom-nav.has-stats {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.bottom-nav button,
+.bottom-nav a.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.45rem 0.2rem;
+  border-radius: 1rem;
+  font-size: 0.65rem;
+  font-weight: 650;
+  color: var(--muted-2);
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.bottom-nav button svg,
+.bottom-nav a.nav-item svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.bottom-nav button.active,
+.bottom-nav a.nav-item.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.bottom-nav a.nav-item:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.live-line {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+a.ext-link::after {
+  content: "";
+  display: inline-block;
+  width: 0.78em;
+  height: 0.78em;
+  margin-left: 0.28em;
+  vertical-align: -0.05em;
+  background-color: currentColor;
+  opacity: 0.72;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.5 3.5H3.75A1.25 1.25 0 0 0 2.5 4.75v7.5A1.25 1.25 0 0 0 3.75 13.5h7.5a1.25 1.25 0 0 0 1.25-1.25V9.5'/%3E%3Cpath d='M9.5 2.5h4v4'/%3E%3Cpath d='M7.5 8.5l6-6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.5 3.5H3.75A1.25 1.25 0 0 0 2.5 4.75v7.5A1.25 1.25 0 0 0 3.75 13.5h7.5a1.25 1.25 0 0 0 1.25-1.25V9.5'/%3E%3Cpath d='M9.5 2.5h4v4'/%3E%3Cpath d='M7.5 8.5l6-6'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+[hidden] { display: none !important; }

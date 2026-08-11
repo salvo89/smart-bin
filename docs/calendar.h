@@ -1,5 +1,5 @@
-#ifndef SMART_BIN_CALENDAR_H
-#define SMART_BIN_CALENDAR_H
+#ifndef ESCILO_CALENDAR_H
+#define ESCILO_CALENDAR_H
 
 #include <stdint.h>
 

@@ -6,10 +6,13 @@ Severity:
   critical — <50 entries and not a recognized sparse pattern
   alert    — IQR low outlier (< Q1 - 1.5*IQR), needs review
   high     — IQR high outlier
-  ok       — within normal range (or sparse-by-design Indifferenziato)
+  ok       — within normal range (or sparse-by-design patterns)
 
-Sparse-by-design (ACSEL isole di prossimità): only bin 2, 20–60 entries,
-at least 10 distinct months → treated as ok (not critical).
+Sparse-by-design:
+  - ACSEL isole di prossimità: only bin 2, 20–60 entries, ≥10 months
+  - SCS Verde/sfalci overlay: only bin 4, 8–30 entries, ≥7 months (Mar–Nov)
+  - Spazzamento meccanizzato (CIDIU/SETA/…): only bin 6, 10–60 entries, ≥8 months
+    (tipicamente ogni 28/14/7 giorni)
 """
 from __future__ import annotations
 
@@ -45,7 +48,7 @@ def analyze_file(path: Path) -> dict:
         bins.add(b)
     return {
         "file": path.name,
-        "path": str(path.relative_to(ROOT)).replace("\\", "/"),
+        "path": str(path.resolve().relative_to(ROOT.resolve())).replace("\\", "/"),
         "year": year,
         "lines": len(lines),
         "entries": len(entries),
@@ -61,6 +64,24 @@ def is_sparse_indiff(row: dict) -> bool:
         row["bins"] == [2]
         and 20 <= row["entries"] <= 60
         and row["months"] >= 10
+    )
+
+
+def is_sparse_verde_seasonal(row: dict) -> bool:
+    """Solo Verde/sfalci (bin 4), stagione tipica Mar–Nov, quindicinale."""
+    return (
+        row["bins"] == [4]
+        and 8 <= row["entries"] <= 30
+        and row["months"] >= 7
+    )
+
+
+def is_sparse_spazzamento(row: dict) -> bool:
+    """Solo Spazzamento (bin 6), tipicamente ogni 28/14/7 giorni."""
+    return (
+        row["bins"] == [6]
+        and 10 <= row["entries"] <= 60
+        and row["months"] >= 8
     )
 
 
@@ -90,6 +111,12 @@ def classify(rows: list[dict]) -> list[dict]:
         elif is_sparse_indiff(r):
             r["severity"] = "ok"
             r["reason"] = "sparse Indifferenziato (design)"
+        elif is_sparse_verde_seasonal(r):
+            r["severity"] = "ok"
+            r["reason"] = "sparse Verde/sfalci stagionale (design)"
+        elif is_sparse_spazzamento(r):
+            r["severity"] = "ok"
+            r["reason"] = "sparse Spazzamento (design)"
         elif e < 50:
             r["severity"] = "critical"
             r["reason"] = "fortemente incompleto (<50 entry)"

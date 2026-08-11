@@ -1,8 +1,9 @@
-// Candiolo Zona 6 (Covar14): VIA C.TERRANOVA, VIA CALVI, VIA CAVOUR, VIA PAVESE, VIA PIO V, VIA ROMA, VIA SACCO E VANZETTI, VIA SOLFERINO, VIA TRENTO, VIA TRIESTE, VIA VINOVO, VICOLO GIOBERTI, VICOLO MILANO
+// Candiolo Zona 6 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
+  {2026, 2, 16, 6},  // 16/02/2026 Spazzamento
   {2026, 3, 4, 1},  // 04/03/2026 Organico
   {2026, 3, 7, 1},  // 07/03/2026 Organico
   {2026, 3, 7, 2},  // 07/03/2026 Indifferenziata
@@ -35,6 +36,7 @@
   {2026, 4, 18, 2},  // 18/04/2026 Indifferenziata
   {2026, 4, 18, 3},  // 18/04/2026 Plastica
   {2026, 4, 18, 4},  // 18/04/2026 Verde
+  {2026, 4, 20, 6},  // 20/04/2026 Spazzamento
   {2026, 4, 22, 0},  // 22/04/2026 Carta
   {2026, 4, 22, 1},  // 22/04/2026 Organico
   {2026, 4, 24, 1},  // 24/04/2026 Organico
@@ -70,6 +72,7 @@
   {2026, 6, 13, 1},  // 13/06/2026 Organico
   {2026, 6, 13, 2},  // 13/06/2026 Indifferenziata
   {2026, 6, 13, 3},  // 13/06/2026 Plastica
+  {2026, 6, 15, 6},  // 15/06/2026 Spazzamento
   {2026, 6, 17, 0},  // 17/06/2026 Carta
   {2026, 6, 17, 1},  // 17/06/2026 Organico
   {2026, 6, 20, 1},  // 20/06/2026 Organico
@@ -111,6 +114,7 @@
   {2026, 8, 12, 1},  // 12/08/2026 Organico
   {2026, 8, 14, 1},  // 14/08/2026 Organico
   {2026, 8, 17, 2},  // 17/08/2026 Indifferenziata
+  {2026, 8, 17, 6},  // 17/08/2026 Spazzamento
   {2026, 8, 19, 1},  // 19/08/2026 Organico
   {2026, 8, 22, 1},  // 22/08/2026 Organico
   {2026, 8, 22, 2},  // 22/08/2026 Indifferenziata
@@ -154,6 +158,7 @@
   {2026, 10, 17, 2},  // 17/10/2026 Indifferenziata
   {2026, 10, 17, 3},  // 17/10/2026 Plastica
   {2026, 10, 17, 4},  // 17/10/2026 Verde
+  {2026, 10, 19, 6},  // 19/10/2026 Spazzamento
   {2026, 10, 21, 0},  // 21/10/2026 Carta
   {2026, 10, 21, 1},  // 21/10/2026 Organico
   {2026, 10, 24, 1},  // 24/10/2026 Organico

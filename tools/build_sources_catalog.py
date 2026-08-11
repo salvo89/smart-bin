@@ -69,7 +69,7 @@ def main() -> int:
     data = {
         "generatedAt": "2026-07-28",
         "notes": [
-            "Catalogo fonti per la pagina web Smart Bin.",
+            "Catalogo fonti per la pagina web Escilo.",
             "Queste fonti descrivono provenienza e disponibilita' dei calendari PDF/HTML per comune.",
             "La presenza qui non implica che il comune sia gia' convertito in docs/calendars/*.h.",
         ],

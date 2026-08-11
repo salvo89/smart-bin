@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Convert Consorzio Chierese (CCS) calendar PDFs to Smart Bin .h data files."""
+"""Convert Consorzio Chierese (CCS) calendar PDFs to Escilo .h data files."""
 from __future__ import annotations
 
 import argparse

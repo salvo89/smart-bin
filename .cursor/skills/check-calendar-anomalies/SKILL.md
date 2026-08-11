@@ -1,10 +1,12 @@
 ---
 name: check-calendar-anomalies
 description: >-
-  Validates Smart Bin calendar .h files for anomalous entry counts after add/edit.
+  Validates Escilo calendar .h files for anomalous entry counts after add/edit.
   Use whenever adding, generating, regenerating, or modifying any
   docs/calendars/*.h calendar data file (or batch PDF→.h conversion).
   Runs tools/check_calendar_anomalies.py and reports broken/critical/alert findings.
+  After .h or index/vie changes, also run validate-zone-calendars so Mostra calendario
+  still works for every comune/via.
 ---
 
 # Check calendar .h anomalies
@@ -18,6 +20,8 @@ description: >-
 - Regenerates calendars from PDF/HTML sources
 
 Do not skip even if the conversion “looked fine”.
+
+Ogni volta che viene aggiornato un calendario, l'indice dei comuni o l'elenco delle vie, vanno eseguiti questi test per accertarsi che l'app continui a funzionare — vedi anche skill `validate-zone-calendars`.
 
 ## Steps
 
@@ -45,10 +49,14 @@ py tools/check_calendar_anomalies.py --year YYYY --json
 | Severity | Meaning | Action |
 |----------|---------|--------|
 | `broken` | &lt;10 entries | Must fix before done — extraction failed |
-| `critical` | &lt;50 entries (and not sparse-Indiff design) | Must investigate / fix or document why |
+| `critical` | &lt;50 entries (and not sparse-by-design) | Must investigate / fix or document why |
 | `alert` | IQR low outlier | Review vs source PDF; fix if incomplete |
 | `high` | IQR high outlier | Usually OK (dense schedule); spot-check |
-| `ok` | Normal, or sparse Indifferenziato-only (20–60 entries, bin 2 only, ≥10 months) | No action |
+| `ok` | Normal, or sparse-by-design | No action |
+
+Sparse-by-design (treated as `ok`):
+- Indifferenziato-only (bin 2): 20–60 entries, ≥10 months (ACSEL isole)
+- Verde/sfalci-only (bin 4): 8–30 entries, ≥7 months (SCS overlay stagionale)
 
 Exit code: `--fail-on critical` (default) → exit 1 if broken/critical present.
 
@@ -59,6 +67,14 @@ Exit code: `--fail-on critical` (default) → exit 1 if broken/critical present.
    - Re-run the checker after the fix
 
 5. Summarize to the user: counts by severity + list of non-ok files (path, entries, reason).
+
+6. **App gate regression (obbligatorio):** dopo qualsiasi aggiornamento calendario / index / vie:
+
+```bash
+py -3 tools/validate_zone_calendars.py
+```
+
+Must exit 0. Follow `.cursor/skills/validate-zone-calendars/SKILL.md` if it fails.
 
 ## Notes
 

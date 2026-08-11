@@ -1,6 +1,6 @@
-// Castagnole Piemonte Zona 2 (Covar14): CASCINA AIRALE, CASCINA BAGNOLO, CASCINA BASILICA, CASCINA BUENOS AIRES, CASCINA CAVIGLIA, CASCINA FRANCIA, CASCINA GARIETTA, CASCINA MAIMINO, CASCINA MONASTERO, CASCINA MOTETTE, CASCINA PARAGUAI, CASCINA PERTUSA, CASCINA PRIMAVERA, CASCINA SAN GIACOMO, CASCINA SAN ROK, CASCINA SECONDINA, CASCINA TRIPOLI, STRADA VERNONE, VIA C. BATTISTI, VIA CIRCONVALLAZIONE, VIA GOITO, VIA MARCONI, VIA MONTEBELLO, VIA PESCATORI, VIA TRENTO, VIA TRIESTE, VICOLO DON C.COCCOLO, VIA SANDRO PERTINI, CASCINA MILIORENA
+// Castagnole Piemonte Zona 2 (Covar14)
 // Anno 2026 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2026, 3, 3, 1},  // 03/03/2026 Organico
@@ -48,34 +48,43 @@
   {2026, 5, 26, 1},  // 26/05/2026 Organico
   {2026, 5, 27, 3},  // 27/05/2026 Plastica
   {2026, 5, 29, 1},  // 29/05/2026 Organico
+  {2026, 6, 1, 6},  // 01/06/2026 Spazzamento
   {2026, 6, 3, 0},  // 03/06/2026 Carta
   {2026, 6, 3, 1},  // 03/06/2026 Organico
   {2026, 6, 3, 2},  // 03/06/2026 Indifferenziata
   {2026, 6, 5, 1},  // 05/06/2026 Organico
+  {2026, 6, 8, 6},  // 08/06/2026 Spazzamento
   {2026, 6, 9, 1},  // 09/06/2026 Organico
   {2026, 6, 10, 3},  // 10/06/2026 Plastica
   {2026, 6, 12, 1},  // 12/06/2026 Organico
+  {2026, 6, 15, 6},  // 15/06/2026 Spazzamento
   {2026, 6, 16, 1},  // 16/06/2026 Organico
   {2026, 6, 17, 0},  // 17/06/2026 Carta
   {2026, 6, 17, 2},  // 17/06/2026 Indifferenziata
   {2026, 6, 19, 1},  // 19/06/2026 Organico
+  {2026, 6, 22, 6},  // 22/06/2026 Spazzamento
   {2026, 6, 23, 1},  // 23/06/2026 Organico
   {2026, 6, 24, 3},  // 24/06/2026 Plastica
   {2026, 6, 26, 1},  // 26/06/2026 Organico
+  {2026, 6, 29, 6},  // 29/06/2026 Spazzamento
   {2026, 6, 30, 1},  // 30/06/2026 Organico
   {2026, 7, 1, 0},  // 01/07/2026 Carta
   {2026, 7, 1, 2},  // 01/07/2026 Indifferenziata
   {2026, 7, 3, 1},  // 03/07/2026 Organico
+  {2026, 7, 6, 6},  // 06/07/2026 Spazzamento
   {2026, 7, 7, 1},  // 07/07/2026 Organico
   {2026, 7, 8, 3},  // 08/07/2026 Plastica
   {2026, 7, 10, 1},  // 10/07/2026 Organico
+  {2026, 7, 13, 6},  // 13/07/2026 Spazzamento
   {2026, 7, 14, 1},  // 14/07/2026 Organico
   {2026, 7, 15, 0},  // 15/07/2026 Carta
   {2026, 7, 15, 2},  // 15/07/2026 Indifferenziata
   {2026, 7, 17, 1},  // 17/07/2026 Organico
+  {2026, 7, 20, 6},  // 20/07/2026 Spazzamento
   {2026, 7, 21, 1},  // 21/07/2026 Organico
   {2026, 7, 22, 3},  // 22/07/2026 Plastica
   {2026, 7, 24, 1},  // 24/07/2026 Organico
+  {2026, 7, 27, 6},  // 27/07/2026 Spazzamento
   {2026, 7, 28, 1},  // 28/07/2026 Organico
   {2026, 7, 29, 0},  // 29/07/2026 Carta
   {2026, 7, 29, 2},  // 29/07/2026 Indifferenziata
@@ -97,31 +106,39 @@
   {2026, 9, 1, 1},  // 01/09/2026 Organico
   {2026, 9, 2, 3},  // 02/09/2026 Plastica
   {2026, 9, 4, 1},  // 04/09/2026 Organico
+  {2026, 9, 7, 6},  // 07/09/2026 Spazzamento
   {2026, 9, 8, 1},  // 08/09/2026 Organico
   {2026, 9, 9, 0},  // 09/09/2026 Carta
   {2026, 9, 9, 2},  // 09/09/2026 Indifferenziata
   {2026, 9, 11, 1},  // 11/09/2026 Organico
+  {2026, 9, 14, 6},  // 14/09/2026 Spazzamento
   {2026, 9, 15, 1},  // 15/09/2026 Organico
   {2026, 9, 16, 3},  // 16/09/2026 Plastica
   {2026, 9, 18, 1},  // 18/09/2026 Organico
+  {2026, 9, 21, 6},  // 21/09/2026 Spazzamento
   {2026, 9, 22, 1},  // 22/09/2026 Organico
   {2026, 9, 23, 0},  // 23/09/2026 Carta
   {2026, 9, 23, 2},  // 23/09/2026 Indifferenziata
   {2026, 9, 25, 1},  // 25/09/2026 Organico
+  {2026, 9, 28, 6},  // 28/09/2026 Spazzamento
   {2026, 9, 29, 1},  // 29/09/2026 Organico
   {2026, 9, 30, 3},  // 30/09/2026 Plastica
   {2026, 10, 2, 1},  // 02/10/2026 Organico
+  {2026, 10, 5, 6},  // 05/10/2026 Spazzamento
   {2026, 10, 6, 1},  // 06/10/2026 Organico
   {2026, 10, 7, 0},  // 07/10/2026 Carta
   {2026, 10, 7, 2},  // 07/10/2026 Indifferenziata
   {2026, 10, 9, 1},  // 09/10/2026 Organico
+  {2026, 10, 12, 6},  // 12/10/2026 Spazzamento
   {2026, 10, 13, 1},  // 13/10/2026 Organico
   {2026, 10, 14, 3},  // 14/10/2026 Plastica
   {2026, 10, 16, 1},  // 16/10/2026 Organico
+  {2026, 10, 19, 6},  // 19/10/2026 Spazzamento
   {2026, 10, 20, 1},  // 20/10/2026 Organico
   {2026, 10, 21, 0},  // 21/10/2026 Carta
   {2026, 10, 21, 2},  // 21/10/2026 Indifferenziata
   {2026, 10, 23, 1},  // 23/10/2026 Organico
+  {2026, 10, 26, 6},  // 26/10/2026 Spazzamento
   {2026, 10, 27, 1},  // 27/10/2026 Organico
   {2026, 10, 28, 3},  // 28/10/2026 Plastica
   {2026, 10, 30, 1},  // 30/10/2026 Organico

@@ -1,6 +1,6 @@
-// Leinì Zona 1 (SETA): Piazza DOGALI, Piazza DON MATTEO FERRERO, Piazza I MAGGIO, Piazza RICCIOLIO, Piazza VITTORIO EMANUELE II, Piazza VITTORIO FERRERO, Via BONIS, Via BOVETTI, Via CAPIRONE, Via CARLO ALBERTO, Via CAVOUR, Via COTTIN, Via DE AMICIS, Via DOGLIOTTI, Via DON SASSI, Via FERRERO, Via GREMO CARLO, 1-33, Via MAFFEI, Via MARCONI, Via MARTIRI DELLA LIBERTA, Via MIGLIETTI, Via PAPA GIOVANNI XXIII, Via PELLICO, Via PROVANA, Via ROMA, Via SAN GIACOMO, Via SAN ROCCO, Via VALLINO, Via VERDI, Via XXV APRILE, Vicolo MILOCCO, Vicolo MUSSA, Vicolo PALESTRO, Vicolo SAN MARTINO, Vicolo SICCARDI
+// Leinì Zona 1 (SETA)
 // Anno 2027 — solo dati; struct e helper in docs/calendar.h
-// Mappa cassonetti: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro
+// Mappa: 0 Carta, 1 Organico, 2 Indifferenziata, 3 Plastica, 4 Verde, 5 Vetro; PWA-only 6 Spazzamento
 // Lista ORDINATA (YYYYMMDD) per ricerca binaria.
 
   {2027, 1, 2, 1},  // 02/01/2027 Organico
@@ -11,6 +11,7 @@
   {2027, 1, 4, 0},  // 04/01/2027 Carta
   {2027, 1, 4, 3},  // 04/01/2027 Plastica
   {2027, 1, 4, 5},  // 04/01/2027 Vetro
+  {2027, 1, 5, 6},  // 05/01/2027 Spazzamento
   {2027, 1, 6, 2},  // 06/01/2027 Indifferenziata
   {2027, 1, 7, 0},  // 07/01/2027 Carta
   {2027, 1, 7, 3},  // 07/01/2027 Plastica
@@ -19,3 +20,54 @@
   {2027, 1, 8, 3},  // 08/01/2027 Plastica
   {2027, 1, 8, 5},  // 08/01/2027 Vetro
   {2027, 1, 9, 1},  // 09/01/2027 Organico
+  {2027, 1, 12, 6},  // 12/01/2027 Spazzamento
+  {2027, 1, 19, 6},  // 19/01/2027 Spazzamento
+  {2027, 1, 26, 6},  // 26/01/2027 Spazzamento
+  {2027, 2, 2, 6},  // 02/02/2027 Spazzamento
+  {2027, 2, 9, 6},  // 09/02/2027 Spazzamento
+  {2027, 2, 16, 6},  // 16/02/2027 Spazzamento
+  {2027, 2, 23, 6},  // 23/02/2027 Spazzamento
+  {2027, 3, 2, 6},  // 02/03/2027 Spazzamento
+  {2027, 3, 9, 6},  // 09/03/2027 Spazzamento
+  {2027, 3, 16, 6},  // 16/03/2027 Spazzamento
+  {2027, 3, 23, 6},  // 23/03/2027 Spazzamento
+  {2027, 3, 30, 6},  // 30/03/2027 Spazzamento
+  {2027, 4, 6, 6},  // 06/04/2027 Spazzamento
+  {2027, 4, 13, 6},  // 13/04/2027 Spazzamento
+  {2027, 4, 20, 6},  // 20/04/2027 Spazzamento
+  {2027, 4, 27, 6},  // 27/04/2027 Spazzamento
+  {2027, 5, 4, 6},  // 04/05/2027 Spazzamento
+  {2027, 5, 11, 6},  // 11/05/2027 Spazzamento
+  {2027, 5, 18, 6},  // 18/05/2027 Spazzamento
+  {2027, 5, 25, 6},  // 25/05/2027 Spazzamento
+  {2027, 6, 1, 6},  // 01/06/2027 Spazzamento
+  {2027, 6, 8, 6},  // 08/06/2027 Spazzamento
+  {2027, 6, 15, 6},  // 15/06/2027 Spazzamento
+  {2027, 6, 22, 6},  // 22/06/2027 Spazzamento
+  {2027, 6, 29, 6},  // 29/06/2027 Spazzamento
+  {2027, 7, 6, 6},  // 06/07/2027 Spazzamento
+  {2027, 7, 13, 6},  // 13/07/2027 Spazzamento
+  {2027, 7, 20, 6},  // 20/07/2027 Spazzamento
+  {2027, 7, 27, 6},  // 27/07/2027 Spazzamento
+  {2027, 8, 3, 6},  // 03/08/2027 Spazzamento
+  {2027, 8, 10, 6},  // 10/08/2027 Spazzamento
+  {2027, 8, 17, 6},  // 17/08/2027 Spazzamento
+  {2027, 8, 24, 6},  // 24/08/2027 Spazzamento
+  {2027, 8, 31, 6},  // 31/08/2027 Spazzamento
+  {2027, 9, 7, 6},  // 07/09/2027 Spazzamento
+  {2027, 9, 14, 6},  // 14/09/2027 Spazzamento
+  {2027, 9, 21, 6},  // 21/09/2027 Spazzamento
+  {2027, 9, 28, 6},  // 28/09/2027 Spazzamento
+  {2027, 10, 5, 6},  // 05/10/2027 Spazzamento
+  {2027, 10, 12, 6},  // 12/10/2027 Spazzamento
+  {2027, 10, 19, 6},  // 19/10/2027 Spazzamento
+  {2027, 10, 26, 6},  // 26/10/2027 Spazzamento
+  {2027, 11, 2, 6},  // 02/11/2027 Spazzamento
+  {2027, 11, 9, 6},  // 09/11/2027 Spazzamento
+  {2027, 11, 16, 6},  // 16/11/2027 Spazzamento
+  {2027, 11, 23, 6},  // 23/11/2027 Spazzamento
+  {2027, 11, 30, 6},  // 30/11/2027 Spazzamento
+  {2027, 12, 7, 6},  // 07/12/2027 Spazzamento
+  {2027, 12, 14, 6},  // 14/12/2027 Spazzamento
+  {2027, 12, 21, 6},  // 21/12/2027 Spazzamento
+  {2027, 12, 28, 6},  // 28/12/2027 Spazzamento
