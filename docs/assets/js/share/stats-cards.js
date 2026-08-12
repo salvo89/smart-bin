@@ -1,5 +1,13 @@
 /** Canvas cards 9:16 (1080×1920) for social Stories share. */
 
+import { MIX_CAL_COLORS, MIX_EMOJI, parseMixItems } from "./mix-helpers.js";
+import { mixBinSvg } from "./mix-variants.js";
+import {
+  prodBinMeasureSvg,
+  resolveProdBins,
+  resetProdBinSvgSeq,
+} from "./prod-variants.js";
+
 export const CARD_W = 1080;
 export const CARD_H = 1920;
 
@@ -31,6 +39,28 @@ function fmtNum(n, digits) {
     minimumFractionDigits: digits == null ? 0 : digits,
     maximumFractionDigits: digits == null ? 1 : digits,
   });
+}
+
+function fmtEuro(n, digits) {
+  if (n == null || Number.isNaN(Number(n))) return "—";
+  return (
+    Number(n).toLocaleString("it-IT", {
+      minimumFractionDigits: digits == null ? 0 : digits,
+      maximumFractionDigits: digits == null ? 0 : digits,
+    }) + " €"
+  );
+}
+
+function costVsItalyMessage(cost, medIt) {
+  if (cost == null || medIt == null) return "—";
+  const d = Number(cost) - Number(medIt);
+  if (Math.abs(d) < 0.5) return "In linea con la mediana Italia";
+  const abs = Math.abs(d).toLocaleString("it-IT", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+  if (d < 0) return abs + " € sotto la mediana Italia";
+  return abs + " € sopra la mediana Italia";
 }
 
 function fmtTopN(n) {
@@ -119,6 +149,44 @@ function wrapText(ctx, text, maxWidth) {
   }
   if (line) lines.push(line);
   return lines;
+}
+
+/** Truncate with ellipsis so text fits maxWidth (single line). */
+function ellipsizeText(ctx, text, maxWidth) {
+  const s = String(text || "");
+  if (!s || ctx.measureText(s).width <= maxWidth) return s;
+  const ell = "…";
+  if (ctx.measureText(ell).width > maxWidth) return "";
+  let lo = 0;
+  let hi = s.length;
+  while (lo < hi) {
+    const mid = Math.ceil((lo + hi) / 2);
+    if (ctx.measureText(s.slice(0, mid) + ell).width <= maxWidth) lo = mid;
+    else hi = mid - 1;
+  }
+  return s.slice(0, Math.max(0, lo)) + ell;
+}
+
+/**
+ * Fit a label into a narrow cell: shrink font, wrap ≤2 lines, then ellipsize.
+ * @returns {{ lines: string[], size: number }}
+ */
+function fitCellLabel(ctx, text, maxWidth) {
+  const raw = String(text || "").trim() || "—";
+  for (let size = 22; size >= 15; size--) {
+    ctx.font = '650 ' + size + 'px "Outfit", "Segoe UI", sans-serif';
+    const wrapped = wrapText(ctx, raw, maxWidth);
+    if (wrapped.length > 2) continue;
+    const lines = wrapped.map(function (ln) {
+      return ellipsizeText(ctx, ln, maxWidth);
+    });
+    const ok = wrapped.every(function (ln) {
+      return ctx.measureText(ln).width <= maxWidth + 0.5;
+    });
+    if (ok || size === 15) return { lines: lines, size: size };
+  }
+  ctx.font = '650 15px "Outfit", "Segoe UI", sans-serif';
+  return { lines: [ellipsizeText(ctx, raw, maxWidth)], size: 15 };
 }
 
 function drawBackground(ctx) {
@@ -256,14 +324,17 @@ function canvasToShareFile(canvas, filename) {
 }
 
 /**
- * Bench cells like stats.html: label / mediana% / (delta%)
+ * Bench cells like stats.html: label / mediana% / (delta% | costo chip)
  * @param {CanvasRenderingContext2D} ctx
+ * @param {Array<{label:string,value:string,delta?:string,tone?:string,cost?:string|null}>} cells
+ * @param {boolean} [costMode]
  */
-function drawBenchRow(ctx, cells, x, y, w, h) {
+function drawBenchRow(ctx, cells, x, y, w, h, costMode) {
   const n = cells.length;
   if (!n) return;
   const gap = 16;
   const cellW = (w - gap * (n - 1)) / n;
+  const labelMaxW = Math.max(40, cellW - 24);
   for (let i = 0; i < n; i++) {
     const cell = cells[i];
     const cx = x + i * (cellW + gap);
@@ -271,39 +342,71 @@ function drawBenchRow(ctx, cells, x, y, w, h) {
     ctx.fillStyle = "#f0f5f2";
     ctx.fill();
 
+    const fitted = fitCellLabel(ctx, cell.label, labelMaxW);
     ctx.fillStyle = COLORS.muted;
-    ctx.font = '650 22px "Outfit", "Segoe UI", sans-serif';
+    ctx.font =
+      '650 ' + fitted.size + 'px "Outfit", "Segoe UI", sans-serif';
     ctx.textAlign = "center";
-    ctx.fillText(cell.label, cx + cellW / 2, y + 42);
+    const lineH = fitted.size + 6;
+    const labelBlockH = fitted.lines.length * lineH;
+    let labelY = y + 18 + (52 - labelBlockH) / 2 + fitted.size;
+    for (let li = 0; li < fitted.lines.length; li++) {
+      ctx.fillText(fitted.lines[li], cx + cellW / 2, labelY);
+      labelY += lineH;
+    }
 
     ctx.fillStyle = COLORS.ink;
     ctx.font = '700 40px "Outfit", "Segoe UI", sans-serif';
-    ctx.fillText(cell.value, cx + cellW / 2, y + 96);
+    const valueText = ellipsizeText(ctx, cell.value, labelMaxW);
+    ctx.fillText(valueText, cx + cellW / 2, y + 96);
 
-    ctx.fillStyle = cell.tone === "good" ? COLORS.accent : cell.tone === "bad" ? "#8b3a3a" : COLORS.muted;
-    ctx.font = '650 28px "Outfit", "Segoe UI", sans-serif';
-    ctx.fillText(cell.delta, cx + cellW / 2, y + 142);
+    if (costMode) {
+      const costTextRaw = cell.cost || "—";
+      let costSize = 26;
+      ctx.font = '650 ' + costSize + 'px "Outfit", "Segoe UI", sans-serif';
+      let costText = costTextRaw;
+      const chipPadX = 12;
+      const chipInnerMax = Math.max(24, cellW - 16 - chipPadX * 2);
+      while (costSize > 18 && ctx.measureText(costText).width > chipInnerMax) {
+        costSize -= 1;
+        ctx.font = '650 ' + costSize + 'px "Outfit", "Segoe UI", sans-serif';
+      }
+      costText = ellipsizeText(ctx, costText, chipInnerMax);
+      const tw = ctx.measureText(costText).width;
+      const chipH = 40;
+      const chipW = Math.min(cellW - 16, tw + chipPadX * 2);
+      const chipX = cx + (cellW - chipW) / 2;
+      const chipY = y + 118;
+      roundRect(ctx, chipX, chipY, chipW, chipH, 12);
+      ctx.fillStyle = "rgba(31, 92, 66, 0.12)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(31, 92, 66, 0.22)";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.fillStyle = COLORS.ink;
+      ctx.textBaseline = "middle";
+      ctx.fillText(costText, cx + cellW / 2, chipY + chipH / 2 + 1);
+      ctx.textBaseline = "alphabetic";
+    } else {
+      ctx.fillStyle =
+        cell.tone === "good"
+          ? COLORS.accent
+          : cell.tone === "bad"
+            ? "#8b3a3a"
+            : COLORS.muted;
+      ctx.font = '650 28px "Outfit", "Segoe UI", sans-serif';
+      const deltaText = ellipsizeText(ctx, cell.delta || "", labelMaxW);
+      ctx.fillText(deltaText, cx + cellW / 2, y + 142);
+    }
   }
   ctx.textAlign = "left";
 }
 
 /**
- * @param {object} rec
- * @param {object} baselines
+ * Box bianco COMUNE + nome (+ abitanti), come nella card RD.
+ * @returns {number} y sotto il box
  */
-export async function buildSingleCard(rec, baselines) {
-  await ensureFonts();
-  const mark = await loadBrandMark();
-  const markLight = mark ? tintMarkLight(mark) : null;
-  const canvas = document.createElement("canvas");
-  canvas.width = CARD_W;
-  canvas.height = CARD_H;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) throw new Error("Canvas unavailable");
-
-  drawBackground(ctx);
-  drawBrandHeader(ctx, markLight, 56);
-
+function drawComuneNameBox(ctx, rec, nameBoxY) {
   const name = rec.name || "Comune";
   const nameBoxX = 48;
   const nameBoxW = CARD_W - 96;
@@ -329,13 +432,11 @@ export async function buildSingleCard(rec, baselines) {
     gapNamePop +
     popH +
     namePadBot;
-  const nameBoxY = 230;
 
   roundRect(ctx, nameBoxX, nameBoxY, nameBoxW, nameBoxH, 36);
   ctx.fillStyle = COLORS.surface;
   ctx.fill();
 
-  // box-title style (chrome.css)
   ctx.fillStyle = COLORS.muted;
   ctx.font = '700 28px "Outfit", "Segoe UI", sans-serif';
   try {
@@ -363,11 +464,37 @@ export async function buildSingleCard(rec, baselines) {
     ctx.fillText(popLine, nameBoxX + namePadX, nameBoxY + nameBoxH - namePadBot);
   }
 
-  const afterNameY = nameBoxY + nameBoxH;
+  return nameBoxY + nameBoxH;
+}
+
+/**
+ * @param {object} rec
+ * @param {object} baselines
+ * @param {{ costOn?: boolean }} [opts] — costi solo se selezionati in UI; mai lo switch
+ */
+export async function buildSingleCard(rec, baselines, opts) {
+  await ensureFonts();
+  const mark = await loadBrandMark();
+  const markLight = mark ? tintMarkLight(mark) : null;
+  const canvas = document.createElement("canvas");
+  canvas.width = CARD_W;
+  canvas.height = CARD_H;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas unavailable");
+
+  drawBackground(ctx);
+  drawBrandHeader(ctx, markLight, 56);
+
+  const name = rec.name || "Comune";
+  const afterNameY = drawComuneNameBox(ctx, rec, 230);
   const rd = rec.rd_pct;
+  const hasCost =
+    rec.costo_tot_ab != null && !Number.isNaN(Number(rec.costo_tot_ab));
+  const costOn = !!(opts && opts.costOn) && hasCost;
   const provincia = (rec.provincia || "").trim();
   const regione = (rec.regione || "").trim();
   const medIt = baselines && baselines.rd_pct_median;
+  const medCostIt = baselines && baselines.costo_tot_ab_median;
   const provBase =
     baselines &&
     baselines.by_provincia &&
@@ -378,30 +505,57 @@ export async function buildSingleCard(rec, baselines) {
     baselines.by_regione &&
     regione &&
     baselines.by_regione[regione];
+  const clusters = (baselines && baselines.pop_clusters) || [];
+  const peer =
+    (rec.pop_cluster_id &&
+      clusters.find(function (c) {
+        return c && c.id === rec.pop_cluster_id;
+      })) ||
+    null;
   const medProv = provBase && provBase.rd_pct_median;
   const medReg = regBase && regBase.rd_pct_median;
+  const medPeer = peer && peer.rd_pct_n >= 30 ? peer.rd_pct_median : null;
+  const medCostProv = provBase && provBase.costo_tot_ab_median;
+  const medCostReg = regBase && regBase.costo_tot_ab_median;
+  const medCostPeer =
+    peer && peer.costo_tot_ab_n >= 30 ? peer.costo_tot_ab_median : null;
 
   const cells = [];
-  function pushCell(label, median) {
-    if (median == null) return;
-    const d = fmtDeltaPct(rd, median);
-    if (!d) return;
-    const tone = d.d > 0 ? "good" : d.d < 0 ? "bad" : "warn";
-    cells.push({
-      label: label,
-      value: fmtPct(median, 1),
-      delta: d.text === "in linea" ? "(in linea)" : "(" + d.text + ")",
-      tone: tone,
-    });
+  if (costOn) {
+    function pushCostCell(label, rdMedian, costMedian) {
+      if (rdMedian == null) return;
+      cells.push({
+        label: label,
+        value: fmtPct(rdMedian, 1),
+        cost: costMedian != null ? fmtEuro(costMedian, 0) : "—",
+      });
+    }
+    pushCostCell(shortProvinciaLabel(provincia), medProv, medCostProv);
+    pushCostCell(regione || "Regione", medReg, medCostReg);
+    pushCostCell("Italia", medIt, medCostIt);
+    pushCostCell("Per abitanti", medPeer, medCostPeer);
+  } else {
+    function pushCell(label, median) {
+      if (median == null) return;
+      const d = fmtDeltaPct(rd, median);
+      if (!d) return;
+      const tone = d.d > 0 ? "good" : d.d < 0 ? "bad" : "warn";
+      cells.push({
+        label: label,
+        value: fmtPct(median, 1),
+        delta: d.text === "in linea" ? "(in linea)" : "(" + d.text + ")",
+        tone: tone,
+      });
+    }
+    pushCell(shortProvinciaLabel(provincia), medProv);
+    pushCell(regione || "Regione", medReg);
+    pushCell("Italia", medIt);
+    pushCell("Per abitanti", medPeer);
   }
-  pushCell(shortProvinciaLabel(provincia), medProv);
-  pushCell(regione || "Regione", medReg);
-  pushCell("Italia", medIt);
 
-  const band = rdRankBandMessage(
-    rec.rd_pctile_it,
-    baselines && baselines.rd_pct_n
-  );
+  const band = costOn
+    ? costVsItalyMessage(rec.costo_tot_ab, medCostIt)
+    : rdRankBandMessage(rec.rd_pctile_it, baselines && baselines.rd_pct_n);
   const padX = 52;
   const padTop = 48;
   const padBot = 52;
@@ -433,7 +587,7 @@ export async function buildSingleCard(rec, baselines) {
   ctx.fillStyle = COLORS.surface;
   ctx.fill();
 
-  // box-title style (chrome.css): Outfit 700 uppercase muted + letter-spacing
+  // box-title (no € switch — only in live UI)
   ctx.fillStyle = COLORS.muted;
   ctx.font = '700 28px "Outfit", "Segoe UI", sans-serif';
   try {
@@ -449,9 +603,45 @@ export async function buildSingleCard(rec, baselines) {
   }
 
   let cy = cardY + padTop + kpiTitleH + kpiGapAfterTitle;
+  const rdText = fmtPct(rec.rd_pct, 1);
   ctx.fillStyle = COLORS.accent;
   ctx.font = '700 148px "Fraunces", Georgia, serif';
-  ctx.fillText(fmtPct(rec.rd_pct, 1), cardX + padX, cy + 120);
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText(rdText, cardX + padX, cy + 120);
+
+  if (costOn) {
+    const rdW = ctx.measureText(rdText).width;
+    const costMain = fmtEuro(rec.costo_tot_ab, 0);
+    const unit = "/ab·anno";
+    ctx.font = '650 42px "Fraunces", Georgia, serif';
+    const costW = ctx.measureText(costMain).width;
+    ctx.font = '550 22px "Outfit", "Segoe UI", sans-serif';
+    const unitW = ctx.measureText(unit).width;
+    const chipPadX = 20;
+    const chipGap = 10;
+    const chipW = costW + chipGap + unitW + chipPadX * 2;
+    const chipH = 64;
+    const chipX = cardX + padX + rdW + 28;
+    const chipY = cy + 120 - 52;
+    roundRect(ctx, chipX, chipY, chipW, chipH, 16);
+    ctx.fillStyle = "rgba(31, 92, 66, 0.12)";
+    ctx.fill();
+    ctx.strokeStyle = "rgba(31, 92, 66, 0.22)";
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.fillStyle = COLORS.ink;
+    ctx.font = '650 42px "Fraunces", Georgia, serif';
+    ctx.textBaseline = "middle";
+    ctx.fillText(costMain, chipX + chipPadX, chipY + chipH / 2 + 1);
+    ctx.fillStyle = COLORS.muted;
+    ctx.font = '550 22px "Outfit", "Segoe UI", sans-serif';
+    ctx.fillText(
+      unit,
+      chipX + chipPadX + costW + chipGap,
+      chipY + chipH / 2 + 2
+    );
+    ctx.textBaseline = "alphabetic";
+  }
   cy += valueH + gapAfterValue;
 
   ctx.fillStyle = COLORS.ink;
@@ -462,11 +652,416 @@ export async function buildSingleCard(rec, baselines) {
   }
 
   if (cells.length) {
-    drawBenchRow(ctx, cells, cardX + 40, cy + 12, cardW - 80, benchH);
+    drawBenchRow(ctx, cells, cardX + 40, cy + 12, cardW - 80, benchH, costOn);
   }
 
   drawFooter(ctx);
 
-  const filename = "escilo-" + slugify(name) + "-rd.png";
+  const filename =
+    "escilo-" + slugify(name) + (costOn ? "-rd-costo.png" : "-rd.png");
+  return canvasToShareFile(canvas, filename);
+}
+
+/**
+ * Rasterizza l’SVG cassonetto della UI (stesso markup di mix-variants).
+ * @param {string} svgMarkup
+ * @param {number} widthPx
+ * @returns {Promise<HTMLImageElement|null>}
+ */
+function loadMixBinImage(svgMarkup, widthPx) {
+  const h = Math.round((widthPx * 127) / 100);
+  const withNs = svgMarkup.replace(
+    "<svg ",
+    '<svg xmlns="http://www.w3.org/2000/svg" width="' +
+      widthPx +
+      '" height="' +
+      h +
+      '" '
+  );
+  return new Promise(function (resolve) {
+    const img = new Image();
+    img.decoding = "async";
+    img.onload = function () {
+      resolve(img);
+    };
+    img.onerror = function () {
+      resolve(null);
+    };
+    img.src =
+      "data:image/svg+xml;charset=utf-8," + encodeURIComponent(withNs);
+  });
+}
+
+/**
+ * Fallback canvas se l’SVG non rasterizza (stessi colori calendario).
+ * @param {CanvasRenderingContext2D} ctx
+ */
+function drawMixBinFallback(ctx, item, x, y, w, h) {
+  const cal = MIX_CAL_COLORS[item.key] || MIX_CAL_COLORS.altro;
+  const sx = w / 100;
+  const sy = h / 127;
+  ctx.save();
+  ctx.translate(x, y - 34 * sy);
+  ctx.scale(sx, sy);
+
+  ctx.fillStyle = "#0c0c0c";
+  ctx.beginPath();
+  ctx.ellipse(50, 56, 20, 14, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = cal.color;
+  ctx.beginPath();
+  ctx.moveTo(20, 67);
+  ctx.bezierCurveTo(20, 67, 20, 148, 28, 153);
+  ctx.lineTo(72, 153);
+  ctx.bezierCurveTo(80, 148, 80, 67, 80, 67);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = "rgba(0,0,0,0.14)";
+  ctx.fillRect(18, 59, 64, 11);
+  ctx.beginPath();
+  ctx.ellipse(50, 67, 31, 4.2, 0, 0, Math.PI * 2);
+  ctx.fillStyle = cal.color;
+  ctx.globalAlpha = 0.85;
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  ctx.fillStyle = "#141414";
+  ctx.beginPath();
+  ctx.arc(27, 153, 7.2, 0, Math.PI * 2);
+  ctx.arc(73, 153, 7.2, 0, Math.PI * 2);
+  ctx.fill();
+
+  roundRect(ctx, 24, 78, 52, 20, 5);
+  ctx.fillStyle = "rgba(0,0,0,0.16)";
+  ctx.fill();
+  ctx.fillStyle = cal.ink;
+  ctx.font = '800 18px "Outfit", "Segoe UI", sans-serif';
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(fmtPct(item.v, 0), 50, 88);
+
+  roundRect(ctx, 34, 116, 32, 22, 4.5);
+  ctx.fillStyle = "rgba(0,0,0,0.14)";
+  ctx.fill();
+  ctx.font = '700 15px "Segoe UI Emoji", "Apple Color Emoji", sans-serif';
+  ctx.fillText(MIX_EMOJI[item.key] || "📋", 50, 127);
+
+  ctx.restore();
+  ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic";
+}
+
+/**
+ * Story card: composizione differenziata — stessa griglia cassonetti della UI.
+ * @param {object} rec
+ */
+export async function buildMixCard(rec) {
+  await ensureFonts();
+  const items = parseMixItems(rec.mix_rd_pct || {});
+  if (!items.length) throw new Error("Mix unavailable");
+
+  const mark = await loadBrandMark();
+  const markLight = mark ? tintMarkLight(mark) : null;
+  const canvas = document.createElement("canvas");
+  canvas.width = CARD_W;
+  canvas.height = CARD_H;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas unavailable");
+
+  drawBackground(ctx);
+  drawBrandHeader(ctx, markLight, 56);
+
+  const name = rec.name || "Comune";
+  const afterNameY = drawComuneNameBox(ctx, rec, 230);
+  const padX = 40;
+  const cardX = 48;
+  const cardW = CARD_W - 96;
+  let y = afterNameY + 28;
+
+  const n = items.length;
+  const cols = n <= 3 ? n : Math.ceil(n / 2);
+  const rows = Math.ceil(n / cols);
+  const panelX = cardX;
+  const panelW = cardW;
+  const panelPadX = padX;
+  const panelPadTop = 44;
+  const panelPadBot = 48;
+  const titleH = 36;
+  const leadGap = 18;
+  const leadLineH = 34;
+  const lead =
+    "Cosa finisce nei cassonetti colorati, in quote sul differenziato.";
+  ctx.font = '500 26px "Outfit", "Segoe UI", sans-serif';
+  const leadLines = wrapText(ctx, lead, panelW - panelPadX * 2);
+  const leadH = leadLines.length * leadLineH;
+  const binsTopGap = 32;
+  const binGapX = 24;
+  const binGapY = 28;
+  const labelH = 40;
+  const labelGap = 12;
+  const innerW = panelW - panelPadX * 2;
+  const binW = Math.min(
+    250,
+    Math.floor((innerW - binGapX * (cols - 1)) / cols)
+  );
+  const binH = Math.round((binW * 127) / 100);
+  const cellH = binH + labelGap + labelH;
+  const gridW = cols * binW + (cols - 1) * binGapX;
+  const gridH = rows * cellH + (rows - 1) * binGapY;
+  const panelH =
+    panelPadTop +
+    titleH +
+    leadGap +
+    leadH +
+    binsTopGap +
+    gridH +
+    panelPadBot;
+
+  roundRect(ctx, panelX, y, panelW, panelH, 48);
+  ctx.fillStyle = COLORS.surface;
+  ctx.fill();
+
+  let py = y + panelPadTop;
+  ctx.fillStyle = COLORS.muted;
+  ctx.font = '700 28px "Outfit", "Segoe UI", sans-serif';
+  try {
+    ctx.letterSpacing = "0.04em";
+  } catch {
+    /* ignore */
+  }
+  ctx.fillText("COSA DIFFERENZIAMO", panelX + panelPadX, py + 8);
+  try {
+    ctx.letterSpacing = "0px";
+  } catch {
+    /* ignore */
+  }
+  py += titleH + leadGap;
+
+  ctx.fillStyle = COLORS.muted;
+  ctx.font = '500 26px "Outfit", "Segoe UI", sans-serif';
+  for (let i = 0; i < leadLines.length; i++) {
+    ctx.fillText(leadLines[i], panelX + panelPadX, py + 22);
+    py += leadLineH;
+  }
+  py += binsTopGap;
+
+  const binImgs = await Promise.all(
+    items.map(function (item) {
+      return loadMixBinImage(mixBinSvg(item), binW * 2);
+    })
+  );
+
+  const gridX = panelX + (panelW - gridW) / 2;
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const bx = gridX + col * (binW + binGapX);
+    const by = py + row * (cellH + binGapY);
+    const img = binImgs[i];
+    if (img) {
+      ctx.drawImage(img, bx, by, binW, binH);
+    } else {
+      drawMixBinFallback(ctx, item, bx, by, binW, binH);
+    }
+    ctx.fillStyle = COLORS.muted;
+    ctx.font = '650 24px "Outfit", "Segoe UI", sans-serif';
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    ctx.fillText(item.short || item.label, bx + binW / 2, by + binH + labelGap);
+  }
+  ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic";
+
+  drawFooter(ctx);
+
+  const filename = "escilo-" + slugify(name) + "-mix.png";
+  return canvasToShareFile(canvas, filename);
+}
+
+/**
+ * Story card: produzione kg/ab — stessi cassonetti misuratori della UI.
+ * @param {object} rec
+ * @param {object} baselines
+ */
+export async function buildProdCard(rec, baselines) {
+  await ensureFonts();
+  const resolved = resolveProdBins(rec, baselines || {});
+  if (!resolved.bins.length) throw new Error("Prod unavailable");
+
+  const mark = await loadBrandMark();
+  const markLight = mark ? tintMarkLight(mark) : null;
+  const canvas = document.createElement("canvas");
+  canvas.width = CARD_W;
+  canvas.height = CARD_H;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas unavailable");
+
+  drawBackground(ctx);
+  drawBrandHeader(ctx, markLight, 56);
+
+  const name = rec.name || "Comune";
+  const afterNameY = drawComuneNameBox(ctx, rec, 230);
+  const padX = 40;
+  const cardX = 48;
+  const cardW = CARD_W - 96;
+  let y = afterNameY + 28;
+
+  const bins = resolved.bins;
+  const n = bins.length;
+  const cols = n;
+  const panelX = cardX;
+  const panelW = cardW;
+  const panelPadX = padX;
+  const panelPadTop = 44;
+  const panelPadBot = 48;
+  const titleH = 36;
+  const leadGap = 18;
+  const leadLineH = 34;
+  const lead = "Tutti i valori sono in kg/abitante anno.";
+  ctx.font = '500 26px "Outfit", "Segoe UI", sans-serif';
+  const leadLines = wrapText(ctx, lead, panelW - panelPadX * 2);
+  const leadH = leadLines.length * leadLineH;
+  const binsTopGap = 28;
+  const binGapX = 36;
+  const labelH = 36;
+  const labelGap = 10;
+  const hintLineH = 30;
+  const hintGap = 10;
+  const legendGap = 28;
+  const legendH = 36;
+  const innerW = panelW - panelPadX * 2;
+  const binW = Math.min(
+    360,
+    Math.floor((innerW - binGapX * (cols - 1)) / cols)
+  );
+  const binH = Math.round((binW * 127) / 100);
+
+  let maxHintLines = 1;
+  ctx.font = '550 22px "Outfit", "Segoe UI", sans-serif';
+  bins.forEach(function (bin) {
+    if (!bin.hint) return;
+    const lines = wrapText(ctx, bin.hint, binW);
+    if (lines.length > maxHintLines) maxHintLines = lines.length;
+  });
+  const hintBlockH = maxHintLines * hintLineH;
+  const cellH = binH + labelGap + labelH + hintGap + hintBlockH;
+  const gridW = cols * binW + (cols - 1) * binGapX;
+  const panelH =
+    panelPadTop +
+    titleH +
+    leadGap +
+    leadH +
+    binsTopGap +
+    cellH +
+    legendGap +
+    legendH +
+    panelPadBot;
+
+  roundRect(ctx, panelX, y, panelW, panelH, 48);
+  ctx.fillStyle = COLORS.surface;
+  ctx.fill();
+
+  let py = y + panelPadTop;
+  ctx.fillStyle = COLORS.muted;
+  ctx.font = '700 28px "Outfit", "Segoe UI", sans-serif';
+  try {
+    ctx.letterSpacing = "0.04em";
+  } catch {
+    /* ignore */
+  }
+  ctx.fillText("QUANTO PRODUCIAMO", panelX + panelPadX, py + 8);
+  try {
+    ctx.letterSpacing = "0px";
+  } catch {
+    /* ignore */
+  }
+  py += titleH + leadGap;
+
+  ctx.fillStyle = COLORS.muted;
+  ctx.font = '500 26px "Outfit", "Segoe UI", sans-serif';
+  for (let i = 0; i < leadLines.length; i++) {
+    ctx.fillText(leadLines[i], panelX + panelPadX, py + 22);
+    py += leadLineH;
+  }
+  py += binsTopGap;
+
+  resetProdBinSvgSeq();
+  const binImgs = await Promise.all(
+    bins.map(function (bin) {
+      return loadMixBinImage(
+        prodBinMeasureSvg(bin.value, bin.medianIt, bin.medianReg, bin.kind),
+        binW * 2
+      );
+    })
+  );
+
+  const gridX = panelX + (panelW - gridW) / 2;
+  for (let i = 0; i < bins.length; i++) {
+    const bin = bins[i];
+    const bx = gridX + i * (binW + binGapX);
+    const by = py;
+    const img = binImgs[i];
+    if (img) {
+      ctx.drawImage(img, bx, by, binW, binH);
+    }
+    ctx.fillStyle = COLORS.ink;
+    ctx.font = '700 26px "Outfit", "Segoe UI", sans-serif';
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    ctx.fillText(bin.label, bx + binW / 2, by + binH + labelGap);
+
+    if (bin.hint) {
+      ctx.fillStyle = COLORS.muted;
+      ctx.font = '550 22px "Outfit", "Segoe UI", sans-serif';
+      const hintLines = wrapText(ctx, bin.hint, binW);
+      let hy = by + binH + labelGap + labelH + hintGap;
+      for (let h = 0; h < hintLines.length; h++) {
+        ctx.fillText(hintLines[h], bx + binW / 2, hy);
+        hy += hintLineH;
+      }
+    }
+  }
+  ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic";
+
+  const legendY = py + cellH + legendGap + 10;
+  const legendItems = [
+    { label: (rec.name || "").trim() || "Comune", fill: "#1f5c42" },
+    { label: "Italia", fill: "#142018" },
+  ];
+  if (resolved.regione) {
+    legendItems.push({ label: resolved.regione, fill: "#3d6eb5" });
+  }
+  ctx.font = '600 22px "Outfit", "Segoe UI", sans-serif';
+  const legendGapX = 28;
+  const dotR = 7;
+  let legendW = 0;
+  const measures = legendItems.map(function (item) {
+    const tw = ctx.measureText(item.label).width;
+    const w = dotR * 2 + 10 + tw;
+    legendW += w;
+    return w;
+  });
+  legendW += legendGapX * (legendItems.length - 1);
+  let lx = panelX + (panelW - legendW) / 2;
+  for (let i = 0; i < legendItems.length; i++) {
+    const item = legendItems[i];
+    ctx.beginPath();
+    ctx.arc(lx + dotR, legendY, dotR, 0, Math.PI * 2);
+    ctx.fillStyle = item.fill;
+    ctx.fill();
+    ctx.fillStyle = COLORS.muted;
+    ctx.textBaseline = "middle";
+    ctx.fillText(item.label, lx + dotR * 2 + 10, legendY);
+    lx += measures[i] + legendGapX;
+  }
+  ctx.textBaseline = "alphabetic";
+
+  drawFooter(ctx);
+
+  const filename = "escilo-" + slugify(name) + "-prod.png";
   return canvasToShareFile(canvas, filename);
 }

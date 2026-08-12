@@ -1,3 +1,5 @@
+@import url("motion.css");
+
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -182,6 +184,36 @@ a.stats-teaser .st-title,
   color: var(--accent);
   font-size: 1.05em;
   font-weight: 700;
+}
+
+.hero-card-share-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.7rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+}
+.hero-card-share-btn[hidden] {
+  display: none;
+}
+.hero-card-share-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.hero-card-share-btn:hover,
+.hero-card-share-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  outline: none;
 }
 
 .footer {

@@ -10,19 +10,26 @@ import {
 } from "./shared/constants.js";
 import { $ } from "./shared/dom.js";
 import { initIosBar } from "./shared/ios-bar.js";
+import { shareStatsPageLink } from "./shared/share.js";
 import {
   bindShareStatsSheet,
+  bindShareMixSheet,
+  bindShareProdSheet,
   setShareStatsContext,
 } from "./share/stats-share-ui.js";
+import { parseMixItems } from "./share/mix-helpers.js";
+import { renderMixWidget, observeMixBinsLayout } from "./share/mix-variants.js";
+import {
+  PROD_BIN_KINDS,
+  prodBinMeasureSvg,
+  resolveProdBins,
+  resetProdBinSvgSeq,
+} from "./share/prod-variants.js";
 
-const MIX_LABELS = [
-  { key: "umida", label: "Organico / umido", cls: "mix-o" },
-  { key: "carta", label: "Carta e cartone", cls: "mix-c" },
-  { key: "plastica", label: "Plastica", cls: "mix-p" },
-  { key: "verde", label: "Verde", cls: "mix-v" },
-  { key: "vetro", label: "Vetro", cls: "mix-g" },
-];
+const LS_KPI_COST_ON = "escilo.kpiCostOn";
 
+/** @type {{ rec: object | null, baselines: object | null }} */
+let kpiCtx = { rec: null, baselines: null };
 function fmtPct(n, digits) {
   if (n == null || Number.isNaN(n)) return "—";
   return (
@@ -39,6 +46,17 @@ function fmtNum(n, digits) {
     minimumFractionDigits: digits == null ? 0 : digits,
     maximumFractionDigits: digits == null ? 1 : digits,
   });
+}
+
+function fmtEuro(n, digits) {
+  if (n == null || Number.isNaN(n)) return "—";
+  const d = digits == null ? 0 : digits;
+  return (
+    Number(n).toLocaleString("it-IT", {
+      minimumFractionDigits: d,
+      maximumFractionDigits: d,
+    }) + " €"
+  );
 }
 
 function toneClass(delta, invert) {
@@ -244,191 +262,89 @@ function renderSpark(series, delta) {
   );
 }
 
+let mixBinsLayoutObserver = null;
+
 function renderMix(mix) {
   const root = $("mix");
-  const items = MIX_LABELS.map((item) => {
-    const v = mix && mix[item.key];
-    if (v == null) return null;
-    return { ...item, v: Number(v), w: Math.max(0, Math.min(100, Number(v))) };
-  })
-    .filter(Boolean)
-    .sort((a, b) => b.v - a.v);
+  const items = parseMixItems(mix);
 
-  if (!items.length) {
-    root.innerHTML =
-      '<p class="lead" style="margin:0">Mix frazioni non disponibile per questo comune.</p>';
-    return;
+  if (mixBinsLayoutObserver) {
+    mixBinsLayoutObserver.disconnect();
+    mixBinsLayoutObserver = null;
   }
 
-  const sum = items.reduce((acc, item) => acc + item.v, 0);
-  const rest = Math.max(0, 100 - sum);
-  if (rest >= 0.5) {
-    items.push({
-      key: "altro",
-      label: "Altro",
-      cls: "mix-x",
-      v: rest,
-      w: Math.min(100, rest),
-    });
+  root.innerHTML = renderMixWidget(items);
+
+  if (items.length) {
+    root.setAttribute(
+      "aria-label",
+      items
+        .map(function (item) {
+          return item.label + " " + fmtPct(item.v, 1);
+        })
+        .join(", ")
+    );
+    mixBinsLayoutObserver = observeMixBinsLayout(root);
+  } else {
+    root.removeAttribute("aria-label");
   }
-
-  const segs = items
-    .map(
-      (item) =>
-        '<span class="mix-seg ' +
-        item.cls +
-        '" style="width:' +
-        item.w +
-        '%" title="' +
-        item.label +
-        ": " +
-        fmtPct(item.v, 1) +
-        '"></span>'
-    )
-    .join("");
-  const legend = items
-    .map(
-      (item) =>
-        '<div class="mix-item">' +
-        '<span class="mix-dot ' +
-        item.cls +
-        '" aria-hidden="true"></span>' +
-        "<span>" +
-        item.label +
-        "</span>" +
-        '<span class="pct">' +
-        fmtPct(item.v, 1) +
-        "</span>" +
-        "</div>"
-    )
-    .join("");
-
-  root.innerHTML =
-    '<div class="mix-stack" role="img" aria-label="Composizione della differenziata">' +
-    segs +
-    "</div>" +
-    '<div class="mix-legend">' +
-    legend +
-    "</div>";
 }
 
 function renderProdCards(rec, baselines) {
   const root = $("prodCards");
-  const medRu = baselines.kg_ru_ab_median;
-  const medInd = baselines.kg_ind_ab_median;
-  const regione = (rec.regione || "").trim();
-  const regBase =
-    (baselines.by_regione && regione && baselines.by_regione[regione]) || null;
-  const medRuReg = regBase && regBase.kg_ru_ab_median;
-  const medIndReg = regBase && regBase.kg_ind_ab_median;
-  const ru = rec.kg_ru_ab;
-  const ind = rec.kg_ind_ab;
+  const resolved = resolveProdBins(rec, baselines || {});
+  const regione = resolved.regione;
+  const legendCom = $("prodLegendCom");
+  if (legendCom) legendCom.textContent = (rec.name || "").trim() || "Comune";
   const legendReg = $("prodLegendReg");
   if (legendReg) legendReg.textContent = regione || "Regione";
+  resetProdBinSvgSeq();
 
-  function medianMarker(pct, value, kind, title) {
-    // Keep regional labels centered on the marker; only Italy may shift at edges.
-    const edge =
-      kind === "reg"
-        ? ""
-        : pct < 12
-          ? " is-edge-left"
-          : pct > 88
-            ? " is-edge-right"
-            : "";
-    return (
-      '<span class="prod-median prod-median--' +
-      kind +
-      edge +
-      '" style="left:' +
-      pct.toFixed(1) +
-      '%" title="' +
-      title +
-      '">' +
-      '<span class="prod-median-val">' +
-      fmtNum(value, 0) +
-      "</span>" +
-      "</span>"
-    );
-  }
+  const byKind = {};
+  resolved.bins.forEach(function (b) {
+    byKind[b.kind] = b;
+  });
 
-  function barBlock(label, value, medianIt, medianReg) {
-    if (value == null || medianIt == null) {
+  function binBlock(kind) {
+    const kindMeta = PROD_BIN_KINDS[kind] || PROD_BIN_KINDS.total;
+    const bin = byKind[kind];
+    if (!bin) {
       return (
-        '<article class="prod-card"><div class="prod-head"><h3>' +
-        label +
-        '</h3></div><p class="prod-hint">dato non disponibile</p></article>'
+        '<article class="prod-bin escilo-block" role="listitem">' +
+        '<figure class="prod-bin-fig prod-bin-fig--' +
+        kind +
+        '">' +
+        '<figcaption class="prod-bin-kind">' +
+        kindMeta.label +
+        "</figcaption></figure>" +
+        '<p class="prod-hint">dato non disponibile</p></article>'
       );
     }
-    const refs = [value, medianIt];
-    if (medianReg != null) refs.push(medianReg);
-    const max = Math.max.apply(null, refs.concat([1])) * 1.08;
-    const wVal = Math.max(4, Math.min(100, (value / max) * 100));
-    const wMedIt = Math.max(2, Math.min(98, (medianIt / max) * 100));
-    const wMedReg =
-      medianReg != null ? Math.max(2, Math.min(98, (medianReg / max) * 100)) : null;
-    const d = value - medianIt;
-    const tone = toneClass(d, true);
-    const fillTone = Math.abs(d) < 0.5 ? "" : d > 0 ? " is-bad" : " is-good";
-    const markers =
-      medianMarker(wMedIt, medianIt, "it", "Mediana Italia") +
-      (wMedReg != null
-        ? medianMarker(
-            wMedReg,
-            medianReg,
-            "reg",
-            "Mediana " + (regione || "regione")
-          )
-        : "");
-    const hint = pctVsMediansHint(value, medianIt, medianReg, regione);
+    const aria =
+      kindMeta.aria +
+      ": comune " +
+      fmtNum(bin.value, 0) +
+      " kg per abitante, Italia " +
+      fmtNum(bin.medianIt, 0) +
+      (bin.medianReg != null ? ", " + regione + " " + fmtNum(bin.medianReg, 0) : "") +
+      ".";
     return (
-      '<article class="prod-card">' +
-      '<div class="prod-head"><h3>' +
-      label +
-      "</h3>" +
-      '<span class="prod-val ' +
-      tone +
+      '<article class="prod-bin escilo-block" role="listitem">' +
+      '<figure class="prod-bin-fig prod-bin-fig--' +
+      kind +
+      '" aria-label="' +
+      aria +
       '">' +
-      fmtNum(value, 0) +
-      "</span></div>" +
-      '<div class="prod-track-wrap' +
-      (wMedReg != null ? " has-reg" : "") +
-      '"><div class="prod-track">' +
-      '<div class="prod-fill' +
-      fillTone +
-      '" style="width:' +
-      wVal.toFixed(1) +
-      '%"></div>' +
-      markers +
-      "</div></div>" +
-      (hint ? '<p class="prod-hint">' + hint + "</p>" : "") +
+      prodBinMeasureSvg(bin.value, bin.medianIt, bin.medianReg, kind) +
+      '<figcaption class="prod-bin-kind">' +
+      kindMeta.label +
+      "</figcaption></figure>" +
+      (bin.hint ? '<p class="prod-hint">' + bin.hint + "</p>" : "") +
       "</article>"
     );
   }
 
-  function pctVsOne(value, median, label) {
-    if (value == null || median == null || median <= 0) return "";
-    const pctVs = ((value - median) / median) * 100;
-    const absPct = Math.round(Math.abs(pctVs));
-    if (Math.abs(pctVs) < 2) return "in linea con " + label;
-    if (pctVs > 0) return "+" + absPct + "% vs " + label;
-    return "−" + absPct + "% vs " + label;
-  }
-
-  function pctVsMediansHint(value, medianIt, medianReg, regName) {
-    const it = pctVsOne(value, medianIt, "Italia");
-    const reg = pctVsOne(value, medianReg, regName || "regione");
-    const parts = [];
-    if (it) parts.push(it);
-    if (reg) parts.push(reg);
-    if (!parts.length) return "";
-    const joined = parts.join(" · ");
-    return joined.charAt(0).toUpperCase() + joined.slice(1);
-  }
-
-  root.innerHTML =
-    barBlock("Rifiuti urbani totali", ru, medRu, medRuReg) +
-    barBlock("Solo indifferenziato", ind, medInd, medIndReg);
+  root.innerHTML = binBlock("total") + binBlock("ind");
 }
 
 function fmtTopN(n) {
@@ -474,6 +390,18 @@ function fmtDeltaPp(comune, ref) {
   };
 }
 
+function costVsItalyMessage(cost, medIt) {
+  if (cost == null || medIt == null) return "—";
+  const d = Number(cost) - Number(medIt);
+  if (Math.abs(d) < 0.5) return "In linea con la mediana Italia";
+  const abs = Math.abs(d).toLocaleString("it-IT", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+  if (d < 0) return abs + " € sotto la mediana Italia";
+  return abs + " € sopra la mediana Italia";
+}
+
 function shortProvinciaLabel(name) {
   const n = (name || "").trim();
   if (!n) return "Provincia";
@@ -487,9 +415,217 @@ function fillBenchCell(valueId, deltaId, median, rd) {
   if (!valueEl || !deltaEl) return;
   valueEl.textContent = fmtPct(median, 1);
   const d = fmtDeltaPp(rd, median);
-  // Parentheses mark the companion figure as delta vs the comune.
   deltaEl.textContent = d.text === "—" ? "—" : "(" + d.text + ")";
   deltaEl.className = "kpi-bench-delta" + (d.tone ? " " + d.tone : "");
+}
+
+/** Cost overlay: RD median as value, small cost instead of delta %. */
+function fillBenchRdWithCost(valueId, deltaId, rdMedian, costMedian) {
+  const valueEl = $(valueId);
+  const deltaEl = $(deltaId);
+  if (!valueEl || !deltaEl) return;
+  valueEl.textContent = fmtPct(rdMedian, 1);
+  if (costMedian == null || Number.isNaN(Number(costMedian))) {
+    deltaEl.textContent = "—";
+    deltaEl.className = "kpi-bench-delta kpi-bench-cost";
+    return;
+  }
+  deltaEl.textContent = fmtEuro(costMedian, 0);
+  deltaEl.className = "kpi-bench-delta kpi-bench-cost";
+}
+
+function hasCostData(rec) {
+  return (
+    rec &&
+    rec.costo_tot_ab != null &&
+    !Number.isNaN(Number(rec.costo_tot_ab))
+  );
+}
+
+function readKpiCostOn() {
+  return localStorage.getItem(LS_KPI_COST_ON) === "1";
+}
+
+function writeKpiCostOn(on) {
+  localStorage.setItem(LS_KPI_COST_ON, on ? "1" : "0");
+}
+
+function resolveBenchContext(rec, baselines) {
+  const provincia = (rec.provincia || "").trim();
+  const regione = (rec.regione || "").trim();
+  const provBase =
+    (baselines &&
+      baselines.by_provincia &&
+      provincia &&
+      baselines.by_provincia[provincia]) ||
+    null;
+  const regBase =
+    (baselines &&
+      baselines.by_regione &&
+      regione &&
+      baselines.by_regione[regione]) ||
+    null;
+  const clusters = (baselines && baselines.pop_clusters) || [];
+  const peer =
+    (rec.pop_cluster_id &&
+      clusters.find(function (c) {
+        return c && c.id === rec.pop_cluster_id;
+      })) ||
+    null;
+  const agg = rec.aggregation;
+  const clusterPop =
+    agg && agg.n >= 2 && agg.pop != null ? agg.pop : rec.pop;
+  popClustersState = {
+    clusters: clusters,
+    currentId: peer && peer.id,
+    pop: clusterPop,
+    aggregation: agg && agg.n >= 2 ? agg : null,
+  };
+  return {
+    provincia: provincia,
+    regione: regione,
+    peer: peer,
+    medRdProv: provBase && provBase.rd_pct_median,
+    medRdReg: regBase && regBase.rd_pct_median,
+    medRdIt: baselines && baselines.rd_pct_median,
+    medRdPeer: peer && peer.rd_pct_n >= 30 ? peer.rd_pct_median : null,
+    medCostProv: provBase && provBase.costo_tot_ab_median,
+    medCostReg: regBase && regBase.costo_tot_ab_median,
+    medCostIt: baselines && baselines.costo_tot_ab_median,
+    medCostPeer:
+      peer && peer.costo_tot_ab_n >= 30 ? peer.costo_tot_ab_median : null,
+  };
+}
+
+function syncPeerButton(peer) {
+  const peerBtn = $("btnPopClusters");
+  if (!peerBtn) return;
+  const fascia = (peer && peer.label) || "";
+  peerBtn.setAttribute(
+    "aria-label",
+    fascia
+      ? "Per abitanti, fascia " +
+          fascia.replace(/\.$/, "") +
+          ". Apri i dettagli sulle fasce di popolazione"
+      : "Per abitanti. Apri i dettagli sulle fasce di popolazione"
+  );
+  peerBtn.title = fascia
+    ? "Fascia " + fascia + " · tocca per tutte le fasce"
+    : "Tocca per le fasce di popolazione";
+}
+
+function renderKpi(rec, baselines) {
+  const card = $("kpiCard");
+  if (!card || !rec) return;
+
+  kpiCtx = { rec: rec, baselines: baselines || {} };
+  const hasCost = hasCostData(rec);
+  const costOn = hasCost && readKpiCostOn();
+  const ctx = resolveBenchContext(rec, baselines || {});
+
+  const costToggle = $("kpiCostToggle");
+  const chk = $("chkKpiCost");
+  if (costToggle) costToggle.hidden = !hasCost;
+  if (chk) chk.checked = costOn;
+
+  card.classList.toggle("is-cost-overlay", costOn);
+
+  const labelEl = $("kpiLabel");
+  const valueEl = $("kpiRd");
+  const subEl = $("kpiRdSub");
+  const beside = $("kpiCostBeside");
+  const besideVal = $("kpiCostBesideVal");
+  const root = $("kpiBench");
+  const peerCell = $("kpiBenchPeerCell");
+
+  if (labelEl) labelEl.textContent = "Raccolta differenziata";
+  valueEl.textContent = fmtPct(rec.rd_pct, 1);
+  if (costOn) {
+    subEl.textContent = costVsItalyMessage(rec.costo_tot_ab, ctx.medCostIt);
+    if (beside) beside.hidden = false;
+    if (besideVal) besideVal.textContent = fmtEuro(rec.costo_tot_ab, 0);
+  } else {
+    subEl.textContent = rdRankBandMessage(
+      rec.rd_pctile_it,
+      baselines && baselines.rd_pct_n
+    );
+    if (beside) beside.hidden = true;
+  }
+
+  const provLabel = $("kpiBenchProvLabel");
+  const regLabel = $("kpiBenchRegLabel");
+  if (provLabel) provLabel.textContent = shortProvinciaLabel(ctx.provincia);
+  if (regLabel) regLabel.textContent = ctx.regione || "Regione";
+  syncPeerButton(ctx.peer);
+
+  const showPeer = ctx.medRdPeer != null;
+  if (costOn) {
+    fillBenchRdWithCost(
+      "kpiBenchProv",
+      "kpiBenchProvDelta",
+      ctx.medRdProv,
+      ctx.medCostProv
+    );
+    fillBenchRdWithCost(
+      "kpiBenchReg",
+      "kpiBenchRegDelta",
+      ctx.medRdReg,
+      ctx.medCostReg
+    );
+    fillBenchRdWithCost(
+      "kpiBenchIt",
+      "kpiBenchItDelta",
+      ctx.medRdIt,
+      ctx.medCostIt
+    );
+    if (showPeer) {
+      fillBenchRdWithCost(
+        "kpiBenchPeer",
+        "kpiBenchPeerDelta",
+        ctx.medRdPeer,
+        ctx.medCostPeer
+      );
+    }
+  } else {
+    fillBenchCell("kpiBenchProv", "kpiBenchProvDelta", ctx.medRdProv, rec.rd_pct);
+    fillBenchCell("kpiBenchReg", "kpiBenchRegDelta", ctx.medRdReg, rec.rd_pct);
+    fillBenchCell("kpiBenchIt", "kpiBenchItDelta", ctx.medRdIt, rec.rd_pct);
+    if (showPeer) {
+      fillBenchCell(
+        "kpiBenchPeer",
+        "kpiBenchPeerDelta",
+        ctx.medRdPeer,
+        rec.rd_pct
+      );
+    }
+  }
+
+  if (peerCell) peerCell.hidden = !showPeer;
+  if (root) {
+    const hasAny =
+      ctx.medRdProv != null ||
+      ctx.medRdReg != null ||
+      ctx.medRdIt != null ||
+      showPeer;
+    root.classList.toggle("is-three", !showPeer);
+    root.hidden = !hasAny;
+    root.setAttribute(
+      "aria-label",
+      costOn
+        ? "Confronti RD con costi mediani ISPRA"
+        : "Confronti mediana raccolta differenziata ISPRA"
+    );
+  }
+}
+
+function bindKpiControls() {
+  const chk = $("chkKpiCost");
+  if (!chk || chk.dataset.bound === "1") return;
+  chk.dataset.bound = "1";
+  chk.addEventListener("change", function () {
+    writeKpiCostOn(!!chk.checked);
+    if (kpiCtx.rec) renderKpi(kpiCtx.rec, kpiCtx.baselines);
+  });
 }
 
 let popClustersState = { clusters: [], currentId: null, pop: null };
@@ -547,6 +683,12 @@ function renderPopClustersList() {
     .map(function (c) {
       const isCurrent = c.id === currentId;
       const n = c.rd_pct_n != null ? fmtNum(c.rd_pct_n, 0) : "—";
+      const costMed =
+        c.costo_tot_ab_median != null ? fmtEuro(c.costo_tot_ab_median, 0) : null;
+      const costN =
+        c.costo_tot_ab_n != null && c.costo_tot_ab_n > 0
+          ? fmtNum(c.costo_tot_ab_n, 0)
+          : null;
       return (
         '<li' +
         (isCurrent ? ' class="is-current"' : "") +
@@ -557,15 +699,22 @@ function renderPopClustersList() {
         (c.label || c.id) +
         "</p>" +
         "</div>" +
-        '<div class="pop-cluster-stat">' +
-        '<p class="pop-cluster-stat-label">Mediana Italia</p>' +
+        '<div class="pop-cluster-stats">' +
+        '<p class="pop-cluster-stat-label">Mediane</p>' +
+        '<div class="pop-cluster-med-row">' +
         '<p class="pop-cluster-med">' +
         fmtPct(c.rd_pct_median, 1) +
         "</p>" +
+        (costMed
+          ? '<span class="pop-cluster-cost">' + costMed + "</span>"
+          : "") +
+        "</div>" +
         "</div>" +
         '<p class="pop-cluster-meta">' +
         n +
-        " comuni in questo cluster</p>" +
+        " comuni" +
+        (costN ? " · " + costN + " con costo" : "") +
+        "</p>" +
         "</li>"
       );
     })
@@ -607,130 +756,10 @@ function bindPopClustersSheet() {
   });
 }
 
-function renderKpiBench(rec, baselines) {
-  const root = $("kpiBench");
-  if (!root) return;
-  const rd = rec.rd_pct;
-  const medIt = baselines && baselines.rd_pct_median;
-  const provincia = (rec.provincia || "").trim();
-  const regione = (rec.regione || "").trim();
-  const provBase =
-    (baselines &&
-      baselines.by_provincia &&
-      provincia &&
-      baselines.by_provincia[provincia]) ||
-    null;
-  const regBase =
-    (baselines &&
-      baselines.by_regione &&
-      regione &&
-      baselines.by_regione[regione]) ||
-    null;
-  const medProv = provBase && provBase.rd_pct_median;
-  const medReg = regBase && regBase.rd_pct_median;
-
-  const clusters = (baselines && baselines.pop_clusters) || [];
-  const peer =
-    (rec.pop_cluster_id &&
-      clusters.find(function (c) {
-        return c && c.id === rec.pop_cluster_id;
-      })) ||
-    null;
-  const medPeer =
-    peer && peer.rd_pct_n >= 30 ? peer.rd_pct_median : null;
-  const peerCell = $("kpiBenchPeerCell");
-  const showPeer = medPeer != null;
-
-  const agg = rec.aggregation;
-  const clusterPop =
-    agg && agg.n >= 2 && agg.pop != null ? agg.pop : rec.pop;
-  popClustersState = {
-    clusters: clusters,
-    currentId: peer && peer.id,
-    pop: clusterPop,
-    aggregation: agg && agg.n >= 2 ? agg : null,
-  };
-
-  if (medProv == null && medReg == null && medIt == null && !showPeer) {
-    root.hidden = true;
-    return;
-  }
-
-  const provLabel = $("kpiBenchProvLabel");
-  const regLabel = $("kpiBenchRegLabel");
-  const peerBtn = $("btnPopClusters");
-  if (provLabel) provLabel.textContent = shortProvinciaLabel(provincia);
-  if (regLabel) regLabel.textContent = regione || "Regione";
-  if (peerBtn) {
-    const fascia = (peer && peer.label) || "";
-    peerBtn.setAttribute(
-      "aria-label",
-      fascia
-        ? "Per abitanti, fascia " +
-            fascia.replace(/\.$/, "") +
-            ". Apri i dettagli sulle fasce di popolazione"
-        : "Per abitanti. Apri i dettagli sulle fasce di popolazione"
-    );
-    peerBtn.title = fascia
-      ? "Fascia " + fascia + " · tocca per tutte le fasce"
-      : "Tocca per le fasce di popolazione";
-  }
-
-  fillBenchCell("kpiBenchProv", "kpiBenchProvDelta", medProv, rd);
-  fillBenchCell("kpiBenchReg", "kpiBenchRegDelta", medReg, rd);
-  fillBenchCell("kpiBenchIt", "kpiBenchItDelta", medIt, rd);
-  if (peerCell) {
-    peerCell.hidden = !showPeer;
-    if (showPeer) fillBenchCell("kpiBenchPeer", "kpiBenchPeerDelta", medPeer, rd);
-  }
-  root.classList.toggle("is-three", !showPeer);
-
-  const parts = [];
-  if (medProv != null) {
-    parts.push(
-      shortProvinciaLabel(provincia) +
-        " " +
-        fmtPct(medProv, 1) +
-        " (" +
-        fmtDeltaPp(rd, medProv).text +
-        ")"
-    );
-  }
-  if (medReg != null) {
-    parts.push(
-      (regione || "Regione") +
-        " " +
-        fmtPct(medReg, 1) +
-        " (" +
-        fmtDeltaPp(rd, medReg).text +
-        ")"
-    );
-  }
-  if (medIt != null) {
-    parts.push(
-      "Italia " + fmtPct(medIt, 1) + " (" + fmtDeltaPp(rd, medIt).text + ")"
-    );
-  }
-  if (showPeer) {
-    parts.push(
-      "Per abitanti" +
-        (peer && peer.label ? " (" + peer.label + ")" : "") +
-        " " +
-        fmtPct(medPeer, 1) +
-        " (" +
-        fmtDeltaPp(rd, medPeer).text +
-        ")"
-    );
-  }
-  root.setAttribute(
-    "aria-label",
-    "Confronti mediana ISPRA: " + parts.join("; ")
-  );
-  root.hidden = false;
-}
-
 function render(rec, baselines) {
-  $("content").hidden = false;
+  const content = $("content");
+  content.hidden = false;
+  content.classList.add("escilo-enter");
   const year = rec.year || 2024;
   $("statsYear").textContent = String(year);
   $("statsTitle").textContent = "Come va a " + (rec.name || "questo comune");
@@ -754,12 +783,7 @@ function render(rec, baselines) {
     }
   }
 
-  $("kpiRd").textContent = fmtPct(rec.rd_pct, 1);
-  $("kpiRdSub").textContent = rdRankBandMessage(
-    rec.rd_pctile_it,
-    baselines && baselines.rd_pct_n
-  );
-  renderKpiBench(rec, baselines || {});
+  renderKpi(rec, baselines || {});
 
   const delta = rec.delta_rd_22_24;
   renderSpark(rec.series_rd || {}, delta);
@@ -775,6 +799,25 @@ function render(rec, baselines) {
   renderProdCards(rec, baselines || {});
   renderMix(rec.mix_rd_pct || {});
   setShareStatsContext(rec, baselines || {});
+  syncIntroShareBtn(rec);
+}
+
+let introShareRec = null;
+
+function syncIntroShareBtn(rec) {
+  introShareRec = rec || null;
+  const btn = $("btnShareIntro");
+  if (btn) btn.hidden = !rec;
+}
+
+function bindShareIntro() {
+  const btn = $("btnShareIntro");
+  if (!btn || btn.dataset.bound === "1") return;
+  btn.dataset.bound = "1";
+  btn.addEventListener("click", function () {
+    if (!introShareRec) return;
+    void shareStatsPageLink(introShareRec.id, introShareRec.name);
+  });
 }
 
 function syncBottomNav(comuneId, statsOnly) {
@@ -865,6 +908,8 @@ function baselinesFromIt(raw) {
     rd_pct_n: y.rd_pct && y.rd_pct.n,
     kg_ru_ab_median: y.kg_ru_ab && y.kg_ru_ab.median,
     kg_ind_ab_median: y.kg_ind_ab && y.kg_ind_ab.median,
+    costo_tot_ab_median: y.costo_tot_ab && y.costo_tot_ab.median,
+    costo_tot_ab_n: y.costo_tot_ab && y.costo_tot_ab.n,
     by_regione: raw.by_regione || {},
     by_provincia: raw.by_provincia || {},
     pop_clusters: raw.pop_clusters || [],
@@ -916,6 +961,10 @@ async function main() {
 }
 
 initIosBar();
+bindKpiControls();
 bindPopClustersSheet();
+bindShareIntro();
 bindShareStatsSheet();
+bindShareMixSheet();
+bindShareProdSheet();
 main();

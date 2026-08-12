@@ -1,5 +1,23 @@
 import { state } from "../state.js";
 
+/** @param {{ title?: string, text?: string, url: string }} shareData */
+async function sharePayload(shareData) {
+  try {
+    if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+      await navigator.share(shareData);
+      return;
+    }
+    await navigator.clipboard.writeText(shareData.url);
+  } catch (e) {
+    if (e && e.name === "AbortError") return;
+    try {
+      await navigator.clipboard.writeText(shareData.url);
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
 export async function shareAppLink() {
   const comuneId = state.zoneChoice && state.zoneChoice.comuneId;
   const comuneName = state.zoneChoice && state.zoneChoice.comuneName;
@@ -9,25 +27,21 @@ export async function shareAppLink() {
   const text = comuneName
     ? "Calendario ritiri rifiuti a " + comuneName + " — Escilo"
     : "Calendario ritiri rifiuti — Escilo";
-  const shareData = {
-    title: "Escilo",
-    text,
-    url,
-  };
-  try {
-    if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
-      await navigator.share(shareData);
-      return;
-    }
-    await navigator.clipboard.writeText(url);
-  } catch (e) {
-    if (e && e.name === "AbortError") return;
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      /* ignore */
-    }
-  }
+  await sharePayload({ title: "Escilo", text, url });
+}
+
+/** @param {string} comuneId @param {string} [comuneName] */
+export async function shareStatsPageLink(comuneId, comuneName) {
+  const id = comuneId || (state.zoneChoice && state.zoneChoice.comuneId);
+  if (!id) return;
+  const name =
+    comuneName ||
+    (state.zoneChoice && state.zoneChoice.comuneName) ||
+    "il tuo comune";
+  const url =
+    location.origin + "/stats.html?comune=" + encodeURIComponent(id);
+  const text = "Come va la differenziata a " + name + " — Escilo";
+  await sharePayload({ title: "Escilo", text, url });
 }
 
 /**

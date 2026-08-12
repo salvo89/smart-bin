@@ -36,6 +36,14 @@
   --nav-h: 4.25rem;
   --font: "Outfit", "Segoe UI", system-ui, sans-serif;
   --display: "Fraunces", Georgia, serif;
+  /* Block motion (see motion.css) */
+  --motion-fast: 0.15s;
+  --motion-enter: 0.45s;
+  --motion-enter-fast: 0.35s;
+  --motion-enter-slow: 0.55s;
+  --motion-stagger: 70ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-out: ease;
   /* UNI 11686 / Covar14 Waste Visual Elements */
   --tag-c: #0e518d;
   --tag-o: #755c49;

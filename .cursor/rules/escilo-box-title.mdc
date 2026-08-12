@@ -32,3 +32,12 @@ Selettori legacy coperti in CSS: `.week-head h2`, `.section > h2`, `.card > h2`,
 - Nomi propri in liste (es. gestori in Fonti)
 
 Landing comuni: aggiorna il template in `tools/build_seo_pages.py`, poi `py -3 tools/build_seo_pages.py`.
+
+## Transizione blocchi (motion)
+
+Ogni **card/sezione** usa il sistema in `docs/assets/css/motion.css` (importato da `chrome.css`).
+
+- Variante pagina: `data-block-motion="scale-fade"` sul `<body>` (default del sito)
+- **Nuovi blocchi** (HTML statico o JS): aggiungi `class="escilo-block"` o usa una classe già registrata (`.card`, `.section`, `.hero`, …)
+- Contenuto generato async con stagger: `style="--block-i:N"` sul blocco (vedi `fonti.js`)
+- Overlay/sheet: animazione unificata `.install-sheet-card`, `.stats-sheet-card` (indipendente da scale-fade)

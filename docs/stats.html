@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
   <title>Escilo — come va la differenziata nel tuo comune</title>
-  <meta name="description" content="Percentuale di raccolta differenziata, trend 2022–2024 e confronto con Italia e regione: ultimi dati ISPRA per i comuni italiani su Escilo." />
+  <meta name="description" content="Raccolta differenziata, costi di gestione, trend 2022–2024 e confronti ISPRA per i comuni italiani su Escilo." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://escilo.it/stats.html" />
   <meta property="og:type" content="website" />
@@ -38,10 +38,10 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/tokens.css" />
-  <link rel="stylesheet" href="assets/css/chrome.css?v=19" />
-  <link rel="stylesheet" href="assets/css/stats.css?v=28" />
+  <link rel="stylesheet" href="assets/css/chrome.css?v=29" />
+  <link rel="stylesheet" href="assets/css/stats.css?v=58" />
 </head>
-<body>
+<body data-block-motion="scale-fade">
   <div class="page">
     <header class="topbar">
       <div class="brand-lockup">
@@ -67,6 +67,21 @@
 
     <div id="content" hidden>
       <section class="intro" aria-labelledby="statsTitle">
+        <button
+          type="button"
+          class="hero-card-share-btn"
+          id="btnShareIntro"
+          hidden
+          aria-label="Condividi pagina"
+          title="Condividi"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+          </svg>
+        </button>
         <p class="eyebrow">ISPRA · anno <span id="statsYear">2024</span></p>
         <h2 id="statsTitle">Come va la differenziata</h2>
         <p class="meta" id="statsMeta">—</p>
@@ -76,7 +91,15 @@
       <div class="hero-kpi">
         <article class="kpi-card" id="kpiCard">
           <div class="kpi-card-head">
-            <p class="box-title label">Raccolta differenziata</p>
+            <div class="kpi-title-row">
+              <p class="box-title label" id="kpiLabel">Raccolta differenziata</p>
+              <label class="kpi-cost-toggle" id="kpiCostToggle" hidden>
+                <input type="checkbox" id="chkKpiCost" aria-label="Mostra costi di gestione" />
+                <span class="kpi-cost-toggle-ui" aria-hidden="true">
+                  <span class="kpi-cost-toggle-text">€</span>
+                </span>
+              </label>
+            </div>
             <button
               type="button"
               class="kpi-share-btn"
@@ -97,7 +120,13 @@
             <span class="share-stats-spinner" aria-hidden="true"></span>
             <span>Preparazione immagine…</span>
           </div>
-          <p class="value" id="kpiRd">—</p>
+          <div class="kpi-value-row">
+            <p class="value" id="kpiRd">—</p>
+            <p class="kpi-cost-beside" id="kpiCostBeside" hidden>
+              <span id="kpiCostBesideVal">—</span>
+              <span class="kpi-cost-beside-unit">/ab·anno</span>
+            </p>
+          </div>
           <p class="sub" id="kpiRdSub">—</p>
           <div class="kpi-bench" id="kpiBench" hidden>
             <div class="kpi-bench-cell">
@@ -151,22 +180,72 @@
       </section>
 
       <section class="section" aria-labelledby="prodTitle">
-        <h2 class="box-title" id="prodTitle">Quanto produciamo</h2>
-        <p class="lead">Tutti i valori sono in kg/abitante anno.</p>
-        <p class="prod-legend" aria-hidden="true"><span class="prod-legend-it">Italia</span><span class="prod-legend-reg" id="prodLegendReg">Regione</span></p>
-        <div class="prod-cards" id="prodCards"></div>
+        <div class="prod-head">
+          <div>
+            <h2 class="box-title" id="prodTitle">Quanto produciamo</h2>
+            <p class="lead">Tutti i valori sono in kg/abitante anno.</p>
+          </div>
+          <button
+            type="button"
+            class="prod-share-btn"
+            id="btnShareProd"
+            hidden
+            aria-label="Condividi produzione rifiuti"
+            title="Condividi"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+            </svg>
+          </button>
+        </div>
+        <div class="share-stats-loader" id="shareProdLoader" hidden aria-live="polite">
+          <span class="share-stats-spinner" aria-hidden="true"></span>
+          <span>Preparazione immagine…</span>
+        </div>
+        <div class="prod-bins" id="prodCards" role="list"></div>
+        <p class="prod-legend" aria-hidden="true"><span class="prod-legend-com" id="prodLegendCom">Comune</span><span class="prod-legend-it">Italia</span><span class="prod-legend-reg" id="prodLegendReg">Regione</span></p>
       </section>
 
       <section class="section" aria-labelledby="mixTitle">
-        <h2 class="box-title" id="mixTitle">Cosa differenziamo</h2>
-        <p class="lead">Composizione della raccolta differenziata (quote sul totale differenziato).</p>
+        <div class="mix-head">
+          <div>
+            <h2 class="box-title" id="mixTitle">Cosa differenziamo</h2>
+            <p class="lead">Cosa finisce nei cassonetti colorati, in quote sul differenziato.</p>
+          </div>
+          <button
+            type="button"
+            class="mix-share-btn"
+            id="btnShareMix"
+            hidden
+            aria-label="Condividi composizione differenziata"
+            title="Condividi"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+            </svg>
+          </button>
+        </div>
+        <div class="share-stats-loader" id="shareMixLoader" hidden aria-live="polite">
+          <span class="share-stats-spinner" aria-hidden="true"></span>
+          <span>Preparazione immagine…</span>
+        </div>
         <div class="mix" id="mix"></div>
       </section>
 
       <p class="note">
         <strong>Fonte:</strong>
         <a class="ext-link" href="https://www.catasto-rifiuti.isprambiente.it/" target="_blank" rel="noopener noreferrer">Catasto nazionale dei rifiuti ISPRA</a>,
-        dettaglio comunale <span id="noteYears">2022–2024</span>.
+        dettaglio comunale produzione/RD e costi di gestione
+        <span id="noteYears">2022–2024</span>.
+        I costi sono il totale di gestione per abitante (CTOTab), non la tariffa
+        TARI individuale.
+        <br />
         L’obiettivo del 65% è quello minimo di raccolta differenziata previsto
         dall’art.&nbsp;205 del D.Lgs.&nbsp;152/2006.
       </p>
@@ -212,7 +291,9 @@
         <h2 id="popClustersTitle">Confronto per abitanti</h2>
         <p class="lead">
           I comuni italiani ISPRA sono divisi in 4 cluster in base al numero di
-          abitanti (quantili sulla distribuzione nazionale).
+          abitanti (quantili sulla distribuzione nazionale). Per ogni fascia
+          vedi la mediana di raccolta differenziata e, se disponibile, del
+          costo totale di gestione.
         </p>
         <p class="pop-cluster-legend" id="popClustersLegend" hidden></p>
       </div>
@@ -227,6 +308,6 @@
     </div>
   </div>
 
-  <script type="module" src="assets/js/stats.js?v=28"></script>
+  <script type="module" src="assets/js/stats.js?v=66"></script>
 </body>
 </html>

@@ -22,17 +22,12 @@
 
 .hero {
   position: relative;
-  padding: 1.25rem 1.15rem 1.2rem;
+  padding: 1.25rem 3.1rem 1.2rem 1.15rem;
   border-radius: 1.5rem;
   background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 48%, #1a4a36 100%);
   color: #f3faf6;
   box-shadow: 0 12px 28px rgba(26, 74, 54, 0.28);
   overflow: hidden;
-  animation: rise 0.5s ease both;
-}
-@keyframes rise {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
 }
 .eyebrow {
   margin: 0 0 0.3rem;
@@ -98,8 +93,6 @@
   border-radius: 1.15rem;
   background: var(--surface);
   border: 1px solid var(--line);
-  animation: rise 0.5s ease both;
-  animation-delay: 0.05s;
 }
 .week-head {
   display: flex;
@@ -559,7 +552,6 @@ a.stats-teaser .st-cap {
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--card-shadow);
-  animation: rise 0.35s ease both;
 }
 .install-sheet-card h2 {
   margin: 0 0 0.35rem;
@@ -1210,7 +1202,6 @@ html.is-gated .bottom-nav {
   -webkit-overflow-scrolling: touch;
   background: rgba(12, 18, 14, 0.32);
   backdrop-filter: blur(3px);
-  animation: rise 0.35s ease both;
 }
 .gate-picker-sheet[hidden] { display: none; }
 .gate-picker-card {

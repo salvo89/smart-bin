@@ -14,7 +14,7 @@ SOURCES_LITE = DOCS / "calendars" / "sources-lite.json"
 COMUNI_DIR = DOCS / "comuni"
 SITE = "https://escilo.it"
 # Shared styles live in docs/assets/css/ (linked, not inlined).
-SEO_CSS_VER = "18"
+SEO_CSS_VER = "19"
 SEO_CSS_HREF = (
     "../assets/css/tokens.css",
     f"../assets/css/chrome.css?v={SEO_CSS_VER}",
@@ -45,6 +45,7 @@ def page_shell(
     canonical: str,
     body: str,
     json_ld: dict | list | None = None,
+    block_motion: str = "scale-fade",
 ) -> str:
     ld = ""
     if json_ld is not None:
@@ -84,7 +85,7 @@ def page_shell(
   <link rel="stylesheet" href="{SEO_CSS_HREF[1]}" />
   <link rel="stylesheet" href="{SEO_CSS_HREF[2]}" />
   {ld}</head>
-<body>
+<body data-block-motion="{esc(block_motion)}">
 {body}
 </body>
 </html>
@@ -238,6 +239,7 @@ def write_comuni_index(comuni: list[dict]) -> None:
         canonical=canonical,
         body=body,
         json_ld=json_ld,
+        block_motion="scale-fade",
     )
     (COMUNI_DIR / "index.html").write_text(html_out, encoding="utf-8")
 

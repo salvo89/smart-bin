@@ -73,7 +73,9 @@ function render(data) {
         .join("");
 
       return (
-        '<details class="provider"' +
+        '<details class="provider escilo-block" style="--block-i:' +
+        idx +
+        '"' +
         (idx === 0 ? " open" : "") +
         ">" +
         "<summary><div class=\"provider-head\">" +

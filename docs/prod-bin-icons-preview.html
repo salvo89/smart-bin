@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anteprima icone cassonetti</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1.25rem;
+      font-family: system-ui, sans-serif;
+      background: #eef2ee;
+      color: #142018;
+    }
+    h1 { font-size: 1.1rem; margin: 0 0 0.35rem; }
+    p.lead { margin: 0 0 1rem; font-size: 0.82rem; color: #4a5c52; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      gap: 0.75rem;
+      max-width: 980px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 0.85rem;
+      padding: 0.55rem 0.45rem 0.65rem;
+      box-shadow: 0 4px 14px rgba(20, 32, 24, 0.08);
+    }
+    .card h2 {
+      margin: 0 0 0.15rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-align: center;
+    }
+    .card p {
+      margin: 0 0 0.4rem;
+      font-size: 0.62rem;
+      text-align: center;
+      color: #6a7a70;
+      line-height: 1.25;
+    }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem;
+    }
+    .mini {
+      text-align: center;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: #6a7a70;
+      margin-top: 0.2rem;
+    }
+    svg { display: block; width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <h1>Icone sotto la timeline — confronto proposte</h1>
+  <p class="lead">Sinistra: rifiuti urbani totali (verde) · Destra: solo indifferenziato (grigio)</p>
+  <div class="grid" id="grid"></div>
+  <script>
+    const THEMES = {
+      total: { gradL: "#5da032", gradM: "#7ec850", gradR: "#4f9228", rim: "#4a8a28" },
+      ind: { gradL: "#525860", gradM: "#727983", gradR: "#434850", rim: "#5a6169" },
+    };
+    const MIX = ["#5a8f3a", "#3d6eb5", "#c9a227", "#2f8f6b"];
+
+    function iconBg(cx, cy) {
+      return (
+        '<circle cx="' + cx + '" cy="' + cy + '" r="7.2" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.28)" stroke-width="0.5"/>'
+      );
+    }
+
+    const ICONS = {
+      a0: {
+        label: "A0 · Attuale",
+        note: "Strisce / mini sacco",
+        total: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<g transform="translate(' + (cx - 6) + " " + (cy - 5.5) + ')">' +
+          '<rect x="0" y="0" width="12" height="2.6" rx="0.7" fill="rgba(255,255,255,0.9)"/>' +
+          '<rect x="1.2" y="3.4" width="9.6" height="2.4" rx="0.7" fill="rgba(255,255,255,0.72)"/>' +
+          '<rect x="2.4" y="6.6" width="7.2" height="2.2" rx="0.7" fill="rgba(255,255,255,0.52)"/>' +
+          "</g>",
+        ind: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<g transform="translate(' + (cx - 5.5) + " " + (cy - 6) + ')">' +
+          '<path d="M2 11.5 C1.2 8.8 1.5 6 3 4.2 C4.2 2.8 5.8 2 7.5 2 C9.2 2 10.8 2.8 12 4.2 C13.5 6 13.8 8.8 13 11.5 C13.4 12.4 12 13 7.5 13 C3 13 1.6 12.4 2 11.5 Z" fill="#141414"/>' +
+          '<ellipse cx="7.5" cy="2.3" rx="2.2" ry="1.3" fill="#050505"/>' +
+          "</g>",
+      },
+      a: {
+        label: "A · Pallini mix",
+        note: "4 colori vs 1 grigio",
+        total: (cx, cy) =>
+          iconBg(cx, cy) +
+          MIX.map(function (c, i) {
+            return '<circle cx="' + (cx - 4.5 + i * 3) + '" cy="' + cy + '" r="1.5" fill="' + c + '" stroke="#fff" stroke-width="0.35"/>';
+          }).join(""),
+        ind: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<circle cx="' + cx + '" cy="' + cy + '" r="2.8" fill="#2a2a2a" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>',
+      },
+      b: {
+        label: "B · Σ / sacco X",
+        note: "Totale vs resto",
+        total: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<text x="' + cx + '" y="' + (cy + 3.2) + '" text-anchor="middle" fill="#fff" font-size="9" font-weight="800" font-family="Georgia,serif">Σ</text>',
+        ind: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<g transform="translate(' + (cx - 5) + " " + (cy - 5.5) + ')">' +
+          '<path d="M2 10 C1.5 7 2 4.5 4 3 C5.5 2 8 2 9 3 C11 4.5 11.5 7 11 10 C11.3 11 10 11.5 6 11.5 C2 11.5 1.7 11 2 10Z" fill="#111"/>' +
+          '<path d="M4 4.5 L8 9 M8 4.5 L4 9" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/>' +
+          "</g>",
+      },
+      c: {
+        label: "C · Pieno / sacco",
+        note: "Cassonetto pieno",
+        total: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<g transform="translate(' + (cx - 5.5) + " " + (cy - 6) + ')">' +
+          '<rect x="1" y="4" width="9" height="7" rx="0.8" fill="rgba(255,255,255,0.85)"/>' +
+          '<path d="M0.5 4 Q5 1 10.5 4" fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="1.2" stroke-linecap="round"/>' +
+          '<ellipse cx="5.5" cy="3.2" rx="3.5" ry="1.6" fill="rgba(255,255,255,0.55)"/>' +
+          "</g>",
+        ind: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<g transform="translate(' + (cx - 4.5) + " " + (cy - 5.5) + ')">' +
+          '<ellipse cx="4.5" cy="3" rx="3.8" ry="2.8" fill="#121212"/>' +
+          '<ellipse cx="4.5" cy="1.2" rx="1.4" ry="0.9" fill="#050505"/>' +
+          "</g>",
+      },
+      d: {
+        label: "D · Emoji",
+        note: "📦 vs 🗑️",
+        total: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="10">📦</text>',
+        ind: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="10">🗑️</text>',
+      },
+      e: {
+        label: "E · Frecce",
+        note: "Convergono / esce",
+        total: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<g fill="none" stroke="#fff" stroke-width="0.9" stroke-linecap="round">' +
+          '<path d="M' + (cx - 4) + " " + (cy - 3) + " L" + cx + " " + cy + " L" + (cx + 4) + " " + (cy - 3) + '"/>' +
+          '<path d="M' + cx + " " + (cy - 4) + " L" + cx + " " + cy + '"/>' +
+          '<path d="M' + (cx - 4) + " " + (cy + 3) + " L" + cx + " " + cy + " L" + (cx + 4) + " " + (cy + 3) + '"/>' +
+          "</g>",
+        ind: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<path d="M' + cx + " " + (cy - 4) + " L" + cx + " " + (cy + 3) + " M" + (cx - 2.5) + " " + (cy + 1) + " L" + cx + " " + (cy + 4) + " L" + (cx + 2.5) + " " + (cy + 1) + '" fill="none" stroke="#fff" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>',
+      },
+      f: {
+        label: "F · Testo",
+        note: "TOT / IND",
+        total: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<text x="' + cx + '" y="' + (cy + 2.5) + '" text-anchor="middle" fill="#fff" font-size="5.8" font-weight="800" font-family="system-ui,sans-serif">TOT</text>',
+        ind: (cx, cy) =>
+          iconBg(cx, cy) +
+          '<text x="' + cx + '" y="' + (cy + 2.5) + '" text-anchor="middle" fill="#fff" font-size="5.8" font-weight="800" font-family="system-ui,sans-serif">IND</text>',
+      },
+    };
+
+    function miniBin(themeKey, iconFn, title) {
+      const t = THEMES[themeKey];
+      const cx = 50;
+      const stripTop = 52;
+      const stripBot = 92;
+      const iconY = stripBot + 11;
+      return (
+        '<svg viewBox="0 0 100 120" aria-label="' + title + '">' +
+        '<defs>' +
+        '<linearGradient id="' + themeKey + 'G" x1="0%" y1="0%" x2="100%" y2="0%">' +
+        '<stop offset="0%" stop-color="' + t.gradL + '"/>' +
+        '<stop offset="50%" stop-color="' + t.gradM + '"/>' +
+        '<stop offset="100%" stop-color="' + t.gradR + '"/>' +
+        "</linearGradient></defs>" +
+        '<path d="M22 38 C22 38 22 98 28 102 L72 102 C78 98 78 38 78 38 Z" fill="url(#' + themeKey + 'G)"/>' +
+        '<ellipse cx="50" cy="38" rx="28" ry="3.5" fill="' + t.rim + '"/>' +
+        '<line x1="' + cx + '" y1="' + stripTop + '" x2="' + cx + '" y2="' + stripBot + '" stroke="rgba(255,255,255,0.72)" stroke-width="1.1" stroke-linecap="round"/>' +
+        '<circle cx="' + cx + '" cy="' + stripTop + '" r="1.1" fill="rgba(255,255,255,0.55)"/>' +
+        '<circle cx="' + cx + '" cy="' + stripBot + '" r="1.1" fill="rgba(255,255,255,0.55)"/>' +
+        iconFn(cx, iconY) +
+        "</svg>"
+      );
+    }
+
+    const grid = document.getElementById("grid");
+    Object.keys(ICONS).forEach(function (key) {
+      const item = ICONS[key];
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML =
+        "<h2>" + item.label + "</h2><p>" + item.note + "</p>" +
+        '<div class="pair">' +
+        "<div>" + miniBin("total", item.total, "Totale") + '<div class="mini">Totale</div></div>' +
+        "<div>" + miniBin("ind", item.ind, "Indifferenziato") + '<div class="mini">Indiff.</div></div>' +
+        "</div>";
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

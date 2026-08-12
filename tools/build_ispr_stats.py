@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 """Precompute ISPRA municipal waste KPIs for Escilo (national + geo benchmarks).
 
-Downloads Catasto rifiuti comunale CSV for 2022–2024, expands ISPRA
-multi-comune aggregations (`Dato riferito a`), computes Italy-wide,
-per-region and per-province percentiles / medians, ISPRA population
-peer clusters (quantiles; aggregated comuni use summed population),
-matches Escilo comuni, writes static JSON under docs/data/ispr/:
+Downloads Catasto rifiuti comunale CSV for 2022–2024 (produzione/RD + costi
+pro capite), expands ISPRA multi-comune aggregations (`Dato riferito a`),
+computes Italy-wide, per-region and per-province percentiles / medians,
+ISPRA population peer clusters (quantiles; aggregated comuni use summed
+population), matches Escilo comuni, writes static JSON under docs/data/ispr/:
 
-  - directory.json     lightweight picker list (all IT comuni)
-  - c/{id}.json        full KPI record per comune
-  - comuni-by-id.json  Escilo-matched subset (teaser / smoke compat)
-  - baselines-it.json  national baselines (all regions/provinces)
+    - directory.json     lightweight picker list (all IT comuni)
+    - c/{id}.json        full KPI record per comune
+    - comuni-by-id.json  Escilo-matched subset (teaser / smoke compat)
+    - baselines-it.json  national baselines (all regions/provinces)
 
 Run yearly when ISPRA publishes a new year:
     py -3 tools/build_ispr_stats.py
+
+Optional: place CSV files in tmp/ispra/ (rd_YYYY.csv, costi_pc_YYYY.csv)
+to skip re-download during rebuilds.
 """
 
 from __future__ import annotations
@@ -32,12 +35,17 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 INDEX_JSON = DOCS / "calendars" / "index.json"
 OUT_DIR = DOCS / "data" / "ispr"
+CACHE_DIR = ROOT / "tmp" / "ispra"
 YEARS = (2022, 2023, 2024)
 LATEST_YEAR = YEARS[-1]
 TARGET_RD = 65.0
 POP_CLUSTER_K = 4
 CSV_URL = (
     "https://www.catasto-rifiuti.isprambiente.it/get/getDettaglioComunale.csv.php?&aa={year}"
+)
+COST_CSV_URL = (
+    "https://www.catasto-rifiuti.isprambiente.it/costi/getCostiComunaleproc.csv.php"
+    "?costicomuneproc&aa={year}&regid=1&regid2=Italia&reg1=Italia&p=1"
 )
 
 # Escilo name → ISPRA Comune (Provincia Torino) when fuzzy match fails.
@@ -120,30 +128,80 @@ def col(row: dict, *names: str) -> str | None:
     return None
 
 
-def download_year(year: int, retries: int = 3) -> list[dict]:
-    url = CSV_URL.format(year=year)
-    print(f"download {year} …", flush=True)
+def _read_csv_rows(raw: str) -> list[dict]:
+    lines = raw.splitlines()
+    header_i = next(i for i, line in enumerate(lines) if "IstatComune" in line)
+    cleaned = [ln.lstrip("\t") for ln in lines[header_i:]]
+    reader = csv.DictReader(io.StringIO("\n".join(cleaned)), delimiter=";")
+    return list(reader)
+
+
+def _fetch_text(url: str, retries: int = 3) -> str:
     last_err: Exception | None = None
-    raw = ""
     for attempt in range(1, retries + 1):
         try:
             with urllib.request.urlopen(url, timeout=180) as resp:
                 raw = resp.read().decode("utf-8", errors="replace")
             if "IstatComune" in raw:
-                break
-            last_err = RuntimeError(f"CSV {year} senza header IstatComune")
+                return raw
+            last_err = RuntimeError("CSV senza header IstatComune")
         except Exception as exc:  # noqa: BLE001 — retry transient ISPRA failures
             last_err = exc
-            raw = ""
         if attempt < retries:
             print(f"  retry {attempt}/{retries - 1} …", flush=True)
-    else:
-        raise RuntimeError(f"download fallito per {year}: {last_err}") from last_err
+    raise RuntimeError(f"download fallito: {last_err}") from last_err
 
-    lines = raw.splitlines()
-    header_i = next(i for i, line in enumerate(lines) if "IstatComune" in line)
-    reader = csv.DictReader(io.StringIO("\n".join(lines[header_i:])), delimiter=";")
-    return list(reader)
+
+def download_year(year: int, retries: int = 3) -> list[dict]:
+    cache = CACHE_DIR / f"rd_{year}.csv"
+    if cache.is_file() and cache.stat().st_size > 1000:
+        print(f"cache RD {year} …", flush=True)
+        raw = cache.read_bytes().decode("utf-8", errors="replace")
+        if "IstatComune" not in raw:
+            raw = cache.read_bytes().decode("latin-1", errors="replace")
+        return _read_csv_rows(raw)
+
+    url = CSV_URL.format(year=year)
+    print(f"download RD {year} …", flush=True)
+    raw = _fetch_text(url, retries=retries)
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache.write_text(raw, encoding="utf-8")
+    return _read_csv_rows(raw)
+
+
+def download_costs_year(year: int, retries: int = 3) -> dict[str, float]:
+    """IstatComune → CTOTab (€/abitante·anno). Skip multi-comune aggregations."""
+    cache = CACHE_DIR / f"costi_pc_{year}.csv"
+    if cache.is_file() and cache.stat().st_size > 1000:
+        print(f"cache costi {year} …", flush=True)
+        raw = cache.read_bytes().decode("utf-8", errors="replace")
+        if "IstatComune" not in raw:
+            raw = cache.read_bytes().decode("latin-1", errors="replace")
+    else:
+        url = COST_CSV_URL.format(year=year)
+        print(f"download costi {year} …", flush=True)
+        raw = _fetch_text(url, retries=retries)
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        cache.write_text(raw, encoding="utf-8")
+
+    out: dict[str, float] = {}
+    for row in _read_csv_rows(raw):
+        istat = (col(row, "IstatComune") or "").strip().lstrip("\t")
+        if not istat:
+            continue
+        ncom = parse_num(col(row, "Numero di comuni"))
+        if ncom is not None and ncom > 1:
+            continue
+        ctot = parse_num(col(row, "CTOTab"))
+        if ctot is None:
+            continue
+        out[istat] = round(ctot, 2)
+    return out
+
+
+def merge_costs(by_istat: dict[str, dict], costs: dict[str, float]) -> None:
+    for istat, m in by_istat.items():
+        m["costo_tot_ab"] = costs.get(istat)
 
 
 def parse_dato_riferito(raw: str | None) -> tuple[str, str | None]:
@@ -466,6 +524,7 @@ def match_escilo(
             "rd_pct": latest_m["rd_pct"],
             "kg_ru_ab": latest_m["kg_ru_ab"],
             "kg_ind_ab": latest_m["kg_ind_ab"],
+            "costo_tot_ab": latest_m.get("costo_tot_ab"),
             "mix_rd_pct": latest_m["mix_rd_pct"],
             "series_rd": series,
         }
@@ -477,7 +536,7 @@ def match_escilo(
 
 
 def area_baselines(metrics: list[dict], key: str) -> dict[str, dict]:
-    """Median RD / kg baselines grouped by `key` (e.g. regione, provincia)."""
+    """Median RD / kg / costo baselines grouped by `key` (e.g. regione, provincia)."""
     by_area: dict[str, list[dict]] = {}
     for m in metrics:
         name = (m.get(key) or "").strip()
@@ -490,11 +549,18 @@ def area_baselines(metrics: list[dict], key: str) -> dict[str, dict]:
         rd_vals = [r["rd_pct"] for r in rows]
         kg_vals = [r["kg_ru_ab"] for r in rows]
         ind_vals = [r["kg_ind_ab"] for r in rows if r["kg_ind_ab"] is not None]
+        cost_vals = [
+            r["costo_tot_ab"] for r in rows if r.get("costo_tot_ab") is not None
+        ]
         out[name] = {
             "rd_pct_median": dist_summary(rd_vals)["median"],
             "rd_pct_n": len(rd_vals),
             "kg_ru_ab_median": dist_summary(kg_vals)["median"],
             "kg_ind_ab_median": dist_summary(ind_vals)["median"] if ind_vals else None,
+            "costo_tot_ab_median": (
+                dist_summary(cost_vals)["median"] if cost_vals else None
+            ),
+            "costo_tot_ab_n": len(cost_vals),
         }
     return out
 
@@ -599,6 +665,7 @@ def build_pop_clusters(
 
     for c in clusters:
         c["_rd"] = []
+        c["_cost"] = []
 
     for m in italy_metrics:
         pop = m.get("pop")
@@ -607,11 +674,18 @@ def build_pop_clusters(
             continue
         idx = cluster_index(int(pop))
         clusters[idx]["_rd"].append(float(rd))
+        cost = m.get("costo_tot_ab")
+        if cost is not None:
+            clusters[idx]["_cost"].append(float(cost))
 
     out: list[dict] = []
     for i, c in enumerate(clusters):
         rd_vals = c.pop("_rd")
+        cost_vals = c.pop("_cost")
         summary = dist_summary(rd_vals) if rd_vals else {"median": None, "n": 0}
+        cost_summary = (
+            dist_summary(cost_vals) if cost_vals else {"median": None, "n": 0}
+        )
         out.append(
             {
                 "id": c["id"],
@@ -621,13 +695,15 @@ def build_pop_clusters(
                 "ordinal": i + 1,
                 "rd_pct_median": summary["median"],
                 "rd_pct_n": summary["n"],
+                "costo_tot_ab_median": cost_summary["median"],
+                "costo_tot_ab_n": cost_summary["n"],
             }
         )
     return out
 
 
 def assign_pop_clusters(records: dict[str, dict], clusters: list[dict]) -> None:
-    """Attach pop_cluster_id and rd_vs_median_pop on each record."""
+    """Attach pop_cluster_id and vs-median-pop deltas on each record."""
     if not clusters:
         return
     by_id = {c["id"]: c for c in clusters}
@@ -647,13 +723,22 @@ def assign_pop_clusters(records: dict[str, dict], clusters: list[dict]) -> None:
         if pop is None:
             rec["pop_cluster_id"] = None
             rec["rd_vs_median_pop"] = None
+            rec["costo_vs_median_pop"] = None
             continue
         cid = find_id(int(pop))
         rec["pop_cluster_id"] = cid
-        med = (by_id.get(cid) or {}).get("rd_pct_median")
+        peer = by_id.get(cid) or {}
+        med = peer.get("rd_pct_median")
         rd = rec.get("rd_pct")
         rec["rd_vs_median_pop"] = (
             round(float(rd) - float(med), 2) if med is not None and rd is not None else None
+        )
+        cost = rec.get("costo_tot_ab")
+        med_cost = peer.get("costo_tot_ab_median")
+        rec["costo_vs_median_pop"] = (
+            round(float(cost) - float(med_cost), 1)
+            if cost is not None and med_cost is not None
+            else None
         )
 
 
@@ -669,6 +754,8 @@ def attach_national_ranks(
     med_kg = baselines["years"][str(LATEST_YEAR)]["kg_ru_ab"]["median"]
     med_ind = baselines["years"][str(LATEST_YEAR)]["kg_ind_ab"]["median"]
     med_rd = baselines["years"][str(LATEST_YEAR)]["rd_pct"]["median"]
+    cost_block = baselines["years"][str(LATEST_YEAR)].get("costo_tot_ab") or {}
+    med_cost = cost_block.get("median")
 
     for rec in records.values():
         istat = rec.pop("_istat")
@@ -676,6 +763,7 @@ def attach_national_ranks(
         rd = m["rd_pct"]
         kg = m["kg_ru_ab"]
         ind = m["kg_ind_ab"]
+        cost = m.get("costo_tot_ab")
         reg = (m.get("regione") or "").strip()
         reg_base = by_regione.get(reg) or {}
 
@@ -693,6 +781,7 @@ def attach_national_ranks(
         med_kg_reg = reg_base.get("kg_ru_ab_median")
         med_ind_reg = reg_base.get("kg_ind_ab_median")
         med_rd_reg = reg_base.get("rd_pct_median")
+        med_cost_reg = reg_base.get("costo_tot_ab_median")
 
         series = rec["series_rd"]
         delta = None
@@ -719,6 +808,17 @@ def attach_national_ranks(
                 "kg_ind_vs_median_reg": (
                     round(ind - med_ind_reg, 1)
                     if ind is not None and med_ind_reg is not None
+                    else None
+                ),
+                "costo_tot_ab": cost,
+                "costo_vs_median_it": (
+                    round(float(cost) - float(med_cost), 1)
+                    if cost is not None and med_cost is not None
+                    else None
+                ),
+                "costo_vs_median_reg": (
+                    round(float(cost) - float(med_cost_reg), 1)
+                    if cost is not None and med_cost_reg is not None
                     else None
                 ),
                 "delta_rd_22_24": delta,
@@ -754,6 +854,7 @@ def build_record_for_istat(
         "rd_pct": latest_m["rd_pct"],
         "kg_ru_ab": latest_m["kg_ru_ab"],
         "kg_ind_ab": latest_m["kg_ind_ab"],
+        "costo_tot_ab": latest_m.get("costo_tot_ab"),
         "mix_rd_pct": latest_m["mix_rd_pct"],
         "series_rd": series,
         "hasCalendar": False,
@@ -824,13 +925,18 @@ def main() -> int:
     for year in YEARS:
         rows = download_year(year)
         by_istat = metrics_from_year_rows(rows)
+        costs = download_costs_year(year)
+        merge_costs(by_istat, costs)
         by_year[year] = by_istat
         units = stats_units_from_metrics(by_istat)
 
         rd_vals = [m["rd_pct"] for m in units]
         kg_vals = [m["kg_ru_ab"] for m in units]
         ind_vals = [m["kg_ind_ab"] for m in units if m["kg_ind_ab"] is not None]
-        baselines_years[str(year)] = {
+        cost_vals = [
+            m["costo_tot_ab"] for m in units if m.get("costo_tot_ab") is not None
+        ]
+        year_block = {
             "rd_pct": dist_summary(rd_vals),
             "kg_ru_ab": dist_summary(kg_vals),
             "kg_ind_ab": dist_summary(ind_vals),
@@ -838,6 +944,9 @@ def main() -> int:
                 100.0 * sum(1 for v in rd_vals if v >= TARGET_RD) / len(rd_vals), 1
             ),
         }
+        if cost_vals:
+            year_block["costo_tot_ab"] = dist_summary(cost_vals)
+        baselines_years[str(year)] = year_block
         agg_n = sum(
             1
             for m in by_istat.values()
@@ -845,7 +954,8 @@ def main() -> int:
         )
         print(
             f"  {year}: {len(by_istat)} comuni in app "
-            f"({len(units)} unita' statistiche, {agg_n} in aggregazione)",
+            f"({len(units)} unita' statistiche, {agg_n} in aggregazione, "
+            f"{len(cost_vals)} con costo)",
             flush=True,
         )
 
@@ -863,12 +973,19 @@ def main() -> int:
         "generatedAt": date.today().isoformat(),
         "source": "ISPRA Catasto nazionale rifiuti — dettaglio comunale",
         "sourceUrl": "https://www.catasto-rifiuti.isprambiente.it/",
+        "costsSourceUrl": (
+            "https://www.catasto-rifiuti.isprambiente.it/index.php?pg=downloadcosticomune"
+        ),
         "latestYear": LATEST_YEAR,
         "yearsAvailable": list(YEARS),
         "targetRdPct": TARGET_RD,
         "targetNote": (
             "Obiettivo minimo di raccolta differenziata ex art. 205 D.Lgs. 152/2006 "
             "(65% entro il 31/12/2012)."
+        ),
+        "costNote": (
+            "Costo totale di gestione dei servizi di igiene urbana (CTOTab), "
+            "euro per abitante anno. Non è la bolletta TARI individuale."
         ),
         "years": baselines_years,
         "by_regione": by_regione,
@@ -953,6 +1070,7 @@ def main() -> int:
     )
 
     escilo = {cid: {k: v for k, v in rec.items() if k != "hasCalendar"} for cid, rec in all_records.items() if rec.get("hasCalendar")}
+    latest_cost = baselines_years[str(LATEST_YEAR)].get("costo_tot_ab") or {}
     payload = {
         "generatedAt": date.today().isoformat(),
         "source": baselines["source"],
@@ -965,6 +1083,8 @@ def main() -> int:
             "rd_pct_n": baselines_years[str(LATEST_YEAR)]["rd_pct"]["n"],
             "kg_ru_ab_median": baselines_years[str(LATEST_YEAR)]["kg_ru_ab"]["median"],
             "kg_ind_ab_median": baselines_years[str(LATEST_YEAR)]["kg_ind_ab"]["median"],
+            "costo_tot_ab_median": latest_cost.get("median"),
+            "costo_tot_ab_n": latest_cost.get("n"),
             "by_regione": by_regione,
             "by_provincia": by_provincia,
             "pop_clusters": pop_clusters,

@@ -173,6 +173,13 @@ function wireDom() {
     });
   });
 
+  const btnShareHero = $("btnShareHero");
+  if (btnShareHero) {
+    btnShareHero.addEventListener("click", () => {
+      void shareAppLink();
+    });
+  }
+
   document.querySelectorAll("#bottomNav [data-tab]").forEach((btn) => {
     btn.addEventListener("click", () => setTab(btn.dataset.tab));
   });

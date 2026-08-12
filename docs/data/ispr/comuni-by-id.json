@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11",
+  "generatedAt": "2026-08-12",
   "source": "ISPRA Catasto nazionale rifiuti — dettaglio comunale",
   "sourceUrl": "https://www.catasto-rifiuti.isprambiente.it/",
   "latestYear": 2024,
@@ -14,126 +14,168 @@
     "rd_pct_n": 7767,
     "kg_ru_ab_median": 445.0,
     "kg_ind_ab_median": 113.3,
+    "costo_tot_ab_median": 169.97,
+    "costo_tot_ab_n": 6554,
     "by_regione": {
       "Abruzzo": {
         "rd_pct_median": 71.34,
         "rd_pct_n": 295,
         "kg_ru_ab_median": 366.6,
-        "kg_ind_ab_median": 106.4
+        "kg_ind_ab_median": 106.4,
+        "costo_tot_ab_median": 166.43,
+        "costo_tot_ab_n": 218
       },
       "Basilicata": {
         "rd_pct_median": 67.77,
         "rd_pct_n": 129,
         "kg_ru_ab_median": 291.7,
-        "kg_ind_ab_median": 96.6
+        "kg_ind_ab_median": 96.6,
+        "costo_tot_ab_median": 175.06,
+        "costo_tot_ab_n": 88
       },
       "Calabria": {
         "rd_pct_median": 62.18,
         "rd_pct_n": 394,
         "kg_ru_ab_median": 322.2,
-        "kg_ind_ab_median": 126.75
+        "kg_ind_ab_median": 126.75,
+        "costo_tot_ab_median": 156.55,
+        "costo_tot_ab_n": 250
       },
       "Campania": {
         "rd_pct_median": 68.72,
         "rd_pct_n": 550,
         "kg_ru_ab_median": 376.25,
-        "kg_ind_ab_median": 116.05
+        "kg_ind_ab_median": 116.05,
+        "costo_tot_ab_median": 191.44,
+        "costo_tot_ab_n": 467
       },
       "Emilia-Romagna": {
         "rd_pct_median": 80.02,
         "rd_pct_n": 330,
         "kg_ru_ab_median": 645.3,
-        "kg_ind_ab_median": 127.05
+        "kg_ind_ab_median": 127.05,
+        "costo_tot_ab_median": 198.88,
+        "costo_tot_ab_n": 326
       },
       "Friuli-Venezia Giulia": {
         "rd_pct_median": 78.43,
         "rd_pct_n": 215,
         "kg_ru_ab_median": 507.9,
-        "kg_ind_ab_median": 106.6
+        "kg_ind_ab_median": 106.6,
+        "costo_tot_ab_median": 128.93,
+        "costo_tot_ab_n": 188
       },
       "Lazio": {
         "rd_pct_median": 67.44,
         "rd_pct_n": 350,
         "kg_ru_ab_median": 366.9,
-        "kg_ind_ab_median": 116.8
+        "kg_ind_ab_median": 116.8,
+        "costo_tot_ab_median": 191.2,
+        "costo_tot_ab_n": 305
       },
       "Liguria": {
         "rd_pct_median": 66.56,
         "rd_pct_n": 234,
         "kg_ru_ab_median": 487.3,
-        "kg_ind_ab_median": 170.65
+        "kg_ind_ab_median": 170.65,
+        "costo_tot_ab_median": 236.45,
+        "costo_tot_ab_n": 225
       },
       "Lombardia": {
         "rd_pct_median": 77.47,
         "rd_pct_n": 1494,
         "kg_ru_ab_median": 471.25,
-        "kg_ind_ab_median": 106.6
+        "kg_ind_ab_median": 106.6,
+        "costo_tot_ab_median": 139.02,
+        "costo_tot_ab_n": 1393
       },
       "Marche": {
         "rd_pct_median": 73.29,
         "rd_pct_n": 225,
         "kg_ru_ab_median": 465.1,
-        "kg_ind_ab_median": 120.6
+        "kg_ind_ab_median": 120.6,
+        "costo_tot_ab_median": 167.55,
+        "costo_tot_ab_n": 200
       },
       "Molise": {
         "rd_pct_median": 61.63,
         "rd_pct_n": 134,
         "kg_ru_ab_median": 315.7,
-        "kg_ind_ab_median": 110.5
+        "kg_ind_ab_median": 110.5,
+        "costo_tot_ab_median": 129.21,
+        "costo_tot_ab_n": 96
       },
       "Piemonte": {
         "rd_pct_median": 70.31,
         "rd_pct_n": 1180,
         "kg_ru_ab_median": 478.35,
-        "kg_ind_ab_median": 132.4
+        "kg_ind_ab_median": 132.4,
+        "costo_tot_ab_median": 176.18,
+        "costo_tot_ab_n": 1093
       },
       "Puglia": {
         "rd_pct_median": 66.92,
         "rd_pct_n": 257,
         "kg_ru_ab_median": 433.2,
-        "kg_ind_ab_median": 138.4
+        "kg_ind_ab_median": 138.4,
+        "costo_tot_ab_median": 216.13,
+        "costo_tot_ab_n": 180
       },
       "Sardegna": {
         "rd_pct_median": 79.96,
         "rd_pct_n": 377,
         "kg_ru_ab_median": 372.9,
-        "kg_ind_ab_median": 66.5
+        "kg_ind_ab_median": 66.5,
+        "costo_tot_ab_median": 160.33,
+        "costo_tot_ab_n": 280
       },
       "Sicilia": {
         "rd_pct_median": 71.2,
         "rd_pct_n": 391,
         "kg_ru_ab_median": 366.7,
-        "kg_ind_ab_median": 104.5
+        "kg_ind_ab_median": 104.5,
+        "costo_tot_ab_median": 195.07,
+        "costo_tot_ab_n": 254
       },
       "Toscana": {
         "rd_pct_median": 68.21,
         "rd_pct_n": 273,
         "kg_ru_ab_median": 545.3,
-        "kg_ind_ab_median": 174.4
+        "kg_ind_ab_median": 174.4,
+        "costo_tot_ab_median": 276.5,
+        "costo_tot_ab_n": 252
       },
       "Trentino-Alto Adige": {
         "rd_pct_median": 79.81,
         "rd_pct_n": 282,
         "kg_ru_ab_median": 474.95,
-        "kg_ind_ab_median": 89.65
+        "kg_ind_ab_median": 89.65,
+        "costo_tot_ab_median": 135.33,
+        "costo_tot_ab_n": 206
       },
       "Umbria": {
         "rd_pct_median": 68.76,
         "rd_pct_n": 92,
         "kg_ru_ab_median": 487.75,
-        "kg_ind_ab_median": 150.35
+        "kg_ind_ab_median": 150.35,
+        "costo_tot_ab_median": 247.84,
+        "costo_tot_ab_n": 78
       },
       "Valle d'Aosta": {
         "rd_pct_median": 73.19,
         "rd_pct_n": 5,
         "kg_ru_ab_median": 669.7,
-        "kg_ind_ab_median": 162.2
+        "kg_ind_ab_median": 162.2,
+        "costo_tot_ab_median": 252.63,
+        "costo_tot_ab_n": 5
       },
       "Veneto": {
         "rd_pct_median": 83.25,
         "rd_pct_n": 560,
         "kg_ru_ab_median": 459.55,
-        "kg_ind_ab_median": 76.7
+        "kg_ind_ab_median": 76.7,
+        "costo_tot_ab_median": 143.52,
+        "costo_tot_ab_n": 450
       }
     },
     "by_provincia": {
@@ -141,643 +183,857 @@
         "rd_pct_median": 67.72,
         "rd_pct_n": 43,
         "kg_ru_ab_median": 381.6,
-        "kg_ind_ab_median": 123.9
+        "kg_ind_ab_median": 123.9,
+        "costo_tot_ab_median": 206.85,
+        "costo_tot_ab_n": 21
       },
       "Alessandria": {
         "rd_pct_median": 79.73,
         "rd_pct_n": 187,
         "kg_ru_ab_median": 440.9,
-        "kg_ind_ab_median": 84.1
+        "kg_ind_ab_median": 84.1,
+        "costo_tot_ab_median": 219.62,
+        "costo_tot_ab_n": 155
       },
       "Ancona": {
         "rd_pct_median": 70.49,
         "rd_pct_n": 47,
         "kg_ru_ab_median": 448.0,
-        "kg_ind_ab_median": 129.5
+        "kg_ind_ab_median": 129.5,
+        "costo_tot_ab_median": 174.88,
+        "costo_tot_ab_n": 44
       },
       "Aosta": {
         "rd_pct_median": 73.19,
         "rd_pct_n": 5,
         "kg_ru_ab_median": 669.7,
-        "kg_ind_ab_median": 162.2
+        "kg_ind_ab_median": 162.2,
+        "costo_tot_ab_median": 252.63,
+        "costo_tot_ab_n": 5
       },
       "Arezzo": {
         "rd_pct_median": 54.15,
         "rd_pct_n": 36,
         "kg_ru_ab_median": 577.95,
-        "kg_ind_ab_median": 260.95
+        "kg_ind_ab_median": 260.95,
+        "costo_tot_ab_median": 242.06,
+        "costo_tot_ab_n": 30
       },
       "Ascoli Piceno": {
         "rd_pct_median": 64.99,
         "rd_pct_n": 33,
         "kg_ru_ab_median": 462.2,
-        "kg_ind_ab_median": 147.7
+        "kg_ind_ab_median": 147.7,
+        "costo_tot_ab_median": 180.47,
+        "costo_tot_ab_n": 31
       },
       "Asti": {
         "rd_pct_median": 69.27,
         "rd_pct_n": 117,
         "kg_ru_ab_median": 422.4,
-        "kg_ind_ab_median": 126.8
+        "kg_ind_ab_median": 126.8,
+        "costo_tot_ab_median": 169.56,
+        "costo_tot_ab_n": 116
       },
       "Avellino": {
         "rd_pct_median": 62.77,
         "rd_pct_n": 118,
         "kg_ru_ab_median": 342.2,
-        "kg_ind_ab_median": 124.35
+        "kg_ind_ab_median": 124.35,
+        "costo_tot_ab_median": 201.27,
+        "costo_tot_ab_n": 99
       },
       "Bari": {
         "rd_pct_median": 74.04,
         "rd_pct_n": 41,
         "kg_ru_ab_median": 403.5,
-        "kg_ind_ab_median": 106.1
+        "kg_ind_ab_median": 106.1,
+        "costo_tot_ab_median": 211.69,
+        "costo_tot_ab_n": 33
       },
       "Barletta-Andria-Trani": {
         "rd_pct_median": 66.6,
         "rd_pct_n": 10,
         "kg_ru_ab_median": 444.0,
-        "kg_ind_ab_median": 144.85
+        "kg_ind_ab_median": 144.85,
+        "costo_tot_ab_median": 221.19,
+        "costo_tot_ab_n": 9
       },
       "Belluno": {
         "rd_pct_median": 88.78,
         "rd_pct_n": 60,
         "kg_ru_ab_median": 558.4,
-        "kg_ind_ab_median": 62.6
+        "kg_ind_ab_median": 62.6,
+        "costo_tot_ab_median": 203.79,
+        "costo_tot_ab_n": 59
       },
       "Benevento": {
         "rd_pct_median": 77.34,
         "rd_pct_n": 78,
         "kg_ru_ab_median": 335.35,
-        "kg_ind_ab_median": 71.95
+        "kg_ind_ab_median": 71.95,
+        "costo_tot_ab_median": 149.21,
+        "costo_tot_ab_n": 75
       },
       "Bergamo": {
         "rd_pct_median": 81.07,
         "rd_pct_n": 243,
         "kg_ru_ab_median": 458.7,
-        "kg_ind_ab_median": 89.0
+        "kg_ind_ab_median": 89.0,
+        "costo_tot_ab_median": 116.76,
+        "costo_tot_ab_n": 239
       },
       "Biella": {
         "rd_pct_median": 68.28,
         "rd_pct_n": 74,
         "kg_ru_ab_median": 523.6,
-        "kg_ind_ab_median": 164.35
+        "kg_ind_ab_median": 164.35,
+        "costo_tot_ab_median": 174.36,
+        "costo_tot_ab_n": 74
       },
       "Bologna": {
         "rd_pct_median": 80.0,
         "rd_pct_n": 55,
         "kg_ru_ab_median": 636.0,
-        "kg_ind_ab_median": 127.8
+        "kg_ind_ab_median": 127.8,
+        "costo_tot_ab_median": 179.02,
+        "costo_tot_ab_n": 55
       },
       "Bolzano": {
         "rd_pct_median": 70.87,
         "rd_pct_n": 116,
         "kg_ru_ab_median": 449.85,
-        "kg_ind_ab_median": 128.7
+        "kg_ind_ab_median": 128.7,
+        "costo_tot_ab_median": 100.99,
+        "costo_tot_ab_n": 111
       },
       "Brescia": {
         "rd_pct_median": 79.38,
         "rd_pct_n": 205,
         "kg_ru_ab_median": 501.6,
-        "kg_ind_ab_median": 104.1
+        "kg_ind_ab_median": 104.1,
+        "costo_tot_ab_median": 142.2,
+        "costo_tot_ab_n": 195
       },
       "Brindisi": {
         "rd_pct_median": 70.0,
         "rd_pct_n": 20,
         "kg_ru_ab_median": 465.55,
-        "kg_ind_ab_median": 140.55
+        "kg_ind_ab_median": 140.55,
+        "costo_tot_ab_median": 235.36,
+        "costo_tot_ab_n": 15
       },
       "Cagliari - fino al 2024": {
         "rd_pct_median": 79.96,
         "rd_pct_n": 17,
         "kg_ru_ab_median": 418.0,
-        "kg_ind_ab_median": 80.7
+        "kg_ind_ab_median": 80.7,
+        "costo_tot_ab_median": 174.96,
+        "costo_tot_ab_n": 17
       },
       "Caltanissetta": {
         "rd_pct_median": 71.66,
         "rd_pct_n": 22,
         "kg_ru_ab_median": 356.15,
-        "kg_ind_ab_median": 100.6
+        "kg_ind_ab_median": 100.6,
+        "costo_tot_ab_median": 154.68,
+        "costo_tot_ab_n": 19
       },
       "Campobasso": {
         "rd_pct_median": 62.49,
         "rd_pct_n": 83,
         "kg_ru_ab_median": 316.5,
-        "kg_ind_ab_median": 110.0
+        "kg_ind_ab_median": 110.0,
+        "costo_tot_ab_median": 125.4,
+        "costo_tot_ab_n": 65
       },
       "Caserta": {
         "rd_pct_median": 62.14,
         "rd_pct_n": 104,
         "kg_ru_ab_median": 411.8,
-        "kg_ind_ab_median": 153.9
+        "kg_ind_ab_median": 153.9,
+        "costo_tot_ab_median": 190.75,
+        "costo_tot_ab_n": 85
       },
       "Catania": {
         "rd_pct_median": 72.14,
         "rd_pct_n": 58,
         "kg_ru_ab_median": 392.5,
-        "kg_ind_ab_median": 105.0
+        "kg_ind_ab_median": 105.0,
+        "costo_tot_ab_median": 192.57,
+        "costo_tot_ab_n": 46
       },
       "Catanzaro": {
         "rd_pct_median": 65.46,
         "rd_pct_n": 77,
         "kg_ru_ab_median": 333.9,
-        "kg_ind_ab_median": 120.6
+        "kg_ind_ab_median": 120.6,
+        "costo_tot_ab_median": 153.59,
+        "costo_tot_ab_n": 46
       },
       "Chieti": {
         "rd_pct_median": 77.91,
         "rd_pct_n": 96,
         "kg_ru_ab_median": 349.2,
-        "kg_ind_ab_median": 76.65
+        "kg_ind_ab_median": 76.65,
+        "costo_tot_ab_median": 158.41,
+        "costo_tot_ab_n": 88
       },
       "Como": {
         "rd_pct_median": 72.79,
         "rd_pct_n": 145,
         "kg_ru_ab_median": 467.2,
-        "kg_ind_ab_median": 127.0
+        "kg_ind_ab_median": 127.0,
+        "costo_tot_ab_median": 135.91,
+        "costo_tot_ab_n": 123
       },
       "Cosenza": {
         "rd_pct_median": 65.16,
         "rd_pct_n": 148,
         "kg_ru_ab_median": 314.15,
-        "kg_ind_ab_median": 109.05
+        "kg_ind_ab_median": 109.05,
+        "costo_tot_ab_median": 160.65,
+        "costo_tot_ab_n": 102
       },
       "Cremona": {
         "rd_pct_median": 80.31,
         "rd_pct_n": 113,
         "kg_ru_ab_median": 479.9,
-        "kg_ind_ab_median": 93.7
+        "kg_ind_ab_median": 93.7,
+        "costo_tot_ab_median": 144.26,
+        "costo_tot_ab_n": 112
       },
       "Crotone": {
         "rd_pct_median": 61.02,
         "rd_pct_n": 27,
         "kg_ru_ab_median": 343.8,
-        "kg_ind_ab_median": 129.7
+        "kg_ind_ab_median": 129.7,
+        "costo_tot_ab_median": 153.98,
+        "costo_tot_ab_n": 20
       },
       "Cuneo": {
         "rd_pct_median": 67.34,
         "rd_pct_n": 247,
         "kg_ru_ab_median": 495.9,
-        "kg_ind_ab_median": 144.6
+        "kg_ind_ab_median": 144.6,
+        "costo_tot_ab_median": 172.75,
+        "costo_tot_ab_n": 246
       },
       "Enna": {
         "rd_pct_median": 66.03,
         "rd_pct_n": 20,
         "kg_ru_ab_median": 332.2,
-        "kg_ind_ab_median": 112.65
+        "kg_ind_ab_median": 112.65,
+        "costo_tot_ab_median": 165.95,
+        "costo_tot_ab_n": 10
       },
       "Fermo": {
         "rd_pct_median": 74.41,
         "rd_pct_n": 40,
         "kg_ru_ab_median": 371.55,
-        "kg_ind_ab_median": 92.15
+        "kg_ind_ab_median": 92.15,
+        "costo_tot_ab_median": 123.39,
+        "costo_tot_ab_n": 28
       },
       "Ferrara": {
         "rd_pct_median": 77.74,
         "rd_pct_n": 21,
         "kg_ru_ab_median": 530.9,
-        "kg_ind_ab_median": 120.6
+        "kg_ind_ab_median": 120.6,
+        "costo_tot_ab_median": 253.48,
+        "costo_tot_ab_n": 21
       },
       "Firenze": {
         "rd_pct_median": 79.5,
         "rd_pct_n": 41,
         "kg_ru_ab_median": 513.5,
-        "kg_ind_ab_median": 99.3
+        "kg_ind_ab_median": 99.3,
+        "costo_tot_ab_median": 274.19,
+        "costo_tot_ab_n": 40
       },
       "Foggia": {
         "rd_pct_median": 59.87,
         "rd_pct_n": 61,
         "kg_ru_ab_median": 377.1,
-        "kg_ind_ab_median": 151.5
+        "kg_ind_ab_median": 151.5,
+        "costo_tot_ab_median": 215.5,
+        "costo_tot_ab_n": 32
       },
       "Forli'-Cesena": {
         "rd_pct_median": 84.29,
         "rd_pct_n": 30,
         "kg_ru_ab_median": 514.0,
-        "kg_ind_ab_median": 79.45
+        "kg_ind_ab_median": 79.45,
+        "costo_tot_ab_median": 184.3,
+        "costo_tot_ab_n": 30
       },
       "Frosinone": {
         "rd_pct_median": 63.86,
         "rd_pct_n": 81,
         "kg_ru_ab_median": 330.6,
-        "kg_ind_ab_median": 116.3
+        "kg_ind_ab_median": 116.3,
+        "costo_tot_ab_median": 158.31,
+        "costo_tot_ab_n": 68
       },
       "Genova": {
         "rd_pct_median": 63.13,
         "rd_pct_n": 67,
         "kg_ru_ab_median": 520.0,
-        "kg_ind_ab_median": 188.5
+        "kg_ind_ab_median": 188.5,
+        "costo_tot_ab_median": 206.45,
+        "costo_tot_ab_n": 64
       },
       "Gorizia": {
         "rd_pct_median": 80.36,
         "rd_pct_n": 25,
         "kg_ru_ab_median": 515.5,
-        "kg_ind_ab_median": 97.8
+        "kg_ind_ab_median": 97.8,
+        "costo_tot_ab_median": 155.11,
+        "costo_tot_ab_n": 25
       },
       "Grosseto": {
         "rd_pct_median": 62.48,
         "rd_pct_n": 28,
         "kg_ru_ab_median": 542.15,
-        "kg_ind_ab_median": 226.45
+        "kg_ind_ab_median": 226.45,
+        "costo_tot_ab_median": 320.36,
+        "costo_tot_ab_n": 27
       },
       "Imperia": {
         "rd_pct_median": 64.01,
         "rd_pct_n": 66,
         "kg_ru_ab_median": 498.95,
-        "kg_ind_ab_median": 176.2
+        "kg_ind_ab_median": 176.2,
+        "costo_tot_ab_median": 274.09,
+        "costo_tot_ab_n": 64
       },
       "Isernia": {
         "rd_pct_median": 59.57,
         "rd_pct_n": 51,
         "kg_ru_ab_median": 313.3,
-        "kg_ind_ab_median": 121.6
+        "kg_ind_ab_median": 121.6,
+        "costo_tot_ab_median": 143.94,
+        "costo_tot_ab_n": 31
       },
       "L'Aquila": {
         "rd_pct_median": 69.86,
         "rd_pct_n": 108,
         "kg_ru_ab_median": 413.3,
-        "kg_ind_ab_median": 123.5
+        "kg_ind_ab_median": 123.5,
+        "costo_tot_ab_median": 209.44,
+        "costo_tot_ab_n": 68
       },
       "La Spezia": {
         "rd_pct_median": 70.62,
         "rd_pct_n": 32,
         "kg_ru_ab_median": 435.0,
-        "kg_ind_ab_median": 125.7
+        "kg_ind_ab_median": 125.7,
+        "costo_tot_ab_median": 344.68,
+        "costo_tot_ab_n": 31
       },
       "Latina": {
         "rd_pct_median": 69.97,
         "rd_pct_n": 33,
         "kg_ru_ab_median": 420.0,
-        "kg_ind_ab_median": 136.6
+        "kg_ind_ab_median": 136.6,
+        "costo_tot_ab_median": 196.54,
+        "costo_tot_ab_n": 30
       },
       "Lecce": {
         "rd_pct_median": 65.47,
         "rd_pct_n": 96,
         "kg_ru_ab_median": 454.95,
-        "kg_ind_ab_median": 162.4
+        "kg_ind_ab_median": 162.4,
+        "costo_tot_ab_median": 218.7,
+        "costo_tot_ab_n": 67
       },
       "Lecco": {
         "rd_pct_median": 79.11,
         "rd_pct_n": 84,
         "kg_ru_ab_median": 482.45,
-        "kg_ind_ab_median": 105.3
+        "kg_ind_ab_median": 105.3,
+        "costo_tot_ab_median": 155.87,
+        "costo_tot_ab_n": 84
       },
       "Livorno": {
         "rd_pct_median": 65.3,
         "rd_pct_n": 19,
         "kg_ru_ab_median": 791.7,
-        "kg_ind_ab_median": 273.3
+        "kg_ind_ab_median": 273.3,
+        "costo_tot_ab_median": 461.0,
+        "costo_tot_ab_n": 17
       },
       "Lodi": {
         "rd_pct_median": 75.75,
         "rd_pct_n": 57,
         "kg_ru_ab_median": 428.5,
-        "kg_ind_ab_median": 107.5
+        "kg_ind_ab_median": 107.5,
+        "costo_tot_ab_median": 121.62,
+        "costo_tot_ab_n": 47
       },
       "Lucca": {
         "rd_pct_median": 69.38,
         "rd_pct_n": 33,
         "kg_ru_ab_median": 495.4,
-        "kg_ind_ab_median": 177.3
+        "kg_ind_ab_median": 177.3,
+        "costo_tot_ab_median": 285.34,
+        "costo_tot_ab_n": 33
       },
       "Macerata": {
         "rd_pct_median": 73.63,
         "rd_pct_n": 55,
         "kg_ru_ab_median": 488.1,
-        "kg_ind_ab_median": 125.0
+        "kg_ind_ab_median": 125.0,
+        "costo_tot_ab_median": 135.31,
+        "costo_tot_ab_n": 55
       },
       "Mantova": {
         "rd_pct_median": 89.38,
         "rd_pct_n": 64,
         "kg_ru_ab_median": 529.7,
-        "kg_ind_ab_median": 53.6
+        "kg_ind_ab_median": 53.6,
+        "costo_tot_ab_median": 158.01,
+        "costo_tot_ab_n": 64
       },
       "Massa-Carrara": {
         "rd_pct_median": 71.64,
         "rd_pct_n": 17,
         "kg_ru_ab_median": 425.9,
-        "kg_ind_ab_median": 123.9
+        "kg_ind_ab_median": 123.9,
+        "costo_tot_ab_median": 222.03,
+        "costo_tot_ab_n": 17
       },
       "Matera": {
         "rd_pct_median": 70.61,
         "rd_pct_n": 30,
         "kg_ru_ab_median": 314.15,
-        "kg_ind_ab_median": 104.55
+        "kg_ind_ab_median": 104.55,
+        "costo_tot_ab_median": 179.92,
+        "costo_tot_ab_n": 19
       },
       "Messina": {
         "rd_pct_median": 72.02,
         "rd_pct_n": 108,
         "kg_ru_ab_median": 359.5,
-        "kg_ind_ab_median": 103.45
+        "kg_ind_ab_median": 103.45,
+        "costo_tot_ab_median": 192.1,
+        "costo_tot_ab_n": 51
       },
       "Milano": {
         "rd_pct_median": 78.84,
         "rd_pct_n": 133,
         "kg_ru_ab_median": 445.6,
-        "kg_ind_ab_median": 95.9
+        "kg_ind_ab_median": 95.9,
+        "costo_tot_ab_median": 143.43,
+        "costo_tot_ab_n": 124
       },
       "Modena": {
         "rd_pct_median": 86.51,
         "rd_pct_n": 47,
         "kg_ru_ab_median": 639.0,
-        "kg_ind_ab_median": 86.9
+        "kg_ind_ab_median": 86.9,
+        "costo_tot_ab_median": 198.85,
+        "costo_tot_ab_n": 47
       },
       "Monza e della Brianza": {
         "rd_pct_median": 82.69,
         "rd_pct_n": 55,
         "kg_ru_ab_median": 428.8,
-        "kg_ind_ab_median": 73.1
+        "kg_ind_ab_median": 73.1,
+        "costo_tot_ab_median": 125.05,
+        "costo_tot_ab_n": 54
       },
       "Napoli": {
         "rd_pct_median": 62.51,
         "rd_pct_n": 92,
         "kg_ru_ab_median": 453.05,
-        "kg_ind_ab_median": 178.25
+        "kg_ind_ab_median": 178.25,
+        "costo_tot_ab_median": 216.19,
+        "costo_tot_ab_n": 81
       },
       "Novara": {
         "rd_pct_median": 82.13,
         "rd_pct_n": 87,
         "kg_ru_ab_median": 507.4,
-        "kg_ind_ab_median": 90.4
+        "kg_ind_ab_median": 90.4,
+        "costo_tot_ab_median": 152.26,
+        "costo_tot_ab_n": 82
       },
       "Nuoro - fino al 2024": {
         "rd_pct_median": 79.38,
         "rd_pct_n": 74,
         "kg_ru_ab_median": 292.6,
-        "kg_ind_ab_median": 54.0
+        "kg_ind_ab_median": 54.0,
+        "costo_tot_ab_median": 160.32,
+        "costo_tot_ab_n": 54
       },
       "Oristano - fino al 2024": {
         "rd_pct_median": 80.51,
         "rd_pct_n": 87,
         "kg_ru_ab_median": 346.4,
-        "kg_ind_ab_median": 71.2
+        "kg_ind_ab_median": 71.2,
+        "costo_tot_ab_median": 163.99,
+        "costo_tot_ab_n": 64
       },
       "Padova": {
         "rd_pct_median": 80.01,
         "rd_pct_n": 101,
         "kg_ru_ab_median": 494.1,
-        "kg_ind_ab_median": 100.6
+        "kg_ind_ab_median": 100.6,
+        "costo_tot_ab_median": 143.95,
+        "costo_tot_ab_n": 62
       },
       "Palermo": {
         "rd_pct_median": 71.19,
         "rd_pct_n": 82,
         "kg_ru_ab_median": 348.6,
-        "kg_ind_ab_median": 92.9
+        "kg_ind_ab_median": 92.9,
+        "costo_tot_ab_median": 199.66,
+        "costo_tot_ab_n": 59
       },
       "Parma": {
         "rd_pct_median": 74.25,
         "rd_pct_n": 44,
         "kg_ru_ab_median": 628.45,
-        "kg_ind_ab_median": 163.55
+        "kg_ind_ab_median": 163.55,
+        "costo_tot_ab_median": 190.94,
+        "costo_tot_ab_n": 43
       },
       "Pavia": {
         "rd_pct_median": 60.79,
         "rd_pct_n": 185,
         "kg_ru_ab_median": 515.2,
-        "kg_ind_ab_median": 195.5
+        "kg_ind_ab_median": 195.5,
+        "costo_tot_ab_median": 157.88,
+        "costo_tot_ab_n": 149
       },
       "Perugia": {
         "rd_pct_median": 64.57,
         "rd_pct_n": 59,
         "kg_ru_ab_median": 521.0,
-        "kg_ind_ab_median": 170.7
+        "kg_ind_ab_median": 170.7,
+        "costo_tot_ab_median": 253.9,
+        "costo_tot_ab_n": 59
       },
       "Pesaro e Urbino": {
         "rd_pct_median": 77.41,
         "rd_pct_n": 50,
         "kg_ru_ab_median": 503.05,
-        "kg_ind_ab_median": 109.1
+        "kg_ind_ab_median": 109.1,
+        "costo_tot_ab_median": 228.91,
+        "costo_tot_ab_n": 42
       },
       "Pescara": {
         "rd_pct_median": 68.08,
         "rd_pct_n": 44,
         "kg_ru_ab_median": 354.35,
-        "kg_ind_ab_median": 109.3
+        "kg_ind_ab_median": 109.3,
+        "costo_tot_ab_median": 147.22,
+        "costo_tot_ab_n": 24
       },
       "Piacenza": {
         "rd_pct_median": 69.93,
         "rd_pct_n": 46,
         "kg_ru_ab_median": 682.15,
-        "kg_ind_ab_median": 204.75
+        "kg_ind_ab_median": 204.75,
+        "costo_tot_ab_median": 168.45,
+        "costo_tot_ab_n": 46
       },
       "Pisa": {
         "rd_pct_median": 70.05,
         "rd_pct_n": 37,
         "kg_ru_ab_median": 508.3,
-        "kg_ind_ab_median": 156.3
+        "kg_ind_ab_median": 156.3,
+        "costo_tot_ab_median": 269.14,
+        "costo_tot_ab_n": 30
       },
       "Pistoia": {
         "rd_pct_median": 77.11,
         "rd_pct_n": 20,
         "kg_ru_ab_median": 536.9,
-        "kg_ind_ab_median": 103.95
+        "kg_ind_ab_median": 103.95,
+        "costo_tot_ab_median": 251.84,
+        "costo_tot_ab_n": 20
       },
       "Pordenone": {
         "rd_pct_median": 83.45,
         "rd_pct_n": 50,
         "kg_ru_ab_median": 506.8,
-        "kg_ind_ab_median": 78.15
+        "kg_ind_ab_median": 78.15,
+        "costo_tot_ab_median": 128.81,
+        "costo_tot_ab_n": 50
       },
       "Potenza": {
         "rd_pct_median": 66.42,
         "rd_pct_n": 99,
         "kg_ru_ab_median": 276.5,
-        "kg_ind_ab_median": 95.7
+        "kg_ind_ab_median": 95.7,
+        "costo_tot_ab_median": 169.96,
+        "costo_tot_ab_n": 69
       },
       "Prato": {
         "rd_pct_median": 71.41,
         "rd_pct_n": 7,
         "kg_ru_ab_median": 523.8,
-        "kg_ind_ab_median": 148.0
+        "kg_ind_ab_median": 148.0,
+        "costo_tot_ab_median": 227.78,
+        "costo_tot_ab_n": 7
       },
       "Ragusa": {
         "rd_pct_median": 71.97,
         "rd_pct_n": 12,
         "kg_ru_ab_median": 402.45,
-        "kg_ind_ab_median": 110.05
+        "kg_ind_ab_median": 110.05,
+        "costo_tot_ab_median": 232.63,
+        "costo_tot_ab_n": 10
       },
       "Ravenna": {
         "rd_pct_median": 82.13,
         "rd_pct_n": 18,
         "kg_ru_ab_median": 718.85,
-        "kg_ind_ab_median": 130.95
+        "kg_ind_ab_median": 130.95,
+        "costo_tot_ab_median": 220.95,
+        "costo_tot_ab_n": 18
       },
       "Reggio di Calabria": {
         "rd_pct_median": 43.52,
         "rd_pct_n": 92,
         "kg_ru_ab_median": 308.7,
-        "kg_ind_ab_median": 160.9
+        "kg_ind_ab_median": 160.9,
+        "costo_tot_ab_median": 165.23,
+        "costo_tot_ab_n": 57
       },
       "Reggio nell'Emilia": {
         "rd_pct_median": 88.09,
         "rd_pct_n": 42,
         "kg_ru_ab_median": 789.95,
-        "kg_ind_ab_median": 96.05
+        "kg_ind_ab_median": 96.05,
+        "costo_tot_ab_median": 210.03,
+        "costo_tot_ab_n": 42
       },
       "Rieti": {
         "rd_pct_median": 60.66,
         "rd_pct_n": 65,
         "kg_ru_ab_median": 355.6,
-        "kg_ind_ab_median": 126.9
+        "kg_ind_ab_median": 126.9,
+        "costo_tot_ab_median": 225.15,
+        "costo_tot_ab_n": 50
       },
       "Rimini": {
         "rd_pct_median": 60.36,
         "rd_pct_n": 27,
         "kg_ru_ab_median": 615.9,
-        "kg_ind_ab_median": 241.6
+        "kg_ind_ab_median": 241.6,
+        "costo_tot_ab_median": 242.53,
+        "costo_tot_ab_n": 24
       },
       "Roma": {
         "rd_pct_median": 67.94,
         "rd_pct_n": 112,
         "kg_ru_ab_median": 382.55,
-        "kg_ind_ab_median": 119.95
+        "kg_ind_ab_median": 119.95,
+        "costo_tot_ab_median": 209.19,
+        "costo_tot_ab_n": 103
       },
       "Rovigo": {
         "rd_pct_median": 82.92,
         "rd_pct_n": 50,
         "kg_ru_ab_median": 487.7,
-        "kg_ind_ab_median": 82.05
+        "kg_ind_ab_median": 82.05,
+        "costo_tot_ab_median": 200.22,
+        "costo_tot_ab_n": 50
       },
       "Salerno": {
         "rd_pct_median": 72.63,
         "rd_pct_n": 158,
         "kg_ru_ab_median": 346.6,
-        "kg_ind_ab_median": 90.45
+        "kg_ind_ab_median": 90.45,
+        "costo_tot_ab_median": 204.72,
+        "costo_tot_ab_n": 127
       },
       "Sassari - fino al 2024": {
         "rd_pct_median": 77.31,
         "rd_pct_n": 92,
         "kg_ru_ab_median": 394.85,
-        "kg_ind_ab_median": 80.1
+        "kg_ind_ab_median": 80.1,
+        "costo_tot_ab_median": 166.03,
+        "costo_tot_ab_n": 56
       },
       "Savona": {
         "rd_pct_median": 69.42,
         "rd_pct_n": 69,
         "kg_ru_ab_median": 435.3,
-        "kg_ind_ab_median": 132.6
+        "kg_ind_ab_median": 132.6,
+        "costo_tot_ab_median": 193.76,
+        "costo_tot_ab_n": 66
       },
       "Siena": {
         "rd_pct_median": 66.46,
         "rd_pct_n": 35,
         "kg_ru_ab_median": 621.2,
-        "kg_ind_ab_median": 187.7
+        "kg_ind_ab_median": 187.7,
+        "costo_tot_ab_median": 279.38,
+        "costo_tot_ab_n": 31
       },
       "Siracusa": {
         "rd_pct_median": 69.5,
         "rd_pct_n": 21,
         "kg_ru_ab_median": 401.8,
-        "kg_ind_ab_median": 138.3
+        "kg_ind_ab_median": 138.3,
+        "costo_tot_ab_median": 175.44,
+        "costo_tot_ab_n": 17
       },
       "Sondrio": {
         "rd_pct_median": 56.1,
         "rd_pct_n": 74,
         "kg_ru_ab_median": 440.35,
-        "kg_ind_ab_median": 193.45
+        "kg_ind_ab_median": 193.45,
+        "costo_tot_ab_median": 153.92,
+        "costo_tot_ab_n": 70
       },
       "Sud Sardegna - fino al 2024": {
         "rd_pct_median": 81.32,
         "rd_pct_n": 107,
         "kg_ru_ab_median": 384.5,
-        "kg_ind_ab_median": 67.2
+        "kg_ind_ab_median": 67.2,
+        "costo_tot_ab_median": 155.27,
+        "costo_tot_ab_n": 89
       },
       "Taranto": {
         "rd_pct_median": 68.69,
         "rd_pct_n": 29,
         "kg_ru_ab_median": 437.2,
-        "kg_ind_ab_median": 126.6
+        "kg_ind_ab_median": 126.6,
+        "costo_tot_ab_median": 205.5,
+        "costo_tot_ab_n": 24
       },
       "Teramo": {
         "rd_pct_median": 65.34,
         "rd_pct_n": 47,
         "kg_ru_ab_median": 382.3,
-        "kg_ind_ab_median": 130.7
+        "kg_ind_ab_median": 130.7,
+        "costo_tot_ab_median": 168.95,
+        "costo_tot_ab_n": 38
       },
       "Terni": {
         "rd_pct_median": 73.6,
         "rd_pct_n": 33,
         "kg_ru_ab_median": 428.2,
-        "kg_ind_ab_median": 102.0
+        "kg_ind_ab_median": 102.0,
+        "costo_tot_ab_median": 245.34,
+        "costo_tot_ab_n": 19
       },
       "Torino": {
         "rd_pct_median": 68.92,
         "rd_pct_n": 312,
         "kg_ru_ab_median": 490.95,
-        "kg_ind_ab_median": 147.0
+        "kg_ind_ab_median": 147.0,
+        "costo_tot_ab_median": 167.87,
+        "costo_tot_ab_n": 265
       },
       "Trapani": {
         "rd_pct_median": 81.31,
         "rd_pct_n": 25,
         "kg_ru_ab_median": 427.2,
-        "kg_ind_ab_median": 72.7
+        "kg_ind_ab_median": 72.7,
+        "costo_tot_ab_median": 214.14,
+        "costo_tot_ab_n": 21
       },
       "Trento": {
         "rd_pct_median": 83.57,
         "rd_pct_n": 166,
         "kg_ru_ab_median": 478.3,
-        "kg_ind_ab_median": 72.95
+        "kg_ind_ab_median": 72.95,
+        "costo_tot_ab_median": 163.07,
+        "costo_tot_ab_n": 95
       },
       "Treviso": {
         "rd_pct_median": 90.6,
         "rd_pct_n": 94,
         "kg_ru_ab_median": 407.45,
-        "kg_ind_ab_median": 37.55
+        "kg_ind_ab_median": 37.55,
+        "costo_tot_ab_median": 111.93,
+        "costo_tot_ab_n": 50
       },
       "Trieste": {
         "rd_pct_median": 60.75,
         "rd_pct_n": 6,
         "kg_ru_ab_median": 648.75,
-        "kg_ind_ab_median": 228.25
+        "kg_ind_ab_median": 228.25,
+        "costo_tot_ab_median": 192.2,
+        "costo_tot_ab_n": 6
       },
       "Udine": {
         "rd_pct_median": 74.86,
         "rd_pct_n": 134,
         "kg_ru_ab_median": 506.2,
-        "kg_ind_ab_median": 119.05
+        "kg_ind_ab_median": 119.05,
+        "costo_tot_ab_median": 123.14,
+        "costo_tot_ab_n": 107
       },
       "Varese": {
         "rd_pct_median": 81.71,
         "rd_pct_n": 136,
         "kg_ru_ab_median": 455.8,
-        "kg_ind_ab_median": 74.3
+        "kg_ind_ab_median": 74.3,
+        "costo_tot_ab_median": 136.94,
+        "costo_tot_ab_n": 132
       },
       "Venezia": {
         "rd_pct_median": 83.48,
         "rd_pct_n": 44,
         "kg_ru_ab_median": 515.5,
-        "kg_ind_ab_median": 85.15
+        "kg_ind_ab_median": 85.15,
+        "costo_tot_ab_median": 173.33,
+        "costo_tot_ab_n": 44
       },
       "Verbano-Cusio-Ossola": {
         "rd_pct_median": 65.88,
         "rd_pct_n": 74,
         "kg_ru_ab_median": 494.45,
-        "kg_ind_ab_median": 155.7
+        "kg_ind_ab_median": 155.7,
+        "costo_tot_ab_median": 212.2,
+        "costo_tot_ab_n": 74
       },
       "Vercelli": {
         "rd_pct_median": 67.32,
         "rd_pct_n": 82,
         "kg_ru_ab_median": 439.7,
-        "kg_ind_ab_median": 148.3
+        "kg_ind_ab_median": 148.3,
+        "costo_tot_ab_median": 184.51,
+        "costo_tot_ab_n": 81
       },
       "Verona": {
         "rd_pct_median": 79.83,
         "rd_pct_n": 98,
         "kg_ru_ab_median": 458.9,
-        "kg_ind_ab_median": 84.0
+        "kg_ind_ab_median": 84.0,
+        "costo_tot_ab_median": 143.41,
+        "costo_tot_ab_n": 97
       },
       "Vibo Valentia": {
         "rd_pct_median": 61.37,
         "rd_pct_n": 50,
         "kg_ru_ab_median": 297.3,
-        "kg_ind_ab_median": 131.15
+        "kg_ind_ab_median": 131.15,
+        "costo_tot_ab_median": 114.01,
+        "costo_tot_ab_n": 25
       },
       "Vicenza": {
         "rd_pct_median": 81.04,
         "rd_pct_n": 113,
         "kg_ru_ab_median": 416.2,
-        "kg_ind_ab_median": 77.5
+        "kg_ind_ab_median": 77.5,
+        "costo_tot_ab_median": 115.78,
+        "costo_tot_ab_n": 88
       },
       "Viterbo": {
         "rd_pct_median": 74.2,
         "rd_pct_n": 59,
         "kg_ru_ab_median": 374.3,
-        "kg_ind_ab_median": 98.8
+        "kg_ind_ab_median": 98.8,
+        "costo_tot_ab_median": 183.31,
+        "costo_tot_ab_n": 54
       }
     },
     "pop_clusters": [
@@ -788,7 +1044,9 @@
         "label": "fino a ~1.000 ab.",
         "ordinal": 1,
         "rd_pct_median": 67.51,
-        "rd_pct_n": 1945
+        "rd_pct_n": 1945,
+        "costo_tot_ab_median": 189.38,
+        "costo_tot_ab_n": 1558
       },
       {
         "id": "p1",
@@ -797,7 +1055,9 @@
         "label": "~1.000-2.400 ab.",
         "ordinal": 2,
         "rd_pct_median": 73.06,
-        "rd_pct_n": 1940
+        "rd_pct_n": 1940,
+        "costo_tot_ab_median": 158.88,
+        "costo_tot_ab_n": 1596
       },
       {
         "id": "p2",
@@ -806,7 +1066,9 @@
         "label": "~2.400-6.400 ab.",
         "ordinal": 3,
         "rd_pct_median": 75.68,
-        "rd_pct_n": 1941
+        "rd_pct_n": 1941,
+        "costo_tot_ab_median": 154.12,
+        "costo_tot_ab_n": 1664
       },
       {
         "id": "p3",
@@ -815,7 +1077,9 @@
         "label": "oltre ~6.400 ab.",
         "ordinal": 4,
         "rd_pct_median": 74.75,
-        "rd_pct_n": 1941
+        "rd_pct_n": 1941,
+        "costo_tot_ab_median": 183.61,
+        "costo_tot_ab_n": 1736
       }
     ]
   },
@@ -832,6 +1096,7 @@
       "rd_pct": 75.99,
       "kg_ru_ab": 575.0,
       "kg_ind_ab": 138.1,
+      "costo_tot_ab": 169.95,
       "mix_rd_pct": {
         "umida": 15.77,
         "carta": 12.42,
@@ -854,13 +1119,16 @@
       "kg_ind_better_pctile_it": 34.9,
       "kg_ind_vs_median_it": 24.8,
       "kg_ind_vs_median_reg": 5.7,
+      "costo_vs_median_it": -0.0,
+      "costo_vs_median_reg": -6.2,
       "delta_rd_22_24": -1.94,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +11.0 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 0.31
+      "rd_vs_median_pop": 0.31,
+      "costo_vs_median_pop": 15.8
     },
     "alpette": {
       "id": "alpette",
@@ -874,6 +1142,7 @@
       "rd_pct": 42.54,
       "kg_ru_ab": 765.5,
       "kg_ind_ab": 418.3,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": null,
         "carta": 15.45,
@@ -896,13 +1165,16 @@
       "kg_ind_better_pctile_it": 3.3,
       "kg_ind_vs_median_it": 305.0,
       "kg_ind_vs_median_reg": 285.9,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 3.82,
       "hook": {
         "key": "below_target",
         "text": "A -22.5 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -24.97
+      "rd_vs_median_pop": -24.97,
+      "costo_vs_median_pop": null
     },
     "alpignano": {
       "id": "alpignano",
@@ -916,6 +1188,7 @@
       "rd_pct": 66.78,
       "kg_ru_ab": 471.8,
       "kg_ind_ab": 156.7,
+      "costo_tot_ab": 175.58,
       "mix_rd_pct": {
         "umida": 21.62,
         "carta": 23.18,
@@ -938,13 +1211,16 @@
       "kg_ind_better_pctile_it": 27.6,
       "kg_ind_vs_median_it": 43.4,
       "kg_ind_vs_median_reg": 24.3,
+      "costo_vs_median_it": 5.6,
+      "costo_vs_median_reg": -0.6,
       "delta_rd_22_24": 0.84,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.8 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -7.97
+      "rd_vs_median_pop": -7.97,
+      "costo_vs_median_pop": -8.0
     },
     "andezeno": {
       "id": "andezeno",
@@ -958,6 +1234,7 @@
       "rd_pct": 73.93,
       "kg_ru_ab": 515.4,
       "kg_ind_ab": 134.4,
+      "costo_tot_ab": 154.15,
       "mix_rd_pct": {
         "umida": 26.86,
         "carta": 15.81,
@@ -980,13 +1257,16 @@
       "kg_ind_better_pctile_it": 36.7,
       "kg_ind_vs_median_it": 21.1,
       "kg_ind_vs_median_reg": 2.0,
+      "costo_vs_median_it": -15.8,
+      "costo_vs_median_reg": -22.0,
       "delta_rd_22_24": -0.5,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +8.9 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 0.87
+      "rd_vs_median_pop": 0.87,
+      "costo_vs_median_pop": -4.7
     },
     "arignano": {
       "id": "arignano",
@@ -1000,6 +1280,7 @@
       "rd_pct": 67.53,
       "kg_ru_ab": 403.1,
       "kg_ind_ab": 130.9,
+      "costo_tot_ab": 184.35,
       "mix_rd_pct": {
         "umida": 36.42,
         "carta": 16.34,
@@ -1022,13 +1303,16 @@
       "kg_ind_better_pctile_it": 38.4,
       "kg_ind_vs_median_it": 17.6,
       "kg_ind_vs_median_reg": -1.5,
+      "costo_vs_median_it": 14.4,
+      "costo_vs_median_reg": 8.2,
       "delta_rd_22_24": 2.86,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +2.5 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -5.53
+      "rd_vs_median_pop": -5.53,
+      "costo_vs_median_pop": 25.5
     },
     "avigliana": {
       "id": "avigliana",
@@ -1042,6 +1326,7 @@
       "rd_pct": 67.12,
       "kg_ru_ab": 603.1,
       "kg_ind_ab": 198.3,
+      "costo_tot_ab": 259.25,
       "mix_rd_pct": {
         "umida": 18.16,
         "carta": 16.09,
@@ -1064,13 +1349,16 @@
       "kg_ind_better_pctile_it": 17.6,
       "kg_ind_vs_median_it": 85.0,
       "kg_ind_vs_median_reg": 65.9,
+      "costo_vs_median_it": 89.3,
+      "costo_vs_median_reg": 83.1,
       "delta_rd_22_24": 1.27,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +2.1 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -7.63
+      "rd_vs_median_pop": -7.63,
+      "costo_vs_median_pop": 75.6
     },
     "baldissero-torinese": {
       "id": "baldissero-torinese",
@@ -1084,6 +1372,7 @@
       "rd_pct": 83.82,
       "kg_ru_ab": 391.4,
       "kg_ind_ab": 63.3,
+      "costo_tot_ab": 137.55,
       "mix_rd_pct": {
         "umida": 24.14,
         "carta": 10.31,
@@ -1106,13 +1395,16 @@
       "kg_ind_better_pctile_it": 86.7,
       "kg_ind_vs_median_it": -50.0,
       "kg_ind_vs_median_reg": -69.1,
+      "costo_vs_median_it": -32.4,
+      "costo_vs_median_reg": -38.6,
       "delta_rd_22_24": 1.63,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +18.8 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 8.14
+      "rd_vs_median_pop": 8.14,
+      "costo_vs_median_pop": -16.6
     },
     "beinasco": {
       "id": "beinasco",
@@ -1126,6 +1418,7 @@
       "rd_pct": 63.58,
       "kg_ru_ab": 513.8,
       "kg_ind_ab": 187.1,
+      "costo_tot_ab": 195.36,
       "mix_rd_pct": {
         "umida": 18.93,
         "carta": 28.44,
@@ -1148,13 +1441,16 @@
       "kg_ind_better_pctile_it": 19.6,
       "kg_ind_vs_median_it": 73.8,
       "kg_ind_vs_median_reg": 54.7,
+      "costo_vs_median_it": 25.4,
+      "costo_vs_median_reg": 19.2,
       "delta_rd_22_24": 0.48,
       "hook": {
         "key": "below_target",
         "text": "A -1.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -11.17
+      "rd_vs_median_pop": -11.17,
+      "costo_vs_median_pop": 11.8
     },
     "borgaro-torinese": {
       "id": "borgaro-torinese",
@@ -1168,6 +1464,7 @@
       "rd_pct": 71.65,
       "kg_ru_ab": 630.7,
       "kg_ind_ab": 178.8,
+      "costo_tot_ab": 246.21,
       "mix_rd_pct": {
         "umida": 15.35,
         "carta": 36.19,
@@ -1190,13 +1487,16 @@
       "kg_ind_better_pctile_it": 21.3,
       "kg_ind_vs_median_it": 65.5,
       "kg_ind_vs_median_reg": 46.4,
+      "costo_vs_median_it": 76.2,
+      "costo_vs_median_reg": 70.0,
       "delta_rd_22_24": 11.23,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +6.7 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -3.1
+      "rd_vs_median_pop": -3.1,
+      "costo_vs_median_pop": 62.6
     },
     "borgiallo": {
       "id": "borgiallo",
@@ -1210,6 +1510,7 @@
       "rd_pct": 57.27,
       "kg_ru_ab": 319.6,
       "kg_ind_ab": 132.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 5.34,
         "carta": 29.88,
@@ -1232,13 +1533,16 @@
       "kg_ind_better_pctile_it": 37.4,
       "kg_ind_vs_median_it": 19.6,
       "kg_ind_vs_median_reg": 0.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 2.09,
       "hook": {
         "key": "below_target",
         "text": "A -7.7 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -10.24
+      "rd_vs_median_pop": -10.24,
+      "costo_vs_median_pop": null
     },
     "borgone-susa": {
       "id": "borgone-susa",
@@ -1252,6 +1556,7 @@
       "rd_pct": 73.73,
       "kg_ru_ab": 488.9,
       "kg_ind_ab": 128.5,
+      "costo_tot_ab": 140.87,
       "mix_rd_pct": {
         "umida": 18.79,
         "carta": 13.81,
@@ -1274,13 +1579,16 @@
       "kg_ind_better_pctile_it": 39.8,
       "kg_ind_vs_median_it": 15.2,
       "kg_ind_vs_median_reg": -3.9,
+      "costo_vs_median_it": -29.1,
+      "costo_vs_median_reg": -35.3,
       "delta_rd_22_24": 0.89,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +8.7 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 0.67
+      "rd_vs_median_pop": 0.67,
+      "costo_vs_median_pop": -18.0
     },
     "bosconero": {
       "id": "bosconero",
@@ -1294,6 +1602,7 @@
       "rd_pct": 63.15,
       "kg_ru_ab": 415.6,
       "kg_ind_ab": 145.3,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 5.74,
         "carta": 23.07,
@@ -1316,13 +1625,16 @@
       "kg_ind_better_pctile_it": 31.8,
       "kg_ind_vs_median_it": 32.0,
       "kg_ind_vs_median_reg": 12.9,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -5.1,
       "hook": {
         "key": "below_target",
         "text": "A -1.9 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -12.53
+      "rd_vs_median_pop": -12.53,
+      "costo_vs_median_pop": null
     },
     "brandizzo": {
       "id": "brandizzo",
@@ -1336,6 +1648,7 @@
       "rd_pct": 77.5,
       "kg_ru_ab": 604.9,
       "kg_ind_ab": 136.1,
+      "costo_tot_ab": 197.68,
       "mix_rd_pct": {
         "umida": 14.84,
         "carta": 29.97,
@@ -1358,13 +1671,16 @@
       "kg_ind_better_pctile_it": 36.0,
       "kg_ind_vs_median_it": 22.8,
       "kg_ind_vs_median_reg": 3.7,
+      "costo_vs_median_it": 27.7,
+      "costo_vs_median_reg": 21.5,
       "delta_rd_22_24": 4.24,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +12.5 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 2.75
+      "rd_vs_median_pop": 2.75,
+      "costo_vs_median_pop": 14.1
     },
     "brosso": {
       "id": "brosso",
@@ -1378,6 +1694,7 @@
       "rd_pct": 67.37,
       "kg_ru_ab": 380.0,
       "kg_ind_ab": 124.0,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.05,
         "carta": 32.18,
@@ -1400,13 +1717,16 @@
       "kg_ind_better_pctile_it": 42.5,
       "kg_ind_vs_median_it": 10.7,
       "kg_ind_vs_median_reg": -8.4,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 10.47,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +2.4 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -0.14
+      "rd_vs_median_pop": -0.14,
+      "costo_vs_median_pop": null
     },
     "brozolo": {
       "id": "brozolo",
@@ -1420,6 +1740,7 @@
       "rd_pct": 71.27,
       "kg_ru_ab": 529.7,
       "kg_ind_ab": 152.2,
+      "costo_tot_ab": 197.34,
       "mix_rd_pct": {
         "umida": 36.66,
         "carta": 11.95,
@@ -1442,13 +1763,16 @@
       "kg_ind_better_pctile_it": 29.1,
       "kg_ind_vs_median_it": 38.9,
       "kg_ind_vs_median_reg": 19.8,
+      "costo_vs_median_it": 27.4,
+      "costo_vs_median_reg": 21.2,
       "delta_rd_22_24": -2.48,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +6.3 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": 3.76
+      "rd_vs_median_pop": 3.76,
+      "costo_vs_median_pop": 8.0
     },
     "bruino": {
       "id": "bruino",
@@ -1462,6 +1786,7 @@
       "rd_pct": 79.91,
       "kg_ru_ab": 511.8,
       "kg_ind_ab": 102.8,
+      "costo_tot_ab": 184.01,
       "mix_rd_pct": {
         "umida": 15.71,
         "carta": 14.68,
@@ -1484,13 +1809,16 @@
       "kg_ind_better_pctile_it": 57.3,
       "kg_ind_vs_median_it": -10.5,
       "kg_ind_vs_median_reg": -29.6,
+      "costo_vs_median_it": 14.0,
+      "costo_vs_median_reg": 7.8,
       "delta_rd_22_24": 1.91,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +14.9 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 5.16
+      "rd_vs_median_pop": 5.16,
+      "costo_vs_median_pop": 0.4
     },
     "brusasco": {
       "id": "brusasco",
@@ -1504,6 +1832,7 @@
       "rd_pct": 68.38,
       "kg_ru_ab": 469.8,
       "kg_ind_ab": 148.5,
+      "costo_tot_ab": 194.64,
       "mix_rd_pct": {
         "umida": 29.76,
         "carta": 13.64,
@@ -1526,13 +1855,16 @@
       "kg_ind_better_pctile_it": 30.6,
       "kg_ind_vs_median_it": 35.2,
       "kg_ind_vs_median_reg": 16.1,
+      "costo_vs_median_it": 24.7,
+      "costo_vs_median_reg": 18.5,
       "delta_rd_22_24": -4.11,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +3.4 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -4.68
+      "rd_vs_median_pop": -4.68,
+      "costo_vs_median_pop": 35.8
     },
     "bruzolo": {
       "id": "bruzolo",
@@ -1546,6 +1878,7 @@
       "rd_pct": 69.95,
       "kg_ru_ab": 473.3,
       "kg_ind_ab": 142.2,
+      "costo_tot_ab": 146.55,
       "mix_rd_pct": {
         "umida": 19.0,
         "carta": 13.8,
@@ -1568,13 +1901,16 @@
       "kg_ind_better_pctile_it": 33.0,
       "kg_ind_vs_median_it": 28.9,
       "kg_ind_vs_median_reg": 9.8,
+      "costo_vs_median_it": -23.4,
+      "costo_vs_median_reg": -29.6,
       "delta_rd_22_24": 0.26,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -3.11
+      "rd_vs_median_pop": -3.11,
+      "costo_vs_median_pop": -12.3
     },
     "busano": {
       "id": "busano",
@@ -1588,6 +1924,7 @@
       "rd_pct": 50.11,
       "kg_ru_ab": 516.0,
       "kg_ind_ab": 256.5,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.71,
         "carta": 35.4,
@@ -1610,13 +1947,16 @@
       "kg_ind_better_pctile_it": 10.4,
       "kg_ind_vs_median_it": 143.2,
       "kg_ind_vs_median_reg": 124.1,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 4.85,
       "hook": {
         "key": "below_target",
         "text": "A -14.9 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -22.95
+      "rd_vs_median_pop": -22.95,
+      "costo_vs_median_pop": null
     },
     "bussoleno": {
       "id": "bussoleno",
@@ -1630,6 +1970,7 @@
       "rd_pct": 62.73,
       "kg_ru_ab": 460.3,
       "kg_ind_ab": 171.6,
+      "costo_tot_ab": 171.89,
       "mix_rd_pct": {
         "umida": 21.6,
         "carta": 15.63,
@@ -1652,13 +1993,16 @@
       "kg_ind_better_pctile_it": 22.9,
       "kg_ind_vs_median_it": 58.3,
       "kg_ind_vs_median_reg": 39.2,
+      "costo_vs_median_it": 1.9,
+      "costo_vs_median_reg": -4.3,
       "delta_rd_22_24": -0.01,
       "hook": {
         "key": "below_target",
         "text": "A -2.3 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -12.95
+      "rd_vs_median_pop": -12.95,
+      "costo_vs_median_pop": 17.8
     },
     "buttigliera-alta": {
       "id": "buttigliera-alta",
@@ -1672,6 +2016,7 @@
       "rd_pct": 61.42,
       "kg_ru_ab": 537.1,
       "kg_ind_ab": 207.2,
+      "costo_tot_ab": 183.78,
       "mix_rd_pct": {
         "umida": 16.15,
         "carta": 20.49,
@@ -1694,13 +2039,16 @@
       "kg_ind_better_pctile_it": 15.9,
       "kg_ind_vs_median_it": 93.9,
       "kg_ind_vs_median_reg": 74.8,
+      "costo_vs_median_it": 13.8,
+      "costo_vs_median_reg": 7.6,
       "delta_rd_22_24": 1.55,
       "hook": {
         "key": "below_target",
         "text": "A -3.6 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -14.26
+      "rd_vs_median_pop": -14.26,
+      "costo_vs_median_pop": 29.7
     },
     "cambiano": {
       "id": "cambiano",
@@ -1714,6 +2062,7 @@
       "rd_pct": 84.96,
       "kg_ru_ab": 487.6,
       "kg_ind_ab": 73.4,
+      "costo_tot_ab": 157.58,
       "mix_rd_pct": {
         "umida": 22.88,
         "carta": 14.78,
@@ -1736,13 +2085,16 @@
       "kg_ind_better_pctile_it": 79.1,
       "kg_ind_vs_median_it": -39.9,
       "kg_ind_vs_median_reg": -59.0,
+      "costo_vs_median_it": -12.4,
+      "costo_vs_median_reg": -18.6,
       "delta_rd_22_24": 0.66,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +20.0 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 9.28
+      "rd_vs_median_pop": 9.28,
+      "costo_vs_median_pop": 3.5
     },
     "candiolo": {
       "id": "candiolo",
@@ -1756,6 +2108,7 @@
       "rd_pct": 77.76,
       "kg_ru_ab": 550.8,
       "kg_ind_ab": 122.5,
+      "costo_tot_ab": 194.61,
       "mix_rd_pct": {
         "umida": 19.03,
         "carta": 24.5,
@@ -1778,13 +2131,16 @@
       "kg_ind_better_pctile_it": 43.5,
       "kg_ind_vs_median_it": 9.2,
       "kg_ind_vs_median_reg": -9.9,
+      "costo_vs_median_it": 24.6,
+      "costo_vs_median_reg": 18.4,
       "delta_rd_22_24": 0.37,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +12.8 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 2.08
+      "rd_vs_median_pop": 2.08,
+      "costo_vs_median_pop": 40.5
     },
     "caprie": {
       "id": "caprie",
@@ -1798,6 +2154,7 @@
       "rd_pct": 72.7,
       "kg_ru_ab": 498.1,
       "kg_ind_ab": 136.0,
+      "costo_tot_ab": 131.65,
       "mix_rd_pct": {
         "umida": 13.55,
         "carta": 11.71,
@@ -1820,13 +2177,16 @@
       "kg_ind_better_pctile_it": 36.0,
       "kg_ind_vs_median_it": 22.7,
       "kg_ind_vs_median_reg": 3.6,
+      "costo_vs_median_it": -38.3,
+      "costo_vs_median_reg": -44.5,
       "delta_rd_22_24": 4.35,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +7.7 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -0.36
+      "rd_vs_median_pop": -0.36,
+      "costo_vs_median_pop": -27.2
     },
     "carignano": {
       "id": "carignano",
@@ -1840,6 +2200,7 @@
       "rd_pct": 75.94,
       "kg_ru_ab": 528.5,
       "kg_ind_ab": 127.1,
+      "costo_tot_ab": 212.33,
       "mix_rd_pct": {
         "umida": 18.22,
         "carta": 16.12,
@@ -1862,13 +2223,16 @@
       "kg_ind_better_pctile_it": 40.7,
       "kg_ind_vs_median_it": 13.8,
       "kg_ind_vs_median_reg": -5.3,
+      "costo_vs_median_it": 42.4,
+      "costo_vs_median_reg": 36.2,
       "delta_rd_22_24": 2.95,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.9 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 1.19
+      "rd_vs_median_pop": 1.19,
+      "costo_vs_median_pop": 28.7
     },
     "carmagnola": {
       "id": "carmagnola",
@@ -1882,6 +2246,7 @@
       "rd_pct": 86.97,
       "kg_ru_ab": 695.9,
       "kg_ind_ab": 90.7,
+      "costo_tot_ab": 169.7,
       "mix_rd_pct": {
         "umida": 17.5,
         "carta": 39.78,
@@ -1904,13 +2269,16 @@
       "kg_ind_better_pctile_it": 65.6,
       "kg_ind_vs_median_it": -22.6,
       "kg_ind_vs_median_reg": -41.7,
+      "costo_vs_median_it": -0.3,
+      "costo_vs_median_reg": -6.5,
       "delta_rd_22_24": 4.4,
       "hook": {
         "key": "top_pctile",
         "text": "Tra i migliori in Italia (meglio del 92%)"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 12.22
+      "rd_vs_median_pop": 12.22,
+      "costo_vs_median_pop": -13.9
     },
     "casalborgone": {
       "id": "casalborgone",
@@ -1924,6 +2292,7 @@
       "rd_pct": 69.92,
       "kg_ru_ab": 488.4,
       "kg_ind_ab": 146.9,
+      "costo_tot_ab": 156.38,
       "mix_rd_pct": {
         "umida": 33.09,
         "carta": 12.7,
@@ -1946,13 +2315,16 @@
       "kg_ind_better_pctile_it": 31.3,
       "kg_ind_vs_median_it": 33.6,
       "kg_ind_vs_median_reg": 14.5,
+      "costo_vs_median_it": -13.6,
+      "costo_vs_median_reg": -19.8,
       "delta_rd_22_24": 5.9,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +4.9 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -3.14
+      "rd_vs_median_pop": -3.14,
+      "costo_vs_median_pop": -2.5
     },
     "caselette": {
       "id": "caselette",
@@ -1966,6 +2338,7 @@
       "rd_pct": 73.73,
       "kg_ru_ab": 601.2,
       "kg_ind_ab": 158.0,
+      "costo_tot_ab": 150.99,
       "mix_rd_pct": {
         "umida": 18.4,
         "carta": 14.41,
@@ -1988,13 +2361,16 @@
       "kg_ind_better_pctile_it": 27.0,
       "kg_ind_vs_median_it": 44.7,
       "kg_ind_vs_median_reg": 25.6,
+      "costo_vs_median_it": -19.0,
+      "costo_vs_median_reg": -25.2,
       "delta_rd_22_24": -1.42,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +8.7 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -1.95
+      "rd_vs_median_pop": -1.95,
+      "costo_vs_median_pop": -3.1
     },
     "caselle-torinese": {
       "id": "caselle-torinese",
@@ -2008,6 +2384,7 @@
       "rd_pct": 66.07,
       "kg_ru_ab": 510.4,
       "kg_ind_ab": 173.2,
+      "costo_tot_ab": 225.04,
       "mix_rd_pct": {
         "umida": 21.08,
         "carta": 23.45,
@@ -2030,13 +2407,16 @@
       "kg_ind_better_pctile_it": 22.5,
       "kg_ind_vs_median_it": 59.9,
       "kg_ind_vs_median_reg": 40.8,
+      "costo_vs_median_it": 55.1,
+      "costo_vs_median_reg": 48.9,
       "delta_rd_22_24": 3.18,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.1 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -8.68
+      "rd_vs_median_pop": -8.68,
+      "costo_vs_median_pop": 41.4
     },
     "castagnole-po": {
       "id": "castagnole-po",
@@ -2050,6 +2430,7 @@
       "rd_pct": 70.05,
       "kg_ru_ab": 500.4,
       "kg_ind_ab": 149.9,
+      "costo_tot_ab": 188.32,
       "mix_rd_pct": {
         "umida": 30.6,
         "carta": 12.62,
@@ -2072,13 +2453,16 @@
       "kg_ind_better_pctile_it": 30.0,
       "kg_ind_vs_median_it": 36.6,
       "kg_ind_vs_median_reg": 17.5,
+      "costo_vs_median_it": 18.3,
+      "costo_vs_median_reg": 12.1,
       "delta_rd_22_24": 2.66,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -3.01
+      "rd_vs_median_pop": -3.01,
+      "costo_vs_median_pop": 29.4
     },
     "castagnole-piemonte": {
       "id": "castagnole-piemonte",
@@ -2092,6 +2476,7 @@
       "rd_pct": 73.25,
       "kg_ru_ab": 423.7,
       "kg_ind_ab": 113.3,
+      "costo_tot_ab": 192.17,
       "mix_rd_pct": {
         "umida": 30.1,
         "carta": 12.59,
@@ -2114,13 +2499,16 @@
       "kg_ind_better_pctile_it": 49.9,
       "kg_ind_vs_median_it": 0.0,
       "kg_ind_vs_median_reg": -19.1,
+      "costo_vs_median_it": 22.2,
+      "costo_vs_median_reg": 16.0,
       "delta_rd_22_24": -1.16,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +8.2 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 0.19
+      "rd_vs_median_pop": 0.19,
+      "costo_vs_median_pop": 33.3
     },
     "castellamonte": {
       "id": "castellamonte",
@@ -2134,6 +2522,7 @@
       "rd_pct": 52.57,
       "kg_ru_ab": 455.4,
       "kg_ind_ab": 200.6,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.51,
         "carta": 20.06,
@@ -2156,13 +2545,16 @@
       "kg_ind_better_pctile_it": 17.1,
       "kg_ind_vs_median_it": 87.3,
       "kg_ind_vs_median_reg": 68.2,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 3.77,
       "hook": {
         "key": "below_target",
         "text": "A -12.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -22.18
+      "rd_vs_median_pop": -22.18,
+      "costo_vs_median_pop": null
     },
     "castelnuovo-nigra": {
       "id": "castelnuovo-nigra",
@@ -2176,6 +2568,7 @@
       "rd_pct": 42.37,
       "kg_ru_ab": 477.5,
       "kg_ind_ab": 271.8,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 3.05,
         "carta": 17.79,
@@ -2198,13 +2591,16 @@
       "kg_ind_better_pctile_it": 9.2,
       "kg_ind_vs_median_it": 158.5,
       "kg_ind_vs_median_reg": 139.4,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 9.06,
       "hook": {
         "key": "below_target",
         "text": "A -22.6 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -25.14
+      "rd_vs_median_pop": -25.14,
+      "costo_vs_median_pop": null
     },
     "castiglione-torinese": {
       "id": "castiglione-torinese",
@@ -2218,6 +2614,7 @@
       "rd_pct": 65.65,
       "kg_ru_ab": 451.4,
       "kg_ind_ab": 155.1,
+      "costo_tot_ab": 194.72,
       "mix_rd_pct": {
         "umida": 25.51,
         "carta": 15.84,
@@ -2240,13 +2637,16 @@
       "kg_ind_better_pctile_it": 28.0,
       "kg_ind_vs_median_it": 41.8,
       "kg_ind_vs_median_reg": 22.7,
+      "costo_vs_median_it": 24.8,
+      "costo_vs_median_reg": 18.5,
       "delta_rd_22_24": 6.23,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.7 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -9.1
+      "rd_vs_median_pop": -9.1,
+      "costo_vs_median_pop": 11.1
     },
     "cavagnolo": {
       "id": "cavagnolo",
@@ -2260,6 +2660,7 @@
       "rd_pct": 69.26,
       "kg_ru_ab": 458.7,
       "kg_ind_ab": 141.0,
+      "costo_tot_ab": 159.5,
       "mix_rd_pct": {
         "umida": 30.32,
         "carta": 13.1,
@@ -2282,13 +2683,16 @@
       "kg_ind_better_pctile_it": 33.6,
       "kg_ind_vs_median_it": 27.7,
       "kg_ind_vs_median_reg": 8.6,
+      "costo_vs_median_it": -10.5,
+      "costo_vs_median_reg": -16.7,
       "delta_rd_22_24": -4.31,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +4.3 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -3.8
+      "rd_vs_median_pop": -3.8,
+      "costo_vs_median_pop": 0.6
     },
     "chianocco": {
       "id": "chianocco",
@@ -2302,6 +2706,7 @@
       "rd_pct": 69.57,
       "kg_ru_ab": 586.2,
       "kg_ind_ab": 178.4,
+      "costo_tot_ab": 191.62,
       "mix_rd_pct": {
         "umida": 22.95,
         "carta": 10.48,
@@ -2324,13 +2729,16 @@
       "kg_ind_better_pctile_it": 21.3,
       "kg_ind_vs_median_it": 65.1,
       "kg_ind_vs_median_reg": 46.0,
+      "costo_vs_median_it": 21.7,
+      "costo_vs_median_reg": 15.4,
       "delta_rd_22_24": 1.12,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +4.6 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -3.49
+      "rd_vs_median_pop": -3.49,
+      "costo_vs_median_pop": 32.7
     },
     "chieri": {
       "id": "chieri",
@@ -2344,6 +2752,7 @@
       "rd_pct": 82.56,
       "kg_ru_ab": 480.5,
       "kg_ind_ab": 83.8,
+      "costo_tot_ab": 161.4,
       "mix_rd_pct": {
         "umida": 26.13,
         "carta": 14.86,
@@ -2366,13 +2775,16 @@
       "kg_ind_better_pctile_it": 70.9,
       "kg_ind_vs_median_it": -29.5,
       "kg_ind_vs_median_reg": -48.6,
+      "costo_vs_median_it": -8.6,
+      "costo_vs_median_reg": -14.8,
       "delta_rd_22_24": -2.56,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +17.6 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 7.81
+      "rd_vs_median_pop": 7.81,
+      "costo_vs_median_pop": -22.2
     },
     "chiesanuova": {
       "id": "chiesanuova",
@@ -2386,6 +2798,7 @@
       "rd_pct": 61.95,
       "kg_ru_ab": 426.4,
       "kg_ind_ab": 158.7,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 3.23,
         "carta": 26.5,
@@ -2408,13 +2821,16 @@
       "kg_ind_better_pctile_it": 26.8,
       "kg_ind_vs_median_it": 45.4,
       "kg_ind_vs_median_reg": 26.3,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 8.09,
       "hook": {
         "key": "below_target",
         "text": "A -3.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -5.56
+      "rd_vs_median_pop": -5.56,
+      "costo_vs_median_pop": null
     },
     "chiusa-di-san-michele": {
       "id": "chiusa-di-san-michele",
@@ -2428,6 +2844,7 @@
       "rd_pct": 75.1,
       "kg_ru_ab": 479.8,
       "kg_ind_ab": 119.5,
+      "costo_tot_ab": 151.31,
       "mix_rd_pct": {
         "umida": 18.2,
         "carta": 14.15,
@@ -2450,13 +2867,16 @@
       "kg_ind_better_pctile_it": 45.6,
       "kg_ind_vs_median_it": 6.2,
       "kg_ind_vs_median_reg": -12.9,
+      "costo_vs_median_it": -18.7,
+      "costo_vs_median_reg": -24.9,
       "delta_rd_22_24": 1.91,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.1 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 2.04
+      "rd_vs_median_pop": 2.04,
+      "costo_vs_median_pop": -7.6
     },
     "chivasso": {
       "id": "chivasso",
@@ -2470,6 +2890,7 @@
       "rd_pct": 64.03,
       "kg_ru_ab": 565.6,
       "kg_ind_ab": 203.5,
+      "costo_tot_ab": 268.59,
       "mix_rd_pct": {
         "umida": 20.32,
         "carta": 26.5,
@@ -2492,13 +2913,16 @@
       "kg_ind_better_pctile_it": 16.5,
       "kg_ind_vs_median_it": 90.2,
       "kg_ind_vs_median_reg": 71.1,
+      "costo_vs_median_it": 98.6,
+      "costo_vs_median_reg": 92.4,
       "delta_rd_22_24": -0.26,
       "hook": {
         "key": "below_target",
         "text": "A -1.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -10.72
+      "rd_vs_median_pop": -10.72,
+      "costo_vs_median_pop": 85.0
     },
     "ciconio": {
       "id": "ciconio",
@@ -2512,6 +2936,7 @@
       "rd_pct": 60.09,
       "kg_ru_ab": 416.0,
       "kg_ind_ab": 158.2,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 6.63,
         "carta": 23.03,
@@ -2534,13 +2959,16 @@
       "kg_ind_better_pctile_it": 27.0,
       "kg_ind_vs_median_it": 44.9,
       "kg_ind_vs_median_reg": 25.8,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 6.07,
       "hook": {
         "key": "below_target",
         "text": "A -4.9 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -7.42
+      "rd_vs_median_pop": -7.42,
+      "costo_vs_median_pop": null
     },
     "cintano": {
       "id": "cintano",
@@ -2554,6 +2982,7 @@
       "rd_pct": 52.04,
       "kg_ru_ab": 500.9,
       "kg_ind_ab": 226.0,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.82,
         "carta": 18.8,
@@ -2576,13 +3005,16 @@
       "kg_ind_better_pctile_it": 13.4,
       "kg_ind_vs_median_it": 112.7,
       "kg_ind_vs_median_reg": 93.6,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 8.05,
       "hook": {
         "key": "below_target",
         "text": "A -13.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -15.47
+      "rd_vs_median_pop": -15.47,
+      "costo_vs_median_pop": null
     },
     "cinzano": {
       "id": "cinzano",
@@ -2596,6 +3028,7 @@
       "rd_pct": 69.0,
       "kg_ru_ab": 497.4,
       "kg_ind_ab": 154.2,
+      "costo_tot_ab": 187.25,
       "mix_rd_pct": {
         "umida": 38.61,
         "carta": 9.59,
@@ -2618,13 +3051,16 @@
       "kg_ind_better_pctile_it": 28.3,
       "kg_ind_vs_median_it": 40.9,
       "kg_ind_vs_median_reg": 21.8,
+      "costo_vs_median_it": 17.3,
+      "costo_vs_median_reg": 11.1,
       "delta_rd_22_24": 12.78,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +4.0 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": 1.49
+      "rd_vs_median_pop": 1.49,
+      "costo_vs_median_pop": -2.1
     },
     "cirie": {
       "id": "cirie",
@@ -2638,6 +3074,7 @@
       "rd_pct": 76.38,
       "kg_ru_ab": 501.9,
       "kg_ind_ab": 118.6,
+      "costo_tot_ab": 163.78,
       "mix_rd_pct": {
         "umida": 22.75,
         "carta": 15.21,
@@ -2660,13 +3097,16 @@
       "kg_ind_better_pctile_it": 46.3,
       "kg_ind_vs_median_it": 5.3,
       "kg_ind_vs_median_reg": -13.8,
+      "costo_vs_median_it": -6.2,
+      "costo_vs_median_reg": -12.4,
       "delta_rd_22_24": 2.7,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +11.4 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 1.63
+      "rd_vs_median_pop": 1.63,
+      "costo_vs_median_pop": -19.8
     },
     "coazze": {
       "id": "coazze",
@@ -2680,6 +3120,7 @@
       "rd_pct": 67.23,
       "kg_ru_ab": 485.5,
       "kg_ind_ab": 159.1,
+      "costo_tot_ab": 205.9,
       "mix_rd_pct": {
         "umida": 16.62,
         "carta": 11.93,
@@ -2702,13 +3143,16 @@
       "kg_ind_better_pctile_it": 26.7,
       "kg_ind_vs_median_it": 45.8,
       "kg_ind_vs_median_reg": 26.7,
+      "costo_vs_median_it": 35.9,
+      "costo_vs_median_reg": 29.7,
       "delta_rd_22_24": -2.96,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +2.2 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -8.45
+      "rd_vs_median_pop": -8.45,
+      "costo_vs_median_pop": 51.8
     },
     "collegno": {
       "id": "collegno",
@@ -2722,6 +3166,7 @@
       "rd_pct": 67.33,
       "kg_ru_ab": 493.2,
       "kg_ind_ab": 161.2,
+      "costo_tot_ab": 183.65,
       "mix_rd_pct": {
         "umida": 20.14,
         "carta": 30.37,
@@ -2744,13 +3189,16 @@
       "kg_ind_better_pctile_it": 26.0,
       "kg_ind_vs_median_it": 47.9,
       "kg_ind_vs_median_reg": 28.8,
+      "costo_vs_median_it": 13.7,
+      "costo_vs_median_reg": 7.5,
       "delta_rd_22_24": 2.31,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +2.3 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -7.42
+      "rd_vs_median_pop": -7.42,
+      "costo_vs_median_pop": 0.0
     },
     "colleretto-castelnuovo": {
       "id": "colleretto-castelnuovo",
@@ -2764,6 +3212,7 @@
       "rd_pct": 73.94,
       "kg_ru_ab": 445.0,
       "kg_ind_ab": 110.7,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 3.5,
         "carta": 53.13,
@@ -2786,13 +3235,16 @@
       "kg_ind_better_pctile_it": 51.6,
       "kg_ind_vs_median_it": -2.6,
       "kg_ind_vs_median_reg": -21.7,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 12.66,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +8.9 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": 6.43
+      "rd_vs_median_pop": 6.43,
+      "costo_vs_median_pop": null
     },
     "condove": {
       "id": "condove",
@@ -2806,6 +3258,7 @@
       "rd_pct": 73.2,
       "kg_ru_ab": 507.2,
       "kg_ind_ab": 135.9,
+      "costo_tot_ab": 161.95,
       "mix_rd_pct": {
         "umida": 18.62,
         "carta": 11.91,
@@ -2828,13 +3281,16 @@
       "kg_ind_better_pctile_it": 36.1,
       "kg_ind_vs_median_it": 22.6,
       "kg_ind_vs_median_reg": 3.5,
+      "costo_vs_median_it": -8.0,
+      "costo_vs_median_reg": -14.2,
       "delta_rd_22_24": 2.87,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +8.2 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -2.48
+      "rd_vs_median_pop": -2.48,
+      "costo_vs_median_pop": 7.8
     },
     "cuorgne": {
       "id": "cuorgne",
@@ -2848,6 +3304,7 @@
       "rd_pct": 55.01,
       "kg_ru_ab": 365.3,
       "kg_ind_ab": 162.6,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 6.31,
         "carta": 27.2,
@@ -2870,13 +3327,16 @@
       "kg_ind_better_pctile_it": 25.5,
       "kg_ind_vs_median_it": 49.3,
       "kg_ind_vs_median_reg": 30.2,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 5.72,
       "hook": {
         "key": "below_target",
         "text": "A -10.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -19.74
+      "rd_vs_median_pop": -19.74,
+      "costo_vs_median_pop": null
     },
     "druento": {
       "id": "druento",
@@ -2890,6 +3350,7 @@
       "rd_pct": 64.72,
       "kg_ru_ab": 477.2,
       "kg_ind_ab": 168.4,
+      "costo_tot_ab": 158.28,
       "mix_rd_pct": {
         "umida": 21.74,
         "carta": 14.7,
@@ -2912,13 +3373,16 @@
       "kg_ind_better_pctile_it": 23.8,
       "kg_ind_vs_median_it": 55.1,
       "kg_ind_vs_median_reg": 36.0,
+      "costo_vs_median_it": -11.7,
+      "costo_vs_median_reg": -17.9,
       "delta_rd_22_24": -0.55,
       "hook": {
         "key": "below_target",
         "text": "A -0.3 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -10.03
+      "rd_vs_median_pop": -10.03,
+      "costo_vs_median_pop": -25.3
     },
     "favria": {
       "id": "favria",
@@ -2932,6 +3396,7 @@
       "rd_pct": 60.52,
       "kg_ru_ab": 278.7,
       "kg_ind_ab": 108.2,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 7.49,
         "carta": 18.86,
@@ -2954,13 +3419,16 @@
       "kg_ind_better_pctile_it": 53.5,
       "kg_ind_vs_median_it": -5.1,
       "kg_ind_vs_median_reg": -24.2,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 9.32,
       "hook": {
         "key": "below_target",
         "text": "A -4.5 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -15.16
+      "rd_vs_median_pop": -15.16,
+      "costo_vs_median_pop": null
     },
     "feletto": {
       "id": "feletto",
@@ -2974,6 +3442,7 @@
       "rd_pct": 61.87,
       "kg_ru_ab": 368.2,
       "kg_ind_ab": 133.5,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 6.86,
         "carta": 21.97,
@@ -2996,13 +3465,16 @@
       "kg_ind_better_pctile_it": 37.1,
       "kg_ind_vs_median_it": 20.2,
       "kg_ind_vs_median_reg": 1.1,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 2.65,
       "hook": {
         "key": "below_target",
         "text": "A -3.1 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -11.19
+      "rd_vs_median_pop": -11.19,
+      "costo_vs_median_pop": null
     },
     "foglizzo": {
       "id": "foglizzo",
@@ -3016,6 +3488,7 @@
       "rd_pct": 65.72,
       "kg_ru_ab": 524.3,
       "kg_ind_ab": 179.7,
+      "costo_tot_ab": 196.77,
       "mix_rd_pct": {
         "umida": 18.63,
         "carta": 15.44,
@@ -3038,13 +3511,16 @@
       "kg_ind_better_pctile_it": 21.1,
       "kg_ind_vs_median_it": 66.4,
       "kg_ind_vs_median_reg": 47.3,
+      "costo_vs_median_it": 26.8,
+      "costo_vs_median_reg": 20.6,
       "delta_rd_22_24": 5.55,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.7 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -7.34
+      "rd_vs_median_pop": -7.34,
+      "costo_vs_median_pop": 37.9
     },
     "forno-canavese": {
       "id": "forno-canavese",
@@ -3058,6 +3534,7 @@
       "rd_pct": 63.96,
       "kg_ru_ab": 291.6,
       "kg_ind_ab": 100.5,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 5.35,
         "carta": 23.76,
@@ -3080,13 +3557,16 @@
       "kg_ind_better_pctile_it": 58.9,
       "kg_ind_vs_median_it": -12.8,
       "kg_ind_vs_median_reg": -31.9,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 9.57,
       "hook": {
         "key": "below_target",
         "text": "A -1.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -11.72
+      "rd_vs_median_pop": -11.72,
+      "costo_vs_median_pop": null
     },
     "frassinetto": {
       "id": "frassinetto",
@@ -3100,6 +3580,7 @@
       "rd_pct": 36.72,
       "kg_ru_ab": 794.2,
       "kg_ind_ab": 467.8,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": null,
         "carta": 18.84,
@@ -3122,13 +3603,16 @@
       "kg_ind_better_pctile_it": 2.2,
       "kg_ind_vs_median_it": 354.5,
       "kg_ind_vs_median_reg": 335.4,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -8.34,
       "hook": {
         "key": "below_target",
         "text": "A -28.3 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -30.79
+      "rd_vs_median_pop": -30.79,
+      "costo_vs_median_pop": null
     },
     "gassino-torinese": {
       "id": "gassino-torinese",
@@ -3142,6 +3626,7 @@
       "rd_pct": 65.84,
       "kg_ru_ab": 467.1,
       "kg_ind_ab": 159.6,
+      "costo_tot_ab": 202.99,
       "mix_rd_pct": {
         "umida": 26.16,
         "carta": 18.84,
@@ -3164,13 +3649,16 @@
       "kg_ind_better_pctile_it": 26.6,
       "kg_ind_vs_median_it": 46.3,
       "kg_ind_vs_median_reg": 27.2,
+      "costo_vs_median_it": 33.0,
+      "costo_vs_median_reg": 26.8,
       "delta_rd_22_24": 8.04,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.8 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -8.91
+      "rd_vs_median_pop": -8.91,
+      "costo_vs_median_pop": 19.4
     },
     "giaveno": {
       "id": "giaveno",
@@ -3184,6 +3672,7 @@
       "rd_pct": 68.09,
       "kg_ru_ab": 516.8,
       "kg_ind_ab": 164.9,
+      "costo_tot_ab": 168.12,
       "mix_rd_pct": {
         "umida": 17.14,
         "carta": 18.07,
@@ -3206,13 +3695,16 @@
       "kg_ind_better_pctile_it": 24.8,
       "kg_ind_vs_median_it": 51.6,
       "kg_ind_vs_median_reg": 32.5,
+      "costo_vs_median_it": -1.8,
+      "costo_vs_median_reg": -8.1,
       "delta_rd_22_24": 0.65,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +3.1 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -6.66
+      "rd_vs_median_pop": -6.66,
+      "costo_vs_median_pop": -15.5
     },
     "grugliasco": {
       "id": "grugliasco",
@@ -3226,6 +3718,7 @@
       "rd_pct": 69.73,
       "kg_ru_ab": 498.4,
       "kg_ind_ab": 150.9,
+      "costo_tot_ab": 177.43,
       "mix_rd_pct": {
         "umida": 22.6,
         "carta": 32.86,
@@ -3248,13 +3741,16 @@
       "kg_ind_better_pctile_it": 29.6,
       "kg_ind_vs_median_it": 37.6,
       "kg_ind_vs_median_reg": 18.5,
+      "costo_vs_median_it": 7.5,
+      "costo_vs_median_reg": 1.2,
       "delta_rd_22_24": 0.8,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +4.7 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -5.02
+      "rd_vs_median_pop": -5.02,
+      "costo_vs_median_pop": -6.2
     },
     "ingria": {
       "id": "ingria",
@@ -3268,6 +3764,7 @@
       "rd_pct": 57.76,
       "kg_ru_ab": 977.9,
       "kg_ind_ab": 408.0,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": null,
         "carta": 26.79,
@@ -3290,13 +3787,16 @@
       "kg_ind_better_pctile_it": 3.6,
       "kg_ind_vs_median_it": 294.7,
       "kg_ind_vs_median_reg": 275.6,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 6.15,
       "hook": {
         "key": "below_target",
         "text": "A -7.2 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -9.75
+      "rd_vs_median_pop": -9.75,
+      "costo_vs_median_pop": null
     },
     "isolabella": {
       "id": "isolabella",
@@ -3310,6 +3810,7 @@
       "rd_pct": 66.84,
       "kg_ru_ab": 298.4,
       "kg_ind_ab": 98.9,
+      "costo_tot_ab": 167.06,
       "mix_rd_pct": {
         "umida": 23.92,
         "carta": 16.93,
@@ -3332,13 +3833,16 @@
       "kg_ind_better_pctile_it": 59.9,
       "kg_ind_vs_median_it": -14.4,
       "kg_ind_vs_median_reg": -33.5,
+      "costo_vs_median_it": -2.9,
+      "costo_vs_median_reg": -9.1,
       "delta_rd_22_24": 2.85,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.8 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -0.67
+      "rd_vs_median_pop": -0.67,
+      "costo_vs_median_pop": -22.3
     },
     "issiglio": {
       "id": "issiglio",
@@ -3352,6 +3856,7 @@
       "rd_pct": 59.46,
       "kg_ru_ab": 378.0,
       "kg_ind_ab": 136.5,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 1.81,
         "carta": 23.61,
@@ -3374,13 +3879,16 @@
       "kg_ind_better_pctile_it": 35.7,
       "kg_ind_vs_median_it": 23.2,
       "kg_ind_vs_median_reg": 4.1,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 6.73,
       "hook": {
         "key": "below_target",
         "text": "A -5.5 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -8.05
+      "rd_vs_median_pop": -8.05,
+      "costo_vs_median_pop": null
     },
     "ivrea": {
       "id": "ivrea",
@@ -3394,6 +3902,7 @@
       "rd_pct": 65.16,
       "kg_ru_ab": 649.7,
       "kg_ind_ab": 226.3,
+      "costo_tot_ab": 238.21,
       "mix_rd_pct": {
         "umida": 26.08,
         "carta": 17.71,
@@ -3416,13 +3925,16 @@
       "kg_ind_better_pctile_it": 13.4,
       "kg_ind_vs_median_it": 113.0,
       "kg_ind_vs_median_reg": 93.9,
+      "costo_vs_median_it": 68.2,
+      "costo_vs_median_reg": 62.0,
       "delta_rd_22_24": 3.09,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.2 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -9.59
+      "rd_vs_median_pop": -9.59,
+      "costo_vs_median_pop": 54.6
     },
     "la-loggia": {
       "id": "la-loggia",
@@ -3436,6 +3948,7 @@
       "rd_pct": 71.08,
       "kg_ru_ab": 493.2,
       "kg_ind_ab": 142.6,
+      "costo_tot_ab": 168.15,
       "mix_rd_pct": {
         "umida": 23.48,
         "carta": 14.79,
@@ -3458,13 +3971,16 @@
       "kg_ind_better_pctile_it": 32.9,
       "kg_ind_vs_median_it": 29.3,
       "kg_ind_vs_median_reg": 10.2,
+      "costo_vs_median_it": -1.8,
+      "costo_vs_median_reg": -8.0,
       "delta_rd_22_24": 3.32,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +6.1 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -3.67
+      "rd_vs_median_pop": -3.67,
+      "costo_vs_median_pop": -15.5
     },
     "lauriano": {
       "id": "lauriano",
@@ -3478,6 +3994,7 @@
       "rd_pct": 71.69,
       "kg_ru_ab": 523.1,
       "kg_ind_ab": 148.1,
+      "costo_tot_ab": 155.61,
       "mix_rd_pct": {
         "umida": 22.52,
         "carta": 11.65,
@@ -3500,13 +4017,16 @@
       "kg_ind_better_pctile_it": 30.7,
       "kg_ind_vs_median_it": 34.8,
       "kg_ind_vs_median_reg": 15.7,
+      "costo_vs_median_it": -14.4,
+      "costo_vs_median_reg": -20.6,
       "delta_rd_22_24": 6.02,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +6.7 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -1.37
+      "rd_vs_median_pop": -1.37,
+      "costo_vs_median_pop": -3.3
     },
     "leini": {
       "id": "leini",
@@ -3520,6 +4040,7 @@
       "rd_pct": 62.67,
       "kg_ru_ab": 615.8,
       "kg_ind_ab": 229.8,
+      "costo_tot_ab": 231.84,
       "mix_rd_pct": {
         "umida": 19.31,
         "carta": 24.55,
@@ -3542,13 +4063,16 @@
       "kg_ind_better_pctile_it": 13.0,
       "kg_ind_vs_median_it": 116.5,
       "kg_ind_vs_median_reg": 97.4,
+      "costo_vs_median_it": 61.9,
+      "costo_vs_median_reg": 55.7,
       "delta_rd_22_24": 1.24,
       "hook": {
         "key": "below_target",
         "text": "A -2.3 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -12.08
+      "rd_vs_median_pop": -12.08,
+      "costo_vs_median_pop": 48.2
     },
     "levone": {
       "id": "levone",
@@ -3562,6 +4086,7 @@
       "rd_pct": 65.82,
       "kg_ru_ab": 330.0,
       "kg_ind_ab": 110.0,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 5.16,
         "carta": 26.63,
@@ -3584,13 +4109,16 @@
       "kg_ind_better_pctile_it": 52.2,
       "kg_ind_vs_median_it": -3.3,
       "kg_ind_vs_median_reg": -22.4,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -0.78,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.8 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -1.69
+      "rd_vs_median_pop": -1.69,
+      "costo_vs_median_pop": null
     },
     "locana": {
       "id": "locana",
@@ -3604,6 +4132,7 @@
       "rd_pct": 41.75,
       "kg_ru_ab": 516.8,
       "kg_ind_ab": 297.8,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.3,
         "carta": 29.04,
@@ -3626,13 +4155,16 @@
       "kg_ind_better_pctile_it": 7.6,
       "kg_ind_vs_median_it": 184.5,
       "kg_ind_vs_median_reg": 165.4,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 0.38,
       "hook": {
         "key": "below_target",
         "text": "A -23.2 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -31.31
+      "rd_vs_median_pop": -31.31,
+      "costo_vs_median_pop": null
     },
     "lombardore": {
       "id": "lombardore",
@@ -3646,6 +4178,7 @@
       "rd_pct": 64.87,
       "kg_ru_ab": 542.1,
       "kg_ind_ab": 190.5,
+      "costo_tot_ab": 180.47,
       "mix_rd_pct": {
         "umida": 16.48,
         "carta": 18.51,
@@ -3668,13 +4201,16 @@
       "kg_ind_better_pctile_it": 18.9,
       "kg_ind_vs_median_it": 77.2,
       "kg_ind_vs_median_reg": 58.1,
+      "costo_vs_median_it": 10.5,
+      "costo_vs_median_reg": 4.3,
       "delta_rd_22_24": 9.86,
       "hook": {
         "key": "below_target",
         "text": "A -0.1 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -8.19
+      "rd_vs_median_pop": -8.19,
+      "costo_vs_median_pop": 21.6
     },
     "lombriasco": {
       "id": "lombriasco",
@@ -3688,6 +4224,7 @@
       "rd_pct": 70.62,
       "kg_ru_ab": 391.2,
       "kg_ind_ab": 115.0,
+      "costo_tot_ab": 171.74,
       "mix_rd_pct": {
         "umida": 34.88,
         "carta": 18.63,
@@ -3710,13 +4247,16 @@
       "kg_ind_better_pctile_it": 48.9,
       "kg_ind_vs_median_it": 1.7,
       "kg_ind_vs_median_reg": -17.4,
+      "costo_vs_median_it": 1.8,
+      "costo_vs_median_reg": -4.4,
       "delta_rd_22_24": -0.31,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.6 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -2.44
+      "rd_vs_median_pop": -2.44,
+      "costo_vs_median_pop": 12.9
     },
     "mappano": {
       "id": "mappano",
@@ -3730,6 +4270,7 @@
       "rd_pct": 73.42,
       "kg_ru_ab": 680.2,
       "kg_ind_ab": 180.8,
+      "costo_tot_ab": 242.25,
       "mix_rd_pct": {
         "umida": 13.75,
         "carta": 28.34,
@@ -3752,13 +4293,16 @@
       "kg_ind_better_pctile_it": 20.9,
       "kg_ind_vs_median_it": 67.5,
       "kg_ind_vs_median_reg": 48.4,
+      "costo_vs_median_it": 72.3,
+      "costo_vs_median_reg": 66.1,
       "delta_rd_22_24": 6.77,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +8.4 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -1.33
+      "rd_vs_median_pop": -1.33,
+      "costo_vs_median_pop": 58.6
     },
     "marentino": {
       "id": "marentino",
@@ -3772,6 +4316,7 @@
       "rd_pct": 75.79,
       "kg_ru_ab": 372.0,
       "kg_ind_ab": 90.0,
+      "costo_tot_ab": 191.03,
       "mix_rd_pct": {
         "umida": 27.6,
         "carta": 8.67,
@@ -3794,13 +4339,16 @@
       "kg_ind_better_pctile_it": 66.2,
       "kg_ind_vs_median_it": -23.3,
       "kg_ind_vs_median_reg": -42.4,
+      "costo_vs_median_it": 21.1,
+      "costo_vs_median_reg": 14.8,
       "delta_rd_22_24": 6.01,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.8 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 2.73
+      "rd_vs_median_pop": 2.73,
+      "costo_vs_median_pop": 32.2
     },
     "mombello-di-torino": {
       "id": "mombello-di-torino",
@@ -3814,6 +4362,7 @@
       "rd_pct": 58.53,
       "kg_ru_ab": 268.0,
       "kg_ind_ab": 111.1,
+      "costo_tot_ab": 136.97,
       "mix_rd_pct": {
         "umida": null,
         "carta": 20.71,
@@ -3836,13 +4385,16 @@
       "kg_ind_better_pctile_it": 51.5,
       "kg_ind_vs_median_it": -2.2,
       "kg_ind_vs_median_reg": -21.3,
+      "costo_vs_median_it": -33.0,
+      "costo_vs_median_reg": -39.2,
       "delta_rd_22_24": -0.63,
       "hook": {
         "key": "below_target",
         "text": "A -6.5 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -8.98
+      "rd_vs_median_pop": -8.98,
+      "costo_vs_median_pop": -52.4
     },
     "mompantero": {
       "id": "mompantero",
@@ -3856,6 +4408,7 @@
       "rd_pct": 66.96,
       "kg_ru_ab": 437.3,
       "kg_ind_ab": 144.5,
+      "costo_tot_ab": 165.91,
       "mix_rd_pct": {
         "umida": 22.56,
         "carta": 11.39,
@@ -3878,13 +4431,16 @@
       "kg_ind_better_pctile_it": 32.2,
       "kg_ind_vs_median_it": 31.2,
       "kg_ind_vs_median_reg": 12.1,
+      "costo_vs_median_it": -4.1,
+      "costo_vs_median_reg": -10.3,
       "delta_rd_22_24": 0.24,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +2.0 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -0.55
+      "rd_vs_median_pop": -0.55,
+      "costo_vs_median_pop": -23.5
     },
     "moncalieri": {
       "id": "moncalieri",
@@ -3898,6 +4454,7 @@
       "rd_pct": 65.84,
       "kg_ru_ab": 541.9,
       "kg_ind_ab": 185.1,
+      "costo_tot_ab": 182.28,
       "mix_rd_pct": {
         "umida": 16.84,
         "carta": 25.81,
@@ -3920,13 +4477,16 @@
       "kg_ind_better_pctile_it": 20.1,
       "kg_ind_vs_median_it": 71.8,
       "kg_ind_vs_median_reg": 52.7,
+      "costo_vs_median_it": 12.3,
+      "costo_vs_median_reg": 6.1,
       "delta_rd_22_24": 1.03,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.8 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -8.91
+      "rd_vs_median_pop": -8.91,
+      "costo_vs_median_pop": -1.3
     },
     "moncucco-torinese": {
       "id": "moncucco-torinese",
@@ -3940,6 +4500,7 @@
       "rd_pct": 66.06,
       "kg_ru_ab": 323.4,
       "kg_ind_ab": 109.8,
+      "costo_tot_ab": 136.68,
       "mix_rd_pct": {
         "umida": 40.36,
         "carta": 10.97,
@@ -3962,13 +4523,16 @@
       "kg_ind_better_pctile_it": 52.4,
       "kg_ind_vs_median_it": -3.5,
       "kg_ind_vs_median_reg": -22.6,
+      "costo_vs_median_it": -33.3,
+      "costo_vs_median_reg": -39.5,
       "delta_rd_22_24": -1.34,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.1 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -1.45
+      "rd_vs_median_pop": -1.45,
+      "costo_vs_median_pop": -52.7
     },
     "montaldo-torinese": {
       "id": "montaldo-torinese",
@@ -3982,6 +4546,7 @@
       "rd_pct": 65.09,
       "kg_ru_ab": 375.9,
       "kg_ind_ab": 131.2,
+      "costo_tot_ab": 161.39,
       "mix_rd_pct": {
         "umida": 26.77,
         "carta": 14.96,
@@ -4004,13 +4569,16 @@
       "kg_ind_better_pctile_it": 38.2,
       "kg_ind_vs_median_it": 17.9,
       "kg_ind_vs_median_reg": -1.2,
+      "costo_vs_median_it": -8.6,
+      "costo_vs_median_reg": -14.8,
       "delta_rd_22_24": -1.83,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.1 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -2.42
+      "rd_vs_median_pop": -2.42,
+      "costo_vs_median_pop": -28.0
     },
     "montanaro": {
       "id": "montanaro",
@@ -4024,6 +4592,7 @@
       "rd_pct": 68.01,
       "kg_ru_ab": 463.8,
       "kg_ind_ab": 148.3,
+      "costo_tot_ab": 206.17,
       "mix_rd_pct": {
         "umida": 23.96,
         "carta": 15.56,
@@ -4046,13 +4615,16 @@
       "kg_ind_better_pctile_it": 30.7,
       "kg_ind_vs_median_it": 35.0,
       "kg_ind_vs_median_reg": 15.9,
+      "costo_vs_median_it": 36.2,
+      "costo_vs_median_reg": 30.0,
       "delta_rd_22_24": 1.0,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +3.0 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -7.67
+      "rd_vs_median_pop": -7.67,
+      "costo_vs_median_pop": 52.0
     },
     "monteu-da-po": {
       "id": "monteu-da-po",
@@ -4066,6 +4638,7 @@
       "rd_pct": 66.38,
       "kg_ru_ab": 460.2,
       "kg_ind_ab": 154.7,
+      "costo_tot_ab": 203.78,
       "mix_rd_pct": {
         "umida": 19.55,
         "carta": 14.95,
@@ -4088,13 +4661,16 @@
       "kg_ind_better_pctile_it": 28.2,
       "kg_ind_vs_median_it": 41.4,
       "kg_ind_vs_median_reg": 22.3,
+      "costo_vs_median_it": 33.8,
+      "costo_vs_median_reg": 27.6,
       "delta_rd_22_24": -0.76,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.4 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -1.13
+      "rd_vs_median_pop": -1.13,
+      "costo_vs_median_pop": 14.4
     },
     "moriondo-torinese": {
       "id": "moriondo-torinese",
@@ -4108,6 +4684,7 @@
       "rd_pct": 67.63,
       "kg_ru_ab": 315.2,
       "kg_ind_ab": 102.1,
+      "costo_tot_ab": 152.51,
       "mix_rd_pct": {
         "umida": 32.24,
         "carta": 16.44,
@@ -4130,13 +4707,16 @@
       "kg_ind_better_pctile_it": 57.8,
       "kg_ind_vs_median_it": -11.2,
       "kg_ind_vs_median_reg": -30.3,
+      "costo_vs_median_it": -17.5,
+      "costo_vs_median_reg": -23.7,
       "delta_rd_22_24": 1.01,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +2.6 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": 0.12
+      "rd_vs_median_pop": 0.12,
+      "costo_vs_median_pop": -36.9
     },
     "nichelino": {
       "id": "nichelino",
@@ -4150,6 +4730,7 @@
       "rd_pct": 60.6,
       "kg_ru_ab": 526.3,
       "kg_ind_ab": 207.4,
+      "costo_tot_ab": 203.72,
       "mix_rd_pct": {
         "umida": 19.13,
         "carta": 22.68,
@@ -4172,13 +4753,16 @@
       "kg_ind_better_pctile_it": 15.9,
       "kg_ind_vs_median_it": 94.1,
       "kg_ind_vs_median_reg": 75.0,
+      "costo_vs_median_it": 33.8,
+      "costo_vs_median_reg": 27.5,
       "delta_rd_22_24": 1.41,
       "hook": {
         "key": "below_target",
         "text": "A -4.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -14.15
+      "rd_vs_median_pop": -14.15,
+      "costo_vs_median_pop": 20.1
     },
     "oglianico": {
       "id": "oglianico",
@@ -4192,6 +4776,7 @@
       "rd_pct": 57.14,
       "kg_ru_ab": 425.9,
       "kg_ind_ab": 181.7,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 3.58,
         "carta": 34.51,
@@ -4214,13 +4799,16 @@
       "kg_ind_better_pctile_it": 20.7,
       "kg_ind_vs_median_it": 68.4,
       "kg_ind_vs_median_reg": 49.3,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 8.05,
       "hook": {
         "key": "below_target",
         "text": "A -7.9 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -15.92
+      "rd_vs_median_pop": -15.92,
+      "costo_vs_median_pop": null
     },
     "orbassano": {
       "id": "orbassano",
@@ -4234,6 +4822,7 @@
       "rd_pct": 64.34,
       "kg_ru_ab": 600.7,
       "kg_ind_ab": 214.2,
+      "costo_tot_ab": 196.41,
       "mix_rd_pct": {
         "umida": 20.83,
         "carta": 20.09,
@@ -4256,13 +4845,16 @@
       "kg_ind_better_pctile_it": 14.8,
       "kg_ind_vs_median_it": 100.9,
       "kg_ind_vs_median_reg": 81.8,
+      "costo_vs_median_it": 26.4,
+      "costo_vs_median_reg": 20.2,
       "delta_rd_22_24": 3.42,
       "hook": {
         "key": "below_target",
         "text": "A -0.7 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -10.41
+      "rd_vs_median_pop": -10.41,
+      "costo_vs_median_pop": 12.8
     },
     "osasio": {
       "id": "osasio",
@@ -4276,6 +4868,7 @@
       "rd_pct": 72.55,
       "kg_ru_ab": 404.6,
       "kg_ind_ab": 111.1,
+      "costo_tot_ab": 173.79,
       "mix_rd_pct": {
         "umida": 30.67,
         "carta": 17.02,
@@ -4298,13 +4891,16 @@
       "kg_ind_better_pctile_it": 51.5,
       "kg_ind_vs_median_it": -2.2,
       "kg_ind_vs_median_reg": -21.3,
+      "costo_vs_median_it": 3.8,
+      "costo_vs_median_reg": -2.4,
       "delta_rd_22_24": -1.35,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +7.5 punti percentuali"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": 5.04
+      "rd_vs_median_pop": 5.04,
+      "costo_vs_median_pop": -15.6
     },
     "ozegna": {
       "id": "ozegna",
@@ -4318,6 +4914,7 @@
       "rd_pct": 56.03,
       "kg_ru_ab": 509.5,
       "kg_ind_ab": 223.4,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.2,
         "carta": 30.52,
@@ -4340,13 +4937,16 @@
       "kg_ind_better_pctile_it": 13.7,
       "kg_ind_vs_median_it": 110.1,
       "kg_ind_vs_median_reg": 91.0,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 8.44,
       "hook": {
         "key": "below_target",
         "text": "A -9.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -17.03
+      "rd_vs_median_pop": -17.03,
+      "costo_vs_median_pop": null
     },
     "pancalieri": {
       "id": "pancalieri",
@@ -4360,6 +4960,7 @@
       "rd_pct": 68.98,
       "kg_ru_ab": 505.9,
       "kg_ind_ab": 156.9,
+      "costo_tot_ab": 152.66,
       "mix_rd_pct": {
         "umida": 32.32,
         "carta": 16.19,
@@ -4382,13 +4983,16 @@
       "kg_ind_better_pctile_it": 27.5,
       "kg_ind_vs_median_it": 43.6,
       "kg_ind_vs_median_reg": 24.5,
+      "costo_vs_median_it": -17.3,
+      "costo_vs_median_reg": -23.5,
       "delta_rd_22_24": -1.42,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +4.0 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -4.08
+      "rd_vs_median_pop": -4.08,
+      "costo_vs_median_pop": -6.2
     },
     "pavarolo": {
       "id": "pavarolo",
@@ -4402,6 +5006,7 @@
       "rd_pct": 79.64,
       "kg_ru_ab": 424.4,
       "kg_ind_ab": 86.4,
+      "costo_tot_ab": 145.98,
       "mix_rd_pct": {
         "umida": 25.89,
         "carta": 9.34,
@@ -4424,13 +5029,16 @@
       "kg_ind_better_pctile_it": 69.0,
       "kg_ind_vs_median_it": -26.9,
       "kg_ind_vs_median_reg": -46.0,
+      "costo_vs_median_it": -24.0,
+      "costo_vs_median_reg": -30.2,
       "delta_rd_22_24": -3.07,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +14.6 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 6.58
+      "rd_vs_median_pop": 6.58,
+      "costo_vs_median_pop": -12.9
     },
     "pecetto-torinese": {
       "id": "pecetto-torinese",
@@ -4444,6 +5052,7 @@
       "rd_pct": 82.08,
       "kg_ru_ab": 454.3,
       "kg_ind_ab": 81.4,
+      "costo_tot_ab": 170.07,
       "mix_rd_pct": {
         "umida": 23.56,
         "carta": 12.31,
@@ -4466,13 +5075,16 @@
       "kg_ind_better_pctile_it": 72.8,
       "kg_ind_vs_median_it": -31.9,
       "kg_ind_vs_median_reg": -51.0,
+      "costo_vs_median_it": 0.1,
+      "costo_vs_median_reg": -6.1,
       "delta_rd_22_24": 2.18,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +17.1 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 6.4
+      "rd_vs_median_pop": 6.4,
+      "costo_vs_median_pop": 15.9
     },
     "pertusio": {
       "id": "pertusio",
@@ -4486,6 +5098,7 @@
       "rd_pct": 62.05,
       "kg_ru_ab": 331.4,
       "kg_ind_ab": 125.2,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 2.54,
         "carta": 34.37,
@@ -4508,13 +5121,16 @@
       "kg_ind_better_pctile_it": 41.7,
       "kg_ind_vs_median_it": 11.9,
       "kg_ind_vs_median_reg": -7.2,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 6.66,
       "hook": {
         "key": "below_target",
         "text": "A -3.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -5.46
+      "rd_vs_median_pop": -5.46,
+      "costo_vs_median_pop": null
     },
     "pianezza": {
       "id": "pianezza",
@@ -4528,6 +5144,7 @@
       "rd_pct": 69.19,
       "kg_ru_ab": 531.1,
       "kg_ind_ab": 163.6,
+      "costo_tot_ab": 192.07,
       "mix_rd_pct": {
         "umida": 15.29,
         "carta": 23.62,
@@ -4550,13 +5167,16 @@
       "kg_ind_better_pctile_it": 25.1,
       "kg_ind_vs_median_it": 50.3,
       "kg_ind_vs_median_reg": 31.2,
+      "costo_vs_median_it": 22.1,
+      "costo_vs_median_reg": 15.9,
       "delta_rd_22_24": 3.12,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +4.2 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -5.56
+      "rd_vs_median_pop": -5.56,
+      "costo_vs_median_pop": 8.5
     },
     "pino-torinese": {
       "id": "pino-torinese",
@@ -4570,6 +5190,7 @@
       "rd_pct": 85.94,
       "kg_ru_ab": 476.6,
       "kg_ind_ab": 67.0,
+      "costo_tot_ab": 252.06,
       "mix_rd_pct": {
         "umida": 20.49,
         "carta": 11.9,
@@ -4592,13 +5213,16 @@
       "kg_ind_better_pctile_it": 84.4,
       "kg_ind_vs_median_it": -46.3,
       "kg_ind_vs_median_reg": -65.4,
+      "costo_vs_median_it": 82.1,
+      "costo_vs_median_reg": 75.9,
       "delta_rd_22_24": 1.37,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +20.9 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 11.19
+      "rd_vs_median_pop": 11.19,
+      "costo_vs_median_pop": 68.4
     },
     "piobesi-torinese": {
       "id": "piobesi-torinese",
@@ -4612,6 +5236,7 @@
       "rd_pct": 82.66,
       "kg_ru_ab": 626.3,
       "kg_ind_ab": 108.6,
+      "costo_tot_ab": 240.18,
       "mix_rd_pct": {
         "umida": 16.35,
         "carta": 16.91,
@@ -4634,13 +5259,16 @@
       "kg_ind_better_pctile_it": 53.2,
       "kg_ind_vs_median_it": -4.7,
       "kg_ind_vs_median_reg": -23.8,
+      "costo_vs_median_it": 70.2,
+      "costo_vs_median_reg": 64.0,
       "delta_rd_22_24": 6.18,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +17.7 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 6.98
+      "rd_vs_median_pop": 6.98,
+      "costo_vs_median_pop": 86.1
     },
     "piossasco": {
       "id": "piossasco",
@@ -4654,6 +5282,7 @@
       "rd_pct": 71.27,
       "kg_ru_ab": 436.3,
       "kg_ind_ab": 125.4,
+      "costo_tot_ab": 158.51,
       "mix_rd_pct": {
         "umida": 22.61,
         "carta": 18.51,
@@ -4676,13 +5305,16 @@
       "kg_ind_better_pctile_it": 41.6,
       "kg_ind_vs_median_it": 12.1,
       "kg_ind_vs_median_reg": -7.0,
+      "costo_vs_median_it": -11.5,
+      "costo_vs_median_reg": -17.7,
       "delta_rd_22_24": 2.2,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +6.3 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -3.48
+      "rd_vs_median_pop": -3.48,
+      "costo_vs_median_pop": -25.1
     },
     "poirino": {
       "id": "poirino",
@@ -4696,6 +5328,7 @@
       "rd_pct": 80.49,
       "kg_ru_ab": 407.3,
       "kg_ind_ab": 79.5,
+      "costo_tot_ab": 156.27,
       "mix_rd_pct": {
         "umida": 29.68,
         "carta": 15.22,
@@ -4718,13 +5351,16 @@
       "kg_ind_better_pctile_it": 74.4,
       "kg_ind_vs_median_it": -33.8,
       "kg_ind_vs_median_reg": -52.9,
+      "costo_vs_median_it": -13.7,
+      "costo_vs_median_reg": -19.9,
       "delta_rd_22_24": -0.85,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +15.5 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 5.74
+      "rd_vs_median_pop": 5.74,
+      "costo_vs_median_pop": -27.3
     },
     "pont-canavese": {
       "id": "pont-canavese",
@@ -4738,6 +5374,7 @@
       "rd_pct": 50.65,
       "kg_ru_ab": 345.9,
       "kg_ind_ab": 164.5,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.84,
         "carta": 25.58,
@@ -4760,13 +5397,16 @@
       "kg_ind_better_pctile_it": 24.8,
       "kg_ind_vs_median_it": 51.2,
       "kg_ind_vs_median_reg": 32.1,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -31.19,
       "hook": {
         "key": "below_target",
         "text": "A -14.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -25.03
+      "rd_vs_median_pop": -25.03,
+      "costo_vs_median_pop": null
     },
     "pralormo": {
       "id": "pralormo",
@@ -4780,6 +5420,7 @@
       "rd_pct": 68.8,
       "kg_ru_ab": 332.5,
       "kg_ind_ab": 103.7,
+      "costo_tot_ab": 126.72,
       "mix_rd_pct": {
         "umida": 34.41,
         "carta": 14.75,
@@ -4802,13 +5443,16 @@
       "kg_ind_better_pctile_it": 56.7,
       "kg_ind_vs_median_it": -9.6,
       "kg_ind_vs_median_reg": -28.7,
+      "costo_vs_median_it": -43.2,
+      "costo_vs_median_reg": -49.5,
       "delta_rd_22_24": 6.19,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +3.8 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -4.26
+      "rd_vs_median_pop": -4.26,
+      "costo_vs_median_pop": -32.2
     },
     "prascorsano": {
       "id": "prascorsano",
@@ -4822,6 +5466,7 @@
       "rd_pct": 55.2,
       "kg_ru_ab": 321.3,
       "kg_ind_ab": 138.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 5.04,
         "carta": 22.4,
@@ -4844,13 +5489,16 @@
       "kg_ind_better_pctile_it": 34.6,
       "kg_ind_vs_median_it": 25.6,
       "kg_ind_vs_median_reg": 6.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -1.42,
       "hook": {
         "key": "below_target",
         "text": "A -9.8 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -12.31
+      "rd_vs_median_pop": -12.31,
+      "costo_vs_median_pop": null
     },
     "pratiglione": {
       "id": "pratiglione",
@@ -4864,6 +5512,7 @@
       "rd_pct": 55.58,
       "kg_ru_ab": 462.0,
       "kg_ind_ab": 199.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 5.32,
         "carta": 31.55,
@@ -4886,13 +5535,16 @@
       "kg_ind_better_pctile_it": 17.2,
       "kg_ind_vs_median_it": 86.6,
       "kg_ind_vs_median_reg": 67.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 12.77,
       "hook": {
         "key": "below_target",
         "text": "A -9.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -11.93
+      "rd_vs_median_pop": -11.93,
+      "costo_vs_median_pop": null
     },
     "reano": {
       "id": "reano",
@@ -4906,6 +5558,7 @@
       "rd_pct": 70.04,
       "kg_ru_ab": 431.5,
       "kg_ind_ab": 129.3,
+      "costo_tot_ab": 176.35,
       "mix_rd_pct": {
         "umida": 14.59,
         "carta": 12.0,
@@ -4928,13 +5581,16 @@
       "kg_ind_better_pctile_it": 39.4,
       "kg_ind_vs_median_it": 16.0,
       "kg_ind_vs_median_reg": -3.1,
+      "costo_vs_median_it": 6.4,
+      "costo_vs_median_reg": 0.2,
       "delta_rd_22_24": 0.21,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -3.02
+      "rd_vs_median_pop": -3.02,
+      "costo_vs_median_pop": 17.5
     },
     "ribordone": {
       "id": "ribordone",
@@ -4948,6 +5604,7 @@
       "rd_pct": 55.63,
       "kg_ru_ab": 1918.2,
       "kg_ind_ab": 834.0,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": null,
         "carta": 56.6,
@@ -4970,13 +5627,16 @@
       "kg_ind_better_pctile_it": 0.2,
       "kg_ind_vs_median_it": 720.7,
       "kg_ind_vs_median_reg": 701.6,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 20.26,
       "hook": {
         "key": "below_target",
         "text": "A -9.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -11.88
+      "rd_vs_median_pop": -11.88,
+      "costo_vs_median_pop": null
     },
     "riva-presso-chieri": {
       "id": "riva-presso-chieri",
@@ -4990,6 +5650,7 @@
       "rd_pct": 84.71,
       "kg_ru_ab": 381.2,
       "kg_ind_ab": 58.3,
+      "costo_tot_ab": 165.93,
       "mix_rd_pct": {
         "umida": 22.26,
         "carta": 13.69,
@@ -5012,13 +5673,16 @@
       "kg_ind_better_pctile_it": 89.8,
       "kg_ind_vs_median_it": -55.0,
       "kg_ind_vs_median_reg": -74.1,
+      "costo_vs_median_it": -4.0,
+      "costo_vs_median_reg": -10.2,
       "delta_rd_22_24": 1.23,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +19.7 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 9.03
+      "rd_vs_median_pop": 9.03,
+      "costo_vs_median_pop": 11.8
     },
     "rivalba": {
       "id": "rivalba",
@@ -5032,6 +5696,7 @@
       "rd_pct": 66.17,
       "kg_ru_ab": 457.2,
       "kg_ind_ab": 154.7,
+      "costo_tot_ab": 153.45,
       "mix_rd_pct": {
         "umida": 33.01,
         "carta": 10.84,
@@ -5054,13 +5719,16 @@
       "kg_ind_better_pctile_it": 28.2,
       "kg_ind_vs_median_it": 41.4,
       "kg_ind_vs_median_reg": 22.3,
+      "costo_vs_median_it": -16.5,
+      "costo_vs_median_reg": -22.7,
       "delta_rd_22_24": 0.42,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.2 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -6.89
+      "rd_vs_median_pop": -6.89,
+      "costo_vs_median_pop": -5.4
     },
     "rivalta-di-torino": {
       "id": "rivalta-di-torino",
@@ -5074,6 +5742,7 @@
       "rd_pct": 71.78,
       "kg_ru_ab": 585.3,
       "kg_ind_ab": 165.2,
+      "costo_tot_ab": 193.08,
       "mix_rd_pct": {
         "umida": 16.28,
         "carta": 20.78,
@@ -5096,13 +5765,16 @@
       "kg_ind_better_pctile_it": 24.7,
       "kg_ind_vs_median_it": 51.9,
       "kg_ind_vs_median_reg": 32.8,
+      "costo_vs_median_it": 23.1,
+      "costo_vs_median_reg": 16.9,
       "delta_rd_22_24": 0.29,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +6.8 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -2.97
+      "rd_vs_median_pop": -2.97,
+      "costo_vs_median_pop": 9.5
     },
     "rivara": {
       "id": "rivara",
@@ -5116,6 +5788,7 @@
       "rd_pct": 62.96,
       "kg_ru_ab": 442.1,
       "kg_ind_ab": 162.0,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.56,
         "carta": 41.05,
@@ -5138,13 +5811,16 @@
       "kg_ind_better_pctile_it": 25.7,
       "kg_ind_vs_median_it": 48.7,
       "kg_ind_vs_median_reg": 29.6,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 4.2,
       "hook": {
         "key": "below_target",
         "text": "A -2.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -12.72
+      "rd_vs_median_pop": -12.72,
+      "costo_vs_median_pop": null
     },
     "rivarolo-canavese": {
       "id": "rivarolo-canavese",
@@ -5158,6 +5834,7 @@
       "rd_pct": 53.18,
       "kg_ru_ab": 411.6,
       "kg_ind_ab": 191.3,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 6.06,
         "carta": 30.42,
@@ -5180,13 +5857,16 @@
       "kg_ind_better_pctile_it": 18.7,
       "kg_ind_vs_median_it": 78.0,
       "kg_ind_vs_median_reg": 58.9,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 4.06,
       "hook": {
         "key": "below_target",
         "text": "A -11.8 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -21.57
+      "rd_vs_median_pop": -21.57,
+      "costo_vs_median_pop": null
     },
     "rivarossa": {
       "id": "rivarossa",
@@ -5200,6 +5880,7 @@
       "rd_pct": 56.56,
       "kg_ru_ab": 352.2,
       "kg_ind_ab": 146.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.08,
         "carta": 26.98,
@@ -5222,13 +5903,16 @@
       "kg_ind_better_pctile_it": 31.3,
       "kg_ind_vs_median_it": 33.6,
       "kg_ind_vs_median_reg": 14.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 7.6,
       "hook": {
         "key": "below_target",
         "text": "A -8.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -16.5
+      "rd_vs_median_pop": -16.5,
+      "costo_vs_median_pop": null
     },
     "rivoli": {
       "id": "rivoli",
@@ -5242,6 +5926,7 @@
       "rd_pct": 65.22,
       "kg_ru_ab": 517.4,
       "kg_ind_ab": 180.0,
+      "costo_tot_ab": 233.49,
       "mix_rd_pct": {
         "umida": 21.93,
         "carta": 28.79,
@@ -5264,13 +5949,16 @@
       "kg_ind_better_pctile_it": 21.0,
       "kg_ind_vs_median_it": 66.7,
       "kg_ind_vs_median_reg": 47.6,
+      "costo_vs_median_it": 63.5,
+      "costo_vs_median_reg": 57.3,
       "delta_rd_22_24": -1.32,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.2 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -9.53
+      "rd_vs_median_pop": -9.53,
+      "costo_vs_median_pop": 49.9
     },
     "ronco-canavese": {
       "id": "ronco-canavese",
@@ -5284,6 +5972,7 @@
       "rd_pct": 23.09,
       "kg_ru_ab": 721.5,
       "kg_ind_ab": 554.4,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": null,
         "carta": 24.63,
@@ -5306,13 +5995,16 @@
       "kg_ind_better_pctile_it": 1.1,
       "kg_ind_vs_median_it": 441.1,
       "kg_ind_vs_median_reg": 422.0,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -10.55,
       "hook": {
         "key": "below_target",
         "text": "A -41.9 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -44.42
+      "rd_vs_median_pop": -44.42,
+      "costo_vs_median_pop": null
     },
     "rondissone": {
       "id": "rondissone",
@@ -5326,6 +6018,7 @@
       "rd_pct": 65.98,
       "kg_ru_ab": 500.1,
       "kg_ind_ab": 170.2,
+      "costo_tot_ab": 187.47,
       "mix_rd_pct": {
         "umida": 21.55,
         "carta": 16.89,
@@ -5348,13 +6041,16 @@
       "kg_ind_better_pctile_it": 23.4,
       "kg_ind_vs_median_it": 56.9,
       "kg_ind_vs_median_reg": 37.8,
+      "costo_vs_median_it": 17.5,
+      "costo_vs_median_reg": 11.3,
       "delta_rd_22_24": -3.9,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.0 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -7.08
+      "rd_vs_median_pop": -7.08,
+      "costo_vs_median_pop": 28.6
     },
     "rubiana": {
       "id": "rubiana",
@@ -5368,6 +6064,7 @@
       "rd_pct": 72.92,
       "kg_ru_ab": 634.6,
       "kg_ind_ab": 171.9,
+      "costo_tot_ab": 166.9,
       "mix_rd_pct": {
         "umida": 15.58,
         "carta": 7.57,
@@ -5390,13 +6087,16 @@
       "kg_ind_better_pctile_it": 22.8,
       "kg_ind_vs_median_it": 58.6,
       "kg_ind_vs_median_reg": 39.5,
+      "costo_vs_median_it": -3.1,
+      "costo_vs_median_reg": -9.3,
       "delta_rd_22_24": -1.53,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +7.9 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -2.76
+      "rd_vs_median_pop": -2.76,
+      "costo_vs_median_pop": 12.8
     },
     "rueglio": {
       "id": "rueglio",
@@ -5410,6 +6110,7 @@
       "rd_pct": 55.66,
       "kg_ru_ab": 316.5,
       "kg_ind_ab": 138.4,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 2.15,
         "carta": 23.49,
@@ -5432,13 +6133,16 @@
       "kg_ind_better_pctile_it": 34.8,
       "kg_ind_vs_median_it": 25.1,
       "kg_ind_vs_median_reg": 6.0,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -34.84,
       "hook": {
         "key": "below_target",
         "text": "A -9.3 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -11.85
+      "rd_vs_median_pop": -11.85,
+      "costo_vs_median_pop": null
     },
     "salassa": {
       "id": "salassa",
@@ -5452,6 +6156,7 @@
       "rd_pct": 59.27,
       "kg_ru_ab": 346.9,
       "kg_ind_ab": 140.8,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 3.79,
         "carta": 28.79,
@@ -5474,13 +6179,16 @@
       "kg_ind_better_pctile_it": 33.7,
       "kg_ind_vs_median_it": 27.5,
       "kg_ind_vs_median_reg": 8.4,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 3.28,
       "hook": {
         "key": "below_target",
         "text": "A -5.7 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -13.79
+      "rd_vs_median_pop": -13.79,
+      "costo_vs_median_pop": null
     },
     "san-benigno-canavese": {
       "id": "san-benigno-canavese",
@@ -5494,6 +6202,7 @@
       "rd_pct": 75.21,
       "kg_ru_ab": 553.1,
       "kg_ind_ab": 137.1,
+      "costo_tot_ab": 178.92,
       "mix_rd_pct": {
         "umida": 14.46,
         "carta": 15.66,
@@ -5516,13 +6225,16 @@
       "kg_ind_better_pctile_it": 35.4,
       "kg_ind_vs_median_it": 23.8,
       "kg_ind_vs_median_reg": 4.7,
+      "costo_vs_median_it": 8.9,
+      "costo_vs_median_reg": 2.7,
       "delta_rd_22_24": 9.12,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.2 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -0.47
+      "rd_vs_median_pop": -0.47,
+      "costo_vs_median_pop": 24.8
     },
     "san-colombano-belmonte": {
       "id": "san-colombano-belmonte",
@@ -5536,6 +6248,7 @@
       "rd_pct": 61.95,
       "kg_ru_ab": 439.3,
       "kg_ind_ab": 159.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 6.05,
         "carta": 27.39,
@@ -5558,13 +6271,16 @@
       "kg_ind_better_pctile_it": 26.3,
       "kg_ind_vs_median_it": 46.6,
       "kg_ind_vs_median_reg": 27.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 12.79,
       "hook": {
         "key": "below_target",
         "text": "A -3.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -5.56
+      "rd_vs_median_pop": -5.56,
+      "costo_vs_median_pop": null
     },
     "san-mauro-torinese": {
       "id": "san-mauro-torinese",
@@ -5578,6 +6294,7 @@
       "rd_pct": 67.99,
       "kg_ru_ab": 513.7,
       "kg_ind_ab": 164.5,
+      "costo_tot_ab": 237.55,
       "mix_rd_pct": {
         "umida": 16.42,
         "carta": 19.49,
@@ -5600,13 +6317,16 @@
       "kg_ind_better_pctile_it": 24.8,
       "kg_ind_vs_median_it": 51.2,
       "kg_ind_vs_median_reg": 32.1,
+      "costo_vs_median_it": 67.6,
+      "costo_vs_median_reg": 61.4,
       "delta_rd_22_24": 2.84,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +3.0 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -6.76
+      "rd_vs_median_pop": -6.76,
+      "costo_vs_median_pop": 53.9
     },
     "san-ponso": {
       "id": "san-ponso",
@@ -5620,6 +6340,7 @@
       "rd_pct": 49.37,
       "kg_ru_ab": 1026.1,
       "kg_ind_ab": 513.3,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 5.47,
         "carta": 29.94,
@@ -5642,13 +6363,16 @@
       "kg_ind_better_pctile_it": 1.6,
       "kg_ind_vs_median_it": 400.0,
       "kg_ind_vs_median_reg": 380.9,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -6.88,
       "hook": {
         "key": "below_target",
         "text": "A -15.6 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -18.14
+      "rd_vs_median_pop": -18.14,
+      "costo_vs_median_pop": null
     },
     "san-raffaele-cimena": {
       "id": "san-raffaele-cimena",
@@ -5662,6 +6386,7 @@
       "rd_pct": 66.27,
       "kg_ru_ab": 456.1,
       "kg_ind_ab": 153.8,
+      "costo_tot_ab": 191.33,
       "mix_rd_pct": {
         "umida": 29.5,
         "carta": 10.79,
@@ -5684,13 +6409,16 @@
       "kg_ind_better_pctile_it": 28.5,
       "kg_ind_vs_median_it": 40.5,
       "kg_ind_vs_median_reg": 21.4,
+      "costo_vs_median_it": 21.4,
+      "costo_vs_median_reg": 15.2,
       "delta_rd_22_24": 9.73,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +1.3 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -9.41
+      "rd_vs_median_pop": -9.41,
+      "costo_vs_median_pop": 37.2
     },
     "san-sebastiano-da-po": {
       "id": "san-sebastiano-da-po",
@@ -5704,6 +6432,7 @@
       "rd_pct": 70.36,
       "kg_ru_ab": 500.8,
       "kg_ind_ab": 148.4,
+      "costo_tot_ab": 159.31,
       "mix_rd_pct": {
         "umida": 32.18,
         "carta": 12.44,
@@ -5726,13 +6455,16 @@
       "kg_ind_better_pctile_it": 30.6,
       "kg_ind_vs_median_it": 35.1,
       "kg_ind_vs_median_reg": 16.0,
+      "costo_vs_median_it": -10.7,
+      "costo_vs_median_reg": -16.9,
       "delta_rd_22_24": 1.22,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.4 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -2.7
+      "rd_vs_median_pop": -2.7,
+      "costo_vs_median_pop": 0.4
     },
     "sangano": {
       "id": "sangano",
@@ -5746,6 +6478,7 @@
       "rd_pct": 56.83,
       "kg_ru_ab": 496.1,
       "kg_ind_ab": 214.2,
+      "costo_tot_ab": 194.6,
       "mix_rd_pct": {
         "umida": 15.41,
         "carta": 23.2,
@@ -5768,13 +6501,16 @@
       "kg_ind_better_pctile_it": 14.8,
       "kg_ind_vs_median_it": 100.9,
       "kg_ind_vs_median_reg": 81.8,
+      "costo_vs_median_it": 24.6,
+      "costo_vs_median_reg": 18.4,
       "delta_rd_22_24": -13.52,
       "hook": {
         "key": "below_target",
         "text": "A -8.2 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -18.85
+      "rd_vs_median_pop": -18.85,
+      "costo_vs_median_pop": 40.5
     },
     "sant-ambrogio-di-torino": {
       "id": "sant-ambrogio-di-torino",
@@ -5788,6 +6524,7 @@
       "rd_pct": 70.49,
       "kg_ru_ab": 504.4,
       "kg_ind_ab": 148.8,
+      "costo_tot_ab": 181.79,
       "mix_rd_pct": {
         "umida": 18.4,
         "carta": 16.5,
@@ -5810,13 +6547,16 @@
       "kg_ind_better_pctile_it": 30.5,
       "kg_ind_vs_median_it": 35.5,
       "kg_ind_vs_median_reg": 16.4,
+      "costo_vs_median_it": 11.8,
+      "costo_vs_median_reg": 5.6,
       "delta_rd_22_24": 1.77,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.5 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -5.19
+      "rd_vs_median_pop": -5.19,
+      "costo_vs_median_pop": 27.7
     },
     "sant-antonino-di-susa": {
       "id": "sant-antonino-di-susa",
@@ -5830,6 +6570,7 @@
       "rd_pct": 75.3,
       "kg_ru_ab": 478.0,
       "kg_ind_ab": 118.0,
+      "costo_tot_ab": 152.31,
       "mix_rd_pct": {
         "umida": 24.13,
         "carta": 15.59,
@@ -5852,13 +6593,16 @@
       "kg_ind_better_pctile_it": 46.8,
       "kg_ind_vs_median_it": 4.7,
       "kg_ind_vs_median_reg": -14.4,
+      "costo_vs_median_it": -17.7,
+      "costo_vs_median_reg": -23.9,
       "delta_rd_22_24": 1.91,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.3 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -0.38
+      "rd_vs_median_pop": -0.38,
+      "costo_vs_median_pop": -1.8
     },
     "santena": {
       "id": "santena",
@@ -5872,6 +6616,7 @@
       "rd_pct": 86.66,
       "kg_ru_ab": 564.9,
       "kg_ind_ab": 75.4,
+      "costo_tot_ab": 179.73,
       "mix_rd_pct": {
         "umida": 22.56,
         "carta": 11.92,
@@ -5894,13 +6639,16 @@
       "kg_ind_better_pctile_it": 77.5,
       "kg_ind_vs_median_it": -37.9,
       "kg_ind_vs_median_reg": -57.0,
+      "costo_vs_median_it": 9.8,
+      "costo_vs_median_reg": 3.5,
       "delta_rd_22_24": 2.34,
       "hook": {
         "key": "top_pctile",
         "text": "Tra i migliori in Italia (meglio del 91%)"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 11.91
+      "rd_vs_median_pop": 11.91,
+      "costo_vs_median_pop": -3.9
     },
     "sciolze": {
       "id": "sciolze",
@@ -5914,6 +6662,7 @@
       "rd_pct": 67.98,
       "kg_ru_ab": 486.4,
       "kg_ind_ab": 155.7,
+      "costo_tot_ab": 188.15,
       "mix_rd_pct": {
         "umida": 36.36,
         "carta": 9.99,
@@ -5936,13 +6685,16 @@
       "kg_ind_better_pctile_it": 27.8,
       "kg_ind_vs_median_it": 42.4,
       "kg_ind_vs_median_reg": 23.3,
+      "costo_vs_median_it": 18.2,
+      "costo_vs_median_reg": 12.0,
       "delta_rd_22_24": 9.29,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +3.0 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -5.08
+      "rd_vs_median_pop": -5.08,
+      "costo_vs_median_pop": 29.3
     },
     "settimo-torinese": {
       "id": "settimo-torinese",
@@ -5956,6 +6708,7 @@
       "rd_pct": 64.19,
       "kg_ru_ab": 579.5,
       "kg_ind_ab": 207.5,
+      "costo_tot_ab": 239.58,
       "mix_rd_pct": {
         "umida": 17.08,
         "carta": 27.84,
@@ -5978,13 +6731,16 @@
       "kg_ind_better_pctile_it": 15.8,
       "kg_ind_vs_median_it": 94.2,
       "kg_ind_vs_median_reg": 75.1,
+      "costo_vs_median_it": 69.6,
+      "costo_vs_median_reg": 63.4,
       "delta_rd_22_24": -4.52,
       "hook": {
         "key": "below_target",
         "text": "A -0.8 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -10.56
+      "rd_vs_median_pop": -10.56,
+      "costo_vs_median_pop": 56.0
     },
     "sparone": {
       "id": "sparone",
@@ -5998,6 +6754,7 @@
       "rd_pct": 45.32,
       "kg_ru_ab": 428.3,
       "kg_ind_ab": 226.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.52,
         "carta": 29.87,
@@ -6020,13 +6777,16 @@
       "kg_ind_better_pctile_it": 13.3,
       "kg_ind_vs_median_it": 113.6,
       "kg_ind_vs_median_reg": 94.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 2.13,
       "hook": {
         "key": "below_target",
         "text": "A -19.7 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -22.19
+      "rd_vs_median_pop": -22.19,
+      "costo_vs_median_pop": null
     },
     "susa": {
       "id": "susa",
@@ -6040,6 +6800,7 @@
       "rd_pct": 64.32,
       "kg_ru_ab": 556.5,
       "kg_ind_ab": 198.6,
+      "costo_tot_ab": 263.49,
       "mix_rd_pct": {
         "umida": 24.57,
         "carta": 18.85,
@@ -6062,13 +6823,16 @@
       "kg_ind_better_pctile_it": 17.5,
       "kg_ind_vs_median_it": 85.3,
       "kg_ind_vs_median_reg": 66.2,
+      "costo_vs_median_it": 93.5,
+      "costo_vs_median_reg": 87.3,
       "delta_rd_22_24": 1.15,
       "hook": {
         "key": "below_target",
         "text": "A -0.7 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -11.36
+      "rd_vs_median_pop": -11.36,
+      "costo_vs_median_pop": 109.4
     },
     "torrazza-piemonte": {
       "id": "torrazza-piemonte",
@@ -6082,6 +6846,7 @@
       "rd_pct": 90.15,
       "kg_ru_ab": 1264.3,
       "kg_ind_ab": 124.5,
+      "costo_tot_ab": 159.28,
       "mix_rd_pct": {
         "umida": 6.86,
         "carta": 63.39,
@@ -6104,13 +6869,16 @@
       "kg_ind_better_pctile_it": 42.2,
       "kg_ind_vs_median_it": 11.2,
       "kg_ind_vs_median_reg": -7.9,
+      "costo_vs_median_it": -10.7,
+      "costo_vs_median_reg": -16.9,
       "delta_rd_22_24": 18.1,
       "hook": {
         "key": "top_pctile",
         "text": "Tra i migliori in Italia (meglio del 97%)"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 14.47
+      "rd_vs_median_pop": 14.47,
+      "costo_vs_median_pop": 5.2
     },
     "trana": {
       "id": "trana",
@@ -6124,6 +6892,7 @@
       "rd_pct": 70.01,
       "kg_ru_ab": 483.6,
       "kg_ind_ab": 145.0,
+      "costo_tot_ab": 197.73,
       "mix_rd_pct": {
         "umida": 22.21,
         "carta": 12.1,
@@ -6146,13 +6915,16 @@
       "kg_ind_better_pctile_it": 32.0,
       "kg_ind_vs_median_it": 31.7,
       "kg_ind_vs_median_reg": 12.6,
+      "costo_vs_median_it": 27.8,
+      "costo_vs_median_reg": 21.5,
       "delta_rd_22_24": 0.93,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.0 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -5.67
+      "rd_vs_median_pop": -5.67,
+      "costo_vs_median_pop": 43.6
     },
     "traversella": {
       "id": "traversella",
@@ -6166,6 +6938,7 @@
       "rd_pct": 63.55,
       "kg_ru_ab": 510.5,
       "kg_ind_ab": 185.7,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 2.31,
         "carta": 43.63,
@@ -6188,13 +6961,16 @@
       "kg_ind_better_pctile_it": 20.0,
       "kg_ind_vs_median_it": 72.4,
       "kg_ind_vs_median_reg": 53.3,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 16.07,
       "hook": {
         "key": "below_target",
         "text": "A -1.5 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -3.96
+      "rd_vs_median_pop": -3.96,
+      "costo_vs_median_pop": null
     },
     "trofarello": {
       "id": "trofarello",
@@ -6208,6 +6984,7 @@
       "rd_pct": 76.23,
       "kg_ru_ab": 540.3,
       "kg_ind_ab": 128.4,
+      "costo_tot_ab": 185.13,
       "mix_rd_pct": {
         "umida": 19.63,
         "carta": 18.75,
@@ -6230,13 +7007,16 @@
       "kg_ind_better_pctile_it": 39.9,
       "kg_ind_vs_median_it": 15.1,
       "kg_ind_vs_median_reg": -4.0,
+      "costo_vs_median_it": 15.2,
+      "costo_vs_median_reg": 8.9,
       "delta_rd_22_24": 3.92,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +11.2 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 1.48
+      "rd_vs_median_pop": 1.48,
+      "costo_vs_median_pop": 1.5
     },
     "vaie": {
       "id": "vaie",
@@ -6250,6 +7030,7 @@
       "rd_pct": 75.48,
       "kg_ru_ab": 600.1,
       "kg_ind_ab": 147.2,
+      "costo_tot_ab": 141.3,
       "mix_rd_pct": {
         "umida": 12.07,
         "carta": 33.22,
@@ -6272,13 +7053,16 @@
       "kg_ind_better_pctile_it": 31.1,
       "kg_ind_vs_median_it": 33.9,
       "kg_ind_vs_median_reg": 14.8,
+      "costo_vs_median_it": -28.7,
+      "costo_vs_median_reg": -34.9,
       "delta_rd_22_24": 7.64,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.5 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 2.42
+      "rd_vs_median_pop": 2.42,
+      "costo_vs_median_pop": -17.6
     },
     "val-di-chy": {
       "id": "val-di-chy",
@@ -6292,6 +7076,7 @@
       "rd_pct": 59.58,
       "kg_ru_ab": 209.2,
       "kg_ind_ab": 80.4,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 6.07,
         "carta": 21.78,
@@ -6314,13 +7099,16 @@
       "kg_ind_better_pctile_it": 73.6,
       "kg_ind_vs_median_it": -32.9,
       "kg_ind_vs_median_reg": -52.0,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 4.08,
       "hook": {
         "key": "below_target",
         "text": "A -5.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -13.48
+      "rd_vs_median_pop": -13.48,
+      "costo_vs_median_pop": null
     },
     "valchiusa": {
       "id": "valchiusa",
@@ -6334,6 +7122,7 @@
       "rd_pct": 56.03,
       "kg_ru_ab": 227.8,
       "kg_ind_ab": 99.2,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 7.06,
         "carta": 25.14,
@@ -6356,13 +7145,16 @@
       "kg_ind_better_pctile_it": 59.7,
       "kg_ind_vs_median_it": -14.1,
       "kg_ind_vs_median_reg": -33.2,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 10.2,
       "hook": {
         "key": "below_target",
         "text": "A -9.0 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -17.03
+      "rd_vs_median_pop": -17.03,
+      "costo_vs_median_pop": null
     },
     "valperga": {
       "id": "valperga",
@@ -6376,6 +7168,7 @@
       "rd_pct": 57.62,
       "kg_ru_ab": 240.0,
       "kg_ind_ab": 95.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 8.05,
         "carta": 32.92,
@@ -6398,13 +7191,16 @@
       "kg_ind_better_pctile_it": 61.9,
       "kg_ind_vs_median_it": -17.4,
       "kg_ind_vs_median_reg": -36.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 9.4,
       "hook": {
         "key": "below_target",
         "text": "A -7.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -18.06
+      "rd_vs_median_pop": -18.06,
+      "costo_vs_median_pop": null
     },
     "valprato-soana": {
       "id": "valprato-soana",
@@ -6418,6 +7214,7 @@
       "rd_pct": 48.5,
       "kg_ru_ab": 1310.8,
       "kg_ind_ab": 646.0,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": null,
         "carta": 22.79,
@@ -6440,13 +7237,16 @@
       "kg_ind_better_pctile_it": 0.6,
       "kg_ind_vs_median_it": 532.7,
       "kg_ind_vs_median_reg": 513.6,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 11.29,
       "hook": {
         "key": "below_target",
         "text": "A -16.5 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -19.01
+      "rd_vs_median_pop": -19.01,
+      "costo_vs_median_pop": null
     },
     "venaria-reale": {
       "id": "venaria-reale",
@@ -6460,6 +7260,7 @@
       "rd_pct": 60.91,
       "kg_ru_ab": 437.7,
       "kg_ind_ab": 171.1,
+      "costo_tot_ab": 187.17,
       "mix_rd_pct": {
         "umida": 24.67,
         "carta": 24.65,
@@ -6482,13 +7283,16 @@
       "kg_ind_better_pctile_it": 23.0,
       "kg_ind_vs_median_it": 57.8,
       "kg_ind_vs_median_reg": 38.7,
+      "costo_vs_median_it": 17.2,
+      "costo_vs_median_reg": 11.0,
       "delta_rd_22_24": 1.11,
       "hook": {
         "key": "below_target",
         "text": "A -4.1 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -13.84
+      "rd_vs_median_pop": -13.84,
+      "costo_vs_median_pop": 3.6
     },
     "verolengo": {
       "id": "verolengo",
@@ -6502,6 +7306,7 @@
       "rd_pct": 68.73,
       "kg_ru_ab": 432.1,
       "kg_ind_ab": 135.1,
+      "costo_tot_ab": 175.07,
       "mix_rd_pct": {
         "umida": 22.37,
         "carta": 16.42,
@@ -6524,13 +7329,16 @@
       "kg_ind_better_pctile_it": 36.4,
       "kg_ind_vs_median_it": 21.8,
       "kg_ind_vs_median_reg": 2.7,
+      "costo_vs_median_it": 5.1,
+      "costo_vs_median_reg": -1.1,
       "delta_rd_22_24": -1.45,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +3.7 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -6.95
+      "rd_vs_median_pop": -6.95,
+      "costo_vs_median_pop": 20.9
     },
     "verrua-savoia": {
       "id": "verrua-savoia",
@@ -6544,6 +7352,7 @@
       "rd_pct": 65.04,
       "kg_ru_ab": 428.1,
       "kg_ind_ab": 149.7,
+      "costo_tot_ab": 171.01,
       "mix_rd_pct": {
         "umida": 20.51,
         "carta": 15.86,
@@ -6566,13 +7375,16 @@
       "kg_ind_better_pctile_it": 30.1,
       "kg_ind_vs_median_it": 36.4,
       "kg_ind_vs_median_reg": 17.3,
+      "costo_vs_median_it": 1.0,
+      "costo_vs_median_reg": -5.2,
       "delta_rd_22_24": -2.86,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +0.0 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -8.02
+      "rd_vs_median_pop": -8.02,
+      "costo_vs_median_pop": 12.1
     },
     "vidracco": {
       "id": "vidracco",
@@ -6586,6 +7398,7 @@
       "rd_pct": 50.66,
       "kg_ru_ab": 437.1,
       "kg_ind_ab": 214.9,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 0.71,
         "carta": 26.65,
@@ -6608,13 +7421,16 @@
       "kg_ind_better_pctile_it": 14.7,
       "kg_ind_vs_median_it": 101.6,
       "kg_ind_vs_median_reg": 82.5,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": 3.2,
       "hook": {
         "key": "below_target",
         "text": "A -14.3 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -16.85
+      "rd_vs_median_pop": -16.85,
+      "costo_vs_median_pop": null
     },
     "villar-dora": {
       "id": "villar-dora",
@@ -6628,6 +7444,7 @@
       "rd_pct": 71.99,
       "kg_ru_ab": 648.9,
       "kg_ind_ab": 181.8,
+      "costo_tot_ab": 171.28,
       "mix_rd_pct": {
         "umida": 9.84,
         "carta": 14.04,
@@ -6650,13 +7467,16 @@
       "kg_ind_better_pctile_it": 20.7,
       "kg_ind_vs_median_it": 68.5,
       "kg_ind_vs_median_reg": 49.4,
+      "costo_vs_median_it": 1.3,
+      "costo_vs_median_reg": -4.9,
       "delta_rd_22_24": -1.46,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +7.0 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -3.69
+      "rd_vs_median_pop": -3.69,
+      "costo_vs_median_pop": 17.2
     },
     "villar-focchiardo": {
       "id": "villar-focchiardo",
@@ -6670,6 +7490,7 @@
       "rd_pct": 80.62,
       "kg_ru_ab": 448.4,
       "kg_ind_ab": 86.9,
+      "costo_tot_ab": 119.9,
       "mix_rd_pct": {
         "umida": 24.78,
         "carta": 10.88,
@@ -6692,13 +7513,16 @@
       "kg_ind_better_pctile_it": 68.6,
       "kg_ind_vs_median_it": -26.4,
       "kg_ind_vs_median_reg": -45.5,
+      "costo_vs_median_it": -50.1,
+      "costo_vs_median_reg": -56.3,
       "delta_rd_22_24": 2.59,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +15.6 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": 7.56
+      "rd_vs_median_pop": 7.56,
+      "costo_vs_median_pop": -39.0
     },
     "villarbasse": {
       "id": "villarbasse",
@@ -6712,6 +7536,7 @@
       "rd_pct": 75.53,
       "kg_ru_ab": 529.7,
       "kg_ind_ab": 129.6,
+      "costo_tot_ab": 193.82,
       "mix_rd_pct": {
         "umida": 18.62,
         "carta": 13.36,
@@ -6734,13 +7559,16 @@
       "kg_ind_better_pctile_it": 39.2,
       "kg_ind_vs_median_it": 16.3,
       "kg_ind_vs_median_reg": -2.8,
+      "costo_vs_median_it": 23.8,
+      "costo_vs_median_reg": 17.6,
       "delta_rd_22_24": 0.93,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.5 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": -0.15
+      "rd_vs_median_pop": -0.15,
+      "costo_vs_median_pop": 39.7
     },
     "villastellone": {
       "id": "villastellone",
@@ -6754,6 +7582,7 @@
       "rd_pct": 86.0,
       "kg_ru_ab": 619.1,
       "kg_ind_ab": 86.7,
+      "costo_tot_ab": 197.58,
       "mix_rd_pct": {
         "umida": 16.6,
         "carta": 12.77,
@@ -6776,13 +7605,16 @@
       "kg_ind_better_pctile_it": 68.7,
       "kg_ind_vs_median_it": -26.6,
       "kg_ind_vs_median_reg": -45.7,
+      "costo_vs_median_it": 27.6,
+      "costo_vs_median_reg": 21.4,
       "delta_rd_22_24": 9.76,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +21.0 punti percentuali"
       },
       "pop_cluster_id": "p2",
-      "rd_vs_median_pop": 10.32
+      "rd_vs_median_pop": 10.32,
+      "costo_vs_median_pop": 43.5
     },
     "vinovo": {
       "id": "vinovo",
@@ -6796,6 +7628,7 @@
       "rd_pct": 75.53,
       "kg_ru_ab": 531.4,
       "kg_ind_ab": 130.0,
+      "costo_tot_ab": 161.61,
       "mix_rd_pct": {
         "umida": 18.11,
         "carta": 15.23,
@@ -6818,13 +7651,16 @@
       "kg_ind_better_pctile_it": 38.8,
       "kg_ind_vs_median_it": 16.7,
       "kg_ind_vs_median_reg": -2.4,
+      "costo_vs_median_it": -8.4,
+      "costo_vs_median_reg": -14.6,
       "delta_rd_22_24": 7.68,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +10.5 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": 0.78
+      "rd_vs_median_pop": 0.78,
+      "costo_vs_median_pop": -22.0
     },
     "virle-piemonte": {
       "id": "virle-piemonte",
@@ -6838,6 +7674,7 @@
       "rd_pct": 70.71,
       "kg_ru_ab": 409.9,
       "kg_ind_ab": 120.1,
+      "costo_tot_ab": 171.99,
       "mix_rd_pct": {
         "umida": 29.6,
         "carta": 13.7,
@@ -6860,13 +7697,16 @@
       "kg_ind_better_pctile_it": 45.2,
       "kg_ind_vs_median_it": 6.8,
       "kg_ind_vs_median_reg": -12.3,
+      "costo_vs_median_it": 2.0,
+      "costo_vs_median_reg": -4.2,
       "delta_rd_22_24": -0.34,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.7 punti percentuali"
       },
       "pop_cluster_id": "p1",
-      "rd_vs_median_pop": -2.35
+      "rd_vs_median_pop": -2.35,
+      "costo_vs_median_pop": 13.1
     },
     "vistrorio": {
       "id": "vistrorio",
@@ -6880,6 +7720,7 @@
       "rd_pct": 48.57,
       "kg_ru_ab": 259.0,
       "kg_ind_ab": 131.3,
+      "costo_tot_ab": null,
       "mix_rd_pct": {
         "umida": 4.77,
         "carta": 28.33,
@@ -6902,13 +7743,16 @@
       "kg_ind_better_pctile_it": 38.1,
       "kg_ind_vs_median_it": 18.0,
       "kg_ind_vs_median_reg": -1.1,
+      "costo_vs_median_it": null,
+      "costo_vs_median_reg": null,
       "delta_rd_22_24": -3.1,
       "hook": {
         "key": "below_target",
         "text": "A -16.4 punti percentuali dall'obiettivo nazionale del 65%"
       },
       "pop_cluster_id": "p0",
-      "rd_vs_median_pop": -18.94
+      "rd_vs_median_pop": -18.94,
+      "costo_vs_median_pop": null
     },
     "volpiano": {
       "id": "volpiano",
@@ -6922,6 +7766,7 @@
       "rd_pct": 70.92,
       "kg_ru_ab": 659.6,
       "kg_ind_ab": 191.8,
+      "costo_tot_ab": 230.81,
       "mix_rd_pct": {
         "umida": 16.31,
         "carta": 34.84,
@@ -6944,13 +7789,16 @@
       "kg_ind_better_pctile_it": 18.7,
       "kg_ind_vs_median_it": 78.5,
       "kg_ind_vs_median_reg": 59.4,
+      "costo_vs_median_it": 60.8,
+      "costo_vs_median_reg": 54.6,
       "delta_rd_22_24": 6.74,
       "hook": {
         "key": "target_met",
         "text": "Obiettivo 65% raggiunto · +5.9 punti percentuali"
       },
       "pop_cluster_id": "p3",
-      "rd_vs_median_pop": -3.83
+      "rd_vs_median_pop": -3.83,
+      "costo_vs_median_pop": 47.2
     }
   }
 }

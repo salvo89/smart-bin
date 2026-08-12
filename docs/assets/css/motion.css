@@ -1,0 +1,93 @@
+/*
+ * Escilo block motion — transizione scale-fade su card/sezioni.
+ *
+ * Nuovi blocchi: class="escilo-block" (o classe registrata: .card, .section, .hero, …).
+ * Default: scale-fade (anche senza data-block-motion sul body).
+ */
+
+@keyframes escilo-scale-fade {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes escilo-overlay-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.escilo-block,
+.hero,
+.week-card,
+a.stats-teaser.is-visible,
+.intro,
+.section,
+.kpi-card,
+.hero-kpi,
+.card,
+.ispr-box,
+.note,
+.provider:not(.skeleton),
+.gate-panel-body--card,
+.prod-bin,
+.mix-bin,
+.cal-empty-card,
+.comuni-grid > li {
+  animation: escilo-scale-fade var(--motion-enter) var(--motion-ease) both;
+}
+
+.install-sheet-card,
+.gate-picker-sheet,
+.stats-sheet-card {
+  animation: escilo-overlay-rise var(--motion-enter-fast) var(--motion-ease-out) both;
+}
+
+/* Stagger: Home */
+#panelHome > .hero { animation-delay: 0ms; }
+#panelHome > .week-card { animation-delay: var(--motion-stagger); }
+#panelHome > .stats-teaser.is-visible { animation-delay: calc(var(--motion-stagger) * 2); }
+
+/* Stagger: Stats (contenuto caricato async) */
+#content[hidden] :is(.intro, .hero-kpi, .section, .prod-bin, .mix-bin) {
+  animation: none !important;
+}
+#content.escilo-enter > .intro { animation-delay: 0ms; }
+#content.escilo-enter > .hero-kpi { animation-delay: var(--motion-stagger); }
+#content.escilo-enter > .section:nth-of-type(1) { animation-delay: calc(var(--motion-stagger) * 2); }
+#content.escilo-enter > .section:nth-of-type(2) { animation-delay: calc(var(--motion-stagger) * 3); }
+#content.escilo-enter > .section:nth-of-type(3) { animation-delay: calc(var(--motion-stagger) * 4); }
+#content.escilo-enter .prod-bins .prod-bin:nth-child(1) { animation-delay: calc(var(--motion-stagger) * 2); }
+#content.escilo-enter .prod-bins .prod-bin:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 3); }
+#content.escilo-enter .prod-bins .prod-bin:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 4); }
+#content.escilo-enter .prod-bins .prod-bin:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 5); }
+#content.escilo-enter .mix-bins .mix-bin:nth-child(1) { animation-delay: calc(var(--motion-stagger) * 4); }
+#content.escilo-enter .mix-bins .mix-bin:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 4.4); }
+#content.escilo-enter .mix-bins .mix-bin:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 4.8); }
+#content.escilo-enter .mix-bins .mix-bin:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 5.2); }
+#content.escilo-enter .mix-bins .mix-bin:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 5.6); }
+#content.escilo-enter .mix-bins .mix-bin:nth-child(6) { animation-delay: calc(var(--motion-stagger) * 6); }
+
+/* Stagger: Fonti + landing comuni */
+.page > .intro { animation-delay: 0ms; }
+.page > .intro + .note { animation-delay: var(--motion-stagger); }
+.page > .ispr-box { animation-delay: calc(var(--motion-stagger) * 2); }
+.page > .card { animation-delay: var(--motion-stagger); }
+.page > .card + .note { animation-delay: calc(var(--motion-stagger) * 2); }
+#providers .provider:not(.skeleton) {
+  animation-delay: calc(var(--motion-stagger) * (3 + var(--block-i, 0)));
+}
+
+/* Stagger: elenco comuni */
+.comuni-grid > li:nth-child(1) { animation-delay: var(--motion-stagger); }
+.comuni-grid > li:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 2); }
+.comuni-grid > li:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 3); }
+.comuni-grid > li:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 4); }
+.comuni-grid > li:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 5); }
+.comuni-grid > li:nth-child(n+6) { animation-delay: calc(var(--motion-stagger) * 6); }
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.escilo-block, .hero, .week-card, a.stats-teaser.is-visible, .intro,
+    .section, .kpi-card, .hero-kpi, .card, .ispr-box, .note, .provider:not(.skeleton),
+    .gate-panel-body--card, .prod-bin, .mix-bin, .cal-empty-card, .comuni-grid > li,
+    .install-sheet-card, .gate-picker-sheet, .stats-sheet-card) {
+    animation: none !important;
+  }
+}

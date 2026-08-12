@@ -1,5 +1,5 @@
 /* Escilo — service worker: cache shell + zona selezionata + Web Push */
-const SHELL_CACHE = "escilo-shell-v36";
+const SHELL_CACHE = "escilo-shell-v55";
 const ZONE_CACHE = "escilo-zone-v1";
 const PRECACHE = [
   "./",
@@ -18,12 +18,12 @@ const PRECACHE = [
   "./assets/img/landing/calendar.jpg",
   "./manifest.webmanifest",
   "./assets/css/tokens.css",
-  "./assets/css/chrome.css?v=26",
-  "./assets/css/app.css?v=26",
-  "./assets/css/stats.css?v=28",
+  "./assets/css/chrome.css?v=27",
+  "./assets/css/app.css?v=27",
+  "./assets/css/stats.css?v=58",
   "./assets/css/seo.css?v=18",
   "./assets/js/boot.js",
-  "./assets/js/stats.js?v=28",
+  "./assets/js/stats.js?v=66",
   "./assets/js/fonti.js?v=18",
   "./assets/js/app-core.js",
   "./assets/js/state.js",
@@ -32,8 +32,11 @@ const PRECACHE = [
   "./assets/js/shared/ios-bar.js",
   "./assets/js/shared/storage.js",
   "./assets/js/shared/share.js",
-  "./assets/js/share/stats-cards.js?v=28",
+  "./assets/js/share/stats-cards.js?v=43",
   "./assets/js/share/stats-share-ui.js",
+  "./assets/js/share/mix-variants.js",
+  "./assets/js/share/mix-helpers.js",
+  "./assets/js/share/prod-variants.js",
   "./assets/js/data/zones.js",
   "./assets/js/data/ispr.js",
   "./assets/js/data/calendar-model.js",

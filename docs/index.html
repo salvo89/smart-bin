@@ -45,14 +45,14 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/tokens.css" />
-  <link rel="stylesheet" href="assets/css/chrome.css?v=26" />
-  <link rel="stylesheet" href="assets/css/app.css?v=26" />
+  <link rel="stylesheet" href="assets/css/chrome.css?v=28" />
+  <link rel="stylesheet" href="assets/css/app.css?v=28" />
   <script>
     /* Evita flash della shell app sotto il gate (boot + resize mobile). */
     document.documentElement.classList.add("is-gated");
   </script>
 </head>
-<body>
+<body data-block-motion="scale-fade">
   <section class="visually-hidden" aria-label="Informazioni Escilo">
     <h2>Raccolta differenziata e dati ISPRA</h2>
     <p>
@@ -225,6 +225,21 @@
 
     <section class="panel active" id="panelHome" data-panel="home" aria-label="Home">
       <section class="hero" id="hero" aria-labelledby="heroTitle">
+        <button
+          type="button"
+          class="hero-card-share-btn"
+          id="btnShareHero"
+          hidden
+          aria-label="Condividi pagina"
+          title="Condividi"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+          </svg>
+        </button>
         <p class="eyebrow">Domani</p>
         <h2 id="heroTitle">—</h2>
         <p class="when" id="heroWhen">—</p>
