@@ -1,0 +1,222 @@
+{
+  "generatedAt": "2026-08-13",
+  "sourceBoundaries": "guglielmo/geojson-italy (CC-BY, ISTAT)",
+  "sourceKpi": "ISPRA Catasto rifiuti",
+  "italy": {
+    "pop": 58908012,
+    "nc": 7899,
+    "nrd": 7876,
+    "rd": 67.96,
+    "co": 214.97,
+    "kru": 507.94,
+    "kin": 163.28,
+    "drd": 2.08,
+    "km2": 301747.8,
+    "dens": 195.2
+  },
+  "macros": [
+    {
+      "id": "nord",
+      "n": "Nord",
+      "pop": 27502439,
+      "nc": 4380,
+      "nrd": 4372,
+      "rd": 74.37,
+      "co": 187.91,
+      "kru": 533.62,
+      "kin": 137.21,
+      "drd": 2.12,
+      "nr": 8,
+      "km2": 120338.4,
+      "dens": 228.5
+    },
+    {
+      "id": "centro",
+      "n": "Centro",
+      "pop": 11704022,
+      "nc": 968,
+      "nrd": 967,
+      "rd": 64.0,
+      "co": 256.72,
+      "kru": 538.22,
+      "kin": 197.03,
+      "drd": 1.72,
+      "nr": 4,
+      "km2": 58045.4,
+      "dens": 201.6
+    },
+    {
+      "id": "sud",
+      "n": "Sud",
+      "pop": 19701551,
+      "nc": 2551,
+      "nrd": 2537,
+      "rd": 61.36,
+      "co": 229.18,
+      "kru": 454.11,
+      "kin": 179.63,
+      "drd": 2.22,
+      "nr": 8,
+      "km2": 123364.0,
+      "dens": 159.7
+    }
+  ],
+  "regions": [
+    {
+      "id": "piemonte",
+      "n": "Piemonte",
+      "macro": "nord",
+      "file": "comuni/piemonte.json"
+    },
+    {
+      "id": "valle-d-aosta",
+      "n": "Valle d'Aosta",
+      "macro": "nord",
+      "file": "comuni/valle-d-aosta.json"
+    },
+    {
+      "id": "lombardia",
+      "n": "Lombardia",
+      "macro": "nord",
+      "file": "comuni/lombardia.json"
+    },
+    {
+      "id": "trentino-alto-adige",
+      "n": "Trentino-Alto Adige",
+      "macro": "nord",
+      "file": "comuni/trentino-alto-adige.json"
+    },
+    {
+      "id": "veneto",
+      "n": "Veneto",
+      "macro": "nord",
+      "file": "comuni/veneto.json"
+    },
+    {
+      "id": "friuli-venezia-giulia",
+      "n": "Friuli-Venezia Giulia",
+      "macro": "nord",
+      "file": "comuni/friuli-venezia-giulia.json"
+    },
+    {
+      "id": "liguria",
+      "n": "Liguria",
+      "macro": "nord",
+      "file": "comuni/liguria.json"
+    },
+    {
+      "id": "emilia-romagna",
+      "n": "Emilia-Romagna",
+      "macro": "nord",
+      "file": "comuni/emilia-romagna.json"
+    },
+    {
+      "id": "toscana",
+      "n": "Toscana",
+      "macro": "centro",
+      "file": "comuni/toscana.json"
+    },
+    {
+      "id": "umbria",
+      "n": "Umbria",
+      "macro": "centro",
+      "file": "comuni/umbria.json"
+    },
+    {
+      "id": "marche",
+      "n": "Marche",
+      "macro": "centro",
+      "file": "comuni/marche.json"
+    },
+    {
+      "id": "lazio",
+      "n": "Lazio",
+      "macro": "centro",
+      "file": "comuni/lazio.json"
+    },
+    {
+      "id": "abruzzo",
+      "n": "Abruzzo",
+      "macro": "sud",
+      "file": "comuni/abruzzo.json"
+    },
+    {
+      "id": "molise",
+      "n": "Molise",
+      "macro": "sud",
+      "file": "comuni/molise.json"
+    },
+    {
+      "id": "campania",
+      "n": "Campania",
+      "macro": "sud",
+      "file": "comuni/campania.json"
+    },
+    {
+      "id": "puglia",
+      "n": "Puglia",
+      "macro": "sud",
+      "file": "comuni/puglia.json"
+    },
+    {
+      "id": "basilicata",
+      "n": "Basilicata",
+      "macro": "sud",
+      "file": "comuni/basilicata.json"
+    },
+    {
+      "id": "calabria",
+      "n": "Calabria",
+      "macro": "sud",
+      "file": "comuni/calabria.json"
+    },
+    {
+      "id": "sicilia",
+      "n": "Sicilia",
+      "macro": "sud",
+      "file": "comuni/sicilia.json"
+    },
+    {
+      "id": "sardegna",
+      "n": "Sardegna",
+      "macro": "sud",
+      "file": "comuni/sardegna.json"
+    }
+  ],
+  "matchedIspr": 7876,
+  "withRdPct": 7876,
+  "layers": [
+    {
+      "key": "rd",
+      "label": "Raccolta differenziata",
+      "unit": "%"
+    },
+    {
+      "key": "co",
+      "label": "Costo gestione",
+      "unit": "€/ab·anno"
+    },
+    {
+      "key": "kru",
+      "label": "Rifiuto urbano",
+      "unit": "kg/ab·anno"
+    },
+    {
+      "key": "kin",
+      "label": "Indifferenziato",
+      "unit": "kg/ab·anno"
+    },
+    {
+      "key": "drd",
+      "label": "Variazione RD 2022–2024",
+      "unit": "%"
+    },
+    {
+      "key": "pop",
+      "label": "Popolazione",
+      "unit": "ab/km²",
+      "note": "bolle = abitanti, colore = densità"
+    }
+  ],
+  "provinceCount": 107
+}

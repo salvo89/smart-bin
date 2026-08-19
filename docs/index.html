@@ -46,7 +46,7 @@
   </script>
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/chrome.css?v=28" />
-  <link rel="stylesheet" href="assets/css/app.css?v=28" />
+  <link rel="stylesheet" href="assets/css/app.css?v=31" />
   <script>
     /* Evita flash della shell app sotto il gate (boot + resize mobile). */
     document.documentElement.classList.add("is-gated");
@@ -309,14 +309,17 @@
     </section>
 
     <section class="panel" id="panelCal" data-panel="cal" aria-label="Calendario">
-      <div class="cal-wrap" id="calWrap">
-        <div class="cal-toolbar">
-          <p class="cal-title" id="calTitle">—</p>
-          <div class="cal-nav">
-            <button type="button" id="btnCalPrev" aria-label="Mese precedente">←</button>
-            <button type="button" id="btnCalToday" title="Vai al mese corrente">Oggi</button>
-            <button type="button" id="btnCalNext" aria-label="Mese successivo">→</button>
-          </div>
+      <section class="week-card cal-card" id="calWrap" aria-labelledby="calSectionTitle">
+        <div class="week-head">
+          <h2 class="box-title" id="calSectionTitle">Calendario mensile</h2>
+          <button type="button" class="week-goto-cal" id="btnCalToday" title="Vai al mese corrente">
+            <span>Oggi</span>
+          </button>
+        </div>
+        <div class="cal-month-row">
+          <button type="button" class="cal-month-nav" id="btnCalPrev" aria-label="Mese precedente">‹</button>
+          <p class="cal-month" id="calTitle">—</p>
+          <button type="button" class="cal-month-nav" id="btnCalNext" aria-label="Mese successivo">›</button>
         </div>
         <div class="cal-viewport" id="calViewport">
           <div class="cal-slide" id="calSlide">
@@ -346,17 +349,17 @@
           <span><i class="tag-v" aria-hidden="true"></i><span class="name">Verde</span></span>
           <span><i class="tag-g" aria-hidden="true"></i><span class="name">Vetro</span></span>
         </div>
-        <p class="data-source">
-          <span class="footer-source" hidden></span>
-          <a href="fonti.html">Fonti</a>
-          <span class="sep">&middot;</span>
-          <a href="comuni/">Comuni</a>
-          <span class="sep">&middot;</span>
-          <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala</a>
-          <span class="sep">&middot;</span>
-          <button type="button" class="share-link" data-share>Condividi</button>
-        </p>
-      </div>
+      </section>
+      <p class="data-source">
+        <span class="footer-source" hidden></span>
+        <a href="fonti.html">Fonti</a>
+        <span class="sep">&middot;</span>
+        <a href="comuni/">Comuni</a>
+        <span class="sep">&middot;</span>
+        <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala</a>
+        <span class="sep">&middot;</span>
+        <button type="button" class="share-link" data-share>Condividi</button>
+      </p>
     </section>
 
   </div>

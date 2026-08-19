@@ -21,6 +21,12 @@ const mustExist = [
   "docs/data/ispr/directory.json",
   "docs/data/ispr/c/chieri.json",
   "docs/stats.html",
+  "docs/mappa.html",
+  "docs/data/map/meta.json",
+  "docs/data/map/macro.geojson",
+  "docs/data/map/regioni.geojson",
+  "docs/data/map/province.geojson",
+  "docs/data/map/comuni/piemonte.json",
   "docs/robots.txt",
   "docs/sitemap.xml",
   "docs/llms.txt",
@@ -116,6 +122,7 @@ for (const needle of [
   "data/ispr/c/",
   "data/ispr/comuni-by-id.json",
   "initialComuneFromUrl",
+  "data/map/province.geojson",
 ]) {
   if (!appJs.includes(needle)) {
     console.error("assets/js missing", needle);
@@ -129,9 +136,11 @@ for (const rel of [
   "docs/assets/css/app.css",
   "docs/assets/css/seo.css",
   "docs/assets/css/stats.css",
+  "docs/assets/css/mappa.css",
   "docs/assets/js/boot.js",
   "docs/assets/js/fonti.js",
   "docs/assets/js/stats.js",
+  "docs/assets/js/mappa.js",
 ]) {
   try {
     await readFile(join(root, rel));
@@ -208,6 +217,10 @@ if (!toml.includes("build_seo_pages.py")) {
   console.error("netlify.toml missing SEO build step");
   failed += 1;
 }
+if (!toml.includes("build_map_data.py")) {
+  console.error("netlify.toml missing map build step");
+  failed += 1;
+}
 
 const robots = await readFile(join(root, "docs/robots.txt"), "utf8");
 if (!robots.includes("Sitemap: https://escilo.it/sitemap.xml")) {
@@ -228,6 +241,10 @@ if (!sitemap.includes("https://escilo.it/stats.html")) {
   console.error("sitemap.xml missing stats.html");
   failed += 1;
 }
+if (!sitemap.includes("https://escilo.it/mappa.html")) {
+  console.error("sitemap.xml missing mappa.html");
+  failed += 1;
+}
 
 const llms = await readFile(join(root, "docs/llms.txt"), "utf8");
 if (!llms.includes("llms-full.txt") || !llms.includes("calendars/index.json")) {
@@ -236,6 +253,14 @@ if (!llms.includes("llms-full.txt") || !llms.includes("calendars/index.json")) {
 }
 if (!llms.includes("stats.html") || !llms.includes("data/ispr/comuni-by-id.json")) {
   console.error("llms.txt missing ISPRA stats links");
+  failed += 1;
+}
+if (!llms.includes("mappa.html")) {
+  console.error("llms.txt missing mappa.html");
+  failed += 1;
+}
+if (!llms.includes("data/map/province.geojson")) {
+  console.error("llms.txt missing province.geojson");
   failed += 1;
 }
 if (!llms.includes("data/ispr/directory.json") || !llms.includes("data/ispr/c/")) {

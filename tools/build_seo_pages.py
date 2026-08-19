@@ -249,6 +249,7 @@ def write_sitemap(comuni: list[dict], today: str) -> None:
         ("/", "1.0"),
         ("/fonti.html", "0.6"),
         ("/stats.html", "0.6"),
+        ("/mappa.html", "0.65"),
         ("/comuni/", "0.8"),
     ]
     for c in comuni:
@@ -314,6 +315,7 @@ Site: {SITE}/
 - [Elenco comuni]({SITE}/comuni/): landing SEO per ogni comune
 - [Fonti]({SITE}/fonti.html): gestori e link ufficiali
 - [Statistiche ISPRA]({SITE}/stats.html): raccolta differenziata e confronti nazionali per il comune scelto
+- [Mappa ISPRA]({SITE}/mappa.html): Nord, Centro, Sud, poi regioni e province (Catasto rifiuti)
 - [Catalogo completo per agent]({SITE}/llms-full.txt)
 
 ## Dati machine-readable
@@ -321,7 +323,12 @@ Site: {SITE}/
 - [Indice zone e calendari]({SITE}/calendars/index.json)
 - [Fonti lite (provider + URL)]({SITE}/calendars/sources-lite.json)
 - [KPI ISPRA precalcolati (comuni Escilo)]({SITE}/data/ispr/comuni-by-id.json)
+- [Directory ISPRA (tutti i comuni)]({SITE}/data/ispr/directory.json)
+- [KPI ISPRA per comune]({SITE}/data/ispr/c/{{id}}.json)
 - [Baseline nazionali ISPRA]({SITE}/data/ispr/baselines-it.json)
+- [Mappa macro-aree (GeoJSON + KPI)]({SITE}/data/map/macro.geojson)
+- [Mappa regioni (GeoJSON + KPI)]({SITE}/data/map/regioni.geojson)
+- [Mappa province (GeoJSON + KPI)]({SITE}/data/map/province.geojson)
 - [Sitemap]({SITE}/sitemap.xml)
 
 ## Note per gli agent

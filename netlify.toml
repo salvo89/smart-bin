@@ -4,7 +4,7 @@
 
 [build]
   publish = "docs"
-  command = "npm install && python3 tools/build_seo_pages.py"
+  command = "npm install && pip3 install shapely && python3 tools/build_map_data.py && python3 tools/build_seo_pages.py"
   functions = "netlify/functions"
 
 [functions]
@@ -60,6 +60,12 @@
 # Indici JSON (index / sources / sources-lite): cache CDN 1h
 [[headers]]
   for = "/calendars/*.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/data/map/*"
   [headers.values]
     Content-Type = "application/json; charset=utf-8"
     Cache-Control = "public, max-age=3600"

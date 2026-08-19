@@ -740,6 +740,104 @@ function closePopClustersSheet() {
   if (btn) btn.focus();
 }
 
+function slugifyRegion(name) {
+  let s = String(name || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  if (s.indexOf("trentino") === 0) return "trentino-alto-adige";
+  if (s.indexOf("valle-d-aosta") === 0 || s.indexOf("valle-daosta") === 0) {
+    return "valle-d-aosta";
+  }
+  return s;
+}
+
+function mapHrefFromRec(rec) {
+  if (!rec) return "mappa.html";
+  const q = new URLSearchParams();
+  if (rec.id) q.set("comune", rec.id);
+  const rs = slugifyRegion(rec.regione);
+  if (rs) q.set("regione", rs);
+  const s = q.toString();
+  return s ? "mappa.html?" + s : "mappa.html";
+}
+
+function openMapFromKpi() {
+  const href = mapHrefFromRec(kpiCtx.rec);
+  const card = $("kpiCard");
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!card || reduce) {
+    location.href = href;
+    return;
+  }
+  if (card.classList.contains("is-opening-map")) return;
+  card.classList.add("is-opening-map");
+  window.setTimeout(function () {
+    location.href = href;
+  }, 280);
+}
+
+function bindMapFromKpi() {
+  const card = $("kpiCard");
+  const valueRow = card && card.querySelector(".kpi-value-row");
+  if (!card || card.dataset.mapBound === "1") return;
+  card.dataset.mapBound = "1";
+
+  if (!valueRow) return;
+
+  let startX = 0;
+  let startY = 0;
+  let tracking = false;
+  const SWIPE = 56;
+
+  function resetSwipe() {
+    tracking = false;
+    card.classList.remove("is-swiping");
+    card.style.removeProperty("--kpi-swipe");
+  }
+
+  valueRow.addEventListener("pointerdown", function (ev) {
+    if (ev.button != null && ev.button !== 0) return;
+    startX = ev.clientX;
+    startY = ev.clientY;
+    tracking = true;
+    try {
+      valueRow.setPointerCapture(ev.pointerId);
+    } catch {
+      /* ignore */
+    }
+  });
+
+  valueRow.addEventListener("pointermove", function (ev) {
+    if (!tracking) return;
+    const dx = ev.clientX - startX;
+    const dy = ev.clientY - startY;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      card.classList.add("is-swiping");
+      card.style.setProperty("--kpi-swipe", Math.max(-72, Math.min(72, dx)) + "px");
+    }
+  });
+
+  valueRow.addEventListener("pointerup", function (ev) {
+    if (!tracking) {
+      resetSwipe();
+      return;
+    }
+    const dx = ev.clientX - startX;
+    const dy = ev.clientY - startY;
+    resetSwipe();
+    if (Math.abs(dx) >= SWIPE && Math.abs(dx) > Math.abs(dy) * 1.25) {
+      openMapFromKpi();
+    }
+  });
+
+  valueRow.addEventListener("pointercancel", resetSwipe);
+}
+
 function bindPopClustersSheet() {
   const btn = $("btnPopClusters");
   const sheet = $("popClustersSheet");
@@ -784,6 +882,7 @@ function render(rec, baselines) {
   }
 
   renderKpi(rec, baselines || {});
+  bindMapFromKpi();
 
   const delta = rec.delta_rd_22_24;
   renderSpark(rec.series_rd || {}, delta);

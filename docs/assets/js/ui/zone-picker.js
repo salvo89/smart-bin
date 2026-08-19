@@ -17,7 +17,17 @@ function normalizeSearch(s) {
     .trim();
 }
 
-/** @typedef {{ value: string, label: string, calendar?: string, hasCalendar?: boolean, provincia?: string, istat?: string }} ZonePickerItem */
+/** @typedef {{ value: string, label: string, name?: string, calendar?: string, hasCalendar?: boolean, provincia?: string, istat?: string }} ZonePickerItem */
+
+function itemSearchText(it) {
+  return it.name || it.label;
+}
+
+function searchRank(normalizedName, q) {
+  if (normalizedName === q) return 0;
+  if (normalizedName.startsWith(q)) return 1;
+  return 2;
+}
 
 /**
  * @typedef {{
@@ -85,7 +95,17 @@ export function createZonePicker(config) {
   function matchingItems(filter) {
     const q = normalizeSearch(filter);
     if (!q) return items.slice(0, 80);
-    return items.filter((it) => normalizeSearch(it.label).includes(q)).slice(0, 80);
+    const matched = items.filter((it) =>
+      normalizeSearch(itemSearchText(it)).includes(q)
+    );
+    matched.sort((a, b) => {
+      const na = normalizeSearch(itemSearchText(a));
+      const nb = normalizeSearch(itemSearchText(b));
+      const rank = searchRank(na, q) - searchRank(nb, q);
+      if (rank) return rank;
+      return itemSearchText(a).localeCompare(itemSearchText(b), "it");
+    });
+    return matched.slice(0, 80);
   }
 
   function visibleOptions() {
@@ -269,6 +289,7 @@ export function populateComuneSelect() {
     .sort((a, b) => a.name.localeCompare(b.name, "it"))
     .map((c) => ({
       value: c.id,
+      name: c.name,
       label: c.provincia ? c.name + " (" + c.provincia + ")" : c.name,
       hasCalendar: !!c.hasCalendar,
       provincia: c.provincia,

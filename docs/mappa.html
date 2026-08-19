@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f5c42" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
+  <title>Escilo — mappa differenziata ISPRA Nord, Centro, Sud</title>
+  <meta name="description" content="Mappa ISPRA d'Italia: confronto Nord, Centro e Sud sulla raccolta differenziata, poi regioni e province. Dati Catasto rifiuti." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://escilo.it/mappa.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Escilo" />
+  <meta property="og:title" content="Escilo — mappa differenziata ISPRA Nord, Centro, Sud" />
+  <meta property="og:description" content="Esplora i KPI ISPRA partendo da tre macro-aree, poi regioni e province." />
+  <meta property="og:url" content="https://escilo.it/mappa.html" />
+  <meta property="og:image" content="https://escilo.it/icon-512.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Escilo — mappa differenziata ISPRA Nord, Centro, Sud" />
+  <meta name="twitter:description" content="Confronto Nord, Centro e Sud, poi regioni e province, sui dati ISPRA." />
+  <meta name="twitter:image" content="https://escilo.it/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Mappa differenziata ISPRA — Escilo",
+    "url": "https://escilo.it/mappa.html",
+    "description": "Mappa ISPRA a tre livelli di dettaglio: Nord/Centro/Sud, regioni e province.",
+    "isPartOf": { "@type": "WebSite", "name": "Escilo", "url": "https://escilo.it/" },
+    "inLanguage": "it-IT"
+  }
+  </script>
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/chrome.css?v=29" />
+  <link rel="stylesheet" href="assets/css/mappa.css?v=36" />
+</head>
+<body data-block-motion="scale-fade">
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="stats.html">← Dati</a>
+    </header>
+
+    <div class="page-body">
+      <h1 class="visually-hidden" id="mapTitle">Mappa ISPRA</h1>
+
+      <p class="map-hint escilo-block" id="mapHint">Clicca un’area per le regioni · scorri per cambiare indicatore.</p>
+
+      <div class="map-shell escilo-block">
+        <nav class="map-nav" id="mapCrumb" aria-label="Livello mappa" hidden></nav>
+        <div class="map-viewport">
+          <div class="map-track" id="mapTrack">
+            <div id="map" role="application" aria-label="Mappa ISPRA Nord Centro Sud, regioni e province"></div>
+          </div>
+        </div>
+        <button type="button" class="map-edge prev" data-layer-step="-1" aria-label="Indicatore precedente">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <button type="button" class="map-edge next" data-layer-step="1" aria-label="Indicatore successivo">
+          <span aria-hidden="true">›</span>
+        </button>
+        <div class="map-status" id="mapStatus">Caricamento mappa…</div>
+        <div class="map-legend" id="mapLegend">
+          <div class="legend-picker" id="legendPicker"></div>
+          <div class="legend-scale" id="legendScale" aria-live="polite"></div>
+          <div class="map-carousel">
+            <div class="map-dots" id="mapDots" role="tablist" aria-label="Indicatore mappa">
+              <button type="button" role="tab" data-layer="rd" aria-label="Raccolta differenziata, percentuale" aria-selected="true"></button>
+              <button type="button" role="tab" data-layer="co" aria-label="Costo gestione, euro per abitante all'anno" aria-selected="false"></button>
+              <button type="button" role="tab" data-layer="kru" aria-label="Rifiuto urbano, chilogrammi per abitante all'anno" aria-selected="false"></button>
+              <button type="button" role="tab" data-layer="kin" aria-label="Indifferenziato, chilogrammi per abitante all'anno" aria-selected="false"></button>
+              <button type="button" role="tab" data-layer="drd" aria-label="Variazione RD 2022–2024, percentuale" aria-selected="false"></button>
+              <button type="button" role="tab" data-layer="pop" aria-label="Popolazione: bolle per abitanti, colore densità" aria-selected="false"></button>
+            </div>
+            <button type="button" class="map-autoplay" id="btnAutoplay" aria-pressed="true" aria-label="Ferma il cambio automatico">
+              <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+              <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="map-attrib escilo-block">
+        Confini amministrativi ISTAT via
+        <a class="ext-link" href="https://github.com/guglielmo/geojson-italy" target="_blank" rel="noopener noreferrer">geojson-italy<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>
+        (CC-BY). Medie ponderate sulla popolazione, dati
+        <a class="ext-link" href="https://www.catasto-rifiuti.isprambiente.it/" target="_blank" rel="noopener noreferrer">ISPRA Catasto rifiuti<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>.
+        Nord / Centro / Sud secondo le ripartizioni ISTAT (isole nel Sud).
+        Densità = abitanti / km² (superficie dai confini cartografici).
+      </p>
+    </div>
+
+    <p class="footer">
+      <a href="./">Home</a>
+      <span class="sep">&middot;</span>
+      <a href="stats.html">Dati</a>
+      <span class="sep">&middot;</span>
+      <a href="comuni/">Comuni</a>
+      <span class="sep">&middot;</span>
+      <a href="fonti.html">Fonti</a>
+      <span class="sep">&middot;</span>
+      <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20mappa%20ISPRA">Segnala</a>
+    </p>
+  </div>
+
+  <div class="map-panel" id="mapPanel">
+    <button type="button" class="map-panel-scrim" id="panelScrim" aria-label="Chiudi scheda"></button>
+    <aside class="map-sheet" id="mapSheet" role="dialog" aria-modal="true" aria-labelledby="panelName" hidden>
+      <div class="map-sheet-handle" aria-hidden="true"></div>
+      <header class="map-sheet-head">
+        <div class="map-sheet-title">
+          <h2 id="panelName">—</h2>
+          <p class="panel-meta" id="panelMeta"></p>
+        </div>
+        <button type="button" class="map-sheet-x" id="btnPanelClose" aria-label="Chiudi">
+          <span aria-hidden="true">×</span>
+        </button>
+      </header>
+      <div class="map-sheet-list" id="panelStats"></div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="assets/js/mappa.js?v=47"></script>
+</body>
+</html>

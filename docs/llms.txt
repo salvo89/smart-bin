@@ -12,6 +12,7 @@ Site: https://escilo.it/
 - [Elenco comuni](https://escilo.it/comuni/): landing SEO per ogni comune
 - [Fonti](https://escilo.it/fonti.html): gestori e link ufficiali
 - [Statistiche ISPRA](https://escilo.it/stats.html): raccolta differenziata e confronti nazionali per il comune scelto
+- [Mappa ISPRA](https://escilo.it/mappa.html): Nord, Centro, Sud, poi regioni e province (Catasto rifiuti)
 - [Catalogo completo per agent](https://escilo.it/llms-full.txt)
 
 ## Dati machine-readable
@@ -19,7 +20,12 @@ Site: https://escilo.it/
 - [Indice zone e calendari](https://escilo.it/calendars/index.json)
 - [Fonti lite (provider + URL)](https://escilo.it/calendars/sources-lite.json)
 - [KPI ISPRA precalcolati (comuni Escilo)](https://escilo.it/data/ispr/comuni-by-id.json)
+- [Directory ISPRA (tutti i comuni)](https://escilo.it/data/ispr/directory.json)
+- [KPI ISPRA per comune](https://escilo.it/data/ispr/c/{id}.json)
 - [Baseline nazionali ISPRA](https://escilo.it/data/ispr/baselines-it.json)
+- [Mappa macro-aree (GeoJSON + KPI)](https://escilo.it/data/map/macro.geojson)
+- [Mappa regioni (GeoJSON + KPI)](https://escilo.it/data/map/regioni.geojson)
+- [Mappa province (GeoJSON + KPI)](https://escilo.it/data/map/province.geojson)
 - [Sitemap](https://escilo.it/sitemap.xml)
 
 ## Note per gli agent

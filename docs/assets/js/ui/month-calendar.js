@@ -99,6 +99,11 @@ export function renderSkeletonMonth(y, m) {
   }
 }
 
+function setCalMonthTitle(y, m) {
+  const title = $("calTitle");
+  if (title) title.textContent = MONTH_IT[m - 1] + " " + y;
+}
+
 export function setMonthLoading(on) {
   const wrap = $("calWrap");
   const body = $("calBody");
@@ -108,8 +113,7 @@ export function setMonthLoading(on) {
     wrap.classList.remove("is-empty-month");
     body.classList.remove("is-empty");
     body.setAttribute("aria-busy", "true");
-    const title = MONTH_IT[state.viewMonth - 1] + " " + state.viewYear;
-    $("calTitle").textContent = title;
+    setCalMonthTitle(state.viewYear, state.viewMonth);
     renderSkeletonMonth(state.viewYear, state.viewMonth);
   } else {
     wrap.classList.remove("loading");
@@ -120,7 +124,7 @@ export function setMonthLoading(on) {
 export function loadMonth() {
   setMonthLoading(false);
   const title = MONTH_IT[state.viewMonth - 1] + " " + state.viewYear;
-  $("calTitle").textContent = title;
+  setCalMonthTitle(state.viewYear, state.viewMonth);
   const hasData = monthHasData(state.viewYear, state.viewMonth);
   const body = $("calBody");
   const wrap = $("calWrap");

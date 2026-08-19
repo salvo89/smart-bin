@@ -1,5 +1,5 @@
 /* Escilo — service worker: cache shell + zona selezionata + Web Push */
-const SHELL_CACHE = "escilo-shell-v55";
+const SHELL_CACHE = "escilo-shell-v56";
 const ZONE_CACHE = "escilo-zone-v1";
 const PRECACHE = [
   "./",

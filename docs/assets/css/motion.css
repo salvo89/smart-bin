@@ -36,7 +36,8 @@ a.stats-teaser.is-visible,
 
 .install-sheet-card,
 .gate-picker-sheet,
-.stats-sheet-card {
+.stats-sheet-card,
+.map-sheet {
   animation: escilo-overlay-rise var(--motion-enter-fast) var(--motion-ease-out) both;
 }
 
@@ -44,6 +45,9 @@ a.stats-teaser.is-visible,
 #panelHome > .hero { animation-delay: 0ms; }
 #panelHome > .week-card { animation-delay: var(--motion-stagger); }
 #panelHome > .stats-teaser.is-visible { animation-delay: calc(var(--motion-stagger) * 2); }
+
+/* Stagger: Calendario mensile */
+#panelCal > .cal-card { animation-delay: 0ms; }
 
 /* Stagger: Stats (contenuto caricato async) */
 #content[hidden] :is(.intro, .hero-kpi, .section, .prod-bin, .mix-bin) {
