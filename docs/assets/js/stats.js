@@ -6,8 +6,10 @@ import {
   LS_ACCESS_MODE,
   LS_ISTAT,
   ACCESS_STATS,
+  ACCESS_CALENDAR,
   contactMailto,
 } from "./shared/constants.js";
+import { normalizeCalendarBase } from "./data/zones.js";
 import { $ } from "./shared/dom.js";
 import { initIosBar } from "./shared/ios-bar.js";
 import { shareStatsPageLink } from "./shared/share.js";
@@ -75,6 +77,65 @@ function comuneIdFromUrl() {
 
 function resolveComuneId() {
   return comuneIdFromUrl() || localStorage.getItem(LS_COMUNE) || "";
+}
+
+function storedViaForComune(id) {
+  return localStorage.getItem(LS_COMUNE) === id && !!localStorage.getItem(LS_VIA);
+}
+
+function dropStaleVia(id) {
+  localStorage.setItem(LS_COMUNE, id);
+  localStorage.setItem(LS_ACCESS_MODE, ACCESS_STATS);
+  localStorage.removeItem(LS_VIA);
+  localStorage.removeItem(LS_CALENDAR);
+  localStorage.removeItem(LS_COMUNE_NAME);
+  localStorage.removeItem(LS_ISTAT);
+}
+
+async function comuneZonesEntry(id) {
+  if (!id) return null;
+  try {
+    const res = await fetch("calendars/index.json", { cache: "no-cache" });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return (data.comuni || []).find((c) => c.id === id) || null;
+  } catch {
+    return null;
+  }
+}
+
+/** Se il comune ha più zone, chiedi la via. Zona unica: salvala e resta sulle stats. */
+async function ensureZoneForStats(id) {
+  if (!comuneIdFromUrl() || !id) return true;
+  const comune = await comuneZonesEntry(id);
+  const vie = comune && Array.isArray(comune.vie) ? comune.vie : [];
+  if (!vie.length) {
+    if (localStorage.getItem(LS_COMUNE) !== id || localStorage.getItem(LS_VIA)) {
+      dropStaleVia(id);
+    }
+    return true;
+  }
+  if (storedViaForComune(id)) return true;
+  if (vie.length === 1) {
+    const v = vie[0];
+    const calendar = normalizeCalendarBase(v && v.calendar);
+    if (v && v.name && calendar) {
+      localStorage.setItem(LS_ACCESS_MODE, ACCESS_CALENDAR);
+      localStorage.setItem(LS_COMUNE, id);
+      if (comune.name) localStorage.setItem(LS_COMUNE_NAME, comune.name);
+      localStorage.setItem(LS_VIA, v.name);
+      localStorage.setItem(LS_CALENDAR, calendar);
+      return true;
+    }
+  }
+  location.replace("./?comune=" + encodeURIComponent(id) + "&next=stats");
+  return false;
+}
+
+function trendAxisLabel(idx, lastIdx) {
+  if (idx === lastIdx) return "ultimo";
+  const ago = lastIdx - idx;
+  return ago === 1 ? "−1 anno" : "−" + ago + " anni";
 }
 
 function renderSpark(series, delta) {
@@ -150,6 +211,7 @@ function renderSpark(series, delta) {
     (tone ? " " + tone : "");
 
   const lastIdx = plotted.length - 1;
+  const lastPlotI = plotted[lastIdx].i;
   const labels = plotted
     .map(function (p, idx) {
       const isEnd = idx === lastIdx;
@@ -175,7 +237,7 @@ function renderSpark(series, delta) {
         '" y="' +
         (H - 8) +
         '">' +
-        p.year +
+        trendAxisLabel(p.i, lastPlotI) +
         "</text>"
       );
     })
@@ -191,7 +253,7 @@ function renderSpark(series, delta) {
     deltaAria =
       (delta >= 0 ? "In crescita di " : "In calo di ") +
       abs +
-      "% dal 2022 al 2024.";
+      "% negli ultimi tre anni.";
 
     const badgeW = 74;
     const badgeH = 30;
@@ -232,7 +294,7 @@ function renderSpark(series, delta) {
       (badgeX + badgeW / 2).toFixed(1) +
       '" y="' +
       (badgeY + 24).toFixed(1) +
-      '">2022→2024</text>' +
+      '">3 anni</text>' +
       "</g></g>";
   }
 
@@ -255,7 +317,7 @@ function renderSpark(series, delta) {
     "Raccolta differenziata: " +
       plotted
         .map(function (p) {
-          return p.year + " " + fmtPct(p.v, 1);
+          return trendAxisLabel(p.i, lastPlotI) + " " + fmtPct(p.v, 1);
         })
         .join(", ") +
       (deltaAria ? ". " + deltaAria : "")
@@ -858,8 +920,6 @@ function render(rec, baselines) {
   const content = $("content");
   content.hidden = false;
   content.classList.add("escilo-enter");
-  const year = rec.year || 2024;
-  $("statsYear").textContent = String(year);
   $("statsTitle").textContent = "Come va a " + (rec.name || "questo comune");
   $("statsMeta").textContent = "Numero di abitanti " + fmtNum(rec.pop, 0);
   const aggNote = $("aggNote");
@@ -909,13 +969,21 @@ function syncIntroShareBtn(rec) {
   if (btn) btn.hidden = !rec;
 }
 
+function shareCurrentStatsPage() {
+  if (!introShareRec) return;
+  void shareStatsPageLink(introShareRec.id, introShareRec.name);
+}
+
 function bindShareIntro() {
   const btn = $("btnShareIntro");
-  if (!btn || btn.dataset.bound === "1") return;
-  btn.dataset.bound = "1";
-  btn.addEventListener("click", function () {
-    if (!introShareRec) return;
-    void shareStatsPageLink(introShareRec.id, introShareRec.name);
+  if (btn && btn.dataset.bound !== "1") {
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", shareCurrentStatsPage);
+  }
+  document.querySelectorAll("[data-share]").forEach((el) => {
+    if (el.dataset.bound === "1") return;
+    el.dataset.bound = "1";
+    el.addEventListener("click", shareCurrentStatsPage);
   });
 }
 
@@ -989,7 +1057,7 @@ function syncProposeBanner(rec, statsOnly) {
     text.textContent =
       "Per " +
       name +
-      " non abbiamo ancora il calendario porta a porta. Puoi comunque consultare i dati ISPRA.";
+      " non abbiamo ancora il calendario porta a porta. Puoi comunque consultare le statistiche sulla differenziata.";
   }
   const link = $("proposeBannerLink");
   if (link) {
@@ -1018,6 +1086,8 @@ function baselinesFromIt(raw) {
 async function main() {
   const status = $("status");
   const id = resolveComuneId();
+  const ready = await ensureZoneForStats(id);
+  if (!ready) return;
   const statsOnly = isStatsOnlyMode();
   syncBottomNav(id, statsOnly);
   updateZoneMeta();
@@ -1042,12 +1112,19 @@ async function main() {
       status.hidden = false;
       status.className = "status error";
       status.textContent =
-        "Statistiche ISPRA non disponibili per " +
+        "Statistiche non disponibili per " +
         (localStorage.getItem(LS_COMUNE_NAME) || id) +
         ".";
       return;
     }
     document.title = "Escilo — differenziata a " + rec.name;
+    if (isStatsOnlyMode()) {
+      localStorage.setItem(LS_COMUNE_NAME, rec.name || "");
+    }
+    const canon = document.querySelector('link[rel="canonical"]');
+    if (canon && rec.id) {
+      canon.href = "https://escilo.it/comuni/" + encodeURIComponent(rec.id) + ".html";
+    }
     updateZoneMeta(rec.name);
     syncProposeBanner(rec, statsOnly);
     render(rec, baselinesFromIt(rawBase));

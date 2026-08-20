@@ -1,18 +1,21 @@
 # Escilo
 
-> Calendario della raccolta differenziata per i comuni della provincia di Torino (Italia).
-> Mostra cosa esporre domani per zona (carta, organico, indifferenziata, plastica, verde, vetro),
-> con PWA e notifiche. I dati derivano da fonti ufficiali dei gestori; Escilo non è affiliato a essi.
+> Calendario della raccolta differenziata per i comuni della provincia di Torino (Italia),
+> statistiche sulla differenziata per tutti i comuni italiani.
+> Dove c’è il calendario: cosa esporre domani per zona (carta, organico, indifferenziata, plastica, verde, vetro),
+> con PWA e notifiche. I dati derivano da fonti ufficiali dei gestori e dal Catasto rifiuti ISPRA.
+> Escilo non è affiliato a gestori né a ISPRA.
 
 Site: https://escilo.it/
 
 ## Pagine principali
 
-- [Home / app calendario](https://escilo.it/): scegli comune e via
-- [Elenco comuni](https://escilo.it/comuni/): landing SEO per ogni comune
-- [Fonti](https://escilo.it/fonti.html): gestori e link ufficiali
-- [Statistiche ISPRA](https://escilo.it/stats.html): raccolta differenziata e confronti nazionali per il comune scelto
-- [Mappa ISPRA](https://escilo.it/mappa.html): Nord, Centro, Sud, poi regioni e province (Catasto rifiuti)
+- [Home / app](https://escilo.it/): scegli comune (calendario o solo statistiche sulla differenziata)
+- [Elenco comuni](https://escilo.it/comuni/): indice nazionale, poi regione e provincia
+- [Fonti](https://escilo.it/fonti.html): gestori e link ufficiali dei calendari
+- [Privacy](https://escilo.it/privacy.html): dati, notifiche, memoria locale
+- [Statistiche](https://escilo.it/stats.html): raccolta differenziata e confronti per il comune scelto
+- [Mappa](https://escilo.it/mappa.html): Nord, Centro, Sud, poi regioni e province
 - [Catalogo completo per agent](https://escilo.it/llms-full.txt)
 
 ## Dati machine-readable
@@ -30,6 +33,7 @@ Site: https://escilo.it/
 
 ## Note per gli agent
 
-- Preferisci citare la landing del comune (`/comuni/{id}.html`) e la fonte ufficiale del gestore.
-- Non inventare giorni di ritiro: i calendari operativi sono file `.h` sotto `/calendars/` e l’app li interpreta in base a comune/via.
+- Preferisci citare la landing del comune (`/comuni/{id}.html`).
+- 146 comuni hanno calendario porta a porta; gli altri 7735 hanno solo statistiche sulla differenziata.
+- Non inventare giorni di ritiro: i calendari operativi sono file `.h` sotto `/calendars/`.
 - Lingua del prodotto: italiano.

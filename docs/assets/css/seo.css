@@ -25,13 +25,14 @@
 .intro p {
   margin: 0;
   font-size: 0.88rem;
-  opacity: 0.88;
+  opacity: 1;
 }
 .intro .meta {
   margin-top: 0.7rem;
-  font-size: 0.72rem;
-  opacity: 0.7;
+  font-size: 0.78rem;
+  opacity: 1;
   font-weight: 600;
+  color: inherit;
 }
 .intro a {
   color: #f3faf6;
@@ -198,6 +199,12 @@
   border: 1px solid var(--line);
   padding: 0.95rem 1rem 1rem;
 }
+.card > p {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
 .cta {
   display: block;
   width: 100%;
@@ -250,6 +257,136 @@ ul.zones li {
 }
 .comuni-grid a:hover { background: var(--accent-soft); }
 
+.comuni-grid a .geo-meta {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.comuni-grid .search-empty {
+  padding: 0.7rem 0.55rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.35rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.crumbs a { color: var(--muted); }
+.crumbs .sep { opacity: 0.45; }
+
+.comuni-search,
+.list-filter-wrap {
+  margin: 0 0 1.15rem;
+}
+.comuni-search input,
+.list-filter {
+  width: 100%;
+  padding: 0.78rem 0.9rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.comuni-search [data-comuni-results] {
+  margin-top: 0.55rem;
+}
+
+.section-head {
+  margin: 0 0 0.55rem;
+}
+.section-head .box-title { margin: 0; }
+
+.geo-grid {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.geo-grid a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.72rem 0.85rem;
+  border-radius: 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+.geo-grid a:hover { background: var(--accent-soft); }
+.geo-name {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.geo-meta {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.28rem;
+  padding: 0.08rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: var(--accent-soft);
+  color: var(--accent);
+  vertical-align: 0.08em;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+}
+.kpi-cell {
+  background: var(--row-bg);
+  border-radius: 0.75rem;
+  padding: 0.65rem 0.7rem;
+}
+.kpi-cell .val {
+  font-family: var(--display);
+  font-size: 1.22rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.kpi-cell .lbl {
+  margin-top: 0.18rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.cta.secondary {
+  background: transparent;
+  color: var(--accent) !important;
+  border: 1.5px solid var(--accent);
+  margin-top: 0.5rem;
+}
+
 .meta {
   margin: 0 0 0.85rem;
   color: var(--muted);
@@ -261,3 +398,266 @@ ul.zones li {
   color: var(--accent);
   font-weight: 700;
 }
+
+/* Copertine — hub / regione / provincia (stessi token light/dark del sito) */
+body.geo-covers {
+  background: var(--bg);
+}
+body.geo-covers .page {
+  padding-bottom: 2.75rem;
+}
+
+.geo-kicker {
+  margin: 0.15rem 0 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.geo-title {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 2.05rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+.geo-lead {
+  margin: 0 0 1rem;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+body.geo-covers .comuni-search {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  margin: 0 0 0.75rem;
+  padding: 0.35rem 0 0.7rem;
+  background: var(--bg);
+}
+body.geo-covers .search-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.72rem 0.95rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+body.geo-covers .search-pill svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+body.geo-covers .search-pill input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+}
+body.geo-covers .search-pill input::placeholder {
+  color: var(--muted-2);
+}
+body.geo-covers .search-pill input:focus {
+  outline: none;
+}
+body.geo-covers .geo-results {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+}
+body.geo-covers .search-empty {
+  padding: 0.9rem 1rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.cover-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.cover {
+  display: block;
+  padding: 0.8rem 1.05rem 0.72rem;
+  border-radius: 1.15rem;
+  color: #f6fbf8;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -40% 40%;
+  height: 9rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  z-index: -1;
+}
+.cover:hover,
+.cover:focus-visible {
+  filter: brightness(1.08);
+  outline: none;
+}
+.cover-tag {
+  display: inline-block;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.16);
+}
+.cover-name {
+  display: block;
+  margin-top: 0;
+  font-family: var(--display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+.cover-meta {
+  display: block;
+  margin-top: 0.28rem;
+  font-size: 0.8rem;
+  opacity: 0.86;
+  font-weight: 500;
+}
+.cover.tone-0 { background: linear-gradient(155deg, #1f5c42 0%, #0d3a2c 58%, #08241c 100%); }
+.cover.tone-1 { background: linear-gradient(155deg, #2a6e55 0%, #164536 100%); }
+.cover.tone-2 { background: linear-gradient(155deg, #1a4f5c 0%, #0d2f38 100%); }
+.cover.tone-3 { background: linear-gradient(155deg, #3a6b3a 0%, #1c3a1e 100%); }
+.cover.tone-4 { background: linear-gradient(155deg, #245c4a 0%, #12362c 100%); }
+.cover.tone-5 { background: linear-gradient(155deg, #4a6a38 0%, #263a1c 100%); }
+
+/* Lettera = sfondo pagina; comuni = card distinta. Sticky esce col gruppo. */
+.geo-group {
+  margin: 0 0 0.7rem;
+  padding: 0;
+}
+.geo-letter {
+  position: sticky;
+  top: 3.55rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0.15rem 0.15rem 0.2rem;
+  font-family: var(--display);
+  font-size: 2.35rem;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  color: var(--muted-2);
+  background: var(--bg);
+  pointer-events: none;
+}
+.geo-comuni,
+.geo-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.05rem;
+  overflow: hidden;
+}
+.geo-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.15rem;
+  padding: 0.72rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--surface);
+}
+.geo-comuni li:last-child .geo-row,
+.geo-results li:last-child .geo-row {
+  border-bottom: 0;
+}
+.geo-row:hover,
+.geo-row:focus-visible {
+  background: var(--row-bg);
+  outline: none;
+}
+.geo-mark {
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.8rem;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.geo-row .geo-name {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+.geo-row .geo-meta {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: left;
+}
+body.geo-covers .badge {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.legal {
+  margin: 0 0 1.25rem;
+}
+.legal .updated {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-2);
+}
+.legal h2 {
+  margin: 1.35rem 0 0.4rem;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  text-transform: none;
+}
+.legal h2:first-of-type {
+  margin-top: 0;
+}
+.legal p,
+.legal li {
+  margin: 0 0 0.65rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.legal ul {
+  margin: 0 0 0.65rem;
+  padding-left: 1.15rem;
+}
+

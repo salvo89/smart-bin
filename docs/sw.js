@@ -1,11 +1,12 @@
 /* Escilo — service worker: cache shell + zona selezionata + Web Push */
-const SHELL_CACHE = "escilo-shell-v56";
+const SHELL_CACHE = "escilo-shell-v67";
 const ZONE_CACHE = "escilo-zone-v1";
 const PRECACHE = [
   "./",
   "./index.html",
   "./stats.html",
   "./fonti.html",
+  "./privacy.html",
   "./data/ispr/directory.json",
   "./data/ispr/baselines-it.json",
   "./data/ispr/comuni-by-id.json",
@@ -18,12 +19,15 @@ const PRECACHE = [
   "./assets/img/landing/calendar.jpg",
   "./manifest.webmanifest",
   "./assets/css/tokens.css",
-  "./assets/css/chrome.css?v=27",
-  "./assets/css/app.css?v=27",
+  "./assets/css/chrome.css?v=31",
+  "./assets/css/app.css?v=32",
   "./assets/css/stats.css?v=58",
-  "./assets/css/seo.css?v=18",
+  "./assets/css/seo.css?v=27",
+  "./assets/css/motion.css",
+  "./assets/fonts/outfit-latin-wght-normal.woff2",
+  "./assets/fonts/fraunces-latin-wght-normal.woff2",
   "./assets/js/boot.js",
-  "./assets/js/stats.js?v=66",
+  "./assets/js/stats.js?v=73",
   "./assets/js/fonti.js?v=18",
   "./assets/js/app-core.js",
   "./assets/js/state.js",
@@ -32,6 +36,7 @@ const PRECACHE = [
   "./assets/js/shared/ios-bar.js",
   "./assets/js/shared/storage.js",
   "./assets/js/shared/share.js",
+  "./assets/js/shared/search.js",
   "./assets/js/share/stats-cards.js?v=43",
   "./assets/js/share/stats-share-ui.js",
   "./assets/js/share/mix-variants.js",

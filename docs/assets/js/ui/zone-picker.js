@@ -5,29 +5,12 @@ import {
   ACCESS_STATS,
 } from "../shared/constants.js";
 import { $ } from "../shared/dom.js";
+import { matchAndRankItems, normalizeSearch } from "../shared/search.js";
 import { state } from "../state.js";
 import { normalizeCalendarBase, ensureZonesIndex } from "../data/zones.js";
 import { ensureIsprDirectory } from "../data/ispr.js";
 
-function normalizeSearch(s) {
-  return String(s || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
-}
-
 /** @typedef {{ value: string, label: string, name?: string, calendar?: string, hasCalendar?: boolean, provincia?: string, istat?: string }} ZonePickerItem */
-
-function itemSearchText(it) {
-  return it.name || it.label;
-}
-
-function searchRank(normalizedName, q) {
-  if (normalizedName === q) return 0;
-  if (normalizedName.startsWith(q)) return 1;
-  return 2;
-}
 
 /**
  * @typedef {{
@@ -93,19 +76,7 @@ export function createZonePicker(config) {
   let activeIdx = -1;
 
   function matchingItems(filter) {
-    const q = normalizeSearch(filter);
-    if (!q) return items.slice(0, 80);
-    const matched = items.filter((it) =>
-      normalizeSearch(itemSearchText(it)).includes(q)
-    );
-    matched.sort((a, b) => {
-      const na = normalizeSearch(itemSearchText(a));
-      const nb = normalizeSearch(itemSearchText(b));
-      const rank = searchRank(na, q) - searchRank(nb, q);
-      if (rank) return rank;
-      return itemSearchText(a).localeCompare(itemSearchText(b), "it");
-    });
-    return matched.slice(0, 80);
+    return matchAndRankItems(items, filter);
   }
 
   function visibleOptions() {
@@ -252,6 +223,9 @@ export function directoryEntry(comuneId) {
   return state.isprDirectory.find((c) => c.id === comuneId) || null;
 }
 
+/** Vie caricate per il comune corrente; 0 = nessuna / in caricamento. */
+let loadedViaCount = 0;
+
 export function updateGateSubmitState() {
   const btn = $("zoneGateSubmit");
   if (!btn) return;
@@ -259,7 +233,8 @@ export function updateGateSubmitState() {
   const entry = directoryEntry(comuneId);
   const hasCal = !!(entry && entry.hasCalendar);
   const viaField = $("zoneFieldVia");
-  if (viaField) viaField.hidden = !hasCal;
+  // Una sola via: niente step — il campo resta nascosto come per i comuni solo-stats.
+  if (viaField) viaField.hidden = !hasCal || loadedViaCount <= 1;
 
   const viaOk = hasCal
     ? !!(state.viaPicker && state.viaPicker.getValue())
@@ -299,12 +274,14 @@ export function populateComuneSelect() {
 }
 
 export async function populateViaSelect(comuneId) {
+  loadedViaCount = 0;
   const entry = directoryEntry(comuneId);
+  if (state.viaPicker) state.viaPicker.setDisabled(true);
   if (!comuneId || !entry || !entry.hasCalendar) {
-    if (state.viaPicker) state.viaPicker.setDisabled(true);
     updateGateSubmitState();
     return;
   }
+  updateGateSubmitState();
   try {
     await ensureZonesIndex();
   } catch (err) {
@@ -326,9 +303,41 @@ export async function populateViaSelect(comuneId) {
       label: v.name,
       calendar: normalizeCalendarBase(v.calendar),
     }));
+  loadedViaCount = vie.length;
   state.viaPicker.setDisabled(false);
   state.viaPicker.setItems(vie);
+  if (vie.length === 1) {
+    state.viaPicker.selectByValue(vie[0].value);
+  }
   updateGateSubmitState();
+}
+
+/** Se il comune ha calendario ed esattamente una via/zona, restituisce la choice pronta. */
+export async function calendarChoiceIfSingleVia(comuneId) {
+  if (!comuneId) return null;
+  try {
+    await ensureZonesIndex();
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+  if (!state.zonesIndex || !Array.isArray(state.zonesIndex.comuni)) return null;
+  const comune = state.zonesIndex.comuni.find((c) => c.id === comuneId);
+  if (!comune || !Array.isArray(comune.vie) || comune.vie.length !== 1) {
+    return null;
+  }
+  const v = comune.vie[0];
+  const calendar = normalizeCalendarBase(v && v.calendar);
+  if (!v || !v.name || !calendar) return null;
+  const entry = directoryEntry(comuneId);
+  return {
+    mode: ACCESS_CALENDAR,
+    comuneId: (entry && entry.id) || comune.id,
+    comuneName: (entry && entry.name) || comune.name,
+    via: v.name,
+    calendar,
+    istat: (entry && entry.istat) || "",
+  };
 }
 
 export function showZoneGate(prefillComuneId) {
@@ -354,11 +363,13 @@ export function showZoneGate(prefillComuneId) {
 export async function openZoneGate(prefillComuneId) {
   try {
     setGateCover(true);
-    // Mostra subito la story: evita schermo nero mentre arriva directory.json.
-    $("zoneGate").hidden = false;
-    bindGateStoryScroll();
-    state.gateShowPicker = false;
-    syncGateSteps();
+    if (!prefillComuneId) {
+      // Story di marketing solo al primo ingresso, non dai deep-link /comuni.
+      $("zoneGate").hidden = false;
+      bindGateStoryScroll();
+      state.gateShowPicker = false;
+      syncGateSteps();
+    }
     await ensureIsprDirectory();
     showZoneGate(prefillComuneId || null);
   } catch (err) {

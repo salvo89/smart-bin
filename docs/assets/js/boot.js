@@ -17,6 +17,7 @@ import {
   goToGatePicker,
   goToGateMarketing,
   directoryEntry,
+  calendarChoiceIfSingleVia,
 } from "./ui/zone-picker.js";
 import { ensureIsprDirectory } from "./data/ispr.js";
 import { renderHero, showHomeSkeleton } from "./ui/hero.js";
@@ -75,6 +76,61 @@ export function initialComuneFromUrl() {
   return id || null;
 }
 
+export function nextIsStats() {
+  return new URLSearchParams(window.location.search).get("next") === "stats";
+}
+
+function goToStats(comuneId) {
+  window.location.assign("stats.html?comune=" + encodeURIComponent(comuneId));
+}
+
+function resetCalendarUi() {
+  setMonthLoading(false);
+  $("weekStrip").innerHTML = "";
+  $("dayDetail").classList.remove("is-loading");
+  $("dayDetailLabel").textContent = "—";
+  $("dayDetailChips").innerHTML = "";
+}
+
+/** Deep-link da /comuni: stats-only → stats; via unica → sezione richiesta, senza gate. */
+async function applyComuneDeepLink(comuneParam) {
+  await ensureIsprDirectory();
+  const entry = directoryEntry(comuneParam);
+  if (entry && !entry.hasCalendar) {
+    saveChoice({
+      mode: ACCESS_STATS,
+      comuneId: entry.id,
+      comuneName: entry.name,
+      istat: entry.istat || "",
+    });
+    applyStatsOnly({
+      mode: ACCESS_STATS,
+      comuneId: entry.id,
+      comuneName: entry.name,
+      istat: entry.istat || "",
+    });
+    return true;
+  }
+  const single = await calendarChoiceIfSingleVia(comuneParam);
+  if (!single) return false;
+  saveChoice(single);
+  if (nextIsStats()) {
+    goToStats(single.comuneId);
+    return true;
+  }
+  showHomeSkeleton();
+  setMonthLoading(true);
+  await applyZoneAndRender(single);
+  const day = initialDayFromUrl();
+  if (day) {
+    openCalendarDay(day.year, day.month, day.day);
+    return true;
+  }
+  const tab = initialTabFromUrl();
+  if (tab && tab !== "home") setTab(tab);
+  return true;
+}
+
 export async function boot() {
   buildDowHeader();
   migratePushHourDefault();
@@ -91,36 +147,22 @@ export async function boot() {
     url.searchParams.delete("comune");
     window.history.replaceState({}, "", url.pathname + url.search);
   }
-  const stored = readStoredChoice();
 
-  // Deep-link to a stats-only comune → stats page.
+  // Deep-link da /comuni: niente story di selezione se si può aprire subito.
   if (comuneParam) {
     try {
-      await ensureIsprDirectory();
-      const entry = directoryEntry(comuneParam);
-      if (entry && !entry.hasCalendar) {
-        saveChoice({
-          mode: ACCESS_STATS,
-          comuneId: entry.id,
-          comuneName: entry.name,
-          istat: entry.istat || "",
-        });
-        applyStatsOnly({
-          mode: ACCESS_STATS,
-          comuneId: entry.id,
-          comuneName: entry.name,
-          istat: entry.istat || "",
-        });
-        return;
-      }
+      if (await applyComuneDeepLink(comuneParam)) return;
     } catch (err) {
       console.error(err);
+      clearChoice();
+      resetCalendarUi();
     }
   }
 
+  const stored = readStoredChoice();
   const resolved = resolveStoredChoice(stored);
   if (resolved && (!comuneParam || comuneParam === resolved.comuneId)) {
-    if (resolved.mode === ACCESS_STATS) {
+    if (resolved.mode === ACCESS_STATS || nextIsStats()) {
       applyStatsOnly(resolved);
       return;
     }
@@ -139,11 +181,7 @@ export async function boot() {
     } catch (err) {
       console.error(err);
       clearChoice();
-      setMonthLoading(false);
-      $("weekStrip").innerHTML = "";
-      $("dayDetail").classList.remove("is-loading");
-      $("dayDetailLabel").textContent = "—";
-      $("dayDetailChips").innerHTML = "";
+      resetCalendarUi();
     }
   }
 
@@ -195,7 +233,8 @@ function wireDom() {
       const comuneId = state.comunePicker.getValue();
       await populateViaSelect(comuneId);
       const entry = directoryEntry(comuneId);
-      if (entry && entry.hasCalendar && state.viaPicker) {
+      const viaVal = state.viaPicker && state.viaPicker.getValue();
+      if (entry && entry.hasCalendar && state.viaPicker && !viaVal) {
         state.viaPicker.focus();
       }
     },
@@ -249,6 +288,10 @@ function wireDom() {
     $("zoneGateError").textContent = "";
     try {
       saveChoice(choice);
+      if (nextIsStats() && choice.mode !== ACCESS_STATS) {
+        goToStats(choice.comuneId);
+        return;
+      }
       await applyZoneAndRender(choice);
     } catch (err) {
       console.error(err);

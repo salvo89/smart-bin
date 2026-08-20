@@ -14,7 +14,8 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.footer {
+.data-source {
+  margin-top: 1.5rem;
   padding-bottom: 0.5rem;
 }
 
@@ -316,12 +317,6 @@
 }
 .kpi-bench-cell:last-child {
   padding-right: 0;
-}
-.kpi-map-hint {
-  margin: 0.55rem 0 0;
-  font-size: 0.72rem;
-  font-weight: 550;
-  color: var(--muted);
 }
 .kpi-value-row {
   touch-action: pan-y;

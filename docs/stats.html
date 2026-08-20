@@ -7,39 +7,36 @@
   <meta name="theme-color" content="#0f1612" media="(prefers-color-scheme: dark)" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
   <title>Escilo — come va la differenziata nel tuo comune</title>
-  <meta name="description" content="Raccolta differenziata, costi di gestione, trend 2022–2024 e confronti ISPRA per i comuni italiani su Escilo." />
+  <meta name="description" content="Raccolta differenziata, costi di gestione, trend e confronti ISPRA per i comuni italiani su Escilo. I dati più aggiornati disponibili." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://escilo.it/stats.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="Escilo" />
   <meta property="og:title" content="Escilo — come va la differenziata nel tuo comune" />
-  <meta property="og:description" content="Percentuale di raccolta differenziata, trend triennale e confronti nazionali e regionali ISPRA per il tuo comune." />
+  <meta property="og:description" content="Percentuale di raccolta differenziata, trend recente e confronti nazionali e regionali ISPRA. I dati più aggiornati disponibili per il tuo comune." />
   <meta property="og:url" content="https://escilo.it/stats.html" />
   <meta property="og:image" content="https://escilo.it/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Escilo — come va la differenziata nel tuo comune" />
-  <meta name="twitter:description" content="Percentuale di raccolta differenziata, trend triennale e confronti nazionali e regionali ISPRA per il tuo comune." />
+  <meta name="twitter:description" content="Percentuale di raccolta differenziata, trend recente e confronti nazionali e regionali ISPRA. I dati più aggiornati disponibili per il tuo comune." />
   <meta name="twitter:image" content="https://escilo.it/icon-512.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Come va la differenziata — Escilo",
     "url": "https://escilo.it/stats.html",
-    "description": "Statistiche ISPRA sulla raccolta differenziata comunale in Italia, con confronti nazionali e regionali.",
+    "description": "Statistiche ISPRA sulla raccolta differenziata comunale in Italia, con i dati più aggiornati disponibili e confronti nazionali e regionali.",
     "isPartOf": { "@type": "WebSite", "name": "Escilo", "url": "https://escilo.it/" },
     "inLanguage": "it-IT"
   }
   </script>
   <link rel="stylesheet" href="assets/css/tokens.css" />
-  <link rel="stylesheet" href="assets/css/chrome.css?v=29" />
-  <link rel="stylesheet" href="assets/css/stats.css?v=60" />
+  <link rel="stylesheet" href="assets/css/chrome.css?v=31" />
+  <link rel="stylesheet" href="assets/css/stats.css?v=62" />
 </head>
 <body data-block-motion="scale-fade">
   <div class="page">
@@ -82,7 +79,7 @@
             <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
           </svg>
         </button>
-        <p class="eyebrow">ISPRA · anno <span id="statsYear">2024</span></p>
+        <p class="eyebrow">I numeri</p>
         <h2 id="statsTitle">Come va la differenziata</h2>
         <p class="meta" id="statsMeta">—</p>
         <p class="agg-note" id="aggNote" hidden></p>
@@ -169,12 +166,11 @@
               </div>
             </div>
           </div>
-          <p class="kpi-map-hint" id="kpiMapHint">Scorri il numero per vedere la mappa</p>
         </article>
       </div>
 
       <section class="section" aria-labelledby="trendTitle">
-        <h2 class="box-title" id="trendTitle">Trend 2022–2024</h2>
+        <h2 class="box-title" id="trendTitle">Andamento</h2>
         <p class="lead">Percentuale di raccolta differenziata negli ultimi tre anni.</p>
         <div class="trend-chart" id="spark" role="img" aria-label="Andamento percentuale di raccolta differenziata"></div>
         <p class="trend-note" id="trendDelta" hidden></p>
@@ -242,8 +238,9 @@
       <p class="note">
         <strong>Fonte:</strong>
         <a class="ext-link" href="https://www.catasto-rifiuti.isprambiente.it/" target="_blank" rel="noopener noreferrer">Catasto nazionale dei rifiuti ISPRA</a>,
-        dettaglio comunale produzione/RD e costi di gestione
-        <span id="noteYears">2022–2024</span>.
+        dettaglio comunale produzione/RD e costi di gestione.
+        I dati mostrati sono i più aggiornati disponibili: nel 2026 l’ultimo anno
+        pubblicato da ISPRA è il 2024.
         I costi sono il totale di gestione per abitante (CTOTab), non la tariffa
         TARI individuale.
         <br />
@@ -252,16 +249,16 @@
       </p>
     </div>
 
-    <p class="footer">
-      <a href="./">Home</a>
-      <span class="sep">&middot;</span>
-      <a href="mappa.html">Mappa</a>
+    <p class="data-source">
+      <a href="fonti.html">Fonti</a>
       <span class="sep">&middot;</span>
       <a href="comuni/">Comuni</a>
       <span class="sep">&middot;</span>
-      <a href="fonti.html">Fonti</a>
+      <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala</a>
       <span class="sep">&middot;</span>
-      <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20statistiche">Segnala</a>
+      <a href="privacy.html">Privacy</a>
+      <span class="sep">&middot;</span>
+      <button type="button" class="share-link" data-share>Condividi</button>
     </p>
     </div>
   </div>
@@ -311,6 +308,6 @@
     </div>
   </div>
 
-  <script type="module" src="assets/js/stats.js?v=69"></script>
+  <script type="module" src="assets/js/stats.js?v=75"></script>
 </body>
 </html>

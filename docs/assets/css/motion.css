@@ -71,13 +71,13 @@ a.stats-teaser.is-visible,
 
 /* Stagger: Fonti + landing comuni */
 .page > .intro { animation-delay: 0ms; }
-.page > .intro + .note { animation-delay: var(--motion-stagger); }
-.page > .ispr-box { animation-delay: calc(var(--motion-stagger) * 2); }
 .page > .card { animation-delay: var(--motion-stagger); }
 .page > .card + .note { animation-delay: calc(var(--motion-stagger) * 2); }
 #providers .provider:not(.skeleton) {
-  animation-delay: calc(var(--motion-stagger) * (3 + var(--block-i, 0)));
+  animation-delay: calc(var(--motion-stagger) * (1 + var(--block-i, 0)));
 }
+.page > .ispr-box { animation-delay: calc(var(--motion-stagger) * 8); }
+.page > .legal { animation-delay: var(--motion-stagger); }
 
 /* Stagger: elenco comuni */
 .comuni-grid > li:nth-child(1) { animation-delay: var(--motion-stagger); }
@@ -88,8 +88,8 @@ a.stats-teaser.is-visible,
 .comuni-grid > li:nth-child(n+6) { animation-delay: calc(var(--motion-stagger) * 6); }
 
 @media (prefers-reduced-motion: reduce) {
-  :is(.escilo-block, .hero, .week-card, a.stats-teaser.is-visible, .intro,
-    .section, .kpi-card, .hero-kpi, .card, .ispr-box, .note, .provider:not(.skeleton),
+    :is(.escilo-block, .hero, .week-card, a.stats-teaser.is-visible, .intro,
+    .section, .kpi-card, .hero-kpi, .card, .ispr-box, .legal, .note, .provider:not(.skeleton),
     .gate-panel-body--card, .prod-bin, .mix-bin, .cal-empty-card, .comuni-grid > li,
     .install-sheet-card, .gate-picker-sheet, .stats-sheet-card) {
     animation: none !important;

@@ -3,11 +3,14 @@
 ## Architettura
 
 ```
-docs/calendars/index.json + sources-lite.json
+docs/calendars/index.json + sources-lite.json + data/ispr/directory.json + data/ispr/c/*.json
         ↓
 tools/build_seo_pages.py
         ↓
-docs/comuni/*.html , docs/comuni/index.html
+    docs/comuni/index.html
+    docs/comuni/regioni/*.html
+    docs/comuni/province/*.html
+    docs/comuni/{id}.html
 docs/sitemap.xml , docs/robots.txt
 docs/llms.txt , docs/llms-full.txt
 ```
@@ -20,6 +23,7 @@ Build Netlify (`netlify.toml`): `npm install && python3 tools/build_seo_pages.py
 |------|------|----------|
 | App PWA | `docs/index.html` | meta, OG, JSON-LD WebApplication, blocco visually-hidden, footer, `?comune=` |
 | Fonti | `docs/fonti.html` | meta, OG, JSON-LD WebPage, footer, intro link brevi |
+| Privacy | `docs/privacy.html` | meta, OG, JSON-LD WebPage, informativa, footer |
 | Landing | `docs/comuni/**` | **generate** — non editare a mano salvo emergenza; modifica il generatore |
 | Generatore | `tools/build_seo_pages.py` | `SITE`, CSS `.page` 28rem allineato a fonti, template footer/meta |
 | Discovery | `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` | generati dallo script |

@@ -23,10 +23,7 @@
   <meta name="twitter:image" content="https://escilo.it/icon-512.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,8 +36,8 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/tokens.css" />
-  <link rel="stylesheet" href="assets/css/chrome.css?v=29" />
-  <link rel="stylesheet" href="assets/css/mappa.css?v=36" />
+  <link rel="stylesheet" href="assets/css/chrome.css?v=31" />
+  <link rel="stylesheet" href="assets/css/mappa.css?v=37" />
 </head>
 <body data-block-motion="scale-fade">
   <div class="page">
@@ -76,7 +73,7 @@
               <button type="button" role="tab" data-layer="co" aria-label="Costo gestione, euro per abitante all'anno" aria-selected="false"></button>
               <button type="button" role="tab" data-layer="kru" aria-label="Rifiuto urbano, chilogrammi per abitante all'anno" aria-selected="false"></button>
               <button type="button" role="tab" data-layer="kin" aria-label="Indifferenziato, chilogrammi per abitante all'anno" aria-selected="false"></button>
-              <button type="button" role="tab" data-layer="drd" aria-label="Variazione RD 2022–2024, percentuale" aria-selected="false"></button>
+              <button type="button" role="tab" data-layer="drd" aria-label="Andamento della differenziata rispetto a tre anni fa, percentuale" aria-selected="false"></button>
               <button type="button" role="tab" data-layer="pop" aria-label="Popolazione: bolle per abitanti, colore densità" aria-selected="false"></button>
             </div>
             <button type="button" class="map-autoplay" id="btnAutoplay" aria-pressed="true" aria-label="Ferma il cambio automatico">
@@ -92,6 +89,9 @@
         <a class="ext-link" href="https://github.com/guglielmo/geojson-italy" target="_blank" rel="noopener noreferrer">geojson-italy<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>
         (CC-BY). Medie ponderate sulla popolazione, dati
         <a class="ext-link" href="https://www.catasto-rifiuti.isprambiente.it/" target="_blank" rel="noopener noreferrer">ISPRA Catasto rifiuti<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>.
+        I dati mostrati sono i più aggiornati disponibili: nel 2026 l’ultimo anno
+        pubblicato da ISPRA è il 2024. L’andamento è la variazione di differenziata
+        rispetto a tre anni fa.
         Nord / Centro / Sud secondo le ripartizioni ISTAT (isole nel Sud).
         Densità = abitanti / km² (superficie dai confini cartografici).
       </p>
@@ -107,6 +107,8 @@
       <a href="fonti.html">Fonti</a>
       <span class="sep">&middot;</span>
       <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20mappa%20ISPRA">Segnala</a>
+      <span class="sep">&middot;</span>
+      <a href="privacy.html">Privacy</a>
     </p>
   </div>
 
@@ -127,7 +129,7 @@
     </aside>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script type="module" src="assets/js/mappa.js?v=47"></script>
+  <script src="assets/vendor/leaflet/leaflet.js"></script>
+  <script type="module" src="assets/js/mappa.js?v=50"></script>
 </body>
 </html>

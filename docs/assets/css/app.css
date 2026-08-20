@@ -537,6 +537,15 @@ a.stats-teaser .st-cap {
   padding: 0.4rem 0.55rem;
   min-height: 2.25rem;
 }
+.notify-privacy {
+  margin: 0.75rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.notify-privacy a {
+  font-weight: 650;
+}
 
 .install-sheet {
   position: fixed;

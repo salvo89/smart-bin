@@ -9,34 +9,31 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Escilo" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" id="iosStatusBar" />
-  <title>Escilo — raccolta differenziata e dati ISPRA</title>
-  <meta name="description" content="Calendario porta a porta per i comuni Escilo in provincia di Torino, e dati ISPRA sulla differenziata per tutti i comuni italiani. Notifiche e app installabile." />
+  <title>Escilo — calendario e differenziata</title>
+  <meta name="description" content="Calendario porta a porta per i comuni Escilo in provincia di Torino, e statistiche sulla differenziata per tutti i comuni italiani. Notifiche e app installabile." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://escilo.it/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="Escilo" />
-  <meta property="og:title" content="Escilo — raccolta differenziata e dati ISPRA" />
-  <meta property="og:description" content="Cosa esporre domani dove c’è il calendario Escilo; ovunque in Italia, come va la differenziata nel tuo comune (dati ISPRA)." />
+  <meta property="og:title" content="Escilo — calendario e differenziata" />
+  <meta property="og:description" content="Cosa esporre domani dove c’è il calendario Escilo; ovunque in Italia, come va la differenziata nel tuo comune." />
   <meta property="og:url" content="https://escilo.it/" />
   <meta property="og:image" content="https://escilo.it/icon-512.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Escilo — raccolta differenziata e dati ISPRA" />
-  <meta name="twitter:description" content="Cosa esporre domani dove c’è il calendario Escilo; ovunque in Italia, come va la differenziata nel tuo comune (dati ISPRA)." />
+  <meta name="twitter:title" content="Escilo — calendario e differenziata" />
+  <meta name="twitter:description" content="Cosa esporre domani dove c’è il calendario Escilo; ovunque in Italia, come va la differenziata nel tuo comune." />
   <meta name="twitter:image" content="https://escilo.it/icon-512.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Escilo",
     "url": "https://escilo.it/",
-    "description": "Calendario porta a porta della raccolta differenziata per i comuni Escilo in provincia di Torino, e statistiche ISPRA per tutti i comuni italiani.",
+    "description": "Calendario porta a porta della raccolta differenziata per i comuni Escilo in provincia di Torino, e statistiche sulla differenziata per tutti i comuni italiani.",
     "applicationCategory": "LifestyleApplication",
     "operatingSystem": "Web",
     "inLanguage": "it-IT",
@@ -45,8 +42,8 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/tokens.css" />
-  <link rel="stylesheet" href="assets/css/chrome.css?v=28" />
-  <link rel="stylesheet" href="assets/css/app.css?v=31" />
+  <link rel="stylesheet" href="assets/css/chrome.css?v=31" />
+  <link rel="stylesheet" href="assets/css/app.css?v=32" />
   <script>
     /* Evita flash della shell app sotto il gate (boot + resize mobile). */
     document.documentElement.classList.add("is-gated");
@@ -54,16 +51,18 @@
 </head>
 <body data-block-motion="scale-fade">
   <section class="visually-hidden" aria-label="Informazioni Escilo">
-    <h2>Raccolta differenziata e dati ISPRA</h2>
+    <h2>Raccolta differenziata</h2>
     <p>
       Escilo mostra il calendario dei ritiri rifiuti per comune e zona
       nei comuni coperti (provincia di Torino): carta, organico, indifferenziata,
       plastica, verde e vetro, con notifiche e app installabile.
-      Per ogni comune italiano puoi anche consultare i dati ISPRA sulla differenziata.
+      Per ogni comune italiano puoi anche consultare le statistiche sulla differenziata.
     </p>
     <p>
-      Elenco comuni con calendario: <a href="comuni/">Comuni</a>.
+      Elenco comuni (calendari in provincia di Torino e statistiche per l’Italia):
+      <a href="comuni/">Comuni</a>.
       Fonti ufficiali dei gestori: <a href="fonti.html">Fonti</a>.
+      Trattamento dati: <a href="privacy.html">Privacy</a>.
       App: <a href="./">Home</a>.
     </p>
   </section>
@@ -110,6 +109,11 @@
         <label for="notifyHour">Ricordami dopo le</label>
         <select id="notifyHour" aria-label="Orario notifica"></select>
       </div>
+      <p class="notify-privacy">
+        Se le attivi, salviamo sul server zona e orario per mandarti l’avviso.
+        Puoi disattivarle quando vuoi.
+        <a href="privacy.html">Privacy</a>
+      </p>
       <button type="button" class="install-sheet-close" id="btnNotifySheetClose">Chiudi</button>
     </div>
   </div>
@@ -165,7 +169,7 @@
               </p>
               <p class="gate-panel-copy">
                 Percentuale di differenziata, confronti con Italia e regione,
-                trend degli ultimi anni: dati ufficiali ISPRA, chiari e leggibili.
+                trend degli ultimi anni: dati ufficiali, chiari e leggibili.
               </p>
               <button type="button" class="zone-gate-submit gate-cta" id="btnGateStart">Scegli il tuo comune</button>
             </div>
@@ -190,7 +194,7 @@
             <ul class="zone-picker-list" id="listComune" role="listbox" hidden></ul>
           </div>
         </div>
-        <div class="zone-field" id="zoneFieldVia">
+        <div class="zone-field" id="zoneFieldVia" hidden>
           <label for="inpVia">Via / zona</label>
           <div class="zone-picker" id="pickerVia">
             <input type="text" id="inpVia" class="zone-picker-input" placeholder="Prima il comune…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="listVia" aria-autocomplete="list" disabled />
@@ -200,7 +204,7 @@
           </div>
         </div>
         <p class="gate-stats-hint" id="gateStatsHint" hidden>
-          Per questo comune mostriamo le sole statistiche ISPRA.
+          Per questo comune mostriamo solo le statistiche sulla differenziata.
           <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20proponi%20calendario">Proponi il calendario porta a porta</a>
         </p>
         <p class="zone-gate-error" id="zoneGateError" aria-live="polite"></p>
@@ -304,6 +308,8 @@
         <span class="sep">&middot;</span>
         <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala</a>
         <span class="sep">&middot;</span>
+        <a href="privacy.html">Privacy</a>
+        <span class="sep">&middot;</span>
         <button type="button" class="share-link" data-share>Condividi</button>
       </p>
     </section>
@@ -357,6 +363,8 @@
         <a href="comuni/">Comuni</a>
         <span class="sep">&middot;</span>
         <a href="mailto:salvatore.bonventre.ai@gmail.com?subject=Escilo%20%E2%80%94%20calendario">Segnala</a>
+        <span class="sep">&middot;</span>
+        <a href="privacy.html">Privacy</a>
         <span class="sep">&middot;</span>
         <button type="button" class="share-link" data-share>Condividi</button>
       </p>

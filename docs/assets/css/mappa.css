@@ -91,6 +91,15 @@
   background: #eef3f0;
 }
 
+/* Leaflet mis-places layers if an ancestor is CSS-transformed (scale-fade). */
+@keyframes escilo-map-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.map-shell.escilo-block {
+  animation-name: escilo-map-fade;
+}
+
 .map-viewport {
   position: absolute;
   inset: 0;

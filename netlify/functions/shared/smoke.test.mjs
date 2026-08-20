@@ -5,6 +5,7 @@
 import { readFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { matchAndRankItems } from "../../../docs/assets/js/shared/search.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 
@@ -21,6 +22,11 @@ const mustExist = [
   "docs/data/ispr/directory.json",
   "docs/data/ispr/c/chieri.json",
   "docs/stats.html",
+  "docs/privacy.html",
+  "docs/assets/fonts/outfit-latin-wght-normal.woff2",
+  "docs/assets/fonts/fraunces-latin-wght-normal.woff2",
+  "docs/assets/vendor/leaflet/leaflet.js",
+  "docs/assets/vendor/leaflet/leaflet.css",
   "docs/mappa.html",
   "docs/data/map/meta.json",
   "docs/data/map/macro.geojson",
@@ -33,6 +39,13 @@ const mustExist = [
   "docs/llms-full.txt",
   "docs/comuni/index.html",
   "docs/comuni/rivoli.html",
+  "docs/comuni/roma.html",
+  "docs/comuni/regioni/piemonte.html",
+  "docs/comuni/regioni/lazio.html",
+  "docs/comuni/province/torino.html",
+  "docs/comuni/province/roma.html",
+  "docs/assets/js/comuni-nav.js",
+  "docs/assets/js/shared/search.js",
   "docs/googled19b3747a0a192a7.html",
   "tools/build_seo_pages.py",
   "tools/build_ispr_stats.py",
@@ -73,6 +86,8 @@ for (const needle of [
   "btnPushOffer",
   "notifySheet",
   "notifyToggle",
+  "notify-privacy",
+  "privacy.html",
   "statsTeaser",
   'rel="canonical"',
   "application/ld+json",
@@ -91,6 +106,11 @@ for (const banned of ["panelNotify", 'data-tab="notify"', "notifyHistoryList"]) 
     console.error("index.html should not include", banned);
     failed += 1;
   }
+}
+
+if (html.includes("fonts.googleapis.com")) {
+  console.error("index.html should not load Google Fonts");
+  failed += 1;
 }
 
 /** App logic lives in ES modules under docs/assets/js/ */
@@ -122,6 +142,8 @@ for (const needle of [
   "data/ispr/c/",
   "data/ispr/comuni-by-id.json",
   "initialComuneFromUrl",
+  "calendarChoiceIfSingleVia",
+  "applyComuneDeepLink",
   "data/map/province.geojson",
 ]) {
   if (!appJs.includes(needle)) {
@@ -151,19 +173,75 @@ for (const rel of [
 }
 
 const fontiHtml = await readFile(join(root, "docs/fonti.html"), "utf8");
-for (const needle of ['src="assets/js/fonti.js', "assets/css/seo.css", 'rel="canonical"']) {
+for (const needle of [
+  'src="assets/js/fonti.js',
+  "assets/css/seo.css",
+  'rel="canonical"',
+  'href="privacy.html">Privacy</a>',
+]) {
   if (!fontiHtml.includes(needle)) {
     console.error("fonti.html missing", needle);
     failed += 1;
   }
 }
+if (fontiHtml.includes("fonts.googleapis.com")) {
+  console.error("fonti.html should not load Google Fonts");
+  failed += 1;
+}
 
 const statsHtml = await readFile(join(root, "docs/stats.html"), "utf8");
-for (const needle of ['src="assets/js/stats.js', "assets/css/stats.css", 'rel="canonical"']) {
+for (const needle of [
+  'src="assets/js/stats.js',
+  "assets/css/stats.css",
+  'rel="canonical"',
+  'href="fonti.html">Fonti</a>',
+  'href="comuni/">Comuni</a>',
+  ">Segnala</a>",
+  'href="privacy.html">Privacy</a>',
+  "data-share>Condividi",
+]) {
   if (!statsHtml.includes(needle)) {
     console.error("stats.html missing", needle);
     failed += 1;
   }
+}
+if (statsHtml.includes("fonts.googleapis.com")) {
+  console.error("stats.html should not load Google Fonts");
+  failed += 1;
+}
+if (statsHtml.includes('href="./">Home</a>')) {
+  console.error("stats.html footer should match home/calendario (no Home link)");
+  failed += 1;
+}
+
+const privacyHtml = await readFile(join(root, "docs/privacy.html"), "utf8");
+for (const needle of [
+  'rel="canonical"',
+  "application/ld+json",
+  "Notifiche",
+  "localStorage",
+  "Garante",
+]) {
+  if (!privacyHtml.includes(needle)) {
+    console.error("privacy.html missing", needle);
+    failed += 1;
+  }
+}
+
+const mappaHtml = await readFile(join(root, "docs/mappa.html"), "utf8");
+for (const needle of [
+  "assets/vendor/leaflet/leaflet.css",
+  "assets/vendor/leaflet/leaflet.js",
+  'href="privacy.html">Privacy</a>',
+]) {
+  if (!mappaHtml.includes(needle)) {
+    console.error("mappa.html missing", needle);
+    failed += 1;
+  }
+}
+if (mappaHtml.includes("unpkg.com/leaflet") || mappaHtml.includes("fonts.googleapis.com")) {
+  console.error("mappa.html should self-host Leaflet and fonts");
+  failed += 1;
 }
 
 const comuneSample = await readFile(join(root, "docs/comuni/rivoli.html"), "utf8");
@@ -171,15 +249,137 @@ for (const needle of [
   "../assets/css/tokens.css",
   "../assets/css/chrome.css",
   "../assets/css/seo.css",
+  "Apri il calendario di Rivoli",
+  "Raccolta differenziata",
+  "../privacy.html",
 ]) {
   if (!comuneSample.includes(needle)) {
     console.error("comuni/rivoli.html missing", needle);
     failed += 1;
   }
 }
+if (comuneSample.includes("fonts.googleapis.com")) {
+  console.error("comuni/rivoli.html should not load Google Fonts");
+  failed += 1;
+}
 if (comuneSample.includes("<style>")) {
   console.error("comuni/rivoli.html should not inline <style>");
   failed += 1;
+}
+if (comuneSample.includes("Andamento:") || comuneSample.includes("Obiettivo 65%")) {
+  console.error("comuni/rivoli.html should not include 65% target or trend copy");
+  failed += 1;
+}
+
+const romaSample = await readFile(join(root, "docs/comuni/roma.html"), "utf8");
+for (const needle of [
+  "Raccolta differenziata a Roma",
+  "stats.html?comune=roma",
+  "ISPRA",
+]) {
+  if (!romaSample.includes(needle)) {
+    console.error("comuni/roma.html missing", needle);
+    failed += 1;
+  }
+}
+if (romaSample.includes("Apri il calendario di Roma")) {
+  console.error("comuni/roma.html should not offer a calendar CTA");
+  failed += 1;
+}
+if (romaSample.includes("Andamento:") || romaSample.includes("obiettivo nazionale del 65%")) {
+  console.error("comuni/roma.html should not include 65% target or trend copy");
+  failed += 1;
+}
+if (!romaSample.includes("../stats.html?comune=roma")) {
+  console.error("comuni/roma.html stats CTA must be relative to /stats.html");
+  failed += 1;
+}
+
+const hub = await readFile(join(root, "docs/comuni/index.html"), "utf8");
+for (const needle of [
+  "regioni/piemonte.html",
+  "regioni/lazio.html",
+  "data-comuni-search",
+  'type="module"',
+  "comuni-nav.js",
+]) {
+  if (!hub.includes(needle)) {
+    console.error("comuni/index.html missing", needle);
+    failed += 1;
+  }
+}
+
+{
+  const hits = matchAndRankItems(
+    [
+      { name: "Airasca", provincia: "Torino" },
+      { name: "Baldissero Torinese", provincia: "Torino" },
+      { name: "Torino", provincia: "Torino" },
+      { name: "Settimo Torinese", provincia: "Torino" },
+      { name: "Roma", provincia: "Roma" },
+    ],
+    "torino"
+  );
+  if (!hits.length || hits[0].name !== "Torino") {
+    console.error("search: Torino should rank first for query torino");
+    failed += 1;
+  }
+  if (hits.some((h) => h.name === "Airasca" || h.name === "Roma")) {
+    console.error("search: should not match provincia-only or unrelated names");
+    failed += 1;
+  }
+}
+
+const regionePiemonte = await readFile(join(root, "docs/comuni/regioni/piemonte.html"), "utf8");
+for (const needle of [
+  "../../assets/css/seo.css",
+  "../province/torino.html",
+  "Differenziata in Piemonte",
+]) {
+  if (!regionePiemonte.includes(needle)) {
+    console.error("comuni/regioni/piemonte.html missing", needle);
+    failed += 1;
+  }
+}
+
+const provinciaTorino = await readFile(join(root, "docs/comuni/province/torino.html"), "utf8");
+for (const needle of [
+  "../rivoli.html",
+  "Provincia di Torino",
+  "data-comuni-search",
+  "Calendario Escilo",
+  "geo-group",
+]) {
+  if (!provinciaTorino.includes(needle)) {
+    console.error("comuni/province/torino.html missing", needle);
+    failed += 1;
+  }
+}
+if (provinciaTorino.includes('class="badge">calendario<')) {
+  console.error("comuni/province/torino.html should spell out Calendario Escilo");
+  failed += 1;
+}
+
+{
+  const iAbruzzo = hub.indexOf("regioni/abruzzo.html");
+  const iPiemonte = hub.indexOf("regioni/piemonte.html");
+  if (iAbruzzo < 0 || iPiemonte < 0 || iAbruzzo > iPiemonte) {
+    console.error("comuni/index.html regions should be alphabetical (Abruzzo before Piemonte)");
+    failed += 1;
+  }
+}
+
+{
+  const iAlessandria = regionePiemonte.indexOf("../province/alessandria.html");
+  const iTorino = regionePiemonte.indexOf("../province/torino.html");
+  if (iAlessandria < 0 || iTorino < 0 || iAlessandria > iTorino) {
+    console.error("comuni/regioni/piemonte.html provinces should be alphabetical (Alessandria before Torino)");
+    failed += 1;
+  }
+  if (!regionePiemonte.includes("data-comuni-search")) {
+    console.error("comuni/regioni/piemonte.html missing data-comuni-search");
+    failed += 1;
+  }
 }
 
 const dispatch = await readFile(join(root, "netlify/functions/push-dispatch.mjs"), "utf8");
@@ -237,6 +437,18 @@ if (!sitemap.includes("https://escilo.it/comuni/rivoli.html")) {
   console.error("sitemap.xml missing rivoli landing");
   failed += 1;
 }
+if (!sitemap.includes("https://escilo.it/comuni/roma.html")) {
+  console.error("sitemap.xml missing roma landing");
+  failed += 1;
+}
+if (!sitemap.includes("https://escilo.it/comuni/regioni/piemonte.html")) {
+  console.error("sitemap.xml missing piemonte region");
+  failed += 1;
+}
+if (!sitemap.includes("https://escilo.it/comuni/province/torino.html")) {
+  console.error("sitemap.xml missing torino province");
+  failed += 1;
+}
 if (!sitemap.includes("https://escilo.it/stats.html")) {
   console.error("sitemap.xml missing stats.html");
   failed += 1;
@@ -245,14 +457,26 @@ if (!sitemap.includes("https://escilo.it/mappa.html")) {
   console.error("sitemap.xml missing mappa.html");
   failed += 1;
 }
+if (!sitemap.includes("https://escilo.it/privacy.html")) {
+  console.error("sitemap.xml missing privacy.html");
+  failed += 1;
+}
 
 const llms = await readFile(join(root, "docs/llms.txt"), "utf8");
 if (!llms.includes("llms-full.txt") || !llms.includes("calendars/index.json")) {
   console.error("llms.txt missing expected links");
   failed += 1;
 }
+if (!llms.includes("/comuni/")) {
+  console.error("llms.txt missing comuni hub");
+  failed += 1;
+}
 if (!llms.includes("stats.html") || !llms.includes("data/ispr/comuni-by-id.json")) {
   console.error("llms.txt missing ISPRA stats links");
+  failed += 1;
+}
+if (!llms.includes("privacy.html")) {
+  console.error("llms.txt missing privacy.html");
   failed += 1;
 }
 if (!llms.includes("mappa.html")) {

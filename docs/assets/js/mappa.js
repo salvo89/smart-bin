@@ -39,7 +39,7 @@ const LAYER_DEFS = {
     quantile: true,
   },
   drd: {
-    label: "Variazione RD 2022–2024",
+    label: "Andamento rispetto a 3 anni fa",
     unit: "%",
     digits: 1,
     fmt: (v) => (v > 0 ? "+" : "") + fmtNum(v, 1) + "%",
@@ -70,7 +70,7 @@ const PANEL_PILLS = [
   ["co", "Costo", (v) => fmtNum(v, 0) + " €"],
   ["kin", "Indifferenziato", (v) => fmtNum(v, 0) + " kg"],
   ["kru", "Rifiuto urbano", (v) => fmtNum(v, 0) + " kg"],
-  ["drd", "Trend 2022–24", (v) => (v > 0 ? "+" : "") + fmtNum(v, 1) + "%"],
+  ["drd", "In 3 anni", (v) => (v > 0 ? "+" : "") + fmtNum(v, 1) + "%"],
 ];
 
 const HINT = {
@@ -1284,6 +1284,46 @@ function enrichPopDensity(fc) {
   return fc;
 }
 
+function layerMaxZoom() {
+  return view.level === "macro" ? 6 : view.level === "region" ? 8 : 9;
+}
+
+function fitCurrentLayer() {
+  if (!map || !geoLayer) return false;
+  const el = map.getContainer();
+  if (!el || el.clientWidth < 2 || el.clientHeight < 2) return false;
+  try {
+    map.invalidateSize({ animate: false });
+    map.fitBounds(geoLayer.getBounds(), {
+      padding: [28, 28],
+      maxZoom: layerMaxZoom(),
+      animate: false,
+    });
+  } catch {
+    return false;
+  }
+  return true;
+}
+
+/** Re-fit after layout/animation: first paint can leave the layer tiny at top-left. */
+function settleMapView() {
+  const run = () => {
+    fitCurrentLayer();
+  };
+  run();
+  requestAnimationFrame(() => requestAnimationFrame(run));
+  const shell = document.querySelector(".map-shell");
+  if (shell) {
+    const onEnd = (e) => {
+      if (e.target !== shell) return;
+      shell.removeEventListener("animationend", onEnd);
+      run();
+    };
+    shell.addEventListener("animationend", onEnd);
+  }
+  window.setTimeout(run, 500);
+}
+
 function replaceLayer(geojson) {
   finishLayerSlide();
   if (geoLayer) {
@@ -1299,16 +1339,7 @@ function replaceLayer(geojson) {
     onEachFeature: bindFeature,
   }).addTo(map);
   placeValueLabels();
-  const maxZoom =
-    view.level === "macro" ? 6 : view.level === "region" ? 8 : 9;
-  try {
-    map.fitBounds(geoLayer.getBounds(), {
-      padding: [28, 28],
-      maxZoom,
-    });
-  } catch {
-    /* ignore */
-  }
+  fitCurrentLayer();
   updateChrome();
 }
 
@@ -1437,7 +1468,7 @@ async function loadMap() {
 
   await showMacro();
   await applyDeepLink();
-  requestAnimationFrame(() => map.invalidateSize());
+  settleMapView();
   setStatus("", false);
   scheduleAutoplay();
 }

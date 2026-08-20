@@ -507,7 +507,7 @@ def main() -> int:
             {"key": "co", "label": "Costo gestione", "unit": "€/ab·anno"},
             {"key": "kru", "label": "Rifiuto urbano", "unit": "kg/ab·anno"},
             {"key": "kin", "label": "Indifferenziato", "unit": "kg/ab·anno"},
-            {"key": "drd", "label": "Variazione RD 2022–2024", "unit": "%"},
+            {"key": "drd", "label": "Andamento rispetto a 3 anni fa", "unit": "%"},
             {
                 "key": "pop",
                 "label": "Popolazione",

@@ -31,6 +31,11 @@
   to = "/.netlify/functions/push-vapid-public"
   status = 200
 
+[[redirects]]
+  from = "/comuni/stats.html"
+  to = "/stats.html"
+  status = 301
+
 # PWA: service worker e manifest non devono restare in cache aggressiva.
 [[headers]]
   for = "/sw.js"
@@ -72,6 +77,21 @@
 
 # SEO / agent discovery
 [[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/vendor/leaflet/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/vendor/leaflet/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
   for = "/robots.txt"
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
@@ -97,5 +117,15 @@
 
 [[headers]]
   for = "/comuni/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/comuni/regioni/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/comuni/province/*"
   [headers.values]
     Cache-Control = "public, max-age=3600"
