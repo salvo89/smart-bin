@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="24 28 144 148" role="img" aria-label="Marchio Escilo — cassonetto-calendario">
+  <rect x="44" y="52" width="104" height="22" rx="8" fill="#1f5c42"/>
+  <circle cx="78" cy="52" r="12" fill="#1f5c42"/>
+  <circle cx="114" cy="52" r="12" fill="#1f5c42"/>
+  <circle cx="78" cy="52" r="5.8" fill="#fff"/>
+  <circle cx="114" cy="52" r="5.8" fill="#fff"/>
+  <path d="M52 78h88l-9 68H61L52 78z" fill="#1f5c42"/>
+  <rect x="58" y="132" width="76" height="22" rx="11" fill="#1f5c42"/>
+  <rect x="66" y="86" width="60" height="8" rx="3" fill="#fff"/>
+  <rect x="66" y="100" width="22" height="16" rx="4" fill="#fff"/>
+  <rect x="98" y="100" width="22" height="16" rx="4" fill="#fff"/>
+  <rect x="66" y="122" width="22" height="16" rx="4" fill="#fff"/>
+  <rect x="98" y="122" width="22" height="16" rx="4" fill="#fff"/>
+  <g transform="translate(109 129.5) rotate(-40)">
+    <ellipse cx="0" cy="0" rx="2.3" ry="5.7" fill="#1f5c42"/>
+  </g>
+  <circle cx="74" cy="156" r="9" fill="#1f5c42"/>
+  <circle cx="118" cy="156" r="9" fill="#1f5c42"/>
+  <circle cx="74" cy="156" r="3.4" fill="#fff"/>
+  <circle cx="118" cy="156" r="3.4" fill="#fff"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="28 28 136 148" role="img" aria-label="Marchio Escilo — giorno del ritiro">
+  <circle cx="70" cy="44" r="11" fill="#1f5c42"/>
+  <circle cx="122" cy="44" r="11" fill="#1f5c42"/>
+  <circle cx="70" cy="44" r="5" fill="#fff"/>
+  <circle cx="122" cy="44" r="5" fill="#fff"/>
+  <rect x="40" y="50" width="112" height="118" rx="18" fill="#1f5c42"/>
+  <rect x="54" y="90" width="24" height="20" rx="5" fill="#fff"/>
+  <rect x="84" y="90" width="24" height="20" rx="5" fill="#fff"/>
+  <rect x="114" y="90" width="24" height="20" rx="5" fill="#fff"/>
+  <rect x="54" y="118" width="24" height="20" rx="5" fill="#fff"/>
+  <rect x="114" y="118" width="24" height="20" rx="5" fill="#fff"/>
+  <rect x="84" y="118" width="24" height="20" rx="5" fill="#fff"/>
+  <rect x="91" y="123.6" width="10" height="2.1" rx="0.8" fill="#1f5c42"/>
+  <path d="M92 126.4h8l-1.1 5.6h-5.8z" fill="#1f5c42"/>
+  <circle cx="94.2" cy="132.8" r="1.05" fill="#1f5c42"/>
+  <circle cx="97.8" cy="132.8" r="1.05" fill="#1f5c42"/>
+</svg>

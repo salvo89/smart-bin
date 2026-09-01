@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proposte icona app + marchio Escilo</title>
+  <style>
+    @font-face {
+      font-family: "Outfit";
+      font-style: normal;
+      font-display: swap;
+      font-weight: 100 900;
+      src: url("../../docs/assets/fonts/outfit-latin-wght-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-display: swap;
+      font-weight: 100 900;
+      src: url("../../docs/assets/fonts/fraunces-latin-wght-normal.woff2") format("woff2");
+    }
+    :root {
+      --bg: #eef6f1;
+      --ink: #142018;
+      --muted: #5a7266;
+      --accent: #1f5c42;
+      --line: #d5e2da;
+      --surface: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1.5rem 1.25rem 3rem;
+      font-family: Outfit, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.35rem;
+    }
+    .lead {
+      max-width: 40rem;
+      color: var(--muted);
+      line-height: 1.45;
+      margin: 0 0 1.5rem;
+      font-size: 0.95rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    figure {
+      margin: 0;
+      padding: 1rem 1rem 1.1rem;
+      border-radius: 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(20, 40, 30, 0.08);
+    }
+    figure.now { outline: 2px solid rgba(31, 92, 66, 0.35); }
+    figcaption strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    figcaption span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.35;
+      margin-bottom: 0.85rem;
+    }
+    .row {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-end;
+      margin-bottom: 0.9rem;
+    }
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      display: block;
+      background: #eef6f1;
+      box-shadow: 0 8px 18px rgba(20, 40, 30, 0.14);
+    }
+    .sizes { display: flex; gap: 0.4rem; align-items: flex-end; }
+    .sizes img {
+      border-radius: 22%;
+      background: #eef6f1;
+      display: block;
+    }
+    .lockup, .lockup-dark {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas: "mark title" "sub sub";
+      column-gap: 0.5rem;
+      row-gap: 0.08rem;
+      align-items: center;
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.85rem;
+    }
+    .lockup { background: #f7fbf8; border: 1px solid var(--line); }
+    .lockup-dark { background: #163d2c; margin-top: 0.55rem; }
+    .lockup img, .lockup-dark img {
+      width: auto;
+      height: 2.15rem;
+      grid-area: mark;
+    }
+    .lockup-dark img { filter: brightness(0) invert(1); opacity: 0.95; }
+    .name {
+      grid-area: title;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0;
+      line-height: 1.1;
+      color: var(--accent);
+    }
+    .lockup-dark .name { color: #f3faf6; }
+    .tag {
+      grid-area: sub;
+      margin: 0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .lockup-dark .tag { color: rgba(243, 250, 246, 0.72); }
+    .homescreen {
+      margin-top: 0.7rem;
+      padding: 0.85rem 0.7rem 0.7rem;
+      border-radius: 1rem;
+      background: linear-gradient(180deg, #9ec9b4, #6ea58a);
+      display: flex;
+      justify-content: center;
+    }
+    .homescreen .tile {
+      text-align: center;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 650;
+      text-shadow: 0 1px 2px rgba(0,0,0,.25);
+    }
+    .homescreen img {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto 0.28rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,.18);
+    }
+    code { font-size: 0.72rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>Proposte icona app + marchio Escilo</h1>
+  <p class="lead">
+    Mockup: le icone live non cambiano finché non scegli. Ogni proposta è lo stesso glifo
+    come icona home (sfondo menta) e come marchio accanto a «Escilo».
+    Oggi: calendario + tre frecce + foglia.
+  </p>
+  <div class="grid">
+    <figure class="now">
+      <figcaption>
+        <strong>Oggi</strong>
+        <span>Calendario, foglia al centro, tre frecce di riciclo. Marchio = stesso glifo senza sfondo.</span>
+      </figcaption>
+      <div class="row">
+        <img class="app-icon" src="../../docs/icon-192.png" alt="Icona app attuale" />
+        <div class="sizes">
+          <img src="../../docs/icon-192.png" width="56" height="56" alt="" />
+          <img src="../../docs/icon-192.png" width="32" height="32" alt="" />
+          <img src="../../docs/icon-192.png" width="20" height="20" alt="" />
+        </div>
+      </div>
+      <div class="lockup">
+        <img src="../../docs/brand-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">perché i cassonetti non si escono da soli</p>
+      </div>
+      <div class="lockup-dark">
+        <img src="../../docs/brand-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">su card scura / share</p>
+      </div>
+      <div class="homescreen">
+        <div class="tile">
+          <img src="../../docs/icon-192.png" alt="" />
+          Escilo
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <strong>1 · Cassonetto-calendario</strong>
+        <span>Il bidone è il calendario: anelli da agenda sul coperchio, griglia sul corpo, foglia sul giorno del ritiro.</span>
+        <code>01-cassonetto-cal</code>
+      </figcaption>
+      <div class="row">
+        <img class="app-icon" src="01-cassonetto-cal.png" alt="Proposta 1 icona app" />
+        <div class="sizes">
+          <img src="01-cassonetto-cal.png" width="56" height="56" alt="" />
+          <img src="01-cassonetto-cal.png" width="32" height="32" alt="" />
+          <img src="01-cassonetto-cal.png" width="20" height="20" alt="" />
+        </div>
+      </div>
+      <div class="lockup">
+        <img src="01-cassonetto-cal-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">perché i cassonetti non si escono da soli</p>
+      </div>
+      <div class="lockup-dark">
+        <img src="01-cassonetto-cal-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">su card scura / share</p>
+      </div>
+      <div class="homescreen">
+        <div class="tile">
+          <img src="01-cassonetto-cal.png" alt="" />
+          Escilo
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <strong>2 · Giorno del ritiro</strong>
+        <span>Calendario pulito, senza frecce. Il giorno evidenziato ha il cassonetto: è il prodotto (cosa esporre).</span>
+        <code>02-giorno-ritiro</code>
+      </figcaption>
+      <div class="row">
+        <img class="app-icon" src="02-giorno-ritiro.png" alt="Proposta 2 icona app" />
+        <div class="sizes">
+          <img src="02-giorno-ritiro.png" width="56" height="56" alt="" />
+          <img src="02-giorno-ritiro.png" width="32" height="32" alt="" />
+          <img src="02-giorno-ritiro.png" width="20" height="20" alt="" />
+        </div>
+      </div>
+      <div class="lockup">
+        <img src="02-giorno-ritiro-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">perché i cassonetti non si escono da soli</p>
+      </div>
+      <div class="lockup-dark">
+        <img src="02-giorno-ritiro-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">su card scura / share</p>
+      </div>
+      <div class="homescreen">
+        <div class="tile">
+          <img src="02-giorno-ritiro.png" alt="" />
+          Escilo
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <strong>3 · Esci lo</strong>
+        <span>Cassonetto col coperchio aperto: il nome è l’azione. Silhouette più marcata sulla home, marchio più «logo».</span>
+        <code>03-esci-lo</code>
+      </figcaption>
+      <div class="row">
+        <img class="app-icon" src="03-esci-lo.png" alt="Proposta 3 icona app" />
+        <div class="sizes">
+          <img src="03-esci-lo.png" width="56" height="56" alt="" />
+          <img src="03-esci-lo.png" width="32" height="32" alt="" />
+          <img src="03-esci-lo.png" width="20" height="20" alt="" />
+        </div>
+      </div>
+      <div class="lockup">
+        <img src="03-esci-lo-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">perché i cassonetti non si escono da soli</p>
+      </div>
+      <div class="lockup-dark">
+        <img src="03-esci-lo-mark.png" alt="" />
+        <p class="name">Escilo</p>
+        <p class="tag">su card scura / share</p>
+      </div>
+      <div class="homescreen">
+        <div class="tile">
+          <img src="03-esci-lo.png" alt="" />
+          Escilo
+        </div>
+      </div>
+    </figure>
+  </div>
+</body>
+</html>

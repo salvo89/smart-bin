@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escilo — 5 proposte bigliettino 3×5 cm</title>
+  <style>
+    @font-face {
+      font-family: "Outfit";
+      font-style: normal;
+      font-display: swap;
+      font-weight: 100 900;
+      src: url("../../docs/assets/fonts/outfit-latin-wght-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-display: swap;
+      font-weight: 100 900;
+      src: url("../../docs/assets/fonts/fraunces-latin-wght-normal.woff2") format("woff2");
+    }
+    :root {
+      --bg: #eef6f1;
+      --ink: #142018;
+      --muted: #5a7266;
+      --accent: #1f5c42;
+      --line: #d5e2da;
+      --surface: #fff;
+      --scale: 2.35;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1.6rem 1.3rem 3.5rem;
+      font-family: Outfit, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.35rem;
+    }
+    .lead {
+      max-width: 42rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 0.9rem;
+      font-size: 0.95rem;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.85rem;
+      margin: 0 0 1.6rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .meta b { color: var(--ink); font-weight: 650; }
+    .grid {
+      display: grid;
+      gap: 1.15rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    figure {
+      margin: 0;
+      padding: 1.05rem 1.05rem 1.15rem;
+      border-radius: 1.05rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    figcaption strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.18rem;
+    }
+    .kicker {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.2rem;
+    }
+    figcaption p {
+      margin: 0 0 0.85rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .why {
+      margin: 0.7rem 0 0;
+      font-size: 0.75rem;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .stage-wrap {
+      width: calc(3cm * var(--scale));
+      height: calc(5cm * var(--scale));
+      margin: 0.4rem auto 0.25rem;
+      overflow: hidden;
+    }
+    .stage-wrap.land {
+      --scale: 1.65;
+      width: calc(5cm * var(--scale));
+      height: calc(3cm * var(--scale));
+    }
+    .stage {
+      width: 3cm;
+      height: 5cm;
+      transform: scale(var(--scale));
+      transform-origin: top left;
+    }
+    .stage.land { width: 5cm; height: 3cm; }
+    .ticket {
+      width: 3cm;
+      height: 5cm;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .ticket.land {
+      width: 5cm;
+      height: 3cm;
+      flex-direction: row;
+      align-items: stretch;
+    }
+    .ticket img.qr {
+      display: block;
+      width: 1.95cm;
+      height: 1.95cm;
+      flex: 0 0 auto;
+    }
+    .mark {
+      width: 0.42cm;
+      height: 0.42cm;
+      border-radius: 0.08cm;
+    }
+
+    /* 1 — Non indovinare */
+    .t1 {
+      background: #fff;
+      color: #142018;
+      padding: 0.22cm 0.22cm 0.18cm;
+      border: 0.035cm solid #1f5c42;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+    }
+    .t1 .brand-row { display: flex; align-items: center; gap: 0.12cm; }
+    .t1 .brand-row span {
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1f5c42;
+    }
+    .t1 h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 8.6pt;
+      font-weight: 650;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0.06cm 0 0.04cm;
+    }
+    .t1 img.qr { width: 1.82cm; height: 1.82cm; }
+    .t1 .url { font-size: 7pt; font-weight: 650; letter-spacing: 0.02em; color: #1f5c42; }
+    .t1 .free { font-size: 5.5pt; color: #5a7266; margin-top: 0.02cm; }
+
+    /* 2 — Via tua */
+    .t2 {
+      background: #fff;
+      color: #142018;
+      padding: 0.22cm 0.24cm 0.18cm;
+      border: 0.035cm solid #1f5c42;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+    }
+    .t2 .name {
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #1f5c42;
+    }
+    .t2 h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 8pt;
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin: 0.08cm 0;
+    }
+    .t2 img.qr { width: 1.82cm; height: 1.82cm; }
+    .t2 .dots { display: flex; gap: 0.09cm; margin: 0.06cm 0 0.04cm; }
+    .t2 .dots i { width: 0.16cm; height: 0.16cm; border-radius: 50%; display: block; }
+    .t2 .url { font-size: 7pt; font-weight: 650; color: #1f5c42; }
+
+    /* 3 — Scontrino */
+    .t3 {
+      background: #fff;
+      color: #142018;
+      padding: 0.2cm 0.22cm 0.16cm;
+      border: 0.03cm dashed #1f5c42;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+    }
+    .t3 .perf {
+      width: 100%;
+      height: 0;
+      border-top: 0.03cm dashed #c5d4cb;
+      margin: 0.04cm 0;
+    }
+    .t3 .k {
+      font-size: 5.4pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #1f5c42;
+    }
+    .t3 h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 7.8pt;
+      font-weight: 650;
+      line-height: 1.12;
+      margin: 0.06cm 0 0;
+      letter-spacing: -0.03em;
+    }
+    .t3 img.qr { width: 1.82cm; height: 1.82cm; }
+    .t3 .url { font-size: 6.2pt; font-weight: 600; color: #5a7266; }
+
+    /* 4 — verticale, come 1/2/5 */
+    .t4 {
+      background: #fff;
+      color: #142018;
+      padding: 0.24cm 0.22cm 0.18cm;
+      border: 0.035cm solid #1f5c42;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+    }
+    .t4 .name {
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1f5c42;
+    }
+    .t4 h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 8.2pt;
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin: 0.08cm 0 0.06cm;
+    }
+    .t4 img.qr { width: 1.82cm; height: 1.82cm; }
+    .t4 .url { font-size: 6.5pt; font-weight: 650; color: #1f5c42; }
+
+    /* 5 — Comune */
+    .t5 {
+      background: #fff;
+      color: #142018;
+      padding: 0.24cm 0.22cm 0.18cm;
+      border: 0.035cm solid #1f5c42;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+    }
+    .t5 .name {
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1f5c42;
+    }
+    .t5 h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 8.2pt;
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin: 0.08cm 0 0.06cm;
+    }
+    .t5 img.qr { width: 1.82cm; height: 1.82cm; }
+    .t5 .url { font-size: 6.5pt; font-weight: 650; color: #1f5c42; }
+
+    h2.sec {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 2rem 0 0.35rem;
+    }
+      max-width: 46rem;
+      margin: 1.8rem 0 0;
+      padding: 1rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .notes h2 {
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin: 0 0 0.45rem;
+    }
+    .notes ul { margin: 0; padding-left: 1.1rem; }
+    .notes li + li { margin-top: 0.28rem; }
+
+    @media print {
+      body { background: #fff; padding: 0.6cm; }
+      .lead, .meta, .notes, figcaption p, .why, .kicker { }
+      h1 { font-size: 14pt; }
+      .grid { display: flex; flex-wrap: wrap; gap: 0.5cm; }
+      figure { border: none; padding: 0; break-inside: avoid; width: auto; }
+      .stage-wrap, .stage { min-height: 0; transform: none; }
+      .stage, .ticket { width: 3cm; height: 5cm; }
+      .stage.land, .ticket.land { width: 3cm; height: 5cm; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Bigliettini 3×5 cm</h1>
+  <p class="lead">
+    Tutti verticali, bianco, QR scuro. Sotto: varianti sul formato della 3 (scontrino).
+  </p>
+  <p class="meta">
+    <span><b>Formato</b> 30 × 50 mm</span>
+    <span><b>QR</b> ~18 mm · <b>https://escilo.it/</b></span>
+  </p>
+
+  <div class="grid">
+    <figure>
+      <p class="kicker">3 · scena di casa</p>
+      <figcaption>
+        <strong>Basta chiedere «ma domani cos’è?»</strong>
+        <p>È la frase che si sente in cucina. Colpisce perché è vera, e il QR la fa sparire.</p>
+      </figcaption>
+      <div class="stage-wrap">
+        <div class="stage">
+          <article class="ticket t3" aria-label="Bigliettino 3">
+            <div class="k">La solita domanda</div>
+            <div class="perf"></div>
+            <h2>Basta chiedere<br />«ma domani<br />cos’è?»</h2>
+            <img class="qr" src="qr-escilo.svg" alt="QR escilo.it" />
+            <div class="url">Inquadra · escilo.it</div>
+          </article>
+        </div>
+      </div>
+      <p class="why">La più umana: non parla di differenziata, parla di un fastidio reale.</p>
+    </figure>
+
+    <figure>
+      <p class="kicker">4 · il fastidio</p>
+      <figcaption>
+        <strong>Mai più il cassonetto sbagliato.</strong>
+        <p>Il dolore che tutti hanno già provato. Il QR è la via d’uscita.</p>
+      </figcaption>
+      <div class="stage-wrap">
+        <div class="stage">
+          <article class="ticket t4" aria-label="Bigliettino 4">
+            <div class="name">Escilo</div>
+            <h2>Mai più il<br />cassonetto<br />sbagliato.</h2>
+            <img class="qr" src="qr-escilo.svg" alt="QR escilo.it" />
+            <div class="url">escilo.it</div>
+          </article>
+        </div>
+      </div>
+      <p class="why">Stesso formato verticale 3×5 delle altre: frase da tenere, poi il QR.</p>
+    </figure>
+
+    <figure>
+      <p class="kicker">5 · orgoglio del paese</p>
+      <figcaption>
+        <strong>Il tuo comune differenzia meglio degli altri?</strong>
+        <p>Curiosità + identità. Funziona anche per chi non ha il porta a porta: i dati ci sono per tutti i comuni.</p>
+      </figcaption>
+      <div class="stage-wrap">
+        <div class="stage">
+          <article class="ticket t5" aria-label="Bigliettino 5">
+            <div class="name">Escilo</div>
+            <h2>Il tuo comune<br />differenzia meglio<br />degli altri?</h2>
+            <img class="qr" src="qr-escilo.svg" alt="QR escilo.it" />
+            <div class="url">scoprilo su escilo.it</div>
+          </article>
+        </div>
+      </div>
+      <p class="why">La più “da centro commerciale”: in parcheggio ci sono auto da tanti paesi. Quasi tutti vogliono sapere se il loro è sopra o sotto.</p>
+    </figure>
+  </div>
+
+  <h2 class="sec">Formato 3 — altre frasi</h2>
+  <p class="lead">Stesso scontrino della 3: kicker, domanda, QR, escilo.it.</p>
+
+  <div class="grid">
+    <figure>
+      <p class="kicker">3a · carta o plastica</p>
+      <figcaption>
+        <strong>Domani passa la carta o la plastica?</strong>
+        <p>Due frazioni che si confondono sempre. La risposta è dietro al QR.</p>
+      </figcaption>
+      <div class="stage-wrap">
+        <div class="stage">
+          <article class="ticket t3" aria-label="Bigliettino 3a">
+            <div class="k">Da te, quale?</div>
+            <div class="perf"></div>
+            <h2>Domani passa<br />la carta<br />o la plastica?</h2>
+            <img class="qr" src="qr-escilo.svg" alt="QR escilo.it" />
+            <div class="url">Inquadra · escilo.it</div>
+          </article>
+        </div>
+      </div>
+      <p class="why">Quiz concreto: se non lo sai, inquadri.</p>
+    </figure>
+
+    <figure>
+      <p class="kicker">3c · ci penso io</p>
+      <figcaption>
+        <strong>Stasera ti dico cosa esce domani.</strong>
+        <p>Promessa utile: inquadri una volta, poi arriva la notifica.</p>
+      </figcaption>
+      <div class="stage-wrap">
+        <div class="stage">
+          <article class="ticket t3" aria-label="Bigliettino 3c">
+            <div class="k">Ci penso io</div>
+            <div class="perf"></div>
+            <h2>Stasera ti dico<br />cosa esce<br />domani.</h2>
+            <img class="qr" src="qr-escilo.svg" alt="QR escilo.it" />
+            <div class="url">Inquadra · escilo.it</div>
+          </article>
+        </div>
+      </div>
+      <p class="why">L’aiuto nel tempo, non solo la curiosità di oggi.</p>
+    </figure>
+
+    <figure>
+      <p class="kicker">3d · niente PDF</p>
+      <figcaption>
+        <strong>Smetti di cercare il volantino.</strong>
+        <p>Il fastidio del PDF del comune. Qui la via d’uscita è un inquadro.</p>
+      </figcaption>
+      <div class="stage-wrap">
+        <div class="stage">
+          <article class="ticket t3" aria-label="Bigliettino 3d">
+            <div class="k">Basta PDF</div>
+            <div class="perf"></div>
+            <h2>Smetti di cercare<br />il volantino.</h2>
+            <img class="qr" src="qr-escilo.svg" alt="QR escilo.it" />
+            <div class="url">Inquadra · escilo.it</div>
+          </article>
+        </div>
+      </div>
+      <p class="why">Parla a chi ha già perso dieci minuti sul sito del gestore.</p>
+    </figure>
+
+    <figure>
+      <p class="kicker">3f · la tua via</p>
+      <figcaption>
+        <strong>Hai già il calendario della tua via?</strong>
+        <p>Non quello del paese: quello della strada. Se la risposta è no, si inquadra.</p>
+      </figcaption>
+      <div class="stage-wrap">
+        <div class="stage">
+          <article class="ticket t3" aria-label="Bigliettino 3f">
+            <div class="k">La tua via</div>
+            <div class="perf"></div>
+            <h2>Hai già il<br />calendario<br />della tua via?</h2>
+            <img class="qr" src="qr-escilo.svg" alt="QR escilo.it" />
+            <div class="url">Inquadra · escilo.it</div>
+          </article>
+        </div>
+      </div>
+      <p class="why">La differenza vera di Escilo, in forma di domanda.</p>
+    </figure>
+  </div>
+    <h2>Note pratiche</h2>
+    <ul>
+      <li><b>Permesso.</b> Molti centri commerciali vietano i volantini sui tergicristalli. Chiedi alla direzione (o al servizio vigilanza) prima di stamparne migliaia.</li>
+      <li><b>Perché 3×5 è al limite.</b> Un QR sotto i 18–20 mm sul vetro (riflessi, sporco, distanza) fallisce spesso. Non rimpicciolirlo per mettere più testo.</li>
+      <li><b>Stampa.</b> Scala 100%, niente “adatta alla pagina”. Carta 300 g o PP adesivo; se resta sotto il tergicristallo, meglio sintetico che carta da fotocopie.</li>
+      <li><b>QR.</b> Punta a <code>https://escilo.it/</code> (corto = più affidabile). Per tracciare il mall, meglio un redirect corto tipo <code>escilo.it/c</code> che un UTM lunghissimo nel QR.</li>
+      <li><b>Su A4.</b> In verticale 3×5 con 3 mm di via, ci stanno 6×5 = 30 pezzi a foglio.</li>
+    </ul>
+  </section>
+</body>
+</html>

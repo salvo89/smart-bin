@@ -1147,6 +1147,9 @@ html.is-gated .bottom-nav {
 .gate-story-lockup {
   margin-bottom: 1.35rem;
 }
+.gate-story-lockup .brand-mark {
+  filter: brightness(0) invert(1);
+}
 .gate-story-lockup .zone-gate-brand {
   color: #f3faf6;
 }

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Escilo — 3 proposte sheet province</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #dceae2;
+      --ink: #142018;
+      --muted: #5a7266;
+      --muted-2: #6a8074;
+      --line: #d5e2da;
+      --accent: #1f5c42;
+      --accent-2: #2a7a58;
+      --deep: #1a4a36;
+      --soft: #e4f3eb;
+      --chip: #f0f5f2;
+      --good: #1f5c42;
+      --warn: #8a5a1a;
+      --bad: #8b3a3a;
+      --surface: #ffffff;
+      --font: "Outfit", "Segoe UI", system-ui, sans-serif;
+      --display: "Fraunces", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 480px at 10% -10%, #cfe8d8 0%, transparent 55%),
+        linear-gradient(180deg, #e7f3eb 0%, #dceae2 40%, #f3f7f4 100%);
+      min-height: 100dvh;
+    }
+    .wrap {
+      max-width: 92rem;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+    body.shot,
+    body.shot .wrap,
+    body.shot .gallery,
+    body.shot .col { height: 100%; overflow: hidden; }
+    body.shot header.page-head,
+    body.shot .note,
+    body.shot .col h2,
+    body.shot .col .why { display: none; }
+    body.shot .wrap { padding: 0; max-width: none; }
+    body.shot .gallery { display: flex; justify-content: center; gap: 0; }
+    body.shot .col { display: none; width: 100%; }
+    body.shot[data-shot="a"] .col:nth-child(2),
+    body.shot[data-shot="b"] .col:nth-child(3),
+    body.shot[data-shot="c"] .col:nth-child(4) { display: block; }
+    body.shot .phone { height: 100%; border-radius: 0; border: 0; box-shadow: none; }
+    body.shot .sheet { top: 14%; max-height: none; }
+    header.page-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+    }
+    .eyebrow {
+      margin: 0 0 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h1 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+    .lede {
+      margin: 0.4rem 0 0;
+      max-width: 38rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .toggles {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.28rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+    }
+    .toggles button {
+      font: inherit;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .toggles button[aria-pressed="true"] {
+      background: var(--accent);
+      color: #f3faf6;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(16.5rem, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+    @media (max-width: 1100px) {
+      .gallery {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: min(20.5rem, 86vw);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 0.75rem;
+      }
+    }
+    .col { scroll-snap-align: start; }
+    .col h2 {
+      margin: 0 0 0.2rem;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+    .col .why {
+      margin: 0 0 0.55rem;
+      min-height: 2.6rem;
+      font-size: 0.76rem;
+      line-height: 1.32;
+      color: var(--muted);
+    }
+    .phone {
+      position: relative;
+      height: 36rem;
+      border-radius: 1.6rem;
+      overflow: hidden;
+      border: 1px solid #b7cfc2;
+      box-shadow: 0 18px 40px rgba(20, 40, 30, 0.16);
+      background: #eef3f0;
+    }
+    .mapbg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 42% 38%, #2a7a58 0 18%, transparent 19%),
+        radial-gradient(circle at 58% 46%, #7eb69a 0 14%, transparent 15%),
+        radial-gradient(circle at 36% 52%, #1a4a36 0 11%, transparent 12%),
+        radial-gradient(circle at 70% 34%, #c5ddd0 0 10%, transparent 11%),
+        linear-gradient(180deg, #dce8e1, #eef3f0);
+      filter: saturate(0.9);
+    }
+    .mapbg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 28%, rgba(20,32,24,0.38) 100%);
+    }
+    .crumb {
+      position: absolute;
+      top: 0.7rem;
+      left: 0.7rem;
+      z-index: 2;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line);
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+    .sheet {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      z-index: 3;
+      max-height: 86%;
+      min-height: 70%;
+      overflow: auto;
+      padding: 0.3rem 0.95rem 1rem;
+      border-radius: 1.25rem 1.25rem 0 0;
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+    }
+    .handle {
+      width: 2.4rem;
+      height: 0.28rem;
+      margin: 0.32rem auto 0.45rem;
+      border-radius: 999px;
+      background: #c5d4cb;
+    }
+    .sheet-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .sheet-head h3 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.22rem;
+      line-height: 1.1;
+    }
+    .meta { margin: 0.12rem 0 0; font-size: 0.78rem; font-weight: 600; color: var(--muted); }
+    .x {
+      width: 2rem; height: 2rem; border: 0; border-radius: 999px;
+      background: var(--chip); color: var(--ink); font-size: 1.2rem; cursor: default;
+    }
+
+    /* OGGI */
+    .stat {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.08rem 0.6rem;
+      padding: 0.5rem 0.05rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.8rem;
+    }
+    .stat .k { color: var(--muted); }
+    .stat .v { font-weight: 700; }
+    .stat .vs { grid-column: 1 / -1; font-size: 0.68rem; font-weight: 600; }
+    .is-good { color: var(--good); }
+    .is-bad { color: var(--bad); }
+
+    /* A — VOTO */
+    .sheet.a { padding-bottom: 1.1rem; background: linear-gradient(180deg, #f7fbf8 0%, #fff 42%); }
+    .hero-a {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: center;
+      margin: 0.55rem 0 0.75rem;
+      padding: 0.85rem 0.9rem;
+      border-radius: 1.1rem;
+      background: linear-gradient(145deg, #1f5c42 0%, #2a7a58 52%, #1a4a36 100%);
+      color: #f3faf6;
+    }
+    .ring { width: 5.4rem; height: 5.4rem; }
+    .ring text { fill: #f3faf6; font-family: var(--font); }
+    .hero-a .label {
+      margin: 0;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.82;
+    }
+    .hero-a .punch {
+      margin: 0.18rem 0 0;
+      font-family: var(--display);
+      font-size: 1.12rem;
+      line-height: 1.15;
+    }
+    .hero-a .sub { margin: 0.28rem 0 0; font-size: 0.72rem; opacity: 0.88; }
+    .pills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+    }
+    .pill {
+      padding: 0.55rem 0.6rem 0.5rem;
+      border-radius: 0.85rem;
+      background: var(--chip);
+      border: 1px solid var(--line);
+    }
+    .pill .k { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .pill .v { display: block; margin-top: 0.12rem; font-weight: 800; font-size: 0.95rem; }
+    .pill .d { display: block; margin-top: 0.08rem; font-size: 0.66rem; font-weight: 650; }
+
+    /* B — CLASSIFICA */
+    .rank-chip {
+      display: inline-flex;
+      align-items: center;
+      margin: 0.45rem 0 0.65rem;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .race { display: flex; flex-direction: column; gap: 0.55rem; }
+    .race-row .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .race-row .top .muted { color: var(--muted); font-weight: 600; }
+    .bar {
+      position: relative;
+      height: 0.62rem;
+      margin: 0.28rem 0 0.12rem;
+      border-radius: 999px;
+      background: #e6eee9;
+      overflow: hidden;
+    }
+    .bar > i {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--accent-2);
+    }
+    .bar.is-warn > i { background: #c48a2a; }
+    .bar .it {
+      position: absolute;
+      top: -0.18rem;
+      width: 0.16rem;
+      height: 0.95rem;
+      background: var(--ink);
+      border-radius: 2px;
+    }
+    .race-row .foot {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.66rem;
+      color: var(--muted);
+    }
+    .nudge {
+      margin: 0.75rem 0 0;
+      padding: 0.65rem 0.75rem;
+      border-radius: 0.9rem;
+      background: var(--soft);
+      font-size: 0.78rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    /* C — SCHEDA */
+    .sheet.c { background: #f4faf6; }
+    .id-row {
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      margin: 0.15rem 0 0.7rem;
+    }
+    .badge {
+      flex: 0 0 auto;
+      width: 2.7rem; height: 2.7rem;
+      display: grid; place-items: center;
+      border-radius: 0.9rem;
+      background: var(--accent);
+      color: #f3faf6;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .quote {
+      margin: 0 0 0.75rem;
+      padding: 0.75rem 0.8rem;
+      border-left: 3px solid var(--accent);
+      background: #fff;
+      border-radius: 0 0.85rem 0.85rem 0;
+      font-family: var(--display);
+      font-size: 0.98rem;
+      line-height: 1.28;
+    }
+    .tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .tile {
+      padding: 0.7rem 0.7rem 0.65rem;
+      border-radius: 1rem;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+    .tile .k { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .tile .v { margin-top: 0.18rem; font-size: 1.22rem; font-weight: 800; letter-spacing: -0.03em; }
+    .tile .d { margin-top: 0.12rem; font-size: 0.68rem; font-weight: 650; }
+    .cta {
+      margin: 0.7rem 0 0;
+      padding: 0.7rem 0.8rem;
+      border-radius: 1rem;
+      background: linear-gradient(145deg, #1f5c42, #2a7a58);
+      color: #f3faf6;
+      font-size: 0.8rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+    .note {
+      margin: 1.25rem 0 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="page-head">
+      <div>
+        <p class="eyebrow">Mappa · bottom sheet province</p>
+        <h1>Tre proposte, più lo sheet di oggi</h1>
+        <p class="lede">Stesso contenuto ISPRA, tre letture diverse: voto, classifica, racconto. Cambia provincia per vedere eccellenza e “in corsa”.</p>
+      </div>
+      <div class="toggles" role="group" aria-label="Provincia di esempio">
+        <button type="button" id="btnTv" aria-pressed="true">Treviso</button>
+        <button type="button" id="btnTo" aria-pressed="false">Torino</button>
+      </div>
+    </header>
+
+    <div class="gallery">
+      <article class="col">
+        <h2>Oggi</h2>
+        <p class="why">Lista secca: numeri allineati, confronto vs Italia in testo. Chiara, ma poco da “aprire per curiosità”.</p>
+        <div class="phone" id="phone-oggi">
+          <div class="mapbg"></div>
+          <div class="crumb" data-crumb></div>
+          <aside class="sheet">
+            <div class="handle"></div>
+            <header class="sheet-head">
+              <div>
+                <h3 data-name></h3>
+                <p class="meta" data-meta></p>
+              </div>
+              <button class="x" tabindex="-1" aria-hidden="true">×</button>
+            </header>
+            <div id="todayList"></div>
+          </aside>
+        </div>
+      </article>
+
+      <article class="col">
+        <h2>A · Il voto</h2>
+        <p class="why">La differenziata diventa un punteggio da eroe. Un anello grande, una frase che premia o spinge, poi quattro chip. Motivante perché dà un giudizio immediato.</p>
+        <div class="phone" id="phone-a">
+          <div class="mapbg"></div>
+          <div class="crumb" data-crumb></div>
+          <aside class="sheet a">
+            <div class="handle"></div>
+            <header class="sheet-head">
+              <div>
+                <h3 data-name></h3>
+                <p class="meta" data-meta></p>
+              </div>
+              <button class="x" tabindex="-1" aria-hidden="true">×</button>
+            </header>
+            <div class="hero-a">
+              <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(243,250,246,0.22)" stroke-width="10"/>
+                <circle id="ringArc" cx="60" cy="60" r="48" fill="none" stroke="#f3e03b" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                <text x="60" y="58" text-anchor="middle" font-size="22" font-weight="800" id="ringVal">89</text>
+                <text x="60" y="74" text-anchor="middle" font-size="11" font-weight="700">%</text>
+              </svg>
+              <div>
+                <p class="label">Raccolta differenziata</p>
+                <p class="punch" id="aPunch"></p>
+                <p class="sub" id="aSub"></p>
+              </div>
+            </div>
+            <div class="pills" id="aPills"></div>
+          </aside>
+        </div>
+      </article>
+
+      <article class="col">
+        <h2>B · La classifica</h2>
+        <p class="why">Ogni KPI è una gara contro l’Italia (tacca nera) e contro le 107 province. Motivante perché trasforma i decimali in posizione: 1ª, 76ª, margine, primato.</p>
+        <div class="phone" id="phone-b">
+          <div class="mapbg"></div>
+          <div class="crumb" data-crumb></div>
+          <aside class="sheet">
+            <div class="handle"></div>
+            <header class="sheet-head">
+              <div>
+                <h3 data-name></h3>
+                <p class="meta" data-meta></p>
+              </div>
+              <button class="x" tabindex="-1" aria-hidden="true">×</button>
+            </header>
+            <div class="rank-chip" id="bChip"></div>
+            <div class="race" id="bRace"></div>
+            <p class="nudge" id="bNudge"></p>
+          </aside>
+        </div>
+      </article>
+
+      <article class="col">
+        <h2>C · La scheda</h2>
+        <p class="why">Tono da rivista civica: identità del territorio, una frase che racconta il dato, tile grandi. Motivante perché parla alle persone, non al foglio Excel.</p>
+        <div class="phone" id="phone-c">
+          <div class="mapbg"></div>
+          <div class="crumb" data-crumb></div>
+          <aside class="sheet c">
+            <div class="handle"></div>
+            <div class="id-row">
+              <div class="badge" id="cBadge">TV</div>
+              <div>
+                <h3 data-name></h3>
+                <p class="meta" data-meta></p>
+              </div>
+              <button class="x" tabindex="-1" aria-hidden="true">×</button>
+            </div>
+            <p class="quote" id="cQuote"></p>
+            <div class="tiles" id="cTiles"></div>
+            <p class="cta" id="cCta"></p>
+          </aside>
+        </div>
+      </article>
+    </div>
+    <p class="note">Anteprima locale, non in produzione. Dati ISPRA 2024 (Treviso / Torino) · media Italia RD 68,0% · 107 province. Apri il file nel browser; su telefono scorri in orizzontale.</p>
+  </div>
+  <script>
+    const IT = { rd: 67.96, co: 214.97, kru: 507.94, kin: 163.28, drd: 2.08 };
+    const DATA = {
+      treviso: {
+        n: "Treviso", badge: "TV", rn: "Veneto", nc: 94, pop: "877 mila",
+        rd: 89.11, co: 118, kru: 421, kin: 47, drd: 0.24, dens: 354, km2: "2.479",
+        ranks: { rd: 1, co: 1, kin: 1, kru: 17 }
+      },
+      torino: {
+        n: "Torino", badge: "TO", rn: "Piemonte", nc: 312, pop: "2,2 mln",
+        rd: 64.73, co: 225, kru: 516, kin: 181, drd: 2.63, dens: 323, km2: "6.838",
+        ranks: { rd: 76, co: 69, kin: 79, kru: 64 }
+      }
+    };
+
+    const fmt = (n, d=1) => n.toLocaleString("it-IT", { minimumFractionDigits: d, maximumFractionDigits: d });
+    const pct = (v, max) => Math.max(4, Math.min(100, (v / max) * 100));
+
+    function vs(val, key) {
+      const d = val - IT[key];
+      const up = key === "rd" || key === "drd";
+      const good = up ? d > 0 : d < 0;
+      const body = key === "rd" || key === "drd"
+        ? `${d > 0 ? "+" : "−"}${fmt(Math.abs(d), 1)} pt vs Italia`
+        : key === "co"
+          ? `${d > 0 ? "+" : "−"}${fmt(Math.abs(d), 0)} € vs Italia`
+          : `${d > 0 ? "+" : "−"}${fmt(Math.abs(d), 0)} kg vs Italia`;
+      return { body, good };
+    }
+
+    function render(id) {
+      const p = DATA[id];
+      document.querySelectorAll("[data-name]").forEach((el) => (el.textContent = p.n));
+      document.querySelectorAll("[data-meta]").forEach((el) => (el.textContent = `${p.nc} comuni · ${p.rn}`));
+      document.querySelectorAll("[data-crumb]").forEach((el) => (el.textContent = `Nord › ${p.rn}`));
+
+      const today = [
+        ["Raccolta differenziata", fmt(p.rd) + "%", vs(p.rd, "rd")],
+        ["Costo gestione", p.co + " €/ab·anno", vs(p.co, "co")],
+        ["Rifiuto urbano", p.kru + " kg/ab·anno", vs(p.kru, "kru")],
+        ["Indifferenziato", p.kin + " kg/ab·anno", vs(p.kin, "kin")],
+        ["Variazione RD", (p.drd > 0 ? "+" : "") + fmt(p.drd) + "%", vs(p.drd, "drd")],
+        ["Densità", p.dens + " ab/km²", null],
+        ["Abitanti", p.pop, null],
+        ["Superficie", p.km2 + " km²", null],
+      ];
+      document.getElementById("todayList").innerHTML = today.map(([k,v,x]) =>
+        `<div class="stat"><span class="k">${k}</span><span class="v">${v}</span>` +
+        (x ? `<span class="vs ${x.good ? "is-good" : "is-bad"}">${x.body}</span>` : "") +
+        `</div>`
+      ).join("");
+
+      const circ = 2 * Math.PI * 48;
+      const arc = document.getElementById("ringArc");
+      arc.style.strokeDasharray = `${circ}`;
+      arc.style.strokeDashoffset = String(circ * (1 - Math.min(p.rd, 100) / 100));
+      document.getElementById("ringVal").textContent = fmt(p.rd, 0);
+      document.getElementById("aPunch").textContent = id === "treviso"
+        ? "1ª in Italia. Il riferimento nazionale."
+        : "A un soffio dal 65%. Ce la fai.";
+      document.getElementById("aSub").textContent = id === "treviso"
+        ? `+${fmt(p.rd - IT.rd)} punti sopra la media`
+        : `${fmt(IT.rd - p.rd)} punti sotto la media · in crescita`;
+      const aVs = [
+        ["Costo", p.co + " €", vs(p.co, "co")],
+        ["Indifferenziato", p.kin + " kg", vs(p.kin, "kin")],
+        ["Rifiuto urbano", p.kru + " kg", vs(p.kru, "kru")],
+        ["In 3 anni", (p.drd > 0 ? "+" : "") + fmt(p.drd) + " pt", vs(p.drd, "drd")],
+      ];
+      document.getElementById("aPills").innerHTML = aVs.map(([k,v,x]) =>
+        `<div class="pill"><span class="k">${k}</span><span class="v">${v}</span><span class="d ${x.good ? "is-good" : "is-bad"}">${x.body}</span></div>`
+      ).join("");
+
+      document.getElementById("bChip").textContent =
+        id === "treviso" ? "1ª su 107 per differenziata" : "76ª su 107 per differenziata";
+      const races = [
+        ["RD %", p.rd, IT.rd, 100, p.ranks.rd + "ª", false],
+        ["Costo €", p.co, IT.co, 280, p.ranks.co + "ª", true],
+        ["Indiff. kg", p.kin, IT.kin, 260, p.ranks.kin + "ª", true],
+        ["Rifiuti kg", p.kru, IT.kru, 620, p.ranks.kru + "ª", true],
+      ];
+      document.getElementById("bRace").innerHTML = races.map(([lab, val, it, max, rk, low]) => {
+        const good = low ? val < it : val > it;
+        return `<div class="race-row">
+          <div class="top"><span>${lab}</span><span class="muted">${rk} / 107</span></div>
+          <div class="bar ${good ? "" : "is-warn"}"><i style="width:${pct(val, max)}%"></i><span class="it" style="left:${pct(it, max)}%"></span></div>
+          <div class="foot"><span>${fmt(val, lab.includes("%") ? 1 : 0)}</span><span>Italia ${fmt(it, lab.includes("%") ? 0 : 0)}</span></div>
+        </div>`;
+      }).join("");
+      document.getElementById("bNudge").textContent = id === "treviso"
+        ? "Tre primati: differenziata, costo, indifferenziato. Il Veneto guarda a voi."
+        : "Ogni punto di RD in più avvicina Torino alla media Italia. 3,2 punti: un obiettivo concreto.";
+
+      document.getElementById("cBadge").textContent = p.badge;
+      document.getElementById("cQuote").textContent = id === "treviso"
+        ? "Qui quasi 9 chili su 10 finiscono nel contenitore giusto. Non è un record: è un’abitudine."
+        : "In due anni la differenziata è salita di +2,6 punti. Il territorio si sta muovendo: manca un passo.";
+      const tiles = [
+        ["Differenziata", fmt(p.rd) + "%", vs(p.rd, "rd")],
+        ["Costo / ab", p.co + " €", vs(p.co, "co")],
+        ["Indifferenziato", p.kin + " kg", vs(p.kin, "kin")],
+        ["Abitanti", p.pop, { body: p.dens + " ab/km²", good: true }],
+      ];
+      document.getElementById("cTiles").innerHTML = tiles.map(([k,v,x]) =>
+        `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d ${x.good ? "is-good" : "is-bad"}">${x.body}</div></div>`
+      ).join("");
+      document.getElementById("cCta").textContent = id === "treviso"
+        ? "Siete il riferimento nazionale. Continuare così è già un gesto civico."
+        : "312 comuni, un obiettivo solo: +3 punti di RD. Torino può superare la media Italia.";
+    }
+
+    const btnTv = document.getElementById("btnTv");
+    const btnTo = document.getElementById("btnTo");
+    btnTv.onclick = () => { btnTv.setAttribute("aria-pressed", "true"); btnTo.setAttribute("aria-pressed", "false"); render("treviso"); };
+    btnTo.onclick = () => { btnTo.setAttribute("aria-pressed", "true"); btnTv.setAttribute("aria-pressed", "false"); render("torino"); };
+    const shot = new URLSearchParams(location.search).get("shot");
+    if (shot === "a" || shot === "b" || shot === "c") {
+      document.body.classList.add("shot");
+      document.body.dataset.shot = shot;
+    }
+    render("treviso");
+  </script>
+</body>
+</html>

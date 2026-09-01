@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Escilo — proposte liste geo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #142018;
+      --muted: #5a7266;
+      --accent: #1f5c42;
+      --font: "Outfit", system-ui, sans-serif;
+      --display: "Fraunces", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100dvh;
+      font-family: var(--font);
+      color: #e8efe9;
+      background: #0e1411;
+    }
+
+    .studio {
+      max-width: 28rem;
+      margin: 0 auto;
+      padding: 0.85rem 0.85rem 1.25rem;
+    }
+    .studio h1 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+    }
+    .studio .lede {
+      margin: 0.3rem 0 0.85rem;
+      color: #9aafa3;
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0 0 0.55rem;
+    }
+    .seg {
+      display: flex;
+      gap: 0.22rem;
+      padding: 0.2rem;
+      border-radius: 999px;
+      background: #1a2420;
+    }
+    .seg button {
+      font: inherit;
+      border: 0;
+      background: transparent;
+      color: #9aafa3;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 0.42rem 0.7rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .seg button[aria-pressed="true"] {
+      background: #e8efe9;
+      color: #102016;
+    }
+    .blurb {
+      margin: 0 0 0.85rem;
+      min-height: 2.6rem;
+      color: #9aafa3;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .device-wrap {
+      display: flex;
+      justify-content: center;
+    }
+    .device {
+      width: min(390px, 100%);
+      height: min(760px, calc(100dvh - 11.5rem));
+      border-radius: 2.4rem;
+      overflow: hidden;
+      border: 8px solid #1c2420;
+      box-shadow: 0 28px 70px rgba(0,0,0,.45);
+      background: #fff;
+    }
+    .screen {
+      height: 100%;
+      overflow: auto;
+      scrollbar-width: thin;
+    }
+    .status {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.55rem 1.15rem 0.2rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    /* ——— shared in-phone ——— */
+    .hit { color: inherit; text-decoration: none; }
+    .sticky-search {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 0.45rem 1rem 0.7rem;
+    }
+    .search-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.78rem 0.95rem;
+      border-radius: 999px;
+      border: 0;
+    }
+    .search-pill input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .search-pill svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+    .results { padding: 0 1rem 1.4rem; }
+    .empty { padding: 1rem 0.2rem; opacity: 0.7; font-size: 0.88rem; }
+
+    /* ========== A COPERTINE ========== */
+    .a { background: #0f1914; color: #f4faf6; }
+    .a .status { color: #d5e6dc; }
+    .a .sticky-search { background: linear-gradient(#0f1914 70%, transparent); }
+    .a .search-pill { background: rgba(255,255,255,.1); color: #f4faf6; backdrop-filter: blur(16px); }
+    .a .search-pill input { color: #f4faf6; }
+    .a .search-pill input::placeholder { color: #b7c9be; }
+    .a-kicker {
+      padding: 0.2rem 1.1rem 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9dceb5;
+    }
+    .a-title {
+      margin: 0 1.1rem 0.85rem;
+      font-family: var(--display);
+      font-size: 2.15rem;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+    .filters {
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding: 0 1.1rem 0.95rem;
+      scrollbar-width: none;
+    }
+    .filters::-webkit-scrollbar { display: none; }
+    .filters button {
+      flex-shrink: 0;
+      font: inherit;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.48rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: rgba(255,255,255,.08);
+      color: #d7e6dc;
+      cursor: pointer;
+    }
+    .filters button[aria-pressed="true"] { background: #eaf6ef; color: #123024; }
+    .cover {
+      display: block;
+      margin: 0 1rem 0.7rem;
+      min-height: 9.6rem;
+      padding: 1.05rem 1.05rem 0.95rem;
+      border-radius: 1.45rem;
+      color: #f6fbf8;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -40% 40%;
+      height: 9rem;
+      background: rgba(255,255,255,.08);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .cover.hero { min-height: 15.5rem; margin-top: 0.15rem; }
+    .cover .tag {
+      display: inline-block;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.16);
+    }
+    .cover h2 {
+      margin: 1.15rem 0 0;
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+    .cover.hero h2 { font-size: 2.7rem; }
+    .cover .sub { margin-top: 0.4rem; font-size: 0.82rem; opacity: 0.86; font-weight: 500; }
+    .cover.c0 { background: linear-gradient(155deg, #1f5c42 0%, #0d3a2c 58%, #08241c 100%); }
+    .cover.c1 { background: linear-gradient(155deg, #2a6e55 0%, #164536 100%); }
+    .cover.c2 { background: linear-gradient(155deg, #1a4f5c 0%, #0d2f38 100%); }
+    .cover.c3 { background: linear-gradient(155deg, #3a6b3a 0%, #1c3a1e 100%); }
+    .cover.c4 { background: linear-gradient(155deg, #245c4a 0%, #12362c 100%); }
+    .cover.c5 { background: linear-gradient(155deg, #4a6a38 0%, #263a1c 100%); }
+    .a-letter {
+      position: sticky;
+      top: 3.5rem;
+      z-index: 2;
+      margin: 0.4rem 1.1rem 0.15rem;
+      font-family: var(--display);
+      font-size: 3.4rem;
+      line-height: 0.8;
+      letter-spacing: -0.06em;
+      color: rgba(255,255,255,.14);
+      pointer-events: none;
+    }
+    .a-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0 0.7rem;
+      padding: 0.78rem 0.55rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      min-height: 3.15rem;
+    }
+    .a-mark {
+      width: 2.35rem; height: 2.35rem;
+      border-radius: 0.8rem;
+      display: grid; place-items: center;
+      font-weight: 800; font-size: 0.85rem;
+      background: rgba(255,255,255,.1);
+    }
+    .a-row .n { font-weight: 700; font-size: 1rem; }
+    .a-row .m { font-size: 0.72rem; opacity: 0.65; }
+    .dot {
+      width: 0.48rem; height: 0.48rem; border-radius: 50%;
+      background: #8ee0b4; margin-left: auto;
+    }
+
+    /* ========== B ESPLORA ========== */
+    .b { background: #f3f7f4; color: var(--ink); }
+    .b .status { color: #3d5648; }
+    .b .sticky-search { background: linear-gradient(#f3f7f4 65%, transparent); }
+    .b .search-pill {
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(20,40,30,.12);
+      color: var(--ink);
+    }
+    .b .search-pill input { color: var(--ink); }
+    .b-hero { padding: 0.35rem 1.15rem 0.2rem; }
+    .b-hero p {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .b-hero h1 {
+      margin: 0.2rem 0 0.35rem;
+      font-family: var(--display);
+      font-size: 2.35rem;
+      font-weight: 650;
+      letter-spacing: -0.045em;
+      line-height: 0.95;
+      color: #123024;
+    }
+    .macros {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      padding: 0.15rem 1rem 1rem;
+    }
+    .macro {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 6.6rem;
+      padding: 0.85rem 0.85rem 0.75rem;
+      border-radius: 1.35rem;
+      color: #f6fbf8;
+    }
+    .macro .lab { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.03em; }
+    .macro .num {
+      font-family: var(--display);
+      font-size: 1.7rem;
+      font-weight: 650;
+      line-height: 1;
+    }
+    .macro .u { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: .8; }
+    .m-nord { background: #1f5c42; }
+    .m-centro { background: #2d6a4f; }
+    .m-sud { background: #1a4a5c; }
+    .m-isole { background: #3d6b40; }
+    .rail-h {
+      display: flex;
+      gap: 0.55rem;
+      overflow-x: auto;
+      padding: 0 1rem 1.1rem;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+    .rail-h::-webkit-scrollbar { display: none; }
+    .sec {
+      padding: 0 1.15rem 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .card-h {
+      flex: 0 0 11.2rem;
+      scroll-snap-align: start;
+      padding: 0.9rem;
+      border-radius: 1.25rem;
+      background: #fff;
+      min-height: 7.4rem;
+      box-shadow: 0 8px 22px rgba(20,40,30,.08);
+    }
+    .card-h .n { font-weight: 800; font-size: 1.02rem; letter-spacing: -0.02em; }
+    .card-h .m { margin-top: 0.25rem; font-size: 0.72rem; color: var(--muted); }
+    .card-h .go {
+      display: inline-block;
+      margin-top: 0.7rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .letters {
+      display: flex;
+      gap: 0.32rem;
+      overflow-x: auto;
+      padding: 0 1rem 0.7rem;
+      scrollbar-width: none;
+    }
+    .letters::-webkit-scrollbar { display: none; }
+    .letters button {
+      flex: 0 0 2.2rem;
+      height: 2.2rem;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 800;
+      font-size: 0.78rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(20,40,30,.08);
+    }
+    .letters button.is-off { opacity: 0.28; }
+    .b-com {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0 1rem;
+      padding: 0.7rem 0.15rem;
+      min-height: 3.2rem;
+      border-bottom: 1px solid #dde8e1;
+    }
+    .b-av {
+      width: 2.6rem; height: 2.6rem;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-weight: 800;
+      color: #fff;
+      background: #1f5c42;
+      font-size: 0.9rem;
+    }
+    .b-com .n { font-weight: 700; font-size: 0.98rem; }
+    .b-com .m { font-size: 0.7rem; color: var(--muted); }
+    .pill-cal {
+      margin-left: auto;
+      padding: 0.2rem 0.48rem;
+      border-radius: 999px;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: #d9f0e3;
+      color: #1f5c42;
+    }
+
+    /* ========== C NOTTE ========== */
+    .c { background: #080c0a; color: #eef4f0; }
+    .c .status { color: #c5d4cb; }
+    .c .sticky-search { background: linear-gradient(#080c0a 70%, transparent); }
+    .c .search-pill { background: #141c18; color: #eef4f0; }
+    .c .search-pill input { color: #eef4f0; }
+    .c .search-pill input::placeholder { color: #7d9388; }
+    .c-top { padding: 0.2rem 1.15rem 0.9rem; }
+    .c-top .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7dcea0;
+    }
+    .c-top .live i {
+      width: 0.42rem; height: 0.42rem; border-radius: 50%;
+      background: #7dcea0;
+      box-shadow: 0 0 0 4px rgba(125,206,160,.15);
+    }
+    .c-top h1 {
+      margin: 0.45rem 0 0;
+      font-family: var(--display);
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+    }
+    .c-top p { margin: 0.45rem 0 0; color: #8fa396; font-size: 0.88rem; }
+    .spotlight {
+      display: block;
+      margin: 0 1rem 0.85rem;
+      padding: 1.2rem 1.15rem 1.1rem;
+      border-radius: 1.6rem;
+      background:
+        radial-gradient(120% 90% at 90% 10%, rgba(125,206,160,.22), transparent 45%),
+        linear-gradient(165deg, #1c3d30, #0c1814 70%);
+      min-height: 11.5rem;
+    }
+    .spotlight .k { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #7dcea0; }
+    .spotlight h2 {
+      margin: 0.55rem 0 0;
+      font-family: var(--display);
+      font-size: 2.45rem;
+      font-weight: 650;
+      letter-spacing: -0.045em;
+      line-height: 0.92;
+    }
+    .spotlight .sub { margin-top: 0.4rem; color: #b7c9be; font-size: 0.84rem; }
+    .c-rail {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0 1rem 1rem;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+    .c-rail::-webkit-scrollbar { display: none; }
+    .c-mini {
+      flex: 0 0 8.6rem;
+      scroll-snap-align: start;
+      padding: 0.85rem 0.8rem;
+      border-radius: 1.15rem;
+      background: #121a16;
+      min-height: 6.2rem;
+    }
+    .c-mini .n {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    .c-mini .m { margin-top: 0.3rem; font-size: 0.68rem; color: #8fa396; }
+    .c-line {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin: 0 1.15rem;
+      padding: 0.85rem 0;
+      border-top: 1px solid #1a2620;
+      min-height: 3.1rem;
+    }
+    .c-line .n {
+      font-family: var(--display);
+      font-size: 1.28rem;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+    .c-line .m { font-size: 0.7rem; color: #7a9084; font-weight: 600; }
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      padding: 0 1rem 1.3rem;
+    }
+    .cell {
+      padding: 0.85rem 0.75rem;
+      border-radius: 1.1rem;
+      background: #121a16;
+      min-height: 4.4rem;
+    }
+    .cell.is-cal {
+      background: #163126;
+      box-shadow: inset 0 0 0 1px rgba(125,206,160,.35);
+    }
+    .cell .n { font-weight: 700; font-size: 0.9rem; letter-spacing: -0.02em; }
+    .cell .m { margin-top: 0.2rem; font-size: 0.62rem; color: #7dcea0; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    .hint {
+      margin: 0.85rem 0 0;
+      color: #7a9084;
+      font-size: 0.72rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="studio">
+    <h1>Scegli una direzione</h1>
+    <p class="lede">Tre interfacce mobile, non tre liste. Stessa ricerca del comune su hub, regione e provincia.</p>
+    <div class="bar">
+      <div class="seg" id="propSeg">
+        <button type="button" data-prop="a" aria-pressed="true">A Copertine</button>
+        <button type="button" data-prop="b" aria-pressed="false">B Esplora</button>
+        <button type="button" data-prop="c" aria-pressed="false">C Notte</button>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="seg" id="pageSeg">
+        <button type="button" data-page="hub" aria-pressed="true">Comuni</button>
+        <button type="button" data-page="regione" aria-pressed="false">Regione</button>
+        <button type="button" data-page="provincia" aria-pressed="false">Provincia</button>
+      </div>
+    </div>
+    <p class="blurb" id="blurb"></p>
+    <div class="device-wrap">
+      <div class="device"><div class="screen" id="screen"></div></div>
+    </div>
+    <p class="hint">Prova a cercare «to», «mil», «chieri». Poi rispondi A, B o C.</p>
+  </div>
+
+  <script>
+    const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2" stroke-linecap="round"/></svg>';
+
+    const MACRO = {
+      Nord: ["Piemonte","Valle d'Aosta","Lombardia","Trentino-Alto Adige","Veneto","Friuli-Venezia Giulia","Liguria","Emilia-Romagna"],
+      Centro: ["Toscana","Umbria","Marche","Lazio"],
+      Sud: ["Abruzzo","Molise","Campania","Puglia","Basilicata","Calabria"],
+      Isole: ["Sicilia","Sardegna"],
+    };
+    const REGIONI = [
+      { n: "Piemonte", num: 1180, p: 8, cal: 146, g: "Nord" },
+      { n: "Valle d'Aosta", num: 74, p: 1, cal: 0, g: "Nord" },
+      { n: "Lombardia", num: 1502, p: 12, cal: 0, g: "Nord" },
+      { n: "Trentino-Alto Adige", num: 282, p: 2, cal: 0, g: "Nord" },
+      { n: "Veneto", num: 560, p: 7, cal: 0, g: "Nord" },
+      { n: "Friuli-Venezia Giulia", num: 215, p: 4, cal: 0, g: "Nord" },
+      { n: "Liguria", num: 234, p: 4, cal: 0, g: "Nord" },
+      { n: "Emilia-Romagna", num: 330, p: 9, cal: 0, g: "Nord" },
+      { n: "Toscana", num: 273, p: 10, cal: 0, g: "Centro" },
+      { n: "Umbria", num: 92, p: 2, cal: 0, g: "Centro" },
+      { n: "Marche", num: 225, p: 5, cal: 0, g: "Centro" },
+      { n: "Lazio", num: 377, p: 5, cal: 0, g: "Centro" },
+      { n: "Abruzzo", num: 303, p: 4, cal: 0, g: "Sud" },
+      { n: "Molise", num: 134, p: 2, cal: 0, g: "Sud" },
+      { n: "Campania", num: 550, p: 5, cal: 0, g: "Sud" },
+      { n: "Puglia", num: 257, p: 6, cal: 0, g: "Sud" },
+      { n: "Basilicata", num: 129, p: 2, cal: 0, g: "Sud" },
+      { n: "Calabria", num: 396, p: 5, cal: 0, g: "Sud" },
+      { n: "Sicilia", num: 391, p: 9, cal: 0, g: "Isole" },
+      { n: "Sardegna", num: 377, p: 5, cal: 0, g: "Isole" },
+    ];
+    const PROVINCE = [
+      { n: "Torino", num: 312, cal: 145 },
+      { n: "Cuneo", num: 247, cal: 0 },
+      { n: "Alessandria", num: 187, cal: 0 },
+      { n: "Asti", num: 117, cal: 1 },
+      { n: "Novara", num: 87, cal: 0 },
+      { n: "Vercelli", num: 82, cal: 0 },
+      { n: "Biella", num: 74, cal: 0 },
+      { n: "Verbano-Cusio-Ossola", num: 74, cal: 0 },
+    ];
+    const COMUNI = [
+      "Agliè","Airasca","Ala di Stura","Almese","Alpignano","Avigliana",
+      "Beinasco","Borgaro Torinese","Brandizzo","Caluso","Carmagnola","Chieri","Chivasso","Ciriè","Collegno",
+      "Druento","Grugliasco","Ivrea","Leini","Moncalieri","Nichelino","None","Orbassano",
+      "Pinerolo","Piossasco","Rivalta di Torino","Rivoli","Settimo Torinese","Torino","Venaria Reale","Vinovo",
+    ].map((n) => ({
+      n,
+      cal: ["Alpignano","Avigliana","Beinasco","Chieri","Collegno","Grugliasco","Moncalieri","Nichelino","Orbassano","Rivoli","Settimo Torinese","Torino","Venaria Reale"].includes(n),
+    }));
+    const INDEX = [
+      { n: "Torino", p: "Torino", r: "Piemonte", cal: true },
+      { n: "Chieri", p: "Torino", r: "Piemonte", cal: true },
+      { n: "Alpignano", p: "Torino", r: "Piemonte", cal: true },
+      { n: "Milano", p: "Milano", r: "Lombardia", cal: false },
+      { n: "Monza", p: "Monza", r: "Lombardia", cal: false },
+      { n: "Roma", p: "Roma", r: "Lazio", cal: false },
+      { n: "Venezia", p: "Venezia", r: "Veneto", cal: false },
+      { n: "Napoli", p: "Napoli", r: "Campania", cal: false },
+      { n: "Bari", p: "Bari", r: "Puglia", cal: false },
+      { n: "Palermo", p: "Palermo", r: "Sicilia", cal: false },
+      { n: "Asti", p: "Asti", r: "Piemonte", cal: true },
+      { n: "Cuneo", p: "Cuneo", r: "Piemonte", cal: false },
+      { n: "Collegno", p: "Torino", r: "Piemonte", cal: true },
+    ];
+    const BLURB = {
+      a: "Copertine a schermo intero, come una rivista. Piemonte (con calendario) è la storia in apertura. Sui comuni, lettere enormi tipo Apple Music.",
+      b: "Prima si cerca, poi si esplora. Quattro tessere Nord/Centro/Sud/Isole e carosello orizzontale. Sui comuni, avatar e target da pollice.",
+      c: "Tema scuro, un solo spotlight, poi uno swipe orizzontale. In provincia i comuni diventano una mosaico: quelli con calendario restano accesi.",
+    };
+
+    function norm(s) {
+      return s.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    }
+    function initial(name) {
+      return name.replace(/^[^A-Za-zÀ-ÿ]+/, "").charAt(0).toUpperCase();
+    }
+    function grouped(items) {
+      const map = new Map();
+      items.forEach((it) => {
+        const L = initial(it.n);
+        if (!map.has(L)) map.set(L, []);
+        map.get(L).push(it);
+      });
+      return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0], "it"));
+    }
+    function status(cls) {
+      return `<div class="status"><span>21:41</span><span>Escilo</span></div>`;
+    }
+    function search(ph) {
+      return `<div class="sticky-search"><label class="search-pill">${ICON}<input type="search" placeholder="${ph}" autocomplete="off" spellcheck="false" /></label></div>`;
+    }
+
+    let filterGroup = "Tutte";
+
+    function coverClass(i) { return "c" + (i % 6); }
+
+    function renderA(page) {
+      let body = "";
+      if (page === "hub") {
+        const hero = REGIONI.find((r) => r.n === "Piemonte");
+        const rest = REGIONI.filter((r) => r.n !== "Piemonte" && (filterGroup === "Tutte" || r.g === filterGroup));
+        const chips = ["Tutte", "Nord", "Centro", "Sud", "Isole"].map((g) =>
+          `<button type="button" data-filter="${g}" aria-pressed="${filterGroup === g}">${g}</button>`
+        ).join("");
+        body = `
+          <p class="a-kicker">Italia</p>
+          <h1 class="a-title">Comuni</h1>
+          ${search("Cerca un comune")}
+          <div class="filters">${chips}</div>
+          <a class="cover hero hit ${coverClass(0)}" href="#">
+            <span class="tag">Calendario Escilo</span>
+            <h2>${hero.n}</h2>
+            <div class="sub">${hero.num} comuni · ${hero.cal} con porta a porta</div>
+          </a>
+          ${rest.map((r, i) => `
+            <a class="cover hit ${coverClass(i + 1)}" href="#">
+              ${r.cal ? '<span class="tag">Calendario</span>' : `<span class="tag">${r.g}</span>`}
+              <h2>${r.n}</h2>
+              <div class="sub">${r.num} comuni · ${r.p === 1 ? "1 provincia" : r.p + " province"}</div>
+            </a>`).join("")}`;
+      } else if (page === "regione") {
+        body = `
+          <p class="a-kicker">Piemonte</p>
+          <h1 class="a-title">Province</h1>
+          ${search("Cerca un comune")}
+          ${PROVINCE.map((p, i) => `
+            <a class="cover ${i === 0 ? "hero" : ""} hit ${coverClass(i)}" href="#">
+              ${p.cal ? '<span class="tag">Calendario Escilo</span>' : '<span class="tag">ISPRA</span>'}
+              <h2>${p.n}</h2>
+              <div class="sub">${p.num} comuni${p.cal ? " · " + p.cal + " con calendario" : ""}</div>
+            </a>`).join("")}`;
+      } else {
+        body = `
+          <p class="a-kicker">Provincia di Torino</p>
+          <h1 class="a-title">Comuni</h1>
+          ${search("Cerca un comune")}
+          ${grouped(COMUNI).map(([L, arr]) =>
+            `<div class="a-letter">${L}</div>` + arr.map((c) =>
+              `<a class="a-row hit" href="#"><span class="a-mark">${initial(c.n)}</span><span><span class="n">${c.n}</span></span>${c.cal ? '<span class="dot" title="calendario"></span>' : ""}</a>`
+            ).join("")
+          ).join("")}`;
+      }
+      return `<div class="a">${status()}${body}<div class="results" hidden></div></div>`;
+    }
+
+    function renderB(page) {
+      let body = "";
+      if (page === "hub") {
+        const counts = {
+          Nord: REGIONI.filter((r) => r.g === "Nord").reduce((s, r) => s + r.num, 0),
+          Centro: REGIONI.filter((r) => r.g === "Centro").reduce((s, r) => s + r.num, 0),
+          Sud: REGIONI.filter((r) => r.g === "Sud").reduce((s, r) => s + r.num, 0),
+          Isole: REGIONI.filter((r) => r.g === "Isole").reduce((s, r) => s + r.num, 0),
+        };
+        body = `
+          <div class="b-hero"><p>Escilo</p><h1>Dove differenzi?</h1></div>
+          ${search("Cerca il tuo comune")}
+          <div class="macros">
+            <a class="macro m-nord hit" href="#"><span class="lab">Nord</span><span><span class="num">${counts.Nord}</span><div class="u">comuni</div></span></a>
+            <a class="macro m-centro hit" href="#"><span class="lab">Centro</span><span><span class="num">${counts.Centro}</span><div class="u">comuni</div></span></a>
+            <a class="macro m-sud hit" href="#"><span class="lab">Sud</span><span><span class="num">${counts.Sud}</span><div class="u">comuni</div></span></a>
+            <a class="macro m-isole hit" href="#"><span class="lab">Isole</span><span><span class="num">${counts.Isole}</span><div class="u">comuni</div></span></a>
+          </div>
+          <div class="sec">Con calendario</div>
+          <div class="rail-h">
+            ${["Torino","Chieri","Alpignano","Asti"].map((n) =>
+              `<a class="card-h hit" href="#"><div class="n">${n}</div><div class="m">Piemonte · porta a porta</div><span class="go">Apri calendario →</span></a>`
+            ).join("")}
+          </div>
+          <div class="sec">Regioni</div>
+          <div class="rail-h">
+            ${REGIONI.map((r) =>
+              `<a class="card-h hit" href="#"><div class="n">${r.n}</div><div class="m">${r.num} comuni</div><span class="go">${r.p} province →</span></a>`
+            ).join("")}
+          </div>`;
+      } else if (page === "regione") {
+        body = `
+          <div class="b-hero"><p>Piemonte</p><h1>8 province</h1></div>
+          ${search("Cerca un comune")}
+          <div class="rail-h" style="padding-bottom:0.4rem">
+            ${PROVINCE.slice(0, 3).map((p) =>
+              `<a class="card-h hit" href="#"><div class="n">${p.n}</div><div class="m">${p.num} comuni</div><span class="go">${p.cal ? p.cal + " con calendario →" : "Dati ISPRA →"}</span></a>`
+            ).join("")}
+          </div>
+          ${PROVINCE.map((p) =>
+            `<a class="b-com hit" href="#"><span class="b-av">${initial(p.n)}</span><span><div class="n">${p.n}</div><div class="m">${p.num} comuni</div></span>${p.cal ? '<span class="pill-cal">cal.</span>' : ""}</a>`
+          ).join("")}`;
+      } else {
+        const have = new Set(COMUNI.map((c) => initial(c.n)));
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((L) =>
+          `<button type="button" class="${have.has(L) ? "" : "is-off"}">${L}</button>`
+        ).join("");
+        body = `
+          <div class="b-hero"><p>Provincia di Torino</p><h1>I comuni</h1></div>
+          ${search("Cerca un comune")}
+          <div class="letters">${letters}</div>
+          ${COMUNI.map((c) =>
+            `<a class="b-com hit" href="#"><span class="b-av">${initial(c.n)}</span><span class="n">${c.n}</span>${c.cal ? '<span class="pill-cal">cal.</span>' : ""}</a>`
+          ).join("")}`;
+      }
+      return `<div class="b">${status()}${body}<div class="results" hidden></div></div>`;
+    }
+
+    function renderC(page) {
+      let body = "";
+      if (page === "hub") {
+        const rest = REGIONI.filter((r) => r.n !== "Piemonte");
+        body = `
+          <div class="c-top">
+            <div class="live"><i></i> 146 calendari attivi</div>
+            <h1>Italia</h1>
+            <p>7881 comuni · tocca una regione oppure cerca il tuo.</p>
+          </div>
+          ${search("Cerca un comune")}
+          <a class="spotlight hit" href="#">
+            <div class="k">In evidenza</div>
+            <h2>Piemonte</h2>
+            <div class="sub">1180 comuni · unico con calendario porta a porta</div>
+          </a>
+          <div class="c-rail">
+            ${rest.map((r) =>
+              `<a class="c-mini hit" href="#"><div class="n">${r.n}</div><div class="m">${r.num} comuni</div></a>`
+            ).join("")}
+          </div>`;
+      } else if (page === "regione") {
+        const hero = PROVINCE[0];
+        body = `
+          <div class="c-top">
+            <div class="live"><i></i> Piemonte</div>
+            <h1>Province</h1>
+            <p>Apri Torino per il calendario, le altre per i dati ISPRA.</p>
+          </div>
+          ${search("Cerca un comune")}
+          <a class="spotlight hit" href="#">
+            <div class="k">Calendario Escilo</div>
+            <h2>${hero.n}</h2>
+            <div class="sub">${hero.num} comuni · ${hero.cal} con porta a porta</div>
+          </a>
+          ${PROVINCE.slice(1).map((p) =>
+            `<a class="c-line hit" href="#"><span class="n">${p.n}</span><span class="m">${p.num}</span></a>`
+          ).join("")}`;
+      } else {
+        body = `
+          <div class="c-top">
+            <div class="live"><i></i> Torino</div>
+            <h1>Comuni</h1>
+            <p>Le tessere accese hanno il calendario Escilo.</p>
+          </div>
+          ${search("Cerca un comune")}
+          <div class="mosaic">
+            ${COMUNI.map((c) =>
+              `<a class="cell hit ${c.cal ? "is-cal" : ""}" href="#"><div class="n">${c.n}</div>${c.cal ? '<div class="m">calendario</div>' : ""}</a>`
+            ).join("")}
+          </div>`;
+      }
+      return `<div class="c">${status()}${body}<div class="results" hidden></div></div>`;
+    }
+
+    function resultRow(h, prop) {
+      const meta = `${h.p}, ${h.r}`;
+      if (prop === "a") {
+        return `<a class="a-row hit" href="#"><span class="a-mark">${initial(h.n)}</span><span><div class="n">${h.n}</div><div class="m">${meta}</div></span>${h.cal ? '<span class="dot"></span>' : ""}</a>`;
+      }
+      if (prop === "b") {
+        return `<a class="b-com hit" href="#"><span class="b-av">${initial(h.n)}</span><span><div class="n">${h.n}</div><div class="m">${meta}</div></span>${h.cal ? '<span class="pill-cal">cal.</span>' : ""}</a>`;
+      }
+      return `<a class="c-line hit" href="#"><span><span class="n">${h.n}</span><div class="m">${meta}</div></span>${h.cal ? '<span class="m">cal.</span>' : ""}</a>`;
+    }
+
+    function bind(root, prop) {
+      const input = root.querySelector("input[type=search]");
+      const out = root.querySelector(".results");
+      if (!input || !out) return;
+      const browseNodes = [...root.children].filter((el) => !el.classList.contains("status") && !el.classList.contains("sticky-search") && !el.classList.contains("results"));
+      const hideBrowse = (on) => browseNodes.forEach((el) => { el.hidden = on; });
+      input.addEventListener("input", () => {
+        const q = norm(input.value.trim());
+        if (q.length < 2) {
+          out.hidden = true;
+          out.innerHTML = "";
+          hideBrowse(false);
+          return;
+        }
+        const hits = INDEX.filter((x) => norm(x.n).includes(q) || norm(x.p).includes(q) || norm(x.r).includes(q));
+        hideBrowse(true);
+        out.hidden = false;
+        out.innerHTML = hits.length
+          ? hits.map((h) => resultRow(h, prop)).join("")
+          : '<div class="empty">Nessun comune trovato.</div>';
+      });
+      root.querySelectorAll("[data-filter]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterGroup = btn.getAttribute("data-filter");
+          paint();
+        });
+      });
+    }
+
+    const renders = { a: renderA, b: renderB, c: renderC };
+    let prop = "a";
+    let page = "hub";
+
+    function paint() {
+      document.getElementById("blurb").textContent = BLURB[prop];
+      const screen = document.getElementById("screen");
+      screen.innerHTML = renders[prop](page);
+      bind(screen.firstElementChild, prop);
+    }
+
+    document.getElementById("propSeg").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-prop]");
+      if (!btn) return;
+      prop = btn.dataset.prop;
+      filterGroup = "Tutte";
+      document.querySelectorAll("#propSeg button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      paint();
+    });
+    document.getElementById("pageSeg").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-page]");
+      if (!btn) return;
+      page = btn.dataset.page;
+      document.querySelectorAll("#pageSeg button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      paint();
+    });
+
+    paint();
+  </script>
+</body>
+</html>

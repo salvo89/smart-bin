@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="44 36 108 140" role="img" aria-label="Marchio Escilo — esci lo">
+  <path d="M58 98h76l-8 54H66L58 98z" fill="#1f5c42"/>
+  <rect x="64" y="138" width="64" height="20" rx="10" fill="#1f5c42"/>
+  <rect x="80" y="112" width="32" height="28" rx="7" fill="#fff"/>
+  <circle cx="78" cy="160" r="9" fill="#1f5c42"/>
+  <circle cx="114" cy="160" r="9" fill="#1f5c42"/>
+  <circle cx="78" cy="160" r="3.4" fill="#fff"/>
+  <circle cx="114" cy="160" r="3.4" fill="#fff"/>
+  <g transform="rotate(-44 128 92)">
+    <rect x="50" y="80" width="84" height="20" rx="8" fill="#1f5c42"/>
+    <rect x="80" y="68" width="22" height="16" rx="6" fill="#1f5c42"/>
+  </g>
+</svg>
