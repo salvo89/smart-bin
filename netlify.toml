@@ -11,6 +11,13 @@
   node_bundler = "esbuild"
   included_files = ["docs/calendars/**"]
 
+# Canonical: netlify.app → escilo.it (non configurabile da Domain management)
+[[redirects]]
+  from = "https://escilo.netlify.app/*"
+  to = "https://escilo.it/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/api/push/subscribe"
   to = "/.netlify/functions/push-subscribe"
